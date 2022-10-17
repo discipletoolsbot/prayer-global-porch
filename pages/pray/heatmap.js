@@ -292,7 +292,13 @@ jQuery(document).ready(function($){
             'source': 'participants',
             'layout': {
               'icon-image': 'custom-marker',
-              "icon-size": .5,
+              "icon-size": [
+                'interpolate',
+                ['exponential', 0.5],
+                ['zoom'],
+                1, 0.25,
+                15, 0.5
+              ],
               'icon-padding': 0,
               "icon-allow-overlap": true,
               'text-font': [
