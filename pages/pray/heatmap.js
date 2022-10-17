@@ -282,7 +282,7 @@ jQuery(document).ready(function($){
         'data': geojson
       });
       map.loadImage(
-        jsObject.image_folder + 'praying-hand-up-40.png',
+        jsObject.image_folder + 'praying-hands-emoji64.png',
         (error, image) => {
           if (error) throw error;
           map.addImage('custom-marker', image);
@@ -314,7 +314,7 @@ jQuery(document).ready(function($){
             "type": "Feature",
             "geometry": {
               "type": "Point",
-              "coordinates": [v.longitude, v.latitude]
+              "coordinates": [v.longitude, v.latitude],
             },
             "properties": {
               "name": "Name"
