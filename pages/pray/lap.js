@@ -590,6 +590,9 @@ jQuery(document).ready(function(){
       case 'photo_block':
         _template_photo_block( block.data )
         break;
+      case 'map_block':
+        _template_map_block( block.data )
+        break;
       case 'verse_block':
         _template_verse_block( block.data )
         break;
@@ -1179,6 +1182,23 @@ jQuery(document).ready(function(){
     </div>
     <div class="w-100"><hr></div>
     </div>
+      `)
+  }
+  function _template_map_block( data ) {
+    div.append(
+      ` <div class="container block">
+          <div class="row text-center justify-content-center">
+            <div class="col text-center">
+               <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+            </div>
+          </div>
+          <div class="row text-center justify-content-center">
+            <div class="col-md-8">
+              <p class="mt-3 mb-3 font-weight-bold two-em">${data.prayer}</p>
+            </div>
+          </div>
+          <div class="w-100"><hr></div>
+        </div>
       `)
   }
   function _template_basic_block( data ) {

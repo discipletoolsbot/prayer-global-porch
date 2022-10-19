@@ -97,11 +97,12 @@ class PG_Stacker {
         $stack['list'] = array_slice( $stack['list'], 0, 8 );
 
         // FACT SHUFFLE
-        self::_photos( $stack, 1 );
-        self::_faith_status( $stack, 3 );
-        self::_least_reached( $stack, 5 );
-        self::_people_groups( $stack, 7 );
-        self::_key_city( $stack, 9 );
+        self::_map( $stack, 0 );
+        self::_photos( $stack, 2 );
+        self::_faith_status( $stack, 4 );
+        self::_least_reached( $stack, 6 );
+        self::_people_groups( $stack, 8 );
+        self::_key_city( $stack, 10 );
 
         // APPEND TO END
 //        self::_cities( $stack );
@@ -702,6 +703,29 @@ class PG_Stacker {
             } else {
                 $stack['list'] = array_merge( array_slice( $stack['list'], 0, $position ), [ $template ], array_slice( $stack['list'], $position ) );
             }
+        }
+
+        return $stack;
+    }
+
+    private static function _map( &$stack, $position = false ) {
+
+        $text_list = PG_Stacker_Text::map_text( $stack );
+        $text = $text_list[ array_rand( $text_list ) ];
+
+        $template = [
+            'type' => 'map_block',
+            'data' => [
+                'section_label' => 'Pray over the Map',
+                'section_summary' => $text['section_summary'],
+                'prayer' => $text['prayer'],
+            ]
+        ];
+
+        if ( empty( $position ) ) {
+            $stack['list'] = array_merge( [ $template ], $stack['list'] );
+        } else {
+            $stack['list'] = array_merge( array_slice( $stack['list'], 0, $position ), [ $template ], array_slice( $stack['list'], $position ) );
         }
 
         return $stack;

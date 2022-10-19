@@ -3,7 +3,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
 class PG_Stacker_Text
 {
-    public static function photos_text( $stack): array
+    public static function photos_text( $stack ): array
     {
         /**
          * Photos Block
@@ -18,6 +18,35 @@ class PG_Stacker_Text
                 'prayer' => '',
             ],
         ];
+    }
+
+    public static function map_text( $stack ): array
+    {
+        /**
+         * Photos Block
+         */
+        return [
+            [
+                'section_summary' => '',
+                'prayer' => "Lord we pray for the gospel to spread from this state to it's neighbors.",
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => "Lord let your glory spread from this state to it's neighbors.",
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord start a move of your spirit in this state that changes the whole country.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Father use this state in your plans for the country to come to know you.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => "Father God, let the light of your gospel grow in this state and touch it's neighbors",
+            ],
+       ];
     }
 
     public static function least_reached_text( $stack): array
