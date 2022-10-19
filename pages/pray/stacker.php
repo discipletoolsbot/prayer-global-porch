@@ -97,20 +97,23 @@ class PG_Stacker {
         $stack['list'] = array_slice( $stack['list'], 0, 8 );
 
         // FACT SHUFFLE
-        self::_map( $stack, 0 );
-        self::_photos( $stack, 2 );
-        self::_faith_status( $stack, 4 );
-        self::_least_reached( $stack, 6 );
-        self::_people_groups( $stack, 8 );
-        self::_key_city( $stack, 10 );
+        self::_photos( $stack, 1 );
+        self::_faith_status( $stack, 3 );
+        self::_least_reached( $stack, 5 );
+        self::_people_groups( $stack, 7 );
+        self::_key_city( $stack, 9 );
 
         // APPEND TO END
 //        self::_cities( $stack );
+        self::_map( $stack );
+
+        $map_prayer = array_shift( $stack['list'] );
 
         // REDUCE STACK
         $reduced_stack = [];
         $reduced_stack['list'] = $stack['list'];
         $reduced_stack['location'] = $stack['location'];
+        $reduced_stack['map_prayer'] = $map_prayer;
         $stack = $reduced_stack;
 
         return $stack;

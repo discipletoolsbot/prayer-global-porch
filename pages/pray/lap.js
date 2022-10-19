@@ -379,10 +379,20 @@ jQuery(document).ready(function(){
   function mapbox_border_map() {
     let content = jQuery('#location-map')
     let grid_row = window.current_content.location
-    console.log(grid_row)
+    let map_prayer = window.current_content.map_prayer.data
+    console.log(grid_row, map_prayer)
 
     content.empty().html(`
-        <div id="map-wrapper"><div id='mapbox-map'></div></div><div class="text-center p-3"><i class="ion-ios-body red"></i> ${grid_row.non_christians} | <i class="ion-ios-body orange"></i> ${grid_row.christian_adherents} | <i class="ion-ios-body green"></i> ${grid_row.believers}</div>`)
+      <div id="map-wrapper">
+        <div id="mapbox-map"></div>
+      </div>
+      <div class="text-center p-3">
+        <i class="ion-ios-body red"></i> ${grid_row.non_christians} |
+        <i class="ion-ios-body orange"></i> ${grid_row.christian_adherents} |
+        <i class="ion-ios-body green"></i> ${grid_row.believers}
+      </div>
+      <div class="text-center p-3 map-prayer"> ${map_prayer.prayer} </div>
+    `);
 
     window.load_map_with_style = ( ) => {
       let center = [grid_row.p_longitude, grid_row.p_latitude]
