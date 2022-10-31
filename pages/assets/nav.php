@@ -13,14 +13,14 @@ if ( '' === $url ) { ?>
         </button>
         <div class="collapse navbar-collapse" id="probootstrap-navbar">
             <ul class="navbar-nav ml-auto pb-3">
-                <li class="nav-item icon-button d-flex align-items-center"><img class="nav-link share-button" data-white src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/share.svg" alt="Share"></li>
+                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" href="/newest/lap/">Start Praying</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-challenge">Challenge</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-lap">Status</a></li>
                 <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>
                 <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
                 <li class="nav-item d-lg-none"><a class="nav-link" href="/race_app/big_map/">Big Map</a></li>
                 <li class="nav-item d-lg-none"></li>
-                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" href="/newest/lap/">Start Praying</a></li>
+                <li class="nav-item icon-button d-flex align-items-center"><img class="nav-link share-button" data-white src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/share.svg" alt="Share"></li>
             </ul>
         </div>
     </div>
@@ -35,13 +35,14 @@ if ( '' === $url ) { ?>
         </button>
         <div class="collapse navbar-collapse" id="probootstrap-navbar">
             <ul class="navbar-nav ml-auto pb-3">
+                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" href="/newest/lap/">Start Praying</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#section-challenge">Challenge</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
                 <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>
                 <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
                 <li class="nav-item d-lg-none"><a class="nav-link" href="/race_app/big_map/">Big Map</a></li>
                 <li class="nav-item d-lg-none"></li>
-                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" href="/newest/lap/">Start Praying</a></li>
+                <li class="nav-item icon-button d-flex align-items-center"><img class="nav-link share-button" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/share.svg" alt="Share"></li>
             </ul>
         </div>
     </div>
@@ -60,13 +61,14 @@ if ( '' === $url ) { ?>
             </button>
             <div class="collapse navbar-collapse" id="probootstrap-navbar">
                 <ul class="navbar-nav ml-auto pb-3">
+                    <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/newest/lap/">Start Praying</a></li>
                     <li class="nav-item"><a class="nav-link" href="#section-challenge">Challenge</a></li>
                     <li class="nav-item"><a class="nav-link" href="#section-lap">Status</a></li>
                     <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>
                     <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
                     <li class="nav-item d-lg-none"><a class="nav-link" href="/race_app/big_map/">Big Map</a></li>
                     <li class="nav-item d-lg-none"></li>
-                    <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/newest/lap/">Start Praying</a></li>
+                    <li class="nav-item icon-button d-flex align-items-center"><img class="nav-link share-button" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/share.svg" alt="Share"></li>
                 </ul>
             </div>
         </div>
