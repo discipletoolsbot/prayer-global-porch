@@ -155,6 +155,7 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
                                 <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
                             </ul>
                         </div>
+
                         <div class="cell small-3 large-4 hide-for-large" style="text-align:right;">
                             <button type="button" data-toggle="offcanvas_menu"><i class="ion-navicon three-em"></i></button>
                         </div>
@@ -163,12 +164,13 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
                 <div id="foot_block">
+                    <div class="map-overlay" id="map-legend"></div>
                     <div class="grid-x grid-padding-x">
                         <div class="cell center"><button type="button" data-toggle="offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
                         <div class="cell small-6 medium-3 center"><strong>Warriors</strong> <i class="fi-marker" style="color:blue;"></i><br><span class="one-em"><?php echo esc_html( $lap_stats['participants'] ) ?></span></div>
                         <div class="cell small-6 medium-3 center"><strong>Minutes Prayed</strong><br><span class="one-em"><?php echo esc_html( $lap_stats['minutes_prayed'] ) ?></span></div>
                         <div class="cell small-6 medium-3 center"><strong>World Prayer Coverage</strong><br><span class="one-em"><?php echo esc_html( $finished_laps ) ?> times</span></div>
-                        <div class="cell small-6 medium-3 center"><strong>Pace</strong><br><span class="one-em time_elapsed" id="time_elapsed"></span></div>
+                        <div class="cell small-6 medium-3 center"><strong>Time Elapsed</strong><br><span class="one-em time_elapsed" id="time_elapsed"></span></div>
                     </div>
                 </div>
             </div>
@@ -177,19 +179,13 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
             <button type="button" data-toggle="offcanvas_menu"><i class="ion-chevron-right two-em"></i></button>
             <hr>
             <ul class="navbar-nav two-em">
-                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#section-about">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#section-challenge">Challenge</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
+                <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
             </ul>
             <hr>
             <ul class="navbar-nav two-em">
                 <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark" style="text-transform: capitalize;" href="/newest/lap/">Start Praying</a></li>
-            </ul>
-            <hr>
-            <ul class="navbar-nav two-em">
-                <li class="nav-item"><a class="nav-link" href="/race_app/big_map/">Big Map</a></li>
-                <li class="nav-item"><a class="nav-link" href="/race_app/big_list/">Big List</a></li>
             </ul>
         </div>
         <div class="off-canvas position-right " id="offcanvas_location_details" data-close-on-click="true" data-content-overlay="false" data-off-canvas>

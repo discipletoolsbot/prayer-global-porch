@@ -143,6 +143,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
                 <div id="foot_block">
+                    <div class="map-overlay" id="map-legend"></div>
                     <div class="grid-x grid-padding-x">
                         <div class="cell center"><button type="button" data-toggle="offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
                         <div class="cell small-6 medium-3 center hide-for-small-only"><strong>Places Remaining</strong><br><strong><span class="one-em red stats-figure remaining"></span></strong></div>
@@ -164,11 +165,6 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
             <hr>
             <ul class="navbar-nav two-em">
                 <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark" style="text-transform: capitalize;" href="/newest/lap/">Start Praying</a></li>
-            </ul>
-            <hr>
-            <ul class="navbar-nav two-em">
-                <li class="nav-item"><a class="nav-link" href="/race_app/big_map/">Big Map</a></li>
-                <li class="nav-item"><a class="nav-link" href="/race_app/big_list/">Big List</a></li>
             </ul>
             <div class="show-for-small-only">
                 <hr>
@@ -236,7 +232,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                     <p class="stats-figure"><span class="completed_percent">0</span>%</p>
                 </div>
                 <div class="cell small-6 medium-3">
-                    <p class="stats-title">Pace of Lap</p>
+                    <p class="stats-title">Time Elapsed</p>
                     <p class="stats-figure time_elapsed">0</p>
                 </div>
 
@@ -244,7 +240,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                     <p class="stats-title">Start Time</p>
                     <p class="stats-figure start_time">0</p>
                 </div>
-                <div class="cell small-6 medium-3">
+                <div class="cell small-6 medium-3 on-going" style="display:none;">
                     <p class="stats-title">End Time</p>
                     <p class="stats-figure end_time">0</p>
                 </div>

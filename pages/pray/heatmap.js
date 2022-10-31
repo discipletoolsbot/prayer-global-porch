@@ -188,6 +188,21 @@ jQuery(document).ready(function($){
 
   function load_grid() {
     window.previous_hover = false
+    const red = 'rgba(255,0,0, .7)'
+    const green = 'rgba(0,128,0, .9)'
+
+    const layers = [
+      {
+        label: 'Places Remaining',
+        color: red,
+      },
+      {
+        label: 'Covered in Prayer',
+        color: green,
+      }
+    ]
+    const legendDiv = document.getElementById('map-legend');
+    loadLegend( legendDiv, layers )
 
     jQuery.each(asset_list, function(i,file){
 
@@ -234,7 +249,7 @@ jQuery(document).ready(function($){
               'paint': {
                 'fill-color': {
                   property: 'value',
-                  stops: [[0, 'rgba(255,0,0, .7)'], [1, 'rgba(0,128,0, .9)']]
+                  stops: [[0, red], [1, green]]
                 },
                 'fill-opacity': 0.75,
                 'fill-outline-color': 'black'
@@ -364,6 +379,15 @@ jQuery(document).ready(function($){
     jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
     jQuery('.minutes_prayed').html( jsObject.stats.minutes_prayed )
     jQuery('.start_time').html( jsObject.stats.start_time_formatted )
+    if ( jsObject.stats.remaining_int < 1 ) {
+      jQuery('.on-going').show()
+      jQuery('.locations_per_hour').html( jsObject.stats.locations_per_hour )
+      jQuery('.locations_per_day').html( jsObject.stats.locations_per_day )
+      jQuery('.needed_locations_per_hour').html( jsObject.stats.needed_locations_per_hour )
+      jQuery('.needed_locations_per_day').html( jsObject.stats.needed_locations_per_day )
+      jQuery('.time_remaining').html( jsObject.stats.time_remaining_small )
+    }
+
     if ( jsObject.stats.on_going ) {
       jQuery('.end_time').html( 'On-going' )
     } else {
@@ -442,6 +466,26 @@ jQuery(document).ready(function($){
           `
         )
       })
+  }
+
+  function loadLegend(legendDiv, layers) {
+    layers.forEach( ({ label, color }) => {
+      const container = document.createElement('div')
+      container.classList.add('map-legend__layer')
+
+      const colorSwatch = document.createElement('div')
+      colorSwatch.classList.add('map-legend__color-swatch')
+      colorSwatch.style.backgroundColor = color
+
+      const text = document.createElement('span')
+      text.classList.add('map-legend__label')
+      text.innerHTML = label
+
+      container.appendChild(colorSwatch)
+      container.appendChild(text)
+
+      legendDiv.appendChild(container)
+    })
   }
 
   function numberWithCommas(x) {

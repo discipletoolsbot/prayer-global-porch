@@ -130,6 +130,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
                 <div id="foot_block">
+                    <div class="map-overlay" id="map-legend"></div>
                     <div class="grid-x grid-padding-x">
                         <div class="cell center"><button type="button" data-toggle="offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
                         <div class="cell small-6 medium-3 center hide-for-small-only"><strong>Places Remaining</strong><br><strong><span class="one-em red stats-figure remaining"></span></strong></div>
@@ -212,7 +213,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                     <p class="stats-figure"><span class="completed_percent">0</span>%</p>
                 </div>
                 <div class="cell small-6 medium-3">
-                    <p class="stats-title">Pace of Lap</p>
+                    <p class="stats-title">Time Elapsed</p>
                     <p class="stats-figure time_elapsed">0</p>
                 </div>
 
@@ -220,10 +221,31 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                     <p class="stats-title">Start Time</p>
                     <p class="stats-figure start_time">0</p>
                 </div>
-                <div class="cell small-6 medium-3">
+
+                <!-- Elements to support targeted end dates -->
+                <div class="cell small-6 medium-3 on-going" style="display:none;">
                     <p class="stats-title">End Time</p>
                     <p class="stats-figure end_time">0</p>
                 </div>
+                <div class="cell small-6 medium-3 on-going" style="display:none;">
+                    <p class="stats-title">Locations per Hour</p>
+                    <p class="stats-figure locations_per_hour" style="margin-bottom: 0">0</p>
+                    <p class="stats-small">
+                        <small class="locations_per_day">0</small> <small>per day</small>
+                    </p>
+                </div>
+                <div class="cell small-6 medium-3 on-going" style="display:none;">
+                    <p class="stats-title">Current Locations per Hour</p>
+                    <p class="stats-figure needed_locations_per_hour" style="margin-bottom: 0">0</p>
+                    <p class="stats-small">
+                        <small class="needed_locations_per_day">0</small> <small>per day</small>
+                    </p>
+                </div>
+                <div class="cell small-6 medium-3 on-going" style="display:none;">
+                    <p class="stats-title">Time Remaining</p>
+                    <p class="stats-figure time_remaining">0</p>
+                </div>
+
             </div>
             <div class="text-center"><a href="/" class="navbar-brand text-center">Exit <?php echo esc_html( $lap_stats['title'] ) ?></a></div>
         </div>

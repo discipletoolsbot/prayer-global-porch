@@ -100,7 +100,7 @@ jQuery(document).ready(function(){
     Cookies.set('pg_favor', 'guided' )
   }
   window.viewed = Cookies.get('pg_viewed')
-  window.items = parseInt( window.pace ) + 5
+  window.items = parseInt( window.pace ) + 6
   window.report_content = []
 
 
@@ -153,9 +153,17 @@ jQuery(document).ready(function(){
     if ( window.previous_grids.includes( content.location.grid_id ) ) {
       window.api_post('refresh', { favor: window.favor } )
         .done( function(new_content) {
-          return test_for_redundant_grid( new_content )
+          // return test_for_redundant_grid( new_content )
+          if ( typeof window.test_for_redundant === 'undefined' ) {
+            window.test_for_redundant = 0
+          }
+          if ( window.test_for_redundant < 3 ) {
+            window.test_for_redundant++
+            return test_for_redundant_grid( new_content )
+          }
         })
     } else {
+      window.test_for_redundant = 0
       window.previous_grids.push(content.location.grid_id )
       return content
     }
@@ -227,7 +235,7 @@ jQuery(document).ready(function(){
 
       Cookies.set( 'pg_pace', window.pace )
 
-      window.items = parseInt( window.pace ) + 5
+      window.items = parseInt( window.pace ) + 6
 
       jQuery('.container.block').show()
       jQuery('.container.block:nth-child(+n+' + window.items + ')').hide()
@@ -298,6 +306,10 @@ jQuery(document).ready(function(){
    */
   function load_location( ) {
     let content = window.report_content = window.current_content
+    if ( typeof content === 'undefined' ) {
+      window.current_content = window.next_content
+      content = window.next_content
+    }
 
     button_text.html('Keep Praying...')
     button_progress.css('width', '0' )
@@ -341,8 +353,12 @@ jQuery(document).ready(function(){
         button_progress.css('width', window.percent+'%' )
       }
       else {
-        window.api_post( 'log', { grid_id: window.current_content.location.grid_id, pace: window.pace, user: window.user_location } )
+        window.api_post( 'log', { grid_id: window.current_content.location.grid_id, pace: window.pace, user: window.user_location, favor: window.favor } )
           .done(function(x) {
+            if ( ! x ) {
+              window.location.href = jsObject.map_url
+              return
+            }
             console.log(x)
             window.current_content = false
             window.current_content = window.next_content
@@ -1220,278 +1236,3 @@ jQuery(document).ready(function(){
   }
 
 })
-
-// function wide_globe(){
-//   jQuery('#location-map').html(`<div class="chartdiv wide_globe" id="wide_globe"></div>`)
-//   let content = window.current_content
-//   // https://www.amcharts.com/demos/rotating-globe/
-//   am5.ready(function() {
-//
-//     var root = am5.Root.new("wide_globe");
-//
-//     root.setThemes([
-//       am5themes_Animated.new(root)
-//     ]);
-//
-//     var chart = root.container.children.push(am5map.MapChart.new(root, {
-//       panX: "rotateX",
-//       projection: am5map.geoNaturalEarth1(),
-//       paddingBottom: 20,
-//       paddingTop: 20,
-//       paddingLeft: 20,
-//       paddingRight: 20,
-//       wheelY: 'none'
-//     }));
-//
-//     var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
-//       geoJSON: am5geodata_worldLow
-//     }));
-//
-//     polygonSeries.mapPolygons.template.setAll({
-//       tooltipText: "{name}",
-//       toggleKey: "active",
-//       interactive: true
-//     });
-//
-//     polygonSeries.mapPolygons.template.states.create("hover", {
-//       fill: root.interfaceColors.get("primaryButtonHover")
-//     });
-//
-//     var backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
-//     backgroundSeries.mapPolygons.template.setAll({
-//       fill: root.interfaceColors.get("alternativeBackground"),
-//       fillOpacity: 0.1,
-//       strokeOpacity: 0
-//     });
-//     backgroundSeries.data.push({
-//       geometry: am5map.getGeoRectangle(90, 180, -90, -180)
-//     });
-//
-//     var graticuleSeries = chart.series.push(am5map.GraticuleSeries.new(root, {}));
-//     graticuleSeries.mapLines.template.setAll({ strokeOpacity: 0.1, stroke: root.interfaceColors.get("alternativeBackground") })
-//
-//     chart.animate({
-//       key: "rotationX",
-//       from: 0,
-//       to: 360,
-//       duration: 60000,
-//       loops: Infinity
-//     });
-//
-//     chart.appear(1000, 100);
-//
-//     let cities = {
-//       "type": "FeatureCollection",
-//       "features": [{
-//         "type": "Feature",
-//         "properties": {
-//           "name": content.location.full_name
-//         },
-//         "geometry": {
-//           "type": "Point",
-//           "coordinates": [content.location.longitude, content.location.latitude]
-//         }
-//       }]
-//     };
-//
-//     let pointSeries = chart.series.push(
-//       am5map.MapPointSeries.new(root, {
-//         geoJSON: cities
-//       })
-//     );
-//
-//     pointSeries.bullets.push(function() {
-//       return am5.Bullet.new(root, {
-//         sprite: am5.Circle.new(root, {
-//           radius: 30,
-//           fill: 'green',
-//         })
-//       });
-//     });
-//
-//     chart.seriesContainer.draggable = false;
-//     chart.seriesContainer.resizable = false;
-//
-//   }); // end am5.ready()
-// }
-// function rotating_globe(){
-//   jQuery('#location-map').html(`<div class="chartdiv rotating_globe" id="rotating_globe"></div>`)
-//   let content = window.current_content
-//   // https://www.amcharts.com/demos/rotating-globe/
-//   am5.ready(function() {
-//
-//     var root = am5.Root.new("rotating_globe");
-//
-//     root.setThemes([
-//       am5themes_Animated.new(root)
-//     ]);
-//
-//     var chart = root.container.children.push(am5map.MapChart.new(root, {
-//       panX: "rotateX",
-//       projection: am5map.geoOrthographic(),
-//       paddingBottom: 20,
-//       paddingTop: 20,
-//       paddingLeft: 20,
-//       paddingRight: 20,
-//       wheelY: 'none'
-//     }));
-//
-//     var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
-//       geoJSON: am5geodata_worldLow
-//     }));
-//
-//     polygonSeries.mapPolygons.template.setAll({
-//       tooltipText: "{name}",
-//       toggleKey: "active",
-//       interactive: true
-//     });
-//
-//     polygonSeries.mapPolygons.template.states.create("hover", {
-//       fill: root.interfaceColors.get("primaryButtonHover")
-//     });
-//
-//     var backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
-//     backgroundSeries.mapPolygons.template.setAll({
-//       fill: root.interfaceColors.get("alternativeBackground"),
-//       fillOpacity: 0.1,
-//       strokeOpacity: 0
-//     });
-//     backgroundSeries.data.push({
-//       geometry: am5map.getGeoRectangle(90, 180, -90, -180)
-//     });
-//
-//     var graticuleSeries = chart.series.push(am5map.GraticuleSeries.new(root, {}));
-//     graticuleSeries.mapLines.template.setAll({ strokeOpacity: 0.1, stroke: root.interfaceColors.get("alternativeBackground") })
-//
-//
-//     chart.animate({
-//       key: "rotationX",
-//       from: 0,
-//       to: 360,
-//       duration: 60000,
-//       loops: Infinity
-//     });
-//
-//     chart.appear(1000, 100);
-//
-//     let cities = {
-//       "type": "FeatureCollection",
-//       "features": [{
-//         "type": "Feature",
-//         "properties": {
-//           "name": content.location.full_name
-//         },
-//         "geometry": {
-//           "type": "Point",
-//           "coordinates": [content.location.longitude, content.location.latitude]
-//         }
-//       }]
-//     };
-//
-//     let pointSeries = chart.series.push(
-//       am5map.MapPointSeries.new(root, {
-//         geoJSON: cities
-//       })
-//     );
-//
-//     pointSeries.bullets.push(function() {
-//       return am5.Bullet.new(root, {
-//         sprite: am5.Circle.new(root, {
-//           radius: 30,
-//           fill: 'green',
-//         })
-//       });
-//     });
-//     chart.deltaLongitude = content.location.longitude;
-//
-//   }); // end am5.ready()
-// }
-// function zoom_globe(){
-//   jQuery('#location-map').html(`<div class="chartdiv zoom_globe" id="zoom_globe"></div>`)
-//   let content = window.current_content
-//   // https://www.amcharts.com/demos/rotating-globe/
-//   am5.ready(function() {
-//
-//     var root = am5.Root.new("zoom_globe");
-//
-//     // root.setThemes([
-//     //   am5themes_Animated.new(root)
-//     // ]);
-//
-//     var chart = root.container.children.push(am5map.MapChart.new(root, {
-//       panX: "rotateX",
-//       panY: "rotateY",
-//       projection: am5map.geoNaturalEarth1(),
-//       paddingBottom: 20,
-//       paddingTop: 20,
-//       paddingLeft: 20,
-//       paddingRight: 20,
-//       homeZoomLevel: 3.5,
-//       homeGeoPoint: { longitude: content.location.longitude, latitude: content.location.latitude },
-//       wheelY: 'none'
-//     }));
-//
-//     var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
-//       geoJSON: am5geodata_worldLow
-//     }));
-//
-//     polygonSeries.mapPolygons.template.setAll({
-//       tooltipText: "{name}",
-//       toggleKey: "active",
-//       interactive: true
-//     });
-//
-//     polygonSeries.mapPolygons.template.states.create("hover", {
-//       fill: root.interfaceColors.get("primaryButtonHover")
-//     });
-//
-//     var backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
-//     backgroundSeries.mapPolygons.template.setAll({
-//       fill: root.interfaceColors.get("alternativeBackground"),
-//       fillOpacity: 0.1,
-//       strokeOpacity: 0
-//     });
-//     backgroundSeries.data.push({
-//       geometry: am5map.getGeoRectangle(90, 180, -90, -180)
-//     });
-//
-//     var graticuleSeries = chart.series.push(am5map.GraticuleSeries.new(root, {}));
-//     graticuleSeries.mapLines.template.setAll({ strokeOpacity: 0.1, stroke: root.interfaceColors.get("alternativeBackground") })
-//
-//     chart.appear(1000, 100);
-//
-//     let cities = {
-//       "type": "FeatureCollection",
-//       "features": [{
-//         "type": "Feature",
-//         "properties": {
-//           "name": content.location.full_name
-//         },
-//         "geometry": {
-//           "type": "Point",
-//           "coordinates": [content.location.longitude, content.location.latitude]
-//         }
-//       }]
-//     };
-//
-//     let pointSeries = chart.series.push(
-//       am5map.MapPointSeries.new(root, {
-//         geoJSON: cities
-//       })
-//     );
-//
-//     pointSeries.bullets.push(function() {
-//       return am5.Bullet.new(root, {
-//         sprite: am5.Circle.new(root, {
-//           radius: 30,
-//           fill: 'green',
-//         })
-//       });
-//     });
-//
-//     polygonSeries.events.on("datavalidated", function() {
-//       chart.goHome();
-//     });
-//
-//   }); // end am5.ready()
-// }

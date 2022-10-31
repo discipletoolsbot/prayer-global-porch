@@ -232,10 +232,47 @@ jQuery(document).ready(function($){
     jQuery('.remaining').html( jsObject.stats.remaining )
     jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
     jQuery('.prayer_warriors').html( jsObject.stats.participants )
+    jQuery('.lap_pace').html( jsObject.stats.lap_pace_small )
 
     jQuery('#head_block').show()
     jQuery('#foot_block').show()
+
+    const red = 'rgba(255,0,0, .7)'
+    const green = 'rgba(0,128,0, .9)'
+
+    const layers = [
+      {
+        label: 'Places Remaining',
+        color: red,
+      },
+      {
+        label: 'Covered in Prayer',
+        color: green,
+      }
+    ]
+    const legendDiv = document.getElementById('map-legend');
+    loadLegend( legendDiv, layers )
   } /* .loadgrid */
+
+  function loadLegend(legendDiv, layers) {
+    layers.forEach( ({ label, color }) => {
+      const container = document.createElement('div')
+      container.classList.add('map-legend__layer')
+
+      const colorSwatch = document.createElement('div')
+      colorSwatch.classList.add('map-legend__color-swatch')
+      colorSwatch.style.backgroundColor = color
+
+      const text = document.createElement('span')
+      text.classList.add('map-legend__label')
+      text.innerHTML = label
+
+      container.appendChild(colorSwatch)
+      container.appendChild(text)
+
+      legendDiv.appendChild(container)
+    })
+  }
 
   setInterval(function(){
     window.get_page('get_grid')
@@ -248,6 +285,7 @@ jQuery(document).ready(function($){
         jQuery('.remaining').html( jsObject.stats.remaining )
         jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
         jQuery('.prayer_warriors').html( jsObject.stats.participants )
+        jQuery('.lap_pace').html( jsObject.stats.lap_pace_small )
 
         jsObject.grid_data = x.grid_data
         reload_load_grid()
@@ -291,6 +329,7 @@ jQuery(document).ready(function($){
     jQuery('.remaining').html( jsObject.stats.remaining )
     jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
     jQuery('.prayer_warriors').html( jsObject.stats.participants )
+    jQuery('.lap_pace').html( jsObject.stats.lap_pace_small )
 
     jQuery('#head_block').show()
     jQuery('#foot_block').show()

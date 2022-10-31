@@ -298,7 +298,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             case 'correction':
                 return $this->save_correction( $params['parts'], $params['data'] );
             case 'refresh':
-                return $this->get_new_location( $params['data']['favor'] );
+                return $this->get_new_location( $params['parts'], $params['data']['favor'] );
             case 'ip_location':
                 return $this->get_ip_location();
             default:
@@ -354,7 +354,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         }
         $id = dt_report_insert( $args, true, false );
 
-        return $this->get_new_location( $parts['post_id'] );
+        return $this->get_new_location( $parts, $data['favor'] );
     }
 
     /**
@@ -408,7 +408,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             ],
             'user_hash' => $data['user']['hash'],
             'notes' => [
-                'Review Link' => 'https://prayer.global/show_app/all_content/?grid_id='.$data['grid_id'],
+                'Review Link' => get_site_url() . '/show_app/all_content/?grid_id='.$data['grid_id'],
                 'Current_Location' => $current_location_list,
                 'User_Location' => $user_location,
             ]
@@ -435,12 +435,18 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
      * Global query
      * @return array|false|void
      */
-    public function get_new_location( $favor = 'guided' ) {
+    public function get_new_location( $parts, $favor = 'guided' ) {
         // get 4770 list
+        if ( empty( $this->parts ) && ! empty( $parts ) ) {
+            $this->parts = $parts;
+        }
+
+        // get lists
         $list_4770 = pg_query_4770_locations();
+        $list_prayed = $this->_query_prayed_list( $parts['post_id'] );
+        $global_remaining = $this->_remaining_global_prayed_list( $list_4770 );
 
         // subtract prayed places
-        $list_prayed = $this->_query_prayed_list();
         if ( ! empty( $list_prayed ) ) {
             foreach ( $list_prayed as $grid_id ) {
                 if ( isset( $list_4770[$grid_id] ) ) {
@@ -449,6 +455,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
+        // if completed, trigger close
         if ( empty( $list_4770 ) ) {
             if ( dt_is_rest() ) { // signal new lap to rest request
                 return false;
@@ -458,8 +465,19 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
+        // shuffle and select a grid id
         shuffle( $list_4770 );
         $grid_id = $list_4770[0];
+
+        if ( ! isset( $global_remaining[$grid_id] ) ) {
+            // look for global grid id that is still remaining for the custom lap
+            foreach( $global_remaining as $gi => $gv ) {
+                if( isset( $list_4770[$gi] ) ) {
+                    $grid_id = $gi;
+                    break;
+                }
+            }
+        }
 
         if ( 'guided' === $favor ) {
             return PG_Stacker::build_location_stack_v2( $grid_id );
@@ -470,9 +488,35 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         }
     }
 
-    public function _query_prayed_list() {
+    public function _remaining_global_prayed_list( $list_4770 ) {
         global $wpdb;
-        $current_lap = pg_get_custom_lap_by_post_id( $this->parts['post_id'] );
+        $current_lap = pg_current_global_lap();
+
+        $raw_list = $wpdb->get_col( $wpdb->prepare(
+            "SELECT DISTINCT grid_id
+                    FROM $wpdb->dt_reports
+                    WHERE timestamp >= %d
+                      AND type = 'prayer_app'",
+            $current_lap['start_time'] ) );
+
+        $list = [];
+        if ( ! empty( $raw_list ) ) {
+            foreach ( $raw_list as $item ) {
+                $list[$item] = $item;
+            }
+        }
+
+        foreach( $list_4770 as $i => $v ) {
+            if ( isset( $list[$i] ) ) {
+                unset( $list_4770[$i] );
+            }
+        }
+
+        return $list_4770;
+    }
+
+    public function _query_prayed_list( $post_id ) {
+        global $wpdb;
 
         $raw_list = $wpdb->get_col( $wpdb->prepare(
             "SELECT DISTINCT grid_id
@@ -482,7 +526,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                       AND type = 'prayer_app'
                       AND subtype = 'custom'
                       ",
-        $current_lap['start_time'] ) );
+            $post_id ) );
 
         $list = [];
         if ( ! empty( $raw_list ) ) {
