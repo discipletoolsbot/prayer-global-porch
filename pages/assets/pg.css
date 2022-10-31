@@ -163,4 +163,13 @@
 .pg_cover_v1 {
     height:100vh !important;
 }
+.share-button[data-white] {
+    filter: invert(90%) sepia(100%) saturate(0%) hue-rotate(9deg) brightness(103%) contrast(102%);
+}
+.icon-button {
+    cursor: pointer;
+}
 
+.pb_scrolled-light.scrolled .share-button[data-white] {
+    filter: unset;
+}
