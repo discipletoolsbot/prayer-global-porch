@@ -282,7 +282,7 @@ jQuery(document).ready(function($){
         'data': geojson
       });
       map.loadImage(
-        jsObject.image_folder + 'praying-hands-emoji64.png',
+        jsObject.image_folder + 'fire-emoji64.png',
         (error, image) => {
           if (error) throw error;
           map.addImage('custom-marker', image);
