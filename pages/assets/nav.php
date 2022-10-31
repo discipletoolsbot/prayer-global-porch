@@ -20,7 +20,7 @@ if ( '' === $url ) { ?>
                 <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
                 <li class="nav-item d-lg-none"><a class="nav-link" href="/race_app/big_map/">Big Map</a></li>
                 <li class="nav-item d-lg-none"></li>
-                <li class="nav-item icon-button d-flex align-items-center"><img class="nav-link share-button" data-white src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/share.svg" alt="Share"></li>
+                <li class="nav-item icon-button d-flex align-items-center"><img class="nav-link share-button" data-toggle="modal" data-target="#exampleModal" data-white src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/share.svg" alt="Share"></li>
             </ul>
         </div>
     </div>
@@ -75,3 +75,25 @@ if ( '' === $url ) { ?>
     </nav>
 
 <?php } ?>
+
+<!-- Modal -->
+<div class="modal fade" id="share-modal" tabindex="-1" role="dialog" aria-labelledby="share-modal-label" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="share-modal-label">Share Prayer.Global</h5>
+      </div>
+      <div class="modal-body ">
+        <ul class="list-group list-group-flush share-modal__items">
+            <li class="list-group-item list-group-item-action list-group-item-secondary"><img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/facebook.svg" alt="Share">Facebook</li>
+            <li class="list-group-item list-group-item-action list-group-item-secondary"><img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/twitter.svg" alt="Share">Twitter</li>
+            <li class="list-group-item list-group-item-action list-group-item-secondary"><img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/email.svg" alt="Share">Email</li>
+            <li class="list-group-item list-group-item-action list-group-item-secondary"><img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/link.svg" alt="Share">Link</li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn pb_outline-dark highlight" data-dismiss="modal">Done</button>
+      </div>
+    </div>
+  </div>
+</div>

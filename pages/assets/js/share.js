@@ -1,17 +1,22 @@
 $(document).ready(function($) {
-    const shareButton = document.querySelector('.share-button[data-white]')
+    const shareButton = document.querySelector('.share-button')
+    const shareModal = document.getElementById('share-modal')
 
+    const isGoNativeApp = navigator.userAgent.indexOf('gonative') > -1
+    const isWebAPIShareAvailable = Object.prototype.hasOwnProperty.call(navigator, 'share')
+
+    // stop button opening modal
     shareButton.addEventListener('click', (event) => {
         const pageToShare = window.location.href
-        if ( navigator.userAgent.indexOf('gonative') > -1 ) {
+        if ( isGoNativeApp ) {
             window.location.href = 'gonative://share/sharePage?url=' + pageToShare
-        } else if ( Object.prototype.hasOwnProperty.call(navigator, 'share') ) {
+        } else if ( isWebAPIShareAvailable ) {
             const data = {
                 url: pageToShare
             }
             navigator.share(data)
         } else {
-            console.log('no shares available')
+            $(shareModal).modal()
         }
     })
 })
