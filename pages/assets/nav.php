@@ -13,6 +13,7 @@ if ( '' === $url ) { ?>
         </button>
         <div class="collapse navbar-collapse" id="probootstrap-navbar">
             <ul class="navbar-nav ml-auto pb-3">
+                <li class="nav-item"><img src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/share.svg" alt="Share"></li>
                 <li class="nav-item"><a class="nav-link" href="#section-challenge">Challenge</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-lap">Status</a></li>
                 <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>
