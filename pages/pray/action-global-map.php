@@ -126,10 +126,10 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                         </div>
                         <div class="col col-md-8 col-lg-5 d-none d-lg-block" id="nav-list">
                             <ul>
-                                <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/#section-challenge">Challenge</a></li>
                                 <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/newest/lap/">Start Praying</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/#section-challenge">Challenge</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
+                                <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
                             </ul>
                         </div>
                         <div class="col col-6 d-lg-none">
