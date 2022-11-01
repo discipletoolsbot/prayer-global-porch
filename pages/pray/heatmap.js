@@ -282,6 +282,7 @@ jQuery(document).ready(function($){
         'data': geojson
       });
       map.loadImage(
+        //jsObject.image_folder + 'praying-hands-emoji64.png',
         jsObject.image_folder + 'fire-emoji64.png',
         (error, image) => {
           if (error) throw error;
@@ -294,9 +295,9 @@ jQuery(document).ready(function($){
               'icon-image': 'custom-marker',
               "icon-size": [
                 'interpolate',
-                ['exponential', 0.5],
+                ['linear', 1],
                 ['zoom'],
-                1, 0.25,
+                1, 0.15,
                 15, 0.5
               ],
               'icon-padding': 0,
