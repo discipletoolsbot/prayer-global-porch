@@ -85,10 +85,18 @@ if ( '' === $url ) { ?>
       </div>
       <div class="modal-body ">
         <ul class="list-group list-group-flush share-modal__items">
-            <li class="list-group-item list-group-item-action list-group-item-secondary"><img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/facebook.svg" alt="Share">Facebook</li>
-            <li class="list-group-item list-group-item-action list-group-item-secondary"><img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/twitter.svg" alt="Share">Twitter</li>
-            <li class="list-group-item list-group-item-action list-group-item-secondary"><img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/email.svg" alt="Share">Email</li>
-            <li class="list-group-item list-group-item-action list-group-item-secondary"><img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/link.svg" alt="Share">Link</li>
+            <li class="list-group-item list-group-item-action list-group-item-secondary facebook-action">
+                <img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/facebook.svg" alt="Share">Facebook
+            </li>
+            <li class="list-group-item list-group-item-action list-group-item-secondary twitter-action">
+                <img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/twitter.svg" alt="Share">Twitter
+            </li>
+            <li class="list-group-item list-group-item-action list-group-item-secondary email-action">
+                <img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/email.svg" alt="Share">Email
+            </li>
+            <li class="list-group-item list-group-item-action list-group-item-secondary link-action">
+                <img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/link.svg" alt="Share">Link <span class="copy-notice">Copied</span>
+            </li>
         </ul>
       </div>
       <div class="modal-footer">

@@ -211,3 +211,12 @@ html {
     width: 20px;
     margin-right: 10px;
 }
+.copy-notice {
+    display: none;
+}
+.list-group-item-success.list-group-item-action:hover {
+    background-color: #b1dfbb;
+}
+.link-action.list-group-item-success .copy-notice {
+    display: inline;
+}
