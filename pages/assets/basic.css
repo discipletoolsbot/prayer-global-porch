@@ -1,6 +1,6 @@
 body {
+    --bs-navbar-brand-color: #3f729b;
     color: black;
-    line-height: 1.8;
     font-weight: 300;
 }
 h2 {

@@ -1,4 +1,7 @@
 /* custom styles for prayer.global */
+body {
+    line-height: 1.8;
+}
 .nav-link.pb_outline-dark {
     border:none;
     line-height: inherit;

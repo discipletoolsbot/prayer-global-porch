@@ -30,7 +30,7 @@ progress {
     width:100%;
     z-index: 5;
     background: white;
-    padding: 1em;
+    padding: 1em 2em;
     opacity: .9;
     display:none;
 }
