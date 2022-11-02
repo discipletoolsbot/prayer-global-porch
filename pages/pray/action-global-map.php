@@ -144,7 +144,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 <div id='map'></div>
                 <div id="foot_block">
                     <div class="map-overlay" id="map-legend"></div>
-                    <div class="row grid-padding-x">
+                    <div class="row">
                         <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
                         <div class="col col-sm-6 col-md-3 center d-none d-md-block"><strong>Places Remaining</strong><br><strong><span class="one-em red stats-figure remaining"></span></strong></div>
                         <div class="col col-sm-6 col-md-3 center d-none d-md-block"><strong>Places Covered</strong><br><strong><span class="one-em green stats-figure completed"></span></strong></div>
@@ -173,7 +173,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         <div class="offcanvas offcanvas-end" id="offcanvas_location_details" data-bs-backdrop="false" data-bs-scroll="true">
             <button type="button" data-bs-dismiss="offcanvas" style="text-align: start"><i class="ion-chevron-right three-em"></i></button>
             <hr>
-            <div class="row grid-padding-x" id="grid_details_content"></div>
+            <div class="row" id="grid_details_content"></div>
         </div>
         <!-- report modal -->
         <div class="reveal " id="correction_modal" data-v-offset="10px;" data-reveal>
@@ -205,7 +205,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         <div class="offcanvas offcanvas-bottom" id="offcanvas_stats">
             <div class="center"><button type="button" data-bs-dismiss="offcanvas"><i class="ion-chevron-down three-em"></i></button></div>
             <hr>
-            <div class="row grid-padding-x center">
+            <div class="row center">
                 <div class="col col-12">
                     <span class="three-em">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?></span>
                     <hr>
