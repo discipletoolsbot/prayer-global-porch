@@ -101,7 +101,7 @@ class PG_Global_Prayer_App_Completed extends PG_Global_Prayer_App {
                     <div class="w-100"></div>
                     <div class="col-md-6 justify-content-end">
                         <h2 class="heading mb-3">Prayer</h2>
-                        <div class="sub-heading pl-4">
+                        <div class="sub-heading ps-4">
                             <p class="mb-0"><?php echo esc_attr( $lap_stats['minutes_prayed'] ) ?> Minutes of Prayer</p>
                             <p class="mb-0"><?php echo esc_attr( $lap_stats['completed_percent'] ) ?>% of the World Covered in Prayer</p>
 
@@ -109,7 +109,7 @@ class PG_Global_Prayer_App_Completed extends PG_Global_Prayer_App {
                     </div>
                     <div class="col-md-6 justify-content-end">
                         <h2 class="heading mb-3">Pace</h2>
-                        <div class="sub-heading pl-4">
+                        <div class="sub-heading ps-4">
                             <p class="mb-0">Start: <?php echo esc_attr( gmdate( 'M j, Y', $lap_stats['start_time'] ) ) ?></p>
                             <p class="mb-0">End: <?php echo esc_attr( ( $lap_stats['end_time'] ) ? gmdate( 'M j, Y', $lap_stats['end_time'] ) : 'ongoing' ) ?></p>
                             <p class="mb-0"><?php echo esc_attr( $lap_stats['time_elapsed'] ) ?></p>
@@ -122,13 +122,13 @@ class PG_Global_Prayer_App_Completed extends PG_Global_Prayer_App {
                     <div class="w-100"></div>
 
                     <div class="col-md-6">
-                        <div class="sub-heading pl-4">
+                        <div class="sub-heading ps-4">
                             <p class="mb-0"><?php echo esc_attr( $lap_stats['participants'] ) ?> Prayer Warriors Participated</p>
 
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="sub-heading pl-4">
+                        <div class="sub-heading ps-4">
                             <p class="mb-2"><u>Top Warrior Locations</u></p>
                             <ol>
                                 <?php

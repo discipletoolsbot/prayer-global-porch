@@ -12,7 +12,7 @@ if ( '' === $url ) { ?>
             <span><i class="ion-navicon"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="probootstrap-navbar">
-            <ul class="navbar-nav ml-auto pb-3">
+            <ul class="navbar-nav ms-auto pb-3">
                 <li class="nav-item"><a class="nav-link" href="#section-challenge">Challenge</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-lap">Status</a></li>
                 <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>
@@ -33,7 +33,7 @@ if ( '' === $url ) { ?>
             <span><i class="ion-navicon"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="probootstrap-navbar">
-            <ul class="navbar-nav ml-auto pb-3">
+            <ul class="navbar-nav ms-auto pb-3">
                 <li class="nav-item"><a class="nav-link" href="/#section-challenge">Challenge</a></li>
                 <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
                 <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>
@@ -58,7 +58,7 @@ if ( '' === $url ) { ?>
                 <span><i class="ion-navicon"></i></span>
             </button>
             <div class="collapse navbar-collapse" id="probootstrap-navbar">
-                <ul class="navbar-nav ml-auto pb-3">
+                <ul class="navbar-nav ms-auto pb-3">
                     <li class="nav-item"><a class="nav-link" href="#section-challenge">Challenge</a></li>
                     <li class="nav-item"><a class="nav-link" href="#section-lap">Status</a></li>
                     <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>

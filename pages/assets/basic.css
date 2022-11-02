@@ -1,6 +1,10 @@
 body {
     color: black;
     line-height: 1.8;
+    font-weight: 300;
+}
+h2 {
+    line-height: 1.1;
 }
 a {
     text-decoration: none;
@@ -76,4 +80,13 @@ a {
 }
 .pb_outline-dark.highlight:hover {
     border: 1px solid black;
+}
+.navbar {
+    padding: 1em 1em;
+}
+@media (max-width: 991px) {
+    .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
+        padding-right: 0;
+        padding-left: 0;
+    }
 }

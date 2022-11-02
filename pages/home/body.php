@@ -179,27 +179,27 @@
         </div>
         <div class="row">
             <div class="col-md">
-                <div class="media pb_media_v2 d-block text-center mb-3">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 mx-auto mb-4"><i class="text-primary ion-ios-body-outline"></i></div>
-                    <div class="media-body">
+                <div class="pb_media_v2 d-block text-center mb-3">
+                    <div class="icon border border-gray rounded-circle d-flex display-4 mx-auto mb-4"><i class="text-primary ion-ios-body-outline"></i></div>
+                    <div class="">
                         <h3 class="mt-0 pb_font-45" id="current_participants"><span class="loading-spinner active"></span></h3>
                         <h3 class="mt-0 pb_font-20">Prayer Warriors</h3>
                     </div>
                 </div>
             </div>
             <div class="col-md">
-                <div class="media pb_media_v2 d-block text-center mb-3">
-                    <div class="icon border border-gray rounded-circle d-block mr-3 display-4 mx-auto mb-4"><i class="text-primary ion-earth"></i></div>
-                    <div class="media-body">
+                <div class="pb_media_v2 d-block text-center mb-3">
+                    <div class="icon border border-gray rounded-circle d-block display-4 mx-auto mb-4"><i class="text-primary ion-earth"></i></div>
+                    <div class="">
                         <h3 class="mt-0 pb_font-45" id="current_completed"><span class="loading-spinner active"></span></h3>
                         <h3 class="mt-0 pb_font-20">Covered</h3>
                     </div>
                 </div>
             </div>
             <div class="col-md">
-                <div class="media pb_media_v2 d-block text-center  mb-3">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 mx-auto mb-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
-                    <div class="media-body">
+                <div class="pb_media_v2 d-block text-center  mb-3">
+                    <div class="icon border border-gray rounded-circle d-flex display-4 mx-auto mb-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
+                    <div class="">
                         <h3 class="mt-0 pb_font-45" id="current_remaining"><span class="loading-spinner active"></span></h3>
                         <h3 class="mt-0 pb_font-20">Remaining</h3>
                     </div>
@@ -223,27 +223,27 @@
         </div>
         <div class="row">
             <div class="col-md">
-                <div class="media pb_media_v2 d-block text-center mb-3">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 mx-auto mb-4"><i class="text-primary ion-ios-body-outline"></i></div>
-                    <div class="media-body">
+                <div class="pb_media_v2 d-block text-center mb-3">
+                    <div class="icon border border-gray rounded-circle d-flex display-4 mx-auto mb-4"><i class="text-primary ion-ios-body-outline"></i></div>
+                    <div class="">
                         <h3 class="mt-0 pb_font-45" id="global_participants"><span class="loading-spinner active"></span></h3>
                         <h3 class="mt-0 pb_font-20">Prayer Warriors</h3>
                     </div>
                 </div>
             </div>
             <div class="col-md">
-                <div class="media pb_media_v2 d-block text-center  mb-3">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 mx-auto mb-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
-                    <div class="media-body">
+                <div class="pb_media_v2 d-block text-center  mb-3">
+                    <div class="icon border border-gray rounded-circle d-flex display-4 mx-auto mb-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
+                    <div class="">
                         <h3 class="mt-0 pb_font-45" id="global_minutes_prayed"><span class="loading-spinner active"></span></h3>
                         <h3 class="mt-0 pb_font-20">Minutes Prayed</h3>
                     </div>
                 </div>
             </div>
             <div class="col-md">
-                <div class="media pb_media_v2 d-block text-center mb-3">
-                    <div class="icon border border-gray rounded-circle d-block mr-3 display-4 mx-auto mb-4"><i class="text-primary ion-earth"></i></div>
-                    <div class="media-body">
+                <div class="pb_media_v2 d-block text-center mb-3">
+                    <div class="icon border border-gray rounded-circle d-block display-4 mx-auto mb-4"><i class="text-primary ion-earth"></i></div>
+                    <div class="">
                         <h3 class="mt-0 pb_font-45" id="global_lap_number"><span class="loading-spinner active"></span></h3>
                         <h3 class="mt-0 pb_font-20">Laps</h3>
                     </div>
@@ -315,27 +315,27 @@
         </div>
         <div class="row">
             <div class="col-lg">
-                <div class="media pb_media_v1 mb-5">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i class="ion-heart"></i></div>
-                    <div class="media-body">
+                <div class="d-flex pb_media_v1 mb-5">
+                    <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 flex-shrink-0 me-3 display-4 text-primary"><i class="ion-heart"></i></div>
+                    <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Loving</h3>
                         <p class="pb_font-14">Prayer.Global loves God, loves people, and helps Christians fulfill the Great Commission by mobilizing prayer.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg">
-                <div class="media pb_media_v1 mb-5">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i class="ion-android-restaurant"></i></div>
-                    <div class="media-body">
+                <div class="d-flex pb_media_v1 mb-5">
+                    <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-android-restaurant"></i></div>
+                    <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Expectant</h3>
                         <p class="pb_font-14">Prayer.Global strives to neither under- nor over-estimate man’s role in disciple multiplication movements. God declared prayer as the vehicle for seeking and receiving his kingdom.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg">
-                <div class="media pb_media_v1 mb-5">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i class="ion-android-restaurant"></i></div>
-                    <div class="media-body">
+                <div class="d-flex pb_media_v1 mb-5">
+                    <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-android-restaurant"></i></div>
+                    <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Open</h3>
                         <p class="pb_font-14">Prayer.Global welcomes prayer collaboration from all followers of Jesus.</p>
                     </div>
@@ -343,27 +343,27 @@
             </div>
             <div class="w-100"></div>
             <div class="col-lg">
-                <div class="media pb_media_v1 mb-5">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i class="ion-search"></i></div>
-                    <div class="media-body">
+                <div class="d-flex pb_media_v1 mb-5">
+                    <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-search"></i></div>
+                    <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Kingdom Focused</h3>
                         <p class="pb_font-14">Prayer.Global recognizes there are many good things to pray for, but our purpose is to pray for the kingdom to come and the gospel to reach every place in the world. Gospel poverty is the great poverty and injustice of our generation.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg">
-                <div class="media pb_media_v1 mb-5">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i class="ion-stats-bars"></i></div>
-                    <div class="media-body">
+                <div class="d-flex pb_media_v1 mb-5">
+                    <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-stats-bars"></i></div>
+                    <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Strategic</h3>
                         <p class="pb_font-14">Prayer.Global promotes strategic prayer for movement, knowing that ( based upon research ) extraordinary prayer is found at the root of all modern movements.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg">
-                <div class="media pb_media_v1 mb-5">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i class="ion-ios-bookmarks"></i></div>
-                    <div class="media-body">
+                <div class="d-flex pb_media_v1 mb-5">
+                    <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-ios-bookmarks"></i></div>
+                    <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Word-Centric</h3>
                         <p class="pb_font-14">Prayer.Global seeks to guide prayer warriors to the bible as the source for knowing God's heart and modeling for how to pray.</p>
                     </div>
@@ -371,27 +371,27 @@
             </div>
             <div class="w-100"></div>
             <div class="col-lg">
-                <div class="media pb_media_v1 mb-5">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i class="ion-plane"></i></div>
-                    <div class="media-body">
+                <div class="d-flex pb_media_v1 mb-5">
+                    <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-plane"></i></div>
+                    <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Mobilizing</h3>
                         <p class="pb_font-14">Prayer.Global asks everyone to not only pray but also to mobilize prayer through relationships and opportunities God provides.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg">
-                <div class="media pb_media_v1 mb-5">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i class="ion-ios-locked"></i></div>
-                    <div class="media-body">
+                <div class="d-flex pb_media_v1 mb-5">
+                    <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-ios-locked"></i></div>
+                    <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Safe</h3>
                         <p class="pb_font-14">Prayer.Global will never ask for money. This tool is free to the church.</p>
                     </div>
                 </div>
             </div>
             <div class="col-lg">
-                <div class="media pb_media_v1 mb-5">
-                    <div class="icon border border-gray rounded-circle d-flex mr-3 display-4 text-primary"><i class="ion-thumbsdown"></i></div>
-                    <div class="media-body">
+                <div class="d-flex pb_media_v1 mb-5">
+                    <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-thumbsdown"></i></div>
+                    <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Not Political</h3>
                         <p class="pb_font-14">Prayer.Global is not a political agenda, rather an effort to pray for the kingdom of God to come in every place for every people. This is the only kingdom in which we have hope for the salvation of mankind.</p>
                     </div>
