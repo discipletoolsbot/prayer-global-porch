@@ -401,7 +401,7 @@ jQuery(document).ready(function($){
     let div = jQuery('#grid_details_content')
     div.empty().html(`<span class="loading-spinner active"></span>`)
 
-    jQuery('#offcanvas_location_details').foundation('open')
+    jQuery('#offcanvas_location_details').offcanvas('show')
 
     window.get_data_page( 'get_grid_details', {grid_id: grid_id} )
       .done(function(response){

@@ -142,8 +142,8 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 </div>
             </div>
         </div>
-        <div class="off-canvas position-right" id="offcanvas_menu" data-close-on-click="true" data-off-canvas>
-            <button type="button" data-toggle="offcanvas_menu"><i class="ion-chevron-right three-em"></i></button>
+        <div class="offcanvas offcanvas-end" id="offcanvas_menu">
+            <button type="button" data-bs-dismiss="offcanvas"><i class="ion-chevron-right three-em"></i></button>
             <hr>
             <ul class="navbar-nav two-em">
                 <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark" style="text-transform: capitalize;" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a></li>
@@ -152,8 +152,8 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 <hr>
             </div>
         </div>
-        <div class="off-canvas position-right " id="offcanvas_location_details" data-close-on-click="true" data-content-overlay="false" data-off-canvas>
-            <button type="button" data-toggle="offcanvas_location_details"><i class="ion-chevron-right three-em"></i></button>
+        <div class="offcanvas offcanvas-end" id="offcanvas_location_details" data-bs-backdrop="false" data-bs-scroll="true">
+            <button type="button" data-bs-dismiss="offcanvas" style="text-align: start"><i class="ion-chevron-right three-em"></i></button>
             <hr>
             <div class="row" id="grid_details_content"></div>
         </div>
