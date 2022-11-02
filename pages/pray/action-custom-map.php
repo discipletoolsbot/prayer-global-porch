@@ -48,6 +48,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         $allowed_js[] = 'jquery-cookie';
         $allowed_js[] = 'mapbox-cookie';
         $allowed_js[] = 'heatmap-js';
+        $allowed_js[] = 'bootstrap-js';
         return $allowed_js;
     }
 
@@ -116,7 +117,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             </div>
             <div id="map-wrapper">
                 <div id="head_block">
-                    <div class="row grid-padding-x">
+                    <div class="row">
                         <div class="col col-6 col-lg-9">
                             <span class="two-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
                         </div>
@@ -131,8 +132,8 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 <div id='map'></div>
                 <div id="foot_block">
                     <div class="map-overlay" id="map-legend"></div>
-                    <div class="row grid-padding-x">
-                        <div class="col col-12 center"><button type="button" data-toggle="offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
+                    <div class="row">
+                        <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats" aria-controls="offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
                         <div class="col col-6 col-sm-3 center d-none d-sm-block"><strong>Places Remaining</strong><br><strong><span class="one-em red stats-figure remaining"></span></strong></div>
                         <div class="col col-6 col-sm-3 center d-none d-sm-block"><strong>Places Covered</strong><br><strong><span class="one-em green stats-figure completed"></span></strong></div>
                         <div class="col col-6 col-sm-3 center"><strong>Prayer Warriors</strong><br><img class="three-em" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/praying-hand-up-20.png' ) ?>" /></div>
@@ -154,7 +155,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         <div class="off-canvas position-right " id="offcanvas_location_details" data-close-on-click="true" data-content-overlay="false" data-off-canvas>
             <button type="button" data-toggle="offcanvas_location_details"><i class="ion-chevron-right three-em"></i></button>
             <hr>
-            <div class="row grid-padding-x" id="grid_details_content"></div>
+            <div class="row" id="grid_details_content"></div>
         </div>
         <!-- report modal -->
         <div class="reveal " id="correction_modal" data-v-offset="10px;" data-reveal>
@@ -183,11 +184,11 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="off-canvas position-bottom" id="offcanvas_stats" data-close-on-click="true" data-off-canvas>
-            <div class="center"><button type="button" data-toggle="offcanvas_stats"><i class="ion-chevron-down three-em"></i></button></div>
+        <div class="offcanvas offcanvas-bottom" id="offcanvas_stats">
+            <div class="center"><button type="button" data-bs-dismiss="offcanvas"><i class="ion-chevron-down three-em"></i></button></div>
             <hr>
-            <div class="row grid-padding-x center">
-                <div class="col">
+            <div class="row center">
+                <div class="col-12">
                     <span class="three-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
                     <hr>
                 </div>
@@ -259,6 +260,9 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             'jquery',
             'mapbox-gl'
         ], filemtime( plugin_dir_path( __FILE__ ) .'heatmap.js' ), true );
+        wp_enqueue_script( 'bootstrap-js', trailingslashit( plugin_dir_url( __DIR__ ) ) . 'assets/js/bootstrap.min.js', [
+            'jquery',
+        ], filemtime( plugin_dir_path( __DIR__ ) .'assets/js/bootstrap.min.js' ), true );
     }
 
     public function endpoint( WP_REST_Request $request ) {

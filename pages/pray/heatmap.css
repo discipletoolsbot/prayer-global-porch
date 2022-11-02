@@ -57,18 +57,15 @@ progress {
 }
 #offcanvas_menu {
     background: white;
-    z-index: 15;
     padding: 1em;
 }
 #offcanvas_location_details {
     background: white;
-    z-index: 15;
     padding: 1em;
     min-width: 40%;
 }
 #offcanvas_stats {
     background: white;
-    z-index: 15;
     padding: 1em;
     height: 80%;
 }
