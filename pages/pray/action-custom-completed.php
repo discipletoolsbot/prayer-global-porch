@@ -90,7 +90,7 @@ class PG_Custom_Prayer_App_Completed extends PG_Custom_Prayer_App {
         <nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_navbar_nav pb_scrolled-light" id="pb-navbar">
             <div class="container">
                 <a class="navbar-brand" href="/">Prayer.Global</a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
                     <span><i class="ion-navicon"></i></span>
                 </button>
                 <div class="collapse navbar-collapse" id="probootstrap-navbar">

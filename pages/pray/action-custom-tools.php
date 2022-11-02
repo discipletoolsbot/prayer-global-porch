@@ -99,8 +99,8 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                            value="<?php echo esc_url( get_site_url() ) ?>/prayer_app/custom/<?php echo esc_html( $lap_stats['key'] ) ?>/map" placeholder="Some path" id="copy-input">
                     <span class="input-group-btn">
                       <button class="btn btn-default copy-button" type="button" id="copy-button"
-                              data-toggle="tooltip" data-placement="button"
-                              title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-input">
+                              data-bs-toggle="tooltip" data-placement="button"
+                              data-bs-title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-input">
                         Copy
                       </button>
                     </span>
@@ -122,8 +122,8 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                            value="<?php echo esc_url( get_site_url() ) ?>/prayer_app/custom/<?php echo esc_html( $lap_stats['key'] ) ?>/display" placeholder="Some path" id="copy-display-input">
                     <span class="input-group-btn">
                       <button class="btn btn-default copy-button" type="button" id="copy-button-display"
-                              data-toggle="tooltip" data-placement="button"
-                              title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-display-input">
+                              data-bs-toggle="tooltip" data-placement="button"
+                              data-bs-title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-display-input">
                         Copy
                       </button>
                     </span>
@@ -148,8 +148,8 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                                    value="<?php echo esc_url( get_site_url() ) ?>/qr/app" placeholder="Some path" id="copy-input-qrapp">
                             <span class="input-group-btn">
                           <button class="btn btn-default copy-button" type="button" id="copy-button-qrapp"
-                                  data-toggle="tooltip" data-placement="button"
-                                  title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-input-qrapp">
+                                  data-bs-toggle="tooltip" data-placement="button"
+                                  data-bs-title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-input-qrapp">
                             Copy
                           </button>
                         </span>

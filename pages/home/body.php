@@ -32,11 +32,11 @@
                     <img class="img2" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/dark-map.jpg" alt="image">
                 </div>
             </div>
-            <div class="col-lg-5 pl-md-5 pl-sm-0">
+            <div class="col-lg-5 ps-md-5 ps-sm-0">
                 <div id="prayer_accordion_" class="pb_accordion" data-children=".item">
                     <div class="item">
-                        <a data-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_1" aria-expanded="true" aria-controls="prayer_accordion_1" class="pb_font-18 uppercase">Historic Moment</a>
-                        <div id="prayer_accordion_1" class="collapse show" role="tabpanel">
+                        <a data-bs-toggle="collapse" href="#prayer_accordion_1" aria-expanded="true" aria-controls="prayer_accordion_1" class="pb_font-18 uppercase">Historic Moment</a>
+                        <div id="prayer_accordion_1" class="accordian-collapse collapse show" role="tabpanel">
                             <p>
                                 We know three things about our moment in history:
                             </p>
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <a data-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_2" aria-expanded="false" aria-controls="prayer_accordion_2" class="pb_font-18 uppercase">How it works</a>
+                        <a data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_2" aria-expanded="false" aria-controls="prayer_accordion_2" class="pb_font-18 uppercase">How it works</a>
                         <div id="prayer_accordion_2" class="collapse" role="tabpanel">
                             <p>
                                 <span class="black">&#9312;</span> Click on "Start Praying". <a href="/newest/lap/"><i class="ion-android-open"></i></a>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <a data-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_3" aria-expanded="false" aria-controls="prayer_accordion_3" class="pb_font-18 uppercase">Moravian Prayer Challenge</a>
+                        <a data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_3" aria-expanded="false" aria-controls="prayer_accordion_3" class="pb_font-18 uppercase">Moravian Prayer Challenge</a>
                         <div id="prayer_accordion_3" class="collapse" role="tabpanel">
                             <p>
                                 Inspired by the <a href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">Moravians</a>, who prayed non-stop for 100 years,
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <a data-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_4" aria-expanded="false" aria-controls="prayer_accordion_4" class="pb_font-18 uppercase">Maps & Lists</a>
+                        <a data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_4" aria-expanded="false" aria-controls="prayer_accordion_4" class="pb_font-18 uppercase">Maps & Lists</a>
                         <div id="prayer_accordion_4" class="collapse" role="tabpanel">
                             <p>
                                 <strong class="black">Current Map</strong> <a href="/newest/map"><i class="ion-android-open"></i></a>
