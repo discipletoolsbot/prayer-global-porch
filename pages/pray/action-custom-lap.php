@@ -121,7 +121,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                     </button>
                     <button type="button" class="btn btn-secondary praying" id="praying__close_button"><i class="ion-close-circled"></i></button>
                     <button type="button" class="btn btn-secondary praying" id="praying__continue_button"><i class="ion-android-arrow-dropright-circle"></i></button>
-                    <button type="button" class="btn btn-secondary settings" id="praying__open_options" data-toggle="modal" data-target="#option_filter"><i class="ion-android-options"></i></button>
+                    <button type="button" class="btn btn-secondary settings" id="praying__open_options" data-bs-toggle="modal" data-bs-target="#option_filter"><i class="ion-android-options"></i></button>
                 </div>
             </div>
             <div class="container question" id="question-panel">
@@ -152,9 +152,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Set Your Prayer Experience</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div>
@@ -177,7 +175,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                         </div>
                     </div>
                     <div class="modal-footer center">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Let's Go!</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Let's Go!</button>
                     </div>
                 </div>
             </div>
@@ -208,7 +206,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                         </p>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Let's Go!</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Let's Go!</button>
                     </div>
                 </div>
             </div>
@@ -218,9 +216,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Thank you! Leave us a correction below.</h5>
-                        <button type="button" id="correction_close" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <button type="button" id="correction_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <p><span id="correction_title" class="correction_field"></span></p>
