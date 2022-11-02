@@ -9,7 +9,12 @@
 .navbar.awake .nav-link.pb_outline-dark {
     border:1px solid rgba(0, 0, 0, 0.2);;
 }
-
+#probootstrap-navbar {
+    justify-content: flex-end;
+}
+.navbar-toggler:focus {
+    box-shadow: none;
+}
 
 .pb_navbar_light {
     position: absolute;
