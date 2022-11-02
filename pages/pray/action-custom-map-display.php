@@ -54,7 +54,6 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
         $allowed_css[] = 'mapbox-gl-css';
         $allowed_css[] = 'introjs-css';
-        $allowed_css[] = 'foundation-css';
         $allowed_css[] = 'heatmap-css';
         $allowed_css[] = 'site-css';
         return $allowed_css;

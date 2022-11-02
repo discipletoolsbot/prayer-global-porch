@@ -54,7 +54,6 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
         $allowed_css[] = 'mapbox-gl-css';
         $allowed_css[] = 'introjs-css';
-        $allowed_css[] = 'foundation-css';
         $allowed_css[] = 'heatmap-css';
         $allowed_css[] = 'site-css';
         return $allowed_css;
@@ -90,6 +89,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/bootstrap/bootstrap.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>heatmap.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'heatmap.css' ) ) ?>" type="text/css" media="all">
@@ -116,11 +116,11 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             </div>
             <div id="map-wrapper">
                 <div id="head_block">
-                    <div class="grid-x grid-padding-x">
-                        <div class="cell small-6 large-9">
+                    <div class="row grid-padding-x">
+                        <div class="col col-6 col-lg-9">
                             <span class="two-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
                         </div>
-                        <div class="cell small-6 large-3" id="nav-list">
+                        <div class="col col-6 col-lg-3" id="nav-list">
                             <ul>
                                 <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a></li>
                             </ul>
@@ -131,12 +131,12 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 <div id='map'></div>
                 <div id="foot_block">
                     <div class="map-overlay" id="map-legend"></div>
-                    <div class="grid-x grid-padding-x">
-                        <div class="cell center"><button type="button" data-toggle="offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
-                        <div class="cell small-6 medium-3 center hide-for-small-only"><strong>Places Remaining</strong><br><strong><span class="one-em red stats-figure remaining"></span></strong></div>
-                        <div class="cell small-6 medium-3 center hide-for-small-only"><strong>Places Covered</strong><br><strong><span class="one-em green stats-figure completed"></span></strong></div>
-                        <div class="cell small-6 medium-3 center"><strong>Prayer Warriors</strong><br><img class="three-em" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/praying-hand-up-20.png' ) ?>" /></div>
-                        <div class="cell small-6 medium-3 center"><strong>Your Recent Prayers</strong><br><img class="three-em" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/black-check-50.png' ) ?>" /></div>
+                    <div class="row grid-padding-x">
+                        <div class="col col-12 center"><button type="button" data-toggle="offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
+                        <div class="col col-6 col-sm-3 center d-none d-sm-block"><strong>Places Remaining</strong><br><strong><span class="one-em red stats-figure remaining"></span></strong></div>
+                        <div class="col col-6 col-sm-3 center d-none d-sm-block"><strong>Places Covered</strong><br><strong><span class="one-em green stats-figure completed"></span></strong></div>
+                        <div class="col col-6 col-sm-3 center"><strong>Prayer Warriors</strong><br><img class="three-em" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/praying-hand-up-20.png' ) ?>" /></div>
+                        <div class="col col-6 col-sm-3 center"><strong>Your Recent Prayers</strong><br><img class="three-em" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/black-check-50.png' ) ?>" /></div>
                     </div>
                 </div>
             </div>
@@ -147,14 +147,14 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             <ul class="navbar-nav two-em">
                 <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark" style="text-transform: capitalize;" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a></li>
             </ul>
-            <div class="show-for-small-only">
+            <div class="d-sm-none">
                 <hr>
             </div>
         </div>
         <div class="off-canvas position-right " id="offcanvas_location_details" data-close-on-click="true" data-content-overlay="false" data-off-canvas>
             <button type="button" data-toggle="offcanvas_location_details"><i class="ion-chevron-right three-em"></i></button>
             <hr>
-            <div class="grid-x grid-padding-x" id="grid_details_content"></div>
+            <div class="row grid-padding-x" id="grid_details_content"></div>
         </div>
         <!-- report modal -->
         <div class="reveal " id="correction_modal" data-v-offset="10px;" data-reveal>
@@ -186,62 +186,62 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         <div class="off-canvas position-bottom" id="offcanvas_stats" data-close-on-click="true" data-off-canvas>
             <div class="center"><button type="button" data-toggle="offcanvas_stats"><i class="ion-chevron-down three-em"></i></button></div>
             <hr>
-            <div class="grid-x grid-padding-x center">
-                <div class="cell">
+            <div class="row grid-padding-x center">
+                <div class="col">
                     <span class="three-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
                     <hr>
                 </div>
-                <div class="cell small-6 medium-3">
+                <div class="col col-6 col-sm-3">
                     <p class="stats-title">Warriors</p>
                     <p class="stats-figure warriors">0</p>
                 </div>
-                <div class="cell small-6 medium-3">
+                <div class="col col-6 col-sm-3">
                     <p class="stats-title">Minutes Prayed</p>
                     <p class="stats-figure minutes_prayed">0</p>
                 </div>
 
-                <div class="cell small-6 medium-3">
+                <div class="col col-6 col-sm-3">
                     <p class="stats-title">Completed Locations</p>
                     <p class="stats-figure completed">0</p>
                 </div>
-                <div class="cell small-6 medium-3">
+                <div class="col col-6 col-sm-3">
                     <p class="stats-title">Remaining Locations</p>
                     <p class="stats-figure remaining">0</p>
                 </div>
-                <div class="cell small-6 medium-3">
+                <div class="col col-6 col-sm-3">
                     <p class="stats-title">World Coverage</p>
                     <p class="stats-figure"><span class="completed_percent">0</span>%</p>
                 </div>
-                <div class="cell small-6 medium-3">
+                <div class="col col-6 col-sm-3">
                     <p class="stats-title">Time Elapsed</p>
                     <p class="stats-figure time_elapsed">0</p>
                 </div>
 
-                <div class="cell small-6 medium-3">
+                <div class="col col-6 col-sm-3">
                     <p class="stats-title">Start Time</p>
                     <p class="stats-figure start_time">0</p>
                 </div>
 
                 <!-- Elements to support targeted end dates -->
-                <div class="cell small-6 medium-3 on-going" style="display:none;">
+                <div class="col col-6 col-sm-3 on-going" style="display:none;">
                     <p class="stats-title">End Time</p>
                     <p class="stats-figure end_time">0</p>
                 </div>
-                <div class="cell small-6 medium-3 on-going" style="display:none;">
+                <div class="col col-6 col-sm-3 on-going" style="display:none;">
                     <p class="stats-title">Locations per Hour</p>
                     <p class="stats-figure locations_per_hour" style="margin-bottom: 0">0</p>
                     <p class="stats-small">
                         <small class="locations_per_day">0</small> <small>per day</small>
                     </p>
                 </div>
-                <div class="cell small-6 medium-3 on-going" style="display:none;">
+                <div class="col col-6 col-sm-3 on-going" style="display:none;">
                     <p class="stats-title">Current Locations per Hour</p>
                     <p class="stats-figure needed_locations_per_hour" style="margin-bottom: 0">0</p>
                     <p class="stats-small">
                         <small class="needed_locations_per_day">0</small> <small>per day</small>
                     </p>
                 </div>
-                <div class="cell small-6 medium-3 on-going" style="display:none;">
+                <div class="col col-6 col-sm-3 on-going" style="display:none;">
                     <p class="stats-title">Time Remaining</p>
                     <p class="stats-figure time_remaining">0</p>
                 </div>
