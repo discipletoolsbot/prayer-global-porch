@@ -162,10 +162,6 @@
 .pg_footer {
     color: white;
 }
-.pb_footer {
-    background-size: cover;
-    filter: brightness(0.6);
-}
 .video-image-link {
     cursor: pointer;
 }
