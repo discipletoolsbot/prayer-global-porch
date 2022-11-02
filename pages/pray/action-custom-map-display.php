@@ -89,6 +89,7 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/bootstrap/bootstrap.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>heatmap.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'heatmap.css' ) ) ?>" type="text/css" media="all">
@@ -122,14 +123,14 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
                 <div id='map'></div>
                 <div id="foot_block">
                     <div class="map-overlay" id="map-legend"></div>
-                    <div class="grid-x grid-padding-x">
-                        <div class="cell medium-2" id="qr-cell"></div>
-                        <div class="cell medium-1"></div>
-                        <div class="cell medium-2 center"><strong>Prayer Warriors</strong><br><strong><span class="three-em prayer_warriors"></span></strong></div>
-                        <div class="cell medium-2 center"><strong>Places Covered</strong><br><strong><span class="three-em green completed"></span></strong></div>
-                        <div class="cell medium-2 center"><strong>Places Remaining</strong><br><strong><span class="three-em red remaining"></span></strong></div>
-                        <div class="cell medium-2 center hide-for-small-only"><strong>World Coverage</strong><br><strong><span class="three-em completed completed_percent"></span><span class="three-em">%</span></strong></div>
-                        <div class="cell medium-1"></div>
+                    <div class="row">
+                        <div class="col col-sm-2" id="qr-cell"></div>
+                        <div class="col col-sm-1"></div>
+                        <div class="col col-sm-2 center"><strong>Prayer Warriors</strong><br><strong><span class="three-em prayer_warriors"></span></strong></div>
+                        <div class="col col-sm-2 center"><strong>Places Covered</strong><br><strong><span class="three-em green completed"></span></strong></div>
+                        <div class="col col-sm-2 center"><strong>Places Remaining</strong><br><strong><span class="three-em red remaining"></span></strong></div>
+                        <div class="col col-sm-2 center d-none d-sm-block"><strong>World Coverage</strong><br><strong><span class="three-em completed completed_percent"></span><span class="three-em">%</span></strong></div>
+                        <div class="col col-sm-1"></div>
                     </div>
                     <div id="qr-code-block">
                         <div class="two-em center">PRAY WITH US</div>
@@ -142,14 +143,14 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
         <div class="off-canvas position-right" id="offcanvas_menu" data-close-on-click="true" data-off-canvas>
             <button type="button" data-toggle="offcanvas_menu"><i class="ion-chevron-right three-em"></i></button>
             <hr>
-            <div class="show-for-small-only">
+            <div class="d-sm-none">
                 <hr>
             </div>
         </div>
         <div class="off-canvas position-right " id="offcanvas_location_details" data-close-on-click="true" data-content-overlay="false" data-off-canvas>
             <button type="button" data-toggle="offcanvas_location_details"><i class="ion-chevron-right three-em"></i></button>
             <hr>
-            <div class="grid-x grid-padding-x" id="grid_details_content"></div>
+            <div class="row" id="grid_details_content"></div>
         </div>
         <?php
     }
