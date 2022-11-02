@@ -260,9 +260,9 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             'jquery',
             'mapbox-gl'
         ], filemtime( plugin_dir_path( __FILE__ ) .'heatmap.js' ), true );
-        wp_enqueue_script( 'bootstrap-js', trailingslashit( plugin_dir_url( __DIR__ ) ) . 'assets/js/bootstrap.min.js', [
+        wp_enqueue_script( 'bootstrap-js', trailingslashit( plugin_dir_url( __DIR__ ) ) . 'assets/js/bootstrap.bundle.min.js', [
             'jquery',
-        ], filemtime( plugin_dir_path( __DIR__ ) .'assets/js/bootstrap.min.js' ), true );
+        ], filemtime( plugin_dir_path( __DIR__ ) .'assets/js/bootstrap.bundle.min.js' ), true );
     }
 
     public function endpoint( WP_REST_Request $request ) {

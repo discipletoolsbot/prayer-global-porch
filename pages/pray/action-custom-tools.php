@@ -100,7 +100,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                     <span class="input-group-btn">
                       <button class="btn btn-default copy-button" type="button" id="copy-button"
                               data-bs-toggle="tooltip" data-placement="button"
-                              data-bs-title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-input">
+                              title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-input">
                         Copy
                       </button>
                     </span>
@@ -123,7 +123,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                     <span class="input-group-btn">
                       <button class="btn btn-default copy-button" type="button" id="copy-button-display"
                               data-bs-toggle="tooltip" data-placement="button"
-                              data-bs-title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-display-input">
+                              title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-display-input">
                         Copy
                       </button>
                     </span>
@@ -149,7 +149,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                             <span class="input-group-btn">
                           <button class="btn btn-default copy-button" type="button" id="copy-button-qrapp"
                                   data-bs-toggle="tooltip" data-placement="button"
-                                  data-bs-title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-input-qrapp">
+                                  title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-input-qrapp">
                             Copy
                           </button>
                         </span>
