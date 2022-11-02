@@ -1,6 +1,9 @@
 body {
     color: black;
-    font-family: Helvetica, Arial, sans-serif;
+    line-height: 1.8;
+}
+a {
+    text-decoration: none;
 }
 .center {
     text-align:center;
