@@ -9,6 +9,9 @@ h2 {
 a {
     text-decoration: none;
 }
+strong {
+    font-weight: bold;
+}
 .center {
     text-align:center;
 }
