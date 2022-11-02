@@ -1,4 +1,4 @@
-<footer class="pb_footer bg-light cover-bg-black cover-bg-opacity-4" role="contentinfo"  style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/1900x1200_img_2.jpg);">
+<footer class="pb_footer" role="contentinfo"  style="background-image:  linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/1900x1200_img_2.jpg);">
     <div class="container">
         <div class="row" >
             <div class="col-md-3">
