@@ -12,6 +12,10 @@ a {
 strong {
     font-weight: bold;
 }
+.form-control {
+    font-weight: 300;
+    color: #495057;
+}
 .center {
     text-align:center;
 }
@@ -27,6 +31,15 @@ strong {
 }
 .one-em {
     font-size: 1.5em;
+}
+.font-weight-bold {
+    font-weight: 700;
+}
+.font-weight-normal {
+    font-weight: 300;
+}
+.font-italic {
+    font-style: italic;
 }
 @media (max-width: 768px) {
     .six-em {

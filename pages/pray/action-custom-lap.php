@@ -222,7 +222,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                         <p><span id="correction_title" class="correction_field"></span></p>
                         <p>
                             Section:<br>
-                            <select class="form-control correction_field" id="correction_select"></select>
+                            <select class="form-control form-select correction_field" id="correction_select"></select>
                         </p>
                         <p>
                             Correction Requested:<br>

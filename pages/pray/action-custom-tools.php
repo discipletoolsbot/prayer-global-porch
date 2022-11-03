@@ -97,13 +97,11 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                 <div class="input-group">
                     <input type="text" class="form-control copy-input"
                            value="<?php echo esc_url( get_site_url() ) ?>/prayer_app/custom/<?php echo esc_html( $lap_stats['key'] ) ?>/map" placeholder="Some path" id="copy-input">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default copy-button" type="button" id="copy-button"
+                      <button class="btn btn-secondary copy-button input-group-btn" type="button" id="copy-button"
                               data-bs-toggle="tooltip" data-placement="button"
                               title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-input">
                         Copy
                       </button>
-                    </span>
                 </div>
 
 
@@ -120,13 +118,11 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                 <div class="input-group">
                     <input type="text" class="form-control copy-display"
                            value="<?php echo esc_url( get_site_url() ) ?>/prayer_app/custom/<?php echo esc_html( $lap_stats['key'] ) ?>/display" placeholder="Some path" id="copy-display-input">
-                    <span class="input-group-btn">
-                      <button class="btn btn-default copy-button" type="button" id="copy-button-display"
+                      <button class="btn btn-secondary copy-button input-group-btn" type="button" id="copy-button-display"
                               data-bs-toggle="tooltip" data-placement="button"
                               title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-display-input">
                         Copy
                       </button>
-                    </span>
                 </div>
 
 
@@ -146,13 +142,11 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                         <div class="input-group">
                             <input type="text" class="form-control copy-input"
                                    value="<?php echo esc_url( get_site_url() ) ?>/qr/app" placeholder="Some path" id="copy-input-qrapp">
-                            <span class="input-group-btn">
-                          <button class="btn btn-default copy-button" type="button" id="copy-button-qrapp"
+                          <button class="btn btn-secondary copy-button input-group-btn" type="button" id="copy-button-qrapp"
                                   data-bs-toggle="tooltip" data-placement="button"
                                   title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-input-qrapp">
                             Copy
                           </button>
-                        </span>
                         </div>
                     </div>
                 </div>

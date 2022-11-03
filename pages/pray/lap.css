@@ -19,6 +19,19 @@ section {
 .btn-group {
     width: 100%;
 }
+.btn {
+    --bs-btn-line-height: 1.25;
+    --bs-btn-padding-y: 0.5rem;
+    --bs-btn-padding-x: 0.75rem;
+}
+.btn-sm {
+    --bs-btn-line-height: 1.5;
+    --bs-btn-padding-y: 0.25rem;
+    --bs-btn-padding-x: 0.5rem;
+}
+.btn-link {
+    text-decoration: none;
+}
 #praying_button {
     width:100%;
     border: none;

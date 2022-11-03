@@ -2,6 +2,10 @@
 body {
     line-height: 1.8;
 }
+.nav-link {
+    --bs-nav-link-padding-y: 2em;
+    --bs-nav-link-padding-x: 1em;
+}
 .nav-link.pb_outline-dark {
     border:none;
     line-height: inherit;
