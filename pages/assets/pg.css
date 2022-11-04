@@ -10,6 +10,12 @@ body {
     border:none;
     line-height: inherit;
 }
+@media (max-width: 991px) {
+    .pb_navbar .nav-link {
+       padding-left: 1em !important;
+       padding-right: 1em !important;
+    }
+}
 .nav-link.pb_outline-dark:hover {
     color:white !important;
 }
@@ -60,7 +66,14 @@ body {
 @media (max-width: 991px) {
     .pb_navbar_light .nav-link {
         padding-left: 0rem !important;
-        padding-right: 0rem !important; } }
+        padding-right: 0rem !important;
+        color: rgb(0, 0, 0);
+    }
+    .pb_navbar_light .btn.nav-link {
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+    }
+}
 @media (max-width: 767px) {
     .pb_navbar_light .nav-link {
         padding-left: 0 !important;

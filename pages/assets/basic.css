@@ -100,6 +100,12 @@ strong {
 .navbar {
     padding: 1em 1em;
 }
+.navbar a {
+    color: white;
+}
+.navbar-light .navbar-brand {
+    color: rgba(0, 0, 0, 0.9);
+}
 @media (max-width: 991px) {
     .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
         padding-right: 0;
