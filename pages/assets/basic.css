@@ -3,6 +3,7 @@
 :root {
     --pg-font-family-base: "Montserrat", Arial, sans-serif;
     --bs-body-font-weight: 300;
+    --bs-body-line-height: 1.8;
 }
 html {
     font-size: 1em;

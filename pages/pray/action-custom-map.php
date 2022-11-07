@@ -117,15 +117,9 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             </div>
             <div id="map-wrapper">
                 <div id="head_block">
-                    <div class="row">
-                        <div class="col col-6 col-lg-9">
-                            <span class="two-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
-                        </div>
-                        <div class="col col-6 col-lg-3" id="nav-list">
-                            <ul>
-                                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a></li>
-                            </ul>
-                        </div>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span class="two-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
+                        <a class="btn btn-outline-dark py-2" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a>
                     </div>
                 </div>
                 <span class="loading-spinner active"></span>
