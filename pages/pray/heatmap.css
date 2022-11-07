@@ -1,6 +1,5 @@
 body {
     background: white !important;
-    font-family: Helvetica, Arial, sans-serif;
 }
 button {
     line-height: initial;
@@ -46,6 +45,7 @@ progress {
 }
 #head_block {
     margin: 0 auto 1em;
+    z-index: 10;
 }
 #head_block_wrapper {
     position: absolute;
