@@ -38,6 +38,8 @@ class PG_Custom_Prayer_App_Stats extends PG_Custom_Prayer_App {
         add_filter( 'dt_magic_url_base_allowed_css', [ $this, 'dt_magic_url_base_allowed_css' ], 10, 1 );
         add_filter( 'dt_magic_url_base_allowed_js', [ $this, 'dt_magic_url_base_allowed_js' ], 10, 1 );
 
+        require( __DIR__ . '/nav-custom-lap.php' );
+
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
@@ -86,22 +88,9 @@ class PG_Custom_Prayer_App_Stats extends PG_Custom_Prayer_App {
                 height: 100vh;
             }
         </style>
-        <nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_navbar_nav pb_scrolled-light" id="pb-navbar">
-            <div class="container">
-                <a class="navbar-brand" href="/">Prayer.Global</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                    <span><i class="ion-navicon"></i></span>
-                </button>
-                <div class="collapse navbar-collapse" id="probootstrap-navbar">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item"><a class="nav-link" href="/#section-home">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#section-lap">Prayer Laps</a></li>
-                        <li class="nav-item"><a class="nav-link" href="/#section-about">About</a></li>
-                        <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark" style="text-transform: capitalize;" href="/newest/lap/">Start Praying</a></li>
-                    </ul>
-                </div>
-            </div>
-        </nav>
+
+
+        <?php pg_custom_lap_nav( $parts['public_key'] ) ?>
 
         <section class="pb_cover_v1 completed-lap text-left cover-bg-black cover-bg-opacity-4" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
             <div class="container">
