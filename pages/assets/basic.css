@@ -12,7 +12,7 @@ strong {
     font-weight: bold;
 }
 .navbar {
-    --bs-navbar-brand-color: #3f729b;
+    --bs-navbar-brand-color: #1d82ff;
 }
 .form-control {
     font-weight: 300;
