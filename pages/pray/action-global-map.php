@@ -117,28 +117,31 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
             </div>
             <div id="map-wrapper">
                 <div id="head_block">
-                    <div class="row align-items-center">
-                        <div class="col col-md-2 col-lg-5 d-none d-lg-block">
-                            <a href="/" class="navbar-brand">Prayer.Global</a>
+                    <nav class="navbar navbar-expand-lg navbar-light pb_navbar pb_navbar_light pg-navbar p-0">
+                        <div class="container align-items-center mx-0 px-0" style="max-width: 100%;">
+                            <div class="col col-md-2 col-lg-5 d-none d-lg-block"><a href="/" class="navbar-brand">Prayer.Global</a></div>
+                            <div class="center col col-md-2 col-lg-2 d-none d-lg-block">
+                                <span class="two-em">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?></span>
+                            </div>
+                            <div class="col col-6 d-lg-none">
+                                <span><a href="/" class="brand-color two-em">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?></a></span>
+                            </div>
+                            <div class="col col-5 d-lg-none nav-list-link" style="text-align:right; whitespace:nowrap;">
+                                 <a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/newest/lap/">Start Praying</a>
+                            </div>
+                            <button class="navbar-toggler col-1" type="button" data-bs-toggle="collapse" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                                <span><i class="ion-navicon"></i></span>
+                            </button>
+                            <div class="collapse navbar-collapse col col-md-8 col-lg-5" id="nav-list">
+                                <ul class="navbar-nav ms-auto">
+                                    <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/newest/lap/">Start Praying</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/#section-challenge">Challenge</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
+                                    <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
+                                </ul>
+                            </div>
                         </div>
-                        <div class="col col-md-2 col-lg-2 center d-none d-lg-block">
-                            <span class="two-em">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?></span>
-                        </div>
-                        <div class="col col-md-8 col-lg-5 d-none d-lg-block" id="nav-list">
-                            <ul>
-                                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/newest/lap/">Start Praying</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/#section-challenge">Challenge</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
-                            </ul>
-                        </div>
-                        <div class="col col-6 d-lg-none">
-                            <span class="two-em"><a href="/">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?></a></span>
-                        </div>
-                        <div class="col col-6 d-lg-none nav-list-link" style="text-align:right; whitespace:nowrap;">
-                             <a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/newest/lap/">Start Praying</a>
-                        </div>
-                    </div>
+                    </nav>
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>

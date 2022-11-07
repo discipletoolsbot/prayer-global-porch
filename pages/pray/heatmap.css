@@ -24,9 +24,16 @@ progress {
 }
 .pb_navbar .navbar-toggler {
     color: black;
-    border-color: black;
+    border: none;
     cursor: pointer;
     padding-right: 0;
+    font-size: 30px;
+}
+.pb_navbar .navbar-toggler:active, .pb_navbar .navbar-toggler:focus {
+    box-shadow: none;
+    outline: none; }
+.navbar-light .navbar-brand, .navbar-light .brand-color {
+    color: var(--bs-navbar-brand-color);
 }
 #head_block, #foot_block {
     position: absolute;

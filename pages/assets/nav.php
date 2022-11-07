@@ -4,73 +4,29 @@ $url = dt_get_url_path();
 /**
  * Nav for Home Page
  */
-if ( '' === $url ) { ?>
-<nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_navbar_nav pb_scrolled-light" id="pb-navbar">
-    <div class="container">
-        <a class="navbar-brand" href="/">Prayer.Global</a>
-        <a class="nav-link btn smoothscroll pb_outline-dark highlight d-lg-none ms-auto me-3" href="/newest/lap/">Start Praying</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
+$dark_nav_class = '' === $url ||  str_contains( $url, 'stats' ) || str_contains( $url, 'completed' ) ? 'navbar-dark' : '';
+?>
+<nav class="navbar <?php echo $dark_nav_class ?> pg-navbar bg-none scrolled-light" id="pg-navbar">
+    <div class="container align-items-center">
+        <a class="navbar-brand me-auto" href="/">Prayer.Global</a>
+        <a class="navbar__cta btn btn-outline-dark py-2 py-lg-4 me-3" href="/newest/lap/">Start Praying</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span><i class="ion-navicon"></i></span>
         </button>
-        <div class="collapse navbar-collapse" id="probootstrap-navbar">
-            <ul class="navbar-nav pb-3">
-                <li class="nav-item d-none d-lg-block"><a class="nav-link btn smoothscroll pb_outline-dark highlight" href="/newest/lap/">Start Praying</a></li>
+    </div>
+    <div class="offcanvas offcanvas-end pg-navmenu" data-bs-backdrop="true" data-bs-scroll="true" id="probootstrap-navbar">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">Prayer.Global</h5>
+          <button type="button" class="btn-close pe-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+        </div>
+        <div class="offcanvas-body">
+            <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
+                <li class="nav-item"><a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="/newest/lap/">Start Praying</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-challenge">Challenge</a></li>
                 <li class="nav-item"><a class="nav-link" href="#section-lap">Status</a></li>
                 <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>
                 <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
-                <li class="nav-item d-lg-none"><a class="nav-link" href="/race_app/big_map/">Big Map</a></li>
-                <li class="nav-item d-lg-none"></li>
             </ul>
         </div>
     </div>
 </nav>
-
-<?php } else if ( str_contains( $url, 'stats' ) || str_contains( $url, 'completed' ) ) { ?>
-<nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_navbar_nav pb_scrolled-light" id="pb-navbar">
-    <div class="container">
-        <a class="navbar-brand" href="/">Prayer.Global</a>
-        <a class="nav-link btn smoothscroll pb_outline-dark highlight d-lg-none ms-auto me-3" href="/newest/lap/">Start Praying</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span><i class="ion-navicon"></i></span>
-        </button>
-        <div class="collapse navbar-collapse" id="probootstrap-navbar">
-            <ul class="navbar-nav ms-auto pb-3">
-                <li class="nav-item d-none d-lg-block"><a class="nav-link btn smoothscroll pb_outline-dark highlight" href="/newest/lap/">Start Praying</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#section-challenge">Challenge</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
-                <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>
-                <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
-                <li class="nav-item d-lg-none"><a class="nav-link" href="/race_app/big_map/">Big Map</a></li>
-                <li class="nav-item d-lg-none"></li>
-            </ul>
-        </div>
-    </div>
-</nav>
-
-<?php } else {
-    /**
-     * Nav for Inner Pages
-     */
-    ?>
-    <nav class="navbar navbar-expand-lg navbar-light pb_navbar_light pb_navbar_nav pb_scrolled-light" id="pb-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="/">Prayer.Global</a>
-            <a class="nav-link btn smoothscroll pb_outline-dark highlight d-lg-none ms-auto me-3" style="border:1px black solid;" href="/newest/lap/">Start Praying</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span><i class="ion-navicon"></i></span>
-            </button>
-            <div class="collapse navbar-collapse" id="probootstrap-navbar">
-                <ul class="navbar-nav ms-auto pb-3">
-                    <li class="nav-item d-none d-lg-block"><a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/newest/lap/">Start Praying</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#section-challenge">Challenge</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#section-lap">Status</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
-                    <li class="nav-item d-lg-none"><a class="nav-link" href="/race_app/big_map/">Big Map</a></li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-
-<?php } ?>

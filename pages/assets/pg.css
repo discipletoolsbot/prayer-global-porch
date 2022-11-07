@@ -1,8 +1,88 @@
 /* custom styles for prayer.global */
 body {
     line-height: 1.8;
+    --font-weight-default: 300;
 }
-.nav-link {
+
+.pg-navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    padding: 1em 1em;
+}
+
+.pg-navbar.scrolled {
+    position: fixed;
+    right: 0;
+    left: 0;
+    top: 0;
+    margin-top: -130px;
+}
+.pg-navbar.scrolled.awake {
+    margin-top: 0px;
+    -webkit-transition: .3s all ease-out;
+    -o-transition: .3s all ease-out;
+    transition: .3s all ease-out;
+}
+.pg-navbar.scrolled.sleep {
+    -webkit-transition: .3s all ease-out;
+    -o-transition: .3s all ease-out;
+    transition: .3s all ease-out;
+}
+.pg-navbar.scrolled {
+    background-color: var(--bs-white);
+}
+
+.navbar-dark {
+    --bs-link-color: white;
+    --bs-navbar-color: white;
+}
+.navbar-dark .navbar-brand {
+    --bs-navbar-brand-color: white;
+    --bs-navbar-brand-hover-color: #b2dcff;
+}
+.btn {
+    --bs-btn-font-weight: var(--font-weight-default);
+}
+.btn-close:focus, .btn-close:active {
+    box-shadow: none;
+}
+.btn-outline-dark {
+    --bs-btn-border-color: black;
+}
+.navbar-dark .btn-outline-dark {
+    --bs-btn-color: white;
+    --bs-btn-border-color: white;
+    --bs-btn-hover-bg: black;
+}
+
+.navbar-toggler {
+    --bs-navbar-toggler-font-size: 30px;
+}
+.navbar-toggler, .navbar-toggler:active, .navbar-toggler:focus {
+    border: none;
+    box-shadow: none;
+}
+.pg-navmenu {
+    --bs-bg-opacity: 1;
+    padding: 0.5em 1em;
+}
+.navbar-dark .pg-navmenu {
+    background: black;
+    --bs-offcanvas-color: white;
+}
+.navbar-dark .btn-close {
+    filter: invert(1) grayscale(100%) brightness(200%);
+}
+@media ( max-width: 576px ) {
+    .navbar__cta {
+        order: 2;
+        width: 100%;
+    }
+}
+/* .nav-link {
     --bs-nav-link-padding-y: 2em;
     --bs-nav-link-padding-x: 1em;
 }
@@ -200,3 +280,4 @@ body {
     background: none !important;
     color: black;
 }
+*/

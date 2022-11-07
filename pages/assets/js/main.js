@@ -14,10 +14,11 @@ $(document).ready(function($) {
 
 	// scroll
 	var scrollWindow = function() {
+		let wasDarkNav = false;
 		$(window).scroll(function(){
 			var $w = $(this),
 					st = $w.scrollTop(),
-					navbar = $('.pb_navbar_nav'),
+					navbar = $('.pg-navbar'),
 					sd = $('.js-scroll-wrap');
 
 			if (st > 150) {
@@ -33,6 +34,12 @@ $(document).ready(function($) {
 			if ( st > 350 ) {
 				if ( !navbar.hasClass('awake') ) {
 					navbar.addClass('awake');
+					if ( !wasDarkNav && navbar.hasClass('navbar-dark')) {
+						wasDarkNav = true
+					}
+					if (wasDarkNav) {
+						navbar.removeClass('navbar-dark')
+					}
 				}
 
 				if(sd.length > 0) {
@@ -43,6 +50,9 @@ $(document).ready(function($) {
 				if ( navbar.hasClass('awake') ) {
 					navbar.removeClass('awake');
 					navbar.addClass('sleep');
+					if (wasDarkNav) {
+						navbar.addClass('navbar-dark')
+					}
 				}
 				if(sd.length > 0) {
 					sd.removeClass('sleep');
@@ -165,8 +175,8 @@ $(document).ready(function($) {
 	var OnePageNav = function() {
 		$(".smoothscroll[href^='#'], #probootstrap-navbar ul li a[href^='#']").on('click', function(e) {
 		 	e.preventDefault();
-		 	var hash = this.hash,
-		 			navToggler = $('.navbar-toggler');
+			var hash = this.hash,
+					navToggler = $('.navbar-toggler');
 		 	$('html, body').animate({
 
 		    scrollTop: $(hash).offset().top
