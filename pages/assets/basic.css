@@ -372,6 +372,7 @@ strong {
     letter-spacing: 0.2em;
     --bs-btn-border-color: unset;
     --bs-btn-color: #1d82ff;
+    --bs-btn-hover-bg: #1d82ff;
 }
 
 
