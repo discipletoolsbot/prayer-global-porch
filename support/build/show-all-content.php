@@ -118,7 +118,7 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
 
         require_once( WP_CONTENT_DIR . '/plugins/prayer-global-porch/pages/assets/nav.php' ) ?>
 
-        <section class="pb_section" >
+        <section class="page-section" >
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">

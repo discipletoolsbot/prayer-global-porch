@@ -75,7 +75,7 @@ class Prayer_Global_Porch_Subscribe extends DT_Magic_Url_Base
     public function body(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' ) ?>
 
-        <section class="pb_section" style="height: 95vh;">
+        <section class="page-section" style="height: 95vh;">
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">

@@ -7,7 +7,7 @@
                 <h2 class="heading mb-3">Cover the World in Prayer</h2>
                 <div class="sub-heading">
                     <p class="mb-5">Community driven, movement-focused, saturation prayer.</p>
-                    <p><a href="/newest/lap/" style="background-color:rgba(255,255,255,.7);" role="button" class="btn smoothscroll pb_font-25 btn-xl pb_font-13 p-4 rounded-0 pb_letter-spacing-2">Start Praying</a></p>
+                    <p><a href="/newest/lap/" role="button" class="btn btn-xl cta_button smoothscroll">Start Praying</a></p>
                 </div>
             </div>
         </div>
@@ -15,7 +15,7 @@
 </section>
 <!-- END section -->
 
-<section class="pb_section" data-section="about" id="section-about">
+<section class="page-section" data-section="about" id="section-about">
     <div class="container">
         <div class="row justify-content-md-center text-center mb-5">
             <div class="col-lg-7">
@@ -35,7 +35,7 @@
             <div class="col-lg-5 ps-md-5 ps-sm-0">
                 <div id="prayer_accordion_" class="pb_accordion" data-children=".item">
                     <div class="item">
-                        <a data-bs-toggle="collapse" href="#prayer_accordion_1" aria-expanded="true" aria-controls="prayer_accordion_1" class="pb_font-18 uppercase">Historic Moment</a>
+                        <a data-bs-toggle="collapse" href="#prayer_accordion_1" aria-expanded="true" aria-controls="prayer_accordion_1" class="fs-5 uppercase">Historic Moment</a>
                         <div id="prayer_accordion_1" class="accordian-collapse collapse show" role="tabpanel">
                             <p>
                                 We know three things about our moment in history:
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <a data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_2" aria-expanded="false" aria-controls="prayer_accordion_2" class="pb_font-18 uppercase">How it works</a>
+                        <a data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_2" aria-expanded="false" aria-controls="prayer_accordion_2" class="fs-5 uppercase">How it works</a>
                         <div id="prayer_accordion_2" class="collapse" role="tabpanel">
                             <p>
                                 <span class="black">&#9312;</span> Click on "Start Praying". <a href="/newest/lap/"><i class="ion-android-open"></i></a>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <a data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_3" aria-expanded="false" aria-controls="prayer_accordion_3" class="pb_font-18 uppercase">Moravian Prayer Challenge</a>
+                        <a data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_3" aria-expanded="false" aria-controls="prayer_accordion_3" class="fs-5 uppercase">Moravian Prayer Challenge</a>
                         <div id="prayer_accordion_3" class="collapse" role="tabpanel">
                             <p>
                                 Inspired by the <a href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">Moravians</a>, who prayed non-stop for 100 years,
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <a data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_4" aria-expanded="false" aria-controls="prayer_accordion_4" class="pb_font-18 uppercase">Maps & Lists</a>
+                        <a data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_4" aria-expanded="false" aria-controls="prayer_accordion_4" class="fs-5 uppercase">Maps & Lists</a>
                         <div id="prayer_accordion_4" class="collapse" role="tabpanel">
                             <p>
                                 <strong class="black">Current Map</strong> <a href="/newest/map"><i class="ion-android-open"></i></a>
@@ -166,40 +166,40 @@
 <!-- END section -->
 
 
-<section class="pb_section pb_section_v1" data-section="lap" id="section-lap">
+<section class="page-section" data-section="lap" id="section-lap">
     <div class="container">
         <div class="row">
-            <div class="col-md text-center pb_sm_py_cover">
-                <h2 class=" mb-3 heading" style="color:#212529">Current Lap</h2>
-                <h3 class="mt-0 heading-border-top pb_font-30" id="current_time_elapsed"><span class="loading-spinner active"></span></h3>
+            <div class="col-md text-center stats-header">
+                <h2 class="stats-header__title" style="">Current Lap</h2>
+                <h3 class="stats-header__subtitle header-border-top" id="current_time_elapsed"><span class="loading-spinner active"></span></h3>
                 <br>
             </div>
         </div>
         <div class="row">
             <div class="col-md">
-                <div class="pb_media_v2 d-block text-center mb-3">
-                    <div class="icon border border-gray rounded-circle d-flex display-4 mx-auto mb-4"><i class="text-primary ion-ios-body-outline"></i></div>
+                <div class="stats-info">
+                    <div class="stats-info__icon display-4"><i class="text-primary ion-ios-body-outline"></i></div>
                     <div class="">
-                        <h3 class="mt-0 pb_font-45" id="current_participants"><span class="loading-spinner active"></span></h3>
-                        <h3 class="mt-0 pb_font-20">Prayer Warriors</h3>
+                        <h3 class="stats-info__title" id="current_participants"><span class="loading-spinner active"></span></h3>
+                        <h3 class="stats-info__subtitle">Prayer Warriors</h3>
                     </div>
                 </div>
             </div>
             <div class="col-md">
-                <div class="pb_media_v2 d-block text-center mb-3">
-                    <div class="icon border border-gray rounded-circle d-block display-4 mx-auto mb-4"><i class="text-primary ion-earth"></i></div>
+                <div class="stats-info">
+                    <div class="stats-info__icon display-4"><i class="text-primary ion-earth"></i></div>
                     <div class="">
-                        <h3 class="mt-0 pb_font-45" id="current_completed"><span class="loading-spinner active"></span></h3>
-                        <h3 class="mt-0 pb_font-20">Covered</h3>
+                        <h3 class="stats-info__title" id="current_completed"><span class="loading-spinner active"></span></h3>
+                        <h3 class="stats-info__subtitle">Covered</h3>
                     </div>
                 </div>
             </div>
             <div class="col-md">
-                <div class="pb_media_v2 d-block text-center  mb-3">
-                    <div class="icon border border-gray rounded-circle d-flex display-4 mx-auto mb-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
+                <div class="stats-info">
+                    <div class="stats-info__icon display-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
                     <div class="">
-                        <h3 class="mt-0 pb_font-45" id="current_remaining"><span class="loading-spinner active"></span></h3>
-                        <h3 class="mt-0 pb_font-20">Remaining</h3>
+                        <h3 class="stats-info__title" id="current_remaining"><span class="loading-spinner active"></span></h3>
+                        <h3 class="stats-info__subtitle">Remaining</h3>
                     </div>
                 </div>
             </div>
@@ -213,37 +213,37 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md text-center pb_sm_py_cover">
-                <h2 class=" mb-3 heading" style="color:#212529">Global Race</h2>
-                <h3 class="mt-0 heading-border-top pb_font-30" id="global_time_elapsed"><span class="loading-spinner active"></span></h3>
+            <div class="col-md text-center stats-header">
+                <h2 class="stats-header__title">Global Race</h2>
+                <h3 class="stats-header__subtitle header-border-top" id="global_time_elapsed"><span class="loading-spinner active"></span></h3>
                 <br>
             </div>
         </div>
         <div class="row">
             <div class="col-md">
-                <div class="pb_media_v2 d-block text-center mb-3">
-                    <div class="icon border border-gray rounded-circle d-flex display-4 mx-auto mb-4"><i class="text-primary ion-ios-body-outline"></i></div>
+                <div class="stats-info">
+                    <div class="stats-info__icon display-4"><i class="text-primary ion-ios-body-outline"></i></div>
                     <div class="">
-                        <h3 class="mt-0 pb_font-45" id="global_participants"><span class="loading-spinner active"></span></h3>
-                        <h3 class="mt-0 pb_font-20">Prayer Warriors</h3>
+                        <h3 class="stats-info__title" id="global_participants"><span class="loading-spinner active"></span></h3>
+                        <h3 class="stats-info__subtitle">Prayer Warriors</h3>
                     </div>
                 </div>
             </div>
             <div class="col-md">
-                <div class="pb_media_v2 d-block text-center  mb-3">
-                    <div class="icon border border-gray rounded-circle d-flex display-4 mx-auto mb-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
+                <div class="stats-info">
+                    <div class="stats-info__icon display-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
                     <div class="">
-                        <h3 class="mt-0 pb_font-45" id="global_minutes_prayed"><span class="loading-spinner active"></span></h3>
-                        <h3 class="mt-0 pb_font-20">Minutes Prayed</h3>
+                        <h3 class="stats-info__title" id="global_minutes_prayed"><span class="loading-spinner active"></span></h3>
+                        <h3 class="stats-info__subtitle">Minutes Prayed</h3>
                     </div>
                 </div>
             </div>
             <div class="col-md">
-                <div class="pb_media_v2 d-block text-center mb-3">
-                    <div class="icon border border-gray rounded-circle d-block display-4 mx-auto mb-4"><i class="text-primary ion-earth"></i></div>
+                <div class="stats-info">
+                    <div class="stats-info__icon display-4"><i class="text-primary ion-earth"></i></div>
                     <div class="">
-                        <h3 class="mt-0 pb_font-45" id="global_lap_number"><span class="loading-spinner active"></span></h3>
-                        <h3 class="mt-0 pb_font-20">Laps</h3>
+                        <h3 class="stats-info__title" id="global_lap_number"><span class="loading-spinner active"></span></h3>
+                        <h3 class="stats-info__subtitle">Laps</h3>
                     </div>
                 </div>
             </div>
@@ -304,7 +304,7 @@
 </section>
 <!-- END section -->
 
-<section class="pb_section bg-light"  >
+<section class="page-section bg-light"  >
     <div class="container">
         <div class="row justify-content-md-center text-center mb-5">
             <div class="col-lg-7">
@@ -317,7 +317,7 @@
                     <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 flex-shrink-0 me-3 display-4 text-primary"><i class="ion-heart"></i></div>
                     <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Loving</h3>
-                        <p class="pb_font-14">Prayer.Global loves God, loves people, and helps Christians fulfill the Great Commission by mobilizing prayer.</p>
+                        <p class="small">Prayer.Global loves God, loves people, and helps Christians fulfill the Great Commission by mobilizing prayer.</p>
                     </div>
                 </div>
             </div>
@@ -326,7 +326,7 @@
                     <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-android-restaurant"></i></div>
                     <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Expectant</h3>
-                        <p class="pb_font-14">Prayer.Global strives to neither under- nor over-estimate man’s role in disciple multiplication movements. God declared prayer as the vehicle for seeking and receiving his kingdom.</p>
+                        <p class="small">Prayer.Global strives to neither under- nor over-estimate man’s role in disciple multiplication movements. God declared prayer as the vehicle for seeking and receiving his kingdom.</p>
                     </div>
                 </div>
             </div>
@@ -335,7 +335,7 @@
                     <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-android-restaurant"></i></div>
                     <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Open</h3>
-                        <p class="pb_font-14">Prayer.Global welcomes prayer collaboration from all followers of Jesus.</p>
+                        <p class="small">Prayer.Global welcomes prayer collaboration from all followers of Jesus.</p>
                     </div>
                 </div>
             </div>
@@ -345,7 +345,7 @@
                     <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-search"></i></div>
                     <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Kingdom Focused</h3>
-                        <p class="pb_font-14">Prayer.Global recognizes there are many good things to pray for, but our purpose is to pray for the kingdom to come and the gospel to reach every place in the world. Gospel poverty is the great poverty and injustice of our generation.</p>
+                        <p class="small">Prayer.Global recognizes there are many good things to pray for, but our purpose is to pray for the kingdom to come and the gospel to reach every place in the world. Gospel poverty is the great poverty and injustice of our generation.</p>
                     </div>
                 </div>
             </div>
@@ -354,7 +354,7 @@
                     <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-stats-bars"></i></div>
                     <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Strategic</h3>
-                        <p class="pb_font-14">Prayer.Global promotes strategic prayer for movement, knowing that ( based upon research ) extraordinary prayer is found at the root of all modern movements.</p>
+                        <p class="small">Prayer.Global promotes strategic prayer for movement, knowing that ( based upon research ) extraordinary prayer is found at the root of all modern movements.</p>
                     </div>
                 </div>
             </div>
@@ -363,7 +363,7 @@
                     <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-ios-bookmarks"></i></div>
                     <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Word-Centric</h3>
-                        <p class="pb_font-14">Prayer.Global seeks to guide prayer warriors to the bible as the source for knowing God's heart and modeling for how to pray.</p>
+                        <p class="small">Prayer.Global seeks to guide prayer warriors to the bible as the source for knowing God's heart and modeling for how to pray.</p>
                     </div>
                 </div>
             </div>
@@ -373,7 +373,7 @@
                     <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-plane"></i></div>
                     <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Mobilizing</h3>
-                        <p class="pb_font-14">Prayer.Global asks everyone to not only pray but also to mobilize prayer through relationships and opportunities God provides.</p>
+                        <p class="small">Prayer.Global asks everyone to not only pray but also to mobilize prayer through relationships and opportunities God provides.</p>
                     </div>
                 </div>
             </div>
@@ -382,7 +382,7 @@
                     <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-ios-locked"></i></div>
                     <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Safe</h3>
-                        <p class="pb_font-14">Prayer.Global will never ask for money. This tool is free to the church.</p>
+                        <p class="small">Prayer.Global will never ask for money. This tool is free to the church.</p>
                     </div>
                 </div>
             </div>
@@ -391,7 +391,7 @@
                     <div class="icon border border-gray rounded-circle d-flex flex-shrink-0 me-3 display-4 text-primary"><i class="ion-thumbsdown"></i></div>
                     <div class="flex-grow-1">
                         <h3 class="mt-0 pb_font-17">Not Political</h3>
-                        <p class="pb_font-14">Prayer.Global is not a political agenda, rather an effort to pray for the kingdom of God to come in every place for every people. This is the only kingdom in which we have hope for the salvation of mankind.</p>
+                        <p class="small">Prayer.Global is not a political agenda, rather an effort to pray for the kingdom of God to come in every place for every people. This is the only kingdom in which we have hope for the salvation of mankind.</p>
                     </div>
                 </div>
             </div>
