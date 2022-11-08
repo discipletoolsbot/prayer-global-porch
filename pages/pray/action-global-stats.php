@@ -68,11 +68,11 @@ class PG_Global_Prayer_App_Stats extends PG_Global_Prayer_App {
 
         ?>
         <style>
-            .pb_cover_v1.completed-lap .container .row {
+            .cover.completed-lap .container .row {
                 height: 10vh;
                 padding-top:10vh;
             }
-            .pb_cover_v1 {
+            .cover {
                 min-height: 100vh;
                 height: fit-content;
             }
@@ -80,7 +80,7 @@ class PG_Global_Prayer_App_Stats extends PG_Global_Prayer_App {
 
         <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/nav.php' );  ?>
 
-        <section class="pb_cover_v1 completed-lap text-left cover-bg-black cover-bg-opacity-4" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
+        <section class="cover completed-lap cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
             <div class="container">
                 <div class="row ">
                     <div class="col text-center">

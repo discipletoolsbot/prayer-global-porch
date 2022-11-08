@@ -1,6 +1,6 @@
 <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' ) ?>
 
-<section class="pb_cover_v1 text-left cover-bg-black cover-bg-opacity-4" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg); height: 100vh;" id="section-home">
+<section class="cover cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg); height: 100vh;" id="section-home">
     <div class="container">
         <div class="row align-items-center justify-content-end">
             <div class="col-md-6  order-md-1">
@@ -33,9 +33,9 @@
                 </div>
             </div>
             <div class="col-lg-5 ps-md-5 ps-sm-0">
-                <div id="prayer_accordion_" class="pb_accordion" data-children=".item">
+                <div id="prayer_accordion_" class="pg-accordion" data-children=".item">
                     <div class="item">
-                        <a data-bs-toggle="collapse" href="#prayer_accordion_1" aria-expanded="true" aria-controls="prayer_accordion_1" class="fs-5 uppercase">Historic Moment</a>
+                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" href="#prayer_accordion_1" aria-expanded="true" aria-controls="prayer_accordion_1" >Historic Moment</a>
                         <div id="prayer_accordion_1" class="accordian-collapse collapse show" role="tabpanel">
                             <p>
                                 We know three things about our moment in history:
@@ -59,7 +59,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <a data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_2" aria-expanded="false" aria-controls="prayer_accordion_2" class="fs-5 uppercase">How it works</a>
+                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_2" aria-expanded="false" aria-controls="prayer_accordion_2">How it works</a>
                         <div id="prayer_accordion_2" class="collapse" role="tabpanel">
                             <p>
                                 <span class="black">&#9312;</span> Click on "Start Praying". <a href="/newest/lap/"><i class="ion-android-open"></i></a>
@@ -79,7 +79,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <a data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_3" aria-expanded="false" aria-controls="prayer_accordion_3" class="fs-5 uppercase">Moravian Prayer Challenge</a>
+                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_3" aria-expanded="false" aria-controls="prayer_accordion_3">Moravian Prayer Challenge</a>
                         <div id="prayer_accordion_3" class="collapse" role="tabpanel">
                             <p>
                                 Inspired by the <a href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">Moravians</a>, who prayed non-stop for 100 years,
@@ -99,7 +99,7 @@
                         </div>
                     </div>
                     <div class="item">
-                        <a data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_4" aria-expanded="false" aria-controls="prayer_accordion_4" class="fs-5 uppercase">Maps & Lists</a>
+                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_4" aria-expanded="false" aria-controls="prayer_accordion_4">Maps & Lists</a>
                         <div id="prayer_accordion_4" class="collapse" role="tabpanel">
                             <p>
                                 <strong class="black">Current Map</strong> <a href="/newest/map"><i class="ion-android-open"></i></a>
@@ -134,13 +134,13 @@
 <!-- END section -->
 
 <!-- Video modal -->
-<section class="pb_sm_py_cover text-center cover-bg-black cover-bg-opacity-4" id="section-challenge" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/1900x1200_img_2.jpg)">
+<section class="cover cover-small text-center cover-black" id="section-challenge" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/1900x1200_img_2.jpg)">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-12">
                 <h2 class="heading mb-5">Moravian Prayer Challenge</h2>
-                <p class="sub-heading mb-5 pb_color-light-opacity-8" style="border: 1px solid white;">Prayer for the World<br> x <br> 24 hours a day / 7 days a week / 365 days a year <br>x<br> 100 years <br>=<br>52.56 million minutes of prayer</p>
-                <p class="sub-heading mb-5 pb_color-light-opacity-8">Who are the Moravians? <br>What is the Moravian Prayer Challenge?<br> How are we going to accept the challenge? <br> Watch this video.</p>
+                <p class="sub-heading mb-5" style="border: 1px solid white;">Prayer for the World<br> x <br> 24 hours a day / 7 days a week / 365 days a year <br>x<br> 100 years <br>=<br>52.56 million minutes of prayer</p>
+                <p class="sub-heading mb-5">Who are the Moravians? <br>What is the Moravian Prayer Challenge?<br> How are we going to accept the challenge? <br> Watch this video.</p>
                 <div class="text-center">
                     <img class="img-fluid video-image-link" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/moravian-video.jpg" id="video-image-link" />
                 </div>
@@ -279,7 +279,7 @@
         color: black !important;
     }
 </style>
-<section class="pb_sm_py_cover text-center cover-bg-black cover-bg-opacity-4" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( dirname( __FILE__ ) ) ) ) ?>assets/images/1900x1200_img_3.jpg)">
+<section class="cover cover-small text-center cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( dirname( __FILE__ ) ) ) ) ?>assets/images/1900x1200_img_3.jpg)">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-12">

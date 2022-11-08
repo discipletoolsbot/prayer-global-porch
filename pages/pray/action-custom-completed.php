@@ -61,10 +61,13 @@ class PG_Custom_Prayer_App_Completed extends PG_Custom_Prayer_App {
         global $wpdb;
 
         $parts = $this->parts;
-        $lap_stats = pg_global_stats_by_key( $parts['public_key'] );
+        $lap_stats = []; //pg_global_stats_by_key( $parts['public_key'] );
 
         if ( empty( $lap_stats['end_time'] ) ) {
             $lap_stats['end_time'] = time();
+        }
+        if ( empty( $lap_stats['start_time'] ) ) {
+            $lap_stats['start_time'] = 0;
         }
         $participant_locations = $wpdb->get_results( $wpdb->prepare( "
            SELECT r.label as location, COUNT(r.label) as count
@@ -80,18 +83,18 @@ class PG_Custom_Prayer_App_Completed extends PG_Custom_Prayer_App {
 
         ?>
         <style>
-            .pb_cover_v1.completed-lap .container .row {
+            .cover.completed-lap .container .row {
                 height: 10vh;
                 padding-top:10vh;
             }
-            .pb_cover_v1 {
+            .cover {
                 height: 100vh;
             }
         </style>
 
         <?php pg_custom_lap_nav( $parts['public_key'] ) ?>
 
-        <section class="pb_cover_v1 completed-lap text-left cover-bg-black cover-bg-opacity-4" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
+        <section class="cover completed-lap cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
             <div class="container">
                 <div class="row ">
                     <div class="col text-center">
