@@ -137,30 +137,9 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
             </div>
             <div id="map-wrapper">
                 <div id="head_block">
-                    <div class="row">
-                        <div class="col col-lg-5 d-none d-lg-block">
-                            <a href="/" class="navbar-brand">Prayer.Global</a>
-                        </div>
-                        <div class="col col-9 col-lg-2 center d-none d-lg-block">
-                            <span class="two-em">Big Map</span>
-                        </div>
-                        <div class="col col-9 col-lg-5 d-lg-none">
-                            <span class="two-em">Big Map</span>
-                        </div>
-                        <div class="col col-3 col-lg-5 d-none d-lg-block" id="nav-list">
-                            <ul>
-                                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/newest/lap/">Start Praying</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/#section-about">About</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                            </ul>
-                        </div>
 
-                        <div class="col col-3 col-lg-4 d-lg-none" style="text-align:right;">
-                            <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_menu"><i class="ion-navicon three-em"></i></button>
-                        </div>
-                    </div>
+                    <?php require( __DIR__ . '/nav-big-map.php') ?>
+
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>

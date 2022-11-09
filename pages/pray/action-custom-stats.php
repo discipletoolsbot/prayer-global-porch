@@ -97,7 +97,7 @@ class PG_Custom_Prayer_App_Stats extends PG_Custom_Prayer_App {
                 <div class="row ">
                     <div class="col text-center">
                         <h2 class="heading mb-5">Lap <?php echo esc_attr( $lap_stats['lap_number'] ) ?> </h2>
-                        <!--                        <a href="--><?php //echo '/'. $this->parts['root'] . '/' . $this->parts['type'] . '/' . $this->parts['public_key'] . '/map' ?><!--" style="background-color:rgba(255,255,255,.7);" role="button" class="btn smoothscroll btn-xl pb_font-20 p-4 rounded-0 pb_letter-spacing-2">Map</a><br>-->
+                        <!--                        <a href="--><?php //echo '/'. $this->parts['root'] . '/' . $this->parts['type'] . '/' . $this->parts['public_key'] . '/map' ?><!--" role="button" class="btn smoothscroll cta_button btn-outline-dark">Map</a><br>-->
                         <hr style="border:1px solid white;margin-top:5vh;">
                     </div>
                     <div class="w-100"></div>

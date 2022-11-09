@@ -140,7 +140,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             <button type="button" data-bs-dismiss="offcanvas"><i class="ion-chevron-right three-em"></i></button>
             <hr>
             <ul class="navbar-nav two-em">
-                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark" style="text-transform: capitalize;" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a></li>
+                <li class="nav-item"><a class="nav-link btn smoothscroll btn-outline-dark" style="text-transform: capitalize;" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a></li>
             </ul>
             <div class="d-sm-none">
                 <hr>
