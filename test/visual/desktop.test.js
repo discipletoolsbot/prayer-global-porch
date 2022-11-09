@@ -1,45 +1,65 @@
 const { toMatchImageSnapshot } = require('jest-image-snapshot');
+const { testPage } = require('./helpers')
 
 expect.extend({ toMatchImageSnapshot });
 
-describe('Home Page Testing', () => {
+describe('Desktop Testing', () => {
 
-    jest.setTimeout(50000);
+    jest.setTimeout(80000);
 
     beforeAll(async () => {
         await page.setViewport({ width: 1700, height: 950 })
-        await page.goto('http://localhost:8000')
     })
 
-    it('Test Home page Desktop', async () => {
-
-        const image = await fullPageScreenshot()
-
-        expect(image).toMatchImageSnapshot({
-            failureThreshold: '0.10',
-            failureThresholdType: 'percent'
-        });
-
+    it('Home page', async () => {
+        await testPage('')
     })
 
-    async function fullPageScreenshot() {
-        const bodyHandle = await page.$('body');
+    it('Contact page', async () => {
+        await testPage('prayer_app/contact_us/')
+    })
 
-        const { width, height } = await bodyHandle.boundingBox()
-        
-        const image = await page.screenshot({
-            clip: {
-                x: 0,
-                y: 0,
-                width,
-                height
-            },
-            type: 'png',
-        });
+    it('Subscribe page', async () => {
+        await testPage('prayer_app/subscribe/')
+    })
 
-        await bodyHandle.dispose()
+    it('Data sources page', async () => {
+        await testPage('content_app/data_sources/')
+    })
 
-        return image;
-    }
+    it('Media Tools', async () => {
+        await testPage('download_app/media/')
+    })
+
+
+/*
+    it('Custom Display Map', async () => {
+        await testPage('prayer_app/custom/043ed2/display')
+    })
+
+    it('Big Map', async () => {
+        await testPage('race_app/big_map/')
+    })
+
+    it('Big List', async () => {
+        await testPage('race_app/big_list/')
+    })
+
+    it('Custom Completed', async () => {
+        await testPage('prayer_app/custom/043ed2/completed')
+    })
+
+    it('Custom stats', async () => {
+        await testPage('prayer_app/custom/043ed2/stats')
+    })
+
+    it('Global Stats', async () => {
+        await testPage('prayer_app/global/cc8b6b/stats')
+    })
+
+    it('Global Completed', async () => {
+        await testPage('prayer_app/global/cc8b6b/completed')
+    })
+ */
 
 })

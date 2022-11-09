@@ -155,20 +155,7 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
                 </div>
             </div>
         </div>
-        <div class="offcanvas offcanvas-end" id="offcanvas_menu" data-close-on-click="true">
-            <button type="button" data-bs-toggle="offcanvas" style="text-align: start"><i class="ion-chevron-right two-em"></i></button>
-            <hr>
-            <ul class="navbar-nav two-em">
-                <li class="nav-item"><a class="nav-link" href="/#section-challenge">Challenge</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
-                <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
-            </ul>
-            <hr>
-            <ul class="navbar-nav two-em">
-                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark" style="text-transform: capitalize;" href="/newest/lap/">Start Praying</a></li>
-            </ul>
-        </div>
-        <div class="offcanvas offcanvas-end" id="offcanvas_location_details" data-bs-backdrop="false" data-bs-scroll="true">
+       <div class="offcanvas offcanvas-end" id="offcanvas_location_details" data-bs-backdrop="false" data-bs-scroll="true">
             <button type="button" data-bs-toggle="offcanvas" style="text-align: start;"><i class="ion-chevron-right three-em"></i></button>
             <hr>
             <div class="row" id="grid_details_content"></div>
