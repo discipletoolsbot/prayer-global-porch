@@ -22,12 +22,12 @@ function pg_custom_lap_nav( $key ) {
             <button type="button" class="btn-close pe-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
             </div>
             <div class="offcanvas-body">
-                <ul class="navbar-nav justify-content-end flex-grow-1 pe-3">
-                    <li class="nav-item"><a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="/prayer_app/custom/<?php echo esc_attr( $key ) ?>">Start Praying</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#section-challenge">Challenge</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/prayer_app/custom/<?php echo esc_attr( $key ) ?>/map/">Map</a></li>
-                </ul>
+                <div class="navbar-nav justify-content-end pe-3">
+                    <a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="/prayer_app/custom/<?php echo esc_attr( $key ) ?>">Start Praying</a>
+                    <a class="nav-link" href="/#section-challenge">Challenge</a>
+                    <a class="nav-link" href="/#section-lap">Status</a>
+                    <a class="nav-link" href="/prayer_app/custom/<?php echo esc_attr( $key ) ?>/map/">Map</a>
+                </div>
             </div>
         </div>
     </nav>
