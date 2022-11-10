@@ -139,10 +139,10 @@ class PG_Porch_404 extends DT_Magic_Url_Base
                 <div class="row">
                     <div class="col center">
                         <ul style="list-style: none; padding-left: 0;">
-                            <li><a href="newest/lap">Start Praying</a></li>
-                            <li><a href="newest/map">The map</a></li>
-                            <li><a href="newest/stats">More stats</a></li>
-                            <li><a href="challengs/active">Group Challenges</a></li>
+                            <li><a href="/newest/lap">Start Praying</a></li>
+                            <li><a href="/newest/map">The map</a></li>
+                            <li><a href="/newest/stats">More stats</a></li>
+                            <li><a href="/challengs/active">Group Challenges</a></li>
                         </ul>
                     </div>
                 </div>
@@ -161,8 +161,9 @@ class PG_Porch_404 extends DT_Magic_Url_Base
                 <div class="row">
                     <div class="col center">
                         <ul style="list-style: none; padding-left: 0;">
-                            <li><a href="content_app/data_sources">Where does all the data come from?</a></li>
-                            <li><a href="download_app/media">Invites for sharing on social media</a></li>
+                            <li><a href="/prayer_app/contact_us/">Anything to share/request? Please contact us :)</a></li>
+                            <li><a href="/content_app/data_sources">Where does all the data come from?</a></li>
+                            <li><a href="/download_app/media">Invites for sharing on social media</a></li>
                         </ul>
                     </div>
                 </div>
