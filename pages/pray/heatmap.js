@@ -435,7 +435,7 @@ jQuery(document).ready(function($){
                 <hr>
               </div>
               <div class="col-12">
-                 <div class="grid-x">
+                 <div class="row">
                     <div class="col-12 center">
                         <p><strong>Don't Know Jesus</strong></p>
                         <p>${bodies_1} <span>(${response.location.non_christians})</span></p>
