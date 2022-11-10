@@ -49,14 +49,13 @@ class PG_Stacker {
      * @return array
      */
     public static function build_location_stack_v2( $grid_id ) {
-
-        // get queries
-        $stack = self::_stack_query( $grid_id );
-
         $stack['list'] = [];
         $lists = [];
 
-        // PRAYER SHUFFLE
+        // BUILD FACTS
+        $stack = self::_stack_query( $grid_id );
+
+        // PRAYER CONCEPTS
         PG_Stacker_Text_V2::_for_movement( $lists, $stack );
         PG_Stacker_Text_V2::_population_prayers( $lists, $stack );
         PG_Stacker_Text_V2::_language_prayers( $lists, $stack );
@@ -87,6 +86,8 @@ class PG_Stacker {
             default:
                 break;
         }
+
+
         foreach ( $lists as $content ) { // kill duplication
             $content['id'] = hash( 'sha256', serialize( $content ) . microtime() );
             $stack['list'][$content['id']] = [
