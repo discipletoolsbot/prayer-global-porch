@@ -1,4 +1,11 @@
 <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' ) ?>
+<style>
+    @media screen and ( max-width: 767px ) {
+        .navbar-dark .btn-outline-dark {
+            display:none;
+        }
+    }
+</style>
 
 <section class="cover cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg); height: 100vh;" id="section-home">
     <div class="container">
