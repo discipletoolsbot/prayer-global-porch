@@ -1,18 +1,16 @@
-<?php
-$url = dt_get_url_path();
+<nav class="navbar bg-none scrolled-light p-0" id="pg-navbar">
+    <div class="container align-items-center mx-0 px-0 mw-100 flex-nowrap">
+        <a class="navbar-brand col col-md-4 d-none d-lg-block" href="/">Prayer.Global</a>
+        <span class="two-em center col col-md-4 d-none d-lg-block">Big Map</span>
 
-/**
- * Nav for Home Page
- */
-$dark_nav_class = '' === $url ||  str_contains( $url, 'stats' ) || str_contains( $url, 'completed' ) ? 'navbar-dark' : '';
-?>
-<nav class="navbar <?php echo $dark_nav_class ?> pg-navbar bg-none scrolled-light" id="pg-navbar">
-    <div class="container align-items-center">
-        <a class="navbar-brand me-auto" href="/">Prayer.Global</a>
-        <a class="navbar__cta btn btn-outline-dark py-2 py-lg-4 me-3" href="/newest/lap/">Start Praying</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span><i class="ion-navicon"></i></span>
-        </button>
+        <a href="/" class="brand-color two-em col col-4 d-lg-none">Big Map</a>
+        
+        <div class="col-8 col-md-4 d-flex justify-content-end">
+            <a class="btn btn-outline-dark py-2 me-3" href="/newest/lap/">Start Praying</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <span><i class="ion-navicon"></i></span>
+            </button>
+        </div>
     </div>
     <div class="offcanvas offcanvas-end pg-navmenu" data-bs-backdrop="true" data-bs-scroll="true" id="probootstrap-navbar">
         <div class="offcanvas-header">
@@ -24,7 +22,6 @@ $dark_nav_class = '' === $url ||  str_contains( $url, 'stats' ) || str_contains(
                 <a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="/newest/lap/">Start Praying</a>
                 <a class="nav-link" href="#section-challenge">Challenge</a>
                 <a class="nav-link" href="#section-lap">Status</a>
-                <a class="nav-link" href="/newest/map/">Map</a>
                 <a class="nav-link" href="/challenges/active/">Groups</a>
             </div>
         </div>

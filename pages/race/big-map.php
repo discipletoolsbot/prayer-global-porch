@@ -107,8 +107,9 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/bootstrap/bootstrap5.2.2.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
-        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/basic.css' ) ) ?>" type="text/css" media="all">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>pray/heatmap.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'pray/heatmap.css' ) ) ?>" type="text/css" media="all">
         <?php
     }
@@ -136,84 +137,50 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
             </div>
             <div id="map-wrapper">
                 <div id="head_block">
-                    <div class="grid-x grid-padding-x">
-                        <div class="cell large-5 show-for-large">
-                            <a href="/" class="navbar-brand">Prayer.Global</a>
-                        </div>
-                        <div class="cell small-9 large-2 center show-for-large">
-                            <span class="two-em">Big Map</span>
-                        </div>
-                        <div class="cell small-9 large-5 hide-for-large">
-                            <span class="two-em">Big Map</span>
-                        </div>
-                        <div class="cell small-3 large-5 show-for-large" id="nav-list">
-                            <ul>
-                                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/newest/lap/">Start Praying</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/#section-about">About</a></li>
-                                <li class="nav-item"><a class="nav-link" href="/">Home</a></li>
-                            </ul>
-                        </div>
 
-                        <div class="cell small-3 large-4 hide-for-large" style="text-align:right;">
-                            <button type="button" data-toggle="offcanvas_menu"><i class="ion-navicon three-em"></i></button>
-                        </div>
-                    </div>
+                    <?php require( __DIR__ . '/nav-big-map.php') ?>
+
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
                 <div id="foot_block">
                     <div class="map-overlay" id="map-legend"></div>
-                    <div class="grid-x grid-padding-x">
-                        <div class="cell center"><button type="button" data-toggle="offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
-                        <div class="cell small-6 medium-3 center"><strong>Warriors</strong> <i class="fi-marker" style="color:blue;"></i><br><span class="one-em"><?php echo esc_html( $lap_stats['participants'] ) ?></span></div>
-                        <div class="cell small-6 medium-3 center"><strong>Minutes Prayed</strong><br><span class="one-em"><?php echo esc_html( $lap_stats['minutes_prayed'] ) ?></span></div>
-                        <div class="cell small-6 medium-3 center"><strong>World Prayer Coverage</strong><br><span class="one-em"><?php echo esc_html( $finished_laps ) ?> times</span></div>
-                        <div class="cell small-6 medium-3 center"><strong>Time Elapsed</strong><br><span class="one-em time_elapsed" id="time_elapsed"></span></div>
+                    <div class="row">
+                        <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
+                        <div class="col col-6 col-sm-3 center"><strong>Warriors</strong> <i class="fi-marker" style="color:blue;"></i><br><span class="one-em"><?php echo esc_html( $lap_stats['participants'] ) ?></span></div>
+                        <div class="col col-6 col-sm-3 center"><strong>Minutes Prayed</strong><br><span class="one-em"><?php echo esc_html( $lap_stats['minutes_prayed'] ) ?></span></div>
+                        <div class="col col-6 col-sm-3 center"><strong>World Prayer Coverage</strong><br><span class="one-em"><?php echo esc_html( $finished_laps ) ?> times</span></div>
+                        <div class="col col-6 col-sm-3 center"><strong>Time Elapsed</strong><br><span class="one-em time_elapsed" id="time_elapsed"></span></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="off-canvas position-right" id="offcanvas_menu" data-close-on-click="true" data-off-canvas>
-            <button type="button" data-toggle="offcanvas_menu"><i class="ion-chevron-right two-em"></i></button>
+       <div class="offcanvas offcanvas-end" id="offcanvas_location_details" data-bs-backdrop="false" data-bs-scroll="true">
+            <button type="button" data-bs-toggle="offcanvas" style="text-align: start;"><i class="ion-chevron-right three-em"></i></button>
             <hr>
-            <ul class="navbar-nav two-em">
-                <li class="nav-item"><a class="nav-link" href="/#section-challenge">Challenge</a></li>
-                <li class="nav-item"><a class="nav-link" href="/#section-lap">Status</a></li>
-                <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
-            </ul>
-            <hr>
-            <ul class="navbar-nav two-em">
-                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark" style="text-transform: capitalize;" href="/newest/lap/">Start Praying</a></li>
-            </ul>
+            <div class="row" id="grid_details_content"></div>
         </div>
-        <div class="off-canvas position-right " id="offcanvas_location_details" data-close-on-click="true" data-content-overlay="false" data-off-canvas>
-            <button type="button" data-toggle="offcanvas_location_details"><i class="ion-chevron-right three-em"></i></button>
+        <div class="offcanvas offcanvas-bottom" id="offcanvas_stats">
+            <div class="center"><button type="button" data-bs-toggle="offcanvas"><i class="ion-chevron-down three-em"></i></button></div>
             <hr>
-            <div class="grid-x grid-padding-x" id="grid_details_content"></div>
-        </div>
-        <div class="off-canvas position-bottom" id="offcanvas_stats" data-close-on-click="true" data-off-canvas>
-            <div class="center"><button type="button" data-toggle="offcanvas_stats"><i class="ion-chevron-down three-em"></i></button></div>
-            <hr>
-            <div class="grid-x grid-padding-x center">
-                <div class="cell">
+            <div class="row center">
+                <div class="col col-12">
                     <span class="three-em lap-title">Big Map</span>
                     <hr>
                 </div>
-                <div class="cell small-6 medium-3">
+                <div class="col col-6 col-sm-3">
                     <p class="stats-title">Warriors</p>
                     <p class="stats-figure"><?php echo esc_html( $lap_stats['participants'] ) ?></p>
                 </div>
-                <div class="cell small-6 medium-3">
+                <div class="col col-6 col-sm-3">
                     <p class="stats-title">Minutes Prayed</p>
                     <p class="stats-figure"><?php echo esc_html( $lap_stats['minutes_prayed'] ) ?></p>
                 </div>
-                <div class="cell small-6 medium-3">
+                <div class="col col-6 col-sm-3">
                     <p class="stats-title">World Prayer Coverage</p>
                     <p class="stats-figure"><?php echo esc_html( $finished_laps ) ?> times</p>
                 </div>
-                <div class="cell small-6 medium-3">
+                <div class="col col-6 col-sm-3">
                     <p class="stats-title">Pace</p>
                     <p class="stats-figure"><?php echo esc_html( $lap_stats['time_elapsed'] ) ?></p>
                 </div>
@@ -228,6 +195,9 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
             'jquery',
             'mapbox-gl'
         ], filemtime( plugin_dir_path( __DIR__ ) .'pray/heatmap.js' ), true );
+        wp_enqueue_script( 'bootstrap-js', trailingslashit( plugin_dir_url( __DIR__ ) ) . 'assets/js/bootstrap.bundle.min.js', [
+            'jquery',
+        ], filemtime( plugin_dir_path( __DIR__ ) .'assets/js/bootstrap.bundle.min.js' ), true );
     }
 
     /**

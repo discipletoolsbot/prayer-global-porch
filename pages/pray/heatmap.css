@@ -1,6 +1,9 @@
 body {
     background: white !important;
 }
+button {
+    line-height: initial;
+}
 #initialize-screen {
     width: 100%;
     height: 2000px;
@@ -20,21 +23,30 @@ progress {
 }
 .pb_navbar .navbar-toggler {
     color: black;
-    border-color: black;
+    border: none;
     cursor: pointer;
     padding-right: 0;
+    font-size: 30px;
+}
+.pb_navbar .navbar-toggler:active, .pb_navbar .navbar-toggler:focus {
+    box-shadow: none;
+    outline: none; }
+.navbar-light .navbar-brand, .navbar-light .brand-color {
+    color: var(--bs-navbar-brand-color);
 }
 #head_block, #foot_block {
     position: absolute;
     width:100%;
     z-index: 5;
     background: white;
-    padding: 1em;
+    padding: 1em 2em;
     opacity: .9;
     display:none;
+    line-height: 1.5;
 }
 #head_block {
     margin: 0 auto 1em;
+    z-index: 10;
 }
 #head_block_wrapper {
     position: absolute;
@@ -54,21 +66,22 @@ progress {
 #foot_block {
     bottom: 0;
     margin: 1em auto 0;
+    line-height: 1.5;
+}
+#foot_block i {
+    line-height: 1;
 }
 #offcanvas_menu {
     background: white;
-    z-index: 15;
     padding: 1em;
 }
 #offcanvas_location_details {
     background: white;
-    z-index: 15;
     padding: 1em;
     min-width: 40%;
 }
 #offcanvas_stats {
     background: white;
-    z-index: 15;
     padding: 1em;
     height: 80%;
 }
@@ -96,6 +109,7 @@ progress {
 }
 .stats-title {
     font-size: 1.5rem;
+    font-weight: 400;
 }
 .stats-figure {
     font-size: 2rem;
@@ -146,9 +160,9 @@ progress {
     margin: 0;
     padding: 0;
     overflow: hidden;
-}
-#nav-list li {
-    float:right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 #nav-list li a {
     display: block;

@@ -149,7 +149,7 @@ jQuery(document).ready(function($){
 
   function load_map() {
     jQuery('#initialize-screen').hide()
-    jQuery('.loading-spinner').removeClass('active')
+    jQuery('.Loading-spinner').removeClass('active')
 
     let center = [0, 30]
     let zoom = 2
@@ -399,9 +399,9 @@ jQuery(document).ready(function($){
 
   function load_grid_details( grid_id ) {
     let div = jQuery('#grid_details_content')
-    div.empty().html(`<span class="loading-spinner active"></span>`)
+    div.empty().html(`<div className="col-12"><span class="loading-spinner active"></span></div>`)
 
-    jQuery('#offcanvas_location_details').foundation('open')
+    jQuery('#offcanvas_location_details').offcanvas('show')
 
     window.get_data_page( 'get_grid_details', {grid_id: grid_id} )
       .done(function(response){
@@ -428,35 +428,35 @@ jQuery(document).ready(function($){
         }
         div.html(
           `
-          <div class="grid-x grid-padding-x">
-              <div class="cell">
+          <div class="row">
+              <div class="col-12">
                 <p><span class="stats-title two-em">${response.location.full_name}</span></p>
                 <p>1 believer for every ${numberWithCommas(Math.ceil(response.location.all_lost_int / response.location.believers_int ) ) } lost neighbors.</p>
                 <hr>
               </div>
-              <div class="cell">
-                 <div class="grid-x">
-                    <div class="cell center">
+              <div class="col-12">
+                 <div class="row">
+                    <div class="col-12 center">
                         <p><strong>Don't Know Jesus</strong></p>
                         <p>${bodies_1} <span>(${response.location.non_christians})</span></p>
                     </div>
-                    <div class="cell center">
+                    <div class="col-12 center">
                         <p><strong>Know about Jesus</strong></p>
                         <p>${bodies_2} <span>(${response.location.christian_adherents})</span></p>
                     </div>
-                    <div class="cell center">
+                    <div class="col-12 center">
                         <p><strong>Know Jesus</strong></p>
                         <p>${bodies_3} <span>(${response.location.believers})</span></p>
                     </div>
                 </div>
                 <hr>
               </div>
-              <div class="cell">
+              <div class="col-12">
                 The ${response.location.admin_level_name} of <strong>${response.location.full_name}</strong> has a population of ${response.location.population}. We estimate ${response.location.name} has ${response.location.non_christians} who are far from Jesus, ${response.location.christian_adherents} who might know about Jesus culturally, and ${response.location.believers} people who know Jesus personally.
                 ${response.location.full_name} is 1 of ${response.location.peer_locations} ${response.location.admin_level_name_plural} in ${response.location.parent_name}.
                 <hr>
               </div>
-              <div class="cell">
+              <div class="col-12">
                 Religion: ${response.location.primary_religion}<br>
                 Official Language: ${response.location.primary_language}<br>
                 <hr>
