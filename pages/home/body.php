@@ -1,7 +1,7 @@
 <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' ) ?>
 <style>
     @media screen and ( max-width: 767px ) {
-        .navbar-dark .btn-outline-dark {
+        .btn-outline-dark.py-lg-4 {
             display:none;
         }
     }
