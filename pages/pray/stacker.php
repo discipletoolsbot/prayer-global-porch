@@ -71,21 +71,10 @@ class PG_Stacker {
         PG_Stacker_Text_V2::_for_multiplication( $lists, $stack );
         PG_Stacker_Text_V2::_for_urgency( $lists, $stack );
         PG_Stacker_Text_V2::_for_church_health( $lists, $stack );
+        PG_Stacker_Text_V2::_non_christians( $lists, $stack );
+        PG_Stacker_Text_V2::_christian_adherents( $lists, $stack );
+        PG_Stacker_Text_V2::_believers( $lists, $stack );
 //        PG_Stacker_Text_V2::_cities($lists, $stack );
-
-        switch ( $stack['location']['favor'] ) {
-            case 'non_christians':
-                PG_Stacker_Text_V2::_non_christians( $lists, $stack );
-                break;
-            case 'christian_adherents':
-                PG_Stacker_Text_V2::_christian_adherents( $lists, $stack );
-                break;
-            case 'believers':
-                PG_Stacker_Text_V2::_believers( $lists, $stack );
-                break;
-            default:
-                break;
-        }
 
 
         foreach ( $lists as $content ) { // kill duplication

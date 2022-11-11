@@ -10,11 +10,31 @@ class PG_Stacker_Text
          */
         return [
             [
-                'section_summary' => 'What people, places, activities or culture could you pray for in this photo?',
+                'section_summary' => 'What people or activities could you pray for in this photo?',
+                'prayer' => '',
+            ],
+            [
+                'section_summary' => 'What people or resources could you pray for in this photo?',
+                'prayer' => '',
+            ],
+            [
+                'section_summary' => 'What culture or activities could you pray for in this photo?',
                 'prayer' => '',
             ],
             [
                 'section_summary' => 'What conditions of education, economy, religion, or environment could you pray for here?',
+                'prayer' => '',
+            ],
+            [
+                'section_summary' => 'What conditions of religion or environment could you pray for here?',
+                'prayer' => '',
+            ],
+            [
+                'section_summary' => 'What conditions of education or environment could you pray for here?',
+                'prayer' => '',
+            ],
+            [
+                'section_summary' => 'What conditions of economy or religion could you pray for here?',
                 'prayer' => '',
             ],
         ];
@@ -28,11 +48,59 @@ class PG_Stacker_Text
         return [
             [
                 'section_summary' => '',
-                'prayer' => 'Lord we ask you on behalf of the ' . $stack['least_reached']['name'] . ' people. ' . number_format( (float) $stack['least_reached']['PercentEvangelical'], 1 ) . '% are known to be believers. Oh God, share with them the great gift of your son Jesus and your kingdom.',
+                'prayer' => 'Lord we ask you on behalf of the ' . $stack['least_reached']['name'] . ' people. ' . number_format( (float) $stack['least_reached']['PercentEvangelical'], 1 ) . '% are known to be believers. Oh God, please share with them the great gift of your son Jesus and your kingdom.',
             ],
             [
                 'section_summary' => '',
                 'prayer' => 'Lord, please remember the ' . $stack['least_reached']['name'] . ' people. You said you wanted worshippers of every tongue and tribe and nation, yet we know of no worshippers among them.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord, you sent Jesus as a witness to testify about the light so that all the ' . $stack['least_reached']['name'] . ' people might believe through him.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord, bring the blind by a way that they don’t know. Lead the ' . $stack['least_reached']['name'] . ' people in paths that they don’t know. Make darkness light before them and crooked places straight. Do not forsake the ' . $stack['least_reached']['name'] . ' people.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord, I thank you that you will bring health and a cure to the ' . $stack['least_reached']['name'] . ' people. Reveal to them abundance of peace and truth.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Father, open to your people a door for the word, to speak the mystery of Christ to the ' . $stack['least_reached']['name'] . ' people.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Father, I pray against the principalities, against the powers, against the world’s rulers of darkness of this age, and against the spiritual forces of the wickedness in the heavenly places that are warring against the ' . $stack['least_reached']['name'] . ' people.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Jesus, I pray that all the ' . $stack['least_reached']['name'] . ' people will remember and turn to you, Lord God. May all the ' . $stack['least_reached']['name'] . ' people worship before you. For the kingdom of the ' . $stack['least_reached']['name'] . ' people is yours.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord God, I thank you that the blood of Christ, who through the eternal Spirit offered himself without defect to God, can cleanse the ' . $stack['least_reached']['name'] . ' people conscience from dead works to serve the living God.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Spirit, I pray that the ' . $stack['least_reached']['name'] . ' people will come and worship before you, Lord. May they glorify your name for you are great.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord, Let your Kingdom come among the ' . $stack['least_reached']['name'] . ' people. Let your will be done, as in heaven, so on earth.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord, remember the ' . $stack['least_reached']['name'] . ' people. Make the ' . $stack['least_reached']['name'] . ' people a chosen race, a royal priesthood, a holy nation, a people for your own possession.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Father, I pray that the ' . $stack['least_reached']['name'] . ' people will not be afraid or ashamed. Prevent them from being confounded or disappointed in their search for you. May the ' . $stack['least_reached']['name'] . ' people know you.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Father, ' . number_format( (float) $stack['least_reached']['PercentEvangelical'], 1 ) . '% are known to be believers. Please, Lord call more today.',
             ],
         ];
     }
@@ -476,7 +544,7 @@ class PG_Stacker_Text_V2 {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, please send out workers who can create videos and podcasts for the ' . $stack['location']['primary_language'] . ' language for the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'prayer' => 'Father, please send those who can create videos and podcasts for the ' . $stack['location']['primary_language'] . ' language for the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
                 'reference' => '',
                 'verse' => '',
             ],
@@ -494,7 +562,7 @@ class PG_Stacker_Text_V2 {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, please, send out the truth about Jesus through YouTube, Tiktok, and Instagram in the ' . $stack['location']['primary_language'] . ' language for the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'prayer' => 'Spirit, please, send the truth about Jesus through YouTube, Tiktok, and Instagram in the ' . $stack['location']['primary_language'] . ' language for the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
                 'reference' => '',
                 'verse' => '',
             ],
@@ -909,12 +977,6 @@ class PG_Stacker_Text_V2 {
             ],
             [
                 'section_label' => 'Local Leadership',
-                'prayer' => 'Father, send workers into the harvest in '.$stack['location']['full_name'].'.',
-                'reference' => 'Matthew 9:38',
-                'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
-            ],
-            [
-                'section_label' => 'Local Leadership',
                 'prayer' => 'Spirit, build the strength and maturity of the local leaders in '.$stack['location']['full_name'].'. Show them that faithfulness is more important than knowledge. Show them that the Spirit, the Word, and prayer is enough in order to grow and lead. ',
                 'reference' => '',
                 'verse' => '',
@@ -1036,12 +1098,6 @@ class PG_Stacker_Text_V2 {
                 'prayer' => 'Spirit, please defend the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' against an unwillingness to suffer. Give them courage to face social rejection.',
                 'reference' => '',
                 'verse' => '',
-            ],
-            [
-                'section_label' => $section_label['m'],
-                'prayer' => 'Father, please raise up pastors and teachers in '.$stack['location']['name'].' who can speak Your gospel boldly and clearly in the ' . $stack['location']['primary_language'] . ' language.',
-                'reference' => 'Romans 10:14',
-                'verse' => 'How, then, can they call on the one they have not believed in? And how can they believe in the one of whom they have not heard? And how can they hear without someone preaching to them? And how can anyone preach unless they are sent?',
             ],
             [
                 'section_label' => $section_label['m'],
@@ -1194,12 +1250,6 @@ class PG_Stacker_Text_V2 {
             ],
             [
                 'section_label' => 'The Church',
-                'prayer' => 'Father, please raise up apostles, evangelists and preachers in '.$stack['location']['name'].' who can speak Your gospel boldly and clearly in ' . $stack['location']['primary_language'] . '.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'The Church',
                 'prayer' => 'Father, please provide access to Your Word. Please provide the translators, printers, books sellers, and app developers the resources and skill to get Your Word to '.$stack['location']['full_name'].'.',
                 'reference' => 'Matthew 24:14',
                 'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
@@ -1236,7 +1286,7 @@ class PG_Stacker_Text_V2 {
             ],
             [
                 'section_label' => 'The Church',
-                'prayer' => 'Father, we pray for the believers in ' . $stack['location']['full_name'] . ' to be good spiritual stewards of their everyday relationships.',
+                'prayer' => 'Father, we pray the believers are good spiritual stewards of their everyday relationships in ' . $stack['location']['full_name'] . '.',
                 'reference' => '',
                 'verse' => '',
             ],
@@ -1329,12 +1379,6 @@ class PG_Stacker_Text_V2 {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => "Spirit, consider the ".$stack['location']['christian_adherents']." cultural Christians in ".$stack['location']['name'].". You promised to convict of sin, righteousness and judgement. Please show mercy and don't leave them idle and distant from Jesus.",
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => $section_label,
                 'prayer' => "Spirit, ".$stack['location']['christian_adherents']." cultural Christians in ".$stack['location']['full_name']." likely have a Bible in their home. Please, send conviction for them to open it and read it for themselves.",
                 'reference' => '',
                 'verse' => '',
@@ -1363,12 +1407,6 @@ class PG_Stacker_Text_V2 {
     public static function _believers( &$lists, $stack, $all = false ) {
         $section_label = 'Believer Families';
         $templates = [
-            [
-                'section_label' => $section_label,
-                'prayer' => "Spirit, consider the ".$stack['location']['believers']." believers in ".$stack['location']['name'].". You promised to convict of sin, righteousness and judgement. Please show mercy and don't leave them idle and distant from Jesus.",
-                'verse' => '',
-                'reference' => '',
-            ],
             [
                 'section_label' => $section_label,
                 'prayer' => "Spirit, consider the ".$stack['location']['believers']." believers in ".$stack['location']['name'].". You promised to convict of sin, righteousness and judgement. Please show mercy and don't leave them idle and distant from Jesus.",
