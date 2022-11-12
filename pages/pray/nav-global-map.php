@@ -26,6 +26,7 @@ $url = dt_get_url_path();
                 <a class="nav-link" href="/">Home</a>
                 <a class="nav-link" href="<?php echo ( $url !== '') ? trailingslashit( site_url() ) : '' ?>#section-challenge">Challenge</a>
                 <a class="nav-link" href="<?php echo ( $url !== '') ? trailingslashit( site_url() ) : '' ?>#section-lap">Status</a>
+                <a class="nav-link" href="/newest/map/">Map</a>
                 <a class="nav-link" href="/challenges/active/">Groups</a>
             </div>
         </div>
