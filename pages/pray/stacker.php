@@ -49,14 +49,13 @@ class PG_Stacker {
      * @return array
      */
     public static function build_location_stack_v2( $grid_id ) {
-
-        // get queries
-        $stack = self::_stack_query( $grid_id );
-
         $stack['list'] = [];
         $lists = [];
 
-        // PRAYER SHUFFLE
+        // BUILD FACTS
+        $stack = self::_stack_query( $grid_id );
+
+        // PRAYER CONCEPTS
         PG_Stacker_Text_V2::_for_movement( $lists, $stack );
         PG_Stacker_Text_V2::_population_prayers( $lists, $stack );
         PG_Stacker_Text_V2::_language_prayers( $lists, $stack );
@@ -72,21 +71,12 @@ class PG_Stacker {
         PG_Stacker_Text_V2::_for_multiplication( $lists, $stack );
         PG_Stacker_Text_V2::_for_urgency( $lists, $stack );
         PG_Stacker_Text_V2::_for_church_health( $lists, $stack );
+        PG_Stacker_Text_V2::_non_christians( $lists, $stack );
+        PG_Stacker_Text_V2::_christian_adherents( $lists, $stack );
+        PG_Stacker_Text_V2::_believers( $lists, $stack );
 //        PG_Stacker_Text_V2::_cities($lists, $stack );
 
-        switch ( $stack['location']['favor'] ) {
-            case 'non_christians':
-                PG_Stacker_Text_V2::_non_christians( $lists, $stack );
-                break;
-            case 'christian_adherents':
-                PG_Stacker_Text_V2::_christian_adherents( $lists, $stack );
-                break;
-            case 'believers':
-                PG_Stacker_Text_V2::_believers( $lists, $stack );
-                break;
-            default:
-                break;
-        }
+
         foreach ( $lists as $content ) { // kill duplication
             $content['id'] = hash( 'sha256', serialize( $content ) . microtime() );
             $stack['list'][$content['id']] = [

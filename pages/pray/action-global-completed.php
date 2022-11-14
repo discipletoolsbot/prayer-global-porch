@@ -79,29 +79,29 @@ class PG_Global_Prayer_App_Completed extends PG_Global_Prayer_App {
 
         ?>
         <style>
-            .pb_cover_v1.completed-lap .container .row {
+            .cover.completed-lap .container .row {
                 height: 10vh;
                 padding-top:10vh;
             }
-            .pb_cover_v1 {
+            .cover {
                 height: 100vh;
             }
         </style>
         <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/nav.php' );  ?>
 
-        <section class="pb_cover_v1 completed-lap text-left cover-bg-black cover-bg-opacity-4" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
+        <section class="cover completed-lap cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
             <div class="container">
                 <div class="row ">
                     <div class="col text-center">
                         <h2 class="heading mb-5">Lap <?php echo esc_attr( $lap_stats['lap_number'] ) ?> Completed!</h2>
-                        <a href="<?php echo esc_url( '/'. $this->parts['root'] . '/' . $this->parts['type'] . '/' . $this->parts['public_key'] . '/map' ) ?>" style="background-color:rgba(255,255,255,.7);" role="button" class="btn smoothscroll btn-xl pb_font-25 p-4 rounded-0 pb_letter-spacing-2">View Map</a>
-                        <a href="/newest/lap/" style="background-color:rgba(255,255,255,.7);" role="button" class="btn smoothscroll pb_font-25 btn-xl pb_font-13 p-4 rounded-0 pb_letter-spacing-2">Go To The Current Lap</a> <br>
+                        <a href="<?php echo esc_url( '/'. $this->parts['root'] . '/' . $this->parts['type'] . '/' . $this->parts['public_key'] . '/map' ) ?>" role="button" class="btn smoothscroll cta_button btn-outline-dark uppercase">View Map</a>
+                        <a href="/newest/lap/" role="button" class="btn smoothscroll cta_button btn-outline-dark uppercase">Go To The Current Lap</a> <br>
                         <hr style="border:1px solid white;margin-top:5vh;">
                     </div>
                     <div class="w-100"></div>
                     <div class="col-md-6 justify-content-end">
                         <h2 class="heading mb-3">Prayer</h2>
-                        <div class="sub-heading pl-4">
+                        <div class="sub-heading ps-4">
                             <p class="mb-0"><?php echo esc_attr( $lap_stats['minutes_prayed'] ) ?> Minutes of Prayer</p>
                             <p class="mb-0"><?php echo esc_attr( $lap_stats['completed_percent'] ) ?>% of the World Covered in Prayer</p>
 
@@ -109,7 +109,7 @@ class PG_Global_Prayer_App_Completed extends PG_Global_Prayer_App {
                     </div>
                     <div class="col-md-6 justify-content-end">
                         <h2 class="heading mb-3">Pace</h2>
-                        <div class="sub-heading pl-4">
+                        <div class="sub-heading ps-4">
                             <p class="mb-0">Start: <?php echo esc_attr( gmdate( 'M j, Y', $lap_stats['start_time'] ) ) ?></p>
                             <p class="mb-0">End: <?php echo esc_attr( ( $lap_stats['end_time'] ) ? gmdate( 'M j, Y', $lap_stats['end_time'] ) : 'ongoing' ) ?></p>
                             <p class="mb-0"><?php echo esc_attr( $lap_stats['time_elapsed'] ) ?></p>
@@ -122,13 +122,13 @@ class PG_Global_Prayer_App_Completed extends PG_Global_Prayer_App {
                     <div class="w-100"></div>
 
                     <div class="col-md-6">
-                        <div class="sub-heading pl-4">
+                        <div class="sub-heading ps-4">
                             <p class="mb-0"><?php echo esc_attr( $lap_stats['participants'] ) ?> Prayer Warriors Participated</p>
 
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="sub-heading pl-4">
+                        <div class="sub-heading ps-4">
                             <p class="mb-2"><u>Top Warrior Locations</u></p>
                             <ol>
                                 <?php

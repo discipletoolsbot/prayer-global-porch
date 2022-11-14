@@ -22,7 +22,8 @@ $(document).ready(function($) {
             }
             navigator.share(data)
         } else {
-            $(shareModal).modal()
+            const myModal = new bootstrap.Modal(shareModal)
+            myModal.show()
         }
     })
 

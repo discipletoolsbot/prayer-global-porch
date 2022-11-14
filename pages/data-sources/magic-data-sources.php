@@ -69,7 +69,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
         ?>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
-        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/basic.css' ) ) ?>" type="text/css" media="all">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <?php
     }
 
@@ -80,17 +80,17 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
     public function body(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' ) ?>
 
-        <section class="pb_section" >
+        <section class="page-section mt-5" >
             <div class="container">
-                <div class="row justify-content-md-center text-center mb-5">
+                <div class="row justify-content-md-center text-center mb-4">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 heading-border-top font-weight-normal">Data Sources</h2>
+                        <h2 class="mt-0 header-border-top font-weight-normal">Data Sources</h2>
                     </div>
                 </div>
-                <div class="grid-x grid-margin-x grid-padding-y">
+                <div class="row g-0">
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <p>
                             We acknowledge that there is no way to possess 100% accurate knowledge of the faith status or location status of
@@ -122,7 +122,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">Population Data</h3>
                         <p>The population data was acquired and cross-checked through multiple sources; country level data
@@ -156,7 +156,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">Faith Status Data</h3>
                         <p>
@@ -203,7 +203,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">People Group Data</h3>
                         <ul>
@@ -213,7 +213,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">Language and Religion Data</h3>
                         <ul>
@@ -223,7 +223,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
 
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">Administrative Divisions and Polygon Resources</h3>
                         <p>
@@ -244,7 +244,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">City Data</h3>
                         <ul>
@@ -254,7 +254,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">Bible Citations</h3>
                         <ul>
@@ -270,7 +270,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <div style="padding-left:1em;">
                             <u>National Statistical Offices</u>

@@ -102,7 +102,7 @@ class PG_Porch_404 extends DT_Magic_Url_Base
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
             ]) ?>][0]
         </script>
-        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/basic.css' ) ) ?>" type="text/css" media="all">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <style>
             section {
                 margin-top: 110px;
@@ -139,10 +139,10 @@ class PG_Porch_404 extends DT_Magic_Url_Base
                 <div class="row">
                     <div class="col center">
                         <ul style="list-style: none; padding-left: 0;">
-                            <li><a href="newest/lap">Start Praying</a></li>
-                            <li><a href="newest/map">The map</a></li>
-                            <li><a href="newest/stats">More stats</a></li>
-                            <li><a href="challengs/active">Group Challenges</a></li>
+                            <li><a href="/newest/lap">Start Praying</a></li>
+                            <li><a href="/newest/map">The map</a></li>
+                            <li><a href="/newest/stats">More stats</a></li>
+                            <li><a href="/challengs/active">Group Challenges</a></li>
                         </ul>
                     </div>
                 </div>
@@ -161,8 +161,9 @@ class PG_Porch_404 extends DT_Magic_Url_Base
                 <div class="row">
                     <div class="col center">
                         <ul style="list-style: none; padding-left: 0;">
-                            <li><a href="content_app/data_sources">Where does all the data come from?</a></li>
-                            <li><a href="download_app/media">Invites for sharing on social media</a></li>
+                            <li><a href="/prayer_app/contact_us/">Anything to share/request? Please contact us :)</a></li>
+                            <li><a href="/content_app/data_sources">Where does all the data come from?</a></li>
+                            <li><a href="/download_app/media">Invites for sharing on social media</a></li>
                         </ul>
                     </div>
                 </div>

@@ -95,7 +95,7 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
             </script>
             <script type="text/javascript" src="<?php echo esc_url( DT_Mapbox_API::$mapbox_gl_js ) ?>"></script>
             <link rel="stylesheet" href="<?php echo esc_url( DT_Mapbox_API::$mapbox_gl_css ) ?>" type="text/css" media="all">
-            <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/basic.css' ) ) ?>" type="text/css" media="all">
+            <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
             <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>lap.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'lap.css' ) ) ?>" type="text/css" media="all">
             <link rel="prefetch" href="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/celebrate1.gif' ) ?>" >
             <link rel="prefetch" href="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/celebrate2.gif' ) ?>" >
@@ -124,7 +124,7 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
                     </button>
                     <button type="button" class="btn btn-secondary praying" id="praying__close_button"><i class="ion-close-circled"></i></button>
                     <button type="button" class="btn btn-secondary praying" id="praying__continue_button"><i class="ion-android-arrow-dropright-circle"></i></button>
-                    <button type="button" class="btn btn-secondary settings" id="praying__open_options" data-toggle="modal" data-target="#option_filter"><i class="ion-android-options"></i></button>
+                    <button type="button" class="btn btn-secondary settings" id="praying__open_options" data-bs-toggle="modal" data-bs-target="#option_filter"><i class="ion-android-options"></i></button>
                 </div>
             </div>
             <div class="container question" id="question-panel">
@@ -155,9 +155,7 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Set Your Prayer Experience</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <div>
@@ -171,16 +169,9 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
                             <button type="button" class="btn btn-outline-secondary pace" id="pace__10" value="10">10 Minutes</button>
                             <button type="button" class="btn btn-outline-secondary pace" id="pace__15" value="15">15 Minutes</button>
                         </div>
-                        <div>
-                            <p>Prayer guidance</p>
-                        </div>
-                        <div class="btn-group-vertical pace-wrapper">
-                            <button type="button" class="btn btn-secondary favor favor__guided" data-item-id="favor__guided" value="guided">More Guided</button>
-                            <button type="button" class="btn btn-outline-secondary favor favor__facts" data-item-id="favor__facts" value="facts">More Facts</button>
-                        </div>
                     </div>
                     <div class="modal-footer center">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Let's Go!</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Save</button>
                     </div>
                 </div>
             </div>
@@ -211,7 +202,7 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
                         </p>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-primary" data-dismiss="modal">Let's Go!</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Let's Go!</button>
                     </div>
                 </div>
             </div>
@@ -239,15 +230,13 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
                             <div class="modal-content">
                                 <div class="modal-header">
                                     <h5 class="modal-title">Thank you! Leave us a correction below.</h5>
-                                    <button type="button" id="correction_close" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
+                                    <button type="button" id="correction_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
                                     <p><span id="correction_title" class="correction_field"></span></p>
                                     <p>
                                         Section:<br>
-                                        <select class="form-control correction_field" id="correction_select"></select>
+                                        <select class="form-control form-select correction_field" id="correction_select"></select>
                                     </p>
                                     <p>
                                         Correction Requested:<br>
@@ -303,7 +292,7 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
             case 'correction':
                 return $this->save_correction( $params['parts'], $params['data'] );
             case 'refresh':
-                return $this->get_new_location( $params['data']['favor'] );
+                return $this->get_new_location();
             case 'ip_location':
                 return $this->get_ip_location();
             default:
@@ -439,7 +428,7 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
      * Global query
      * @return array|false|void
      */
-    public function get_new_location( $favor = 'guided' ) {
+    public function get_new_location() {
         // get 4770 list
         $list_4770 = pg_query_4770_locations();
 
@@ -461,13 +450,7 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
         shuffle( $list_4770 );
         $grid_id = $list_4770[0];
 
-        if ( 'guided' === $favor ) {
-            return PG_Stacker::build_location_stack_v2( $grid_id );
-        } else if ( 'facts' === $favor ) {
-            return PG_Stacker::build_location_stack( $grid_id );
-        } else {
-            return PG_Stacker::build_location_stack_v2( $grid_id );
-        }
+        return PG_Stacker::build_location_stack_v2( $grid_id );
     }
 
     public static function _query_prayed_list() {
