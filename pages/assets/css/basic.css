@@ -532,6 +532,9 @@ strong {
 .navbar-dark .nav-link, .navbar-dark .nav-link:last-child {
     border-color: var(--nav-link-primary-color);
 }
+.navbar-dark .nav-link:last-child {
+    border-bottom: 1px solid;
+}
 .navbar-dark .nav-link:hover, .navbar-dark .nav-link:focus {
     background: var(--nav-link-primary-color);
     color: var(--nav-link-secondary-color);
@@ -540,6 +543,9 @@ strong {
     background: lightgrey;
 }
 
+.share-button {
+    width: 30px;
+}
 .share-button[data-white] {
     filter: invert(90%) sepia(100%) saturate(0%) hue-rotate(9deg) brightness(103%) contrast(102%);
 }
@@ -549,6 +555,14 @@ strong {
 .icon-button {
     cursor: pointer;
 }
+.nav-buttons {
+    height: 30px;
+    border-top: 1px solid;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    padding-left: 2em;
+}
+
 .modal-footer {
     border-top: none;
 }

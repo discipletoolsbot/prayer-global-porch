@@ -10,7 +10,6 @@ $dark_nav_class = '' === $url ||  str_contains( $url, 'stats' ) || str_contains(
     <div class="container align-items-center">
         <a class="navbar-brand me-auto" href="/">Prayer.Global</a>
         <a class="navbar__cta btn btn-outline-dark py-2 py-lg-4 me-3" href="/newest/lap/">Start Praying</a>
-        <img class="icon-button share-button" data-toggle="modal" data-target="#exampleModal" data-white src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/share.svg" alt="Share">
         <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span><i class="ion-navicon"></i></span>
         </button>
@@ -28,6 +27,9 @@ $dark_nav_class = '' === $url ||  str_contains( $url, 'stats' ) || str_contains(
                 <a class="nav-link" href="<?php echo ( $url !== '') ? trailingslashit( site_url() ) : '' ?>#section-lap">Status</a>
                 <a class="nav-link" href="/newest/map/">Map</a>
                 <a class="nav-link" href="/challenges/active/">Groups</a>
+                <div class="nav-buttons">
+                    <img class="icon-button share-button" data-toggle="modal" data-target="#exampleModal" data-white src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/share.svg" alt="Share">
+                </div>
             </div>
         </div>
     </div>
