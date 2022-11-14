@@ -69,30 +69,7 @@ class Prayer_Global_Porch_User_Page extends DT_Magic_Url_Base {
         ];
     }
 
-    public function wp_enqueue_scripts() {
-
-        // styles
-//        wp_enqueue_style( 'foundations-css', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css', array(), '6.6.3', 'all' );
-//        add_filter( 'style_loader_tag', function( $html, $handle ) {
-//            if ( 'foundations-css' === $handle ) {
-//                return str_replace( "media='all'", "media='all' integrity='sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=' crossorigin='anonymous'", $html );
-//            }
-//            return $html;
-//        }, 10, 2 );
-//        wp_enqueue_style( 'porch-user-style-css', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'css/style.css', array( 'foundations-css' ), filemtime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'css/style.css' ), 'all' );
-//
-//        // javascript
-//        wp_register_script( 'foundations-js', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js', [ 'jquery' ], '6.6.3' );
-//        wp_enqueue_script( 'foundations-js' );
-//        add_filter( 'style_loader_tag', function( $html, $handle ) {
-//            if ( 'foundations-js' === $handle ) {
-//                return str_replace( "media='all'", "media='all' integrity='sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=' crossorigin='anonymous'", $html );
-//            }
-//            return $html;
-//        }, 10, 2 );
-
-//        wp_enqueue_script( 'porch-user-site-js', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/site.js', [ 'jquery' ], filemtime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'js/site.js' ) );
-    }
+    public function wp_enqueue_scripts() {}
 
     public function header_javascript(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
@@ -107,100 +84,11 @@ class Prayer_Global_Porch_User_Page extends DT_Magic_Url_Base {
                 'translations' => [
                     'add' => __( 'Add Magic', 'disciple-tools-porch-template' ),
                 ],
+                'is_logged_in' => is_user_logged_in() ? 1 : 0,
+                'logout_url' => esc_url( wp_logout_url( '/' ) )
             ]) ?>][0]
-
-            window.user_status = <?php echo ( is_user_logged_in() ) ? 1 : 0; ?>
-
-            jQuery(document).ready(function(){
-
-                if ( window.user_status ) {
-                   window.write_profile( jsObject.user.data )
-                } else {
-                    window.write_login()
-                }
-
-            })
-
-            window.get_user_app = (action, data ) => {
-                return jQuery.ajax({
-                    type: "POST",
-                    data: JSON.stringify({ action: action, parts: jsObject.parts, data: data }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    url: jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type,
-                    beforeSend: function (xhr) {
-                        xhr.setRequestHeader('X-WP-Nonce', jsObject.nonce )
-                    }
-                })
-                    .fail(function(e) {
-                        console.log(e)
-                        jQuery('#error').html(e)
-                    })
-            }
-
-            window.send_login = () => {
-                let email = jQuery('#pg_input_email').val()
-                let pass = jQuery('#pg_input_password').val()
-                jQuery('.loading-spinner').addClass('active')
-
-                window.get_user_app('login', { email: email, pass: pass } )
-                    .done(function(data){
-                        console.log(data)
-                        jQuery('.loading-spinner').removeClass('active')
-                        if ( data ) {
-                            window.write_profile(data)
-                        }
-                    })
-            }
-
-            window.write_profile = (data) => {
-                jQuery('#pg_content').html(`
-                    <table class="table">
-                        <tbody>
-                        <tr>
-                            <td>User ID</td>
-                            <td id="pg_user_id"></td>
-                        </tr>
-                        <tr>
-                            <td>User Display Name</td>
-                            <td id="pg_user_display"></td>
-                        </tr>
-                        <tr>
-                            <td>User Email</td>
-                            <td id="pg_user_email"></td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                    <a href="<?php echo esc_url( wp_logout_url( '/' ) ); ?>">Logout</a>
-                `)
-                jQuery('#pg_user_id').html(data.ID)
-                jQuery('#pg_user_display').html(data.display_name)
-                jQuery('#pg_user_email').html(data.user_email)
-
-            }
-            window.write_login = () => {
-                jQuery('#pg_content').html(`
-                <form id="login_form">
-                            <p>
-                                Email<br>
-                                <input type="text" id="pg_input_email"  />
-                            </p>
-                            <p>
-                                Password<br>
-                                <input type="password" id="pg_input_password" />
-                            </p>
-                            <p>
-                                <button type="button" id="submit_button">Submit</button> <span class="loading-spinner"></span>
-                            </p>
-                        </form>
-                `)
-                jQuery('#submit_button').on('click', function(){
-                    window.send_login()
-
-                })
-            }
         </script>
+        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>user-link.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'user-link.js' ) ) ?>"></script>
         <style>
             #login_form input {
                 padding:.5em;
@@ -226,7 +114,7 @@ class Prayer_Global_Porch_User_Page extends DT_Magic_Url_Base {
                     </div>
                 </div>
                 <div class="row justify-content-md-center text-center mb-5">
-                    <div class="col-lg-7" id="pg_content"></div>
+                    <div class="col-lg-7 flow" id="pg_content"></div>
                 </div>
             </div>
         </section>

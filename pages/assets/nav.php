@@ -26,6 +26,15 @@ $dark_nav_class = '' === $url ||  str_contains( $url, 'stats' ) || str_contains(
                 <a class="nav-link" href="#section-lap">Status</a>
                 <a class="nav-link" href="/newest/map/">Map</a>
                 <a class="nav-link" href="/challenges/active/">Groups</a>
+
+                <div id="user-nav" style="display: <?php echo esc_attr( is_user_logged_in() ? 'block' : 'none' ) ?>">
+
+                    <a href="#my-stats" class="nav-link">Statistics</a>
+                    <a href="/user_app/map" class="nav-link">My Map</a>
+                    <a href="#my-groups" class="nav-link">My Groups</a>
+
+                </div>
+
             </div>
         </div>
     </div>
