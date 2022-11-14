@@ -1,5 +1,5 @@
 $(document).ready(function($) {
-    const shareButton = document.querySelector('.share-button')
+    const shareButtons = document.querySelectorAll('.share-button')
     const shareModal = document.getElementById('share-modal')
     const shareFacebook = shareModal.querySelector('.facebook-action')
     const shareTwitter = shareModal.querySelector('.twitter-action')
@@ -13,7 +13,7 @@ $(document).ready(function($) {
     const textToShare = encodeURIComponent("Join us in covering the world in prayer")
 
     // stop button opening modal
-    shareButton.addEventListener('click', () => {
+    shareButtons.forEach((shareButton) => shareButton.addEventListener('click', () => {
         if ( isGoNativeApp ) {
             window.location.href = 'gonative://share/sharePage?url=' + pageToShare
         } else if ( isWebAPIShareAvailable ) {
@@ -22,10 +22,16 @@ $(document).ready(function($) {
             }
             navigator.share(data)
         } else {
+            const navToggler = $('.navbar-toggler')
+            const navBar = $('.pg-navmenu')
+            if ( navBar.hasClass('show') ) {
+                navToggler.click();
+            }
             const myModal = new bootstrap.Modal(shareModal)
             myModal.show()
+            console.log(navToggler, myModal)
         }
-    })
+    }))
 
     shareFacebook.addEventListener('click', () => {
         const url = `https://www.facebook.com/sharer.php?u=${pageToShare}`
