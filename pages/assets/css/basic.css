@@ -546,12 +546,10 @@ strong {
 .share-button {
     width: 30px;
 }
-.share-button[data-white] {
+.navbar-dark .share-button {
     filter: invert(90%) sepia(100%) saturate(0%) hue-rotate(9deg) brightness(103%) contrast(102%);
 }
-.pg-navbar.scrolled .share-button[data-white] {
-    filter: unset;
-}
+
 .icon-button {
     cursor: pointer;
 }
