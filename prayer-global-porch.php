@@ -123,6 +123,7 @@ class Prayer_Global_Porch {
 
         // user
         require_once( 'pages/user/user-link.php' );
+        require_once( 'pages/user/user-map.php' );
 
         // admin
 //        require_once( 'charts/charts-loader.php' );

@@ -38,6 +38,10 @@ class Prayer_Global_Porch_User_Page extends DT_Magic_Url_Base {
             return;
         }
 
+        if ( $this->type !== $this->parts['type'] ) {
+            return;
+        }
+
         // require login access
 //        if ( ! is_user_logged_in() ) {
 //            wp_safe_redirect( dt_custom_login_url( 'login' ) );
