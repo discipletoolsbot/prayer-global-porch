@@ -95,7 +95,7 @@ jQuery(document).ready(function(){
 
             <hr />
 
-            <section id="my-groups" class="user-groups">
+            <section id="my-groups" class="user-groups flow-small">
                 <h2>Groups</h2>
                 <h3 class="text-start">Leading</h3>
                 <table class="display " style="width:100%;" id="leading-list-table" data-order='[[ 0, "desc" ]]'>
