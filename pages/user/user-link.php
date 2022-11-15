@@ -4,11 +4,11 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 /**
  * Class Prayer_Global_Porch_Public_Porch_Profile
  */
-class Prayer_Global_Porch_User_Page extends DT_Magic_Url_Base {
+class PG_User_App_Profile extends DT_Magic_Url_Base {
 
-    public $page_title = 'Private User Page';
-    public $root = "user_app";
-    public $type = 'private';
+    public $page_title = 'User Profile';
+    public $root = 'user_app';
+    public $type = 'profile';
     public $post_type = 'user';
 
     private static $_instance = null;
@@ -212,4 +212,4 @@ class Prayer_Global_Porch_User_Page extends DT_Magic_Url_Base {
     }
 
 }
-Prayer_Global_Porch_User_Page::instance();
+PG_User_App_Profile::instance();
