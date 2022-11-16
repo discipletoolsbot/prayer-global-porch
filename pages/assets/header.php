@@ -1,8 +1,10 @@
 <?php
 global $wp;
 $current_url = home_url( add_query_arg( array(), $wp->request ) );
+pg_google_analytics();
 ?>
 <meta name="apple-mobile-web-app-title" content="Prayer.Global">
+
 <link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ); ?>assets/images/favicons/apple-touch-icon.png">
 
 <link rel="icon" type="image/png" sizes="512x512" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ); ?>assets/images/favicons/android-chrome-512x512.png">

@@ -89,6 +89,7 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
 
     public function header_javascript(){
         ?>
+        <?php pg_google_analytics() ?>
         <script>
             let jsObject = [<?php echo json_encode([
                 'map_key' => DT_Mapbox_API::get_key(),

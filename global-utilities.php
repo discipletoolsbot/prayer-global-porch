@@ -507,3 +507,20 @@ function pg_is_lap_complete( $post_id ) {
         return true;
     }
 }
+
+function pg_google_analytics()
+{
+    ?>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2W6MY68VEM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-2W6MY68VEM');
+    </script>
+
+    <?php
+}
