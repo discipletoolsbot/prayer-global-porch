@@ -100,7 +100,7 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
                 'grid_data' => [],
                 'participants' => [],
                 'user_locations' => [],
-                'stats' => pg_global_stats_by_key( $this->parts['public_key'] ),
+                'stats' => [], //pg_global_stats_by_key( $this->parts['public_key'] ),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
                 'translations' => [
                     'add' => __( 'Add Magic', 'prayer-global' ),
@@ -117,7 +117,7 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
     }
     public function body(){
         $parts = $this->parts;
-        $lap_stats = pg_global_stats_by_key( $parts['public_key'] );
+        $lap_stats = []; //pg_global_stats_by_key( $parts['public_key'] );
         DT_Mapbox_API::geocoder_scripts();
         ?>
         <style id="custom-style"></style>
@@ -135,7 +135,7 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
             <div id="map-wrapper">
                 <div id="head_block">
 
-                    <?php require( __DIR__ . '/../pray/nav-global-map.php' ) ?>
+                    <?php require( __DIR__ . '/nav-user-map.php' ) ?>
 
                 </div>
                 <span class="loading-spinner active"></span>
@@ -243,6 +243,19 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
         ], filemtime( plugin_dir_path( __DIR__ ) .'assets/js/bootstrap.bundle.min.js' ), true );
     }
 
+    public function add_endpoints() {
+        $namespace = $this->root . '/v1';
+        register_rest_route(
+            $namespace, '/'.$this->type, [
+                [
+                    'methods'  => "POST",
+                    'callback' => [ $this, 'endpoint' ],
+                    'permission_callback' => '__return_true',
+                ],
+            ]
+        );
+    }
+
     public function endpoint( WP_REST_Request $request ) {
         $params = $request->get_params();
 
@@ -254,7 +267,7 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
 
         switch ( $params['action'] ) {
             case 'get_stats':
-                return pg_global_stats_by_key( $params['parts']['public_key'] );
+                return []; //pg_global_stats_by_key( $params['parts']['public_key'] );
             case 'get_grid':
                 return [
                     'grid_data' => $this->get_grid( $params['parts'] ),
@@ -274,7 +287,7 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
 
     public function get_grid( $parts ) {
         global $wpdb;
-        $lap_stats = pg_global_stats_by_key( $parts['public_key'] );
+        $lap_stats = []; //pg_global_stats_by_key( $parts['public_key'] );
 
         // map grid
         $data_raw = $wpdb->get_results( $wpdb->prepare( "
@@ -315,7 +328,7 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
 
     public function get_participants( $parts ){
         global $wpdb;
-        $lap_stats = pg_global_stats_by_key( $parts['public_key'] );
+        $lap_stats = []; //pg_global_stats_by_key( $parts['public_key'] );
 
         $participants_raw = $wpdb->get_results( $wpdb->prepare( "
            SELECT r.lng as longitude, r.lat as latitude
@@ -347,7 +360,7 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
         if ( empty( $hash ) ) {
             return [];
         }
-        $lap_stats = pg_global_stats_by_key( $parts['public_key'] );
+        $lap_stats = []; //pg_global_stats_by_key( $parts['public_key'] );
 
         $user_locations_raw  = $wpdb->get_results( $wpdb->prepare( "
                SELECT lg.longitude, lg.latitude
