@@ -273,14 +273,18 @@ function _pg_custom_stats_builder_query( &$data ) {
 }
 function _pg_user_stats_builder_query( &$data ) {
     global $wpdb;
-    $counts = $wpdb->get_row( $wpdb->prepare( "
-        SELECT SUM(r.value) as minutes_prayed, COUNT(r.grid_id) as locations_completed
+    $counts = $wpdb->get_results( $wpdb->prepare( "
+        SELECT grid_id, SUM(r.value) as minutes_prayed, COUNT(r.grid_id) as locations_completed
             FROM $wpdb->dt_reports as r
             WHERE r.user_id = %d
+            GROUP BY r.grid_id WITH ROLLUP
     ", $data['user_id'] ), ARRAY_A );
 
-    $data['locations_completed']  = (int) $counts['locations_completed'];
-    $data['minutes_prayed'] = (int) $counts['minutes_prayed'];
+    $total = $counts[ count( $counts ) - 1 ];
+
+    $data['locations_completed']  = (int) $total['locations_completed'];
+    $data['minutes_prayed'] = (int) $total['minutes_prayed'];
+    $data['location_counts'] = $counts;
 
     return $data;
 }
@@ -351,7 +355,33 @@ function _pg_stats_builder( $data ) : array {
 }
 
 function _pg_user_stats_builder( $data ) {
-    
+    /**
+     * TIME CALCULATIONS
+     */
+    $now = $data['end_time'];
+    $time_difference = $now - $data['start_time'];
+    _pg_format_duration( $data, $time_difference, 'time_elapsed', 'time_elapsed_small' );
+
+    $prayer_speed = (int) $time_difference !== 0 ? (int) $data['locations_completed'] / $time_difference : 0;
+    $locations_per_hour = $prayer_speed * 60 * 60;
+    $locations_per_day = $locations_per_hour * 24;
+    $data['locations_per_hour'] = $locations_per_hour < 1 && $locations_per_hour !== 0 ? number_format( $locations_per_hour, 2 ) : number_format( $locations_per_hour );
+    $data['locations_per_day'] = $locations_per_day < 1 && $locations_per_day !== 0 ? number_format( $locations_per_day, 2 ) : number_format( $locations_per_day );
+
+    /**
+     * COMPLETED & REMAINING
+     */
+    $completed = (int) $data['locations_completed'];
+    $data['completed'] = number_format( $completed );
+    $data['completed_int'] = $completed;
+    $data['completed_percent'] = ROUND( $completed / PG_TOTAL_STATES * 100, 0 );
+    $remaining = PG_TOTAL_STATES - count( $data['location_counts'] ) - 1;
+    $data['remaining'] = number_format( $remaining );
+    $data['remaining_int'] = $remaining;
+    $data['remaining_percent'] = ROUND( $remaining / PG_TOTAL_STATES * 100, 0 );
+
+    $data['start_time_formatted'] = gmdate( 'M d, Y', $data['start_time'] );
+    $data['end_time_formatted'] = gmdate( 'M d, Y', $data['end_time'] );
 
     return $data;
 }
