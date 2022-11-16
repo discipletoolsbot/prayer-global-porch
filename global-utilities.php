@@ -72,6 +72,79 @@ function pg_get_global_lap_by_key( $key ) {
 
     return $lap;
 }
+
+
+function pg_get_global_lap_by_lap_number( $lap_number ) {
+
+//    if ( wp_cache_get( __METHOD__.$lap_number ) ) {
+//        return wp_cache_get( __METHOD__.$lap_number );
+//    }
+
+    global $wpdb;
+    $result = $wpdb->get_row( $wpdb->prepare(
+        "SELECT pm.meta_value as lap_number, pm1.meta_value as lap_key, pm.post_id, pm2.meta_value as start_time, pm3.meta_value as end_time, p.post_title as title
+                    FROM $wpdb->postmeta pm
+                    LEFT JOIN $wpdb->postmeta pm1 ON pm.post_id=pm1.post_id AND pm1.meta_key = 'prayer_app_global_magic_key'
+                    LEFT JOIN $wpdb->postmeta pm2 ON pm.post_id=pm2.post_id AND pm2.meta_key = 'start_time'
+                    LEFT JOIN $wpdb->postmeta pm3 ON pm.post_id=pm3.post_id AND pm3.meta_key = 'end_time'
+                    LEFT JOIN $wpdb->posts p ON pm.post_id=p.ID
+                    WHERE pm.meta_key = 'global_lap_number' AND pm.meta_value = %d",
+        $lap_number
+    ), ARRAY_A);
+
+    if ( empty( $result ) ) {
+        $lap = false;
+    } else {
+        $ongoing = false;
+        if ( empty( $result['end_time'] ) ) {
+            $result['end_time'] = time();
+            $ongoing = true;
+        }
+        $lap = [
+            'title' => $result['title'],
+            'lap_number' => (int) $result['lap_number'],
+            'post_id' => (int) $result['post_id'],
+            'key' => $result['lap_key'],
+            'start_time' => (int) $result['start_time'],
+            'end_time' => (int) $result['end_time'],
+            'on_going' => $ongoing
+        ];
+    }
+
+//    wp_cache_set( __METHOD__.$lap_number, $lap );
+
+    return $lap;
+}
+function pg_get_global_race(){
+
+//    if ( wp_cache_get( __METHOD__ ) ) {
+//        return wp_cache_get( __METHOD__ );
+//    }
+
+    global $wpdb;
+    $result = $wpdb->get_row(
+        "SELECT pm.meta_value as lap_number, pm1.meta_value as lap_key, pm.post_id, pm2.meta_value as start_time, pm3.meta_value as end_time, p.post_title as title
+            FROM $wpdb->postmeta pm
+            LEFT JOIN $wpdb->postmeta pm1 ON pm.post_id=pm1.post_id AND pm1.meta_key = 'prayer_app_global_magic_key'
+            LEFT JOIN $wpdb->postmeta pm2 ON pm.post_id=pm2.post_id AND pm2.meta_key = 'start_time'
+            LEFT JOIN $wpdb->postmeta pm3 ON pm.post_id=pm3.post_id AND pm3.meta_key = 'end_time'
+            LEFT JOIN $wpdb->posts p ON pm.post_id=p.ID
+            WHERE pm.meta_key = 'global_lap_number' AND pm.meta_value = '1'", ARRAY_A); // queries the first global lap
+
+    $lap = [
+        'title' => $result['title'],
+        'lap_number' => (int) $result['lap_number'],
+        'post_id' => (int) $result['post_id'],
+        'key' => $result['lap_key'],
+        'start_time' => (int) $result['start_time'],
+        'end_time' => time(), // current time is the end of the query
+        'on_going' => true,
+    ];
+
+//    wp_cache_set( __METHOD__, $lap );
+
+    return $lap;
+}
 function pg_get_custom_lap_by_post_id( $post_id ) {
 
 //    if ( wp_cache_get( __METHOD__. $post_id ) ) {
@@ -115,86 +188,15 @@ function pg_get_custom_lap_by_post_id( $post_id ) {
     return $lap;
 }
 
-function pg_get_global_lap_by_lap_number( $lap_number ) {
-
-//    if ( wp_cache_get( __METHOD__.$lap_number ) ) {
-//        return wp_cache_get( __METHOD__.$lap_number );
-//    }
-
-    global $wpdb;
-    $result = $wpdb->get_row( $wpdb->prepare(
-        "SELECT pm.meta_value as lap_number, pm1.meta_value as lap_key, pm.post_id, pm2.meta_value as start_time, pm3.meta_value as end_time, p.post_title as title
-                    FROM $wpdb->postmeta pm
-                    LEFT JOIN $wpdb->postmeta pm1 ON pm.post_id=pm1.post_id AND pm1.meta_key = 'prayer_app_global_magic_key'
-                    LEFT JOIN $wpdb->postmeta pm2 ON pm.post_id=pm2.post_id AND pm2.meta_key = 'start_time'
-                    LEFT JOIN $wpdb->postmeta pm3 ON pm.post_id=pm3.post_id AND pm3.meta_key = 'end_time'
-                    LEFT JOIN $wpdb->posts p ON pm.post_id=p.ID
-                    WHERE pm.meta_key = 'global_lap_number' AND pm.meta_value = %d",
-        $lap_number
-    ), ARRAY_A);
-
-    if ( empty( $result ) ) {
-        $lap = false;
-    } else {
-        $ongoing = false;
-        if ( empty( $result['end_time'] ) ) {
-            $result['end_time'] = time();
-            $ongoing = true;
-        }
-        $lap = [
-            'title' => $result['title'],
-            'lap_number' => (int) $result['lap_number'],
-            'post_id' => (int) $result['post_id'],
-            'key' => $result['lap_key'],
-            'start_time' => (int) $result['start_time'],
-            'end_time' => (int) $result['end_time'],
-            'on_going' => $ongoing
-        ];
-    }
-
-//    wp_cache_set( __METHOD__.$lap_number, $lap );
-
-    return $lap;
-}
-function pg_global_stats_by_lap_number( $lap_number ) {
-    $data = pg_get_global_lap_by_lap_number( $lap_number );
-    _pg_global_stats_builder_query( $data );
-    return _pg_stats_builder( $data );
-}
 function pg_global_stats_by_key( $key ) {
     $data = pg_get_global_lap_by_key( $key );
     _pg_global_stats_builder_query( $data );
     return _pg_stats_builder( $data );
 }
-function pg_get_global_race(){
-
-//    if ( wp_cache_get( __METHOD__ ) ) {
-//        return wp_cache_get( __METHOD__ );
-//    }
-
-    global $wpdb;
-    $result = $wpdb->get_row(
-        "SELECT pm.meta_value as lap_number, pm1.meta_value as lap_key, pm.post_id, pm2.meta_value as start_time, pm3.meta_value as end_time, p.post_title as title
-            FROM $wpdb->postmeta pm
-            LEFT JOIN $wpdb->postmeta pm1 ON pm.post_id=pm1.post_id AND pm1.meta_key = 'prayer_app_global_magic_key'
-            LEFT JOIN $wpdb->postmeta pm2 ON pm.post_id=pm2.post_id AND pm2.meta_key = 'start_time'
-            LEFT JOIN $wpdb->postmeta pm3 ON pm.post_id=pm3.post_id AND pm3.meta_key = 'end_time'
-            LEFT JOIN $wpdb->posts p ON pm.post_id=p.ID
-            WHERE pm.meta_key = 'global_lap_number' AND pm.meta_value = '1'", ARRAY_A); // queries the first global lap
-
-    $lap = [
-        'title' => $result['title'],
-        'lap_number' => (int) $result['lap_number'],
-        'post_id' => (int) $result['post_id'],
-        'key' => $result['lap_key'],
-        'start_time' => (int) $result['start_time'],
-        'end_time' => time(), // current time is the end of the query
-        'on_going' => true,
-    ];
-
-//    wp_cache_set( __METHOD__, $lap );
-
-    return $lap;
+function pg_global_stats_by_lap_number( $lap_number ) {
+    $data = pg_get_global_lap_by_lap_number( $lap_number );
+    _pg_global_stats_builder_query( $data );
+    return _pg_stats_builder( $data );
 }
 
 function pg_global_race_stats() {
@@ -204,6 +206,12 @@ function pg_global_race_stats() {
     _pg_global_stats_builder_query( $data );
     return _pg_stats_builder( $data );
 }
+function pg_custom_lap_stats_by_post_id( $post_id ) {
+    $data = pg_get_custom_lap_by_post_id( $post_id );
+    _pg_custom_stats_builder_query( $data );
+    return _pg_stats_builder( $data );
+}
+
 function _pg_global_stats_builder_query( &$data ) {
     global $wpdb;
     $counts = $wpdb->get_row( $wpdb->prepare( "
@@ -219,11 +227,6 @@ function _pg_global_stats_builder_query( &$data ) {
     $data['participant_country_count'] = (int) $counts['participant_country_count'];
 
     return $data;
-}
-function pg_custom_lap_stats_by_post_id( $post_id ) {
-    $data = pg_get_custom_lap_by_post_id( $post_id );
-    _pg_custom_stats_builder_query( $data );
-    return _pg_stats_builder( $data );
 }
 function _pg_custom_stats_builder_query( &$data ) {
     global $wpdb;
