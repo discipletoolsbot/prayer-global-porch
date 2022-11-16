@@ -524,3 +524,25 @@ function pg_google_analytics()
 
     <?php
 }
+
+function pg_og_tags( $details = [] ) {
+    global $wp;
+    $details = array_merge([
+        "url" => home_url(),
+        "type" => "app",
+        "title" => 'Prayer.Global',
+        "description" => 'Join us in covering the world in prayer for disciple making using a creative, community-driven prayer coordination app.',
+        "image" => trailingslashit( plugin_dir_url( __DIR__ ) ) . 'pages/assets/images/favicons/prayer-global-og.png',
+    ], $details);
+
+    ?>
+
+    <meta property="og:url"                content="<?php echo esc_url( $details['url'] ) ?>" />
+    <meta property="og:type"               content="<?php echo esc_attr( $details['type'] ) ?>" />
+    <meta property="og:title"              content="<?php echo esc_attr( $details['title'] ) ?>" />
+    <meta property="og:description"        content="<?php echo esc_attr( $details['description'] ) ?>" />
+    <meta property="og:image"              content="<?php echo esc_url( $details['image'] ) ?>" />
+    <meta name="description"               content="<?php echo esc_attr( $details['description'] ) ?>">
+
+    <?php
+}
