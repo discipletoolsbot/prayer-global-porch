@@ -27,6 +27,35 @@ function pg_current_global_lap() : array {
     return $lap;
 }
 
+function pg_global_stats_by_key( $key ) {
+    $data = pg_get_global_lap_by_key( $key );
+    _pg_global_stats_builder_query( $data );
+    return _pg_stats_builder( $data );
+}
+function pg_global_stats_by_lap_number( $lap_number ) {
+    $data = pg_get_global_lap_by_lap_number( $lap_number );
+    _pg_global_stats_builder_query( $data );
+    return _pg_stats_builder( $data );
+}
+
+function pg_global_race_stats() {
+    $current_lap = pg_current_global_lap();
+    $data = pg_get_global_race();
+    $data['number_of_laps'] = $current_lap['lap_number'];
+    _pg_global_stats_builder_query( $data );
+    return _pg_stats_builder( $data );
+}
+function pg_custom_lap_stats_by_post_id( $post_id ) {
+    $data = pg_get_custom_lap_by_post_id( $post_id );
+    _pg_custom_stats_builder_query( $data );
+    return _pg_stats_builder( $data );
+}
+function pg_user_race_stats_by_user_id( $user_id ) {
+    $data = pg_get_user_stats_by_user( $user_id );
+    _pg_user_stats_builder_query( $data );
+    return _pg_user_stats_builder( $data );
+}
+
 /**
  * @param $key
  * @return array|false
@@ -187,29 +216,26 @@ function pg_get_custom_lap_by_post_id( $post_id ) {
 
     return $lap;
 }
+function pg_get_user_stats_by_user( $user_id ) {
+    global $wpdb;
+    $result = $wpdb->get_row( $wpdb->prepare(
+        "SELECT MIN( r.timestamp ) as start_time, UNIX_TIMESTAMP() as end_time
+                    FROM $wpdb->dt_reports r
+                    WHERE r.user_id = %d",
+        $user_id
+    ), ARRAY_A);
 
-function pg_global_stats_by_key( $key ) {
-    $data = pg_get_global_lap_by_key( $key );
-    _pg_global_stats_builder_query( $data );
-    return _pg_stats_builder( $data );
-}
-function pg_global_stats_by_lap_number( $lap_number ) {
-    $data = pg_get_global_lap_by_lap_number( $lap_number );
-    _pg_global_stats_builder_query( $data );
-    return _pg_stats_builder( $data );
-}
+    if ( empty( $result ) ) {
+        $lap = false;
+    } else {
+        $lap = [
+            "user_id" => $user_id,
+            "start_time" => $result['start_time'],
+            "end_time" => $result['end_time'],
+        ];
+    }
 
-function pg_global_race_stats() {
-    $current_lap = pg_current_global_lap();
-    $data = pg_get_global_race();
-    $data['number_of_laps'] = $current_lap['lap_number'];
-    _pg_global_stats_builder_query( $data );
-    return _pg_stats_builder( $data );
-}
-function pg_custom_lap_stats_by_post_id( $post_id ) {
-    $data = pg_get_custom_lap_by_post_id( $post_id );
-    _pg_custom_stats_builder_query( $data );
-    return _pg_stats_builder( $data );
+    return $lap;
 }
 
 function _pg_global_stats_builder_query( &$data ) {
@@ -242,6 +268,19 @@ function _pg_custom_stats_builder_query( &$data ) {
     $data['participants'] = (int) $counts['participants'];
     $data['minutes_prayed'] = (int) $counts['minutes_prayed'];
     $data['participant_country_count'] = (int) $counts['participant_country_count'];
+
+    return $data;
+}
+function _pg_user_stats_builder_query( &$data ) {
+    global $wpdb;
+    $counts = $wpdb->get_row( $wpdb->prepare( "
+        SELECT SUM(r.value) as minutes_prayed, COUNT(r.grid_id) as locations_completed
+            FROM $wpdb->dt_reports as r
+            WHERE r.user_id = %d
+    ", $data['user_id'] ), ARRAY_A );
+
+    $data['locations_completed']  = (int) $counts['locations_completed'];
+    $data['minutes_prayed'] = (int) $counts['minutes_prayed'];
 
     return $data;
 }
@@ -308,6 +347,12 @@ function _pg_stats_builder( $data ) : array {
 
 //    dt_write_log(__METHOD__);
 //    dt_write_log($data);
+    return $data;
+}
+
+function _pg_user_stats_builder( $data ) {
+    
+
     return $data;
 }
 

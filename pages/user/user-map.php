@@ -10,6 +10,7 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
     public $root = "user_app";
     public $type = 'map';
     public $post_type = 'user';
+    public $user_id;
 
     private static $_instance = null;
     public static function instance() {
@@ -48,6 +49,8 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
             wp_redirect( "/user_app/$profile_page" );
             return;
         }
+
+        $this->user_id = get_current_user_id();
 
         // load if valid url
         add_action( 'dt_blank_head', [ $this, '_header' ] );
@@ -100,7 +103,7 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
                 'grid_data' => [],
                 'participants' => [],
                 'user_locations' => [],
-                'stats' => [], //pg_global_stats_by_key( $this->parts['public_key'] ),
+                'stats' => pg_user_race_stats_by_user_id( $this->user_id ),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
                 'translations' => [
                     'add' => __( 'Add Magic', 'prayer-global' ),
@@ -117,7 +120,7 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
     }
     public function body(){
         $parts = $this->parts;
-        $lap_stats = []; //pg_global_stats_by_key( $parts['public_key'] );
+        $lap_stats = pg_user_race_stats_by_user_id( $this->user_id );
         DT_Mapbox_API::geocoder_scripts();
         ?>
         <style id="custom-style"></style>
@@ -267,18 +270,18 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
 
         switch ( $params['action'] ) {
             case 'get_stats':
-                return []; //pg_global_stats_by_key( $params['parts']['public_key'] );
+                return pg_user_race_stats_by_user_id( get_current_user_id() );
             case 'get_grid':
                 return [
                     'grid_data' => $this->get_grid( $params['parts'] ),
-                    'participants' => $this->get_participants( $params['parts'] ),
+                    'participants' => [],
                 ];
             case 'get_grid_details':
                 return $this->get_grid_details( $params['data'] );
             case 'get_participants':
                 return $this->get_participants( $params['parts'] );
             case 'get_user_locations':
-                return $this->get_user_locations( $params['parts'], $params['data'] );
+                return [];
             default:
                 return new WP_Error( __METHOD__, 'missing action parameter' );
         }
@@ -287,14 +290,16 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
 
     public function get_grid( $parts ) {
         global $wpdb;
-        $lap_stats = []; //pg_global_stats_by_key( $parts['public_key'] );
+
+        $user_id = get_current_user_id();
+        $lap_stats = pg_user_race_stats_by_user_id( $user_id );
 
         // map grid
         $data_raw = $wpdb->get_results( $wpdb->prepare( "
             SELECT
                 lg1.grid_id, r1.value
             FROM $wpdb->dt_location_grid lg1
-			LEFT JOIN $wpdb->dt_reports r1 ON r1.grid_id=lg1.grid_id AND r1.type = 'prayer_app' AND r1.timestamp >= %d AND r1.timestamp <= %d
+			LEFT JOIN $wpdb->dt_reports r1 ON r1.grid_id=lg1.grid_id AND r1.type = 'prayer_app' AND r1.timestamp >= %d AND r1.timestamp <= %d AND r1.user_id = %d
             WHERE lg1.level = 0
               AND lg1.grid_id NOT IN ( SELECT lg11.admin0_grid_id FROM $wpdb->dt_location_grid lg11 WHERE lg11.level = 1 AND lg11.admin0_grid_id = lg1.grid_id )
               AND lg1.admin0_grid_id NOT IN (100050711,100219347,100089589,100074576,100259978,100018514)
@@ -302,17 +307,17 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
             SELECT
                 lg2.grid_id, r2.value
             FROM $wpdb->dt_location_grid lg2
-			LEFT JOIN $wpdb->dt_reports r2 ON r2.grid_id=lg2.grid_id AND r2.type = 'prayer_app' AND r2.timestamp >= %d AND r2.timestamp <= %d
+			LEFT JOIN $wpdb->dt_reports r2 ON r2.grid_id=lg2.grid_id AND r2.type = 'prayer_app' AND r2.timestamp >= %d AND r2.timestamp <= %d AND r2.user_id = %d
             WHERE lg2.level = 1
               AND lg2.admin0_grid_id NOT IN (100050711,100219347,100089589,100074576,100259978,100018514)
             UNION ALL
             SELECT
                 lg3.grid_id, r3.value
             FROM $wpdb->dt_location_grid lg3
-			LEFT JOIN $wpdb->dt_reports r3 ON r3.grid_id=lg3.grid_id AND r3.type = 'prayer_app' AND r3.timestamp >= %d AND r3.timestamp <= %d
+			LEFT JOIN $wpdb->dt_reports r3 ON r3.grid_id=lg3.grid_id AND r3.type = 'prayer_app' AND r3.timestamp >= %d AND r3.timestamp <= %d AND r3.user_id = %d
             WHERE lg3.level = 2
               AND lg3.admin0_grid_id IN (100050711,100219347,100089589,100074576,100259978,100018514)
-        ", $lap_stats['start_time'], $lap_stats['end_time'], $lap_stats['start_time'], $lap_stats['end_time'], $lap_stats['start_time'], $lap_stats['end_time'] ), ARRAY_A );
+        ", $lap_stats['start_time'], $lap_stats['end_time'], $user_id, $lap_stats['start_time'], $lap_stats['end_time'], $user_id, $lap_stats['start_time'], $lap_stats['end_time'], $user_id ), ARRAY_A );
 
         $data = [];
         foreach ( $data_raw as $row ) {
@@ -324,68 +329,6 @@ class PG_User_App_Map extends DT_Magic_Url_Base {
         return [
             'data' => $data,
         ];
-    }
-
-    public function get_participants( $parts ){
-        global $wpdb;
-        $lap_stats = []; //pg_global_stats_by_key( $parts['public_key'] );
-
-        $participants_raw = $wpdb->get_results( $wpdb->prepare( "
-           SELECT r.lng as longitude, r.lat as latitude
-           FROM $wpdb->dt_reports r
-           LEFT JOIN $wpdb->dt_location_grid lg ON lg.grid_id=r.grid_id
-            WHERE r.post_type = 'laps'
-                AND r.type = 'prayer_app'
-           AND r.timestamp >= %d AND r.timestamp <= %d AND r.hash IS NOT NULL
-        ", $lap_stats['start_time'], $lap_stats['end_time'] ), ARRAY_A );
-        $participants = [];
-        if ( ! empty( $participants_raw ) ) {
-            foreach ( $participants_raw as $p ) {
-                if ( ! empty( $p['longitude'] ) ) {
-                    $participants[] = [
-                        'longitude' => (float) $p['longitude'],
-                        'latitude' => (float) $p['latitude']
-                    ];
-                }
-            }
-        }
-
-        return $participants;
-    }
-
-    public function get_user_locations( $parts, $data ){
-        global $wpdb;
-        // Query based on hash
-        $hash = $data['hash'];
-        if ( empty( $hash ) ) {
-            return [];
-        }
-        $lap_stats = []; //pg_global_stats_by_key( $parts['public_key'] );
-
-        $user_locations_raw  = $wpdb->get_results( $wpdb->prepare( "
-               SELECT lg.longitude, lg.latitude
-               FROM $wpdb->dt_reports r
-               LEFT JOIN $wpdb->dt_location_grid lg ON lg.grid_id=r.grid_id
-               WHERE r.post_type = 'laps'
-                    AND r.type = 'prayer_app'
-                    AND r.hash = %s
-                AND r.timestamp >= %d AND r.timestamp <= %d
-                AND r.label IS NOT NULL
-            ", $hash, $lap_stats['start_time'], $lap_stats['end_time'] ), ARRAY_A );
-
-        $user_locations = [];
-        if ( ! empty( $user_locations_raw ) ) {
-            foreach ( $user_locations_raw as $p ) {
-                if ( ! empty( $p['longitude'] ) ) {
-                    $user_locations[] = [
-                        'longitude' => (float) $p['longitude'],
-                        'latitude' => (float) $p['latitude']
-                    ];
-                }
-            }
-        }
-
-        return $user_locations;
     }
 
     public function get_grid_details( $data ) {
