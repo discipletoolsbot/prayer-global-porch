@@ -389,6 +389,12 @@ strong {
     }
 }
 
+.offcanvas.show {
+    overflow-x: auto;
+    -webkit-box-shadow: 0 0 10px hsl(0deg 0% 4% / 70%);
+    box-shadow: 0 0 10px hsl(0deg 0% 4% / 70%);
+}
+
 /* Button styles */
 
 .btn {
