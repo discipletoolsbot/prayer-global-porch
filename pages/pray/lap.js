@@ -251,7 +251,10 @@ jQuery(document).ready(function(){
     })
   }
   function toggle_timer( set_to_pause = false ) {
-    if ( typeof window.paused === 'undefined' || window.paused === '' || set_to_pause ) {
+    /* Default to set_to_pause param; fall back to window.paused */
+    const pauseTimer = set_to_pause === true || typeof set_to_pause === 'undefined' && ( typeof window.paused === 'undefined' || window.paused === '' )
+
+    if ( pauseTimer ) {
       // console.log('pausing')
       praying_close_button.hide()
       praying_continue_button.show()
