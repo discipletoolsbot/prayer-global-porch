@@ -193,7 +193,7 @@ jQuery(document).ready(function($){
 
     const layers = [
       {
-        label: 'Places Remaining',
+        label: 'Remaining',
         color: red,
       },
       {
