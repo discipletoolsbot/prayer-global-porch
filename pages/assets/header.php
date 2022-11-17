@@ -20,6 +20,7 @@ $current_url = home_url( add_query_arg( array(), $wp->request ) );
 
 <link rel="manifest" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ); ?>assets/images/favicons/site.webmanifest">
 
+<meta name="twitter:card"              content="app" />
 <meta property="og:url"                content="<?php echo esc_url( $current_url ) ?>" />
 <meta property="og:type"               content="app" />
 <meta property="og:title"              content="Prayer.Global" />
