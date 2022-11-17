@@ -176,17 +176,17 @@ $(document).ready(function($) {
 		$(".smoothscroll[href^='#'], #probootstrap-navbar a[href^='#']").on('click', function(e) {
 		 	e.preventDefault();
 			var hash = this.hash,
-					navToggler = $('.navbar-toggler');
+					navToggler = $('.navbar-toggler'),
+					navBar = $('.pg-navmenu');
 		 	$('html, body').animate({
 
 		    scrollTop: $(hash).offset().top
 		  }, 700, 'easeInOutExpo', function(){
 		    window.location.hash = hash;
 		  });
-
-		  if ( navToggler.is(':visible') ) {
-		  	navToggler.click();
-		  }
+		if ( navBar.hasClass('show') ) {
+			navToggler.click();
+		}
 		});
 		$('body').on('activate.bs.scrollspy', function () {
 		  console.log('nice');

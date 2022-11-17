@@ -68,6 +68,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
     public function _footer(){
         $this->footer_javascript();
         wp_footer();
+        require_once( __DIR__ . '/../assets/share-modal.php' );
     }
 
     public function header_javascript(){
@@ -96,6 +97,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>heatmap.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'heatmap.css' ) ) ?>" type="text/css" media="all">
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>report.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'report.js' ) ) ?>"></script>
+        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/share.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'js/share.js' ) ) ?>"></script>
         <?php
     }
     public function body(){
@@ -131,6 +133,9 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                         <div class="col col-sm-6 col-md-3 center d-none d-md-block"><strong>Places Covered</strong><br><strong><span class="one-em green stats-figure completed"></span></strong></div>
                         <div class="col col-sm-6 col-md-3 center"><strong>Prayer Warriors</strong><br><img class="foot__icon" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/praying-hand-up-20.png' ) ?>" /></div>
                         <div class="col col-sm-6 col-md-3 center"><strong>Your Recent Prayers</strong><br><img class="foot__icon" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/black-check-50.png' ) ?>" /></div>
+                        <div class="col col-12 col-sm-1 d-none d-sm-block text-end my-auto">
+                            <img class="icon-button share-button" data-toggle="modal" data-target="#exampleModal" src="<?php echo esc_html( plugin_dir_url( __DIR__ ) ) ?>/assets/images/share.svg" alt="Share">
+                        </div>
                     </div>
                 </div>
             </div>
