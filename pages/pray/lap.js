@@ -977,7 +977,7 @@ jQuery(document).ready(function(){
     if ( data.image_url ) {
       image = '<p class="mt-3 mb-3"><img src="'+data.image_url+'" class="img-fluid" alt="" /></p>'
     } else {
-      image = '<p class="mt-3 mb-3 font-weight-bold six-em"><i class="ion-android-warning red"></i></p>'
+      image = '<p class="mt-3 mb-3"><img class="img-fluid" src="'+jsObject.nope+'" alt="" /></p>'
     }
     div.append(
       `<div class="container block">
