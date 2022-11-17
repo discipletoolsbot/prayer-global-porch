@@ -198,27 +198,23 @@ jQuery(document).ready(function(){
     })
     question_yes_done.off('click')
     question_yes_done.on('click', function( e ) {
-      const celebrationDuration = 3000
       question_panel.hide()
       celebrate()
-      celebrationConfetti(celebrationDuration)
       setTimeout(
         function()
         {
           window.location = jsObject.map_url
-        }, celebrationDuration);
+        }, 3000);
     })
     question_yes_next.off('click')
     question_yes_next.on('click', function( e ) {
-      const celebrationDuration = 3000
       question_panel.hide()
       celebrate()
-      celebrationConfetti(celebrationDuration)
       setTimeout(
         function()
         {
           advance_to_next_location()
-        }, celebrationDuration);
+        }, 3000);
     })
     pace_buttons.off('click')
     pace_buttons.on('click', function(e) {
@@ -365,10 +361,8 @@ jQuery(document).ready(function(){
     let rint = Math.floor(Math.random() * 4 ) + 1
     celebrate_panel.html(`<p style="padding-top:2em;"><h1>Great Job!<br>Prayer Added!</h1></p>
     <p><img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="img-fluid celebrate-image" alt="photo" /></p>`).show()
-  }
 
-  function celebrationConfetti(celebrationDuration = 3000) {
-    var duration = celebrationDuration;
+    var duration = 3 * 1000;
     var animationEnd = Date.now() + duration;
     var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100000 };
 
