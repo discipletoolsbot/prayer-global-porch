@@ -364,13 +364,13 @@ jQuery(document).ready(function(){
 
     let rint = Math.floor(Math.random() * 4 ) + 1
     celebrate_panel.html(`<p style="padding-top:2em;"><h1>Great Job!<br>Prayer Added!</h1></p>
-    <p><img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="img-fluid celebrate-image" alt="photo" /></p>`).show()
+<!--    <p><img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="img-fluid celebrate-image" alt="photo" /></p>-->`).show()
   }
 
   function celebrationConfetti(celebrationDuration = 3000) {
     var duration = celebrationDuration;
     var animationEnd = Date.now() + duration;
-    var defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 100000 };
+    var defaults = { startVelocity: 10, spread: 360, ticks: 90, zIndex: 100000 };
 
     function randomInRange(min, max) {
       return Math.random() * (max - min) + min;
