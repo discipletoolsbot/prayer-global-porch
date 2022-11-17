@@ -105,14 +105,16 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' );
 
         ?>
+        <style>
+            @media screen and ( max-width: 767px ) {
+                /* hides 'start praying' only on the home and non-off canvas location */
+                .navbar.pg-navbar .btn-outline-dark.py-lg-4 {
+                    display:none;
+                }
+            }
+        </style>
         <section class="page-section mt-5" data-section="login" id="section-login">
             <div class="container">
-                <div class="row justify-content-md-center text-center mb-5">
-                    <div class="col-lg-7">
-                        <h2 class="mt-0 header-border-top font-weight-normal" id="pg_title">Login</h2>
-                        <p></p>
-                    </div>
-                </div>
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7 flow" id="pg_content"></div>
                 </div>
