@@ -73,6 +73,8 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
 
     public function header_javascript(){
         ?>
+        <?php pg_google_analytics() ?>
+        <?php pg_og_tags() ?>
         <script>
             let jsObject = [<?php echo json_encode([
                 'map_key' => DT_Mapbox_API::get_key(),
