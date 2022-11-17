@@ -187,9 +187,9 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             </button>
         </div>
         <div class="offcanvas offcanvas-bottom" id="offcanvas_stats">
-            <div class="center"><button type="button" data-bs-dismiss="offcanvas"><i class="ion-chevron-down three-em"></i></button></div>
+            <div class="center offcanvas__header"><button type="button" data-bs-dismiss="offcanvas"><i class="ion-chevron-down three-em"></i></button></div>
             <hr>
-            <div class="row center">
+            <div class="row center offcanvas__content">
                 <div class="col-12">
                     <span class="three-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
                     <hr>
