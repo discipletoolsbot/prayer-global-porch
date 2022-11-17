@@ -22,19 +22,14 @@ $dark_nav_class = '' === $url ||  str_contains( $url, 'stats' ) || str_contains(
         <div class="offcanvas-body">
             <div class="navbar-nav justify-content-end pe-3">
                 <a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="/newest/lap/">Start Praying</a>
-                <a class="nav-link" href="#section-challenge">Challenge</a>
-                <a class="nav-link" href="#section-lap">Status</a>
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="<?php echo ( $url !== '') ? trailingslashit( site_url() ) : '' ?>#section-challenge">Challenge</a>
+                <a class="nav-link" href="<?php echo ( $url !== '') ? trailingslashit( site_url() ) : '' ?>#section-lap">Status</a>
                 <a class="nav-link" href="/newest/map/">Map</a>
                 <a class="nav-link" href="/challenges/active/">Groups</a>
-
-                <div id="user-nav" style="display: <?php echo esc_attr( is_user_logged_in() ? 'block' : 'none' ) ?>">
-
-                    <a href="#my-stats" class="nav-link">Statistics</a>
-                    <a href="/user_app/map" class="nav-link">My Map</a>
-                    <a href="#my-groups" class="nav-link">My Groups</a>
-
+                <div class="nav-buttons">
+                    <img class="icon-button share-button" data-toggle="modal" data-target="#exampleModal" data-white src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/share.svg" alt="Share">
                 </div>
-
             </div>
         </div>
     </div>

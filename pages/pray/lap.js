@@ -18,7 +18,7 @@ jQuery(document).ready(function(){
       })
   }
   function load_next_content() {
-    window.api_post( 'refresh', { grid_id: window.current_content.location.grid_id, favor: window.favor } )
+    window.api_post( 'refresh', { grid_id: window.current_content.location.grid_id } )
       .done(function(location) {
         if ( location === false ) {
           window.location = '/'+jsObject.parts.root+'/'+jsObject.parts.type+'/'+jsObject.parts.public_key
@@ -77,7 +77,6 @@ jQuery(document).ready(function(){
   let pace_open_options = jQuery('#option_filter')
   let open_welcome = jQuery('#welcome_screen')
   let pace_buttons = jQuery('.pace')
-  let favor_buttons = jQuery('.favor')
 
   let location_map_wrapper = jQuery('#location-map')
 
@@ -94,15 +93,9 @@ jQuery(document).ready(function(){
     window.pace = 1
     Cookies.set('pg_pace', 1)
   }
-  window.favor = Cookies.get('pg_favor')
-  if ( typeof window.favor === 'undefined' ) {
-    window.favor = 'guided'
-    Cookies.set('pg_favor', 'guided' )
-  }
   window.viewed = Cookies.get('pg_viewed')
   window.items = parseInt( window.pace ) + 6
   window.report_content = []
-
 
   /**
    * INITIALIZE
@@ -113,11 +106,9 @@ jQuery(document).ready(function(){
     // set options fields
     pace_buttons.removeClass('btn-secondary').addClass('btn-outline-secondary')
     jQuery('#pace__'+window.pace).removeClass('btn-outline-secondary').addClass('btn-secondary')
-    favor_buttons.removeClass('btn-secondary').addClass('btn-outline-secondary')
-    jQuery('.favor__'+window.favor).removeClass('btn-outline-secondary').addClass('btn-secondary')
 
     // load current location
-    window.api_post( 'refresh', { favor: window.favor } )
+    window.api_post( 'refresh', {} )
       .done( function(l1) {
         window.report_content = window.current_content = test_for_redundant_grid( l1 )
         load_location()
@@ -138,7 +129,7 @@ jQuery(document).ready(function(){
     ip_location()
 
     // load next location
-    window.api_post('refresh', { favor: window.favor } )
+    window.api_post('refresh', {} )
       .done( function(l2) {
         window.next_content = test_for_redundant_grid( l2 )
       })
@@ -151,7 +142,7 @@ jQuery(document).ready(function(){
   initialize_location() // initialize prayer framework
   function test_for_redundant_grid( content ) {
     if ( window.previous_grids.includes( content.location.grid_id ) ) {
-      window.api_post('refresh', { favor: window.favor } )
+      window.api_post('refresh', {} )
         .done( function(new_content) {
           // return test_for_redundant_grid( new_content )
           if ( typeof window.test_for_redundant === 'undefined' ) {
@@ -198,7 +189,7 @@ jQuery(document).ready(function(){
     })
     decision_next.off('click')
     decision_next.on('click', function( e ) {
-      window.api_post( 'refresh', { favor: window.favor } )
+      window.api_post( 'refresh', {} )
         .done( function(l1) {
           window.report_content = window.current_content = test_for_redundant_grid( l1 )
           load_next_content()
@@ -227,8 +218,9 @@ jQuery(document).ready(function(){
     })
     pace_buttons.off('click')
     pace_buttons.on('click', function(e) {
+      console.log(e.currentTarget.id)
       pace_buttons.removeClass('btn-secondary').addClass('btn-outline-secondary')
-      jQuery('.'+e.currentTarget.id).removeClass('btn-outline-secondary').addClass('btn-secondary')
+      jQuery('#'+e.currentTarget.id).removeClass('btn-outline-secondary').addClass('btn-secondary')
 
       window.pace = e.currentTarget.value
       window.seconds = e.currentTarget.value * 60
@@ -239,23 +231,6 @@ jQuery(document).ready(function(){
 
       jQuery('.container.block').show()
       jQuery('.container.block:nth-child(+n+' + window.items + ')').hide()
-    })
-    favor_buttons.off('click')
-    favor_buttons.on('click', function(e) {
-
-      favor_buttons.removeClass('btn-secondary').addClass('btn-outline-secondary')
-      let item_id = jQuery(this).data('item-id')
-      jQuery('.'+item_id).removeClass('btn-outline-secondary').addClass('btn-secondary')
-
-      window.favor = e.currentTarget.value
-
-      Cookies.set( 'pg_favor', window.favor )
-
-      window.api_post( 'refresh', { favor: window.favor } )
-        .done(function(x) {
-          window.next_content = x
-        })
-
     })
     pace_open_options.off('show.bs.modal')
     pace_open_options.on('show.bs.modal', function () {
@@ -353,7 +328,7 @@ jQuery(document).ready(function(){
         button_progress.css('width', window.percent+'%' )
       }
       else {
-        window.api_post( 'log', { grid_id: window.current_content.location.grid_id, pace: window.pace, user: window.user_location, favor: window.favor } )
+        window.api_post( 'log', { grid_id: window.current_content.location.grid_id, pace: window.pace, user: window.user_location } )
           .done(function(x) {
             if ( ! x ) {
               window.location.href = jsObject.map_url

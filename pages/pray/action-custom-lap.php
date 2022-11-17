@@ -166,13 +166,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                             <button type="button" class="btn btn-outline-secondary pace" id="pace__10" value="10">10 Minutes</button>
                             <button type="button" class="btn btn-outline-secondary pace" id="pace__15" value="15">15 Minutes</button>
                         </div>
-                        <div>
-                            <p>Prayer guidance</p>
-                        </div>
-                        <div class="btn-group-vertical pace-wrapper">
-                            <button type="button" class="btn btn-secondary favor favor__guided" data-item-id="favor__guided" value="guided">More Guided</button>
-                            <button type="button" class="btn btn-outline-secondary favor favor__facts" data-item-id="favor__facts" value="facts">More Facts</button>
-                        </div>
+
                     </div>
                     <div class="modal-footer center">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Let's Go!</button>
@@ -294,7 +288,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             case 'correction':
                 return $this->save_correction( $params['parts'], $params['data'] );
             case 'refresh':
-                return $this->get_new_location( $params['parts'], $params['data']['favor'] );
+                return $this->get_new_location( $params['parts'] );
             case 'ip_location':
                 return $this->get_ip_location();
             default:
@@ -350,7 +344,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         }
         $id = dt_report_insert( $args, true, false );
 
-        return $this->get_new_location( $parts, $data['favor'] );
+        return $this->get_new_location( $parts );
     }
 
     /**
@@ -421,17 +415,14 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
-        $result = DT_Posts::create_post( 'feedback', $fields, true, false );
-
-
-        return $result;
+        return DT_Posts::create_post( 'feedback', $fields, true, false );
     }
 
     /**
      * Global query
      * @return array|false|void
      */
-    public function get_new_location( $parts, $favor = 'guided' ) {
+    public function get_new_location( $parts ) {
         // get 4770 list
         if ( empty( $this->parts ) && ! empty( $parts ) ) {
             $this->parts = $parts;
@@ -475,13 +466,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
-        if ( 'guided' === $favor ) {
-            return PG_Stacker::build_location_stack_v2( $grid_id );
-        } else if ( 'facts' === $favor ) {
-            return PG_Stacker::build_location_stack( $grid_id );
-        } else {
-            return PG_Stacker::build_location_stack_v2( $grid_id );
-        }
+        return PG_Stacker::build_location_stack_v2( $grid_id );
     }
 
     public function _remaining_global_prayed_list( $list_4770 ) {
@@ -533,7 +518,6 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
 
         return $list;
     }
-
 
     public function get_ip_location() {
         $response = DT_Ipstack_API::get_location_grid_meta_from_current_visitor();
