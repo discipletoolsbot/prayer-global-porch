@@ -537,6 +537,8 @@ function pg_og_tags( $details = [] ) {
 
     ?>
 
+    <meta name="twitter:card"              content="<?php echo esc_attr( $details['type'] ) ?>" />
+
     <meta property="og:url"                content="<?php echo esc_url( $details['url'] ) ?>" />
     <meta property="og:type"               content="<?php echo esc_attr( $details['type'] ) ?>" />
     <meta property="og:title"              content="<?php echo esc_attr( $details['title'] ) ?>" />

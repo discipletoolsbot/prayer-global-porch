@@ -27,6 +27,9 @@ $dark_nav_class = '' === $url ||  str_contains( $url, 'stats' ) || str_contains(
                 <a class="nav-link" href="<?php echo ( $url !== '') ? trailingslashit( site_url() ) : '' ?>#section-lap">Status</a>
                 <a class="nav-link" href="/newest/map/">Map</a>
                 <a class="nav-link" href="/challenges/active/">Groups</a>
+                <div class="nav-buttons">
+                    <img class="icon-button share-button" data-toggle="modal" data-target="#exampleModal" data-white src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/share.svg" alt="Share">
+                </div>
             </div>
         </div>
     </div>

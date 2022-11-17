@@ -27,6 +27,9 @@ function pg_custom_lap_nav( $key ) {
                     <a class="nav-link" href="/#section-challenge">Challenge</a>
                     <a class="nav-link" href="/#section-lap">Status</a>
                     <a class="nav-link" href="/prayer_app/custom/<?php echo esc_attr( $key ) ?>/map/">Map</a>
+                    <div class="nav-buttons">
+                        <img class="icon-button share-button" data-toggle="modal" data-target="#exampleModal" data-white src="<?php echo esc_html( plugin_dir_url( __DIR__ ) ) ?>assets/images/share.svg" alt="Share">
+                    </div>
                 </div>
             </div>
         </div>
