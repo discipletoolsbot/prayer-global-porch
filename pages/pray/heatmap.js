@@ -149,7 +149,7 @@ jQuery(document).ready(function($){
 
   function load_map() {
     jQuery('#initialize-screen').hide()
-    jQuery('.Loading-spinner').removeClass('active')
+    jQuery('.loading-spinner').removeClass('active')
 
     let center = [0, 30]
     let zoom = 2
