@@ -430,6 +430,7 @@ jQuery(document).ready(function($){
           `
           <div class="row">
               <div class="col-12">
+                <hr />
                 <p><span class="stats-title two-em">${response.location.full_name}</span></p>
                 <p>1 believer for every ${numberWithCommas(Math.ceil(response.location.all_lost_int / response.location.believers_int ) ) } lost neighbors.</p>
                 <hr>

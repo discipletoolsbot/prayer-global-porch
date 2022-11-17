@@ -155,9 +155,8 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             </div>
         </div>
         <div class="offcanvas offcanvas-end" id="offcanvas_location_details" data-bs-backdrop="false" data-bs-scroll="true">
-            <button type="button" data-bs-dismiss="offcanvas" style="text-align: start"><i class="ion-chevron-right three-em"></i></button>
-            <hr>
-            <div class="row" id="grid_details_content"></div>
+            <div class="offcanvas__header"><button type="button" data-bs-dismiss="offcanvas" style="text-align: start"><i class="ion-chevron-right three-em"></i></button></div>
+            <div class="row offcanvas__content" id="grid_details_content"></div>
         </div>
         <!-- report modal -->
         <div class="reveal " id="correction_modal" data-v-offset="10px;" data-reveal>
@@ -188,8 +187,8 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         </div>
         <div class="offcanvas offcanvas-bottom" id="offcanvas_stats">
             <div class="center offcanvas__header"><button type="button" data-bs-dismiss="offcanvas"><i class="ion-chevron-down three-em"></i></button></div>
-            <hr>
             <div class="row center offcanvas__content">
+                <hr>
                 <div class="col-12">
                     <span class="three-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
                     <hr>

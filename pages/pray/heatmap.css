@@ -77,8 +77,8 @@ progress {
 }
 #offcanvas_location_details {
     background: white;
-    padding: 1em;
     min-width: 40%;
+    overflow-x: hidden;
 }
 #offcanvas_stats {
     background: white;
@@ -89,7 +89,7 @@ progress {
     top: 0;
     left: 0;
     right: 0;
-    padding: 0.5em;
+    padding: 0.5em 1em;
     background: white;
     z-index: 100;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
