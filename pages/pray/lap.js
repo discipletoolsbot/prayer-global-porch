@@ -201,7 +201,7 @@ jQuery(document).ready(function(){
       const celebrationDuration = 3000
       question_panel.hide()
       celebrate()
-      celebrationConfetti(celebrationDuration)
+      celebrationFireworks(celebrationDuration)
       setTimeout(
         function()
         {
@@ -213,7 +213,7 @@ jQuery(document).ready(function(){
       const celebrationDuration = 3000
       question_panel.hide()
       celebrate()
-      celebrationConfetti(celebrationDuration)
+      celebrationFireworks(celebrationDuration)
       setTimeout(
         function()
         {
@@ -367,13 +367,35 @@ jQuery(document).ready(function(){
     <p><img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="img-fluid celebrate-image" alt="photo" /></p>`).show()
   }
 
-  function celebrationConfetti(celebrationDuration = 3000) {
+  function celebrationFireworks(celebrationDuration = 3000) {
     var duration = celebrationDuration;
     var animationEnd = Date.now() + duration;
-    var defaults = { startVelocity: 10, spread: 360, ticks: 90, zIndex: 100000 };
+    var defaults = { 
+        startVelocity: 15,
+        spread: 360,
+        ticks: 50,
+        zIndex: 100000,
+        scalar: 0.4,
+        gravity: 0.2,
+        shapes: ['circle'],
+    };
+    const colours = [
+      [ '#5492f7', '#202AF9', '#4556D9' ],
+//      [ '#CB91F9', '#B34EF4', '#E5B0FE' ],
+      [ '#DD344D', '#FFB1BA', '#F05264' ],
+      [ '#fef355', '#fab945', '#f4d9bd' ],
+    ]
 
     function randomInRange(min, max) {
       return Math.random() * (max - min) + min;
+    }
+
+    function originInBoundingBox() {
+      return {
+        x: randomInRange(0.2, 0.8),
+        // since particles fall down, start a bit higher than random
+        y: randomInRange(0, 0.7) - 0.2,
+      }
     }
 
     var interval = setInterval(function() {
@@ -383,10 +405,13 @@ jQuery(document).ready(function(){
         return clearInterval(interval);
       }
 
-      var particleCount = 300;
-      // since particles fall down, start a bit higher than random
-      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0, 1), y: Math.random() - 0.2 } }));
-      confetti(Object.assign({}, defaults, { particleCount, origin: { x: randomInRange(0, 1), y: Math.random() - 0.2 } }));
+      var particleCount = 500;
+      colours.forEach((colour) => {
+        confetti(Object.assign({}, defaults, {
+          particleCount,
+          origin: originInBoundingBox(),
+          colors: colour }));
+      })
     }, 250);
   }
 
