@@ -348,7 +348,10 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
         }
         $id = dt_report_insert( $args, true, false );
 
-        return $this->get_new_location();
+        $response = $this->get_new_location();
+        $response['report_id'] = $id;
+
+        return $response;
     }
 
     /**
