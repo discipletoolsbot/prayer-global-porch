@@ -223,6 +223,10 @@ jQuery(document).ready(function($){
     loadLegend( legendDiv, layers )
 
     const fillColors = getFillColors(jsObject.map_type, layers)
+    window.lineColor = 'white'
+    if ( jsObject.map_type === 'heatmap' ) {
+      window.lineColor = 'black'
+    }
 
     jQuery.each(asset_list, function(i,file){
 
@@ -258,7 +262,7 @@ jQuery(document).ready(function($){
               'type': 'line',
               'source': i.toString(),
               'paint': {
-                'line-color': 'white',
+                'line-color': window.lineColor,
                 'line-width': .5
               }
             });
