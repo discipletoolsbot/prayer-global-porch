@@ -205,7 +205,7 @@ jQuery(document).ready(function($){
         },
       ],
       heatmap: [
-        { label: '0', value: 0, color: "#ffffff" },
+        { label: '0', value: 0, color: '#aaa' },
         { label: '1', value: 1, color: '#ffffe5' },
         { label: '2', value: 2, color: '#f7fcb9' },
         { label: '3', value: 3, color: '#d9f0a3' },
@@ -222,7 +222,7 @@ jQuery(document).ready(function($){
     const layers = mapLayers.hasOwnProperty(jsObject.map_type) ? mapLayers[jsObject.map_type] : mapLayers[defaultMap]
     loadLegend( legendDiv, layers )
 
-    const fillColors = getFillColors(jsObject.map_type)
+    const fillColors = getFillColors(jsObject.map_type, layers)
 
     jQuery.each(asset_list, function(i,file){
 
@@ -482,21 +482,19 @@ jQuery(document).ready(function($){
       })
   }
 
-  function getFillColors(mapType) {
+  function getFillColors(mapType, layers) {
+    const stepColors = []
+    layers.forEach(({ value, color }) => {
+      if ( value !== 0 ) {
+        stepColors.push(value)
+      }
+      stepColors.push(color)
+    })
     const heatmapFill = {
       "fill-color": [
         "step",
         ["get","value"],
-        "rgba(255, 255, 255, 0)",
-        1,'#ffffe5',
-        2,'#f7fcb9',
-        3,'#d9f0a3',
-        4,'#addd8e',
-        5,'#78c679',
-        6,'#41ab5d',
-        7,'#238443',
-        8,'#006837',
-        9,'#004529',
+        ...stepColors,
       ],
       'fill-opacity': 0.9,
       'fill-outline-color': 'black'
