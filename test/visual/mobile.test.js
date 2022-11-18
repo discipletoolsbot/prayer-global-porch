@@ -48,12 +48,12 @@ describe('Mobile Testing', () => {
         await testPage('prayer_app/custom/043ed2/tools')
     })
 
-    it('Big Map', async () => {
-        await testPage('race_app/big_map/')
+    it('Race Map', async () => {
+        await testPage('race_app/race_map/')
     })
 
-    it('Big List', async () => {
-        await testPage('race_app/big_list/')
+    it('Race List', async () => {
+        await testPage('race_app/race_list/')
     })
 
     it('Custom Completed', async () => {

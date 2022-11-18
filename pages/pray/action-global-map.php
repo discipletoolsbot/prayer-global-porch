@@ -91,6 +91,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 'translations' => [
                     'add' => __( 'Add Magic', 'prayer-global' ),
                 ],
+                'map_type' => 'binary',
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
@@ -135,9 +136,6 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                         <div class="col col-sm-6 col-md-3 center d-none d-md-block"><strong>Places Covered</strong><br><strong><span class="one-em green stats-figure completed"></span></strong></div>
                         <div class="col col-sm-6 col-md-3 center"><strong>Prayer Warriors</strong><br><img class="foot__icon" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/praying-hand-up-20.png' ) ?>" /></div>
                         <div class="col col-sm-6 col-md-3 center"><strong>Your Recent Prayers</strong><br><img class="foot__icon" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/black-check-50.png' ) ?>" /></div>
-                        <div class="col col-12 col-sm-1 d-none d-sm-block text-end my-auto">
-                            <img class="icon-button share-button" data-toggle="modal" data-target="#exampleModal" src="<?php echo esc_html( plugin_dir_url( __DIR__ ) ) ?>/assets/images/share.svg" alt="Share">
-                        </div>
                     </div>
                 </div>
             </div>

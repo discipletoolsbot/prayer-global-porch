@@ -313,6 +313,7 @@ progress {
 
 .map-legend__layer {
     display: flex;
+    align-items: center;
 }
 
 .map-legend__color-swatch {
@@ -320,4 +321,18 @@ progress {
     height: 20px;
     margin-right: 10px;
     border-radius: 5px;
+}
+
+@media ( max-width: 576px ) {
+    #map-legend[data-map-type="heatmap"] {
+        flex-direction: column;
+    }
+
+    #map-legend[data-map-type="heatmap"] > * + * {
+        margin-left: 0;
+    }
+
+    #map-legend[data-map-type="heatmap"] .map-legend__color-swatch {
+        border-radius: 0;
+    }
 }
