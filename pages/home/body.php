@@ -116,16 +116,16 @@
                                 The current map shows what has been covered so far in the active prayer map.
                             </p>
                             <p>
-                                <strong class="black">Big Map</strong> <a href="/race_app/big_map/"><i class="ion-android-open"></i></a>
+                                <strong class="black">Race Map</strong> <a href="/race_app/race_map/"><i class="ion-android-open"></i></a>
                             </p>
                             <p>
-                                The Big map shows the number of laps, number of minutes, and number of prayer warriors for the entire challenge.
+                                The Race map shows the number of laps, number of minutes, and number of prayer warriors for the entire challenge.
                             </p>
                             <p>
-                                <strong class="black">Big List</strong> <a href="/race_app/big_list/"><i class="ion-android-open"></i></a>
+                                <strong class="black">Race List</strong> <a href="/race_app/race_list/"><i class="ion-android-open"></i></a>
                             </p>
                             <p>
-                                The Big List shows each of the laps accomplished so far and some of the statistics for those individual laps.
+                                The Race List shows each of the laps accomplished so far and some of the statistics for those individual laps.
                             </p>
                             <p>
                                 <br><hr>
@@ -261,8 +261,8 @@
         </div>
         <div class="row">
             <div class="col-md text-center">
-                <a href="/race_app/big_map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl" data-reverse-color>Big Map</a>
-                <a href="/race_app/big_list/" role="button" class="btn smoothscroll btn-outline-dark btn-xl" data-reverse-color>Big List</a>
+                <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl" data-reverse-color>Race Map</a>
+                <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-outline-dark btn-xl" data-reverse-color>Race List</a>
             </div>
         </div>
     </div>

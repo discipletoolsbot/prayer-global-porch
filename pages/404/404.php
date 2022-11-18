@@ -8,7 +8,7 @@ class PG_Porch_404 extends DT_Magic_Url_Base
     public $root = '404';
     public $page_title = '404';
     public $type_name = '404';
-    public static $token = 'race_app_big_list';
+    public static $token = 'race_app_race_list';
 
     private static $_instance = null;
     public static function instance() {
