@@ -201,6 +201,7 @@ jQuery(document).ready(function(){
     question_yes_done.off('click')
     question_yes_done.on('click', function( e ) {
       question_panel.hide()
+      clear_timer()
       celebrate()
       setTimeout(
         function()
@@ -211,6 +212,7 @@ jQuery(document).ready(function(){
     question_yes_next.off('click')
     question_yes_next.on('click', function( e ) {
       question_panel.hide()
+      clear_timer()
       celebrate()
       setTimeout(
         function()
@@ -281,6 +283,10 @@ jQuery(document).ready(function(){
     }
   }
 
+  function clear_timer() {
+    clearInterval(window.interval)
+  }
+
   /**
    * FRAMEWORK LOADERS
    */
@@ -322,6 +328,7 @@ jQuery(document).ready(function(){
     if ( window.interval ) {
       clearInterval(window.interval)
     }
+    window.tick = 0
     window.interval = setInterval(function() {
       window.time = window.time + .1
 
@@ -352,6 +359,18 @@ jQuery(document).ready(function(){
         button_text.html('Keep Praying...')
         /* Set a variable so that we know that the timer has stopped running and that we've logged it once*/
         window.time_finished = true
+      }
+
+      if (window.time_finished === true) {
+        window.tick = window.tick + 0.1
+      }
+
+      if (window.tick > 60) {
+        window.api_post( 'increment_log', { report_id: window.next_content['report_id'] } )
+          .done(function(x) {
+            console.log('incremented log', x)
+          })
+        window.tick = 0
       }
     }, 100);
   }
