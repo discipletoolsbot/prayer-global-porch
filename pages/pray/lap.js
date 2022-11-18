@@ -200,25 +200,29 @@ jQuery(document).ready(function(){
     })
     question_yes_done.off('click')
     question_yes_done.on('click', function( e ) {
+      const celebrationDuration = 3000
       question_panel.hide()
       clear_timer()
       celebrate()
+      celebrationFireworks(celebrationDuration)
       setTimeout(
         function()
         {
           window.location = jsObject.map_url
-        }, 3000);
+        }, celebrationDuration);
     })
     question_yes_next.off('click')
     question_yes_next.on('click', function( e ) {
+      const celebrationDuration = 3000
       question_panel.hide()
       clear_timer()
       celebrate()
+      celebrationFireworks(celebrationDuration)
       setTimeout(
         function()
         {
           advance_to_next_location()
-        }, 3000);
+        }, celebrationDuration);
     })
     pace_buttons.off('click')
     pace_buttons.on('click', function(e) {
@@ -347,7 +351,6 @@ jQuery(document).ready(function(){
               window.location.href = jsObject.map_url
               return
             }
-            console.log(x)
             window.current_content = false
             window.current_content = window.next_content
             window.next_content = false
@@ -388,6 +391,54 @@ jQuery(document).ready(function(){
     let rint = Math.floor(Math.random() * 4 ) + 1
     celebrate_panel.html(`<p style="padding-top:2em;"><h1>Great Job!<br>Prayer Added!</h1></p>
     <p><img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="img-fluid celebrate-image" alt="photo" /></p>`).show()
+  }
+
+  function celebrationFireworks(celebrationDuration = 3000) {
+    var duration = celebrationDuration;
+    var animationEnd = Date.now() + duration;
+    var defaults = { 
+        startVelocity: 15,
+        spread: 360,
+        ticks: 50,
+        zIndex: 100000,
+        scalar: 0.4,
+        gravity: 0.2,
+        shapes: ['circle'],
+    };
+    const colours = [
+      [ '#5492f7', '#202AF9', '#4556D9' ],
+//      [ '#CB91F9', '#B34EF4', '#E5B0FE' ],
+      [ '#DD344D', '#FFB1BA', '#F05264' ],
+      [ '#fef355', '#fab945', '#f4d9bd' ],
+    ]
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function originInBoundingBox() {
+      return {
+        x: randomInRange(0.2, 0.8),
+        // since particles fall down, start a bit higher than random
+        y: randomInRange(0, 0.7) - 0.2,
+      }
+    }
+
+    var interval = setInterval(function() {
+      var timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      var particleCount = 500;
+      colours.forEach((colour) => {
+        confetti(Object.assign({}, defaults, {
+          particleCount,
+          origin: originInBoundingBox(),
+          colors: colour }));
+      })
+    }, 250);
   }
 
   /**
