@@ -289,6 +289,8 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
         switch ( $params['action'] ) {
             case 'log':
                 return $this->save_log( $params['parts'], $params['data'] );
+            case 'increment_log':
+                return $this->increment_log( $params['parts'], $params['data'] );
             case 'correction':
                 return $this->save_correction( $params['parts'], $params['data'] );
             case 'refresh':
@@ -352,6 +354,32 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
         $response['report_id'] = $id;
 
         return $response;
+    }
+
+    /**
+     * @param $parts
+     * @param $data
+     * @return int|WP_Error
+     */
+    public function increment_log( $parts, $data) {
+        if ( !isset( $parts['post_id'], $parts['root'], $parts['type'], $data['report_id'] ) ) {
+            return new WP_Error( __METHOD__, "Missing parameters", [ 'status' => 400 ] );
+        }
+        /* Check that the report exists */
+        $report = Disciple_Tools_Reports::get( $data['report_id'], 'id' );
+
+        if ( !$report || empty( $report ) || is_wp_error( $report ) ) {
+            return new WP_Error( __METHOD__, "Report doesn't exist", [ 'status' => 400 ] );
+        }
+
+        $new_value = (int) $report['value'] + 1;
+        /* update the report */
+        Disciple_Tools_Reports::update( [
+            "id" => $data['report_id'],
+            "value" => $new_value,
+        ] );
+
+        return $new_value;
     }
 
     /**
