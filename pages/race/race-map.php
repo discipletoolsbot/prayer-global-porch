@@ -1,6 +1,7 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
+
 class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
 {
     public $magic = false;
@@ -158,14 +159,13 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
             </div>
         </div>
        <div class="offcanvas offcanvas-end" id="offcanvas_location_details" data-bs-backdrop="false" data-bs-scroll="true">
-            <button type="button" data-bs-toggle="offcanvas" style="text-align: start;"><i class="ion-chevron-right three-em"></i></button>
-            <hr>
-            <div class="row" id="grid_details_content"></div>
+            <div class="offcanvas__header"><button type="button" data-bs-toggle="offcanvas" style="text-align: start;"><i class="ion-chevron-right three-em"></i></button></div>
+            <div class="row offcanvas__content" id="grid_details_content"></div>
         </div>
         <div class="offcanvas offcanvas-bottom" id="offcanvas_stats">
-            <div class="center"><button type="button" data-bs-toggle="offcanvas"><i class="ion-chevron-down three-em"></i></button></div>
-            <hr>
-            <div class="row center">
+            <div class="center offcanvas__header"><button type="button" data-bs-toggle="offcanvas"><i class="ion-chevron-down three-em"></i></button></div>
+            <div class="row center offcanvas__content">
+                <hr>
                 <div class="col col-12">
                     <span class="three-em lap-title">Race Map</span>
                     <hr>
