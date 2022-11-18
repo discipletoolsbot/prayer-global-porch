@@ -11,6 +11,7 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
     public $type_name = 'Global Prayer Stats';
     public static $token = 'race_app_big_map';
     public $post_type = 'laps';
+    public $map_type = 'heatmap';
 
     private static $_instance = null;
     public static function instance() {
@@ -106,7 +107,7 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
                 'translations' => [
                     'add' => __( 'Add Magic', 'prayer-global' ),
                 ],
-                'map_type' => 'heatmap',
+                'map_type' => $this->map_type,
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
@@ -147,7 +148,7 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
                 <div id="foot_block">
-                    <div class="map-overlay" id="map-legend"></div>
+                    <div class="map-overlay" id="map-legend" data-map-type="<?php echo $this->map_type ?>"></div>
                     <div class="row">
                         <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
                         <div class="col col-6 col-sm-3 center"><strong>Warriors</strong> <i class="fi-marker" style="color:blue;"></i><br><span class="one-em"><?php echo esc_html( $lap_stats['participants'] ) ?></span></div>
