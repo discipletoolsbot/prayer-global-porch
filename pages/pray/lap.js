@@ -30,6 +30,7 @@ jQuery(document).ready(function(){
     toggle_timer( false )
     button_progress.css('width', '0' )
     window.time = 0
+    window.time_finished = false
     load_location()
   }
   function ip_location() {
@@ -88,6 +89,7 @@ jQuery(document).ready(function(){
   window.percent = 0
   window.time = 0
   window.seconds = 60
+  window.time_finished = false
   window.pace = Cookies.get('pg_pace')
   if ( typeof window.pace === 'undefined' ) {
     window.pace = 1
@@ -321,8 +323,9 @@ jQuery(document).ready(function(){
       clearInterval(window.interval)
     }
     window.interval = setInterval(function() {
+      window.time = window.time + .1
+
       if (window.time <= window.seconds) {
-        window.time = window.time + .1
         window.percent = 1.6666 * ( window.time / window.pace )
         if ( window.percent > 100 ) {
           window.percent = 100
@@ -330,7 +333,7 @@ jQuery(document).ready(function(){
         // console.log( window.time + ' ' + window.percent )
         button_progress.css('width', window.percent+'%' )
       }
-      else {
+      else if (!window.time_finished) {
         window.api_post( 'log', { grid_id: window.current_content.location.grid_id, pace: window.pace, user: window.user_location } )
           .done(function(x) {
             if ( ! x ) {
@@ -347,7 +350,8 @@ jQuery(document).ready(function(){
         question_panel.show()
         button_progress.css('width', '0' )
         button_text.html('Keep Praying...')
-        clearInterval(window.interval);
+        /* Set a variable so that we know that the timer has stopped running and that we've logged it once*/
+        window.time_finished = true
       }
     }, 100);
   }
