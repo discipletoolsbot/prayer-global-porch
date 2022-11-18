@@ -90,6 +90,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 'translations' => [
                     'add' => __( 'Add Magic', 'prayer-global' ),
                 ],
+                'map_type' => 'binary',
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
@@ -134,12 +135,8 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                         <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats" aria-controls="offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
                         <div class="col col-6 col-sm-3 center d-none d-sm-block"><strong>Places Remaining</strong><br><strong><span class="one-em red stats-figure remaining"></span></strong></div>
                         <div class="col col-6 col-sm-3 center d-none d-sm-block"><strong>Places Covered</strong><br><strong><span class="one-em green stats-figure completed"></span></strong></div>
-
                         <div class="col col-6 col-sm-3 center"><strong>Prayer Warriors</strong><br><img class="foot__icon" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/praying-hand-up-20.png' ) ?>" /></div>
                         <div class="col col-6 col-sm-3 center"><strong>Your Recent Prayers</strong><br><img class="foot__icon" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/black-check-50.png' ) ?>" /></div>
-                        <div class="col col-12 col-sm-1 d-none d-sm-block text-end my-auto">
-                            <img class="icon-button share-button" data-toggle="modal" data-target="#exampleModal" src="<?php echo esc_html( plugin_dir_url( __DIR__ ) ) ?>/assets/images/share.svg" alt="Share">
-                        </div>
                     </div>
                 </div>
             </div>
@@ -155,9 +152,8 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             </div>
         </div>
         <div class="offcanvas offcanvas-end" id="offcanvas_location_details" data-bs-backdrop="false" data-bs-scroll="true">
-            <button type="button" data-bs-dismiss="offcanvas" style="text-align: start"><i class="ion-chevron-right three-em"></i></button>
-            <hr>
-            <div class="row" id="grid_details_content"></div>
+            <div class="offcanvas__header"><button type="button" data-bs-dismiss="offcanvas" style="text-align: start"><i class="ion-chevron-right three-em"></i></button></div>
+            <div class="row offcanvas__content" id="grid_details_content"></div>
         </div>
         <!-- report modal -->
         <div class="reveal " id="correction_modal" data-v-offset="10px;" data-reveal>
@@ -187,9 +183,9 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             </button>
         </div>
         <div class="offcanvas offcanvas-bottom" id="offcanvas_stats">
-            <div class="center"><button type="button" data-bs-dismiss="offcanvas"><i class="ion-chevron-down three-em"></i></button></div>
-            <hr>
-            <div class="row center">
+            <div class="center offcanvas__header"><button type="button" data-bs-dismiss="offcanvas"><i class="ion-chevron-down three-em"></i></button></div>
+            <div class="row center offcanvas__content">
+                <hr>
                 <div class="col-12">
                     <span class="three-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
                     <hr>

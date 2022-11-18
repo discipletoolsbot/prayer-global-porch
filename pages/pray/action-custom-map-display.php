@@ -87,6 +87,7 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
                 'translations' => [
                     'add' => __( 'Add Magic', 'prayer-global' ),
                 ],
+                'map_type' => 'binary',
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
@@ -149,9 +150,8 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
             </div>
         </div>
         <div class="off-canvas position-right " id="offcanvas_location_details" data-close-on-click="true" data-content-overlay="false" data-off-canvas>
-            <button type="button" data-toggle="offcanvas_location_details"><i class="ion-chevron-right three-em"></i></button>
-            <hr>
-            <div class="row" id="grid_details_content"></div>
+            <div class="offcanvas__header"><button type="button" data-toggle="offcanvas_location_details"><i class="ion-chevron-right three-em"></i></button></div>
+            <div class="row offcanvas__content" id="grid_details_content"></div>
         </div>
         <?php
     }

@@ -30,6 +30,7 @@ jQuery(document).ready(function(){
     toggle_timer( false )
     button_progress.css('width', '0' )
     window.time = 0
+    window.time_finished = false
     load_location()
   }
   function ip_location() {
@@ -88,6 +89,7 @@ jQuery(document).ready(function(){
   window.percent = 0
   window.time = 0
   window.seconds = 60
+  window.time_finished = false
   window.pace = Cookies.get('pg_pace')
   if ( typeof window.pace === 'undefined' ) {
     window.pace = 1
@@ -198,23 +200,29 @@ jQuery(document).ready(function(){
     })
     question_yes_done.off('click')
     question_yes_done.on('click', function( e ) {
+      const celebrationDuration = 3000
       question_panel.hide()
+      clear_timer()
       celebrate()
+      celebrationFireworks(celebrationDuration)
       setTimeout(
         function()
         {
           window.location = jsObject.map_url
-        }, 3000);
+        }, celebrationDuration);
     })
     question_yes_next.off('click')
     question_yes_next.on('click', function( e ) {
+      const celebrationDuration = 3000
       question_panel.hide()
+      clear_timer()
       celebrate()
+      celebrationFireworks(celebrationDuration)
       setTimeout(
         function()
         {
           advance_to_next_location()
-        }, 3000);
+        }, celebrationDuration);
     })
     pace_buttons.off('click')
     pace_buttons.on('click', function(e) {
@@ -251,7 +259,10 @@ jQuery(document).ready(function(){
     })
   }
   function toggle_timer( set_to_pause = false ) {
-    if ( typeof window.paused === 'undefined' || window.paused === '' || set_to_pause ) {
+    /* Default to set_to_pause param; fall back to window.paused */
+    const pauseTimer = set_to_pause === true || typeof set_to_pause === 'undefined' && ( typeof window.paused === 'undefined' || window.paused === '' )
+
+    if ( pauseTimer ) {
       // console.log('pausing')
       praying_close_button.hide()
       praying_continue_button.show()
@@ -274,6 +285,10 @@ jQuery(document).ready(function(){
       prayer_progress_indicator( window.time )
       window.paused = ''
     }
+  }
+
+  function clear_timer() {
+    clearInterval(window.interval)
   }
 
   /**
@@ -317,9 +332,11 @@ jQuery(document).ready(function(){
     if ( window.interval ) {
       clearInterval(window.interval)
     }
+    window.tick = 0
     window.interval = setInterval(function() {
+      window.time = window.time + .1
+
       if (window.time <= window.seconds) {
-        window.time = window.time + .1
         window.percent = 1.6666 * ( window.time / window.pace )
         if ( window.percent > 100 ) {
           window.percent = 100
@@ -327,14 +344,13 @@ jQuery(document).ready(function(){
         // console.log( window.time + ' ' + window.percent )
         button_progress.css('width', window.percent+'%' )
       }
-      else {
+      else if (!window.time_finished) {
         window.api_post( 'log', { grid_id: window.current_content.location.grid_id, pace: window.pace, user: window.user_location } )
           .done(function(x) {
             if ( ! x ) {
               window.location.href = jsObject.map_url
               return
             }
-            console.log(x)
             window.current_content = false
             window.current_content = window.next_content
             window.next_content = false
@@ -344,7 +360,20 @@ jQuery(document).ready(function(){
         question_panel.show()
         button_progress.css('width', '0' )
         button_text.html('Keep Praying...')
-        clearInterval(window.interval);
+        /* Set a variable so that we know that the timer has stopped running and that we've logged it once*/
+        window.time_finished = true
+      }
+
+      if (window.time_finished === true) {
+        window.tick = window.tick + 0.1
+      }
+
+      if (window.tick > 60) {
+        window.api_post( 'increment_log', { report_id: window.next_content['report_id'] } )
+          .done(function(x) {
+            console.log('incremented log', x)
+          })
+        window.tick = 0
       }
     }, 100);
   }
@@ -362,6 +391,54 @@ jQuery(document).ready(function(){
     let rint = Math.floor(Math.random() * 4 ) + 1
     celebrate_panel.html(`<p style="padding-top:2em;"><h1>Great Job!<br>Prayer Added!</h1></p>
     <p><img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="img-fluid celebrate-image" alt="photo" /></p>`).show()
+  }
+
+  function celebrationFireworks(celebrationDuration = 3000) {
+    var duration = celebrationDuration;
+    var animationEnd = Date.now() + duration;
+    var defaults = { 
+        startVelocity: 15,
+        spread: 360,
+        ticks: 50,
+        zIndex: 100000,
+        scalar: 0.4,
+        gravity: 0.2,
+        shapes: ['circle'],
+    };
+    const colours = [
+      [ '#5492f7', '#202AF9', '#4556D9' ],
+//      [ '#CB91F9', '#B34EF4', '#E5B0FE' ],
+      [ '#DD344D', '#FFB1BA', '#F05264' ],
+      [ '#fef355', '#fab945', '#f4d9bd' ],
+    ]
+
+    function randomInRange(min, max) {
+      return Math.random() * (max - min) + min;
+    }
+
+    function originInBoundingBox() {
+      return {
+        x: randomInRange(0.2, 0.8),
+        // since particles fall down, start a bit higher than random
+        y: randomInRange(0, 0.7) - 0.2,
+      }
+    }
+
+    var interval = setInterval(function() {
+      var timeLeft = animationEnd - Date.now();
+
+      if (timeLeft <= 0) {
+        return clearInterval(interval);
+      }
+
+      var particleCount = 500;
+      colours.forEach((colour) => {
+        confetti(Object.assign({}, defaults, {
+          particleCount,
+          origin: originInBoundingBox(),
+          colors: colour }));
+      })
+    }, 250);
   }
 
   /**
@@ -977,7 +1054,7 @@ jQuery(document).ready(function(){
     if ( data.image_url ) {
       image = '<p class="mt-3 mb-3"><img src="'+data.image_url+'" class="img-fluid" alt="" /></p>'
     } else {
-      image = '<p class="mt-3 mb-3 font-weight-bold six-em"><i class="ion-android-warning red"></i></p>'
+      image = '<p class="mt-3 mb-3"><img class="img-fluid" src="'+jsObject.nope+'" alt="" /></p>'
     }
     div.append(
       `<div class="container block">

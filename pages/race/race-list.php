@@ -1,15 +1,15 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
-class Prayer_Global_Porch_Stats_Big_List extends DT_Magic_Url_Base
+class Prayer_Global_Porch_Stats_Race_List extends DT_Magic_Url_Base
 {
     public $magic = false;
     public $parts = false;
     public $page_title = 'Global Prayer Map';
     public $root = 'race_app';
-    public $type = 'big_list';
+    public $type = 'race_list';
     public $type_name = 'Global Prayer Stats';
-    public static $token = 'race_app_big_list';
+    public static $token = 'race_app_race_list';
     public $post_type = 'laps';
 
     private static $_instance = null;
@@ -99,7 +99,7 @@ class Prayer_Global_Porch_Stats_Big_List extends DT_Magic_Url_Base
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.css"/>
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.js"></script>
-        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>big-list.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'big-list.js' ) ) ?>"></script>
+        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>race-list.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'race-list.js' ) ) ?>"></script>
         <style>
             section {
                 margin-top: 110px;
@@ -120,7 +120,7 @@ class Prayer_Global_Porch_Stats_Big_List extends DT_Magic_Url_Base
             <div class="container pb-4">
                 <div class="row">
                     <div class="col-md text-center">
-                        <span class="two-em lap-title">Big List</span>
+                        <span class="two-em lap-title">Race List</span>
                     </div>
                 </div>
             </div>
@@ -137,7 +137,7 @@ class Prayer_Global_Porch_Stats_Big_List extends DT_Magic_Url_Base
             <div class="container center">
                 <div class="row">
                     <div class="col center">
-                        <a href="/race_app/big_map/" role="button" class="btn smoothscroll btn-xl btn-outline-dark">Big Map</a>
+                        <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-xl btn-outline-dark">Race Map</a>
                     </div>
                 </div>
             </div>
@@ -209,4 +209,4 @@ class Prayer_Global_Porch_Stats_Big_List extends DT_Magic_Url_Base
     }
 
 }
-Prayer_Global_Porch_Stats_Big_List::instance();
+Prayer_Global_Porch_Stats_Race_List::instance();
