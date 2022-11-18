@@ -106,6 +106,7 @@ class Prayer_Global_Porch_Stats_Big_Map extends DT_Magic_Url_Base
                 'translations' => [
                     'add' => __( 'Add Magic', 'prayer-global' ),
                 ],
+                'map_type' => 'heatmap',
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">

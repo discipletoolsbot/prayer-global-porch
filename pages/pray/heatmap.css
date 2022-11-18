@@ -301,6 +301,7 @@ progress {
 
 .map-legend__layer {
     display: flex;
+    align-items: center;
 }
 
 .map-legend__color-swatch {

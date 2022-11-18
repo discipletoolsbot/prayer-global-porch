@@ -7,6 +7,10 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
 
 jQuery(document).ready(function($){
 
+  const red = 'rgba(255,0,0, .7)'
+  const green = 'rgba(0,128,0, .9)'
+  const defaultMap = 'binary'
+
   window.get_page = (action) => {
     return jQuery.ajax({
       type: "POST",
@@ -161,6 +165,7 @@ jQuery(document).ready(function($){
     mapboxgl.accessToken = jsObject.map_key;
     map = new mapboxgl.Map({
       container: 'map',
+//      style: 'mapbox://styles/mapbox/dark-v10',
       style: 'mapbox://styles/discipletools/cl2ksnvie001i15qm1h5ahqea',
       center: center,
       minZoom: 0,
@@ -188,21 +193,36 @@ jQuery(document).ready(function($){
 
   function load_grid() {
     window.previous_hover = false
-    const red = 'rgba(255,0,0, .7)'
-    const green = 'rgba(0,128,0, .9)'
-
-    const layers = [
-      {
-        label: 'Remaining',
-        color: red,
-      },
-      {
-        label: 'Covered in Prayer',
-        color: green,
-      }
-    ]
+    const mapLayers = {
+      binary: [
+        {
+          label: 'Remaining',
+          color: red,
+        },
+        {
+          label: 'Covered in Prayer',
+          color: green,
+        },
+      ],
+      heatmap: [
+        { label: '0', value: 0, color: "#ffffff" },
+        { label: '1', value: 1, color: '#ffffe5' },
+        { label: '2', value: 2, color: '#f7fcb9' },
+        { label: '3', value: 3, color: '#d9f0a3' },
+        { label: '4', value: 4, color: '#addd8e' },
+        { label: '5', value: 5, color: '#78c679' },
+        { label: '6', value: 6, color: '#41ab5d' },
+        { label: '7', value: 7, color: '#238443' },
+        { label: '8', value: 8, color: '#006837' },
+        { label: '9+', value: 9, color: '#004529' },
+      ],
+    }
     const legendDiv = document.getElementById('map-legend');
+
+    const layers = mapLayers.hasOwnProperty(jsObject.map_type) ? mapLayers[jsObject.map_type] : mapLayers[defaultMap]
     loadLegend( legendDiv, layers )
+
+    const fillColors = getFillColors(jsObject.map_type)
 
     jQuery.each(asset_list, function(i,file){
 
@@ -221,11 +241,11 @@ jQuery(document).ready(function($){
 
           /* load prayer grid layer */
           map.on('load', function() {
-            jQuery.each(geojson.features, function (i, v) {
+            jQuery.each(geojson.features, function (j, v) {
               if (typeof jsObject.grid_data.data[v.id] !== 'undefined' ) {
-                geojson.features[i].properties.value = jsObject.grid_data.data[v.id]
+                geojson.features[j].properties.value = jsObject.grid_data.data[v.id]
               } else {
-                geojson.features[i].properties.value = 0
+                geojson.features[j].properties.value = 0
               }
             })
 
@@ -247,12 +267,7 @@ jQuery(document).ready(function($){
               'type': 'fill',
               'source': i.toString(),
               'paint': {
-                'fill-color': {
-                  property: 'value',
-                  stops: [[0, red], [1, green]]
-                },
-                'fill-opacity': 0.75,
-                'fill-outline-color': 'black'
+                ...fillColors,
               }
             },'waterway-label' )
 
@@ -462,29 +477,61 @@ jQuery(document).ready(function($){
                 <hr>
               </div>
 
-          </div>
-          `
+          </div>`
         )
       })
   }
 
+  function getFillColors(mapType) {
+    const heatmapFill = {
+      "fill-color": [
+        "step",
+        ["get","value"],
+        "rgba(255, 255, 255, 0)",
+        1,'#ffffe5',
+        2,'#f7fcb9',
+        3,'#d9f0a3',
+        4,'#addd8e',
+        5,'#78c679',
+        6,'#41ab5d',
+        7,'#238443',
+        8,'#006837',
+        9,'#004529',
+      ],
+      'fill-opacity': 0.9,
+      'fill-outline-color': 'black'
+    }
+
+    const binaryFill = {
+      'fill-color': {
+        property: 'value',
+        stops: [[0, red], [1, green]]
+      }, 
+      'fill-opacity': 0.75,
+      'fill-outline-color': 'black'
+    }
+
+    const fillColorDictionary = {
+      'heatmap': heatmapFill,
+      'binary': binaryFill,
+    }
+
+    if ( !Object.prototype.hasOwnProperty.call(fillColorDictionary, mapType) ) {
+      return fillColorDictionary[defaultFill]
+    }
+
+    return fillColorDictionary[mapType]
+  }
+
   function loadLegend(legendDiv, layers) {
     layers.forEach( ({ label, color }) => {
-      const container = document.createElement('div')
-      container.classList.add('map-legend__layer')
+      const item = `
+        <div class="map-legend__layer">
+          <div class="map-legend__color-swatch" style="background-color: ${color}"></div>
+          <span className="map-legend__label">${label}</span>
+        </div>`
 
-      const colorSwatch = document.createElement('div')
-      colorSwatch.classList.add('map-legend__color-swatch')
-      colorSwatch.style.backgroundColor = color
-
-      const text = document.createElement('span')
-      text.classList.add('map-legend__label')
-      text.innerHTML = label
-
-      container.appendChild(colorSwatch)
-      container.appendChild(text)
-
-      legendDiv.appendChild(container)
+      legendDiv.insertAdjacentHTML('beforeend', item)
     })
   }
 
@@ -492,5 +539,3 @@ jQuery(document).ready(function($){
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
   }
 })
-
-
