@@ -276,8 +276,7 @@ jQuery(document).ready(function($){
             },'waterway-label' )
 
             map.on('click', i.toString() + 'fills_heat', function (e) {
-              load_grid_community_stats( e.features[0].id )
-              //load_grid_details( e.features[0].id )
+              load_grid_details( e.features[0].id )
             })
             map.on('mouseenter', i.toString() + 'fills_heat', () => {
               map.getCanvas().style.cursor = 'pointer'
@@ -481,123 +480,6 @@ jQuery(document).ready(function($){
                 Religion: ${response.location.primary_religion}<br>
                 Official Language: ${response.location.primary_language}<br>
                 <hr>
-              </div>
-
-          </div>`
-        )
-      })
-  }
-
-  function load_grid_community_stats( grid_id ) {
-    let div = jQuery('#grid_details_content')
-    div.empty().html(`<div className="col-12"><span class="loading-spinner active"></span></div>`)
-
-    jQuery('#offcanvas_location_details').offcanvas('show')
-
-    window.get_data_page( 'get_grid_details', {grid_id: grid_id} )
-      .done(function(response){
-        window.report_content = response
-
-        const communityStats = {
-          time_prayed: {
-            my: 2,
-            community: 10,
-            total: 12,
-          },
-          times_prayed: {
-            my: 1,
-            community: 6,
-            total: 7,
-          },
-          logs: {
-            my: [
-              {
-                when: '2 days ago',
-                time_prayed: 2,
-                group: false,
-              }
-            ],
-            community: [
-              {
-                when: '4 hours ago',
-                time_prayed: 3,
-                group: 'Birmingham Prayed Collective',
-              },
-              {
-                when: '10 hours ago',
-                time_prayed: 2,
-                group: 'Birmingham Prayed Collective',
-              },
-              {
-                when: '1 day ago',
-                time_prayed: 1,
-                group: false,
-              },
-              {
-                when: '4 days ago',
-                time_prayed: 1,
-                group: 'Birmingham Prayed Collective',
-              },
-              {
-                when: '1 week ago',
-                time_prayed: 1,
-                group: false,
-              },
-              {
-                when: '2 weeks ago',
-                time_prayed: 1,
-                group: 'Naths Home Group',
-              },
-            ],
-          }
-        }
-
-        console.log(response)
-        div.html(
-          `
-          <div class="row">
-              <div class="col-12">
-                <hr class="mt-0" />
-                <h1>Community Stats</h1>
-                <p><span class="stats-title two-em">${response.location.full_name}</span></p>
-                <hr />
-                <p><span class="stats-title two-em">Amount of time prayed</span></p>
-                ${( communityStats.time_prayed.my > 0 ) && `I prayed ${communityStats.time_prayed.my} mins` }
-                <br />
-                ${( communityStats.time_prayed.community > 0 ) && `Community prayed ${communityStats.time_prayed.community} mins` }
-                <hr>
-              </div>
-              <div class="col-12">
-                <p><span class="stats-title two-em">Who prayed</span></p>
-                ${( communityStats.times_prayed.my > 0 ) && `I prayed ${communityStats.times_prayed.my} times` }
-                <br />
-                ${( communityStats.times_prayed.community > 0 ) && `Community prayed ${communityStats.times_prayed.community} times` }
-                <hr />
-              </div>
-              <div class="col-12">
-                <p><span class="stats-title two-em">When prayed</span></p>
-
-                ${communityStats.logs.my.length > 0 && communityStats.logs.my.reduce((html, log) => {
-                  html += `${log.when}: I prayed for ${log.time_prayed} mins`
-                  if (log.group !== false) {
-                    html += ` with ${log.group}`
-                  }
-                  html += '<br>'
-                  return html
-                }, '')}
-
-                <br />
-
-                ${communityStats.logs.community.length > 0 && communityStats.logs.community.reduce((html, log) => {
-                  html += `${log.when}: ${log.time_prayed} mins`
-                  if (log.group !== false) {
-                    html += ` with ${log.group}`
-                  }
-                  html += '<br>'
-                  return html
-                }, '')}
-
-                <hr />
               </div>
 
           </div>`
