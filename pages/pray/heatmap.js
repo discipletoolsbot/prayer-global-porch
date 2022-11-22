@@ -511,46 +511,46 @@ jQuery(document).ready(function($){
           },
           logs: [
             {
-              when: '4 hours ago',
-              time_prayed: 3,
+              when_text: '4 hours ago',
+              time_prayed_text: '3 mins',
               group: 'Birmingham Prayed Collective',
-              mine: false
+              is_mine: false
             },
             {
-              when: '10 hours ago',
-              time_prayed: 2,
+              when_text: '10 hours ago',
+              time_prayed_text: '2 mins',
               group: 'Birmingham Prayed Collective',
-              mine: false
+              is_mine: false
             },
             {
-              when: '1 day ago',
-              time_prayed: 1,
-              group: false,
-              mine: false
+              when_text: '1 day ago',
+              time_prayed_text: '1 min',
+              group: 'Global Prayer',
+              is_mine: false
             },
             {
-              when: '2 days ago',
-              time_prayed: 2,
-              group: false,
-              mine: true
+              when_text: '2 days ago',
+              time_prayed_text: '2 mins',
+              group: 'Global Prayer',
+              is_mine: true
             },
             {
-              when: '1 week ago',
-              time_prayed: 1,
+              when_text: '1 week ago',
+              time_prayed_text: '1 min',
               group: 'Birmingham Prayed Collective',
-              mine: false
+              is_mine: false
             },
             {
-              when: '2 weeks ago',
-              time_prayed: 1,
-              group: false,
-              mine: true
+              when_text: '2 weeks ago',
+              time_prayed_text: '1 min',
+              group: 'Global Prayer',
+              is_mine: true
             },
             {
-              when: '1 month ago',
-              time_prayed: 1,
+              when_text: '1 month ago',
+              time_prayed_text: '1 min',
               group: 'Naths Home Group',
-              mine: false
+              is_mine: false
             },
           ],
         }
@@ -644,7 +644,9 @@ jQuery(document).ready(function($){
               </div>
               <div class="col-12">
                 <p><span class="stats-title two-em">Activity</span></p>
-                <!-- Spit out list rendering of community and personal activity -->
+
+                ${renderActivityList(communityStats.logs)}
+
                 <hr />
               </div>
 
@@ -706,6 +708,38 @@ jQuery(document).ready(function($){
     });
 
     return html;
+  }
+
+  function renderActivityList(logs) {
+    let logsHtml = ''
+    logs.forEach(({when_text, time_prayed_text, group, is_mine}) => {
+
+      let badgeColor = 'blue-dark-bg'
+      if (when_text.includes('week')) {
+        badgeColor = 'blue-bg'
+      }
+      if (when_text.includes('month')) {
+        badgeColor = 'blue-light-bg'
+      }
+      const logHtml = `
+        <div class="activity-log__item">
+          <div class="activity-log__badge">
+            <div class="badge__inner ${badgeColor}"></div>
+          </div>
+          <div class="activity-log__body">
+            <div class="font-weight-bold">${time_prayed_text}</div>
+            <div>${is_mine ? 'Me' : group}</div>
+            <div class="light-grey">${when_text}</div>
+          </div>
+        </div>`
+
+      logsHtml += logHtml
+    })
+
+    return `
+      <div class="activity__list">
+        ${logsHtml}
+      </div>`
   }
 
   function getFillColors(mapType, layers) {
