@@ -17,6 +17,7 @@
 
 :root {
     --pg-font-family-base: "Montserrat", Arial, sans-serif;
+    --pg-brand-color: #1d82ff;
     --font-weight-default: 300;
     --bs-body-font-weight: 300;
     --bs-body-line-height: 1.8;
@@ -49,7 +50,7 @@ strong {
     font-weight: bold;
 }
 .navbar {
-    --bs-navbar-brand-color: #1d82ff;
+    --bs-navbar-brand-color: var(--pg-brand-color);
 }
 .form-control {
     font-weight: 300;
@@ -127,6 +128,9 @@ strong {
 }
 .orange {
     color: orange;
+}
+.blue {
+    color: var(--pg-brand-color);
 }
 .white {
     color: white;

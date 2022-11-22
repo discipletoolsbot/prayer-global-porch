@@ -509,100 +509,203 @@ jQuery(document).ready(function($){
             community: 6,
             total: 7,
           },
-          logs: {
-            my: [
-              {
-                when: '2 days ago',
-                time_prayed: 2,
-                group: false,
-              }
-            ],
-            community: [
-              {
-                when: '4 hours ago',
-                time_prayed: 3,
-                group: 'Birmingham Prayed Collective',
-              },
-              {
-                when: '10 hours ago',
-                time_prayed: 2,
-                group: 'Birmingham Prayed Collective',
-              },
-              {
-                when: '1 day ago',
-                time_prayed: 1,
-                group: false,
-              },
-              {
-                when: '4 days ago',
-                time_prayed: 1,
-                group: 'Birmingham Prayed Collective',
-              },
-              {
-                when: '1 week ago',
-                time_prayed: 1,
-                group: false,
-              },
-              {
-                when: '2 weeks ago',
-                time_prayed: 1,
-                group: 'Naths Home Group',
-              },
-            ],
-          }
+          logs: [
+            {
+              when: '4 hours ago',
+              time_prayed: 3,
+              group: 'Birmingham Prayed Collective',
+              mine: false
+            },
+            {
+              when: '10 hours ago',
+              time_prayed: 2,
+              group: 'Birmingham Prayed Collective',
+              mine: false
+            },
+            {
+              when: '1 day ago',
+              time_prayed: 1,
+              group: false,
+              mine: false
+            },
+            {
+              when: '2 days ago',
+              time_prayed: 2,
+              group: false,
+              mine: true
+            },
+            {
+              when: '1 week ago',
+              time_prayed: 1,
+              group: 'Birmingham Prayed Collective',
+              mine: false
+            },
+            {
+              when: '2 weeks ago',
+              time_prayed: 1,
+              group: false,
+              mine: true
+            },
+            {
+              when: '1 month ago',
+              time_prayed: 1,
+              group: 'Naths Home Group',
+              mine: false
+            },
+          ],
         }
+
+        const totalNumberStats = []
+
+        if (communityStats.times_prayed.my > 0) {
+          totalNumberStats.push({
+                  value: communityStats.times_prayed.my,
+                  icon: 'body',
+                  size: 'medium',
+                  color: 'orange',
+                })
+        }
+        if (communityStats.times_prayed.community > 0) {
+          totalNumberStats.push({
+                  value: communityStats.times_prayed.community,
+                  icon: 'body',
+                  size: 'medium',
+                  color: 'blue',
+                })
+        }
+
+        const totalTimeStats = []
+
+        if (communityStats.time_prayed.my > 0) {
+          totalTimeStats.push({
+                  value: communityStats.time_prayed.my,
+                  icon: 'time',
+                  size: 'medium',
+                  color: 'orange',
+                })
+        }
+        if (communityStats.time_prayed.community > 0) {
+          totalTimeStats.push({
+                  value: communityStats.time_prayed.community,
+                  icon: 'time',
+                  size: 'medium',
+                  color: 'blue',
+                })
+        }
+
+        const myNumberStats = communityStats.times_prayed.my > 0 ? `
+          <span>Me: ${renderIconInfographic([{ 
+                  value: communityStats.times_prayed.my,
+                  icon: 'body',
+                  size: 'medium',
+                  color: 'orange',
+                }])}</span>` : ''
+        const communityNumberStats = communityStats.times_prayed.community > 0 ? `
+          <span>Community: ${renderIconInfographic([{ 
+                  value: communityStats.times_prayed.community,
+                  icon: 'body',
+                  size: 'medium',
+                  color: 'blue',
+                }])}</span>` : ''
+        const myTimeStats = communityStats.time_prayed.my > 0 ? `
+          <span>Me: ${renderIconInfographic([{ 
+                  value: communityStats.time_prayed.my,
+                  icon: 'time',
+                  size: 'medium',
+                  color: 'orange',
+                }])}</span>` : ''
+
+        const communityTimeStats = communityStats.time_prayed.community > 0 ? `
+          <span>Community: ${renderIconInfographic([{ 
+                  value: communityStats.time_prayed.community,
+                  icon: 'time',
+                  size: 'medium',
+                  color: 'blue',
+                }])}</span>` : ''
 
         console.log(response)
         div.html(
           `
           <div class="row">
               <div class="col-12">
-                <hr class="mt-0" />
-                <h1>Community Stats</h1>
+                <h1 class="header-border-top">Community Stats</h1>
                 <p><span class="stats-title two-em">${response.location.full_name}</span></p>
                 <hr />
-                <p><span class="stats-title two-em">Amount of time prayed</span></p>
-                ${( communityStats.time_prayed.my > 0 ) && `I prayed ${communityStats.time_prayed.my} mins` }
-                <br />
-                ${( communityStats.time_prayed.community > 0 ) && `Community prayed ${communityStats.time_prayed.community} mins` }
+                <p><span class="stats-title two-em">Summary</span></p>
+                <p>Prayed for ${communityStats.times_prayed.total} ${communityStats.times_prayed.total > 1 ? 'times' : 'time'}</p>
+
+                ${renderIconInfographic(totalNumberStats)}
+
+                <p>Total time prayed: ${communityStats.time_prayed.total} ${communityStats.time_prayed.total > 1 ? 'mins' : 'min'}</p>
+
+                ${renderIconInfographic(totalTimeStats)}
+
                 <hr>
               </div>
               <div class="col-12">
-                <p><span class="stats-title two-em">Who prayed</span></p>
-                ${( communityStats.times_prayed.my > 0 ) && `I prayed ${communityStats.times_prayed.my} times` }
-                <br />
-                ${( communityStats.times_prayed.community > 0 ) && `Community prayed ${communityStats.times_prayed.community} times` }
-                <hr />
-              </div>
-              <div class="col-12">
-                <p><span class="stats-title two-em">When prayed</span></p>
-
-                ${communityStats.logs.my.length > 0 && communityStats.logs.my.reduce((html, log) => {
-                  html += `${log.when}: I prayed for ${log.time_prayed} mins`
-                  if (log.group !== false) {
-                    html += ` with ${log.group}`
-                  }
-                  html += '<br>'
-                  return html
-                }, '')}
-
-                <br />
-
-                ${communityStats.logs.community.length > 0 && communityStats.logs.community.reduce((html, log) => {
-                  html += `${log.when}: ${log.time_prayed} mins`
-                  if (log.group !== false) {
-                    html += ` with ${log.group}`
-                  }
-                  html += '<br>'
-                  return html
-                }, '')}
-
+                <p><span class="stats-title two-em">Activity</span></p>
+                <!-- Spit out list rendering of community and personal activity -->
                 <hr />
               </div>
 
           </div>`
         )
       })
+  }
+
+  /**
+   * Renders an icon Infographic
+   *
+   * @param {Object[]} stats
+   * @param {int} stats[].value - The value to depict
+   * @param {string} stats[].icon - One of body|time
+   * @param {string} stats[].color - One of red|orange|green|blue
+   * @param {string} stats[].size - One of small|medium|large
+   *
+   * @return {string}
+   */
+  function renderIconInfographic(stats) {
+
+    const iconOptions = {
+      'body': 'ion-ios-body',
+      'time': 'ion-ios-time'
+    }
+    const defaultIcon = iconOptions.body
+
+    const iconColors = {
+      red: 'red',
+      orange: 'orange',
+      green: 'green',
+      blue: 'blue',
+    }
+    const defaultColor = iconColors.blue
+
+    const sizes = {
+      small: 'one-em',
+      medium: 'two-em',
+      large: 'three-em',
+    }
+    const defaultSize = sizes.medium
+
+    let html = ''
+    stats.forEach(({ value, icon, color, size }) => {
+      if ( size < 0 ) return
+
+      let icons = ``
+      let iconOption = iconOptions.hasOwnProperty(icon) ? iconOptions[icon] : defaultIcon
+      let iconColor = iconColors.hasOwnProperty(color) ? iconColors[color] : defaultColor
+      let iconSize = sizes.hasOwnProperty(size) ? sizes[size] : defaultSize
+      for (let i = 0; i < value; i++) {
+        icons += `<i class="${iconOption}"></i>`
+      }
+
+      html += `
+        <span class="${iconColor} ${iconSize}">
+          ${icons}
+        </span>`
+    });
+
+    return html;
   }
 
   function getFillColors(mapType, layers) {
