@@ -112,22 +112,6 @@ class PG_Stacker {
         $user_id = get_current_user_id();
         // get some basic stats on the country
         $stack = self::_stack_query( $grid_id );
-        /* Query all records of this grid_id and total up mine and not my total prayers, and add a rollup total as well */
-        $user_totals = null;
-        if ( $user_id ) {
-            $user_totals = $wpdb->get_row( $wpdb->prepare( "
-            SELECT SUM(r.value) as total_time, COUNT(id) as total_number
-            FROM $wpdb->dt_reports r
-            WHERE grid_id = %d
-            AND user_id = %d
-            ", $grid_id, $user_id ), ARRAY_A );
-        }
-
-        $community_totals = $wpdb->get_row( $wpdb->prepare( "
-        SELECT SUM(r.value) as total_time, COUNT(id) as total_number
-        FROM $wpdb->dt_reports r
-        WHERE grid_id = %d
-        ", $grid_id ), ARRAY_A );
 
         if ( $user_id ) {
             $community_activity = $wpdb->get_results( $wpdb->prepare( "
@@ -148,6 +132,21 @@ class PG_Stacker {
             ORDER BY r.timestamp DESC
             ", $grid_id ), ARRAY_A );
         }
+
+        $community_stats = [
+            "time_prayed" => [
+                "me" => 0,
+                "community" => 0,
+                "total" => 0,
+            ],
+            "times_prayed" => [
+                "me" => 0,
+                "community" => 0,
+                "total" => 0,
+            ],
+            "logs" => [],
+        ];
+
         foreach ( $community_activity as $key => $activity ) {
             $time = time() - (int) $activity['timestamp'];
 
@@ -182,21 +181,19 @@ class PG_Stacker {
             $community_activity[$key]['when_time_formatted'] = gmdate( $time );
             $community_activity[$key]['time_prayed_text'] = ( $minutes_prayed === 1 ) ? "1 min" : "$minutes_prayed mins";
             $community_activity[$key]['is_mine'] = (int) $activity['is_mine'];
+
+            if ( $activity['is_mine'] ) {
+                $community_stats['times_prayed']['me'] += 1;
+                $community_stats['time_prayed']['me'] += $activity['minutes'];
+            } else {
+                $community_stats['times_prayed']['community'] += 1;
+                $community_stats['time_prayed']['community'] += $activity['minutes'];
+            }
         }
 
-        $community_stats = [
-            "time_prayed" => [
-                "me" => self::_value_or_zero( $user_totals["total_time"] ),
-                "community" => self::_value_or_zero($community_totals["total_time"]),
-                "total" => self::_value_or_zero( $user_totals["total_time"] ) + self::_value_or_zero( $community_totals["total_time"] )
-            ],
-            "times_prayed" => [
-                "me" => self::_value_or_zero( $user_totals["total_number"] ),
-                "community" => self::_value_or_zero($community_totals["total_number"]),
-                "total" => self::_value_or_zero( $user_totals["total_number"] ) + self::_value_or_zero( $community_totals["total_number"] )
-            ],
-            "logs" => $community_activity,
-        ];
+        $community_stats['times_prayed']['total'] = $community_stats['times_prayed']['me'] + $community_stats['times_prayed']['community'];
+        $community_stats['time_prayed']['total'] = $community_stats['time_prayed']['me'] + $community_stats['time_prayed']['community'];
+        $community_stats['logs'] = $community_activity;
 
         $stack["stats"] = $community_stats;
 
