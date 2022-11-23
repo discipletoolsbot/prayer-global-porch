@@ -10,6 +10,9 @@ jQuery(document).ready(function($){
   const red = 'rgba(255,0,0, .7)'
   const green = 'rgba(0,128,0, .9)'
   const defaultMap = 'binary'
+  const defaultDetailsType = 'location_details'
+
+  const detailsType = jsObject.hasOwnProperty('details_type') ? jsObject.details_type : defaultDetailsType
 
   window.get_page = (action) => {
     return jQuery.ajax({
@@ -276,8 +279,12 @@ jQuery(document).ready(function($){
             },'waterway-label' )
 
             map.on('click', i.toString() + 'fills_heat', function (e) {
-              load_grid_community_stats( e.features[0].id )
-              //load_grid_details( e.features[0].id )
+
+              if (detailsType === 'community_stats') {
+                load_grid_community_stats( e.features[0].id )
+              } else if (detailsType === 'location_details') {
+                load_grid_details( e.features[0].id )
+              }
             })
             map.on('mouseenter', i.toString() + 'fills_heat', () => {
               map.getCanvas().style.cursor = 'pointer'
@@ -494,66 +501,12 @@ jQuery(document).ready(function($){
 
     jQuery('#offcanvas_location_details').offcanvas('show')
 
-    window.get_data_page( 'get_grid_details', {grid_id: grid_id} )
+    window.get_data_page( 'get_grid_stats', {grid_id: grid_id} )
       .done(function(response){
         window.report_content = response
+        console.log(response)
 
-        const communityStats = {
-          time_prayed: {
-            my: 2,
-            community: 10,
-            total: 12,
-          },
-          times_prayed: {
-            my: 1,
-            community: 6,
-            total: 7,
-          },
-          logs: [
-            {
-              when_text: '4 hours ago',
-              time_prayed_text: '3 mins',
-              group: 'Birmingham Prayed Collective',
-              is_mine: false
-            },
-            {
-              when_text: '10 hours ago',
-              time_prayed_text: '2 mins',
-              group: 'Birmingham Prayed Collective',
-              is_mine: false
-            },
-            {
-              when_text: '1 day ago',
-              time_prayed_text: '1 min',
-              group: 'Global Prayer',
-              is_mine: false
-            },
-            {
-              when_text: '2 days ago',
-              time_prayed_text: '2 mins',
-              group: 'Global Prayer',
-              is_mine: true
-            },
-            {
-              when_text: '1 week ago',
-              time_prayed_text: '1 min',
-              group: 'Birmingham Prayed Collective',
-              is_mine: false
-            },
-            {
-              when_text: '2 weeks ago',
-              time_prayed_text: '1 min',
-              group: 'Global Prayer',
-              is_mine: true
-            },
-            {
-              when_text: '1 month ago',
-              time_prayed_text: '1 min',
-              group: 'Naths Home Group',
-              is_mine: false
-            },
-          ],
-        }
+        const communityStats = response.stats
 
         const totalNumberStats = []
 
@@ -712,7 +665,7 @@ jQuery(document).ready(function($){
 
   function renderActivityList(logs) {
     let logsHtml = ''
-    logs.forEach(({when_text, time_prayed_text, group, is_mine}) => {
+    logs.forEach(({when_text, time_prayed_text, group_name, is_mine}) => {
 
       let badgeColor = 'blue-dark-bg'
       if (when_text.includes('week')) {
@@ -728,7 +681,7 @@ jQuery(document).ready(function($){
           </div>
           <div class="activity-log__body">
             <div class="font-weight-bold">${time_prayed_text}</div>
-            <div>${is_mine ? 'Me' : group}</div>
+            <div>${is_mine ? 'Me' : group_name}</div>
             <div class="light-grey">${when_text}</div>
           </div>
         </div>`

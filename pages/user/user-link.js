@@ -42,6 +42,7 @@ jQuery(document).ready(function(){
 
     function show_user_nav() {
         const userNav = document.getElementById('user-nav')
+        if (!userNav) return
         userNav.style.display = 'block'
     }
 

@@ -13,6 +13,7 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
     public static $token = 'race_app_race_map';
     public $post_type = 'laps';
     public $map_type = 'heatmap';
+    public $details_type = 'community_stats';
 
     private static $_instance = null;
     public static function instance() {
@@ -109,6 +110,7 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                     'add' => __( 'Add Magic', 'prayer-global' ),
                 ],
                 'map_type' => $this->map_type,
+                'details_type' => $this->details_type,
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
@@ -237,6 +239,8 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                 ];
             case 'get_grid_details':
                 return $this->get_grid_details( $params['data'] );
+            case 'get_grid_stats':
+                return $this->get_grid_stats( $params['data'] );
             case 'get_participants':
                 return $this->get_participants( $params['parts'] );
             case 'get_user_locations':
@@ -351,6 +355,11 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
     public function get_grid_details( $data ) {
         $details = PG_Stacker::build_location_stack( $data['grid_id'] );
         return $details;
+    }
+
+    public function get_grid_stats( $data ) {
+        $stats = PG_Stacker::build_location_stats( $data['grid_id'] );
+        return $stats;
     }
 
 }

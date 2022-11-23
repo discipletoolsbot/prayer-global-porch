@@ -106,6 +106,107 @@ class PG_Stacker {
         return $stack;
     }
 
+    public static function build_location_stats( $grid_id ) {
+        global $wpdb;
+
+        $user_id = get_current_user_id();
+        // get some basic stats on the country
+        $stack = self::_stack_query( $grid_id );
+        /* Query all records of this grid_id and total up mine and not my total prayers, and add a rollup total as well */
+        $user_totals = null;
+        if ( $user_id ) {
+            $user_totals = $wpdb->get_row( $wpdb->prepare( "
+            SELECT SUM(r.value) as total_time, COUNT(id) as total_number
+            FROM $wpdb->dt_reports r
+            WHERE grid_id = %d
+            AND user_id = %d
+            ", $grid_id, $user_id ), ARRAY_A );
+        }
+
+        $community_totals = $wpdb->get_row( $wpdb->prepare( "
+        SELECT SUM(r.value) as total_time, COUNT(id) as total_number
+        FROM $wpdb->dt_reports r
+        WHERE grid_id = %d
+        ", $grid_id ), ARRAY_A );
+
+        if ( $user_id ) {
+            $community_activity = $wpdb->get_results( $wpdb->prepare( "
+            SELECT r.value as minutes, r.timestamp as timestamp, p.post_title as group_name, IF(r.user_id = %d, 1, 0) as is_mine 
+            FROM $wpdb->dt_reports r
+            JOIN $wpdb->posts p
+            ON r.post_id = p.ID
+            WHERE r.grid_id = %d
+            ORDER BY r.timestamp DESC
+            ", $user_id, $grid_id ), ARRAY_A );
+        } else {
+            $community_activity = $wpdb->get_results( $wpdb->prepare( "
+            SELECT r.value as minutes, r.timestamp as timestamp, p.post_title as group_name, 0 as is_mine 
+            FROM $wpdb->dt_reports r
+            JOIN $wpdb->posts p
+            ON r.post_id = p.ID
+            WHERE r.grid_id = %d
+            ORDER BY r.timestamp DESC
+            ", $grid_id ), ARRAY_A );
+        }
+        foreach ( $community_activity as $key => $activity ) {
+            $time = time() - (int) $activity['timestamp'];
+
+            $days = floor( $time / 60 / 60 / 24 );
+            $hours = floor( ( $time / 60 / 60 ) - ( $days * 24 ) );
+            $minutes = floor( ( $time / 60 ) - ( $hours * 60 ) - ( $days * 24 * 60 ) );
+            $seconds = $time;
+
+            if ( empty( $days ) && empty( $hours ) && empty( $minutes ) ) {
+                $seconds_word = $seconds > 1 ? 'seconds' : 'second';
+                $community_activity[$key]['when_text'] = "$seconds $seconds_word ago";
+            } else if ( empty( $days ) && empty( $hours ) ) {
+                $minutes_word = $minutes > 1 ? 'minutes' : 'minute';
+                $community_activity[$key]['when_text'] = "$minutes $minutes_word ago";
+            } else if ( empty( $days ) ) {
+                $hours_word = $hours > 1 ? 'hours' : 'hour';
+                $community_activity[$key]['when_text'] = "$hours $hours_word ago";
+            } else if ( $days < 7 ) {
+                $days_word = $days > 1 ? 'days' : 'day';
+                $community_activity[$key]['when_text'] = "$days $days_word ago";
+            } else if ( $days < 30 ) {
+                $weeks = floor( $days / 7 );
+                $weeks_word = $weeks > 1 ? 'weeks' : 'week';
+                $community_activity[$key]['when_text'] = "$weeks $weeks_word ago";
+            } else if ( $days > 30 ) {
+                $months = floor( $days / 30 );
+                $months_word = $months > 1 ? 'months' : 'month';
+                $community_activity[$key]['when_text'] = "$months $months_word ago";
+            }
+
+            $minutes_prayed = (int) $activity['minutes'];
+            $community_activity[$key]['when_time_formatted'] = gmdate( $time );
+            $community_activity[$key]['time_prayed_text'] = ( $minutes_prayed === 1 ) ? "1 min" : "$minutes_prayed mins";
+            $community_activity[$key]['is_mine'] = (int) $activity['is_mine'];
+        }
+
+        $community_stats = [
+            "time_prayed" => [
+                "me" => self::_value_or_zero( $user_totals["total_time"] ),
+                "community" => self::_value_or_zero($community_totals["total_time"]),
+                "total" => self::_value_or_zero( $user_totals["total_time"] ) + self::_value_or_zero( $community_totals["total_time"] )
+            ],
+            "times_prayed" => [
+                "me" => self::_value_or_zero( $user_totals["total_number"] ),
+                "community" => self::_value_or_zero($community_totals["total_number"]),
+                "total" => self::_value_or_zero( $user_totals["total_number"] ) + self::_value_or_zero( $community_totals["total_number"] )
+            ],
+            "logs" => $community_activity,
+        ];
+
+        $stack["stats"] = $community_stats;
+
+        return $stack;
+    }
+
+    private static function _value_or_zero( $value ) {
+        return is_null( $value ) ? 0 : (int) $value;
+    }
+
     private static function _demographics( &$stack, $position = false ) {
 
         $section_label = 'Demographics';
