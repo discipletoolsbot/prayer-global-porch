@@ -510,9 +510,9 @@ jQuery(document).ready(function($){
 
         const totalNumberStats = []
 
-        if (communityStats.times_prayed.my > 0) {
+        if (communityStats.times_prayed.me > 0) {
           totalNumberStats.push({
-                  value: communityStats.times_prayed.my,
+                  value: communityStats.times_prayed.me,
                   icon: 'body',
                   size: 'medium',
                   color: 'orange',
@@ -529,9 +529,9 @@ jQuery(document).ready(function($){
 
         const totalTimeStats = []
 
-        if (communityStats.time_prayed.my > 0) {
+        if (communityStats.time_prayed.me > 0) {
           totalTimeStats.push({
-                  value: communityStats.time_prayed.my,
+                  value: communityStats.time_prayed.me,
                   icon: 'time',
                   size: 'medium',
                   color: 'orange',
@@ -546,9 +546,9 @@ jQuery(document).ready(function($){
                 })
         }
 
-        const myNumberStats = communityStats.times_prayed.my > 0 ? `
+        const myNumberStats = communityStats.times_prayed.me > 0 ? `
           <span>Me: ${renderIconInfographic([{ 
-                  value: communityStats.times_prayed.my,
+                  value: communityStats.times_prayed.me,
                   icon: 'body',
                   size: 'medium',
                   color: 'orange',
@@ -560,9 +560,9 @@ jQuery(document).ready(function($){
                   size: 'medium',
                   color: 'blue',
                 }])}</span>` : ''
-        const myTimeStats = communityStats.time_prayed.my > 0 ? `
+        const myTimeStats = communityStats.time_prayed.me > 0 ? `
           <span>Me: ${renderIconInfographic([{ 
-                  value: communityStats.time_prayed.my,
+                  value: communityStats.time_prayed.me,
                   icon: 'time',
                   size: 'medium',
                   color: 'orange',
@@ -667,12 +667,12 @@ jQuery(document).ready(function($){
     let logsHtml = ''
     logs.forEach(({when_text, time_prayed_text, group_name, is_mine}) => {
 
-      let badgeColor = 'blue-dark-bg'
+      let badgeColor = is_mine ? 'orange-dark-bg' : 'blue-dark-bg'
       if (when_text.includes('week')) {
-        badgeColor = 'blue-bg'
+        badgeColor = is_mine ? 'orange-bg' : 'blue-bg'
       }
       if (when_text.includes('month')) {
-        badgeColor = 'blue-light-bg'
+        badgeColor = is_mine ? 'orange-light-bg' : 'blue-light-bg'
       }
       const logHtml = `
         <div class="activity-log__item">
