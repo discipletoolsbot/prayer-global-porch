@@ -282,8 +282,13 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
 
         $data = [];
         foreach ( $data_raw as $row ) {
+            //if ( ! isset( $data[$row['grid_id']] ) ) {
+            //    $data[$row['grid_id']] = (int) $row['value'] ?? 0;
+            //}
             if ( ! isset( $data[$row['grid_id']] ) ) {
-                $data[$row['grid_id']] = (int) $row['value'] ?? 0;
+                $data[$row['grid_id']] = 1 ?? 0;
+            } else {
+                $data[$row['grid_id']] = $data[$row['grid_id']] + 1;
             }
         }
 
