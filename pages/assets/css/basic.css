@@ -17,6 +17,9 @@
 
 :root {
     --pg-font-family-base: "Montserrat", Arial, sans-serif;
+    --pg-brand-color: #1d82ff;
+    --pg-brand-color-dark: #0c4183;
+    --pg-brand-color-light: #b5d6ff;
     --font-weight-default: 300;
     --bs-body-font-weight: 300;
     --bs-body-line-height: 1.8;
@@ -49,7 +52,7 @@ strong {
     font-weight: bold;
 }
 .navbar {
-    --bs-navbar-brand-color: #1d82ff;
+    --bs-navbar-brand-color: var(--pg-brand-color);
 }
 .form-control {
     font-weight: 300;
@@ -128,14 +131,38 @@ strong {
 .orange {
     color: orange;
 }
+.blue {
+    color: var(--pg-brand-color);
+}
 .white {
     color: white;
 }
 .white:hover {
     color: lightgrey;
 }
+.light-grey {
+    color: #7D7D7D
+}
 .black {
     color: black;
+}
+.blue-dark-bg {
+    background-color: var(--pg-brand-color-dark);
+}
+.blue-bg {
+    background-color: var(--pg-brand-color);
+}
+.blue-light-bg {
+    background-color: var(--pg-brand-color-light);
+}
+.orange-dark-bg {
+    background-color: rgb(255, 98, 0);
+}
+.orange-bg {
+    background-color: orange;
+}
+.orange-light-bg {
+    background-color: hsl(39, 100%, 74%);
 }
 @media (max-width: 991px) {
     .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
@@ -603,6 +630,41 @@ strong {
     display: inline;
 }
 
+.activity__list {
+    --pg-activity-badge-size: 20px;
+    margin: 0 calc( var(--pg-activity-badge-size) / 2);
+    position: relative;
+}
+.activity-log__item {
+    display: flex;
+    padding: 0.5rem 0;
+}
+.activity-log__item::before {
+    content: "";
+    top: 20px;
+    bottom: 0;
+    left: 0;
+    width: 3px;
+    background: #DDD;
+    position: absolute;
+}
+.activity-log__badge {
+    margin-right: 20px;
+    margin-left: calc( var(--pg-activity-badge-size) / -2 + 1px );
+    z-index: 1;
+    height: calc( var(--pg-activity-badge-size) * 2 );
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+.activity-log__badge > .badge__inner{
+    height: calc( var(--pg-activity-badge-size) );
+    width: calc( var(--pg-activity-badge-size) );
+    border-radius: 50%;
+}
+.activity-log__body {
+    margin-top: 8px;
+}
 
 
 /* Home page styles */
