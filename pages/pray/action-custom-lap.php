@@ -228,6 +228,13 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             </div>
         </div>
 
+        <!-- Location counter -->
+        <div class="prayer-odometer">
+            <div>
+                <span class="location-count">0</span><i class="ion-location"></i>
+            </div>
+        </div>
+
         <!-- content section -->
         <section>
             <div class="container" id="map">
