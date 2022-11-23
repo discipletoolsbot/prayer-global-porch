@@ -584,7 +584,7 @@ jQuery(document).ready(function($){
                 <h1 class="header-border-top">Community Stats</h1>
                 <p><span class="stats-title two-em">${response.location.full_name}</span></p>
                 <hr />
-                <p><span class="stats-title two-em">Summary</span></p>
+                <p><span class="two-em">Summary</span></p>
                 <p>Prayed for ${communityStats.times_prayed.total} ${communityStats.times_prayed.total > 1 ? 'times' : 'time'}</p>
 
                 ${renderIconInfographic(totalNumberStats)}
@@ -596,7 +596,7 @@ jQuery(document).ready(function($){
                 <hr>
               </div>
               <div class="col-12">
-                <p><span class="stats-title two-em">Activity</span></p>
+                <p><span class="two-em">Activity</span></p>
 
                 ${renderActivityList(communityStats.logs)}
 
@@ -681,7 +681,7 @@ jQuery(document).ready(function($){
           </div>
           <div class="activity-log__body">
             <div class="font-weight-bold">${time_prayed_text}</div>
-            <div>${is_mine ? 'Me' : group_name}</div>
+            <div>${is_mine ? 'Me in ' + group_name : group_name}</div>
             <div class="light-grey">${when_text}</div>
           </div>
         </div>`
