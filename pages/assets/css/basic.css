@@ -146,6 +146,12 @@ strong {
 .black {
     color: black;
 }
+.green-bg {
+    background-color: green;
+}
+.red-bg {
+    background-color: red;
+}
 .blue-dark-bg {
     background-color: var(--pg-brand-color-dark);
 }
