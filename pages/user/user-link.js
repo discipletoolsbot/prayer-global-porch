@@ -46,10 +46,6 @@ jQuery(document).ready(function(){
                 <table class="table">
                     <tbody>
                     <tr>
-                        <td>User ID</td>
-                        <td id="pg_user_id"></td>
-                    </tr>
-                    <tr>
                         <td>User Display Name</td>
                         <td id="pg_user_display"></td>
                     </tr>
@@ -82,6 +78,7 @@ jQuery(document).ready(function(){
             </section>
 
             <a href="${jsObject.logout_url}">Logout</a><br>
+            <span id="pg_user_id"></span>
             <span id="pg_user_id"></span>
 `
         );
