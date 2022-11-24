@@ -93,9 +93,6 @@ progress {
     background: white;
     z-index: 100;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 }
 .offcanvas__content {
     padding: 1em;
