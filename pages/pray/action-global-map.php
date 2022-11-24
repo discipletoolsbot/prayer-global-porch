@@ -141,8 +141,20 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
             </div>
         </div>
        <div class="offcanvas offcanvas-end" id="offcanvas_location_details" data-bs-backdrop="false" data-bs-scroll="true">
-            <div class="offcanvas__header"><button type="button" data-bs-dismiss="offcanvas" style="text-align: start"><i class="ion-chevron-right three-em"></i></button></div>
+            <div class="offcanvas__header">
+                <button type="button" data-bs-dismiss="offcanvas" style="text-align: start">
+                    <i class="ion-chevron-right three-em"></i>
+                </button>
+                <a class="navbar__cta btn btn-outline-dark py-2" id="pray-for-area-button" href="#">Pray for this area</a>
+            </div>
             <div class="row offcanvas__content" id="grid_details_content"></div>
+        </div>
+        <div class="modal fade" id="pray-for-area-modal" tabindex="-1" role="dialog" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <iframe src="/prayer_app/global/cc8b6b" frameborder="0" id="pray-for-area-iframe"></iframe>
+                </div>
+            </div>
         </div>
         <!-- report modal -->
         <div class="reveal " id="correction_modal" data-v-offset="10px;" data-reveal>

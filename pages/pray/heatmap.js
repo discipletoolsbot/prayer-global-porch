@@ -65,8 +65,37 @@ jQuery(document).ready(function($){
       }
       #map-sidebar-wrapper {
           height: ${window.innerHeight}px !important;
-      }
-`)
+      }`)
+
+  const pray_for_area_modal = document.getElementById('pray-for-area-modal')
+  const pray_for_area_content = pray_for_area_modal.querySelector('.modal-content')
+  const pray_for_area_button = jQuery('#pray-for-area-button')
+
+  pray_for_area_button.on('click', () => {
+
+    pray_for_area_content.innerHTML = `<iframe src="/prayer_app/global/cc8b6b" frameborder="0" id="pray-for-area-iframe"></iframe>`
+
+    /* fit the iframe to the screen height */
+    const pray_for_area_iframe = document.getElementById('pray-for-area-iframe')
+    const verticalMargin = getComputedStyle(pray_for_area_modal).getPropertyValue('--bs-modal-margin');
+    const screenHeight = window.innerHeight;
+    pray_for_area_iframe.style.height = `calc( ${screenHeight}px - 2 * ${verticalMargin} - 2px )`
+
+    /* Attach eventListeners to prayer buttons */
+    pray_for_area_iframe.addEventListener('load', () => {
+      const iframeDocument = pray_for_area_iframe.contentDocument
+
+      iframeDocument.getElementById('decision__next').addEventListener('click', () => {
+        jQuery(pray_for_area_modal).modal('hide')
+      })
+    })
+
+    jQuery(pray_for_area_modal).modal('show')
+  })
+
+  pray_for_area_modal.addEventListener('hidden.bs.modal', (event) => {
+    pray_for_area_content.innerHTML = ''
+  })
 
   let initialize_screen = jQuery('.initialize-progress')
   let grid_details_content = jQuery('#grid-details-content')
