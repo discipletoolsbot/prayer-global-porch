@@ -14,10 +14,6 @@ jQuery(document).ready(function($){
 
   const detailsType = jsObject.hasOwnProperty('details_type') ? jsObject.details_type : defaultDetailsType
 
-  const participantsLayerId = 'participants'
-  const userLocationsLayerId = 'user_locations'
-  const toggleableLayerIds = [participantsLayerId, userLocationsLayerId]
-
   window.get_page = (action) => {
     return jQuery.ajax({
       type: "POST",
@@ -333,7 +329,7 @@ jQuery(document).ready(function($){
           if (error) throw error;
           map.addImage('custom-marker', image);
           map.addLayer({
-            'id': participantsLayerId,
+            'id': 'points',
             'type': 'symbol',
             'source': 'participants',
             'layout': {
@@ -382,7 +378,7 @@ jQuery(document).ready(function($){
           if (error) throw error;
           map.addImage('custom-marker-user', image);
           map.addLayer({
-            'id': userLocationsLayerId,
+            'id': 'points_user',
             'type': 'symbol',
             'source': 'user_locations',
             'layout': {
@@ -399,38 +395,6 @@ jQuery(document).ready(function($){
             }
           });
         })
-    })
-
-    map.on('idle', () => {
-      if (!map.getLayer(participantsLayerId) || !map.getLayer(userLocationsLayerId)) {
-        return
-      }
-
-      for ( const id of toggleableLayerIds ) {
-        const toggleElement = document.querySelector(`.map-toggle[data-layer-id=${id}]`)
-
-        if (!toggleElement) {
-          continue
-        }
-
-        toggleElement.onclick = function(e) {
-          e.preventDefault()
-          e.stopPropagation()
-
-          const clickedLayer = this.dataset.layerId
-
-          const visibility = map.getLayoutProperty(clickedLayer, "visibility");
-
-          // Toggle layer visibility by changing the layout object's visibility property.
-          if (visibility === "visible" || typeof visibility === 'undefined') {
-            map.setLayoutProperty(clickedLayer, "visibility", "none");
-            this.classList.remove('active')
-          } else {
-            map.setLayoutProperty(clickedLayer, "visibility", "visible");
-            this.classList.add('active')
-          }
-        }
-      }
     })
 
     // add stats
