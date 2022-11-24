@@ -336,3 +336,36 @@ progress {
         border-radius: 0;
     }
 }
+
+.map-toggle {
+    width: 50px;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: 50px;
+    padding: 2px;
+    cursor: pointer;
+    border: 2px solid lightgrey;
+    transition: box-shadow 0.1s;
+}
+.map-toggle .foot__icon {
+    max-width: 100%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+.map-toggle.active {
+    border-color: var(--pg-brand-color);
+}
+.map-toggle.active .foot__icon {
+    opacity: 1;
+}
+
+.map-toggle.active:hover {
+   box-shadow: 0 5px 5px 0 #1d82ff55;
+}
+.map-toggle:hover {
+   box-shadow: 0 5px 5px 0 #d3d3d355;
+}
+.map-toggle:active {
+    box-shadow: none;
+}
