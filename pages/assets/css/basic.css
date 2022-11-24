@@ -672,9 +672,3 @@ strong {
 .video-image-link {
     cursor: pointer;
 }
-
-/* Datatable styles */
-
-.dtr-title {
-    font-weight: bold;
-}
