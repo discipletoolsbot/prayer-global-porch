@@ -73,7 +73,8 @@ jQuery(document).ready(function($){
 
   pray_for_area_button.on('click', () => {
 
-    pray_for_area_content.innerHTML = `<iframe src="/prayer_app/global/cc8b6b" frameborder="0" id="pray-for-area-iframe"></iframe>`
+    /* TODO: build the url from the current map screen; get the grid_id from... not sure */
+    pray_for_area_content.innerHTML = `<iframe src="/prayer_app/global/cc8b6b/location?grid_id=100000000" frameborder="0" id="pray-for-area-iframe"></iframe>`
 
     /* fit the iframe to the screen height */
     const pray_for_area_iframe = document.getElementById('pray-for-area-iframe')

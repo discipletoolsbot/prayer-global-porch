@@ -109,8 +109,10 @@ jQuery(document).ready(function(){
     pace_buttons.removeClass('btn-secondary').addClass('btn-outline-secondary')
     jQuery('#pace__'+window.pace).removeClass('btn-outline-secondary').addClass('btn-secondary')
 
+    /* Passing query params through api allows different types of laps to use query params in different ways */
+    const grid_id = new URL(window.location.href).searchParams.get('grid_id')
     // load current location
-    window.api_post( 'refresh', {} )
+    window.api_post( 'refresh', { grid_id } )
       .done( function(l1) {
         window.report_content = window.current_content = test_for_redundant_grid( l1 )
         load_location()
