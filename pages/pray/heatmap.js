@@ -93,9 +93,16 @@ jQuery(document).ready(function($){
     /* Attach eventListeners to prayer buttons */
     pray_for_area_iframe.addEventListener('load', () => {
       const iframeDocument = pray_for_area_iframe.contentDocument
+      const question_done_button = iframeDocument.getElementById('question__yes_done')
+      const decision_map_button = iframeDocument.getElementById('decision__map')
+      const decision_home_button = iframeDocument.getElementById('decision__home')
 
-      iframeDocument.getElementById('decision__next').addEventListener('click', () => {
+      decision_map_button.addEventListener('click', () => {
         jQuery(pray_for_area_modal).modal('hide')
+      })
+      decision_home_button.addEventListener('click', () => {
+        jQuery(pray_for_area_modal).modal('hide')
+        location.href = '/'
       })
     })
 
