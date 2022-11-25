@@ -132,10 +132,23 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                     <div class="map-overlay" id="map-legend"></div>
                     <div class="row">
                         <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
-                        <div class="col col-sm-6 col-md-3 center d-none d-md-block"><strong>Places Remaining</strong><br><strong><span class="one-em red-bg stats-figure remaining"></span></strong></div>
-                        <div class="col col-sm-6 col-md-3 center d-none d-md-block"><strong>Places Covered</strong><br><strong><span class="one-em green-bg stats-figure completed"></span></strong></div>
-                        <div class="col col-sm-6 col-md-3 center"><strong>Prayer Warriors</strong><br><img class="foot__icon" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/praying-hand-up-20.png' ) ?>" /></div>
-                        <div class="col col-sm-6 col-md-3 center"><strong>Your Recent Prayers</strong><br><img class="foot__icon" style="padding-top:5px;" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/black-check-50.png' ) ?>" /></div>
+                        <div class="col col-sm-6 col-md-3 center d-none d-md-block"><strong>Places Remaining</strong><br><strong><span class="one-em red stats-figure remaining"></span></strong></div>
+                        <div class="col col-sm-6 col-md-3 center d-none d-md-block"><strong>Places Covered</strong><br><strong><span class="one-em green stats-figure completed"></span></strong></div>
+                        <div class="col col-sm-6 col-md-3 center">
+                            <strong>Prayer Warriors</strong>
+                            <br>
+                            <div class="map-toggle active" data-layer-id="participants">
+                                <img class="foot__icon" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/praying-hand-up-20.png' ) ?>" />
+                            </div>
+                        </div>
+                        <div class="col col-sm-6 col-md-3 center">
+                            <strong>Your Recent Prayers</strong>
+                            <br>
+                            <div class="map-toggle active" data-layer-id="user_locations">
+                                <img class="foot__icon" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/black-check-50.png' ) ?>" />
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
