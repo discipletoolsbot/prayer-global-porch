@@ -74,7 +74,15 @@ jQuery(document).ready(function($){
   pray_for_area_button.on('click', () => {
 
     /* TODO: build the url from the current map screen; get the grid_id from... not sure */
-    pray_for_area_content.innerHTML = `<iframe src="/prayer_app/global/cc8b6b/location?grid_id=100000000" frameborder="0" id="pray-for-area-iframe"></iframe>`
+    if ( !window.selected_grid_id ) {
+      return
+    }
+
+    const url = new URL( window.location.href )
+    const urlWithAction = url.pathname;
+    const urlWithoutAction = urlWithAction.split('/').slice(0, -1).join('/')
+
+    pray_for_area_content.innerHTML = `<iframe src="${urlWithoutAction}/location?grid_id=${window.selected_grid_id}" frameborder="0" id="pray-for-area-iframe"></iframe>`
 
     /* fit the iframe to the screen height */
     const pray_for_area_iframe = document.getElementById('pray-for-area-iframe')
@@ -310,10 +318,12 @@ jQuery(document).ready(function($){
 
             map.on('click', i.toString() + 'fills_heat', function (e) {
 
+              const grid_id = e.features[0].id
+              window.selected_grid_id = grid_id
               if (detailsType === 'community_stats') {
-                load_grid_community_stats( e.features[0].id )
+                load_grid_community_stats( grid_id )
               } else if (detailsType === 'location_details') {
-                load_grid_details( e.features[0].id )
+                load_grid_details( grid_id )
               }
             })
             map.on('mouseenter', i.toString() + 'fills_heat', () => {
