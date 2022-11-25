@@ -148,6 +148,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                                 <img class="foot__icon" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/black-check-50.png' ) ?>" />
                             </div>
                         </div>
+
                     </div>
                 </div>
             </div>

@@ -9,10 +9,11 @@ jQuery(document).ready(function($){
 
   const red = 'rgba(255,0,0, .7)'
   const green = 'rgba(0,128,0, .9)'
-  const defaultMap = 'binary'
+  const defaultMapType = 'binary'
   const defaultDetailsType = 'location_details'
 
   const detailsType = jsObject.hasOwnProperty('details_type') ? jsObject.details_type : defaultDetailsType
+  const mapType = jsObject.hasOwnProperty('map_type') ? jsObject.map_type : defaultMapType
 
   const participantsLayerId = 'participants'
   const userLocationsLayerId = 'user_locations'
@@ -226,8 +227,12 @@ jQuery(document).ready(function($){
     }
     const legendDiv = document.getElementById('map-legend');
 
-    const layers = mapLayers.hasOwnProperty(jsObject.map_type) ? mapLayers[jsObject.map_type] : mapLayers[defaultMap]
-    loadLegend( legendDiv, layers )
+    const layers = mapLayers[mapType]
+    if (mapType === 'heatmap') {
+      loadLegend( legendDiv, layers )
+    } else {
+      legendDiv.style.display = 'none'
+    }
 
     const fillColors = getFillColors(jsObject.map_type, layers)
     window.lineColor = 'white'

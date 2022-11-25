@@ -129,8 +129,8 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
                         <div class="col col-sm-2" id="qr-cell"></div>
                         <div class="col col-sm-1"></div>
                         <div class="col col-sm-2 center"><strong>Prayer Warriors</strong><br><strong><span class="three-em prayer_warriors"></span></strong></div>
-                        <div class="col col-sm-2 center"><strong>Places Covered</strong><br><strong><span class="three-em green completed"></span></strong></div>
-                        <div class="col col-sm-2 center"><strong>Places Remaining</strong><br><strong><span class="three-em red remaining"></span></strong></div>
+                        <div class="col col-sm-2 center"><strong>Places Covered</strong><br><strong><span class="three-em green-bg completed"></span></strong></div>
+                        <div class="col col-sm-2 center"><strong>Places Remaining</strong><br><strong><span class="three-em red-bg remaining"></span></strong></div>
                         <div class="col col-sm-2 center d-none d-sm-block"><strong>World Coverage</strong><br><strong><span class="three-em completed completed_percent"></span><span class="three-em">%</span></strong></div>
                         <div class="col col-sm-1"></div>
                     </div>

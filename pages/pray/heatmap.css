@@ -140,6 +140,11 @@ progress {
 .stats-figure {
     font-size: 2rem;
 }
+.remaining, .completed {
+    color: white;
+    padding: 5px min(10px, 10%);
+    border-radius: 10px;
+}
 @media (max-width: 768px) {
     .mapboxgl-ctrl-group {
         margin-top:100px !important;

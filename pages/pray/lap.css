@@ -260,3 +260,21 @@ nav {
 .mapboxgl-ctrl-logo {
     display: none !important;
 }
+
+.prayer-odometer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-left: 20px;
+    margin-bottom: 30px;
+    font-size: 2em;
+    background-color: #DDDDDDEE;
+    border-radius: 25px;
+    padding: 10px;
+    line-height: 1;
+    opacity: 1;
+}
+
+.prayer-odometer i {
+    margin-left: 10px;
+}
