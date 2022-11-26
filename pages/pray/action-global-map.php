@@ -203,11 +203,11 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
 
                 <div class="col col-6 col-sm-3">
                     <p class="stats-title">Completed Locations</p>
-                    <p class="stats-figure completed">0</p>
+                    <p class="stats-figure green-bg completed">0</p>
                 </div>
                 <div class="col col-6 col-sm-3">
                     <p class="stats-title">Remaining Locations</p>
-                    <p class="stats-figure remaining">0</p>
+                    <p class="stats-figure red-bg remaining">0</p>
                 </div>
                 <div class="col col-6 col-sm-3">
                     <p class="stats-title">World Coverage</p>
