@@ -145,6 +145,13 @@ progress {
     padding: 5px min(10px, 10%);
     border-radius: 10px;
 }
+.green-bg {
+    background-color: green;
+}
+.red-bg {
+    background-color: red;
+}
+
 @media (max-width: 768px) {
     .mapboxgl-ctrl-group {
         margin-top:100px !important;
