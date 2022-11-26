@@ -200,14 +200,13 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                     <p class="stats-title">Minutes Prayed</p>
                     <p class="stats-figure minutes_prayed">0</p>
                 </div>
-
                 <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Completed Locations</p>
-                    <p class="stats-figure green-bg completed">0</p>
+                    <p class="stats-title">Places Remaining</p>
+                    <p class="stats-figure red-bg remaining">0</p>
                 </div>
                 <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Remaining Locations</p>
-                    <p class="stats-figure red-bg remaining">0</p>
+                    <p class="stats-title">Places Covered</p>
+                    <p class="stats-figure green-bg completed">0</p>
                 </div>
                 <div class="col col-6 col-sm-3">
                     <p class="stats-title">World Coverage</p>
