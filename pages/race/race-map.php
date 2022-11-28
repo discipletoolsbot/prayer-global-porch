@@ -152,7 +152,7 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                     <div class="map-overlay" id="map-legend" data-map-type="<?php echo $this->map_type ?>"></div>
                     <div class="row">
                         <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
-                        <div class="col col-4 col-sm-3 center">
+                        <div class="col col-6 col-sm-3 center">
                             <strong>Warriors</strong>
                             <br>
                             <div class="d-flex align-items-center justify-content-center">
@@ -162,7 +162,7 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                                 </div>
                             </div>
                         </div>
-                        <div class="col col-6 col-sm-3 center"><strong>Minutes Prayed</strong><br><span class="one-em"><?php echo esc_html( $lap_stats['minutes_prayed'] ) ?></span></div>
+                        <div class="col col-6 col-sm-3 center"><strong>Minutes&nbsp;Prayed</strong><br><span class="one-em"><?php echo esc_html( $lap_stats['minutes_prayed'] ) ?></span></div>
                         <div class="col col-6 col-sm-3 center"><strong>World Prayer Coverage</strong><br><span class="one-em"><?php echo esc_html( $finished_laps ) ?> times</span></div>
                         <div class="col col-6 col-sm-3 center"><strong>Time Elapsed</strong><br><span class="one-em time_elapsed" id="time_elapsed"></span></div>
                     </div>

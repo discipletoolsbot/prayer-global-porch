@@ -99,6 +99,10 @@ progress {
 }
 
 @media (max-width: 576px) {
+    #head_block {
+        padding: 1em 0.7em;
+    }
+
     #foot_block {
         padding: 0.5em 0.7em 1em;
     }
@@ -175,6 +179,13 @@ progress {
         padding-top: 0;
     }
 }
+
+@media (max-width: 576px) {
+    .navbar .two-em {
+        font-size: 1.25em;
+    }
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
