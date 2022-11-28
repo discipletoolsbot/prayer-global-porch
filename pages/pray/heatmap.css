@@ -99,6 +99,10 @@ progress {
 }
 
 @media (max-width: 576px) {
+    #head_block {
+        padding: 1em 0.7em;
+    }
+
     #foot_block {
         padding: 0.5em 0.7em 1em;
     }
@@ -140,6 +144,18 @@ progress {
 .stats-figure {
     font-size: 2rem;
 }
+.remaining, .completed {
+    color: white;
+    padding: 5px min(10px, 10%);
+    border-radius: 10px;
+}
+.green-bg {
+    background-color: green;
+}
+.red-bg {
+    background-color: red;
+}
+
 @media (max-width: 768px) {
     .mapboxgl-ctrl-group {
         margin-top:100px !important;
@@ -163,6 +179,13 @@ progress {
         padding-top: 0;
     }
 }
+
+@media (max-width: 576px) {
+    .navbar .two-em {
+        font-size: 1.25em;
+    }
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -335,4 +358,37 @@ progress {
     #map-legend[data-map-type="heatmap"] .map-legend__color-swatch {
         border-radius: 0;
     }
+}
+
+.map-toggle {
+    width: 50px;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: 50px;
+    padding: 2px;
+    cursor: pointer;
+    border: 2px solid lightgrey;
+    transition: box-shadow 0.1s;
+}
+.map-toggle .foot__icon {
+    max-width: 100%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+.map-toggle.active {
+    border-color: var(--pg-brand-color);
+}
+.map-toggle.active .foot__icon {
+    opacity: 1;
+}
+
+.map-toggle.active:hover {
+   box-shadow: 0 5px 5px 0 #1d82ff55;
+}
+.map-toggle:hover {
+   box-shadow: 0 5px 5px 0 #d3d3d355;
+}
+.map-toggle:active {
+    box-shadow: none;
 }

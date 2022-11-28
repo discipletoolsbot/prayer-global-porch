@@ -38,6 +38,12 @@ jQuery(document).ready(function(){
                 }
             })
     }
+    
+    function show_user_nav() {
+        const userNav = document.getElementById('user-nav')
+        if (!userNav) return
+        userNav.style.display = 'block'
+    }
 
     function write_profile (data) {
         jQuery('#pg_content').html(`

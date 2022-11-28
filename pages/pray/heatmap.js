@@ -9,7 +9,15 @@ jQuery(document).ready(function($){
 
   const red = 'rgba(255,0,0, .7)'
   const green = 'rgba(0,128,0, .9)'
-  const defaultMap = 'binary'
+  const defaultMapType = 'binary'
+  const defaultDetailsType = 'location_details'
+
+  const detailsType = jsObject.hasOwnProperty('details_type') ? jsObject.details_type : defaultDetailsType
+  const mapType = jsObject.hasOwnProperty('map_type') ? jsObject.map_type : defaultMapType
+
+  const participantsLayerId = 'participants'
+  const userLocationsLayerId = 'user_locations'
+  const toggleableLayerIds = [participantsLayerId, userLocationsLayerId]
 
   window.get_page = (action) => {
     return jQuery.ajax({
@@ -219,8 +227,12 @@ jQuery(document).ready(function($){
     }
     const legendDiv = document.getElementById('map-legend');
 
-    const layers = mapLayers.hasOwnProperty(jsObject.map_type) ? mapLayers[jsObject.map_type] : mapLayers[defaultMap]
-    loadLegend( legendDiv, layers )
+    const layers = mapLayers[mapType]
+    if (mapType === 'heatmap') {
+      loadLegend( legendDiv, layers )
+    } else {
+      legendDiv.style.display = 'none'
+    }
 
     const fillColors = getFillColors(jsObject.map_type, layers)
     window.lineColor = 'white'
@@ -276,7 +288,12 @@ jQuery(document).ready(function($){
             },'waterway-label' )
 
             map.on('click', i.toString() + 'fills_heat', function (e) {
-              load_grid_details( e.features[0].id )
+
+              if (detailsType === 'community_stats') {
+                load_grid_community_stats( e.features[0].id )
+              } else if (detailsType === 'location_details') {
+                load_grid_details( e.features[0].id )
+              }
             })
             map.on('mouseenter', i.toString() + 'fills_heat', () => {
               map.getCanvas().style.cursor = 'pointer'
@@ -321,7 +338,7 @@ jQuery(document).ready(function($){
           if (error) throw error;
           map.addImage('custom-marker', image);
           map.addLayer({
-            'id': 'points',
+            'id': participantsLayerId,
             'type': 'symbol',
             'source': 'participants',
             'layout': {
@@ -370,7 +387,7 @@ jQuery(document).ready(function($){
           if (error) throw error;
           map.addImage('custom-marker-user', image);
           map.addLayer({
-            'id': 'points_user',
+            'id': userLocationsLayerId,
             'type': 'symbol',
             'source': 'user_locations',
             'layout': {
@@ -387,6 +404,38 @@ jQuery(document).ready(function($){
             }
           });
         })
+    })
+
+    map.on('idle', () => {
+      if (!map.getLayer(participantsLayerId) || !map.getLayer(userLocationsLayerId)) {
+        return
+      }
+
+      for ( const id of toggleableLayerIds ) {
+        const toggleElement = document.querySelector(`.map-toggle[data-layer-id=${id}]`)
+
+        if (!toggleElement) {
+          continue
+        }
+
+        toggleElement.onclick = function(e) {
+          e.preventDefault()
+          e.stopPropagation()
+
+          const clickedLayer = this.dataset.layerId
+
+          const visibility = map.getLayoutProperty(clickedLayer, "visibility");
+
+          // Toggle layer visibility by changing the layout object's visibility property.
+          if (visibility === "visible" || typeof visibility === 'undefined') {
+            map.setLayoutProperty(clickedLayer, "visibility", "none");
+            this.classList.remove('active')
+          } else {
+            map.setLayoutProperty(clickedLayer, "visibility", "visible");
+            this.classList.add('active')
+          }
+        }
+      }
     })
 
     // add stats
@@ -485,6 +534,206 @@ jQuery(document).ready(function($){
           </div>`
         )
       })
+  }
+
+  function load_grid_community_stats( grid_id ) {
+    let div = jQuery('#grid_details_content')
+    div.empty().html(`<div className="col-12"><span class="loading-spinner active"></span></div>`)
+
+    jQuery('#offcanvas_location_details').offcanvas('show')
+
+    window.get_data_page( 'get_grid_stats', {grid_id: grid_id} )
+      .done(function(response){
+        window.report_content = response
+        console.log(response)
+
+        const communityStats = response.stats
+
+        const totalNumberStats = []
+
+        if (communityStats.times_prayed.me > 0) {
+          totalNumberStats.push({
+                  value: communityStats.times_prayed.me,
+                  icon: 'body',
+                  size: 'medium',
+                  color: 'orange',
+                })
+        }
+        if (communityStats.times_prayed.community > 0) {
+          totalNumberStats.push({
+                  value: communityStats.times_prayed.community,
+                  icon: 'body',
+                  size: 'medium',
+                  color: 'blue',
+                })
+        }
+
+        const totalTimeStats = []
+
+        if (communityStats.time_prayed.me > 0) {
+          totalTimeStats.push({
+                  value: communityStats.time_prayed.me,
+                  icon: 'time',
+                  size: 'medium',
+                  color: 'orange',
+                })
+        }
+        if (communityStats.time_prayed.community > 0) {
+          totalTimeStats.push({
+                  value: communityStats.time_prayed.community,
+                  icon: 'time',
+                  size: 'medium',
+                  color: 'blue',
+                })
+        }
+
+        const myNumberStats = communityStats.times_prayed.me > 0 ? `
+          <span>Me: ${renderIconInfographic([{ 
+                  value: communityStats.times_prayed.me,
+                  icon: 'body',
+                  size: 'medium',
+                  color: 'orange',
+                }])}</span>` : ''
+        const communityNumberStats = communityStats.times_prayed.community > 0 ? `
+          <span>Community: ${renderIconInfographic([{ 
+                  value: communityStats.times_prayed.community,
+                  icon: 'body',
+                  size: 'medium',
+                  color: 'blue',
+                }])}</span>` : ''
+        const myTimeStats = communityStats.time_prayed.me > 0 ? `
+          <span>Me: ${renderIconInfographic([{ 
+                  value: communityStats.time_prayed.me,
+                  icon: 'time',
+                  size: 'medium',
+                  color: 'orange',
+                }])}</span>` : ''
+
+        const communityTimeStats = communityStats.time_prayed.community > 0 ? `
+          <span>Community: ${renderIconInfographic([{ 
+                  value: communityStats.time_prayed.community,
+                  icon: 'time',
+                  size: 'medium',
+                  color: 'blue',
+                }])}</span>` : ''
+
+        console.log(response)
+        div.html(
+          `
+          <div class="row">
+              <div class="col-12">
+                <h1 class="header-border-top">Community Stats</h1>
+                <p><span class="stats-title two-em">${response.location.full_name}</span></p>
+                <hr />
+                <p><span class="two-em">Summary</span></p>
+                <p>Prayed for ${communityStats.times_prayed.total} ${communityStats.times_prayed.total > 1 ? 'times' : 'time'}</p>
+
+                ${renderIconInfographic(totalNumberStats)}
+
+                <p>Total time prayed: ${communityStats.time_prayed.total} ${communityStats.time_prayed.total > 1 ? 'mins' : 'min'}</p>
+
+                ${renderIconInfographic(totalTimeStats)}
+
+                <hr>
+              </div>
+              <div class="col-12">
+                <p><span class="two-em">Activity</span></p>
+
+                ${renderActivityList(communityStats.logs)}
+
+                <hr />
+              </div>
+
+          </div>`
+        )
+      })
+  }
+
+  /**
+   * Renders an icon Infographic
+   *
+   * @param {Object[]} stats
+   * @param {int} stats[].value - The value to depict
+   * @param {string} stats[].icon - One of body|time
+   * @param {string} stats[].color - One of red|orange|green|blue
+   * @param {string} stats[].size - One of small|medium|large
+   *
+   * @return {string}
+   */
+  function renderIconInfographic(stats) {
+
+    const iconOptions = {
+      'body': 'ion-ios-body',
+      'time': 'ion-ios-time'
+    }
+    const defaultIcon = iconOptions.body
+
+    const iconColors = {
+      red: 'red',
+      orange: 'orange',
+      green: 'green',
+      blue: 'blue',
+    }
+    const defaultColor = iconColors.blue
+
+    const sizes = {
+      small: 'one-em',
+      medium: 'two-em',
+      large: 'three-em',
+    }
+    const defaultSize = sizes.medium
+
+    let html = ''
+    stats.forEach(({ value, icon, color, size }) => {
+      if ( size < 0 ) return
+
+      let icons = ``
+      let iconOption = iconOptions.hasOwnProperty(icon) ? iconOptions[icon] : defaultIcon
+      let iconColor = iconColors.hasOwnProperty(color) ? iconColors[color] : defaultColor
+      let iconSize = sizes.hasOwnProperty(size) ? sizes[size] : defaultSize
+      for (let i = 0; i < value; i++) {
+        icons += `<i class="${iconOption}"></i>`
+      }
+
+      html += `
+        <span class="${iconColor} ${iconSize}">
+          ${icons}
+        </span>`
+    });
+
+    return html;
+  }
+
+  function renderActivityList(logs) {
+    let logsHtml = ''
+    logs.forEach(({when_text, time_prayed_text, group_name, is_mine}) => {
+
+      let badgeColor = is_mine ? 'orange-dark-bg' : 'blue-dark-bg'
+      if (when_text.includes('week')) {
+        badgeColor = is_mine ? 'orange-bg' : 'blue-bg'
+      }
+      if (when_text.includes('month')) {
+        badgeColor = is_mine ? 'orange-light-bg' : 'blue-light-bg'
+      }
+      const logHtml = `
+        <div class="activity-log__item">
+          <div class="activity-log__badge">
+            <div class="badge__inner ${badgeColor}"></div>
+          </div>
+          <div class="activity-log__body">
+            <div class="font-weight-bold">${time_prayed_text}</div>
+            <div>${is_mine ? 'Me in ' + group_name : group_name}</div>
+            <div class="light-grey">${when_text}</div>
+          </div>
+        </div>`
+
+      logsHtml += logHtml
+    })
+
+    return `
+      <div class="activity__list">
+        ${logsHtml}
+      </div>`
   }
 
   function getFillColors(mapType, layers) {
