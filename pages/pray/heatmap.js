@@ -77,11 +77,13 @@ jQuery(document).ready(function($){
   const pray_for_area_button = jQuery('#pray-for-area-button')
 
   pray_for_area_button.on('click', () => {
-
-    /* TODO: build the url from the current map screen; get the grid_id from... not sure */
     if ( !window.selected_grid_id ) {
       return
     }
+    const grid_row = window.report_content.location
+    load_place_layer()
+
+    prepare_map_for_return(grid_row);
 
     const url = new URL( window.location.href )
     const urlWithAction = url.pathname;
@@ -115,6 +117,7 @@ jQuery(document).ready(function($){
       })
       question_done_button.addEventListener('click', () => {
         close_iframe_modal();
+        celebrate_prayed_for_place(window.selected_grid_id)
       })
     })
 
@@ -253,6 +256,7 @@ jQuery(document).ready(function($){
         [60, 90]
       ]);
     }
+    window.map = map
 
     load_grid()
   }
@@ -857,4 +861,64 @@ jQuery(document).ready(function($){
   function hide_location_details() {
    jQuery('#offcanvas_location_details').offcanvas('hide');
   }
-})
+  function celebrate_prayed_for_place(grid_id) {
+    /* pause a moment to allow the user to get used to being back on the map */
+    /* start from zoomed in on this poly */
+    if ( window.report_content && window.report_content.parent_features) {
+      window.map.addSource('parent_collection' + grid_id, {
+        'type': 'geojson',
+        'data': window.report_content.parent_features
+      });
+      window.map.addLayer({
+        'id': 'parent_collection_fill' + grid_id,
+        'type': 'fill',
+        'source': 'parent_collection' + grid_id,
+        'filter': [ '==', ['get', 'grid_id'], grid_id ],
+        'paint': {
+          'fill-color': 'green',
+          'fill-opacity': 0.75
+        }
+      });
+    }
+    /* animate camera to zoom out to poly parent bounds */
+    if ( window.report_content && window.report_content.location ) {
+      const grid_row = window.report_content.location
+      window.map.fitBounds([
+        [ grid_row.p_west_longitude, grid_row.p_south_latitude ],
+        [ grid_row.p_east_longitude, grid_row.p_north_latitude ],
+      ], {
+        padding: 30,
+      })
+    }
+  }
+  function load_place_layer() {
+    grid_row = window.report_content.location
+
+    jQuery.ajax({
+      url: jsObject.mirror_url + 'collection/'+grid_row.parent_id+'.geojson',
+      dataType: 'json',
+      data: null,
+      cache: true,
+      beforeSend: function (xhr) {
+        if (xhr.overrideMimeType) {
+          xhr.overrideMimeType("application/json");
+        }
+      }
+    })
+      .done(function (geojson) {
+        window.report_content.parent_features = geojson
+      })
+  }
+
+  function prepare_map_for_return(grid_row) {
+    setTimeout(() => {
+      window.map.fitBounds([
+        [grid_row.west_longitude, grid_row.south_latitude],
+        [grid_row.east_longitude, grid_row.north_latitude]
+      ], {
+        padding: 30,
+      });
+    }, 500)
+  }
+
+})  
