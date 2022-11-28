@@ -64,7 +64,26 @@ jQuery(document).ready(function() {
       jQuery('#list-table').DataTable({
         lengthChange: false,
         pageLength: 30,
-        responsive: true,
+        responsive: {
+          details: {
+              display: $.fn.dataTable.Responsive.display.childRowImmediate,
+              type: '',
+              renderer: function ( api, rowIdx, columns ) {
+                var data = $.map( columns, function ( col, i ) {
+                    return col.hidden ?
+                        '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
+                            '<td class="dtr-title">'+col.title+':'+'</td> '+
+                            '<td class="dtr-data">'+col.data+'</td>'+
+                        '</tr>' :
+                        '';
+                } ).join('');
+
+                return data ?
+                    $('<table/>').append( data ) :
+                    false;
+            },
+          },
+        },
         order: [[0, 'desc']],
         columnDefs: [
           {
