@@ -115,7 +115,7 @@ class PG_Stacker {
 
         if ( $user_id ) {
             $community_activity = $wpdb->get_results( $wpdb->prepare( "
-            SELECT r.value as minutes, r.timestamp as timestamp, p.post_title as group_name, IF(r.user_id = %d, 1, 0) as is_mine 
+            SELECT r.value as minutes, r.timestamp as timestamp, p.post_title as group_name, IF(r.user_id = %d, 1, 0) as is_mine
             FROM $wpdb->dt_reports r
             JOIN $wpdb->posts p
             ON r.post_id = p.ID
@@ -124,7 +124,7 @@ class PG_Stacker {
             ", $user_id, $grid_id ), ARRAY_A );
         } else {
             $community_activity = $wpdb->get_results( $wpdb->prepare( "
-            SELECT r.value as minutes, r.timestamp as timestamp, p.post_title as group_name, 0 as is_mine 
+            SELECT r.value as minutes, r.timestamp as timestamp, p.post_title as group_name, 0 as is_mine
             FROM $wpdb->dt_reports r
             JOIN $wpdb->posts p
             ON r.post_id = p.ID
@@ -175,6 +175,8 @@ class PG_Stacker {
                 $months = floor( $days / 30 );
                 $months_word = $months > 1 ? 'months' : 'month';
                 $community_activity[$key]['when_text'] = "$months $months_word ago";
+            } else {
+                $community_activity[$key]['when_text'] = "";
             }
 
             $minutes_prayed = (int) $activity['minutes'];

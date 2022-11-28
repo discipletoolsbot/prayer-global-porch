@@ -82,6 +82,8 @@ jQuery(document).ready(function(){
   let location_map_wrapper = jQuery('#location-map')
 
   let more_prayer_fuel = jQuery('#more_prayer_fuel')
+  let prayer_odometer = jQuery('.prayer-odometer')
+  let odometer_location_count = jQuery('.location-count')
   let i
 
   window.previous_grids = []
@@ -97,6 +99,9 @@ jQuery(document).ready(function(){
   }
   window.viewed = Cookies.get('pg_viewed')
   window.items = parseInt( window.pace ) + 6
+  window.odometer = {
+    location_count: 0,
+  }
   window.report_content = []
 
   /**
@@ -207,6 +212,7 @@ jQuery(document).ready(function(){
       clear_timer()
       celebrate()
       celebrationFireworks(celebrationDuration)
+      update_odometer({ location_count: window.odometer.location_count + 1})
       setTimeout(
         function()
         {
@@ -220,6 +226,7 @@ jQuery(document).ready(function(){
       clear_timer()
       celebrate()
       celebrationFireworks(celebrationDuration)
+      update_odometer({ location_count: window.odometer.location_count + 1})
       setTimeout(
         function()
         {
@@ -291,6 +298,34 @@ jQuery(document).ready(function(){
 
   function clear_timer() {
     clearInterval(window.interval)
+  }
+
+  function update_odometer({ location_count }) {
+    window.odometer = {
+      location_count,
+    }
+    odometer_location_count.html(location_count)
+
+    const odometerX = 20 + prayer_odometer.innerWidth() / 2
+    const odometerY = 30 + prayer_odometer.innerHeight() / 2
+
+    const origin = {
+      x: odometerX / innerWidth,
+      y: 1 - odometerY / innerHeight,
+    }
+
+    confetti({
+      gravity: 1,
+      colors: ['#DD0'],
+      origin,
+      shapes: ['circle'],
+      spread: 30,
+      ticks: 50,
+      scalar: 0.75,
+      particleCount: 100,
+      startVelocity: 20,
+      zIndex: 100000,
+    })
   }
 
   /**
