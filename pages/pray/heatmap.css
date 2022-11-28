@@ -100,7 +100,7 @@ progress {
 
 @media (max-width: 576px) {
     #head_block {
-        padding: 1em 1em;
+        padding: 1em 0.7em;
     }
 
     #foot_block {
@@ -182,7 +182,7 @@ progress {
 
 @media (max-width: 576px) {
     .navbar .two-em {
-        font-size: 1.3em;
+        font-size: 1.25em;
     }
 }
 
