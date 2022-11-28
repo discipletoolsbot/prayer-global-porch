@@ -97,21 +97,34 @@ jQuery(document).ready(function($){
 
     /* Attach eventListeners to prayer buttons */
     pray_for_area_iframe.addEventListener('load', () => {
+      if ( pray_for_area_iframe.getAttribute('src') === '' ) {
+        return
+      }
+
       const iframeDocument = pray_for_area_iframe.contentDocument
       const question_done_button = iframeDocument.getElementById('question__yes_done')
       const decision_map_button = iframeDocument.getElementById('decision__map')
       const decision_home_button = iframeDocument.getElementById('decision__home')
 
       decision_map_button.addEventListener('click', () => {
-        jQuery(pray_for_area_modal).modal('hide')
+        close_iframe_modal()
       })
       decision_home_button.addEventListener('click', () => {
-        jQuery(pray_for_area_modal).modal('hide')
+        close_iframe_modal();
         location.href = '/'
+      })
+      question_done_button.addEventListener('click', () => {
+        close_iframe_modal();
       })
     })
 
+    function close_iframe_modal() {
+      pray_for_area_iframe.setAttribute('src', '');
+      jQuery(pray_for_area_modal).modal('hide');
+    }
+
     jQuery(pray_for_area_modal).modal('show')
+    hide_location_details()
   })
 
   pray_for_area_modal.addEventListener('hidden.bs.modal', (event) => {
@@ -516,7 +529,7 @@ jQuery(document).ready(function($){
     let div = jQuery('#grid_details_content')
     div.empty().html(`<div className="col-12"><span class="loading-spinner active"></span></div>`)
 
-    jQuery('#offcanvas_location_details').offcanvas('show')
+    show_location_details();
 
     window.get_data_page( 'get_grid_details', {grid_id: grid_id} )
       .done(function(response){
@@ -836,5 +849,12 @@ jQuery(document).ready(function($){
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  function show_location_details() {
+   jQuery('#offcanvas_location_details').offcanvas('show');
+  }
+  function hide_location_details() {
+   jQuery('#offcanvas_location_details').offcanvas('hide');
   }
 })

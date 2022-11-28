@@ -165,7 +165,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         <div class="modal fade" id="pray-for-area-modal" tabindex="-1" role="dialog" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <iframe src="/prayer_app/global/cc8b6b" frameborder="0" id="pray-for-area-iframe"></iframe>
+                    <iframe src="" frameborder="0" id="pray-for-area-iframe"></iframe>
                 </div>
             </div>
         </div>
