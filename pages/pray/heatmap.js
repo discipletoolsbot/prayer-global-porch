@@ -11,6 +11,7 @@ jQuery(document).ready(function($){
   const green = 'rgba(0,128,0, .9)'
   const defaultMapType = 'binary'
   const defaultDetailsType = 'location_details'
+  const NUMBER_OF_MAP_SLICES = 10;
 
   const detailsType = jsObject.hasOwnProperty('details_type') ? jsObject.details_type : defaultDetailsType
   const mapType = jsObject.hasOwnProperty('map_type') ? jsObject.map_type : defaultMapType
@@ -81,7 +82,6 @@ jQuery(document).ready(function($){
       return
     }
     const grid_row = window.report_content.location
-    load_place_layer()
 
     prepare_map_for_return(grid_row);
 
@@ -140,7 +140,7 @@ jQuery(document).ready(function($){
   // preload all geojson
   let asset_list = []
   var i = 1;
-  while( i <= 10 ){
+  while( i <= NUMBER_OF_MAP_SLICES ){
     asset_list.push(i+'.geojson')
     i++
   }
@@ -864,24 +864,9 @@ jQuery(document).ready(function($){
   function celebrate_prayed_for_place(grid_id) {
     /* pause a moment to allow the user to get used to being back on the map */
     /* start from zoomed in on this poly */
-    if ( window.report_content && window.report_content.parent_features) {
-      window.map.addSource('parent_collection' + grid_id, {
-        'type': 'geojson',
-        'data': window.report_content.parent_features
-      });
-      window.map.addLayer({
-        'id': 'parent_collection_fill' + grid_id,
-        'type': 'fill',
-        'source': 'parent_collection' + grid_id,
-        'filter': [ '==', ['get', 'grid_id'], grid_id ],
-        'paint': {
-          'fill-color': 'green',
-          'fill-opacity': 0.75
-        }
-      });
-    }
-    /* animate camera to zoom out to poly parent bounds */
+    update_map(grid_id)
     if ( window.report_content && window.report_content.location ) {
+   /* animate camera to zoom out to poly parent bounds */
       const grid_row = window.report_content.location
       window.map.fitBounds([
         [ grid_row.p_west_longitude, grid_row.p_south_latitude ],
@@ -890,24 +875,6 @@ jQuery(document).ready(function($){
         padding: 30,
       })
     }
-  }
-  function load_place_layer() {
-    grid_row = window.report_content.location
-
-    jQuery.ajax({
-      url: jsObject.mirror_url + 'collection/'+grid_row.parent_id+'.geojson',
-      dataType: 'json',
-      data: null,
-      cache: true,
-      beforeSend: function (xhr) {
-        if (xhr.overrideMimeType) {
-          xhr.overrideMimeType("application/json");
-        }
-      }
-    })
-      .done(function (geojson) {
-        window.report_content.parent_features = geojson
-      })
   }
 
   function prepare_map_for_return(grid_row) {
@@ -921,4 +888,62 @@ jQuery(document).ready(function($){
     }, 500)
   }
 
-})  
+  function update_map(grid_id){
+    window.get_page('get_grid')
+      .done(function(x){
+        console.log('reload')
+        // add stats
+        jsObject.stats = x.stats
+        jQuery('.completed').html( jsObject.stats.completed )
+        jQuery('.completed_percent').html( jsObject.stats.completed_percent )
+        jQuery('.remaining').html( jsObject.stats.remaining )
+        jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
+        jQuery('.prayer_warriors').html( jsObject.stats.participants )
+        jQuery('.lap_pace').html( jsObject.stats.lap_pace_small )
+
+        jsObject.grid_data = x.grid_data
+        reload_load_grid(grid_id)
+      })
+  }
+
+  function reload_load_grid(grid_id) {
+
+    for (let i = 0; i < NUMBER_OF_MAP_SLICES; i++) {
+      window.map.setPaintProperty(i.toString() + 'fills_heat', 'fill-color-transition', {
+        duration: 2000,
+        delay: 0,
+      }, {
+        validate: true
+      })
+    }
+
+    jQuery.each(asset_list, function(i,file){
+
+      jQuery.ajax({
+        url: jsObject.mirror_url + 'tiles/world/flat_states/' + file,
+        dataType: 'json',
+        data: null,
+        cache: true,
+        beforeSend: function (xhr) {
+          if (xhr.overrideMimeType) {
+            xhr.overrideMimeType("application/json");
+          }
+        }
+      })
+        .done(function (geojson) {
+          /* load prayer grid layer */
+          jQuery.each(geojson.features, function (i, v) {
+            if (typeof jsObject.grid_data.data[v.id] !== 'undefined') {
+              geojson.features[i].properties.value = jsObject.grid_data.data[v.id]
+            } else {
+              geojson.features[i].properties.value = 0
+            }
+          })
+
+          window.map.getSource(i.toString()).setData(geojson);
+        }) /* ajax call */
+
+    }) /* for each loop */
+
+  }
+})

@@ -270,6 +270,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 return [
                     'grid_data' => $this->get_grid( $params['parts'] ),
                     'participants' => $this->get_participants( $params['parts'] ),
+                    'stats' => pg_global_stats_by_key( $params['parts']['post_id'] ),
                 ];
             case 'get_grid_details':
                 return $this->get_grid_details( $params['data'] );
