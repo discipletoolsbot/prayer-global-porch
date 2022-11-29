@@ -81,9 +81,6 @@ jQuery(document).ready(function($){
     if ( !window.selected_grid_id ) {
       return
     }
-    const grid_row = window.report_content.location
-
-    prepare_map_for_return(grid_row);
 
     const url = new URL( window.location.href )
     const urlWithAction = url.pathname;
@@ -110,7 +107,6 @@ jQuery(document).ready(function($){
 
       decision_map_button.addEventListener('click', () => {
         close_iframe_modal()
-        zoom_to_bounds('country')
       })
       decision_home_button.addEventListener('click', () => {
         close_iframe_modal();
@@ -864,44 +860,7 @@ jQuery(document).ready(function($){
   }
   function celebrate_prayed_for_place(grid_id) {
     update_map(grid_id)
-    zoom_to_bounds('parent')
     window.celebrationFireworks()
-  }
-
-  function zoom_to_bounds(level = 'default') {
-    if ( window.report_content && window.report_content.location ) {
-    /* animate camera to zoom out to poly parent bounds */
-        const grid_row = window.report_content.location
-
-        const prefixes = {
-          'parent': 'p_',
-          'country': 'c_',
-          'default': '',
-        }
-        const defaultPrefix = 'default'
-
-        const prefix = prefixes.hasOwnProperty(level) ? prefixes[level] : prefixes[defaultPrefix]
-
-        console.log('zooming to ', level, 'with prefix', prefix)
-
-        window.map.fitBounds([
-          [ grid_row[prefix + 'west_longitude'], grid_row[prefix + 'south_latitude'] ],
-          [ grid_row[prefix + 'east_longitude'], grid_row[prefix + 'north_latitude'] ],
-        ], {
-          padding: 30,
-        })
-      }
-  }
-
-  function prepare_map_for_return(grid_row) {
-    setTimeout(() => {
-      window.map.fitBounds([
-        [grid_row.west_longitude, grid_row.south_latitude],
-        [grid_row.east_longitude, grid_row.north_latitude]
-      ], {
-        padding: 30,
-      });
-    }, 500)
   }
 
   function update_map(grid_id){
