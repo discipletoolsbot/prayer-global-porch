@@ -875,6 +875,7 @@ jQuery(document).ready(function($){
         padding: 30,
       })
     }
+    window.celebrationFireworks()
   }
 
   function prepare_map_for_return(grid_row) {
