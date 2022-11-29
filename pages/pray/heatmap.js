@@ -74,10 +74,10 @@ jQuery(document).ready(function($){
       }`)
 
   const pray_for_area_modal = document.getElementById('pray-for-area-modal')
-  const pray_for_area_content = pray_for_area_modal.querySelector('.modal-content')
+  const pray_for_area_content = pray_for_area_modal && pray_for_area_modal.querySelector('.modal-content')
   const pray_for_area_button = jQuery('#pray-for-area-button')
 
-  pray_for_area_button.on('click', () => {
+  pray_for_area_button && pray_for_area_button.on('click', () => {
     if ( !window.selected_grid_id ) {
       return
     }
@@ -131,7 +131,7 @@ jQuery(document).ready(function($){
     hide_location_details()
   })
 
-  pray_for_area_modal.addEventListener('hidden.bs.modal', (event) => {
+  pray_for_area_modal && pray_for_area_modal.addEventListener('hidden.bs.modal', (event) => {
     pray_for_area_content.innerHTML = ''
   })
 
