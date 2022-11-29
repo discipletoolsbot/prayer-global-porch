@@ -34,7 +34,6 @@ jQuery(document).ready(function(){
                 console.log(data)
                 jQuery('.loading-spinner').removeClass('active')
                 if ( data ) {
-                    show_user_nav()
                     write_profile(data)
                 }
             })
@@ -49,13 +48,9 @@ jQuery(document).ready(function(){
     function write_profile (data) {
         jQuery('#pg_content').html(`
             <section id="my-stats" class="user-details">
-                <h2>Details</h2>
+                <h2 class="header-border-top">Profile</h2>
                 <table class="table">
                     <tbody>
-                    <tr>
-                        <td>User ID</td>
-                        <td id="pg_user_id"></td>
-                    </tr>
                     <tr>
                         <td>User Display Name</td>
                         <td id="pg_user_display"></td>
@@ -68,10 +63,8 @@ jQuery(document).ready(function(){
                 </table>
             </section>
 
-            <hr />
-
             <section class="user-stats">
-                <h2>Stats</h2>
+                <h2 class="header-border-top">Stats</h2>
                 <table class="table">
                     <tbody>
                         <tr>
@@ -90,86 +83,10 @@ jQuery(document).ready(function(){
                 </table>
             </section>
 
-            <hr />
-
-            <a href="#" class="btn smoothscroll btn-outline-dark btn-xl" data-reverse-color>My Map</a>
-
-            <hr />
-
-            <section id="my-groups" class="user-groups flow-small">
-                <h2>Groups</h2>
-                <h3 class="text-start">Leading</h3>
-                <table class="display " style="width:100%;" id="leading-list-table" data-order='[[ 0, "desc" ]]'>
-                    <thead>
-                        <th></th>
-                        <th>Name</th>
-                        <th class="desktop">Warriors</th>
-                        <th class="desktop">Covered</th>
-                        <th class="desktop">Remaining</th>
-                        <th class="desktop">Pace</th>
-                        <th class="desktop">Links</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>blah</td>
-                            <td>My first group</td>
-                            <td>10</td>
-                            <td>100</td>
-                            <td>4670</td>
-                            <td>50</td>
-                            <td>
-                                <a href="#">Map</a>
-                                <a href="#">Sharing</a>
-                                <a href="#">Display</a>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <h3 class="text-start">Participating</h3>
-                <table class="display " style="width:100%;" id="leading-list-table" data-order='[[ 0, "desc" ]]'>
-                    <thead>
-                        <th></th>
-                        <th>Name</th>
-                        <th class="desktop">Warriors</th>
-                        <th class="desktop">Covered</th>
-                        <th class="desktop">Remaining</th>
-                        <th class="desktop">Pace</th>
-                        <th class="desktop">Links</th>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>blah</td>
-                            <td>Let's cover the world</td>
-                            <td>10</td>
-                            <td>100</td>
-                            <td>4670</td>
-                            <td>50</td>
-                            <td>
-                                <a href="#">Map</a>
-                                <a href="#">Sharing</a>
-                                <a href="#">Display</a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>blah</td>
-                            <td>Global Prayer Group</td>
-                            <td>10</td>
-                            <td>100</td>
-                            <td>4670</td>
-                            <td>50</td>
-                            <td>
-                                <a href="#">Map</a>
-                                <a href="#">Sharing</a>
-                                <a href="#">Display</a>
-                            </td>
-                        </tr>
-
-                    </tbody>
-                </table>
-            </section>
-
-
-            <a href="${jsObject.logout_url}">Logout</a>`
+            <a href="${jsObject.logout_url}">Logout</a><br>
+            <span id="pg_user_id"></span>
+            <span id="pg_user_id"></span>
+`
         );
         jQuery('#pg_user_id').html(data.ID)
         jQuery('#pg_user_display').html(data.display_name)
@@ -179,6 +96,9 @@ jQuery(document).ready(function(){
     function write_login () {
         jQuery('#pg_content').html(`
                 <form id="login_form">
+                    <p>
+                        <h2 class="header-border-top">Login</h2>
+                    </p>
                     <p>
                         Email<br>
                         <input type="text" id="pg_input_email"  />
@@ -194,7 +114,6 @@ jQuery(document).ready(function(){
         )
         jQuery('#submit_button').on('click', function(){
             send_login()
-
         })
     }
 
