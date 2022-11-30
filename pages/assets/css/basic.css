@@ -455,6 +455,7 @@ button {
     margin: 0;
     border: 0;
     background-color: unset;
+    line-height: initial;
 }
 .btn {
     --bs-btn-font-weight: var(--font-weight-default);
@@ -715,4 +716,10 @@ button {
 
 .dtr-title {
     font-weight: bold;
+}
+
+/* User Profile styles */
+
+#user-profile-details {
+    width: min( 600px, 100% );
 }

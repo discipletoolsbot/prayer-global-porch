@@ -84,18 +84,20 @@ jQuery(document).ready(function(){
                         </p>
                     </div>
                 </section>
-                <section class="profile-menu navbar-nav justify-content-end px-2 mt-5">
-                    <div class="user-profile-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-0">
-                        <span class="two-em">Profile</span>
-                        <i class="ion-chevron-right three-em"></i>
-                    </div>
-                    <div class="user-prayers-link nav-link px-1 py-2 d-flex justify-content-between align-items-center">
-                        <span class="two-em">Prayers</span>
-                        <i class="ion-chevron-right three-em"></i>
-                    </div>
-                    <div class="user-challenges-link nav-link px-1 py-2 d-flex justify-content-between align-items-center">
-                        <span class="two-em">Challenges</span>
-                        <i class="ion-chevron-right three-em"></i>
+                <section class="profile-menu px-2 mt-5">
+                    <div class="navbar-nav">
+                        <div class="user-profile-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-0">
+                            <span class="two-em">Profile</span>
+                            <i class="ion-chevron-right three-em"></i>
+                        </div>
+                        <div class="user-prayers-link nav-link px-1 py-2 d-flex justify-content-between align-items-center">
+                            <span class="two-em">Prayers</span>
+                            <i class="ion-chevron-right three-em"></i>
+                        </div>
+                        <div class="user-challenges-link nav-link px-1 py-2 d-flex justify-content-between align-items-center">
+                            <span class="two-em">Challenges</span>
+                            <i class="ion-chevron-right three-em"></i>
+                        </div>
                     </div>
                 </section>
                 <a class="btn btn-outline-dark" href="${jsObject.logout_url}">Logout</a><br>
@@ -137,7 +139,7 @@ jQuery(document).ready(function(){
                     </tr>
                     <tr>
                         <td>Location:</td>
-                        <td>${location}</td>
+                        <td>${location || 'Please set your location'}</td>
                     </tr>
                 </tbody>
             </table>
@@ -158,6 +160,11 @@ jQuery(document).ready(function(){
                         </label>
                     </div>
                 </div>
+            </section>
+            <section class="user-actions">
+                <hr />
+                <a href="#" class="btn small">Data report for my account</a>
+                <button class="btn small btn-outline-danger mt-5">Erase my account</button>
             </section>
 `
         )
