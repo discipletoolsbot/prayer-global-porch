@@ -207,6 +207,20 @@ strong {
     left: 50%;
     transform: translateX(-50%);
 }
+.header-border-bottom {
+    position: relative;
+    padding-bottom: 30px;
+}
+.header-border-bottom::before {
+    position: absolute;
+    bottom: 0;
+    height: 2px;
+    width: 50px;
+    content: "";
+    background: #1d82ff;
+    left: 50%;
+    transform: translateX(-50%);
+}
 
 .cover, .cover-small {
     background-size: cover;

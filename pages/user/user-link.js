@@ -1,8 +1,5 @@
 jQuery(document).ready(function(){
 
-    const userDetailsPanel = document.getElementById('user-profile-details')
-    const userDetailsContent = document.getElementById('user-details-content')
-
     if ( jsObject.is_logged_in ) {
         write_main( jsObject.user.data )
     } else {
@@ -77,13 +74,13 @@ jQuery(document).ready(function(){
 
             <div class="flow">
                 <section class="user__summary flow-small mt-5">
-                    <div class="user__badge">
-                        <img class="rounded-circle" src="https://picsum.photos/150" alt="random lorem picsum image" />
-                    </div>
+
+                    ${Badge()}
+
                     <div class="user__info">
-                        <h2 class="user__full-name"></h2>
-                        <p class="user__location fs-6">
-                            Birmingham, UK (place-holder)
+                        <h2 class="user__full-name">${data.display_name}</h2>
+                        <p class="user__location small">
+                            ${data.location || 'Please set your location'}
                         </p>
                     </div>
                 </section>
@@ -103,20 +100,67 @@ jQuery(document).ready(function(){
                 </section>
                 <a class="btn btn-outline-dark" href="${jsObject.logout_url}">Logout</a><br>
             </div>
-            <span id="pg_user_id"></span>
+            <span id="pg_user_id">${data.ID}</span>
 `
         );
-        jQuery('#pg_user_id').html(data.ID)
-        jQuery('.user__full-name').html(data.display_name)
-        jQuery('.user__location').html(data.location)
 
-        jQuery('.user-profile-link').on('click', write_profile)
-        jQuery('.user-prayers-link').on('click', write_prayers)
-        jQuery('.user-challenges-link').on('click', write_challenges)
+        jQuery('.user-profile-link').on('click', () => write_profile({
+            name: data.display_name,
+            email: data.user_email,
+            location: data.location,
+            sendLapEmails: data.send_lap_emails,
+            sendGeneralEmails: data.send_general_emails,
+        }))
+        jQuery('.user-prayers-link').on('click', () => write_prayers())
+        jQuery('.user-challenges-link').on('click', () => write_challenges())
     }
 
-    function write_profile() {
+    function write_profile({
+        name,
+        email,
+        location,
+        sendLapEmails = true,
+        sendGeneralEmails = false,
+    }) {
         console.log('write profile')
+        jQuery('#user-details-content').html(`
+            <h2 class="header-border-bottom center">Profile</h2>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>Name:</td>
+                        <td>${name}</td>
+                    </tr>
+                    <tr>
+                        <td>Email:</td>
+                        <td>${email}</td>
+                    </tr>
+                    <tr>
+                        <td>Location:</td>
+                        <td>${location}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <section class="communication-preferences flow-small">
+                <h2 class="header-border-bottom center">Communication Preferences</h2>
+
+                <div>
+                    <div class="form-check small">
+                        <input class="form-check-input" type="checkbox" id="send-lap-emails" ${sendLapEmails && 'checked'}>
+                        <label class="form-check-label" for="send-lap-emails">
+                            Send me lap challenges via email
+                        </label>
+                    </div>
+                    <div class="form-check small">
+                        <input class="form-check-input" type="checkbox" id="send-general-emails" ${sendGeneralEmails && 'checked'}>
+                        <label class="form-check-label" for="send-general-emails">
+                            Send information about Prayer.Global, Zume, Pray4Movement and other Gospel Ambition projects via email
+                        </label>
+                    </div>
+                </div>
+            </section>
+`
+        )
         open_profile()
     }
 
@@ -132,5 +176,13 @@ jQuery(document).ready(function(){
 
     function open_profile() {
         jQuery('#user-profile-details').offcanvas('show')
+    }
+
+    function Badge() {
+        return `
+            <div class="user__badge">
+                <img class="rounded-circle" src="https://picsum.photos/150" alt="random lorem picsum image" />
+            </div>
+`
     }
 })
