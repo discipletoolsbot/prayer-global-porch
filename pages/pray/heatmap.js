@@ -283,7 +283,11 @@ jQuery(document).ready(function($){
       });
       map.loadImage(
         //jsObject.image_folder + 'praying-hands-emoji64.png',
-        jsObject.image_folder + 'fire-emoji64.png',
+        //jsObject.image_folder + 'light-emoji64.png',
+        //jsObject.image_folder + 'running-shoe-emoji64.png',
+        //jsObject.image_folder + 'running-shoe-purple-emoji64.png',
+        //jsObject.image_folder + 'fire-emoji64.png',
+        jsObject.image_folder + 'praying-hand-up-40.png',
         (error, image) => {
           if (error) throw error;
           map.addImage('custom-marker', image);
