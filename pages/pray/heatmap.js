@@ -860,6 +860,7 @@ jQuery(document).ready(function($){
   }
   function celebrate_prayed_for_place(grid_id) {
     update_map(grid_id)
+    update_stats()
     window.celebrationFireworks()
   }
 
@@ -868,16 +869,21 @@ jQuery(document).ready(function($){
       .done(function(x){
         console.log('reload')
         // add stats
-        jsObject.stats = x.stats
+        jsObject.grid_data = x.grid_data
+        reload_load_grid(grid_id)
+      })
+  }
+
+  function update_stats() {
+    window.get_page('get_stats')
+      .done(function(stats) {
+        jsObject.stats = stats
         jQuery('.completed').html( jsObject.stats.completed )
         jQuery('.completed_percent').html( jsObject.stats.completed_percent )
         jQuery('.remaining').html( jsObject.stats.remaining )
         jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
         jQuery('.prayer_warriors').html( jsObject.stats.participants )
         jQuery('.lap_pace').html( jsObject.stats.lap_pace_small )
-
-        jsObject.grid_data = x.grid_data
-        reload_load_grid(grid_id)
       })
   }
 
