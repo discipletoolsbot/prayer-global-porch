@@ -47,44 +47,37 @@ jQuery(document).ready(function(){
 
     function write_profile (data) {
         jQuery('#pg_content').html(`
-            <section id="my-stats" class="user-details">
-                <h2 class="header-border-top">Profile</h2>
-                <table class="table">
-                    <tbody>
-                    <tr>
-                        <td>User Display Name</td>
-                        <td id="pg_user_display"></td>
-                    </tr>
-                    <tr>
-                        <td>User Email</td>
-                        <td id="pg_user_email"></td>
-                    </tr>
-                    </tbody>
-                </table>
-            </section>
 
-            <section class="user-stats">
-                <h2 class="header-border-top">Stats</h2>
-                <table class="table">
-                    <tbody>
-                        <tr>
-                            <td>Locations</td>
-                            <td id="pg_stats_locations">25</td>
-                        </tr>
-                        <tr>
-                            <td>Time Prayed</td>
-                            <td id="pg_stats_time">45 mins</td>
-                        </tr>
-                        <tr>
-                            <td>Locations per day</td>
-                            <td id="pg_stats_speed">5</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </section>
-
-            <a href="${jsObject.logout_url}">Logout</a><br>
-            <span id="pg_user_id"></span>
+            <div class="flow">
+                <section class="user__summary flow-small mt-5">
+                    <div class="user__badge">
+                        <img class="rounded-circle" src="https://picsum.photos/150" alt="random lorem picsum image" />
+                    </div>
+                    <div class="user__info">
+                        <h2 class="user__full-name">
+                            Joe Blogs
+                        </h2>
+                        <p class="user__location">
+                            Birmingham, UK
+                        </p>
+                    </div>
+                </section>
+                <section class="profile-menu navbar-nav justify-content-end px-2">
+                    <div class="border-bottom py-2 d-flex justify-content-between align-items-center" href="#">
+                        <span class="three-em">Profile</span>
+                        <i class="ion-chevron-right three-em"></i>
+                    </div>
+                    <div class="border-bottom py-2 d-flex justify-content-between align-items-center" href="#">
+                        <span class="three-em">Prayers</span>
+                        <i class="ion-chevron-right three-em"></i>
+                    </div>
+                    <div class="border-bottom py-2 d-flex justify-content-between align-items-center" href="#">
+                        <span class="three-em">Challenges</span>
+                        <i class="ion-chevron-right three-em"></i>
+                    </div>
+                </section>
+                <a class="btn btn-outline-dark" href="${jsObject.logout_url}">Logout</a><br>
+            </div>
             <span id="pg_user_id"></span>
 `
         );

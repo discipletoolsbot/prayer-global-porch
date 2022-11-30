@@ -5,7 +5,7 @@ $url = dt_get_url_path();
  * Nav for Home Page
  */
 $dark_nav_class = '' === $url ||  str_contains( $url, 'stats' ) || str_contains( $url, 'completed' ) ? 'navbar-dark' : '';
-$hide_cta_class = str_contains( $url, 'challenges' ) ? 'd-none' : '';
+$hide_cta_class = str_contains( $url, 'challenges' ) || str_contains( $url, 'user_app' ) ? 'd-none' : '';
 ?>
 <nav class="navbar <?php echo esc_attr( $dark_nav_class ) ?> pg-navbar bg-none scrolled-light" id="pg-navbar">
     <div class="container align-items-center">
