@@ -437,6 +437,11 @@ strong {
 
 /* Button styles */
 
+button {
+    margin: 0;
+    border: 0;
+    background-color: unset;
+}
 .btn {
     --bs-btn-font-weight: var(--font-weight-default);
 }
@@ -672,6 +677,19 @@ strong {
     margin-top: 8px;
 }
 
+.offcanvas__header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 0.5em 1em;
+    background: white;
+    z-index: 100;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.offcanvas__content {
+    padding: 1em;
+}
 
 /* Home page styles */
 

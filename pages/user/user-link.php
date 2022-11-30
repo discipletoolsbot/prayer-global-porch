@@ -111,6 +111,10 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     <div class="col-lg-7 flow" id="pg_content"></div>
                 </div>
             </div>
+            <div class="offcanvas offcanvas-end" id="user-profile-details" data-bs-backdrop="true" data-bs-scroll="false">
+                <div class="offcanvas__header"><button type="button" data-bs-dismiss="offcanvas" style="text-align: start"><i class="ion-chevron-right three-em"></i></button></div>
+                <div class="row offcanvas__content" id="user-details-content"></div>
+           </div>
         </section>
         <?php
     }

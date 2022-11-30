@@ -1,7 +1,10 @@
 jQuery(document).ready(function(){
 
+    const userDetailsPanel = document.getElementById('user-profile-details')
+    const userDetailsContent = document.getElementById('user-details-content')
+
     if ( jsObject.is_logged_in ) {
-        write_profile( jsObject.user.data )
+        write_main( jsObject.user.data )
     } else {
         write_login()
     }
@@ -34,7 +37,7 @@ jQuery(document).ready(function(){
                 console.log(data)
                 jQuery('.loading-spinner').removeClass('active')
                 if ( data ) {
-                    write_profile(data)
+                    write_main(data)
                 }
             })
     }
@@ -45,45 +48,6 @@ jQuery(document).ready(function(){
         userNav.style.display = 'block'
     }
 
-    function write_profile (data) {
-        jQuery('#pg_content').html(`
-
-            <div class="flow">
-                <section class="user__summary flow-small mt-5">
-                    <div class="user__badge">
-                        <img class="rounded-circle" src="https://picsum.photos/150" alt="random lorem picsum image" />
-                    </div>
-                    <div class="user__info">
-                        <h2 class="user__full-name"></h2>
-                        <p class="user__location fs-6">
-                            Birmingham, UK (place-holder)
-                        </p>
-                    </div>
-                </section>
-                <section class="profile-menu navbar-nav justify-content-end px-2 mt-5">
-                    <div class="nav-link px-1 py-2 d-flex justify-content-between align-items-center border-0">
-                        <span class="two-em">Profile</span>
-                        <i class="ion-chevron-right three-em"></i>
-                    </div>
-                    <div class="nav-link px-1 py-2 d-flex justify-content-between align-items-center">
-                        <span class="two-em">Prayers</span>
-                        <i class="ion-chevron-right three-em"></i>
-                    </div>
-                    <div class="nav-link px-1 py-2 d-flex justify-content-between align-items-center">
-                        <span class="two-em">Challenges</span>
-                        <i class="ion-chevron-right three-em"></i>
-                    </div>
-                </section>
-                <a class="btn btn-outline-dark" href="${jsObject.logout_url}">Logout</a><br>
-            </div>
-            <span id="pg_user_id"></span>
-`
-        );
-        jQuery('#pg_user_id').html(data.ID)
-        jQuery('.user__full-name').html(data.display_name)
-        jQuery('.user__location').html(data.location)
-
-    }
     function write_login () {
         jQuery('#pg_content').html(`
                 <form id="login_form">
@@ -108,4 +72,65 @@ jQuery(document).ready(function(){
         })
     }
 
+    function write_main (data) {
+        jQuery('#pg_content').html(`
+
+            <div class="flow">
+                <section class="user__summary flow-small mt-5">
+                    <div class="user__badge">
+                        <img class="rounded-circle" src="https://picsum.photos/150" alt="random lorem picsum image" />
+                    </div>
+                    <div class="user__info">
+                        <h2 class="user__full-name"></h2>
+                        <p class="user__location fs-6">
+                            Birmingham, UK (place-holder)
+                        </p>
+                    </div>
+                </section>
+                <section class="profile-menu navbar-nav justify-content-end px-2 mt-5">
+                    <div class="user-profile-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-0">
+                        <span class="two-em">Profile</span>
+                        <i class="ion-chevron-right three-em"></i>
+                    </div>
+                    <div class="user-prayers-link nav-link px-1 py-2 d-flex justify-content-between align-items-center">
+                        <span class="two-em">Prayers</span>
+                        <i class="ion-chevron-right three-em"></i>
+                    </div>
+                    <div class="user-challenges-link nav-link px-1 py-2 d-flex justify-content-between align-items-center">
+                        <span class="two-em">Challenges</span>
+                        <i class="ion-chevron-right three-em"></i>
+                    </div>
+                </section>
+                <a class="btn btn-outline-dark" href="${jsObject.logout_url}">Logout</a><br>
+            </div>
+            <span id="pg_user_id"></span>
+`
+        );
+        jQuery('#pg_user_id').html(data.ID)
+        jQuery('.user__full-name').html(data.display_name)
+        jQuery('.user__location').html(data.location)
+
+        jQuery('.user-profile-link').on('click', write_profile)
+        jQuery('.user-prayers-link').on('click', write_prayers)
+        jQuery('.user-challenges-link').on('click', write_challenges)
+    }
+
+    function write_profile() {
+        console.log('write profile')
+        open_profile()
+    }
+
+    function write_prayers() {
+        console.log('write prayers');
+        open_profile()
+    }
+
+    function write_challenges() {
+        console.log('write challenges');
+        open_profile()
+    }
+
+    function open_profile() {
+        jQuery('#user-profile-details').offcanvas('show')
+    }
 })
