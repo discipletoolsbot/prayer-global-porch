@@ -54,25 +54,23 @@ jQuery(document).ready(function(){
                         <img class="rounded-circle" src="https://picsum.photos/150" alt="random lorem picsum image" />
                     </div>
                     <div class="user__info">
-                        <h2 class="user__full-name">
-                            Joe Blogs
-                        </h2>
-                        <p class="user__location">
-                            Birmingham, UK
+                        <h2 class="user__full-name"></h2>
+                        <p class="user__location fs-6">
+                            Birmingham, UK (place-holder)
                         </p>
                     </div>
                 </section>
-                <section class="profile-menu navbar-nav justify-content-end px-2">
-                    <div class="border-bottom py-2 d-flex justify-content-between align-items-center" href="#">
-                        <span class="three-em">Profile</span>
+                <section class="profile-menu navbar-nav justify-content-end px-2 mt-5">
+                    <div class="nav-link px-1 py-2 d-flex justify-content-between align-items-center border-0">
+                        <span class="two-em">Profile</span>
                         <i class="ion-chevron-right three-em"></i>
                     </div>
-                    <div class="border-bottom py-2 d-flex justify-content-between align-items-center" href="#">
-                        <span class="three-em">Prayers</span>
+                    <div class="nav-link px-1 py-2 d-flex justify-content-between align-items-center">
+                        <span class="two-em">Prayers</span>
                         <i class="ion-chevron-right three-em"></i>
                     </div>
-                    <div class="border-bottom py-2 d-flex justify-content-between align-items-center" href="#">
-                        <span class="three-em">Challenges</span>
+                    <div class="nav-link px-1 py-2 d-flex justify-content-between align-items-center">
+                        <span class="two-em">Challenges</span>
                         <i class="ion-chevron-right three-em"></i>
                     </div>
                 </section>
@@ -82,8 +80,8 @@ jQuery(document).ready(function(){
 `
         );
         jQuery('#pg_user_id').html(data.ID)
-        jQuery('#pg_user_display').html(data.display_name)
-        jQuery('#pg_user_email').html(data.user_email)
+        jQuery('.user__full-name').html(data.display_name)
+        jQuery('.user__location').html(data.location)
 
     }
     function write_login () {
