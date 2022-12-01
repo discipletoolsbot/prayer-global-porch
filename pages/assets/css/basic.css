@@ -804,7 +804,7 @@ button {
   margin: 20px -65px;
   box-shadow: 50px -23px 0 -10px rgba(255, 255, 255, 0.22), 85px -10px 0 -16px rgba(255, 255, 255, 0.19);
   transform: rotate(-50deg);
-  animation: shine 2s forwards ease;
+  animation: shine 0s forwards ease;
   top: 0;
 }
 @keyframes shine {
