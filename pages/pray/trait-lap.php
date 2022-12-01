@@ -1,52 +1,7 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
-
-/**
- * Class PG_Custom_Prayer_App_Lap
- */
-class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
-
-    private static $_instance = null;
-    public static function instance() {
-        if ( is_null( self::$_instance ) ) {
-            self::$_instance = new self();
-        }
-        return self::$_instance;
-    } // End instance()
-
-    public function __construct() {
-        parent::__construct();
-
-        /**
-         * post type and module section
-         */
-        if ( dt_is_rest() ) {
-            add_action( 'rest_api_init', [ $this, 'add_endpoints' ] );
-        }
-
-        // must be valid url
-        $url = dt_get_url_path();
-        if ( strpos( $url, $this->root . '/' . $this->type ) === false ) {
-            return;
-        }
-
-        // must be valid parts
-        if ( !$this->check_parts_match() ){
-            return;
-        }
-
-        // has empty action, of stop
-        if ( ! empty( $this->parts['action'] ) ) {
-            return;
-        }
-
-        // redirect to completed if not current global lap
-        add_action( 'dt_blank_body', [ $this, 'body' ] );
-        add_filter( 'dt_magic_url_base_allowed_css', [ $this, 'dt_magic_url_base_allowed_css' ], 10, 1 );
-        add_filter( 'dt_magic_url_base_allowed_js', [ $this, 'dt_magic_url_base_allowed_js' ], 10, 1 );
-
-    }
+trait PG_Lap_Trait {
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
         return [];
@@ -59,15 +14,11 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
     public function header_javascript(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
 
-        $current_lap = pg_get_custom_lap_by_post_id( $this->parts['post_id'] );
+        $current_lap = pg_current_global_lap();
         $current_url = trailingslashit( site_url() ) . $this->parts['root'] . '/' . $this->parts['type'] . '/' . $this->parts['public_key'] . '/';
         if ( (int) $current_lap['post_id'] === (int) $this->parts['post_id'] ) {
             ?>
             <!-- Resources -->
-<!--            <script src="https://cdn.amcharts.com/lib/5/index.js"></script>-->
-<!--            <script src="https://cdn.amcharts.com/lib/5/map.js"></script>-->
-<!--            <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>-->
-<!--            <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>-->
             <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js?ver=3"></script>
             <script>
                 let jsObject = [<?php echo json_encode([
@@ -125,19 +76,21 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                     <button type="button" class="btn btn-secondary settings" id="praying__open_options" data-bs-toggle="modal" data-bs-target="#option_filter"><i class="ion-android-options"></i></button>
                 </div>
             </div>
+
             <div class="container question" id="question-panel">
                 <div class="btn-group question_button_group" role="group" aria-label="Praying Button">
-                    <button type="button" class="btn btn-secondary question" id="question__yes_done">Done</button>
-                    <button type="button" class="btn btn-secondary question question__yes" id="question__yes_next">Next</button>
+
+                    <?php $this->question_buttons() ?>
+
                 </div>
             </div>
             <div class="container celebrate text-center" id="celebrate-panel"></div>
             <div class="w-100" ></div>
             <div class="container decision" id="decision-panel">
                 <div class="btn-group decision_button_group" role="group" aria-label="Decision Button">
-                    <button type="button" class="btn btn-secondary decision" id="decision__home">Home</button>
-                    <button type="button" class="btn btn-secondary decision" id="decision__map">Map</button>
-                    <button type="button" class="btn btn-secondary decision" id="decision__next">Next</button>
+
+                    <?php $this->decision_buttons() ?>
+
                 </div>
             </div>
             <div class="w-100" ></div>
@@ -167,10 +120,9 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                             <button type="button" class="btn btn-outline-secondary pace" id="pace__10" value="10">10 Minutes</button>
                             <button type="button" class="btn btn-outline-secondary pace" id="pace__15" value="15">15 Minutes</button>
                         </div>
-
                     </div>
                     <div class="modal-footer center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Let's Go!</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Save</button>
                     </div>
                 </div>
             </div>
@@ -206,28 +158,6 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 </div>
             </div>
         </div>
-        <div class="modal fade" id="correction_modal" tabindex="-1" role="dialog" aria-labelledby="correction_modal_label" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title">Thank you! Leave us a correction below.</h5>
-                        <button type="button" id="correction_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <p><span id="correction_title" class="correction_field"></span></p>
-                        <p>
-                            Section:<br>
-                            <select class="form-control form-select correction_field" id="correction_select"></select>
-                        </p>
-                        <p>
-                            Correction Requested:<br>
-                            <textarea class="form-control correction_field" id="correction_response" rows="3"></textarea></p>
-                        <p><button type="button" class="btn btn-primary" id="correction_submit_button">Submit</button> <span class="loading-spinner correction_modal_spinner"></span></p>
-                        <p id="correction_error" class="correction_field"></p>
-                    </div>
-                </div>
-            </div>
-        </div>
 
         <!-- Location counter -->
         <div class="prayer-odometer">
@@ -249,9 +179,34 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             <div id="content"></div>
             <div class="container">
                 <div class="row text-center pb-4"><div class="col"><button type="button" class="btn btn-outline-primary" id="more_prayer_fuel">Show More Prayer Fuel</button></div></div>
-                <div class="row text-center">
-                    <div class="col" style="padding-bottom:2em;">
+                <div class="row">
+                    <div class="col text-center" style="padding-bottom:2em;">
                         <button class="btn btn-link" id="correction_button">Correction Needed?</button>
+                    </div>
+                    <div class="modal fade" id="correction_modal"  role="dialog" aria-labelledby="correction_modal_label" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Thank you! Leave us a correction below.</h5>
+                                    <button type="button" id="correction_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p><span id="correction_title" class="correction_field"></span></p>
+                                    <p>
+                                        Section:<br>
+                                        <select class="form-control form-select correction_field" id="correction_select"></select>
+                                    </p>
+                                    <p>
+                                        Correction Requested:<br>
+                                        <textarea class="form-control correction_field" id="correction_response" rows="3"></textarea>
+                                    </p>
+                                    <p>
+                                        <button type="button" class="btn btn-primary" id="correction_submit_button">Submit</button> <span class="loading-spinner correction_modal_spinner"></span>
+                                    </p>
+                                    <p id="correction_error" class="correction_field"></p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -260,49 +215,25 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         <?php
     }
 
+    public function question_buttons() {
+        ?>
 
-    /**
-     * Register REST Endpoints
-     * @link https://github.com/DiscipleTools/disciple-tools-theme/wiki/Site-to-Site-Link for outside of wordpress authentication
-     */
-    public function add_endpoints() {
-        $namespace = $this->root . '/v1';
-        register_rest_route(
-            $namespace,
-            '/'.$this->type,
-            [
-                [
-                    'methods'  => WP_REST_Server::CREATABLE,
-                    'callback' => [ $this, 'endpoint' ],
-                    'permission_callback' => '__return_true'
-                ],
-            ]
-        );
+        <button type="button" class="btn btn-secondary question" id="question__yes_done">Done</button>
+        <button type="button" class="btn btn-secondary question question__yes" id="question__yes_next">Next</button>
+
+        <?php
     }
 
-    public function endpoint( WP_REST_Request $request ) {
-        $params = $request->get_params();
+    public function decision_buttons() {
+        ?>
 
-        if ( ! isset( $params['parts'], $params['action'], $params['data'] ) ) {
-            return new WP_Error( __METHOD__, "Missing parameters", [ 'status' => 400 ] );
-        }
+        <button type="button" class="btn btn-secondary decision" id="decision__home">Home</button>
+        <button type="button" class="btn btn-secondary decision" id="decision__map">Map</button>
+        <button type="button" class="btn btn-secondary decision" id="decision__next">Next</button>
 
-        $params = dt_recursive_sanitize_array( $params );
-
-        switch ( $params['action'] ) {
-            case 'log':
-                $result = $this->save_log( $params['parts'], $params['data'] );
-                return $result;
-            case 'correction':
-                return $this->save_correction( $params['parts'], $params['data'] );
-            case 'refresh':
-                return $this->get_new_location( $params['parts'] );
-            case 'ip_location':
-                return $this->get_ip_location();
-            default:
-                return new WP_Error( __METHOD__, "Incorrect action", [ 'status' => 400 ] );
-        }
+        <?php
     }
+
 
     /**
      * Log Data Model
@@ -352,10 +283,36 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         }
         $id = dt_report_insert( $args, true, false );
 
-        $response = $this->get_new_location( $parts );
+        $response = $this->get_new_location();
         $response['report_id'] = $id;
 
         return $response;
+    }
+
+    /**
+     * @param $parts
+     * @param $data
+     * @return int|WP_Error
+     */
+    public function increment_log( $parts, $data) {
+        if ( !isset( $parts['post_id'], $parts['root'], $parts['type'], $data['report_id'] ) ) {
+            return new WP_Error( __METHOD__, "Missing parameters", [ 'status' => 400 ] );
+        }
+        /* Check that the report exists */
+        $report = Disciple_Tools_Reports::get( $data['report_id'], 'id' );
+
+        if ( !$report || empty( $report ) || is_wp_error( $report ) ) {
+            return new WP_Error( __METHOD__, "Report doesn't exist", [ 'status' => 400 ] );
+        }
+
+        $new_value = (int) $report['value'] + 1;
+        /* update the report */
+        Disciple_Tools_Reports::update( [
+            "id" => $data['report_id'],
+            "value" => $new_value,
+        ] );
+
+        return $new_value;
     }
 
     /**
@@ -426,25 +383,21 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
-        return DT_Posts::create_post( 'feedback', $fields, true, false );
+        $result = DT_Posts::create_post( 'feedback', $fields, true, false );
+
+        return $result;
     }
 
     /**
      * Global query
      * @return array|false|void
      */
-    public function get_new_location( $parts ) {
+    public function get_new_location() {
         // get 4770 list
-        if ( empty( $this->parts ) && ! empty( $parts ) ) {
-            $this->parts = $parts;
-        }
-
-        // get lists
         $list_4770 = pg_query_4770_locations();
-        $list_prayed = $this->_query_prayed_list( $parts['post_id'] );
-        $global_remaining = $this->_remaining_global_prayed_list( $list_4770 );
 
         // subtract prayed places
+        $list_prayed = $this->_query_prayed_list();
         if ( ! empty( $list_prayed ) ) {
             foreach ( $list_prayed as $grid_id ) {
                 if ( isset( $list_4770[$grid_id] ) ) {
@@ -453,72 +406,28 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
-        // if completed, trigger close
         if ( empty( $list_4770 ) ) {
-            if ( dt_is_rest() ) { // signal new lap to rest request
+                $this->_generate_new_prayer_lap();
                 return false;
-            } else { // if first load on finished lap, redirect to new lap
-                wp_redirect( '/prayer_app/custom/'. $this->parts['public_key'] .'/map' );
-                exit;
-            }
         }
 
-        // shuffle and select a grid id
         shuffle( $list_4770 );
         $grid_id = $list_4770[0];
-
-        if ( ! isset( $global_remaining[$grid_id] ) ) {
-            // look for global grid id that is still remaining for the custom lap
-            foreach( $global_remaining as $gi => $gv ) {
-                if( isset( $list_4770[$gi] ) ) {
-                    $grid_id = $gi;
-                    break;
-                }
-            }
-        }
 
         return PG_Stacker::build_location_stack_v2( $grid_id );
     }
 
-    public function _remaining_global_prayed_list( $list_4770 ) {
+    public static function _query_prayed_list() {
         global $wpdb;
         $current_lap = pg_current_global_lap();
 
         $raw_list = $wpdb->get_col( $wpdb->prepare(
             "SELECT DISTINCT grid_id
                     FROM $wpdb->dt_reports
-                    WHERE timestamp >= %d
-                      AND type = 'prayer_app'",
-            $current_lap['start_time'] ) );
-
-        $list = [];
-        if ( ! empty( $raw_list ) ) {
-            foreach ( $raw_list as $item ) {
-                $list[$item] = $item;
-            }
-        }
-
-        foreach( $list_4770 as $i => $v ) {
-            if ( isset( $list[$i] ) ) {
-                unset( $list_4770[$i] );
-            }
-        }
-
-        return $list_4770;
-    }
-
-    public function _query_prayed_list( $post_id ) {
-        global $wpdb;
-
-        $raw_list = $wpdb->get_col( $wpdb->prepare(
-            "SELECT DISTINCT grid_id
-                    FROM $wpdb->dt_reports
                     WHERE
-                      post_id = %d
-                      AND type = 'prayer_app'
-                      AND subtype = 'custom'
-                      ",
-            $post_id ) );
+                          timestamp >= %d
+                      AND type = 'prayer_app'",
+        $current_lap['start_time'] ) );
 
         $list = [];
         if ( ! empty( $raw_list ) ) {
@@ -530,14 +439,65 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         return $list;
     }
 
+    public static function _generate_new_prayer_lap() {
+        global $wpdb;
+
+        // build new lap number
+        $completed_prayer_lap_number = $wpdb->get_var(
+            "SELECT COUNT(*) as laps
+                    FROM $wpdb->posts p
+                    JOIN $wpdb->postmeta pm ON p.ID=pm.post_id AND pm.meta_key = 'type' AND pm.meta_value = 'global'
+                    JOIN $wpdb->postmeta pm2 ON p.ID=pm2.post_id AND pm2.meta_key = 'status' AND pm2.meta_value IN ('complete', 'active')
+                    WHERE p.post_type = 'laps';"
+        );
+        $next_global_lap_number = $completed_prayer_lap_number + 1;
+
+        // create key
+        $key = pg_generate_key();
+
+        $time = time();
+        $date = gmdate( 'Y-m-d H:m:s', time() );
+
+        $fields = [];
+        $fields['title'] = 'Global #' . $next_global_lap_number;
+        $fields['status'] = 'active';
+        $fields['type'] = 'global';
+        $fields['start_date'] = $date;
+        $fields['start_time'] = $time;
+        $fields['global_lap_number'] = $next_global_lap_number;
+        $fields['prayer_app_global_magic_key'] = $key;
+        $new_post = DT_Posts::create_post( 'laps', $fields, false, false );
+        if ( is_wp_error( $new_post ) ) {
+            // @handle error
+            dt_write_log( 'failed to create' );
+            dt_write_log( $new_post );
+            exit;
+        }
+
+        // update current_lap
+        $previous_lap = pg_current_global_lap();
+        $lap = [
+            'lap_number' => $next_global_lap_number,
+            'post_id' => $new_post['ID'],
+            'key' => $key,
+            'start_time' => $time,
+        ];
+        update_option( 'pg_current_global_lap', $lap, true );
+
+        // close previous lap
+        DT_Posts::update_post( 'laps', $previous_lap['post_id'], [ 'status' => 'complete', 'end_date' => $date, 'end_time' => $time ], false, false );
+
+        return $new_post['ID'];
+    }
+
     public function get_ip_location() {
         $response = DT_Ipstack_API::get_location_grid_meta_from_current_visitor();
         if ( $response ) {
-            $response['hash'] = hash( 'sha256', serialize( $response ). mt_rand( 1000000, 10000000000000000 ) );
+            $response['hash'] = hash( 'sha256', serialize( $response ) . mt_rand( 1000000, 10000000000000000 ) );
             $array = array_reverse( explode( ', ', $response['label'] ) );
             $response['country'] = $array[0] ?? '';
         }
         return $response;
     }
+
 }
-PG_Custom_Prayer_App_Lap::instance();

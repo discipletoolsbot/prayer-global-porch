@@ -5,10 +5,11 @@ require_once( 'trait-lap.php' );
 /**
  * Class Prayer_Global_Prayer_App
  */
-class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
+class PG_Global_Prayer_App_Location extends PG_Global_Prayer_App {
 
     use PG_Lap_Trait;
 
+    public $grid_id;
     private static $_instance = null;
     public static function instance() {
         if ( is_null( self::$_instance ) ) {
@@ -19,6 +20,9 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
 
     public function __construct() {
         parent::__construct();
+
+        $grid_id = isset( $_GET['grid_id'] ) ? sanitize_text_field( wp_unslash( $_GET['grid_id'] ) ) : null;
+        $this->grid_id = $grid_id;
 
         /**
          * post type and module section
@@ -52,7 +56,6 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
 
         add_filter( 'dt_magic_url_base_allowed_css', [ $this, 'dt_magic_url_base_allowed_css' ], 10, 1 );
         add_filter( 'dt_magic_url_base_allowed_js', [ $this, 'dt_magic_url_base_allowed_js' ], 10, 1 );
-
     }
 
     public function if_rest_add_actions() {
@@ -62,9 +65,52 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
     }
 
     public function validate_action( $action ) {
-        /* We want the $action to be empty to signify we are praying for the lap */
-        return empty( $action );
+        if ( 'location' === $action && $this->is_valid_grid_id( $this->grid_id ) ) {
+            return true;
+        }
+        add_filter( 'dt_blank_access', function() { return false; } );
+        return false;
     }
+
+    public function is_valid_grid_id( $grid_id ) {
+        global $wpdb;
+
+        $grid_id = intval( $grid_id );
+
+        if ( !$grid_id ) {
+            return false;
+        }
+
+        $location = $wpdb->get_row( $wpdb->prepare( "
+            SELECT * FROM $wpdb->dt_location_grid
+            WHERE grid_id = %d
+        ", $grid_id ) );
+
+        if ( !$location ) {
+            return false;
+        }
+
+        return true;
+    }
+
+    public function question_buttons() {
+        ?>
+
+        <button type="button" class="btn btn-secondary question" id="question__yes_done">Done</button>
+
+        <?php
+    }
+
+    public function decision_buttons() {
+        ?>
+
+        <button type="button" class="btn btn-secondary decision" id="decision__home">Home</button>
+        <button type="button" class="btn btn-secondary decision" id="decision__map">Map</button>
+
+        <?php
+    }
+
+
 
     /**
      * Register REST Endpoints
@@ -95,19 +141,27 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
         $params = dt_recursive_sanitize_array( $params );
 
         switch ( $params['action'] ) {
+            case 'refresh':
+                $grid_id = isset( $params['data']['grid_id'] ) ? $params['data']['grid_id'] : null;
+                if ( $grid_id ) {
+                    return $this->get_location_by_grid_id( $grid_id );
+                }
+                return $this->get_new_location();
             case 'log':
                 return $this->save_log( $params['parts'], $params['data'] );
             case 'increment_log':
                 return $this->increment_log( $params['parts'], $params['data'] );
             case 'correction':
                 return $this->save_correction( $params['parts'], $params['data'] );
-            case 'refresh':
-                return $this->get_new_location();
             case 'ip_location':
                 return $this->get_ip_location();
             default:
                 return new WP_Error( __METHOD__, "Incorrect action", [ 'status' => 400 ] );
         }
     }
+
+    public function get_location_by_grid_id( $grid_id ) {
+        return PG_Stacker::build_location_stack_v2( $grid_id );
+    }
 }
-PG_Global_Prayer_App_Lap::instance();
+PG_Global_Prayer_App_Location::instance();
