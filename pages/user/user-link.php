@@ -170,6 +170,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     }
                 }
                 return false;
+            case 'activity':
+                return $this->get_user_activity();
             default:
                 return $params;
         }
@@ -217,6 +219,11 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
      */
     public function allow_programmatic_login( $user, $username, $password ) {
         return get_user_by( 'login', $username );
+    }
+
+    public function get_user_activity() {
+        $activity = PG_Stacker::build_user_location_stats();
+        return $activity;
     }
 
 }

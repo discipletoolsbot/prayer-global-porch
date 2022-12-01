@@ -120,6 +120,7 @@ class PG_Stacker {
             JOIN $wpdb->posts p
             ON r.post_id = p.ID
             WHERE r.grid_id = %d
+            AND r.type = 'prayer_app'
             ORDER BY r.timestamp DESC
             ", $user_id, $grid_id ), ARRAY_A );
         } else {
@@ -129,6 +130,7 @@ class PG_Stacker {
             JOIN $wpdb->posts p
             ON r.post_id = p.ID
             WHERE r.grid_id = %d
+            AND r.type = 'prayer_app'
             ORDER BY r.timestamp DESC
             ", $grid_id ), ARRAY_A );
         }
@@ -148,48 +150,18 @@ class PG_Stacker {
         ];
 
         foreach ( $community_activity as $key => $activity ) {
-            $time = time() - (int) $activity['timestamp'];
-
-            $days = floor( $time / 60 / 60 / 24 );
-            $hours = floor( ( $time / 60 / 60 ) - ( $days * 24 ) );
-            $minutes = floor( ( $time / 60 ) - ( $hours * 60 ) - ( $days * 24 * 60 ) );
-            $seconds = $time;
-
-            if ( empty( $days ) && empty( $hours ) && empty( $minutes ) ) {
-                $seconds_word = $seconds > 1 ? 'seconds' : 'second';
-                $community_activity[$key]['when_text'] = "$seconds $seconds_word ago";
-            } else if ( empty( $days ) && empty( $hours ) ) {
-                $minutes_word = $minutes > 1 ? 'minutes' : 'minute';
-                $community_activity[$key]['when_text'] = "$minutes $minutes_word ago";
-            } else if ( empty( $days ) ) {
-                $hours_word = $hours > 1 ? 'hours' : 'hour';
-                $community_activity[$key]['when_text'] = "$hours $hours_word ago";
-            } else if ( $days < 7 ) {
-                $days_word = $days > 1 ? 'days' : 'day';
-                $community_activity[$key]['when_text'] = "$days $days_word ago";
-            } else if ( $days < 30 ) {
-                $weeks = floor( $days / 7 );
-                $weeks_word = $weeks > 1 ? 'weeks' : 'week';
-                $community_activity[$key]['when_text'] = "$weeks $weeks_word ago";
-            } else if ( $days > 30 ) {
-                $months = floor( $days / 30 );
-                $months_word = $months > 1 ? 'months' : 'month';
-                $community_activity[$key]['when_text'] = "$months $months_word ago";
-            } else {
-                $community_activity[$key]['when_text'] = "";
-            }
+            $community_activity[$key] = pg_soft_time_format( $activity, 'timestamp', 'when_text', 'when_time_formatted' );
 
             $minutes_prayed = (int) $activity['minutes'];
-            $community_activity[$key]['when_time_formatted'] = gmdate( $time );
             $community_activity[$key]['time_prayed_text'] = ( $minutes_prayed === 1 ) ? "1 min" : "$minutes_prayed mins";
             $community_activity[$key]['is_mine'] = (int) $activity['is_mine'];
 
             if ( $activity['is_mine'] ) {
                 $community_stats['times_prayed']['me'] += 1;
-                $community_stats['time_prayed']['me'] += $activity['minutes'];
+                $community_stats['time_prayed']['me'] += $minutes_prayed;
             } else {
                 $community_stats['times_prayed']['community'] += 1;
-                $community_stats['time_prayed']['community'] += $activity['minutes'];
+                $community_stats['time_prayed']['community'] += $minutes_prayed;
             }
         }
 
@@ -200,6 +172,57 @@ class PG_Stacker {
         $stack["stats"] = $community_stats;
 
         return $stack;
+    }
+
+    public static function build_user_location_stats( $grid_id = null ) {
+         global $wpdb;
+
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return [];
+        }
+
+        $sql = "
+        SELECT r.value as minutes, r.timestamp as timestamp, p.post_title as group_name
+        FROM $wpdb->dt_reports r
+        JOIN $wpdb->posts p
+        ON r.post_id = p.ID
+        WHERE r.user_id = %d
+        AND r.type = 'prayer_app'
+        ";
+
+        $args = [$user_id];
+
+        if ( !is_null( $grid_id ) ) {
+            $sql .= "AND r.grid_id = %d";
+            $args[] = $grid_id;
+        }
+
+        $sql .= "ORDER BY r.timestamp DESC";
+
+        $user_activity = $wpdb->get_results( $wpdb->prepare( $sql, $args ), ARRAY_A );
+
+        $user_stats = [
+            "total_time" => 0,
+            "total_locations" => 0,
+            "logs" => [],
+        ];
+
+        foreach ($user_activity as $key => $activity) {
+            $user_activity[$key] = pg_soft_time_format( $activity, 'timestamp', 'when_text', 'when_text_formatted' );
+
+            $minutes_prayed = (int) $activity['minutes'];
+            $user_activity[$key]['time_prayed_text'] = ( $minutes_prayed === 1 ) ? "1 min" : "$minutes_prayed mins";
+            $user_activity[$key]['is_mine'] = 1;
+
+            $user_stats['total_locations'] += 1;
+            $user_stats['total_time'] += $minutes_prayed;
+        }
+
+        $user_stats['logs'] = $user_activity;
+
+        return $user_stats;
     }
 
     private static function _value_or_zero( $value ) {

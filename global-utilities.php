@@ -548,3 +548,48 @@ function pg_og_tags( $details = [] ) {
 
     <?php
 }
+
+/**
+ * Adds soft duration text into an array of objects with timestamps in. E.g. 2 days ago, 1 month ago
+ * Timestamps must be unix timestamps
+ *
+ * @param array $list_of_objects_with_time_in
+ * @param string $timestamp_key The key that the timestamp is stored under
+ * @param string $when_key The key to store the soft date text under
+ */
+function pg_soft_time_format( $object, $timestamp_key, $when_key, $timestamp_formatted_key ) {
+    $time = time() - (int) $object[$timestamp_key];
+
+    $days = floor( $time / 60 / 60 / 24 );
+    $hours = floor( ( $time / 60 / 60 ) - ( $days * 24 ) );
+    $minutes = floor( ( $time / 60 ) - ( $hours * 60 ) - ( $days * 24 * 60 ) );
+    $seconds = $time;
+
+    if ( empty( $days ) && empty( $hours ) && empty( $minutes ) ) {
+        $seconds_word = $seconds > 1 ? 'seconds' : 'second';
+        $object[$when_key] = "$seconds $seconds_word ago";
+    } else if ( empty( $days ) && empty( $hours ) ) {
+        $minutes_word = $minutes > 1 ? 'minutes' : 'minute';
+        $object[$when_key] = "$minutes $minutes_word ago";
+    } else if ( empty( $days ) ) {
+        $hours_word = $hours > 1 ? 'hours' : 'hour';
+        $object[$when_key] = "$hours $hours_word ago";
+    } else if ( $days < 7 ) {
+        $days_word = $days > 1 ? 'days' : 'day';
+        $object[$when_key] = "$days $days_word ago";
+    } else if ( $days < 30 ) {
+        $weeks = floor( $days / 7 );
+        $weeks_word = $weeks > 1 ? 'weeks' : 'week';
+        $object[$when_key] = "$weeks $weeks_word ago";
+    } else if ( $days > 30 ) {
+        $months = floor( $days / 30 );
+        $months_word = $months > 1 ? 'months' : 'month';
+        $object[$when_key] = "$months $months_word ago";
+    } else {
+        $object[$when_key] = "";
+    }
+
+    $object[$timestamp_formatted_key] = gmdate( $time );
+
+    return $object;
+}

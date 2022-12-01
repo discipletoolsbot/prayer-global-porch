@@ -1,5 +1,7 @@
 jQuery(document).ready(function(){
 
+    const userProfileDetails = jQuery('#user-details-content')
+
     if ( jsObject.is_logged_in ) {
         write_main( jsObject.user.data )
     } else {
@@ -124,7 +126,6 @@ jQuery(document).ready(function(){
         sendLapEmails = true,
         sendGeneralEmails = false,
     }) {
-        console.log('write profile')
         jQuery('#user-details-content').html(`
             <h2 class="header-border-bottom center">Profile</h2>
             <table class="table">
@@ -172,7 +173,40 @@ jQuery(document).ready(function(){
     }
 
     function write_prayers() {
-        console.log('write prayers');
+        userProfileDetails.html(`
+            <h2 class="header-border-bottom center">Prayers</h2>
+            <section class="user-stats flow">
+
+                <div class="center">
+
+                    ${Badge()}
+
+                </div>
+                <div class="d-flex justify-content-around">
+                    <div class="center">
+                        <h4>Locations</h4>
+                        <span class="three-em user-total-locations">0</span>
+                    </div>
+                    <div class="center">
+                        <h4>Minutes</h4>
+                        <span class="three-em user-total-minutes">0</span>
+                    </div>
+                </div>
+
+            </section>
+`
+        )
+        get_user_app( 'activity' )
+            .done((activity) => {
+                console.log(activity)
+                if (!activity || activity.length === 0) {
+                    return
+                }
+                const { total_locations, total_time, logs } = activity
+
+                jQuery('.user-total-locations').html(total_locations)
+                jQuery('.user-total-minutes').html(total_time)
+            })
         open_profile()
     }
 
