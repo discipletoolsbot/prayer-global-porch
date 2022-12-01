@@ -11,6 +11,7 @@ jQuery(document).ready(function($){
   const green = 'rgba(0,128,0, .9)'
   const defaultMapType = 'binary'
   const defaultDetailsType = 'location_details'
+  const NUMBER_OF_MAP_SLICES = 10;
 
   const detailsType = jsObject.hasOwnProperty('details_type') ? jsObject.details_type : defaultDetailsType
   const mapType = jsObject.hasOwnProperty('map_type') ? jsObject.map_type : defaultMapType
@@ -70,8 +71,65 @@ jQuery(document).ready(function($){
       }
       #map-sidebar-wrapper {
           height: ${window.innerHeight}px !important;
+      }`)
+
+  const pray_for_area_modal = document.getElementById('pray-for-area-modal')
+  const pray_for_area_content = pray_for_area_modal && pray_for_area_modal.querySelector('.modal-content')
+  const pray_for_area_button = jQuery('#pray-for-area-button')
+
+  pray_for_area_button && pray_for_area_button.on('click', () => {
+    if ( !window.selected_grid_id ) {
+      return
+    }
+
+    const url = new URL( window.location.href )
+    const urlWithAction = url.pathname;
+    const urlWithoutAction = urlWithAction.split('/').slice(0, -1).join('/')
+
+    pray_for_area_content.innerHTML = `<iframe src="${urlWithoutAction}/location?grid_id=${window.selected_grid_id}" frameborder="0" id="pray-for-area-iframe"></iframe>`
+
+    /* fit the iframe to the screen height */
+    const pray_for_area_iframe = document.getElementById('pray-for-area-iframe')
+    const verticalMargin = getComputedStyle(pray_for_area_modal).getPropertyValue('--bs-modal-margin');
+    const screenHeight = window.innerHeight;
+    pray_for_area_iframe.style.height = `calc( ${screenHeight}px - 2 * ${verticalMargin} - 2px )`
+
+    /* Attach eventListeners to prayer buttons */
+    pray_for_area_iframe.addEventListener('load', () => {
+      if ( pray_for_area_iframe.getAttribute('src') === '' ) {
+        return
       }
-`)
+
+      const iframeDocument = pray_for_area_iframe.contentDocument
+      const question_done_button = iframeDocument.getElementById('question__yes_done')
+      const decision_map_button = iframeDocument.getElementById('decision__map')
+      const decision_home_button = iframeDocument.getElementById('decision__home')
+
+      decision_map_button.addEventListener('click', () => {
+        close_iframe_modal()
+      })
+      decision_home_button.addEventListener('click', () => {
+        close_iframe_modal();
+        location.href = '/'
+      })
+      question_done_button.addEventListener('click', () => {
+        close_iframe_modal();
+        celebrate_prayed_for_place(window.selected_grid_id)
+      })
+    })
+
+    function close_iframe_modal() {
+      pray_for_area_iframe.setAttribute('src', '');
+      jQuery(pray_for_area_modal).modal('hide');
+    }
+
+    jQuery(pray_for_area_modal).modal('show')
+    hide_location_details()
+  })
+
+  pray_for_area_modal && pray_for_area_modal.addEventListener('hidden.bs.modal', (event) => {
+    pray_for_area_content.innerHTML = ''
+  })
 
   let initialize_screen = jQuery('.initialize-progress')
   let grid_details_content = jQuery('#grid-details-content')
@@ -79,7 +137,7 @@ jQuery(document).ready(function($){
   // preload all geojson
   let asset_list = []
   var i = 1;
-  while( i <= 10 ){
+  while( i <= NUMBER_OF_MAP_SLICES ){
     asset_list.push(i+'.geojson')
     i++
   }
@@ -195,6 +253,7 @@ jQuery(document).ready(function($){
         [60, 90]
       ]);
     }
+    window.map = map
 
     load_grid()
   }
@@ -289,10 +348,12 @@ jQuery(document).ready(function($){
 
             map.on('click', i.toString() + 'fills_heat', function (e) {
 
+              const grid_id = e.features[0].id
+              window.selected_grid_id = grid_id
               if (detailsType === 'community_stats') {
-                load_grid_community_stats( e.features[0].id )
+                load_grid_community_stats( grid_id )
               } else if (detailsType === 'location_details') {
-                load_grid_details( e.features[0].id )
+                load_grid_details( grid_id )
               }
             })
             map.on('mouseenter', i.toString() + 'fills_heat', () => {
@@ -469,7 +530,7 @@ jQuery(document).ready(function($){
     let div = jQuery('#grid_details_content')
     div.empty().html(`<div className="col-12"><span class="loading-spinner active"></span></div>`)
 
-    jQuery('#offcanvas_location_details').offcanvas('show')
+    show_location_details();
 
     window.get_data_page( 'get_grid_details', {grid_id: grid_id} )
       .done(function(response){
@@ -704,5 +765,81 @@ jQuery(document).ready(function($){
 
   function numberWithCommas(x) {
     return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }
+
+  function show_location_details() {
+   jQuery('#offcanvas_location_details').offcanvas('show');
+  }
+  function hide_location_details() {
+   jQuery('#offcanvas_location_details').offcanvas('hide');
+  }
+  function celebrate_prayed_for_place(grid_id) {
+    update_map(grid_id)
+    update_stats()
+    window.celebrationFireworks()
+  }
+
+  function update_map(grid_id){
+    window.get_page('get_grid')
+      .done(function(x){
+        console.log('reload')
+        // add stats
+        jsObject.grid_data = x.grid_data
+        reload_load_grid(grid_id)
+      })
+  }
+
+  function update_stats() {
+    window.get_page('get_stats')
+      .done(function(stats) {
+        jsObject.stats = stats
+        jQuery('.completed').html( jsObject.stats.completed )
+        jQuery('.completed_percent').html( jsObject.stats.completed_percent )
+        jQuery('.remaining').html( jsObject.stats.remaining )
+        jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
+        jQuery('.prayer_warriors').html( jsObject.stats.participants )
+        jQuery('.lap_pace').html( jsObject.stats.lap_pace_small )
+      })
+  }
+
+  function reload_load_grid(grid_id) {
+
+    for (let i = 0; i < NUMBER_OF_MAP_SLICES; i++) {
+      window.map.setPaintProperty(i.toString() + 'fills_heat', 'fill-color-transition', {
+        duration: 2000,
+        delay: 0,
+      }, {
+        validate: true
+      })
+    }
+
+    jQuery.each(asset_list, function(i,file){
+
+      jQuery.ajax({
+        url: jsObject.mirror_url + 'tiles/world/flat_states/' + file,
+        dataType: 'json',
+        data: null,
+        cache: true,
+        beforeSend: function (xhr) {
+          if (xhr.overrideMimeType) {
+            xhr.overrideMimeType("application/json");
+          }
+        }
+      })
+        .done(function (geojson) {
+          /* load prayer grid layer */
+          jQuery.each(geojson.features, function (i, v) {
+            if (typeof jsObject.grid_data.data[v.id] !== 'undefined') {
+              geojson.features[i].properties.value = jsObject.grid_data.data[v.id]
+            } else {
+              geojson.features[i].properties.value = 0
+            }
+          })
+
+          window.map.getSource(i.toString()).setData(geojson);
+        }) /* ajax call */
+
+    }) /* for each loop */
+
   }
 })
