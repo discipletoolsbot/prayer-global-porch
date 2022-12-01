@@ -741,6 +741,7 @@ button {
     --pg-badge-outer-border-size: 7px;
     --pg-badge-inner-border-size: 5px;
     --pg-badge-icon-size: 50px;
+    --pg-badge-sheen-width: 40px;
 
     margin: auto;
     position: relative;
@@ -800,7 +801,7 @@ button {
   content: "";
   position: absolute;
   height: 200px;
-  width: 40px;
+  width: var(--pg-badge-sheen-width);
   margin: 20px -65px;
   box-shadow: 50px -23px 0 -10px rgba(255, 255, 255, 0.22), 85px -10px 0 -16px rgba(255, 255, 255, 0.19);
   transform: rotate(-50deg);
@@ -831,7 +832,7 @@ button {
   height: 4px;
   background: var(--pg-badge-dark-border);
   border-top: 2px solid var(--pg-badge-darker-border);
-  margin: calc( var(--pg-badge-size) / 2 ) 7px;
+  margin: calc( var(--pg-badge-size) / 2 - 10px ) 7px;
   position: relative;
 }
 .user__badge .front .shapes div:before, .user__badge .back .shapes div:before {

@@ -173,6 +173,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 return false;
             case 'activity':
                 return $this->get_user_activity();
+            case 'stats':
+                return $this->get_user_stats();
             default:
                 return $params;
         }
@@ -225,6 +227,21 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public function get_user_activity() {
         $activity = PG_Stacker::build_user_location_stats();
         return $activity;
+    }
+
+    public function get_user_stats() {
+        global $wpdb;
+
+        $user_id = get_current_user_id();
+
+        $user_stats = $wpdb->get_row( $wpdb->prepare( "
+            SELECT COUNT(r.id) as total_locations, SUM(r.value) as total_minutes
+            FROM $wpdb->dt_reports r
+            WHERE r.user_id = %d
+            AND r.type = 'prayer_app'
+            ORDER BY r.timestamp DESC
+            ", $user_id ), ARRAY_A );
+        return $user_stats;
     }
 
 }

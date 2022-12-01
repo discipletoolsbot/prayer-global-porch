@@ -77,7 +77,7 @@ jQuery(document).ready(function(){
             <div class="flow">
                 <section class="user__summary flow-small mt-5">
 
-                    ${Badge()}
+                    <div class="user__avatar"></div>
 
                     <div class="user__info">
                         <h2 class="user__full-name">${data.display_name}</h2>
@@ -107,6 +107,14 @@ jQuery(document).ready(function(){
             <span id="pg_user_id">${data.ID}</span>
 `
         );
+
+        get_user_app('stats')
+            .done((stats) => {
+                if (!stats || stats.length === 0) {
+                    return
+                }
+                jQuery('.user__avatar').html(LocationBadge(stats.total_locations || 0))
+            })
 
         jQuery('.user-profile-link').on('click', () => write_profile({
             name: data.display_name,
@@ -179,7 +187,7 @@ jQuery(document).ready(function(){
 
                 <div class="center">
 
-                    ${Badge()}
+                    <div class="user__avatar"></div>
 
                 </div>
                 <div class="d-flex justify-content-around">
@@ -211,6 +219,7 @@ jQuery(document).ready(function(){
 
                 jQuery('.user-total-locations').html(total_locations)
                 jQuery('.user-total-minutes').html(total_time)
+                jQuery('.user__avatar').html(LocationBadge(total_locations))
                 jQuery('.user-activity').html(PG.ActivityList(logs, handlePrimaryContent, handleSecondaryContent))
             })
         open_profile()
@@ -225,19 +234,129 @@ jQuery(document).ready(function(){
         jQuery('#user-profile-details').offcanvas('show')
     }
 
-    function Badge() {
+    function LocationBadge(totalLocations) {
+
+        const colorSchemes = {
+            disabled: {
+                'primary-color': '#aaa',
+                'primary-shadow': '#555',
+                'secondary-color': '#888',
+                'light-border': '#666',
+                'dark-border': '#666',
+                'darker-border': '#494949',
+                'sheen-width': 0,
+            },
+            bronze: {
+                'primary-color': '#f1a14f',
+                'primary-shadow': '#87340c',
+                'secondary-color': '#e57d2a',
+                'light-border': '#c36527',
+                'dark-border': '#a44028',
+                'darker-border': '#8c350b',
+            },
+            silver: {
+                'primary-color': '#d2d2d0',
+                'primary-shadow': '#7e7e7e',
+                'secondary-color': '#bfbebc',
+                'light-border': '#f5f4f1',
+                'dark-border': '#adadad',
+                'darker-border': '#62615d',
+            },
+            gold: {
+                'primary-color': '#ffbd0b',
+                'primary-shadow': '#cb7407',
+                'secondary-color': '#f0a608',
+                'light-border': '#ffd84c',
+                'dark-border': '#d57e08',
+                'darker-border': '#c47207',
+            },
+            platinum: {
+                'primary-color': '#96d4f5',
+                'primary-shadow': '#0762a4',
+                'secondary-color': '#6fbde6',
+                'light-border': '#caeeff',
+                'dark-border': '#0d8adb',
+                'darker-border': '#022a66',
+            },
+        }
+
+        let styles = {}
+        let text = ''
+
+        if (totalLocations >= 5000) {
+            styles = colorSchemes['platinum']
+            text = '5000'
+        } else if (totalLocations >= 2000 ) {
+            styles = colorSchemes['gold']
+            text = '2000'
+        } else if (totalLocations >= 1000 ) {
+            styles = colorSchemes['gold']
+            text = '1000'
+        } else if (totalLocations >= 500 ) {
+            styles = colorSchemes['silver']
+            text = '500'
+        } else if (totalLocations >= 100 ) {
+            styles = colorSchemes['silver']
+            text = '100'
+        } else if (totalLocations >= 50 ) {
+            styles = colorSchemes['bronze']
+            text = '50'
+        } else if (totalLocations >= 10 ) {
+            styles = colorSchemes['bronze']
+            text = '10'
+        } else if (totalLocations >= 5 ) {
+            styles = colorSchemes['bronze']
+            text = '5'
+        } else if (totalLocations >= 1 ) {
+            styles = colorSchemes['bronze']
+            text = '1'
+        } else {
+            styles = colorSchemes['disabled']
+            text = '0'
+        }
+
+        return Badge({ text, icon: 'location', styles })
+    }
+
+    /**
+     * The .user__badge class has several CSS variables on it for customising the color and size of the badge
+     *
+     *     --pg-badge-primary-color: #ffbd0b; The outer background color and icon color
+     *     --pg-badge-primary-shadow: #cb7407; The shadow color of the icon
+     *     --pg-badge-secondary-color: #f0a608; The inner background color
+     *     --pg-badge-light-border: #ffd84c; The lighter half of the borders
+     *     --pg-badge-dark-border: #d57e08; The darker half of the borders
+     *     --pg-badge-darker-border: #c47207; The inner shadow of the side lines
+     *     --pg-badge-rotation: 44deg;
+     *     --pg-badge-size: 150px;
+     *     --pg-badge-inner-size: 70px;
+     *     --pg-badge-outer-border-size: 7px;
+     *     --pg-badge-inner-border-size: 5px;
+     *     --pg-badge-icon-size: 50px;
+     *     --pg-badge-sheen-width: 40px;
+     *
+     * Pass parameters with these names in styles (excluding the --) to change the properties e.g. 'primary-color': #F00
+     *
+     * @param string text The text to put at the bottom of the badge
+     * @param string icon The ion icon class name e.g. location/sparkles etc.
+     * @param object styles The styles to customise the badge
+     */
+    function Badge({ text, icon, styles }) {
+
+        const style = Object.entries(styles)
+            .map(([key, value]) => `--pg-badge-${key}: ${value}`)
+            .join('; ')
+
         return `
-            <div class="user__avatar">
-                <div class='user__badge'>
-                    <div class='front jump'>
-                        <span class='badge__icon'>
-                            <i class="icon ion-location"></i>
-                        </span>
-                        <div class='shapes'>
-                            <div class='shape_l'></div>
-                            <div class='shape_r'></div>
-                            <span class='bottom'>1000</span>
-                        </div>
+            <div class='user__badge' style="${style}">
+                <div class='front jump'>
+                    <span class='badge__icon'>
+                        <i class="icon ion-${icon}"></i>
+                    </span>
+                    <div class='shapes'>
+                        <div class='shape_l'></div>
+                        <div class='shape_r'></div>
+                        <span class='bottom'>${text}</span>
                     </div>
                 </div>
             </div>
