@@ -193,6 +193,8 @@ jQuery(document).ready(function(){
                     </div>
                 </div>
 
+                <section class="user-activity"></section>
+
             </section>
 `
         )
@@ -206,6 +208,7 @@ jQuery(document).ready(function(){
 
                 jQuery('.user-total-locations').html(total_locations)
                 jQuery('.user-total-minutes').html(total_time)
+                jQuery('.user-activity').html(PG.ActivityList(logs))
             })
         open_profile()
     }
