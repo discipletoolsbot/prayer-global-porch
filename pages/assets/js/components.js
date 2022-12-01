@@ -1,6 +1,7 @@
-function PGActivityList(logs) {
+function PGActivityList(logs, handlePrimaryContent, handleSecondaryContent) {
   let logsHtml = "";
-  logs.forEach(({ when_text, time_prayed_text, group_name, is_mine }) => {
+  logs.forEach((log) => {
+    const { is_mine, when_text } = log
     let badgeColor = is_mine ? "orange-dark-bg" : "blue-dark-bg";
     if (when_text.includes("week")) {
       badgeColor = is_mine ? "orange-bg" : "blue-bg";
@@ -14,8 +15,8 @@ function PGActivityList(logs) {
             <div class="badge__inner ${badgeColor}"></div>
           </div>
           <div class="activity-log__body">
-            <div class="font-weight-bold">${time_prayed_text}</div>
-            <div>${is_mine ? "Me in " + group_name : group_name}</div>
+            <div class="font-weight-bold">${handlePrimaryContent ? handlePrimaryContent(log) : ''}</div>
+            <div>${handleSecondaryContent ? handleSecondaryContent(log) : ''}</div>
             <div class="light-grey">${when_text}</div>
           </div>
         </div>`;

@@ -206,9 +206,12 @@ jQuery(document).ready(function(){
                 }
                 const { total_locations, total_time, logs } = activity
 
+                const handlePrimaryContent = ({ location_name, time_prayed_text }) => `${time_prayed_text} for ${location_name || 'Location name goes here'}`
+                const handleSecondaryContent = ({ time_prayed_text, group_name }) => `in ${group_name}`
+
                 jQuery('.user-total-locations').html(total_locations)
                 jQuery('.user-total-minutes').html(total_time)
-                jQuery('.user-activity').html(PG.ActivityList(logs))
+                jQuery('.user-activity').html(PG.ActivityList(logs, handlePrimaryContent, handleSecondaryContent))
             })
         open_profile()
     }

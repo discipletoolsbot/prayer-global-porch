@@ -617,7 +617,9 @@ jQuery(document).ready(function($){
                   color: 'blue',
                 }])}</span>` : ''
 
-        console.log(response)
+        const handlePrimaryContent = ({ time_prayed_text }) => `${time_prayed_text}`
+        const handleSecondaryContent = ({ is_mine, group_name }) => `${is_mine ? "Me in " + group_name : group_name}`
+
         div.html(
           `
           <div class="row">
@@ -639,7 +641,7 @@ jQuery(document).ready(function($){
               <div class="col-12">
                 <p><span class="two-em">Activity</span></p>
 
-                ${PG.ActivityList(communityStats.logs)}
+                ${PG.ActivityList(communityStats.logs, handlePrimaryContent, handleSecondaryContent)}
 
                 <hr />
               </div>
