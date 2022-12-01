@@ -227,8 +227,19 @@ jQuery(document).ready(function(){
 
     function Badge() {
         return `
-            <div class="user__badge">
-                <img class="rounded-circle" src="https://picsum.photos/150" alt="random lorem picsum image" />
+            <div class="user__avatar">
+                <div class='user__badge'>
+                    <div class='front jump'>
+                        <span class='badge__icon'>
+                            <i class="icon ion-location"></i>
+                        </span>
+                        <div class='shapes'>
+                            <div class='shape_l'></div>
+                            <div class='shape_r'></div>
+                            <span class='bottom'>1000</span>
+                        </div>
+                    </div>
+                </div>
             </div>
 `
     }

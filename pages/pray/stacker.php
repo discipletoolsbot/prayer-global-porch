@@ -186,14 +186,14 @@ class PG_Stacker {
         $sql = "
         SELECT r.value as minutes, r.timestamp as timestamp, p.post_title as group_name, l0.name as country_name, l.name as grid_name
         FROM $wpdb->dt_reports r
-        JOIN $wpdb->posts p
-        ON r.post_id = p.ID
-        JOIN $wpdb->dt_location_grid l
-        ON l.grid_id = r.grid_id
-        JOIN $wpdb->dt_location_grid l0
-        ON l0.grid_id = l.admin0_grid_id
-        WHERE r.user_id = %d
-        AND r.type = 'prayer_app'
+            JOIN $wpdb->posts p
+                ON r.post_id = p.ID
+            JOIN $wpdb->dt_location_grid l
+                ON l.grid_id = r.grid_id
+            JOIN $wpdb->dt_location_grid l0
+                ON l0.grid_id = l.admin0_grid_id
+            WHERE r.user_id = %d
+                AND r.type = 'prayer_app'
         ";
 
         $args = [$user_id];
