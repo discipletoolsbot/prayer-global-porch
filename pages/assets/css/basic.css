@@ -577,16 +577,16 @@ button {
     }
 }
 
+#nav-links {
+    --nav-link-primary-color: white;
+    --nav-link-secondary-color: black;
+    border-bottom: 1px solid var(--nav-link-secondary-color);
+}
 .nav-link {
     --bs-nav-link-font-size: 16px;
     --bs-nav-link-padding-y: 1.5em;
-    --nav-link-primary-color: white;
-    --nav-link-secondary-color: black;
     border-top: 1px solid var(--nav-link-secondary-color);
     padding-left: 2em;
-}
-.nav-link:last-child {
-    border-bottom: 1px solid var(--nav-link-secondary-color);
 }
 .nav-link:hover, .nav-link:focus {
     background: var(--nav-link-secondary-color);
@@ -621,7 +621,6 @@ button {
 }
 .nav-buttons {
     height: 30px;
-    border-top: 1px solid;
     padding-top: 1.5em;
     padding-bottom: 1.5em;
     padding-left: 2em;

@@ -36,15 +36,20 @@ jQuery(document).ready(function(){
                 console.log(data)
                 jQuery('.loading-spinner').removeClass('active')
                 if ( data ) {
+                    show_user_nav()
                     write_main(data)
                 }
             })
     }
 
     function show_user_nav() {
-        const userNav = document.getElementById('user-nav')
-        if (!userNav) return
-        userNav.style.display = 'block'
+        const loginRegisterLink = jQuery('#login-register-link')
+        const userProfileLink = jQuery('#user-profile-link')
+        const logoutLink = jQuery('#logout-link')
+
+        loginRegisterLink.hide()
+        userProfileLink.show()
+        logoutLink.show()
     }
 
     function write_login () {
