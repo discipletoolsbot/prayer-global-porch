@@ -114,6 +114,7 @@ jQuery(document).ready(function(){
                     return
                 }
                 jQuery('.user__avatar').html(LocationBadge(stats.total_locations || 0))
+                jQuery('.user__avatar').html(LocationBadge(0))
             })
 
         jQuery('.user-profile-link').on('click', () => write_profile({
@@ -315,7 +316,9 @@ jQuery(document).ready(function(){
             text = '0'
         }
 
-        return Badge({ text, icon: 'location', styles })
+        const disabled = totalLocations === 0
+
+        return Badge({ text, icon: 'location', styles, disabled })
     }
 
     /**
@@ -341,14 +344,14 @@ jQuery(document).ready(function(){
      * @param string icon The ion icon class name e.g. location/sparkles etc.
      * @param object styles The styles to customise the badge
      */
-    function Badge({ text, icon, styles }) {
+    function Badge({ text, icon, styles, disabled }) {
 
         const style = Object.entries(styles)
             .map(([key, value]) => `--pg-badge-${key}: ${value}`)
             .join('; ')
 
         return `
-            <div class='user__badge' style="${style}">
+            <div class='user__badge' style="${style}" ${disabled ? 'disabled' : ''}>
                 <div class='front jump'>
                     <span class='badge__icon'>
                         <i class="icon ion-${icon}"></i>

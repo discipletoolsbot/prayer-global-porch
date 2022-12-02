@@ -749,6 +749,10 @@ button {
     width: var(--pg-badge-size);
 }
 
+.user__badge[disabled] {
+    opacity: 0.3;
+}
+
 .user__badge .front, .user__badge .back {
   position: absolute;
   height: var(--pg-badge-size);
