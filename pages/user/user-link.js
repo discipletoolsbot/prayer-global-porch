@@ -113,8 +113,17 @@ jQuery(document).ready(function(){
                 if (!stats || stats.length === 0) {
                     return
                 }
+                jsObject.user.stats = stats
                 jQuery('.user__avatar').html(LocationBadge(stats.total_locations || 0))
                 jQuery('.user__avatar').html(LocationBadge(0))
+            })
+
+        get_user_app('activity')
+            .done((activity) => {
+                if (!activity || activity.length === 0) {
+                    return
+                }
+                jsObject.user.activity = activity
             })
 
         jQuery('.user-profile-link').on('click', () => write_profile({
@@ -207,22 +216,19 @@ jQuery(document).ready(function(){
             </section>
 `
         )
-        get_user_app( 'activity' )
-            .done((activity) => {
-                console.log(activity)
-                if (!activity || activity.length === 0) {
-                    return
-                }
-                const { total_locations, total_time, logs } = activity
 
-                const handlePrimaryContent = ({ location_name, time_prayed_text }) => `${time_prayed_text} for ${location_name || 'Location name goes here'}`
-                const handleSecondaryContent = ({ time_prayed_text, group_name }) => `in ${group_name}`
+        if (jsObject.user.activity) {
+            const { total_locations, total_time, logs } = jsObject.user.activity
 
-                jQuery('.user-total-locations').html(total_locations)
-                jQuery('.user-total-minutes').html(total_time)
-                jQuery('.user__avatar').html(LocationBadge(total_locations))
-                jQuery('.user-activity').html(PG.ActivityList(logs, handlePrimaryContent, handleSecondaryContent))
-            })
+            const handlePrimaryContent = ({ location_name, time_prayed_text }) => `${time_prayed_text} for ${location_name || 'Location name goes here'}`
+            const handleSecondaryContent = ({ time_prayed_text, group_name }) => `in ${group_name}`
+
+            jQuery('.user-total-locations').html(total_locations)
+            jQuery('.user-total-minutes').html(total_time)
+            jQuery('.user__avatar').html(LocationBadge(total_locations))
+            jQuery('.user-activity').html(PG.ActivityList(logs, handlePrimaryContent, handleSecondaryContent))
+
+        }
         open_profile()
     }
 
