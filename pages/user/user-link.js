@@ -32,7 +32,8 @@ jQuery(document).ready(function(){
         jQuery('.loading-spinner').addClass('active')
 
         get_user_app('login', { email: email, pass: pass } )
-            .done(function(data){
+            .done(function(user){
+                const data = user.data
                 console.log(data)
                 jQuery('.loading-spinner').removeClass('active')
                 if ( data ) {
