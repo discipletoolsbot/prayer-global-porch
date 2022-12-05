@@ -593,3 +593,28 @@ function pg_soft_time_format( $object, $timestamp_key, $when_key, $timestamp_for
 
     return $object;
 }
+
+/**
+ * Get the user data merged with meta data
+ * @param int $user_id
+ * @param array $allowed_meta
+ * @return mixed
+ */
+function pg_get_user( int $user_id, array $allowed_meta ) {
+    $userdata = get_userdata( $user_id );
+
+    if ( $userdata instanceof stdClass ) {
+        $userdata = get_object_vars( $userdata );
+    } elseif ( $userdata instanceof WP_User ) {
+        $userdata = $userdata->to_array();
+    } else {
+        $userdata = [];
+    }
+
+    foreach ( $allowed_meta as $meta_key ) {
+        $meta_value = get_user_meta( $user_id, $meta_key, true );
+        $userdata[$meta_key] = $meta_value;
+    }
+
+    return $userdata;
+}

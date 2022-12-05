@@ -10,6 +10,10 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public $root = 'user_app';
     public $type = 'profile';
     public $post_type = 'user';
+    public $allowed_user_meta = [
+        'location',
+        'is_ip_location',
+    ];
 
     private static $_instance = null;
     public static function instance() {
@@ -73,6 +77,10 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
     public function header_javascript(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
+
+        $user_id = get_current_user_id();
+        $userdata = pg_get_user( $user_id, $this->allowed_user_meta );
+
         ?>
         <script>
             let jsObject = [<?php echo json_encode([
@@ -80,7 +88,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 'root' => esc_url_raw( rest_url() ),
                 'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
-                'user' => wp_get_current_user(),
+                'user' => $userdata,
                 'translations' => [
                     'add' => __( 'Add Magic', 'disciple-tools-porch-template' ),
                 ],
@@ -166,11 +174,15 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                         // password match
                         $logged_in = $this->programmatic_login( $user->data->user_login );
                         if ( $logged_in ) {
-                            return $user;
+                            $userdata = pg_get_user( $user->ID, $this->allowed_user_meta );
+
+                            return $userdata;
                         }
                     }
                 }
                 return false;
+            case 'update_user':
+                return $this->update_user( $params['data'] );
             case 'activity':
                 return $this->get_user_activity();
             case 'stats':
@@ -224,6 +236,28 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
      */
     public function allow_programmatic_login( $user, $username, $password ) {
         return get_user_by( 'login', $username );
+    }
+
+    /**
+     * Update the user's data
+     *
+     * @param array $data
+     * @return void|WP_Error
+     */
+    public function update_user( $data ) {
+        $user_id = get_current_user_id();
+
+        foreach ($data as $meta_key => $meta_value) {
+            if ( !in_array( $meta_key, $this->allowed_user_meta, true ) ) {
+                continue;
+            }
+
+            $response = update_user_meta( $user_id, $meta_key, $meta_value );
+
+            if ( is_wp_error( $response ) ) {
+                return $response;
+            }
+        }
     }
 
     public function get_user_activity() {

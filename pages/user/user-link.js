@@ -3,7 +3,7 @@ jQuery(document).ready(function(){
     const userProfileDetails = jQuery('#user-details-content')
 
     if ( jsObject.is_logged_in ) {
-        write_main( jsObject.user.data )
+        write_main( jsObject.user )
     } else {
         write_login()
     }
@@ -32,8 +32,7 @@ jQuery(document).ready(function(){
         jQuery('.loading-spinner').addClass('active')
 
         get_user_app('login', { email: email, pass: pass } )
-            .done(function(user){
-                const data = user.data
+            .done(function(data){
                 jQuery('.loading-spinner').removeClass('active')
                 if ( data ) {
                     show_user_nav()
@@ -120,7 +119,6 @@ jQuery(document).ready(function(){
                 }
                 jsObject.user.stats = stats
                 jQuery('.user__avatar').html(LocationBadge(stats.total_locations || 0))
-                jQuery('.user__avatar').html(LocationBadge(0))
             })
 
         get_user_app('activity')
@@ -131,7 +129,7 @@ jQuery(document).ready(function(){
                 jsObject.user.activity = activity
             })
 
-        if ( !data.user_location || data.user_location === '' ) {
+        if ( !data.location || data.location === '' ) {
             const error = () => {
                 jQuery('.user__location').html('Please select your location')
             }
@@ -148,8 +146,14 @@ jQuery(document).ready(function(){
                             }
 
                             jsObject.user.data.location = location
+                            jsObject.user.data.is_ip_location = 1
 
                             jQuery('.user__location').html(location)
+
+                            return get_user_app('update_user', {
+                                location,
+                                is_ip_location: true,
+                            })
                         })
                 }
 
