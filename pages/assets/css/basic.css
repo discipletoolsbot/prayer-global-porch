@@ -552,8 +552,9 @@ button {
 .navbar-toggler {
     --bs-navbar-toggler-font-size: 30px;
 }
-.navbar-toggler, .navbar-toggler:active, .navbar-toggler:focus {
+.navbar-toggler, .navbar-toggler:active, .navbar-toggler:focus:not(:focus-visible) {
     border: none;
+    box-shadow: none;
 }
 .pg-navmenu {
     --bs-bg-opacity: 1;
