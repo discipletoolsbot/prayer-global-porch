@@ -143,6 +143,7 @@ jQuery(document).ready(function(){
                     get_user_app('geolocation', { lat: latitude, lng: longitude })
                         .done((location) => {
                             if (!location || location === "") {
+                                error()
                                 return
                             }
 

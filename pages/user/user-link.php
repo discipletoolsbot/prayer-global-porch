@@ -255,6 +255,10 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
         $grid_row = $geocoder->get_grid_id_by_lnglat( $data['lng'], $data['lat'] );
 
+        if ( !$grid_row ) {
+            return '';
+        }
+
         $label = $geocoder->_format_full_name( $grid_row );
 
         return $label;
