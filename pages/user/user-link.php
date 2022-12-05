@@ -175,6 +175,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 return $this->get_user_activity();
             case 'stats':
                 return $this->get_user_stats();
+            case 'geolocation':
+                return $this->geolocate_by_latlng( $params['data'] );
             default:
                 return $params;
         }
@@ -242,6 +244,20 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
             ORDER BY r.timestamp DESC
             ", $user_id ), ARRAY_A );
         return $user_stats;
+    }
+
+    public function geolocate_by_latlng( $data ) {
+        if ( !isset( $data['lat'], $data['lng'] ) ) {
+            return new WP_Error( __METHOD__, 'Latitude or longitude missing', [ 'status' => 400 ] );
+        }
+
+        $geocoder = new Location_Grid_Geocoder();
+
+        $grid_row = $geocoder->get_grid_id_by_lnglat( $data['lng'], $data['lat'] );
+
+        $label = $geocoder->_format_full_name( $grid_row );
+
+        return $label;
     }
 
 }

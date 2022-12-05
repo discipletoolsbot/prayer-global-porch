@@ -87,7 +87,7 @@ jQuery(document).ready(function(){
                     <div class="user__info">
                         <h2 class="user__full-name">${data.display_name}</h2>
                         <p class="user__location small">
-                            ${data.location || 'Please set your location'}
+                            ${data.location || LoadingSpinner()}
                         </p>
                     </div>
                 </section>
@@ -130,6 +130,34 @@ jQuery(document).ready(function(){
                 }
                 jsObject.user.activity = activity
             })
+
+        if ( !data.user_location || data.user_location === '' ) {
+            const error = () => {
+                jQuery('.user__location').html('Please select your location')
+            }
+
+            if (navigator.geolocation) {
+                const success = (location) => {
+                    const latitude = location.coords.latitude
+                    const longitude = location.coords.longitude
+                    get_user_app('geolocation', { lat: latitude, lng: longitude })
+                        .done((location) => {
+                            if (!location || location === "") {
+                                return
+                            }
+
+                            jsObject.user.data.location = location
+
+                            jQuery('.user__location').html(location)
+                        })
+                }
+
+                navigator.geolocation.getCurrentPosition(success, error)
+            } else {
+                error()
+            }
+        }
+
 
         jQuery('.user-profile-link').on('click', () => write_profile({
             name: data.display_name,
@@ -375,5 +403,11 @@ jQuery(document).ready(function(){
                 </div>
             </div>
 `
+    }
+
+    function LoadingSpinner(active = true) {
+        const activeAttr = active ? 'active' : ''
+
+        return `<span class="loading-spinner ${activeAttr}"></span>`
     }
 })
