@@ -36,7 +36,9 @@ function pg_custom_lap_nav( $key ) {
                     <a href="<?php echo esc_url( wp_logout_url( '/' ) )?>" class="nav-link" id="logout-link" style="<?php echo esc_attr( $hide_if_logged_out ) ?>">Logout</a>
                 </div>
                 <div class="nav-buttons">
-                    <img class="icon-button share-button" data-toggle="modal" data-target="#exampleModal" data-white src="<?php echo esc_html( plugin_dir_url( __DIR__ ) ) ?>assets/images/share.svg" alt="Share">
+                    <button class="icon-button share-button" data-toggle="modal" data-target="#exampleModal">
+                        <img src="<?php echo esc_html( plugin_dir_url( __DIR__ ) ) ?>assets/images/share.svg" alt="Share">
+                    </button>
                 </div>
             </div>
         </div>
