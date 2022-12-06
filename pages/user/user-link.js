@@ -294,9 +294,8 @@ jQuery(document).ready(function(){
 
                             jQuery('.user-activity__list').append(PG.ActivityList(newActivity.logs, handlePrimaryContent, handleSecondaryContent))
 
-                            const newLogsLeft = 5 - (newActivity.offset + limit)
+                            const newLogsLeft = total_locations - (newActivity.offset + limit)
 
-                            console.log(newLogsLeft)
                             if (newLogsLeft > 0) {
                                 loadMoreButton.one('click', getMoreActivity)
                             } else {
