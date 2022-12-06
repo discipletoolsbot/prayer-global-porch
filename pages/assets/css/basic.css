@@ -734,6 +734,7 @@ button {
     --pg-badge-light-border: #ffd84c;
     --pg-badge-dark-border: #d57e08;
     --pg-badge-darker-border: #c47207;
+    --pg-badge-icon-color: var(--pg-badge-primary-color);
     --pg-badge-rotation: 44deg;
     --pg-badge-size: 150px;
     --pg-badge-inner-size: 70px;
@@ -785,7 +786,7 @@ button {
 .user__badge .front .badge__icon, .user__badge .front .badge__icon {
   overflow: hidden;
   position: absolute;
-  color: var(--pg-badge-primary-color);
+  color: var(--pg-badge-icon-color);
   font-size: var(--pg-badge-icon-size);
   transform: rotate(calc( -1 * var(--pg-badge-rotation) ));
   text-align: center;

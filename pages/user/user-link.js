@@ -119,6 +119,7 @@ jQuery(document).ready(function(){
                 }
                 jsObject.user.stats = stats
                 jQuery('.user__avatar').html(LocationBadge(stats.total_locations || 0))
+                jQuery('.user__avatar').html(LocationBadge(0))
             })
 
         get_user_app('activity')
@@ -267,6 +268,7 @@ jQuery(document).ready(function(){
             jQuery('.user-total-locations').html(total_locations)
             jQuery('.user-total-minutes').html(total_time)
             jQuery('.user__avatar').html(LocationBadge(total_locations))
+            jQuery('.user__avatar').html(LocationBadge(0))
             jQuery('.user-activity').html(PG.ActivityList(logs, handlePrimaryContent, handleSecondaryContent))
 
         }
@@ -286,12 +288,15 @@ jQuery(document).ready(function(){
 
         const colorSchemes = {
             disabled: {
-                'primary-color': '#aaa',
-                'primary-shadow': '#555',
-                'secondary-color': '#888',
-                'light-border': '#666',
-                'dark-border': '#666',
-                'darker-border': '#494949',
+                'primary-color': '#fff',
+                'primary-shadow': '#fff',
+                'secondary-color': '#fff',
+                'light-border': '#000',
+                'dark-border': '#000',
+                'darker-border': '#000',
+                'icon-color': '#000',
+                'inner-border-size': '2px',
+                'outer-border-size': '2px',
                 'sheen-width': 0,
             },
             bronze: {
