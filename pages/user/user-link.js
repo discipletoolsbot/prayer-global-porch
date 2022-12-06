@@ -252,14 +252,17 @@ jQuery(document).ready(function(){
                     </div>
                 </div>
 
-                <section class="user-activity"></section>
+                <section class="user-activity">
+                    <div class="user-activity__list"></div>
+                    <button class="btn btn-outline-dark mt-5 mx-auto d-block" id="load-more-user-activity" style="display: none">Load more</button>
+                </section>
 
             </section>
 `
         )
 
-        if (jsObject.user.activity) {
-            const { logs } = jsObject.user.activity
+        if (jsObject.user.activity && jsObject.user.stats) {
+            const { offset, limit, logs } = jsObject.user.activity
             const { total_minutes, total_locations } = jsObject.user.stats
 
             const handlePrimaryContent = ({ location_name, time_prayed_text }) => `${time_prayed_text} for ${location_name || 'Location name goes here'}`
@@ -268,7 +271,42 @@ jQuery(document).ready(function(){
             jQuery('.user-total-locations').html(total_locations)
             jQuery('.user-total-minutes').html(total_minutes)
             jQuery('.user__avatar').html(LocationBadge(total_locations))
-            jQuery('.user-activity').html(PG.ActivityList(logs, handlePrimaryContent, handleSecondaryContent))
+            jQuery('.user-activity__list').html(PG.ActivityList(logs, handlePrimaryContent, handleSecondaryContent))
+
+            const logsLeft = total_locations - ( offset + limit )
+            if ( logsLeft > 0 ) {
+                const loadMoreButton = jQuery('#load-more-user-activity')
+
+                loadMoreButton.show()
+                const getMoreActivity = () => {
+                    const { offset, limit } = jsObject.user.activity
+                    get_user_app('activity', { offset: offset + limit, limit })
+                        .done((newActivity) => {
+                            const activity = {
+                                offset: newActivity.offset,
+                                limit: newActivity.limit,
+                                logs: [
+                                    ...jsObject.user.activity.logs,
+                                    ...newActivity.logs,
+                                ]
+                            }
+                            jsObject.user.activity = activity
+
+                            jQuery('.user-activity__list').append(PG.ActivityList(newActivity.logs, handlePrimaryContent, handleSecondaryContent))
+
+                            const newLogsLeft = 5 - (newActivity.offset + limit)
+
+                            console.log(newLogsLeft)
+                            if (newLogsLeft > 0) {
+                                loadMoreButton.one('click', getMoreActivity)
+                            } else {
+                                loadMoreButton.removeClass('d-block')
+                                loadMoreButton.hide()
+                            }
+                        })
+                }
+                loadMoreButton.one('click', getMoreActivity)
+            }
 
         }
         open_profile()

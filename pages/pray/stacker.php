@@ -213,8 +213,8 @@ class PG_Stacker {
         $user_activity = $wpdb->get_results( $wpdb->prepare( $sql, $args ), ARRAY_A );
 
         $user_stats = [
-            "offset" => $offset,
-            "limit" => $limit,
+            "offset" => (int) $offset,
+            "limit" => (int) $limit,
             "logs" => [],
         ];
 
@@ -225,9 +225,6 @@ class PG_Stacker {
             $user_activity[$key]['time_prayed_text'] = ( $minutes_prayed === 1 ) ? "1 min" : "$minutes_prayed mins";
             $user_activity[$key]['is_mine'] = 1;
             $user_activity[$key]['location_name'] = $activity['grid_name'] . ', ' . $activity['country_name'];
-
-            $user_stats['total_locations'] += 1;
-            $user_stats['total_time'] += $minutes_prayed;
         }
 
         $user_stats['logs'] = $user_activity;

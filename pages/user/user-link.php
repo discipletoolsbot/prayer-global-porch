@@ -300,6 +300,9 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
             AND r.type = 'prayer_app'
             ORDER BY r.timestamp DESC
             ", $user_id ), ARRAY_A );
+
+        $user_stats['total_locations'] = (int) $user_stats['total_locations'];
+        $user_stats['total_minutes'] = (int) $user_stats['total_minutes'];
         return $user_stats;
     }
 
