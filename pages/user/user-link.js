@@ -88,7 +88,6 @@ jQuery(document).ready(function(){
                         <p class="user__location small">
                             ${data.location || LoadingSpinner()}
                         </p>
-                        ${LocationChangeButton()}
                     </div>
                 </section>
                 <section class="profile-menu px-2 mt-5">
@@ -200,7 +199,6 @@ jQuery(document).ready(function(){
                         <td>Location:</td>
                         <td>
                             ${location || 'Please set your location'}
-                            ${LocationChangeButton()}
                         </td>
                     </tr>
                 </tbody>
