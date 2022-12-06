@@ -136,23 +136,24 @@ jQuery(document).ready(function(){
 
             if (navigator.geolocation) {
                 const success = (location) => {
-                    const latitude = location.coords.latitude
-                    const longitude = location.coords.longitude
-                    get_user_app('geolocation', { lat: latitude, lng: longitude })
+                    const lat = location.coords.latitude
+                    const lng = location.coords.longitude
+                    get_user_app('geolocation', { lat, lng })
                         .done((location) => {
                             if (!location || location === "") {
                                 error()
                                 return
                             }
-
-                            jsObject.user.data.location = location
-                            jsObject.user.data.is_ip_location = 1
+                            jsObject.user.location = location
+                            jsObject.user.is_ip_location = 1
 
                             jQuery('.user__location').html(location)
 
                             return get_user_app('update_user', {
                                 location,
                                 is_ip_location: true,
+                                lat,
+                                lng
                             })
                         })
                 }

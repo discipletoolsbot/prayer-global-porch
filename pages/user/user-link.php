@@ -13,6 +13,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public $allowed_user_meta = [
         'location',
         'is_ip_location',
+        'lat',
+        'lng',
     ];
 
     private static $_instance = null;
