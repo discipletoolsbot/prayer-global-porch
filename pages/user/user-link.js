@@ -88,6 +88,7 @@ jQuery(document).ready(function(){
                         <p class="user__location small">
                             ${data.location || LoadingSpinner()}
                         </p>
+                        ${LocationChangeButton()}
                     </div>
                 </section>
                 <section class="profile-menu px-2 mt-5">
@@ -197,7 +198,10 @@ jQuery(document).ready(function(){
                     </tr>
                     <tr>
                         <td>Location:</td>
-                        <td>${location || 'Please set your location'}</td>
+                        <td>
+                            ${location || 'Please set your location'}
+                            ${LocationChangeButton()}
+                        </td>
                     </tr>
                 </tbody>
             </table>
@@ -415,5 +419,29 @@ jQuery(document).ready(function(){
         const activeAttr = active ? 'active' : ''
 
         return `<span class="loading-spinner ${activeAttr}"></span>`
+    }
+
+    function LocationChangeButton() {
+        return ModalButton({
+            text: 'Change',
+            modalId: 'location-modal',
+            buttonType: 'outline-success',
+            classes: 'small',
+            id: 'new-mapbox-search',
+        })
+    }
+    /**
+     * Creates markup for a button to trigger a modal
+     * 
+     * @param string text The text to show in the button
+     * @param string modalId The id of the modal to trigger
+     * @param string buttonType The classtype of the button e.g. primary, outline-success etc. (see bootstrap)
+     */
+    function ModalButton({ text, modalId, buttonType = '', classes = '', id = '' }) {
+
+        return `
+        <button id="${id}" class="btn btn-${buttonType} ${classes}" data-bs-toggle="modal" data-bs-target="#${modalId}">
+            ${text}
+        </button>`
     }
 })

@@ -67,12 +67,14 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        return [
+        return array_merge( $allowed_js, [
             'jquery',
             'jquery-ui',
             'foundations-js',
             'porch-user-site-js',
-        ];
+            'mapbox-search-widget',
+            'mapbox-gl',
+        ]);
     }
 
     public function wp_enqueue_scripts() {}
@@ -113,6 +115,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     }
 
     public function body(){
+        DT_Mapbox_API::load_mapbox_search_widget();
+
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' );
 
         ?>
@@ -136,6 +140,20 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     </div>
                 </div>
            </div>
+
+            <div class="modal fade" id="location-modal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="locationModalLabel">Change Your Location</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="mapbox-wrapper"></div>
+                        </div>
+                   </div>
+                </div>
+            </div>
         </section>
         <?php
     }
