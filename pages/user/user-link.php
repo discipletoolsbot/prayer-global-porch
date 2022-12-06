@@ -204,7 +204,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
             case 'update_user':
                 return $this->update_user( $params['data'] );
             case 'activity':
-                return $this->get_user_activity();
+                return $this->get_user_activity( $params['data'] );
             case 'stats':
                 return $this->get_user_stats();
             case 'geolocation':
@@ -280,8 +280,11 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         }
     }
 
-    public function get_user_activity() {
-        $activity = PG_Stacker::build_user_location_stats();
+    public function get_user_activity( $data ) {
+        $offset = isset( $data['offset'] ) ? $data['offset'] : 0;
+        $limit = isset( $data['limit'] ) ? $data['limit'] : 50;
+
+        $activity = PG_Stacker::build_user_location_stats( null, $offset, $limit );
         return $activity;
     }
 

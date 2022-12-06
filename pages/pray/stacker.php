@@ -174,7 +174,7 @@ class PG_Stacker {
         return $stack;
     }
 
-    public static function build_user_location_stats( $grid_id = null ) {
+    public static function build_user_location_stats( $grid_id = null, $offset = 0, $limit = 50 ) {
          global $wpdb;
 
         $user_id = get_current_user_id();
@@ -203,13 +203,18 @@ class PG_Stacker {
             $args[] = $grid_id;
         }
 
-        $sql .= "ORDER BY r.timestamp DESC";
+        $sql .= "
+            ORDER BY r.timestamp DESC
+            LIMIT %d, %d
+        ";
+        $args[] = $offset;
+        $args[] = $limit;
 
         $user_activity = $wpdb->get_results( $wpdb->prepare( $sql, $args ), ARRAY_A );
 
         $user_stats = [
-            "total_time" => 0,
-            "total_locations" => 0,
+            "offset" => $offset,
+            "limit" => $limit,
             "logs" => [],
         ];
 

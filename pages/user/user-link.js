@@ -119,7 +119,6 @@ jQuery(document).ready(function(){
                 }
                 jsObject.user.stats = stats
                 jQuery('.user__avatar').html(LocationBadge(stats.total_locations || 0))
-                jQuery('.user__avatar').html(LocationBadge(0))
             })
 
         get_user_app('activity')
@@ -260,15 +259,15 @@ jQuery(document).ready(function(){
         )
 
         if (jsObject.user.activity) {
-            const { total_locations, total_time, logs } = jsObject.user.activity
+            const { logs } = jsObject.user.activity
+            const { total_minutes, total_locations } = jsObject.user.stats
 
             const handlePrimaryContent = ({ location_name, time_prayed_text }) => `${time_prayed_text} for ${location_name || 'Location name goes here'}`
             const handleSecondaryContent = ({ time_prayed_text, group_name }) => `in ${group_name}`
 
             jQuery('.user-total-locations').html(total_locations)
-            jQuery('.user-total-minutes').html(total_time)
+            jQuery('.user-total-minutes').html(total_minutes)
             jQuery('.user__avatar').html(LocationBadge(total_locations))
-            jQuery('.user__avatar').html(LocationBadge(0))
             jQuery('.user-activity').html(PG.ActivityList(logs, handlePrimaryContent, handleSecondaryContent))
 
         }
