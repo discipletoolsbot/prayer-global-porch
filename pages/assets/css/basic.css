@@ -546,7 +546,9 @@ button {
 .navbar-dark .btn-outline-dark {
     --bs-btn-color: white;
     --bs-btn-border-color: white;
-    --bs-btn-hover-bg: black;
+    --bs-btn-hover-bg: white;
+    --bs-btn-hover-color: black;
+    --bs-btn-hover-border-color: white;
 }
 
 .navbar-toggler {
