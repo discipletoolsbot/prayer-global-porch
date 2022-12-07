@@ -86,7 +86,7 @@ jQuery(document).ready(function(){
                     <div class="user__info">
                         <h2 class="user__full-name">${data.display_name}</h2>
                         <p class="user__location small">
-                            ${data.location && data.location.label || LoadingSpinner()}
+                            <span class="user__location-label">${data.location && data.location.label || LoadingSpinner()}</span>
                             ${LocationChangeButton()}
                         </p>
                     </div>
@@ -131,40 +131,25 @@ jQuery(document).ready(function(){
             })
 
         if ( !data.location || data.location === '' ) {
-            const error = () => {
-                jQuery('.user__location').html('Please select your location')
-            }
+            get_user_app('ip_location')
+                .done((location) => {
+                    if (!location || location === "") {
+                        jQuery('.user__location-label').html('Please select your location')
+                        return
+                    }
+                    jsObject.user.location = location
+                    jsObject.user.is_ip_location = 1
 
-            if (navigator.geolocation) {
-                const success = (location) => {
-                    const lat = location.coords.latitude
-                    const lng = location.coords.longitude
-                    get_user_app('ip_location', { lat, lng })
-                        .done((location) => {
-                            if (!location || location === "") {
-                                error()
-                                return
-                            }
-                            jsObject.user.location = location
-                            jsObject.user.is_ip_location = 1
+                    jQuery('.user__location-label').html(location.label)
 
-                            jQuery('.user__location').html(location.label)
-
-                            return get_user_app('update_user', {
-                                location,
-                                is_ip_location: true,
-                                lat,
-                                lng
-                            })
-                        })
-                }
-
-                navigator.geolocation.getCurrentPosition(success, error)
-            } else {
-                error()
-            }
+                    return get_user_app('update_user', {
+                        location,
+                        location_source: 'ip',
+                        lat,
+                        lng
+                    })
+                })
         }
-
 
         jQuery('.user-profile-link').on('click', () => write_profile({
             name: data.display_name,
