@@ -17,7 +17,7 @@ jQuery(document).ready(function(){
             dataType: "json",
             url: jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type,
             beforeSend: function (xhr) {
-                xhr.setRequestHeader('X-WP-Nonce', jsObject.nonce )
+                xhr.setRequestHeader('Http-X-Wp-Nonce', jsObject.nonce )
             }
         })
             .fail(function(e) {
@@ -36,7 +36,7 @@ jQuery(document).ready(function(){
                 jQuery('.loading-spinner').removeClass('active')
                 if ( data ) {
                     show_user_nav()
-                    write_main(data)
+                    write_main(data.user)
                 }
             })
     }
