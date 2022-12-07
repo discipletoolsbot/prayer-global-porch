@@ -31,7 +31,7 @@ function pg_custom_lap_nav( $key ) {
                     <a class="nav-link" href="/#section-challenge">Challenge</a>
                     <a class="nav-link" href="/#section-lap">Status</a>
                     <a class="nav-link" href="/prayer_app/custom/<?php echo esc_attr( $key ) ?>/map/">Map</a>
-                    <a href="/user_app/profile" class="nav-link" id="login-register-link" style="<?php echo esc_attr( $hide_if_logged_in ) ?>">Login / Register</a>
+                    <!-- <a href="/user_app/profile" class="nav-link" id="login-register-link" style="<?php echo esc_attr( $hide_if_logged_in ) ?>">Login / Register</a> -->
                     <a href="/user_app/profile" class="nav-link" id="user-profile-link" style="<?php echo esc_attr( $hide_if_logged_out ) ?>">User Profile</a>
                     <a href="<?php echo esc_url( wp_logout_url( '/' ) )?>" class="nav-link" id="logout-link" style="<?php echo esc_attr( $hide_if_logged_out ) ?>">Logout</a>
                 </div>

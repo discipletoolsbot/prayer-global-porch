@@ -31,7 +31,7 @@ $hide_if_logged_out = $is_logged_in ? '' : 'display: none';
                 <a class="nav-link" href="<?php echo ( $url !== '') ? trailingslashit( site_url() ) : '' ?>#section-lap">Status</a>
                 <a class="nav-link" href="/newest/map/">Map</a>
                 <a class="nav-link" href="/challenges/active/">Groups</a>
-                <a href="/user_app/profile" class="nav-link" id="login-register-link" style="<?php echo esc_attr( $hide_if_logged_in ) ?>">Login / Register</a>
+                <!-- <a href="/user_app/profile" class="nav-link" id="login-register-link" style="<?php echo esc_attr( $hide_if_logged_in ) ?>">Login / Register</a> -->
                 <a href="/user_app/profile" class="nav-link" id="user-profile-link" style="<?php echo esc_attr( $hide_if_logged_out ) ?>">User Profile</a>
                 <a href="<?php echo esc_url( wp_logout_url( '/' ) )?>" class="nav-link" id="logout-link" style="<?php echo esc_attr( $hide_if_logged_out ) ?>">Logout</a>
             </div>
