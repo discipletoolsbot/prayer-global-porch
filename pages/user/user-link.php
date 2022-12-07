@@ -207,8 +207,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 return $this->get_user_activity( $params['data'] );
             case 'stats':
                 return $this->get_user_stats();
-            case 'geolocation':
-                return $this->geolocate_by_latlng( $params['data'] );
+            case 'ip_location':
+                return $this->get_ip_location();
             default:
                 return $params;
         }
@@ -304,6 +304,12 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         $user_stats['total_locations'] = (int) $user_stats['total_locations'];
         $user_stats['total_minutes'] = (int) $user_stats['total_minutes'];
         return $user_stats;
+    }
+
+    public function get_ip_location() {
+        $response = DT_Ipstack_API::get_location_grid_meta_from_current_visitor();
+
+        return $response;
     }
 
     public function geolocate_by_latlng( $data ) {

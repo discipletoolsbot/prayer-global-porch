@@ -86,7 +86,8 @@ jQuery(document).ready(function(){
                     <div class="user__info">
                         <h2 class="user__full-name">${data.display_name}</h2>
                         <p class="user__location small">
-                            ${data.location || LoadingSpinner()}
+                            ${data.location && data.location.label || LoadingSpinner()}
+                            ${LocationChangeButton()}
                         </p>
                     </div>
                 </section>
@@ -138,7 +139,7 @@ jQuery(document).ready(function(){
                 const success = (location) => {
                     const lat = location.coords.latitude
                     const lng = location.coords.longitude
-                    get_user_app('geolocation', { lat, lng })
+                    get_user_app('ip_location', { lat, lng })
                         .done((location) => {
                             if (!location || location === "") {
                                 error()
@@ -147,7 +148,7 @@ jQuery(document).ready(function(){
                             jsObject.user.location = location
                             jsObject.user.is_ip_location = 1
 
-                            jQuery('.user__location').html(location)
+                            jQuery('.user__location').html(location.label)
 
                             return get_user_app('update_user', {
                                 location,
@@ -199,6 +200,7 @@ jQuery(document).ready(function(){
                         <td>Location:</td>
                         <td>
                             ${location || 'Please set your location'}
+                            ${LocationChangeButton()}
                         </td>
                     </tr>
                 </tbody>
@@ -418,6 +420,7 @@ jQuery(document).ready(function(){
      *     --pg-badge-light-border: #ffd84c; The lighter half of the borders
      *     --pg-badge-dark-border: #d57e08; The darker half of the borders
      *     --pg-badge-darker-border: #c47207; The inner shadow of the side lines
+     *     --pg-badge-icon-color: defaults to primary-color
      *     --pg-badge-rotation: 44deg;
      *     --pg-badge-size: 150px;
      *     --pg-badge-inner-size: 70px;
@@ -465,7 +468,7 @@ jQuery(document).ready(function(){
             text: 'Change',
             modalId: 'location-modal',
             buttonType: 'outline-success',
-            classes: 'small',
+            classes: 'small border-0',
             id: 'new-mapbox-search',
         })
     }
