@@ -92,15 +92,15 @@ jQuery(document).ready(function(){
                 </section>
                 <section class="profile-menu px-2 mt-5">
                     <div class="navbar-nav">
-                        <button class="user-profile-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-0">
+                        <button class="user-profile-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-2">
                             <span class="two-em">Profile</span>
                             <i class="ion-chevron-right three-em"></i>
                         </button>
-                        <button class="user-prayers-link nav-link px-1 py-2 d-flex justify-content-between align-items-center">
+                        <button class="user-prayers-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-2">
                             <span class="two-em">Prayers</span>
                             <i class="ion-chevron-right three-em"></i>
                         </button>
-                        <button class="user-challenges-link nav-link px-1 py-2 d-flex justify-content-between align-items-center">
+                        <button class="user-challenges-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-2">
                             <span class="two-em">Challenges</span>
                             <i class="ion-chevron-right three-em"></i>
                         </button>
