@@ -711,6 +711,15 @@ button {
     cursor: pointer;
 }
 
+#section-about .images {
+    margin-bottom: 100px;
+}
+@media (max-width: 767px) {
+    #section-about .images {
+        margin-bottom: 0;
+    }
+}
+
 /* Datatable styles */
 
 .dtr-title {
