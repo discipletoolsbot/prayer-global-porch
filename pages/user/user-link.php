@@ -194,9 +194,11 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                         // password match
                         $logged_in = $this->programmatic_login( $user->data->user_login );
                         if ( $logged_in ) {
-                            $userdata = pg_get_user( $user->ID, $this->allowed_user_meta );
+                            $response = [
+                                "user" => pg_get_user( $user->ID, $this->allowed_user_meta ),
+                            ];
 
-                            return $userdata;
+                            return $response;
                         }
                     }
                 }
