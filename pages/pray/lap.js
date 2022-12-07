@@ -469,6 +469,14 @@ jQuery(document).ready(function(){
           }
         })
           .done(function (geojson) {
+            /* Make sure that grid_id properties are strings to enable correct filtering for red fill */
+            /* TODO: fix any geojson files that have integers as their grid_id properties and convert them to strings */
+            if (geojson.features.length > 0 && typeof geojson.features[0].properties.grid_id === 'number') {
+              geojson.features.forEach((feature, i) => {
+                geojson.features[i].properties.grid_id = `${feature.properties.grid_id}`
+              });
+            }
+
             map.addSource('parent_collection', {
               'type': 'geojson',
               'data': geojson
@@ -526,7 +534,6 @@ jQuery(document).ready(function(){
                   }
                 }]
             }
-            console.log(point_geojson)
             map.addSource('point_geojson', {
               'type': 'geojson',
               'data': point_geojson
