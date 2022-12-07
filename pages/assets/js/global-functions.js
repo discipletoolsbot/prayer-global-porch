@@ -11,10 +11,25 @@ $(document).ready(function($) {
       scalar: 0.4,
       gravity: 0.2,
       shapes: ["circle"],
+      particleCount: 500,
+      useWorker: true,
     };
+
+    let numberOfFireworks = 12
+
+    if (isSmallDevice()) {
+      defaults.particleCount = 200
+      defaults.scalar = 0.8
+      defaults.ticks = 30
+      defaults.startVelocity = 20
+      numberOfFireworks = 6
+    }
+
+    const timeout = celebrationDuration / numberOfFireworks
+
     const colours = [
       ["#5492f7", "#202AF9", "#4556D9"],
-      //      [ '#CB91F9', '#B34EF4', '#E5B0FE' ],
+      //['#CB91F9', '#B34EF4', '#E5B0FE'],
       ["#DD344D", "#FFB1BA", "#F05264"],
       ["#fef355", "#fab945", "#f4d9bd"],
     ];
@@ -38,17 +53,27 @@ $(document).ready(function($) {
         return clearInterval(interval);
       }
 
-      var particleCount = 500;
       colours.forEach((colour) => {
         confetti(
           Object.assign({}, defaults, {
-            particleCount,
             origin: originInBoundingBox(),
             colors: colour,
           })
         );
       });
-    }, 250);
+    }, timeout);
+  }
+
+  function isSmallDevice() {
+    const smallScreen = 575
+    const mediumScreen = 767
+    const largeScreen = 991
+
+    if ( window.innerWidth < largeScreen || window.innerHeight < largeScreen ) {
+      return true
+    }
+
+    return false
   }
 
 })
