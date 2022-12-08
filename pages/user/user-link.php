@@ -173,6 +173,26 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                    </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="user-data-report" tabindex="-1" aria-labelledby="userDataReportModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="userDataReportModalLabel">Data Report</h1>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Data Reporty stuff
+                            <br>
+                            The contents of their user/contact record?
+                            <br>
+                            Linked groups?
+                            <br>
+                            Prayer data?
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
         <?php
     }

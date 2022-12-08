@@ -254,8 +254,12 @@ jQuery(document).ready(function(){
             </section>
             <section class="user-actions">
                 <hr />
-                <a href="#" class="btn small">Data report for my account</a>
-                <button class="btn small btn-outline-danger mt-5">Erase my account</button>
+                ${ModalButton({
+                    text: "Data report for my account",
+                    modalId: "user-data-report",
+                    classes: 'btn-outline-dark small d-block',
+                })}
+                <button class="btn small btn-outline-danger mt-5 d-block">Erase my account</button>
             </section>
 `
         )
