@@ -197,7 +197,9 @@ jQuery(document).ready(function(){
             })
 
         if ( !data.location || data.location === '' ) {
-            get_user_app('ip_location')
+            const pg_user_hash = Cookies.get('pg_user_hash')
+
+            get_user_app('ip_location', { hash: pg_user_hash })
                 .done((data) => {
                     if (!data || data === "") {
                         jQuery('.user__location-label').html('Please select your location')

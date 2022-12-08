@@ -102,6 +102,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         </script>
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/components.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/components.js' ) ) ?>"></script>
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>user-link.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'user-link.js' ) ) ?>"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js?ver=3"></script>
         <style>
             #login_form input {
                 padding:.5em;
@@ -279,7 +280,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
             case 'stats':
                 return $this->get_user_stats();
             case 'ip_location':
-                return $this->get_ip_location();
+                return $this->get_ip_location( $params['data'] );
             case 'save_location':
                 return $this->save_location( $params['data'] );
             default:
@@ -381,11 +382,15 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         return $user_stats;
     }
 
-    public function get_ip_location() {
+    public function get_ip_location( $data ) {
         $response = DT_Ipstack_API::get_location_grid_meta_from_current_visitor();
 
         if ( $response ) {
-            $hash = hash( 'sha256', serialize( $response ) . mt_rand( 1000000, 10000000000000000 ) );
+            if ( isset( $data['hash'] ) ) {
+                $hash = $data['hash'];
+            } else {
+                $hash = hash( 'sha256', serialize( $response ) . mt_rand( 1000000, 10000000000000000 ) );
+            }
             $country = $this->_extract_country_from_label( $response['label'] );
             $response['country'] = $country;
             $response['lat'] = strval( $response['lat'] );
