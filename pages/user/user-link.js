@@ -42,6 +42,7 @@ jQuery(document).ready(function(){
                     jQuery('#mapbox-spinner-button').hide()
                     jQuery('#mapbox-search').val('')
                     jQuery('.user__location-label').html(location.label)
+                    jQuery('.iplocation-message').empty()
                 })
                 .always(() => {
                     isSavingLocation = false
@@ -187,12 +188,11 @@ jQuery(document).ready(function(){
                     jsObject.user.is_ip_location = 1
 
                     jQuery('.user__location-label').html(location.label)
+                    jQuery('.iplocation-message').html('(This is your estimated location)')
 
                     return get_user_app('update_user', {
                         location,
                         location_source: 'ip',
-                        lat,
-                        lng
                     })
                 })
         }

@@ -291,6 +291,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 continue;
             }
 
+            $meta_key = PG_NAMESPACE . $meta_key;
+
             $response = update_user_meta( $user_id, $meta_key, $meta_value );
 
             if ( is_wp_error( $response ) ) {
