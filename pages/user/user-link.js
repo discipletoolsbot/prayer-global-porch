@@ -88,6 +88,9 @@ jQuery(document).ready(function(){
                         <p class="user__location small">
                             <span class="user__location-label">${data.location && data.location.label || LoadingSpinner()}</span>
                             ${LocationChangeButton()}
+                            <span class="iplocation-message small d-block text-secondary">
+                                ${data.location && data.location.source === 'ip' ? '(This is your estimated location)' : ''}
+                            </span>
                         </p>
                     </div>
                 </section>
@@ -184,8 +187,11 @@ jQuery(document).ready(function(){
                     <tr>
                         <td>Location:</td>
                         <td>
-                            ${location || 'Please set your location'}
+                            ${location && location.label || 'Please set your location'}
                             ${LocationChangeButton()}
+                            <span class="iplocation-message small d-block text-secondary">
+                                ${location && location.source === 'ip' ? '(This is your estimated location)' : ''}
+                            </span>
                         </td>
                     </tr>
                 </tbody>
