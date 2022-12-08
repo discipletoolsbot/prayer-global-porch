@@ -116,6 +116,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
     public function body(){
         DT_Mapbox_API::load_mapbox_search_widget();
+        DT_Mapbox_API::mapbox_search_widget_css();
 
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' );
 
@@ -149,7 +150,24 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div id="mapbox-wrapper"></div>
+                            <div id="mapbox-wrapper">
+                                <div id="mapbox-autocomplete" class="mapbox-autocomplete" data-autosubmit="false" data-add-address="true">
+                                    <div class="input-group mb-2">
+                                        <input id="mapbox-search" type="text" name="mapbox_search" class="form-control" autocomplete="off" placeholder="Select Location" />
+                                        <button id="mapbox-clear-autocomplete" class="btn btn-danger" type="button" title="Delete Location" style="">
+                                            <i class="ion-close"></i>
+                                        </button>
+                                    </div>
+                                    <div id="mapbox-spinner-button" style="display: none;">
+                                        <span class="" style="border-radius: 50%;width: 24px;height: 24px;border: 0.25rem solid lightgrey;border-top-color: black;animation: spin 1s infinite linear;display: inline-block;"></span>
+                                    </div>
+                                    <div id="mapbox-autocomplete-list" class="mapbox-autocomplete-items"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-primary save-user-location">Save</button>
                         </div>
                    </div>
                 </div>

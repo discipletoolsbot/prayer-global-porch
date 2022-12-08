@@ -458,7 +458,7 @@ jQuery(document).ready(function(){
         return ModalButton({
             text: 'Change',
             modalId: 'location-modal',
-            buttonType: 'outline-success',
+            buttonType: 'outline-primary',
             classes: 'small border-0',
             id: 'new-mapbox-search',
         })
