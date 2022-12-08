@@ -1,12 +1,55 @@
 jQuery(document).ready(function(){
 
     const userProfileDetails = jQuery('#user-details-content')
+    let isSavingLocation = false
 
     if ( jsObject.is_logged_in ) {
         write_main( jsObject.user )
     } else {
         write_login()
     }
+
+    jQuery('#location-modal').on('hidden.bs.modal', (e) => {
+        jQuery('#mapbox-search').val('')
+        jQuery('.mapbox-error-message').html('')
+    })
+
+    jQuery('.save-user-location').on('click', (e) => {
+        const label = jQuery('#mapbox-search').val()
+
+        const location = window.location_data &&
+            window.location_data.location_grid_meta &&
+            window.location_data.location_grid_meta.values &&
+            Array.isArray(window.location_data.location_grid_meta.values)
+                ? window.location_data.location_grid_meta.values[0]
+                : null
+
+        if ( label && label !== '' && location && location.label === label ) {
+
+            if (isSavingLocation) {
+                return
+            }
+
+            isSavingLocation = true
+
+            jQuery('#mapbox-spinner-button').show()
+            jQuery('.mapbox-error-message').html('')
+
+            get_user_app('save_location', location)
+                .done((location) => {
+                    jsObject.user.location = location
+                    jQuery('#location-modal').modal('hide')
+                    jQuery('#mapbox-spinner-button').hide()
+                    jQuery('#mapbox-search').val('')
+                    jQuery('.user__location-label').html(location.label)
+                })
+                .always(() => {
+                    isSavingLocation = false
+                })
+        } else {
+            jQuery('.mapbox-error-message').html('Please select a location')
+        }
+    })
 
 
     function get_user_app (action, data ) {
@@ -187,7 +230,7 @@ jQuery(document).ready(function(){
                     <tr>
                         <td>Location:</td>
                         <td>
-                            ${location && location.label || 'Please set your location'}
+                            <span class="user__location-label">${location && location.label || 'Please set your location'}</span>
                             ${LocationChangeButton()}
                             <span class="iplocation-message small d-block text-secondary">
                                 ${location && location.source === 'ip' ? '(This is your estimated location)' : ''}

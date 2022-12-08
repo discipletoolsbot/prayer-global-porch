@@ -13,8 +13,6 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public $allowed_user_meta = [
         'location',
         'location_source',
-        'lat',
-        'lng',
     ];
 
     private static $_instance = null;
@@ -153,11 +151,12 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             <div id="mapbox-wrapper">
                                 <div id="mapbox-autocomplete" class="mapbox-autocomplete" data-autosubmit="false" data-add-address="true">
                                     <div class="input-group mb-2">
-                                        <input id="mapbox-search" type="text" name="mapbox_search" class="form-control" autocomplete="off" placeholder="Select Location" />
+                                        <input required id="mapbox-search" type="text" name="mapbox_search" class="form-control" autocomplete="off" placeholder="Select Location" />
                                         <button id="mapbox-clear-autocomplete" class="btn btn-danger" type="button" title="Delete Location" style="">
                                             <i class="ion-close"></i>
                                         </button>
                                     </div>
+                                    <div class="mapbox-error-message text-danger small"></div>
                                     <div id="mapbox-spinner-button" style="display: none;">
                                         <span class="" style="border-radius: 50%;width: 24px;height: 24px;border: 0.25rem solid lightgrey;border-top-color: black;animation: spin 1s infinite linear;display: inline-block;"></span>
                                     </div>
@@ -166,7 +165,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-outline-dark cancel-user-location" data-bs-dismiss="modal">Cancel</button>
                             <button type="button" class="btn btn-primary save-user-location">Save</button>
                         </div>
                    </div>
@@ -227,6 +226,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 return $this->get_user_stats();
             case 'ip_location':
                 return $this->get_ip_location();
+            case 'save_location':
+                return $this->save_location( $params['data'] );
             default:
                 return $params;
         }
@@ -325,9 +326,31 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     }
 
     public function get_ip_location() {
+        /* also get their current hash and add this to the user as well */
         $response = DT_Ipstack_API::get_location_grid_meta_from_current_visitor();
 
         return $response;
+    }
+
+    public function save_location( $data ) {
+        if ( !isset( $data['lat'], $data['lng'], $data['label'], $data['level'] ) ) {
+            return new WP_Error( __METHOD__, 'Missing lat, lng, label or level', [ 'status' => 400 ] );
+        }
+
+        /* Get the grid_id for this lat lng */
+        $geocoder = new Location_Grid_Geocoder();
+
+        $grid_row = $geocoder->get_grid_id_by_lnglat( $data['lng'], $data['lat'] );
+
+        $data['grid_id'] = $grid_row ? $grid_row['grid_id'] : false;
+        $data['lat'] = strval( $data['lat'] );
+        $data['lng'] = strval( $data['lng'] );
+
+        $this->update_user( [
+            'location' => $data,
+        ] );
+
+        return $data;
     }
 
     public function geolocate_by_latlng( $data ) {
