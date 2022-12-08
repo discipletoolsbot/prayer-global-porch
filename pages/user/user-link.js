@@ -196,8 +196,8 @@ jQuery(document).ready(function(){
             name: data.display_name,
             email: data.user_email,
             location: data.location,
-            sendLapEmails: data.send_lap_emails,
-            sendGeneralEmails: data.send_general_emails,
+            send_lap_emails: data.send_lap_emails,
+            send_general_emails: data.send_general_emails,
         }))
         jQuery('.user-prayers-link').on('click', () => write_prayers())
         jQuery('.user-challenges-link').on('click', () => write_challenges())
@@ -207,8 +207,8 @@ jQuery(document).ready(function(){
         name,
         email,
         location,
-        sendLapEmails = true,
-        sendGeneralEmails = false,
+        send_lap_emails = false,
+        send_general_emails = false,
     }) {
         jQuery('#user-details-content').html(`
             <h2 class="header-border-bottom center">Profile</h2>
@@ -239,14 +239,14 @@ jQuery(document).ready(function(){
 
                 <div>
                     <div class="form-check small">
-                        <input class="form-check-input" type="checkbox" id="send-lap-emails" ${sendLapEmails && 'checked'}>
-                        <label class="form-check-label" for="send-lap-emails">
+                        <input class="form-check-input user-check-preferences" type="checkbox" id="send_lap_emails" ${send_lap_emails && 'checked'}>
+                        <label class="form-check-label" for="send_lap_emails">
                             Send me lap challenges via email
                         </label>
                     </div>
                     <div class="form-check small">
-                        <input class="form-check-input" type="checkbox" id="send-general-emails" ${sendGeneralEmails && 'checked'}>
-                        <label class="form-check-label" for="send-general-emails">
+                        <input class="form-check-input user-check-preferences" type="checkbox" id="send_general_emails" ${send_general_emails && 'checked'}>
+                        <label class="form-check-label" for="send_general_emails">
                             Send information about Prayer.Global, Zume, Pray4Movement and other Gospel Ambition projects via email
                         </label>
                     </div>
@@ -259,6 +259,13 @@ jQuery(document).ready(function(){
             </section>
 `
         )
+
+        jQuery('.user-check-preferences').on('change', (e) => {
+            get_user_app('update_user', {
+                [e.target.id]: e.target.checked
+            })
+        })
+
         open_profile()
     }
 

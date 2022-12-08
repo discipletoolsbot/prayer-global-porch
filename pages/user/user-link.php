@@ -13,6 +13,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public $allowed_user_meta = [
         'location',
         'location_hash',
+        'send_lap_emails',
+        'send_general_emails',
     ];
 
     private static $_instance = null;
