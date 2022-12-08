@@ -491,13 +491,20 @@ trait PG_Lap_Trait {
     }
 
     public function get_ip_location() {
-        $response = DT_Ipstack_API::get_location_grid_meta_from_current_visitor();
-        if ( $response ) {
-            $response['hash'] = hash( 'sha256', serialize( $response ) . mt_rand( 1000000, 10000000000000000 ) );
-            $array = array_reverse( explode( ', ', $response['label'] ) );
-            $response['country'] = $array[0] ?? '';
+        if ( is_user_logged_in() ) {
+            $user_id = get_current_user_id();
+            $location_meta = get_user_meta( $user_id, PG_NAMESPACE . 'location', true );
+
+            return $location_meta;
+        } else {
+            $response = DT_Ipstack_API::get_location_grid_meta_from_current_visitor();
+            if ( $response ) {
+                $response['hash'] = hash( 'sha256', serialize( $response ) . mt_rand( 1000000, 10000000000000000 ) );
+                $array = array_reverse( explode( ', ', $response['label'] ) );
+                $response['country'] = $array[0] ?? '';
+            }
+            return $response;
         }
-        return $response;
     }
 
 }
