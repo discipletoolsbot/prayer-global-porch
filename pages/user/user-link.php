@@ -193,6 +193,38 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="erase-user-account-modal" tabindex="-1" aria-labelledby="eraseUserModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="eraseUserModalLabel">Erase Account</h1>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                This will delete your account from Prayer.Global.
+                            </p>
+                            <p>
+                                You will lose all progress and data assosciated with your account
+                            </p>
+                            <p>
+                                If you are sure you want to proceed please type "delete" into the box below and click "I am sure" button
+                            </p>
+                            <div class="mb-3">
+                                <label for="delete-confirmation" class="form-label">Confirm delete</label>
+                                <input type="text" class="form-control text-danger" id="delete-confirmation" placeholder="delete">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+                            <button class="btn btn-danger" id="confirm-user-account-delete" disabled>I am sure</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </section>
         <?php
     }

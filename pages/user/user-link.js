@@ -9,9 +9,28 @@ jQuery(document).ready(function(){
         write_login()
     }
 
+    jQuery('#delete-confirmation').on('keyup', (e) => {
+        if (e.target.value === 'delete') {
+            jQuery('#confirm-user-account-delete').prop( 'disabled', false)
+        } else {
+            jQuery('#confirm-user-account-delete').prop( 'disabled', true )
+        }
+    })
+    jQuery('#confirm-user-account-delete').on('click', () => {
+        get_user_app('delete_account')
+            .done((confirmed) => {
+                if (confirmed) {
+                    window.location = jsObject.logout_url
+                }
+            })
+    })
+
     jQuery('#location-modal').on('hidden.bs.modal', (e) => {
         jQuery('#mapbox-search').val('')
         jQuery('.mapbox-error-message').html('')
+    })
+    jQuery('#erase-user-account-modal').on('hidden.bs.modal', () => {
+        jQuery('#delete-confirmation').val('')
     })
 
     jQuery('.save-user-location').on('click', (e) => {
@@ -259,7 +278,11 @@ jQuery(document).ready(function(){
                     modalId: "user-data-report",
                     classes: 'btn-outline-dark small d-block',
                 })}
-                <button class="btn small btn-outline-danger mt-5 d-block">Erase my account</button>
+                ${ModalButton({
+                    text: "Erase my account",
+                    modalId: "erase-user-account-modal",
+                    classes: "small btn-outline-danger d-block mt-3",
+                })}
             </section>
 `
         )
