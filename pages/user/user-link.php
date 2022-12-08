@@ -12,7 +12,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public $post_type = 'user';
     public $allowed_user_meta = [
         'location',
-        'location_source',
+        'location_hash',
     ];
 
     private static $_instance = null;
@@ -328,10 +328,24 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     }
 
     public function get_ip_location() {
-        /* also get their current hash and add this to the user as well */
         $response = DT_Ipstack_API::get_location_grid_meta_from_current_visitor();
 
-        return $response;
+        if ( $response ) {
+            $hash = hash( 'sha256', serialize( $response ) . mt_rand( 1000000, 10000000000000000 ) );
+            $country = $this->_extract_country_from_label( $response['label'] );
+            $response['country'] = $country;
+            $response['lat'] = strval( $response['lat'] );
+            $response['lng'] = strval( $response['lng'] );
+        }
+
+        $data = [
+            "location" => $response,
+            "location_hash" => $hash,
+        ];
+
+        $this->update_user( $data );
+
+        return $data;
     }
 
     public function save_location( $data ) {
@@ -347,12 +361,25 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         $data['grid_id'] = $grid_row ? $grid_row['grid_id'] : false;
         $data['lat'] = strval( $data['lat'] );
         $data['lng'] = strval( $data['lng'] );
+        $data['country'] = $this->_extract_country_from_label( $data['label'] );
 
         $this->update_user( [
             'location' => $data,
         ] );
 
         return $data;
+    }
+
+    /**
+     * Extract_country_from_label
+     * @param string $label
+     * @return array|bool|string
+     */
+    private function _extract_country_from_label( string $label ) {
+        if ( $label === '' ) {
+            return '';
+        }
+        return array_reverse( explode( ', ', $label ) )[0];
     }
 
     public function geolocate_by_latlng( $data ) {

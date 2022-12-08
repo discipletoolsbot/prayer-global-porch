@@ -179,21 +179,16 @@ jQuery(document).ready(function(){
 
         if ( !data.location || data.location === '' ) {
             get_user_app('ip_location')
-                .done((location) => {
-                    if (!location || location === "") {
+                .done((data) => {
+                    if (!data || data === "") {
                         jQuery('.user__location-label').html('Please select your location')
                         return
                     }
-                    jsObject.user.location = location
-                    jsObject.user.is_ip_location = 1
+                    jsObject.user.location = data.location
+                    jsObject.user.location_hash = data.location_hash
 
-                    jQuery('.user__location-label').html(location.label)
+                    jQuery('.user__location-label').html(data.location.label)
                     jQuery('.iplocation-message').html('(This is your estimated location)')
-
-                    return get_user_app('update_user', {
-                        location,
-                        location_source: 'ip',
-                    })
                 })
         }
 
