@@ -196,6 +196,7 @@ strong {
 .header-border-top {
     position: relative;
     padding-top: 30px;
+    text-align: center;
 }
 .header-border-top::before {
     position: absolute;
@@ -210,6 +211,7 @@ strong {
 .header-border-bottom {
     position: relative;
     padding-bottom: 30px;
+    text-align: center;
 }
 .header-border-bottom::before {
     position: absolute;

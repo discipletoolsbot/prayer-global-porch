@@ -18,6 +18,7 @@ jQuery(document).ready(function(){
             url: jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type,
             beforeSend: function (xhr) {
                 xhr.setRequestHeader('Http-X-Wp-Nonce', jsObject.nonce )
+                xhr.setRequestHeader('X-Wp-Nonce', jsObject.nonce )
             }
         })
             .fail(function(e) {
@@ -184,7 +185,7 @@ jQuery(document).ready(function(){
         sendGeneralEmails = false,
     }) {
         jQuery('#user-details-content').html(`
-            <h2 class="header-border-bottom center">Profile</h2>
+            <h2 class="header-border-bottom">Profile</h2>
             <table class="table">
                 <tbody>
                     <tr>
@@ -204,7 +205,7 @@ jQuery(document).ready(function(){
                 </tbody>
             </table>
             <section class="communication-preferences flow-small">
-                <h2 class="header-border-bottom center">Communication Preferences</h2>
+                <h2 class="header-border-bottom">Communication Preferences</h2>
 
                 <div>
                     <div class="form-check small">
@@ -233,7 +234,7 @@ jQuery(document).ready(function(){
 
     function write_prayers() {
         userProfileDetails.html(`
-            <h2 class="header-border-bottom center">Prayers</h2>
+            <h2 class="header-border-bottom">Prayers</h2>
             <section class="user-stats flow">
 
                 <div class="center">
@@ -312,7 +313,20 @@ jQuery(document).ready(function(){
     }
 
     function write_challenges() {
-        console.log('write challenges');
+        userProfileDetails.html(`
+            <h2 class="header-border-bottom">Challenges</h2>
+            <section class="private-challenges flow">
+                <h3 class="header-border-bottom">Private Challenges</h3>
+                <button class="btn btn-outline-dark d-block mx-auto">New Private Challenge</button>
+                <div class="private-challenges__list"></div>
+            </section>
+            <section class="public-challenges flow">
+                <h3 class="header-border-bottom">Public Challenges</h3>
+                <button class="btn btn-outline-dark d-block mx-auto">New Public Challenge</button>
+                <div class="public-challenges__list"></div>
+            </section>
+`
+        )
         open_profile()
     }
 
