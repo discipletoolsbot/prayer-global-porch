@@ -390,6 +390,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
             $response['country'] = $country;
             $response['lat'] = strval( $response['lat'] );
             $response['lng'] = strval( $response['lng'] );
+            $response['hash'] = $hash;
         }
 
         $data = [
@@ -412,10 +413,13 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
         $grid_row = $geocoder->get_grid_id_by_lnglat( $data['lng'], $data['lat'] );
 
+        $old_location = get_user_meta( get_current_user_id(), PG_NAMESPACE . 'location', true );
+
         $data['grid_id'] = $grid_row ? $grid_row['grid_id'] : false;
         $data['lat'] = strval( $data['lat'] );
         $data['lng'] = strval( $data['lng'] );
         $data['country'] = $this->_extract_country_from_label( $data['label'] );
+        $data['hash'] = $old_location ? $old_location['hash'] : '';
 
         $this->update_user( [
             'location' => $data,
