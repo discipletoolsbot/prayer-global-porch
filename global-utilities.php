@@ -612,7 +612,8 @@ function pg_get_user( int $user_id, array $allowed_meta ) {
     }
 
     foreach ( $allowed_meta as $meta_key ) {
-        $meta_value = get_user_meta( $user_id, $meta_key, true );
+        $namespaced_meta_key = PG_NAMESPACE . $meta_key;
+        $meta_value = get_user_meta( $user_id, $namespaced_meta_key, true );
         $userdata[$meta_key] = $meta_value;
     }
 

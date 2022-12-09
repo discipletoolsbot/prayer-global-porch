@@ -12,9 +12,9 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public $post_type = 'user';
     public $allowed_user_meta = [
         'location',
-        'is_ip_location',
-        'lat',
-        'lng',
+        'location_hash',
+        'send_lap_emails',
+        'send_general_emails',
     ];
 
     private static $_instance = null;
@@ -102,6 +102,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         </script>
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/components.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/components.js' ) ) ?>"></script>
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>user-link.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'user-link.js' ) ) ?>"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js?ver=3"></script>
         <style>
             #login_form input {
                 padding:.5em;
@@ -116,6 +117,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
     public function body(){
         DT_Mapbox_API::load_mapbox_search_widget();
+        DT_Mapbox_API::mapbox_search_widget_css();
 
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' );
 
@@ -149,11 +151,81 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            <div id="mapbox-wrapper"></div>
+                            <div id="mapbox-wrapper">
+                                <div id="mapbox-autocomplete" class="mapbox-autocomplete" data-autosubmit="false" data-add-address="true">
+                                    <div class="input-group mb-2">
+                                        <input required id="mapbox-search" type="text" name="mapbox_search" class="form-control" autocomplete="off" placeholder="Select Location" />
+                                        <button id="mapbox-clear-autocomplete" class="btn btn-danger" type="button" title="Delete Location" style="">
+                                            <i class="ion-close"></i>
+                                        </button>
+                                    </div>
+                                    <div class="mapbox-error-message text-danger small"></div>
+                                    <div id="mapbox-spinner-button" style="display: none;">
+                                        <span class="" style="border-radius: 50%;width: 24px;height: 24px;border: 0.25rem solid lightgrey;border-top-color: black;animation: spin 1s infinite linear;display: inline-block;"></span>
+                                    </div>
+                                    <div id="mapbox-autocomplete-list" class="mapbox-autocomplete-items"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark cancel-user-location" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary save-user-location">Save</button>
                         </div>
                    </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="user-data-report" tabindex="-1" aria-labelledby="userDataReportModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="userDataReportModalLabel">Data Report</h1>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Data Reporty stuff
+                            <br>
+                            The contents of their user/contact record?
+                            <br>
+                            Linked groups?
+                            <br>
+                            Prayer data?
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="erase-user-account-modal" tabindex="-1" aria-labelledby="eraseUserModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="eraseUserModalLabel">Erase Account</h1>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                This will delete your account from Prayer.Global.
+                            </p>
+                            <p>
+                                You will lose all progress and data assosciated with your account
+                            </p>
+                            <p>
+                                If you are sure you want to proceed please type "delete" into the box below and click "I am sure" button
+                            </p>
+                            <div class="mb-3">
+                                <label for="delete-confirmation" class="form-label">Confirm delete</label>
+                                <input type="text" class="form-control text-danger" id="delete-confirmation" placeholder="delete">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+                            <button class="btn btn-danger" id="confirm-user-account-delete" disabled>I am sure</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </section>
         <?php
     }
@@ -209,8 +281,10 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 return $this->get_user_activity( $params['data'] );
             case 'stats':
                 return $this->get_user_stats();
-            case 'geolocation':
-                return $this->geolocate_by_latlng( $params['data'] );
+            case 'ip_location':
+                return $this->get_ip_location( $params['data'] );
+            case 'save_location':
+                return $this->save_location( $params['data'] );
             default:
                 return $params;
         }
@@ -274,6 +348,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 continue;
             }
 
+            $meta_key = PG_NAMESPACE . $meta_key;
+
             $response = update_user_meta( $user_id, $meta_key, $meta_value );
 
             if ( is_wp_error( $response ) ) {
@@ -306,6 +382,69 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         $user_stats['total_locations'] = (int) $user_stats['total_locations'];
         $user_stats['total_minutes'] = (int) $user_stats['total_minutes'];
         return $user_stats;
+    }
+
+    public function get_ip_location( $data ) {
+        $response = DT_Ipstack_API::get_location_grid_meta_from_current_visitor();
+
+        if ( $response ) {
+            if ( isset( $data['hash'] ) ) {
+                $hash = $data['hash'];
+            } else {
+                $hash = hash( 'sha256', serialize( $response ) . mt_rand( 1000000, 10000000000000000 ) );
+            }
+            $country = $this->_extract_country_from_label( $response['label'] );
+            $response['country'] = $country;
+            $response['lat'] = strval( $response['lat'] );
+            $response['lng'] = strval( $response['lng'] );
+            $response['hash'] = $hash;
+        }
+
+        $data = [
+            "location" => $response,
+            "location_hash" => $hash,
+        ];
+
+        $this->update_user( $data );
+
+        return $data;
+    }
+
+    public function save_location( $data ) {
+        if ( !isset( $data['lat'], $data['lng'], $data['label'], $data['level'] ) ) {
+            return new WP_Error( __METHOD__, 'Missing lat, lng, label or level', [ 'status' => 400 ] );
+        }
+
+        /* Get the grid_id for this lat lng */
+        $geocoder = new Location_Grid_Geocoder();
+
+        $grid_row = $geocoder->get_grid_id_by_lnglat( $data['lng'], $data['lat'] );
+
+        $old_location = get_user_meta( get_current_user_id(), PG_NAMESPACE . 'location', true );
+
+        $data['grid_id'] = $grid_row ? $grid_row['grid_id'] : false;
+        $data['lat'] = strval( $data['lat'] );
+        $data['lng'] = strval( $data['lng'] );
+        $data['country'] = $this->_extract_country_from_label( $data['label'] );
+        $data['hash'] = $old_location ? $old_location['hash'] : '';
+
+        $this->update_user( [
+            'location' => $data,
+        ] );
+
+        return $data;
+    }
+
+    /**
+     * Extract_country_from_label
+     * @param string $label
+     * @return array|bool|string
+     */
+    private function _extract_country_from_label( string $label ) {
+        if ( $label === '' ) {
+            return '';
+        }
+        return array_reverse( explode( ', ', $label ) )[0];
     }
 
     public function geolocate_by_latlng( $data ) {

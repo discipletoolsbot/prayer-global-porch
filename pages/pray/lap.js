@@ -40,7 +40,7 @@ jQuery(document).ready(function(){
         if ( location ) {
           // persist user identity hash
           let pg_user_hash = Cookies.get('pg_user_hash')
-          if ( ! pg_user_hash ) {
+          if ( ! pg_user_hash || pg_user_hash === 'undefined' ) {
             Cookies.set('pg_user_hash', location.hash )
           } else {
             location.hash = pg_user_hash
