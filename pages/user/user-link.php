@@ -154,6 +154,46 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                    </div>
                 </div>
             </div>
+
+            <div class="modal fade" id="create-challenge-modal" tabindex="-1" aria-labelledby="createChallengeLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="createChallengeLabel">Create Challenge</h1>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="" id="challenge-form">
+                            <div class="modal-body">
+                                <!-- Buttons group for choosing which type of challenge to start -->
+                                <div class="btn-group-vertical mb-3" role="group" aria-label="Choose type of challenge">
+                                    <input type="radio" class="btn-check" name="ongoing-challenge-button" id="ongoing-challenge-button" autocomplete="off">
+                                    <label class="btn btn-outline-dark" for="ongoing-challenge-button">Pray for the whole world</label>
+                                    <input type="radio" class="btn-check" name="ongoing-challenge-button" id="timed-challenge-button" autocomplete="off">
+                                    <label class="btn btn-outline-dark" for="timed-challenge-button">Timed Challenge</label>
+                                </div>
+
+                                <!-- Form for inputs to go into -->
+                                    <div class="mb-3">
+                                        <label for="challenge-title" class="form-label">Challenge Title</label>
+                                        <input class="form-control" type="text" id="challenge-title" placeholder="Give your challenge a unique name" required>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="challenge-start-date" class="form-label">Challenge Start Date</label>
+                                        <input class="form-control" type="datetime-local" id="challenge-start-date" placeholder="Challenge Start Date">
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="challenge-end-date" class="form-label">Challenge End Date</label>
+                                        <input class="form-control" type="datetime-local" id="challenge-end-date" placeholder="Challenge End Date">
+                                    </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-outline-dark cancel-new-challenge-button" data-bs-dismiss="modal">Cancel</button>
+                                <button class="btn btn-primary create-new-challenge-button">Create</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
         </section>
         <?php
     }

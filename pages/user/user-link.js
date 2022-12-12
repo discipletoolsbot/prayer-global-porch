@@ -315,14 +315,18 @@ jQuery(document).ready(function(){
     function write_challenges() {
         userProfileDetails.html(`
             <h2 class="header-border-bottom">Challenges</h2>
-            <section class="private-challenges flow">
+            <section class="private-challenges flow-small">
                 <h3 class="header-border-bottom">Private Challenges</h3>
-                <button class="btn btn-outline-dark d-block mx-auto">New Private Challenge</button>
+
+                ${CreateChallengeButton( 'Private' )}
+
                 <div class="private-challenges__list"></div>
             </section>
-            <section class="public-challenges flow">
+            <section class="public-challenges flow-small">
                 <h3 class="header-border-bottom">Public Challenges</h3>
-                <button class="btn btn-outline-dark d-block mx-auto">New Public Challenge</button>
+
+                ${CreateChallengeButton( 'Public' )}
+
                 <div class="public-challenges__list"></div>
             </section>
 `
@@ -481,6 +485,15 @@ jQuery(document).ready(function(){
             buttonType: 'outline-success',
             classes: 'small',
             id: 'new-mapbox-search',
+        })
+    }
+
+    function CreateChallengeButton( type ) {
+        return ModalButton({
+            text: 'New ' + type + ' Challenge',
+            modalId: 'create-challenge-modal',
+            buttonType: 'outline-dark',
+            classes: 'd-block mx-auto',
         })
     }
     /**
