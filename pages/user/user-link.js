@@ -1,12 +1,75 @@
 jQuery(document).ready(function(){
 
     const userProfileDetails = jQuery('#user-details-content')
+    let isSavingLocation = false
 
     if ( jsObject.is_logged_in ) {
         write_main( jsObject.user )
     } else {
         write_login()
     }
+
+    jQuery('#delete-confirmation').on('keyup', (e) => {
+        if (e.target.value === 'delete') {
+            jQuery('#confirm-user-account-delete').prop( 'disabled', false)
+        } else {
+            jQuery('#confirm-user-account-delete').prop( 'disabled', true )
+        }
+    })
+    jQuery('#confirm-user-account-delete').on('click', () => {
+        get_user_app('delete_account')
+            .done((confirmed) => {
+                if (confirmed) {
+                    window.location = jsObject.logout_url
+                }
+            })
+    })
+
+    jQuery('#location-modal').on('hidden.bs.modal', (e) => {
+        jQuery('#mapbox-search').val('')
+        jQuery('.mapbox-error-message').html('')
+    })
+    jQuery('#erase-user-account-modal').on('hidden.bs.modal', () => {
+        jQuery('#delete-confirmation').val('')
+    })
+
+    jQuery('.save-user-location').on('click', (e) => {
+        const label = jQuery('#mapbox-search').val()
+
+        const location = window.location_data &&
+            window.location_data.location_grid_meta &&
+            window.location_data.location_grid_meta.values &&
+            Array.isArray(window.location_data.location_grid_meta.values)
+                ? window.location_data.location_grid_meta.values[0]
+                : null
+
+        if ( label && label !== '' && location && location.label === label ) {
+
+            if (isSavingLocation) {
+                return
+            }
+
+            isSavingLocation = true
+
+            jQuery('#mapbox-spinner-button').show()
+            jQuery('.mapbox-error-message').html('')
+
+            get_user_app('save_location', location)
+                .done((location) => {
+                    jsObject.user.location = location
+                    jQuery('#location-modal').modal('hide')
+                    jQuery('#mapbox-spinner-button').hide()
+                    jQuery('#mapbox-search').val('')
+                    jQuery('.user__location-label').html(location.label)
+                    jQuery('.iplocation-message').empty()
+                })
+                .always(() => {
+                    isSavingLocation = false
+                })
+        } else {
+            jQuery('.mapbox-error-message').html('Please select a location')
+        }
+    })
 
 
     function get_user_app (action, data ) {
@@ -87,7 +150,11 @@ jQuery(document).ready(function(){
                     <div class="user__info">
                         <h2 class="user__full-name">${data.display_name}</h2>
                         <p class="user__location small">
-                            ${data.location || LoadingSpinner()}
+                            <span class="user__location-label">${data.location && data.location.label || LoadingSpinner()}</span>
+                            ${LocationChangeButton()}
+                            <span class="iplocation-message small d-block text-secondary">
+                                ${data.location && data.location.source === 'ip' ? '(This is your estimated location)' : ''}
+                            </span>
                         </p>
                     </div>
                 </section>
@@ -131,47 +198,28 @@ jQuery(document).ready(function(){
             })
 
         if ( !data.location || data.location === '' ) {
-            const error = () => {
-                jQuery('.user__location').html('Please select your location')
-            }
+            const pg_user_hash = Cookies.get('pg_user_hash')
 
-            if (navigator.geolocation) {
-                const success = (location) => {
-                    const lat = location.coords.latitude
-                    const lng = location.coords.longitude
-                    get_user_app('geolocation', { lat, lng })
-                        .done((location) => {
-                            if (!location || location === "") {
-                                error()
-                                return
-                            }
-                            jsObject.user.location = location
-                            jsObject.user.is_ip_location = 1
+            get_user_app('ip_location', { hash: pg_user_hash })
+                .done((data) => {
+                    if (!data || data === "") {
+                        jQuery('.user__location-label').html('Please select your location')
+                        return
+                    }
+                    jsObject.user.location = data.location
+                    jsObject.user.location_hash = data.location_hash
 
-                            jQuery('.user__location').html(location)
-
-                            return get_user_app('update_user', {
-                                location,
-                                is_ip_location: true,
-                                lat,
-                                lng
-                            })
-                        })
-                }
-
-                navigator.geolocation.getCurrentPosition(success, error)
-            } else {
-                error()
-            }
+                    jQuery('.user__location-label').html(data.location.label)
+                    jQuery('.iplocation-message').html('(This is your estimated location)')
+                })
         }
-
 
         jQuery('.user-profile-link').on('click', () => write_profile({
             name: data.display_name,
             email: data.user_email,
             location: data.location,
-            sendLapEmails: data.send_lap_emails,
-            sendGeneralEmails: data.send_general_emails,
+            send_lap_emails: data.send_lap_emails,
+            send_general_emails: data.send_general_emails,
         }))
         jQuery('.user-prayers-link').on('click', () => write_prayers())
         jQuery('.user-challenges-link').on('click', () => write_challenges())
@@ -181,8 +229,8 @@ jQuery(document).ready(function(){
         name,
         email,
         location,
-        sendLapEmails = true,
-        sendGeneralEmails = false,
+        send_lap_emails = false,
+        send_general_emails = false,
     }) {
         jQuery('#user-details-content').html(`
             <h2 class="header-border-bottom">Profile</h2>
@@ -199,7 +247,11 @@ jQuery(document).ready(function(){
                     <tr>
                         <td>Location:</td>
                         <td>
-                            ${location || 'Please set your location'}
+                            <span class="user__location-label">${location && location.label || 'Please set your location'}</span>
+                            ${LocationChangeButton()}
+                            <span class="iplocation-message small d-block text-secondary">
+                                ${location && location.source === 'ip' ? '(This is your estimated location)' : ''}
+                            </span>
                         </td>
                     </tr>
                 </tbody>
@@ -209,14 +261,14 @@ jQuery(document).ready(function(){
 
                 <div>
                     <div class="form-check small">
-                        <input class="form-check-input" type="checkbox" id="send-lap-emails" ${sendLapEmails && 'checked'}>
-                        <label class="form-check-label" for="send-lap-emails">
+                        <input class="form-check-input user-check-preferences" type="checkbox" id="send_lap_emails" ${send_lap_emails && 'checked'}>
+                        <label class="form-check-label" for="send_lap_emails">
                             Send me lap challenges via email
                         </label>
                     </div>
                     <div class="form-check small">
-                        <input class="form-check-input" type="checkbox" id="send-general-emails" ${sendGeneralEmails && 'checked'}>
-                        <label class="form-check-label" for="send-general-emails">
+                        <input class="form-check-input user-check-preferences" type="checkbox" id="send_general_emails" ${send_general_emails && 'checked'}>
+                        <label class="form-check-label" for="send_general_emails">
                             Send information about Prayer.Global, Zume, Pray4Movement and other Gospel Ambition projects via email
                         </label>
                     </div>
@@ -224,11 +276,26 @@ jQuery(document).ready(function(){
             </section>
             <section class="user-actions">
                 <hr />
-                <a href="#" class="btn small">Data report for my account</a>
-                <button class="btn small btn-outline-danger mt-5">Erase my account</button>
+                ${ModalButton({
+                    text: "Data report for my account",
+                    modalId: "user-data-report",
+                    classes: 'btn-outline-dark small d-block',
+                })}
+                ${ModalButton({
+                    text: "Erase my account",
+                    modalId: "erase-user-account-modal",
+                    classes: "small btn-outline-danger d-block mt-3",
+                })}
             </section>
 `
         )
+
+        jQuery('.user-check-preferences').on('change', (e) => {
+            get_user_app('update_user', {
+                [e.target.id]: e.target.checked
+            })
+        })
+
         open_profile()
     }
 
@@ -436,6 +503,7 @@ jQuery(document).ready(function(){
      *     --pg-badge-light-border: #ffd84c; The lighter half of the borders
      *     --pg-badge-dark-border: #d57e08; The darker half of the borders
      *     --pg-badge-darker-border: #c47207; The inner shadow of the side lines
+     *     --pg-badge-icon-color: defaults to primary-color
      *     --pg-badge-rotation: 44deg;
      *     --pg-badge-size: 150px;
      *     --pg-badge-inner-size: 70px;
@@ -482,8 +550,8 @@ jQuery(document).ready(function(){
         return ModalButton({
             text: 'Change',
             modalId: 'location-modal',
-            buttonType: 'outline-success',
-            classes: 'small',
+            buttonType: 'outline-primary',
+            classes: 'small border-0',
             id: 'new-mapbox-search',
         })
     }

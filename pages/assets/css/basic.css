@@ -736,6 +736,10 @@ button {
     width: min( 600px, 100% );
 }
 
+#mapbox-autocomplete-list div[data-value="address"] {
+    display: none;
+}
+
 .user__avatar {
     position: relative;
 }
