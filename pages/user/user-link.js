@@ -1,6 +1,19 @@
 jQuery(document).ready(function(){
 
     const userProfileDetails = jQuery('#user-details-content')
+
+    const challengeModal = jQuery('#create-challenge-modal')
+    const challengeModalTitle = jQuery('#createChallengeLabel')
+    const challengeModalTitleIcon = jQuery('#createChallengeLabel i')
+    const challengeTitleGroup = jQuery('.challenge-title-group')
+    const challengeStartDateGroup = jQuery('.challenge-start-date-group')
+    const challengeEndDateGroup = jQuery('.challenge-end-date-group')
+
+    const challengeTitle = jQuery('#challenge-title')
+    const challengeStartDate = jQuery('#challenge-start-date')
+    const challengeEndDate = jQuery('#challenge-end-date')
+    const challengeVisibility = jQuery('#challenge-visibility')
+    const challengeType = jQuery('input[name="challenge-type"]:checked')
     let isSavingLocation = false
 
     if ( jsObject.is_logged_in ) {
@@ -31,6 +44,9 @@ jQuery(document).ready(function(){
     })
     jQuery('#erase-user-account-modal').on('hidden.bs.modal', () => {
         jQuery('#delete-confirmation').val('')
+    })
+    challengeModal.on('hidden.bs.modal', () => {
+        resetChallengeForm()
     })
 
     jQuery('.save-user-location').on('click', (e) => {
@@ -223,7 +239,8 @@ jQuery(document).ready(function(){
         }))
         jQuery('.user-prayers-link').on('click', () => write_prayers())
         jQuery('.user-challenges-link').on('click', () => write_challenges())
-    }
+
+   }
 
     function write_profile({
         name,
@@ -380,25 +397,100 @@ jQuery(document).ready(function(){
     }
 
     function write_challenges() {
+
+        const onclickHandle = (visibility) => {
+            return () => challengeVisibility.val(visibility)
+        }
+
         userProfileDetails.html(`
             <h2 class="header-border-bottom">Challenges</h2>
             <section class="private-challenges flow-small">
                 <h3 class="header-border-bottom">Private Challenges</h3>
 
-                ${CreateChallengeButton( 'Private' )}
+                ${CreateChallengeButton( 'Private', 'private-challenge-button' )}
 
                 <div class="private-challenges__list"></div>
             </section>
             <section class="public-challenges flow-small">
                 <h3 class="header-border-bottom">Public Challenges</h3>
 
-                ${CreateChallengeButton( 'Public' )}
+                ${CreateChallengeButton( 'Public', 'public-challenge-button' )}
 
                 <div class="public-challenges__list"></div>
             </section>
 `
         )
+
+        jQuery('#private-challenge-button').on('click', () => {
+            challengeVisibility.val('private')
+            challengeModalTitle.html('Create Private Challenge')
+            challengeModalTitleIcon.addClass('ion-locked')
+            challengeModalTitle.addClass('private')
+            challengeModalTitle.removeClass('public')
+        })
+        jQuery('#public-challenge-button').on('click', () => {
+            challengeVisibility.val('public')
+            challengeModalTitle.html('Create Public Challenge')
+            challengeModalTitle.addClass('public')
+            challengeModalTitle.removeClass('private')
+        })
+
+        resetChallengeForm()
+        jQuery('.ongoing-challenge-button').on('click', () => {
+            challengeTitleGroup.show()
+            challengeStartDateGroup.show()
+            challengeEndDateGroup.hide()
+            challengeEndDate.attr('required', false)
+
+            challengeTitle.focus()
+        })
+        jQuery('.timed-challenge-button').on('click', () => {
+            challengeTitleGroup.show()
+            challengeStartDateGroup.show()
+            challengeEndDateGroup.show()
+            challengeEndDate.attr('required', true)
+
+            challengeTitle.focus()
+        })
+
+        jQuery('#challenge-form').on('submit', (event) => {
+            event.preventDefault()
+            const challengeType = jQuery('input[name="challenge-type"]:checked').attr('id')
+            const title = challengeTitle.val()
+            const startDate = challengeStartDate.val()
+            const endDate = challengeEndDate.val()
+            const visibility = challengeVisibility.val()
+
+            /* TODO: maybe with an icon for private not private involved as well. */
+
+            const data = {
+                title,
+                start_date: startDate,
+                visibility,
+                type: challengeType,
+            }
+
+            if ( challengeType === 'timed-challenge' ) {
+                data.end_date = endDate
+            }
+
+            /* Send the data up to create the challenge */
+            console.log(challengeType, title, startDate, endDate);
+        })
+
         open_profile()
+    }
+
+    function resetChallengeForm() {
+        jQuery('input[name="challenge-type"]:checked').prop('checked', false)
+        console.log(challengeType)
+        challengeTitleGroup.hide()
+        challengeStartDateGroup.hide()
+        challengeEndDateGroup.hide()
+        challengeTitle.val('')
+        challengeStartDate.val('')
+        challengeEndDate.val('')
+        challengeEndDate.attr('required', false)
     }
 
     function open_profile() {
@@ -556,12 +648,20 @@ jQuery(document).ready(function(){
         })
     }
 
-    function CreateChallengeButton( type ) {
+    function CreateChallengeButton( type, id ) {
+
+        const icon = type.toLowerCase() === 'private' ? 'locked' : 'unlocked'
+
+        let text = '<i class="icon ion-' + icon + ' me-2"></i>'
+
+        text += 'New ' + type + ' Challenge'
+
         return ModalButton({
-            text: 'New ' + type + ' Challenge',
+            text,
             modalId: 'create-challenge-modal',
             buttonType: 'outline-dark',
             classes: 'd-block mx-auto',
+            id,
         })
     }
     /**
@@ -570,8 +670,10 @@ jQuery(document).ready(function(){
      * @param string text The text to show in the button
      * @param string modalId The id of the modal to trigger
      * @param string buttonType The classtype of the button e.g. primary, outline-success etc. (see bootstrap)
+     * @param string classes Optional extra classes
+     * @param string id Optional id to give the button
      */
-    function ModalButton({ text, modalId, buttonType = '', classes = '', id = '' }) {
+    function ModalButton({ text, modalId, buttonType = '', classes = '', id = '' } ) {
 
         return `
         <button id="${id}" class="btn btn-${buttonType} ${classes}" data-bs-toggle="modal" data-bs-target="#${modalId}">

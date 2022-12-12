@@ -185,29 +185,31 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                         <form action="" id="challenge-form">
                             <div class="modal-body">
                                 <!-- Buttons group for choosing which type of challenge to start -->
-                                <div class="btn-group-vertical mb-3" role="group" aria-label="Choose type of challenge">
-                                    <input type="radio" class="btn-check" name="ongoing-challenge-button" id="ongoing-challenge-button" autocomplete="off">
-                                    <label class="btn btn-outline-dark" for="ongoing-challenge-button">Pray for the whole world</label>
-                                    <input type="radio" class="btn-check" name="ongoing-challenge-button" id="timed-challenge-button" autocomplete="off">
-                                    <label class="btn btn-outline-dark" for="timed-challenge-button">Timed Challenge</label>
+                                <div class="btn-group-vertical mb-3 w-100" role="group" aria-label="Choose type of challenge">
+                                    <input type="radio" class="btn-check ongoing-challenge-button" name="challenge-type" id="ongoing-challenge" autocomplete="off" required>
+                                    <label class="btn btn-outline-dark" for="ongoing-challenge">Pray for the whole world</label>
+                                    <input type="radio" class="btn-check timed-challenge-button" name="challenge-type" id="timed-challenge" autocomplete="off" required/>
+                                    <label class="btn btn-outline-dark" for="timed-challenge">Timed Challenge</label>
                                 </div>
 
+                                <input type="hidden" id="challenge-visibility">
+
                                 <!-- Form for inputs to go into -->
-                                    <div class="mb-3">
-                                        <label for="challenge-title" class="form-label">Challenge Title</label>
-                                        <input class="form-control" type="text" id="challenge-title" placeholder="Give your challenge a unique name" required>
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="challenge-start-date" class="form-label">Challenge Start Date</label>
-                                        <input class="form-control" type="datetime-local" id="challenge-start-date" placeholder="Challenge Start Date">
-                                    </div>
-                                    <div class="mb-3">
-                                        <label for="challenge-end-date" class="form-label">Challenge End Date</label>
-                                        <input class="form-control" type="datetime-local" id="challenge-end-date" placeholder="Challenge End Date">
-                                    </div>
+                                <div class="mb-3 challenge-title-group">
+                                    <label for="challenge-title" class="form-label">Challenge Title</label>
+                                    <input class="form-control" type="text" id="challenge-title" placeholder="Give your challenge a unique name" required>
+                                </div>
+                                <div class="mb-3 challenge-start-date-group">
+                                    <label for="challenge-start-date" class="form-label">Challenge Start Date (optional)</label>
+                                    <input class="form-control" type="datetime-local" id="challenge-start-date" placeholder="Challenge Start Date">
+                                </div>
+                                <div class="mb-3 challenge-end-date-group">
+                                    <label for="challenge-end-date" class="form-label">Challenge End Date</label>
+                                    <input class="form-control" type="datetime-local" id="challenge-end-date" placeholder="Challenge End Date">
+                                </div>
                             </div>
                             <div class="modal-footer">
-                                <button class="btn btn-outline-dark cancel-new-challenge-button" data-bs-dismiss="modal">Cancel</button>
+                                <button class="btn btn-outline-dark cancel-new-challenge-button" data-bs-dismiss="modal" type="button">Cancel</button>
                                 <button class="btn btn-primary create-new-challenge-button">Create</button>
                             </div>
                         </form>
@@ -239,7 +241,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="eraseUserModalLabel">Erase Account</h1>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <p>
@@ -257,7 +259,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+                            <button class="btn btn-outline-dark" data-bs-dismiss="modal" type="button">Cancel</button>
                             <button class="btn btn-danger" id="confirm-user-account-delete" disabled>I am sure</button>
                         </div>
                     </div>
