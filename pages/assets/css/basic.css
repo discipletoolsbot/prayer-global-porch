@@ -911,3 +911,18 @@ button {
   left: 0;
   bottom: 0;
 }
+
+.btn-check + .btn-secondary {
+    --bs-btn-bg: white;
+    --bs-btn-color: #565e64;
+}
+.btn-check + .btn:hover {
+    color: var(--bs-btn-active-bg);
+    background: #f4f5f7;
+    font-weight: bold;
+}
+.btn-check:checked + .btn {
+    color: var(--bs-btn-active-bg);
+    background: #d1d6dd;
+    font-weight: bold;
+}

@@ -187,9 +187,9 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                                 <!-- Buttons group for choosing which type of challenge to start -->
                                 <div class="btn-group-vertical mb-3 w-100" role="group" aria-label="Choose type of challenge">
                                     <input type="radio" class="btn-check ongoing-challenge-button" name="challenge-type" id="ongoing_challenge" autocomplete="off" required>
-                                    <label class="btn btn-outline-dark" for="ongoing_challenge">Pray for the whole world</label>
+                                    <label class="btn btn-secondary" for="ongoing_challenge" role="button">Pray for the whole world</label>
                                     <input type="radio" class="btn-check timed-challenge-button" name="challenge-type" id="timed_challenge" autocomplete="off" required/>
-                                    <label class="btn btn-outline-dark" for="timed_challenge">Timed Challenge</label>
+                                    <label class="btn btn-secondary" for="timed_challenge" role="button">Timed Challenge</label>
                                 </div>
 
                                 <input type="hidden" id="challenge-visibility">
