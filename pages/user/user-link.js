@@ -398,10 +398,6 @@ jQuery(document).ready(function(){
 
     function write_challenges() {
 
-        const onclickHandle = (visibility) => {
-            return () => challengeVisibility.val(visibility)
-        }
-
         userProfileDetails.html(`
             <h2 class="header-border-bottom">Challenges</h2>
             <section class="private-challenges flow-small">
@@ -461,21 +457,24 @@ jQuery(document).ready(function(){
             const endDate = challengeEndDate.val()
             const visibility = challengeVisibility.val()
 
-            /* TODO: maybe with an icon for private not private involved as well. */
-
             const data = {
                 title,
-                start_date: startDate,
                 visibility,
-                type: challengeType,
+                challenge_type: challengeType,
             }
 
-            if ( challengeType === 'timed-challenge' ) {
+            if ( startDate && startDate !== '' ) {
+                data.start_date = startDate
+            }
+
+            if ( challengeType === 'timed_challenge' ) {
                 data.end_date = endDate
             }
 
-            /* Send the data up to create the challenge */
-            console.log(challengeType, title, startDate, endDate);
+            get_user_app('create_challenge', data)
+                .done((challenge) => {
+                    challengeModal.modal('hide')
+                })
         })
 
         open_profile()

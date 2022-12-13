@@ -186,10 +186,10 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             <div class="modal-body">
                                 <!-- Buttons group for choosing which type of challenge to start -->
                                 <div class="btn-group-vertical mb-3 w-100" role="group" aria-label="Choose type of challenge">
-                                    <input type="radio" class="btn-check ongoing-challenge-button" name="challenge-type" id="ongoing-challenge" autocomplete="off" required>
-                                    <label class="btn btn-outline-dark" for="ongoing-challenge">Pray for the whole world</label>
-                                    <input type="radio" class="btn-check timed-challenge-button" name="challenge-type" id="timed-challenge" autocomplete="off" required/>
-                                    <label class="btn btn-outline-dark" for="timed-challenge">Timed Challenge</label>
+                                    <input type="radio" class="btn-check ongoing-challenge-button" name="challenge-type" id="ongoing_challenge" autocomplete="off" required>
+                                    <label class="btn btn-outline-dark" for="ongoing_challenge">Pray for the whole world</label>
+                                    <input type="radio" class="btn-check timed-challenge-button" name="challenge-type" id="timed_challenge" autocomplete="off" required/>
+                                    <label class="btn btn-outline-dark" for="timed_challenge">Timed Challenge</label>
                                 </div>
 
                                 <input type="hidden" id="challenge-visibility">
@@ -326,6 +326,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 return $this->get_ip_location( $params['data'] );
             case 'save_location':
                 return $this->save_location( $params['data'] );
+            case 'create_challenge':
+                return $this->create_challenge( $params['data'] );
             default:
                 return $params;
         }
@@ -504,6 +506,42 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         $label = $geocoder->_format_full_name( $grid_row );
 
         return $label;
+    }
+
+    public function create_challenge( $data ) {
+        if ( !isset( $data['title'], $data['visibility'], $data['challenge_type'] ) ) {
+            return new WP_Error( __METHOD__, 'Challenge Title, visibility or type missing', [ 'status' => 400 ] );
+        }
+
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
+        $fields = [
+            'title' => $data['title'],
+            'challenge_type' => $data['challenge_type'],
+            'visibility' => $data['visibility'],
+        ];
+
+        if ( isset( $data['start_date'] ) ) {
+            $start_time = strtotime( $data['start_date'] );
+            $fields["start_date"] = gmdate( 'Y-m-d H:m:s', $start_time );
+            $fields["start_time"] = $start_time;
+        }
+        if ( isset( $data['end_date'] ) ) {
+            $end_time = strtotime( $data['end_date'] );
+            $fields["end_date"] = gmdate( 'Y-m-d H:m:s', $end_time );
+            $fields["end_time"] = $end_time;
+        }
+
+        $fields['assigned_to'] = $user_id;
+        $fields['type'] = 'custom';
+
+        $post = DT_Posts::create_post( 'laps', $fields );
+
+        return $post;
     }
 
 }
