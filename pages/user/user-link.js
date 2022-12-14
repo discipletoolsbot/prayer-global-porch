@@ -14,6 +14,8 @@ jQuery(document).ready(function(){
     const challengeEndDate = jQuery('#challenge-end-date')
     const challengeVisibility = jQuery('#challenge-visibility')
     const challengeType = jQuery('input[name="challenge-type"]:checked')
+
+
     let isSavingLocation = false
 
     if ( jsObject.is_logged_in ) {
@@ -405,17 +407,24 @@ jQuery(document).ready(function(){
 
                 ${CreateChallengeButton( 'Private', 'private-challenge-button' )}
 
-                <div class="private-challenges__list"></div>
+                <div class="d-flex justify-content-center center private-challenges__list">
+                    <span class="loading-spinner active"></span>
+                </div>
             </section>
             <section class="public-challenges flow-small">
                 <h3 class="header-border-bottom">Public Challenges</h3>
 
                 ${CreateChallengeButton( 'Public', 'public-challenge-button' )}
 
-                <div class="public-challenges__list"></div>
+                <div class="d-flex justify-content-center center public-challenges__list">
+                    <span class="loading-spinner active"></span>
+                </div>
             </section>
 `
         )
+
+        getChallenges( 'public' )
+        getChallenges( 'private' )
 
         jQuery('#private-challenge-button').on('click', () => {
             challengeVisibility.val('private')
@@ -431,7 +440,6 @@ jQuery(document).ready(function(){
             challengeModalTitle.removeClass('private')
         })
 
-        resetChallengeForm()
         jQuery('.ongoing-challenge-button').on('click', () => {
             challengeTitleGroup.show()
             challengeStartDateGroup.show()
@@ -474,15 +482,18 @@ jQuery(document).ready(function(){
             get_user_app('create_challenge', data)
                 .done((challenge) => {
                     challengeModal.modal('hide')
+
+                    getChallenges(visibility)
                 })
         })
+
+        resetChallengeForm()
 
         open_profile()
     }
 
     function resetChallengeForm() {
         jQuery('input[name="challenge-type"]:checked').prop('checked', false)
-        console.log(challengeType)
         challengeTitleGroup.hide()
         challengeStartDateGroup.hide()
         challengeEndDateGroup.hide()
@@ -490,6 +501,55 @@ jQuery(document).ready(function(){
         challengeStartDate.val('')
         challengeEndDate.val('')
         challengeEndDate.attr('required', false)
+    }
+
+    function getChallenges( visibility ) {
+
+        const containers = {
+            public: jQuery('.public-challenges__list'),
+            private: jQuery('.private-challenges__list'),
+        }
+
+        const container = containers[visibility]
+
+        get_user_app( 'get_challenges', { visibility } )
+            .done((challenges) => {
+                if (challenges && challenges.length === 0) {
+                    container.html('No' + visibility + 'challenges found')
+                }
+                jsObject.user[visibility + '_challenges'] = challenges
+                container.html( buildChallengeList( challenges ) )
+            })
+
+    }
+
+    function buildChallengeList( challenges ) {
+        const tableHead = `
+            <thead>
+                <tr>
+                    <th>Name</th>
+                </tr>
+            </thead>
+`
+
+        let tableBody = ''
+        challenges.forEach((challenge) => {
+            tableBody += `
+                <tr>
+                    <td><a href="/prayer_app/custom/${challenge.lap_key}/map">${challenge.post_title}</a></td>
+                </tr>
+`
+        })
+
+        const html = `
+        <table>
+            ${tableHead}
+            <tbody>
+                ${tableBody}
+            </tbody>
+        </table>`
+
+        return html
     }
 
     function open_profile() {
