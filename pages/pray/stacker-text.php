@@ -474,7 +474,7 @@ class PG_Stacker_Text_V2 {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, we pray for every movement leader and disciple in the that they would have deepening intimacy with You.',
+                'prayer' => 'Father, we pray for every movement leader and disciple in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].' that they would have deepening intimacy with You.',
                 'reference' => 'John 14:20',
                 'verse' => 'On that day you will realize that I am in my Father, and you are in me, and I am in you.',
             ],
