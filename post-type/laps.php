@@ -221,6 +221,40 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 'default'     => substr( md5( rand( 10000, 100000 ) ), 0, 3 ) . substr( md5( rand( 10000, 100000 ) ), 0, 3 ),
                 'tile' => 'details',
             ];
+            $fields['visibility'] = [
+                'name' => __( "Status", 'prayer-global' ),
+                'type' => 'key_select',
+                'tile' => 'details',
+                'default' => [
+                    'public'   => [
+                        'label' => __( 'Public', 'prayer-global' ),
+                        'description' => __( "This lap is public and will show up on the public list of challenges", 'prayer-global' ),
+                    ],
+                    'private'   => [
+                        'label' => __( 'Private', 'prayer-global' ),
+                        'description' => __( "This lap is private and won't show up on the public list of challenges", "Stream Status field description", 'prayer-global' ),
+                    ],
+                ],
+                'select_cannot_be_empty' => true,
+                'font-icon' => 'mdi mdi-lock-plus-outline',
+            ];
+            $fields['challenge_type'] = [
+                'name' => __( "Challenge Type", 'prayer-global' ),
+                'type' => 'key_select',
+                'tile' => 'details',
+                'default' => [
+                    'ongoing_challenge'   => [
+                        'label' => __( 'Ongoing Challenge', 'prayer-global' ),
+                        'description' => __( "This challenge has no end date/time", 'prayer-global' ),
+                    ],
+                    'timed_challenge'   => [
+                        'label' => __( 'Timed Challenge', 'prayer-global' ),
+                        'description' => __( "This challenge is a race to pray for the world by a certain time", "Stream Status field description", 'prayer-global' ),
+                    ],
+                ],
+                'select_cannot_be_empty' => true,
+                'font-icon' => 'mdi mdi-arm-flex-outline',
+            ];
 
             $fields['contacts'] = [
                 "name" => __( 'Contacts', 'prayer-global' ),

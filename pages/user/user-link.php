@@ -175,6 +175,47 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 </div>
             </div>
 
+            <div class="modal fade" id="create-challenge-modal" tabindex="-1" aria-labelledby="createChallengeLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="createChallengeLabel">Create Challenge</h1>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="" id="challenge-form">
+                            <div class="modal-body">
+                                <!-- Buttons group for choosing which type of challenge to start -->
+                                <div class="btn-group-vertical mb-3 w-100" role="group" aria-label="Choose type of challenge">
+                                    <input type="radio" class="btn-check ongoing-challenge-button" name="challenge-type" id="ongoing_challenge" autocomplete="off" required>
+                                    <label class="btn btn-secondary" for="ongoing_challenge" role="button">Pray for the whole world</label>
+                                    <input type="radio" class="btn-check timed-challenge-button" name="challenge-type" id="timed_challenge" autocomplete="off" required/>
+                                    <label class="btn btn-secondary" for="timed_challenge" role="button">Timed Challenge</label>
+                                </div>
+
+                                <input type="hidden" id="challenge-visibility">
+
+                                <!-- Form for inputs to go into -->
+                                <div class="mb-3 challenge-title-group">
+                                    <label for="challenge-title" class="form-label">Challenge Title</label>
+                                    <input class="form-control" type="text" id="challenge-title" placeholder="Give your challenge a unique name" required>
+                                </div>
+                                <div class="mb-3 challenge-start-date-group">
+                                    <label for="challenge-start-date" class="form-label">Challenge Start Date (optional)</label>
+                                    <input class="form-control" type="datetime-local" id="challenge-start-date" placeholder="Challenge Start Date">
+                                </div>
+                                <div class="mb-3 challenge-end-date-group">
+                                    <label for="challenge-end-date" class="form-label">Challenge End Date</label>
+                                    <input class="form-control" type="datetime-local" id="challenge-end-date" placeholder="Challenge End Date">
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button class="btn btn-outline-dark cancel-new-challenge-button" data-bs-dismiss="modal" type="button">Cancel</button>
+                                <button class="btn btn-primary create-new-challenge-button">Create</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
             <div class="modal fade" id="user-data-report" tabindex="-1" aria-labelledby="userDataReportModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -200,7 +241,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="eraseUserModalLabel">Erase Account</h1>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
                             <p>
@@ -218,7 +259,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-outline-dark" data-bs-dismiss="modal">Cancel</button>
+                            <button class="btn btn-outline-dark" data-bs-dismiss="modal" type="button">Cancel</button>
                             <button class="btn btn-danger" id="confirm-user-account-delete" disabled>I am sure</button>
                         </div>
                     </div>
@@ -285,6 +326,10 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 return $this->get_ip_location( $params['data'] );
             case 'save_location':
                 return $this->save_location( $params['data'] );
+            case 'create_challenge':
+                return $this->create_challenge( $params['data'] );
+            case 'get_challenges':
+                return $this->get_challenges( $params['data'] );
             default:
                 return $params;
         }
@@ -463,6 +508,80 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         $label = $geocoder->_format_full_name( $grid_row );
 
         return $label;
+    }
+
+    public function create_challenge( $data ) {
+        if ( !isset( $data['title'], $data['visibility'], $data['challenge_type'] ) ) {
+            return new WP_Error( __METHOD__, 'Challenge Title, visibility or type missing', [ 'status' => 400 ] );
+        }
+
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
+        $fields = [
+            'title' => $data['title'],
+            'challenge_type' => $data['challenge_type'],
+            'visibility' => $data['visibility'],
+        ];
+
+        if ( isset( $data['start_date'] ) ) {
+            $start_time = strtotime( $data['start_date'] );
+            $fields["start_date"] = gmdate( 'Y-m-d H:m:s', $start_time );
+            $fields["start_time"] = $start_time;
+        }
+        if ( isset( $data['end_date'] ) ) {
+            $end_time = strtotime( $data['end_date'] );
+            $fields["end_date"] = gmdate( 'Y-m-d H:m:s', $end_time );
+            $fields["end_time"] = $end_time;
+        }
+
+        $fields['assigned_to'] = $user_id;
+        $fields['type'] = 'custom';
+
+        $post = DT_Posts::create_post( 'laps', $fields );
+
+        return $post;
+    }
+
+    public function get_challenges( $data ) {
+        global $wpdb;
+
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
+        $visibility = isset( $data['visibility'] ) ? $data['visibility'] : 'public';
+
+        $data = [];
+
+        $user_meta_value = "user-$user_id";
+
+        $results = $wpdb->get_results( $wpdb->prepare(
+            "
+                SELECT pm.post_id, p.post_title, pm3.meta_value as lap_key, pm4.meta_value as start_time, pm6.meta_value as assigned_to
+                FROM $wpdb->posts p
+                JOIN $wpdb->postmeta pm ON pm.post_id=p.ID AND pm.meta_key = 'type' AND pm.meta_value = 'custom'
+                JOIN $wpdb->postmeta pm2 ON pm2.post_id=p.ID AND pm2.meta_key = 'status' AND pm2.meta_value = 'active'
+                LEFT JOIN $wpdb->postmeta pm3 ON pm3.post_id=p.ID AND pm3.meta_key = 'prayer_app_custom_magic_key'
+                LEFT JOIN $wpdb->postmeta pm4 ON pm4.post_id=p.ID AND pm4.meta_key = 'start_time'
+                LEFT JOIN $wpdb->postmeta pm5 ON pm5.post_id=p.ID AND pm5.meta_key = 'visibility'
+                JOIN $wpdb->postmeta pm6 ON pm6.post_id=p.ID AND pm6.meta_key = 'assigned_to' AND pm6.meta_value = %s
+                WHERE p.post_type = 'laps'
+                AND pm5.meta_value = %s OR pm5.meta_value IS NULL OR pm5.meta_value = 'none'
+                ORDER BY p.post_title
+             ", $user_meta_value, $visibility ), ARRAY_A );
+
+        foreach ( $results as $row ) {
+            $row['stats'] = pg_custom_lap_stats_by_post_id( $row['post_id'] );
+            $data[] = $row;
+        }
+
+        return $data;
     }
 
 }
