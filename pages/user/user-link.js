@@ -11,7 +11,9 @@ jQuery(document).ready(function(){
 
     const challengeTitle = jQuery('#challenge-title')
     const challengeStartDate = jQuery('#challenge-start-date')
+    const challengeStartTime = jQuery('#challenge-start-time')
     const challengeEndDate = jQuery('#challenge-end-date')
+    const challengeEndTime = jQuery('#challenge-end-time')
     const challengeVisibility = jQuery('#challenge-visibility')
 
     let isSavingLocation = false
@@ -460,21 +462,28 @@ jQuery(document).ready(function(){
             const challengeType = jQuery('input[name="challenge-type"]:checked').attr('id')
             const title = challengeTitle.val()
             const startDate = challengeStartDate.val()
+            const startTime = challengeStartTime.val()
             const endDate = challengeEndDate.val()
+            const endTime = challengeEndTime.val()
             const visibility = challengeVisibility.val()
+
+            const timeOffset = (new Date()).getTimezoneOffset()
 
             const data = {
                 title,
                 visibility,
                 challenge_type: challengeType,
+                time_offset: timeOffset,
             }
 
             if ( startDate && startDate !== '' ) {
                 data.start_date = startDate
+                data.start_time = startTime
             }
 
             if ( challengeType === 'timed_challenge' ) {
                 data.end_date = endDate
+                data.end_time = endTime
             }
 
             get_user_app('create_challenge', data)
@@ -497,24 +506,42 @@ jQuery(document).ready(function(){
         challengeEndDateGroup.hide()
         challengeTitle.val('')
         challengeStartDate.val('')
+        challengeStartTime.val('')
         challengeEndDate.val('')
+        challengeEndTime.val('')
         challengeEndDate.attr('required', false)
     }
 
-    function setChallengeForm({ visibility, challenge_type, post_title, start_date, end_date }) {
+    function setChallengeForm({ visibility, challenge_type, post_title, start_time, end_time }) {
         jQuery('input[name="challenge-type"]#' + challenge_type).prop('checked', true)
         jQuery('#createChallengeLabel').addClass(visibility)
         challengeTitleGroup.show()
         challengeTitle.val(post_title)
         challengeStartDateGroup.show()
-        challengeStartDate.val(start_date)
+        challengeStartDate.val(toDateInputFormat(start_time))
+        challengeStartTime.val(toTimeInputFormat(start_time))
         if ( challenge_type === 'ongoing_challenge' ) {
             challengeEndDateGroup.hide()
         } else {
             challengeEndDateGroup.show()
-            challengeEndDate.val(end_date)
+            challengeEndDate.val(toDateInputFormat(end_time))
+            challengeEndTime.val(toTimeInputFormat(end_time))
             challengeEndDate.attr('required', true)
         }
+    }
+
+    function toDateInputFormat(timestamp) {
+        const date = new Date( Number(timestamp) * 1000 )
+        const isoString = date.toISOString()
+        const isoDate = isoString.split('T')[0]
+        return isoDate
+    }
+
+    function toTimeInputFormat(timestamp) {
+        const localTimeOffset = (new Date()).getTimezoneOffset()
+        const date = new Date( Number(timestamp) * 1000 + localTimeOffset )
+        const timeString = date.toTimeString().split(':').slice(0,2).join(':')
+        return timeString
     }
 
     function getChallenges( visibility ) {
@@ -575,7 +602,7 @@ jQuery(document).ready(function(){
         })
 
         const html = `
-        <table>
+        <table class="table">
             ${tableHead}
             <tbody>
                 ${tableBody}

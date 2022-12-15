@@ -201,11 +201,17 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                                 </div>
                                 <div class="mb-3 challenge-start-date-group">
                                     <label for="challenge-start-date" class="form-label">Challenge Start Date (optional)</label>
-                                    <input class="form-control" type="datetime-local" id="challenge-start-date" placeholder="Challenge Start Date">
+                                    <div class="d-flex">
+                                        <input class="form-control" type="date" id="challenge-start-date" placeholder="Start Date">
+                                        <input class="form-control" type="time" id="challenge-start-time" placeholder="Start Time">
+                                    </div>
                                 </div>
                                 <div class="mb-3 challenge-end-date-group">
                                     <label for="challenge-end-date" class="form-label">Challenge End Date</label>
-                                    <input class="form-control" type="datetime-local" id="challenge-end-date" placeholder="Challenge End Date">
+                                    <div class="d-flex">
+                                        <input class="form-control" type="date" id="challenge-end-date" placeholder="End Date">
+                                        <input class="form-control" type="time" id="challenge-end-time" placeholder="End Time">
+                                    </div>
                                 </div>
                             </div>
                             <div class="modal-footer">
@@ -528,13 +534,13 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         ];
 
         if ( isset( $data['start_date'] ) ) {
-            $start_time = strtotime( $data['start_date'] );
-            $fields["start_date"] = gmdate( 'Y-m-d H:m:s', $start_time );
+            $start_time = strtotime( $data['start_date'] . ' ' . $data['start_time'] );
+            $fields["start_date"] = gmdate( 'Y-m-d H:m:s', $start_time - $data['time_offset'] );
             $fields["start_time"] = $start_time;
         }
         if ( isset( $data['end_date'] ) ) {
-            $end_time = strtotime( $data['end_date'] );
-            $fields["end_date"] = gmdate( 'Y-m-d H:m:s', $end_time );
+            $end_time = strtotime( $data['end_date'] . ' ' . $data['end_time'] );
+            $fields["end_date"] = gmdate( 'Y-m-d H:m:s', $end_time - $data['time_offset'] );
             $fields["end_time"] = $end_time;
         }
 
