@@ -210,7 +210,7 @@ class PG_Stacker {
         $args[] = $offset;
         $args[] = $limit;
 
-        $user_activity = $wpdb->get_results( $wpdb->prepare( $sql, $args ), ARRAY_A );
+        $user_activity = $wpdb->get_results( $wpdb->prepare( $sql, $args ), ARRAY_A ); // @phpcs:ignore
 
         $user_stats = [
             "offset" => (int) $offset,

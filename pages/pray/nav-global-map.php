@@ -29,8 +29,8 @@ $hide_if_logged_out = $is_logged_in ? '' : 'display: none';
             <div class="navbar-nav justify-content-end me-3" id="nav-links">
                 <a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="/newest/lap/">Start Praying</a>
                 <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="<?php echo ( $url !== '' ) ? trailingslashit( site_url() ) : '' ?>#section-challenge">Challenge</a>
-                <a class="nav-link" href="<?php echo ( $url !== '' ) ? trailingslashit( site_url() ) : '' ?>#section-lap">Status</a>
+                <a class="nav-link" href="<?php echo ( $url !== '' ) ? esc_url( trailingslashit( site_url() ) ) : '' ?>#section-challenge">Challenge</a>
+                <a class="nav-link" href="<?php echo ( $url !== '' ) ? esc_url( trailingslashit( site_url() ) ) : '' ?>#section-lap">Status</a>
                 <a class="nav-link" href="/newest/map/">Map</a>
                 <a class="nav-link" href="/challenges/active/">Groups</a>
                 <!-- <a href="/user_app/profile" class="nav-link" id="login-register-link" style="<?php echo esc_attr( $hide_if_logged_in ) ?>">Login / Register</a> -->

@@ -552,9 +552,11 @@ function pg_og_tags( $details = [] ) {
  * Adds soft duration text into an array of objects with timestamps in. E.g. 2 days ago, 1 month ago
  * Timestamps must be unix timestamps
  *
- * @param array $list_of_objects_with_time_in
- * @param string $timestamp_key The key that the timestamp is stored under
- * @param string $when_key The key to store the soft date text under
+ * @param $object
+ * @param $timestamp_key
+ * @param $when_key
+ * @param $timestamp_formatted_key
+ * @return mixed
  */
 function pg_soft_time_format( $object, $timestamp_key, $when_key, $timestamp_formatted_key ) {
     $time = time() - (int) $object[$timestamp_key];

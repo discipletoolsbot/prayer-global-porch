@@ -232,7 +232,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                     ],
                     'private'   => [
                         'label' => __( 'Private', 'prayer-global' ),
-                        'description' => __( "This lap is private and won't show up on the public list of challenges", "Stream Status field description", 'prayer-global' ),
+                        'description' => __( "This lap is private and won't show up on the public list of challenges", 'prayer-global' ),
                     ],
                 ],
                 'select_cannot_be_empty' => true,
@@ -249,7 +249,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                     ],
                     'timed_challenge'   => [
                         'label' => __( 'Timed Challenge', 'prayer-global' ),
-                        'description' => __( "This challenge is a race to pray for the world by a certain time", "Stream Status field description", 'prayer-global' ),
+                        'description' => __( "This challenge is a race to pray for the world by a certain time", 'prayer-global' ),
                     ],
                 ],
                 'select_cannot_be_empty' => true,
