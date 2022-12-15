@@ -13,8 +13,6 @@ jQuery(document).ready(function(){
     const challengeStartDate = jQuery('#challenge-start-date')
     const challengeEndDate = jQuery('#challenge-end-date')
     const challengeVisibility = jQuery('#challenge-visibility')
-    const challengeType = jQuery('input[name="challenge-type"]:checked')
-
 
     let isSavingLocation = false
 
@@ -407,7 +405,7 @@ jQuery(document).ready(function(){
 
                 ${CreateChallengeButton( 'Private', 'private-challenge-button' )}
 
-                <div class="d-flex justify-content-center center private-challenges__list">
+                <div class="d-flex justify-content-center private-challenges__list">
                     <span class="loading-spinner active"></span>
                 </div>
             </section>
@@ -416,7 +414,7 @@ jQuery(document).ready(function(){
 
                 ${CreateChallengeButton( 'Public', 'public-challenge-button' )}
 
-                <div class="d-flex justify-content-center center public-challenges__list">
+                <div class="d-flex justify-content-center public-challenges__list">
                     <span class="loading-spinner active"></span>
                 </div>
             </section>
@@ -503,14 +501,31 @@ jQuery(document).ready(function(){
         challengeEndDate.attr('required', false)
     }
 
+    function setChallengeForm({ visibility, challenge_type, post_title, start_date, end_date }) {
+        jQuery('input[name="challenge-type"]#' + challenge_type).prop('checked', true)
+        jQuery('#createChallengeLabel').addClass(visibility)
+        challengeTitleGroup.show()
+        challengeTitle.val(post_title)
+        challengeStartDateGroup.show()
+        challengeStartDate.val(start_date)
+        if ( challenge_type === 'ongoing_challenge' ) {
+            challengeEndDateGroup.hide()
+        } else {
+            challengeEndDateGroup.show()
+            challengeEndDate.val(end_date)
+            challengeEndDate.attr('required', true)
+        }
+    }
+
     function getChallenges( visibility ) {
 
         const containers = {
-            public: jQuery('.public-challenges__list'),
-            private: jQuery('.private-challenges__list'),
+            public: '.public-challenges__list',
+            private: '.private-challenges__list',
         }
 
-        const container = containers[visibility]
+        const containerSelector = containers[visibility]
+        const container = jQuery(containerSelector)
 
         get_user_app( 'get_challenges', { visibility } )
             .done((challenges) => {
@@ -519,6 +534,22 @@ jQuery(document).ready(function(){
                 }
                 jsObject.user[visibility + '_challenges'] = challenges
                 container.html( buildChallengeList( challenges ) )
+
+                jQuery( containerSelector + ' .edit-challenge-button').on('click', function() {
+                    const challengeId = Number(this.dataset.challengeId)
+
+                    const challenges = jsObject.user[visibility + '_challenges']
+
+                    const challenge = challenges.find(({ post_id }) => Number(post_id) === challengeId)
+
+                    if ( !challenge ) {
+                        return
+                    }
+
+                    console.log(challenge);
+
+                    setChallengeForm(challenge)
+                })
             })
 
     }
@@ -528,6 +559,7 @@ jQuery(document).ready(function(){
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th></th>
                 </tr>
             </thead>
 `
@@ -537,6 +569,7 @@ jQuery(document).ready(function(){
             tableBody += `
                 <tr>
                     <td><a href="/prayer_app/custom/${challenge.lap_key}/map">${challenge.post_title}</a></td>
+                    <td>${EditChallengeButton({ challengeId: challenge.post_id })}</td>
                 </tr>
 `
         })
@@ -723,6 +756,23 @@ jQuery(document).ready(function(){
             id,
         })
     }
+
+    function EditChallengeButton({ challengeId }) {
+
+        return ModalButton({
+            text: 'Edit',
+            modalId: 'create-challenge-modal',
+            buttonType: 'outline-secondary',
+            classes: 'btn-sm edit-challenge-button',
+            dataAttributes: [
+                {
+                    name: 'challenge-id',
+                    value: challengeId,
+                }
+            ]
+        })
+    }
+
     /**
      * Creates markup for a button to trigger a modal
      * 
@@ -732,10 +782,16 @@ jQuery(document).ready(function(){
      * @param string classes Optional extra classes
      * @param string id Optional id to give the button
      */
-    function ModalButton({ text, modalId, buttonType = '', classes = '', id = '' } ) {
+    function ModalButton({ text, modalId, buttonType = '', classes = '', id = '', dataAttributes = [] } ) {
+
+        const attributes = []
+        dataAttributes.forEach(({name, value}) => {
+            attributes.push(`data-${name}="${value}"`)
+        })
+        const dataAttributesHTML = attributes.join(' ')
 
         return `
-        <button id="${id}" class="btn btn-${buttonType} ${classes}" data-bs-toggle="modal" data-bs-target="#${modalId}">
+        <button id="${id}" class="btn btn-${buttonType} ${classes}" data-bs-toggle="modal" data-bs-target="#${modalId}" ${dataAttributesHTML}>
             ${text}
         </button>`
     }
