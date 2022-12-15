@@ -21,6 +21,7 @@ jQuery(document).ready(function(){
     const editChallengeButton = jQuery('.edit-challenge-button')
 
     let isSavingLocation = false
+    let isSavingChallenge = false
 
     if ( jsObject.is_logged_in ) {
         write_main( jsObject.user )
@@ -53,6 +54,7 @@ jQuery(document).ready(function(){
     })
     challengeModal.on('hidden.bs.modal', () => {
         resetChallengeForm()
+        isSavingChallenge = false
     })
 
     jQuery('.save-user-location').on('click', (e) => {
@@ -460,6 +462,10 @@ jQuery(document).ready(function(){
 
         jQuery('#challenge-form').on('submit', (event) => {
             event.preventDefault()
+            if ( isSavingChallenge === true ) {
+                return
+            }
+            isSavingChallenge = true
             const challengeType = jQuery('input[name="challenge-type"]:checked').attr('id')
             const title = challengeTitle.val()
             const startDate = challengeStartDate.val()
@@ -503,6 +509,9 @@ jQuery(document).ready(function(){
                     challengeModal.modal('hide')
 
                     getChallenges(visibility)
+                })
+                .fail(() => {
+                    isSavingChallenge = false
                 })
         })
 
