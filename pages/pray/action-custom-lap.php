@@ -64,10 +64,6 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         if ( (int) $current_lap['post_id'] === (int) $this->parts['post_id'] ) {
             ?>
             <!-- Resources -->
-<!--            <script src="https://cdn.amcharts.com/lib/5/index.js"></script>-->
-<!--            <script src="https://cdn.amcharts.com/lib/5/map.js"></script>-->
-<!--            <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>-->
-<!--            <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>-->
             <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js?ver=3"></script>
             <script>
                 let jsObject = [<?php echo json_encode([
@@ -299,9 +295,37 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 return $this->get_new_location( $params['parts'] );
             case 'ip_location':
                 return $this->get_ip_location();
+            case 'increment_log':
+                return $this->increment_log( $params['parts'], $params['data'] );
             default:
                 return new WP_Error( __METHOD__, "Incorrect action", [ 'status' => 400 ] );
         }
+    }
+
+    /**
+     * @param $parts
+     * @param $data
+     * @return int|WP_Error
+     */
+    public function increment_log( $parts, $data ) {
+        if ( !isset( $parts['post_id'], $parts['root'], $parts['type'], $data['report_id'] ) ) {
+            return new WP_Error( __METHOD__, "Missing parameters", [ 'status' => 400 ] );
+        }
+        /* Check that the report exists */
+        $report = Disciple_Tools_Reports::get( $data['report_id'], 'id' );
+
+        if ( !$report || empty( $report ) || is_wp_error( $report ) ) {
+            return new WP_Error( __METHOD__, "Report doesn't exist", [ 'status' => 400 ] );
+        }
+
+        $new_value = (int) $report['value'] + 1;
+        /* update the report */
+        Disciple_Tools_Reports::update( [
+            "id" => $data['report_id'],
+            "value" => $new_value,
+        ] );
+
+        return $new_value;
     }
 
     /**
@@ -430,7 +454,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
     }
 
     /**
-     * Global query
+     * Custom query
      * @return array|false|void
      */
     public function get_new_location( $parts ) {
@@ -462,6 +486,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 exit;
             }
         }
+
 
         // shuffle and select a grid id
         shuffle( $list_4770 );
@@ -503,6 +528,8 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 unset( $list_4770[$i] );
             }
         }
+
+        dt_write_log($list_4770);
 
         return $list_4770;
     }
