@@ -4,7 +4,6 @@ jQuery(document).ready(function(){
 
     const challengeModal = jQuery('#create-challenge-modal')
     const challengeModalTitle = jQuery('#createChallengeLabel')
-    const challengeModalTitleIcon = jQuery('#createChallengeLabel i')
     const challengeTitleGroup = jQuery('.challenge-title-group')
     const challengeStartDateGroup = jQuery('.challenge-start-date-group')
     const challengeEndDateGroup = jQuery('.challenge-end-date-group')
@@ -434,15 +433,12 @@ jQuery(document).ready(function(){
         jQuery('#private-challenge-button').on('click', () => {
             challengeVisibility.val('private')
             challengeModalTitle.html('Create Private Challenge')
-            challengeModalTitleIcon.addClass('ion-locked')
-            challengeModalTitle.addClass('private')
-            challengeModalTitle.removeClass('public')
+            challengeModalTitle[0].dataset.visibility = 'private'
         })
         jQuery('#public-challenge-button').on('click', () => {
             challengeVisibility.val('public')
             challengeModalTitle.html('Create Public Challenge')
-            challengeModalTitle.addClass('public')
-            challengeModalTitle.removeClass('private')
+            challengeModalTitle[0].dataset.visibility = 'public'
         })
 
         jQuery('.ongoing-challenge-button').on('click', () => {
@@ -534,9 +530,10 @@ jQuery(document).ready(function(){
 
     function setChallengeForm({ visibility, challenge_type, post_title, start_time, end_time, post_id }) {
         jQuery('input[name="challenge-type"]#' + challenge_type).prop('checked', true)
-        jQuery('#createChallengeLabel').addClass(visibility)
+        jQuery('#createChallengeLabel').data('visibility', visibility)
         challengeModalAction.val('edit')
         challengePostId.val(post_id)
+        challengeModalTitle[0].dataset.visibility = visibility
         challengeTitleGroup.show()
         challengeTitle.val(post_title)
         challengeVisibility.val(visibility)

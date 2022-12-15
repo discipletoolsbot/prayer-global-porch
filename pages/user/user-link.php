@@ -179,7 +179,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="createChallengeLabel">Create Challenge</h1>
+                            <h1 class="modal-title fs-5" id="createChallengeLabel" data-visibility="">Create Challenge</h1>
                             <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <form action="" id="challenge-form">

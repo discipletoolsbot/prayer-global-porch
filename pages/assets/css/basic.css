@@ -740,12 +740,12 @@ button {
     display: none;
 }
 
-#createChallengeLabel.private:before {
+#createChallengeLabel[data-visibility="private"]:before {
     content: '\f200';
     font-family: 'Ionicons';
     padding-right: 16px;
 }
-#createChallengeLabel.public:before {
+#createChallengeLabel[data-visibility="public"]:before {
     content: '\f4c9';
     font-family: 'Ionicons';
     padding-right: 16px;
