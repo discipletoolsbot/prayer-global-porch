@@ -379,7 +379,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 $fields["prayer_app_custom_magic_key"] = substr( md5( rand( 10000, 100000 ) ), 0, 3 ) . substr( md5( rand( 10000, 100000 ) ), 0, 3 );
             }
             if ( ! isset( $fields["start_date"] ) || empty( $fields["start_date"] ) ){
-                $fields["start_date"] = gmdate( 'Y-m-d H:m:s', time() );
+                $fields["start_date"] = gmdate( 'Y-m-d H:i:s', time() );
             }
             if ( ! isset( $fields["start_time"] ) || empty( $fields["start_time"] ) ){
                 $fields["start_time"] = time();

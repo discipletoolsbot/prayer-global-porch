@@ -15,6 +15,11 @@ jQuery(document).ready(function(){
     const challengeEndDate = jQuery('#challenge-end-date')
     const challengeEndTime = jQuery('#challenge-end-time')
     const challengeVisibility = jQuery('#challenge-visibility')
+    const challengeModalAction = jQuery('#challenge-modal-action')
+    const challengePostId = jQuery('#challenge-post-id')
+
+    const createNewChallengeButton = jQuery('.create-new-challenge-button')
+    const editChallengeButton = jQuery('.edit-challenge-button')
 
     let isSavingLocation = false
 
@@ -466,6 +471,7 @@ jQuery(document).ready(function(){
             const endDate = challengeEndDate.val()
             const endTime = challengeEndTime.val()
             const visibility = challengeVisibility.val()
+            const modalAction = challengeModalAction.val()
 
             const timeOffset = (new Date()).getTimezoneOffset()
 
@@ -474,6 +480,11 @@ jQuery(document).ready(function(){
                 visibility,
                 challenge_type: challengeType,
                 time_offset: timeOffset,
+            }
+
+            if ( modalAction === 'edit' ) {
+                const post_id = challengePostId.val()
+                data.post_id = post_id
             }
 
             if ( startDate && startDate !== '' ) {
@@ -486,7 +497,12 @@ jQuery(document).ready(function(){
                 data.end_time = endTime
             }
 
-            get_user_app('create_challenge', data)
+            const actions = {
+                'edit': 'edit_challenge',
+                'create': 'create_challenge'
+            }
+
+            get_user_app( actions[modalAction], data)
                 .done((challenge) => {
                     challengeModal.modal('hide')
 
@@ -510,13 +526,20 @@ jQuery(document).ready(function(){
         challengeEndDate.val('')
         challengeEndTime.val('')
         challengeEndDate.attr('required', false)
+        createNewChallengeButton.show()
+        editChallengeButton.hide()
+        challengeModalAction.val('create')
+        challengePostId.val('')
     }
 
-    function setChallengeForm({ visibility, challenge_type, post_title, start_time, end_time }) {
+    function setChallengeForm({ visibility, challenge_type, post_title, start_time, end_time, post_id }) {
         jQuery('input[name="challenge-type"]#' + challenge_type).prop('checked', true)
         jQuery('#createChallengeLabel').addClass(visibility)
+        challengeModalAction.val('edit')
+        challengePostId.val(post_id)
         challengeTitleGroup.show()
         challengeTitle.val(post_title)
+        challengeVisibility.val(visibility)
         challengeStartDateGroup.show()
         challengeStartDate.val(toDateInputFormat(start_time))
         challengeStartTime.val(toTimeInputFormat(start_time))
@@ -528,11 +551,18 @@ jQuery(document).ready(function(){
             challengeEndTime.val(toTimeInputFormat(end_time))
             challengeEndDate.attr('required', true)
         }
+        createNewChallengeButton.hide()
+        editChallengeButton.show()
     }
 
     function toDateInputFormat(timestamp) {
         const date = new Date( Number(timestamp) * 1000 )
-        const isoString = date.toISOString()
+        let isoString
+        try {
+            isoString = date.toISOString()
+        } catch (error) {
+            isoString = ''
+        }
         const isoDate = isoString.split('T')[0]
         return isoDate
     }
@@ -540,7 +570,12 @@ jQuery(document).ready(function(){
     function toTimeInputFormat(timestamp) {
         const localTimeOffset = (new Date()).getTimezoneOffset()
         const date = new Date( Number(timestamp) * 1000 + localTimeOffset )
-        const timeString = date.toTimeString().split(':').slice(0,2).join(':')
+        let timeString
+        try {
+            timeString = date.toTimeString().split(':').slice(0,2).join(':')
+        } catch (error) {
+            timeString = ''
+        }
         return timeString
     }
 

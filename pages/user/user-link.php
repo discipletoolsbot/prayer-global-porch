@@ -193,6 +193,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                                 </div>
 
                                 <input type="hidden" id="challenge-visibility">
+                                <input type="hidden" id="challenge-modal-action" value="create">
+                                <input type="hidden" id="challenge-post-id">
 
                                 <!-- Form for inputs to go into -->
                                 <div class="mb-3 challenge-title-group">
@@ -217,6 +219,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             <div class="modal-footer">
                                 <button class="btn btn-outline-dark cancel-new-challenge-button" data-bs-dismiss="modal" type="button">Cancel</button>
                                 <button class="btn btn-primary create-new-challenge-button">Create</button>
+                                <button class="btn btn-primary edit-challenge-button">Edit</button>
                             </div>
                         </form>
                     </div>
@@ -334,6 +337,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 return $this->save_location( $params['data'] );
             case 'create_challenge':
                 return $this->create_challenge( $params['data'] );
+            case 'edit_challenge':
+                return $this->edit_challenge( $params['data'] );
             case 'get_challenges':
                 return $this->get_challenges( $params['data'] );
             default:
@@ -523,7 +528,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
         $user_id = get_current_user_id();
 
-        if ( !$user_id ) {
+        if ( !$user_id || !DT_Posts::can_create( 'laps' ) ) {
             return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
         }
 
@@ -535,12 +540,12 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
         if ( isset( $data['start_date'] ) ) {
             $start_time = strtotime( $data['start_date'] . ' ' . $data['start_time'] );
-            $fields["start_date"] = gmdate( 'Y-m-d H:m:s', $start_time - $data['time_offset'] );
+            $fields["start_date"] = $start_time;
             $fields["start_time"] = $start_time;
         }
         if ( isset( $data['end_date'] ) ) {
             $end_time = strtotime( $data['end_date'] . ' ' . $data['end_time'] );
-            $fields["end_date"] = gmdate( 'Y-m-d H:m:s', $end_time - $data['time_offset'] );
+            $fields["end_date"] = $end_time;
             $fields["end_time"] = $end_time;
         }
 
@@ -548,6 +553,53 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         $fields['type'] = 'custom';
 
         $post = DT_Posts::create_post( 'laps', $fields );
+
+        return $post;
+    }
+
+    public function edit_challenge( $data ) {
+        if ( !isset( $data['post_id'] ) ) {
+            return new WP_Error( __METHOD__, 'Challenge post_id is missing', [ 'status' => 400 ] );
+        }
+
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
+        $old_challenge = DT_Posts::get_post( 'laps', $data['post_id'] );
+
+        if ( !$old_challenge || !DT_Posts::can_update( 'laps', $data['post_id'] ) ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
+        $fields = [];
+
+        if ( isset( $data['title'] ) ) {
+            $fields['title'] = $data['title'];
+        }
+
+        if ( isset( $data['challenge_type'] ) ) {
+            $fields['challenge_type'] = $data['challenge_type'];
+        }
+
+        if ( isset( $data['visibility'] ) ) {
+            $fields['visibility'] = $data['visibility'];
+        }
+
+        if ( isset( $data['start_date'] ) ) {
+            $start_time = strtotime( $data['start_date'] . ' ' . $data['start_time'] );
+            $fields["start_date"] = $start_time;
+            $fields["start_time"] = $start_time;
+        }
+        if ( isset( $data['end_date'] ) ) {
+            $end_time = strtotime( $data['end_date'] . ' ' . $data['end_time'] );
+            $fields["end_date"] = $end_time;
+            $fields["end_time"] = $end_time;
+        }
+
+        $post = DT_Posts::update_post( 'laps', $data['post_id'], $fields );
 
         return $post;
     }
@@ -569,7 +621,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
         $results = $wpdb->get_results( $wpdb->prepare(
             "
-                SELECT pm.post_id, p.post_title, pm4.meta_value as lap_key, pm4.meta_value as start_time, pm5.meta_value as visibility, pm7.meta_value as end_time, pm8.meta_value as challenge_type
+                SELECT pm.post_id, p.post_title, pm3.meta_value as lap_key, pm4.meta_value as start_time, pm5.meta_value as visibility, pm7.meta_value as end_time, pm8.meta_value as challenge_type
                 FROM $wpdb->posts p
                 JOIN $wpdb->postmeta pm ON pm.post_id=p.ID AND pm.meta_key = 'type' AND pm.meta_value = 'custom'
                 JOIN $wpdb->postmeta pm2 ON pm2.post_id=p.ID AND pm2.meta_key = 'status' AND pm2.meta_value = 'active'
