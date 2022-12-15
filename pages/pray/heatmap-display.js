@@ -154,7 +154,7 @@ jQuery(document).ready(function($){
       minZoom: 1,
       maxZoom: 12,
       zoom: zoom,
-      maxBounds: [ [-170, -85], [180, 85] ]
+      maxBounds: [ [-170, -75], [180, 85] ]
     });
     map.dragRotate.disable();
     map.touchZoomRotate.disableRotation();

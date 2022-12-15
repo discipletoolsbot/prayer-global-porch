@@ -231,12 +231,12 @@ jQuery(document).ready(function($){
     mapboxgl.accessToken = jsObject.map_key;
     map = new mapboxgl.Map({
       container: 'map',
-//      style: 'mapbox://styles/mapbox/dark-v10',
       style: 'mapbox://styles/discipletools/cl2ksnvie001i15qm1h5ahqea',
       center: center,
       minZoom: 0,
       maxZoom: 12,
-      zoom: zoom
+      zoom: zoom,
+      maxBounds: [ [-170, -75], [180, 85] ]
     });
     map.dragRotate.disable();
     map.touchZoomRotate.disableRotation();
@@ -734,7 +734,7 @@ jQuery(document).ready(function($){
       'fill-color': {
         property: 'value',
         stops: [[0, red], [1, green]]
-      }, 
+      },
       'fill-opacity': 0.75,
       'fill-outline-color': 'black'
     }
