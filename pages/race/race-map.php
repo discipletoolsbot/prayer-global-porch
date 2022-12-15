@@ -145,7 +145,7 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
             </div>
             <div id="map-wrapper">
                 <div id="head_block">
-                    <?php require( __DIR__ . '/nav-race-map.php') ?>
+                    <?php require( __DIR__ . '/nav-race-map.php' ) ?>
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>

@@ -508,8 +508,7 @@ function pg_is_lap_complete( $post_id ) {
     }
 }
 
-function pg_google_analytics()
-{
+function pg_google_analytics() {
     ?>
 
     <!-- Google tag (gtag.js) -->

@@ -469,8 +469,8 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
 
         if ( ! isset( $global_remaining[$grid_id] ) ) {
             // look for global grid id that is still remaining for the custom lap
-            foreach( $global_remaining as $gi => $gv ) {
-                if( isset( $list_4770[$gi] ) ) {
+            foreach ( $global_remaining as $gi => $gv ) {
+                if ( isset( $list_4770[$gi] ) ) {
                     $grid_id = $gi;
                     break;
                 }
@@ -489,7 +489,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                     FROM $wpdb->dt_reports
                     WHERE timestamp >= %d
                       AND type = 'prayer_app'",
-            $current_lap['start_time'] ) );
+        $current_lap['start_time'] ) );
 
         $list = [];
         if ( ! empty( $raw_list ) ) {
@@ -498,7 +498,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
-        foreach( $list_4770 as $i => $v ) {
+        foreach ( $list_4770 as $i => $v ) {
             if ( isset( $list[$i] ) ) {
                 unset( $list_4770[$i] );
             }
@@ -518,7 +518,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                       AND type = 'prayer_app'
                       AND subtype = 'custom'
                       ",
-            $post_id ) );
+        $post_id ) );
 
         $list = [];
         if ( ! empty( $raw_list ) ) {
