@@ -102,7 +102,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/global-functions.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/global-functions.js' ) ) ?>"></script>
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>report.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'report.js' ) ) ?>"></script>
-        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/share.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'js/share.js' ) ) ?>"></script>
+        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/share.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) ) . 'assets/js/share.js' ) ?>"></script>
         <?php
     }
     public function body(){
@@ -331,7 +331,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         $lap_stats = pg_global_stats_by_key( $parts['public_key'] );
 
         $participants_raw = $wpdb->get_results( $wpdb->prepare( "
-           SELECT r.lng as longitude, r.lat as latitude
+           SELECT r.lng as longitude, r.lat as latitude, r.hash
            FROM $wpdb->dt_reports r
            LEFT JOIN $wpdb->dt_location_grid lg ON lg.grid_id=r.grid_id
             WHERE r.post_type = 'laps'
@@ -342,7 +342,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         if ( ! empty( $participants_raw ) ) {
             foreach ( $participants_raw as $p ) {
                 if ( ! empty( $p['longitude'] ) ) {
-                    $participants[] = [
+                    $participants[$p['hash']] = [
                         'longitude' => (float) $p['longitude'],
                         'latitude' => (float) $p['latitude']
                     ];
@@ -350,13 +350,13 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
             }
         }
 
-        return $participants;
+        return array_values( $participants );
     }
 
     public function get_user_locations( $parts, $data ){
         global $wpdb;
         // Query based on hash
-        $hash = $data['hash'];
+        $hash = $data['hash'] ?? false;
         if ( empty( $hash ) ) {
             return [];
         }

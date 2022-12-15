@@ -348,7 +348,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
     public function get_participants( $parts ){
         global $wpdb;
         $participants_raw = $wpdb->get_results( $wpdb->prepare( "
-           SELECT r.lng as longitude, r.lat as latitude
+           SELECT r.lng as longitude, r.lat as latitude, r.hash
            FROM $wpdb->dt_reports r
            LEFT JOIN $wpdb->dt_location_grid lg ON lg.grid_id=r.grid_id
             WHERE r.post_type = 'laps'
@@ -360,7 +360,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         if ( ! empty( $participants_raw ) ) {
             foreach ( $participants_raw as $p ) {
                 if ( ! empty( $p['longitude'] ) ) {
-                    $participants[] = [
+                    $participants[$p['hash']] = [
                         'longitude' => (float) $p['longitude'],
                         'latitude' => (float) $p['latitude']
                     ];
@@ -368,7 +368,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             }
         }
 
-        return $participants;
+        return array_values( $participants );
     }
 
     public function get_user_locations( $parts, $data ){
