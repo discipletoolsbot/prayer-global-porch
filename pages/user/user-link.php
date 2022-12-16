@@ -388,6 +388,10 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public function update_user( $data ) {
         $user_id = get_current_user_id();
 
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
         foreach ($data as $meta_key => $meta_value) {
             if ( !in_array( $meta_key, $this->allowed_user_meta, true ) ) {
                 continue;
@@ -404,6 +408,12 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     }
 
     public function get_user_activity( $data ) {
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
         $offset = isset( $data['offset'] ) ? $data['offset'] : 0;
         $limit = isset( $data['limit'] ) ? $data['limit'] : 50;
 
@@ -415,6 +425,10 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         global $wpdb;
 
         $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
 
         $user_stats = $wpdb->get_row( $wpdb->prepare( "
             SELECT COUNT(r.id) as total_locations, SUM(r.value) as total_minutes
@@ -430,6 +444,12 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     }
 
     public function get_ip_location( $data ) {
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
         $response = DT_Ipstack_API::get_location_grid_meta_from_current_visitor();
 
         if ( $response ) {
@@ -458,6 +478,12 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public function save_location( $data ) {
         if ( !isset( $data['lat'], $data['lng'], $data['label'], $data['level'] ) ) {
             return new WP_Error( __METHOD__, 'Missing lat, lng, label or level', [ 'status' => 400 ] );
+        }
+
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
         }
 
         /* Get the grid_id for this lat lng */
@@ -495,6 +521,12 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public function geolocate_by_latlng( $data ) {
         if ( !isset( $data['lat'], $data['lng'] ) ) {
             return new WP_Error( __METHOD__, 'Latitude or longitude missing', [ 'status' => 400 ] );
+        }
+
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
         }
 
         $geocoder = new Location_Grid_Geocoder();
