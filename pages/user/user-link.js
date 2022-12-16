@@ -242,6 +242,8 @@ jQuery(document).ready(function(){
         jQuery('.user-prayers-link').on('click', () => write_prayers())
         jQuery('.user-challenges-link').on('click', () => write_challenges())
 
+        /* Setup the mapbox search widget */
+        window.write_input_widget()
    }
 
     function write_profile({
@@ -703,7 +705,7 @@ jQuery(document).ready(function(){
             modalId: 'location-modal',
             buttonType: 'outline-primary',
             classes: 'small border-0',
-            id: 'new-mapbox-search',
+            id: 'change-location',
         })
     }
 
