@@ -17,6 +17,7 @@ jQuery(document).ready(function(){
     const challengeModalAction = jQuery('#challenge-modal-action')
     const challengePostId = jQuery('#challenge-post-id')
 
+    const challengeLoadingSpinner = jQuery('.challenge-loading')
     const createNewChallengeButton = jQuery('.create-new-challenge-button')
     const editChallengeButton = jQuery('.edit-challenge-button')
 
@@ -469,6 +470,7 @@ jQuery(document).ready(function(){
                 return
             }
             isSavingChallenge = true
+            challengeLoadingSpinner.addClass('active')
             const challengeType = jQuery('input[name="challenge-type"]:checked').attr('id')
             const title = challengeTitle.val()
             const startDate = challengeStartDate.val()
@@ -517,6 +519,9 @@ jQuery(document).ready(function(){
                 })
                 .fail(() => {
                     isSavingChallenge = false
+                })
+                .always(() => {
+                    challengeLoadingSpinner.removeClass('active')
                 })
         })
 

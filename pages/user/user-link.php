@@ -217,6 +217,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                                 </div>
                             </div>
                             <div class="modal-footer">
+                                <span class="loading-spinner challenge-loading"></span>
                                 <button class="btn btn-outline-dark cancel-new-challenge-button" data-bs-dismiss="modal" type="button">Cancel</button>
                                 <button class="btn btn-primary create-new-challenge-button">Create</button>
                                 <button class="btn btn-primary edit-challenge-button">Edit</button>
