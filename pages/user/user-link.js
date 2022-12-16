@@ -20,6 +20,7 @@ jQuery(document).ready(function(){
     const challengeLoadingSpinner = jQuery('.challenge-loading')
     const createNewChallengeButton = jQuery('.create-new-challenge-button')
     const editChallengeButton = jQuery('.edit-challenge-button')
+    const setChallengStartNowButton = jQuery('#set-challenge-start-to-now')
 
     let isSavingLocation = false
     let isSavingChallenge = false
@@ -96,6 +97,12 @@ jQuery(document).ready(function(){
         }
     })
 
+    setChallengStartNowButton.on('click', () => {
+        const now = Date.now() / 1000
+
+        challengeStartDate.val(toDateInputFormat(now))
+        challengeStartTime.val(toTimeInputFormat(now))
+    })
 
     function get_user_app (action, data ) {
         return jQuery.ajax({
@@ -493,10 +500,8 @@ jQuery(document).ready(function(){
                 data.post_id = post_id
             }
 
-            if ( startDate && startDate !== '' ) {
-                data.start_date = startDate
-                data.start_time = startTime
-            }
+            data.start_date = startDate
+            data.start_time = startTime
 
             if ( challengeType === 'timed_challenge' ) {
                 data.end_date = endDate

@@ -202,10 +202,10 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                                     <input class="form-control" type="text" id="challenge-title" placeholder="Give your challenge a unique name" required>
                                 </div>
                                 <div class="mb-3 challenge-start-date-group">
-                                    <label for="challenge-start-date" class="form-label">Challenge Start Date (optional)</label>
+                                    <label for="challenge-start-date" class="form-label">Challenge Start Date</label><button type="button" class="btn btn-outline-secondary btn-sm ms-3" id="set-challenge-start-to-now">Now</button>
                                     <div class="d-flex">
-                                        <input class="form-control" type="date" id="challenge-start-date" placeholder="Start Date">
-                                        <input class="form-control" type="time" id="challenge-start-time" placeholder="Start Time">
+                                        <input class="form-control" type="date" id="challenge-start-date" placeholder="Start Date" required>
+                                        <input class="form-control" type="time" id="challenge-start-time" placeholder="Start Time" required>
                                     </div>
                                 </div>
                                 <div class="mb-3 challenge-end-date-group">
