@@ -194,7 +194,6 @@ jQuery(document).ready(function(){
                 </section>
                 <a class="btn btn-outline-dark" href="${jsObject.logout_url}">Logout</a><br>
             </div>
-            <span id="pg_user_id">${data.ID}</span>
 `
         );
 
