@@ -221,6 +221,16 @@ jQuery(document).ready(function(){
                 jsObject.user.activity = activity
             })
 
+        get_user_app( 'get_challenges', { visibility: 'private' } )
+            .done((challenges) => {
+                jsObject.user['private_challenges'] = challenges
+            })
+
+        get_user_app( 'get_challenges', { visibility: 'public' } )
+            .done((challenges) => {
+                jsObject.user['public_challenges'] = challenges
+            })
+
         if ( !data.location || data.location === '' ) {
             const pg_user_hash = Cookies.get('pg_user_hash')
 
@@ -585,6 +595,7 @@ jQuery(document).ready(function(){
         return timeString
     }
 
+
     function getChallenges( visibility ) {
 
         const containers = {
@@ -595,30 +606,26 @@ jQuery(document).ready(function(){
         const containerSelector = containers[visibility]
         const container = jQuery(containerSelector)
 
-        get_user_app( 'get_challenges', { visibility } )
-            .done((challenges) => {
-                if (challenges && challenges.length === 0) {
-                    container.html('No' + visibility + 'challenges found')
-                }
-                jsObject.user[visibility + '_challenges'] = challenges
-                container.html( buildChallengeList( challenges ) )
+        const challenges = jsObject.user[visibility + '_challenges']
 
-                jQuery( containerSelector + ' .edit-challenge-button').on('click', function() {
-                    const challengeId = Number(this.dataset.challengeId)
+        if (challenges && challenges.length === 0) {
+            container.html('No' + visibility + 'challenges found')
+        }
+        container.html( buildChallengeList( challenges ) )
 
-                    const challenges = jsObject.user[visibility + '_challenges']
+        jQuery( containerSelector + ' .edit-challenge-button').on('click', function() {
+            const challengeId = Number(this.dataset.challengeId)
 
-                    const challenge = challenges.find(({ post_id }) => Number(post_id) === challengeId)
+            const challenges = jsObject.user[visibility + '_challenges']
 
-                    if ( !challenge ) {
-                        return
-                    }
+            const challenge = challenges.find(({ post_id }) => Number(post_id) === challengeId)
 
-                    console.log(challenge);
+            if ( !challenge ) {
+                return
+            }
 
-                    setChallengeForm(challenge)
-                })
-            })
+            setChallengeForm(challenge)
+        })
 
     }
 
