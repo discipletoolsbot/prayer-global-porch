@@ -411,7 +411,6 @@ jQuery(document).ready(function(){
     function write_challenges() {
 
         userProfileDetails.html(`
-            <h2 class="header-border-bottom">Challenges</h2>
             <section class="private-challenges flow-small">
                 <h3 class="header-border-bottom">Private Challenges</h3>
 
@@ -651,10 +650,22 @@ jQuery(document).ready(function(){
 
         let tableBody = ''
         challenges.forEach((challenge) => {
+            const urlRoot = `/prayer_app/custom/${challenge.lap_key}`
             tableBody += `
                 <tr>
-                    <td><a href="/prayer_app/custom/${challenge.lap_key}/map">${challenge.post_title}</a></td>
-                    <td>${EditChallengeButton({ challengeId: challenge.post_id })}</td>
+                    <td><a href="${urlRoot}/map">${challenge.post_title}</a></td>
+                    <td style="width: 5%">
+                        <div class="btn-group">
+                            <button class="btn btn-outline-secondary dropdown-toggle rounded-circle border-0 d-flex align-items-center justify-content-center" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                <i class="icon ion-android-more-vertical fs-3"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#create-challenge-modal" data-challenge-id="${challenge.post_id}" class="dropdown-item edit-challenge-button">Edit</a></li>
+                                <li><a href="${urlRoot}/tools" class="dropdown-item">Share Tools</a></li>
+                                <li><a href="${urlRoot}/display" class="dropdown-item">Display Map</a></li>
+                            </ul>
+                        </div>
+                    </td>
                 </tr>
 `
         })
@@ -839,22 +850,6 @@ jQuery(document).ready(function(){
             buttonType: 'outline-dark',
             classes: 'd-block mx-auto',
             id,
-        })
-    }
-
-    function EditChallengeButton({ challengeId }) {
-
-        return ModalButton({
-            text: 'Edit',
-            modalId: 'create-challenge-modal',
-            buttonType: 'outline-secondary',
-            classes: 'btn-sm edit-challenge-button',
-            dataAttributes: [
-                {
-                    name: 'challenge-id',
-                    value: challengeId,
-                }
-            ]
         })
     }
 

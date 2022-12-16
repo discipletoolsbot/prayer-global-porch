@@ -926,3 +926,13 @@ button {
     background: #d1d6dd;
     font-weight: bold;
 }
+
+.dropdown-toggle {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    line-height: 0;
+}
+.dropdown-toggle::after {
+    display: none;
+}
