@@ -549,7 +549,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
         $user_id = get_current_user_id();
 
-        if ( !$user_id ) {
+        if ( !$user_id || !DT_Posts::can_create( 'laps' ) ) {
             return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
         }
 
@@ -583,7 +583,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
         $user_id = get_current_user_id();
 
-        if ( !$user_id ) {
+        if ( !$user_id || !DT_Posts::can_access( 'laps' ) ) {
             return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
         }
 
