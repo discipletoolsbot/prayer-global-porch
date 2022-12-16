@@ -118,6 +118,20 @@ jQuery(document).ready(function(){
                 jQuery('.loading-spinner').removeClass('active')
                 if ( data ) {
                     show_user_nav()
+
+                    /* ======================================================================= */
+                    /* ==============  MAJOR HACK ALERT ====================================== */
+                    /* ======================================================================= */
+                    /* This feels like a major hack, but I'm not sure how to get around it :O/ */
+                    /* When the user logs in, the nonce needs to change as the user is now logged in */
+                    /* The nonce is created like so substr( wp_hash( $i . '|' . $action . '|' . $uid . '|' . $token, 'nonce' ), -12, 10 ); */
+                    /* When the API returns here, it can't return the correct nonce, as the new auth session cookie hasn't been generated yet */
+                    /* When this api endpoint returns the $token = '' */
+                    /* But when the nonce is checked the $token = 'big-hash-string' */
+                    /* Following through the code, this token is grabbed from the wordpress_logged_in cookie which hasn't been set until the page has loaded properly */
+                    /* This happens after this API call and so the user is "locked out" of the API until they can refresh to get the nonce based on their session token */
+                    location.reload()
+
                     write_main(data.user)
                 }
             })
