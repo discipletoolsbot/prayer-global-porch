@@ -44,6 +44,9 @@ jQuery(document).ready(function(){
         jQuery('#mapbox-search').val('')
         jQuery('.mapbox-error-message').html('')
     })
+    jQuery('#location-modal').on('shown.bs.modal', () => {
+        jQuery('#mapbox-search').focus()
+    })
     jQuery('#erase-user-account-modal').on('hidden.bs.modal', () => {
         jQuery('#delete-confirmation').val('')
     })
