@@ -521,7 +521,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             $post_id ) );
 
         $list = [];
-        if ( ! empty( $raw_list ) ) {
+        if ( !empty( $raw_list ) ) {
             foreach ( $raw_list as $item ) {
                 $list[$item] = $item;
             }
