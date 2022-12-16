@@ -148,7 +148,7 @@ jQuery(document).ready(function(){
                         <input type="password" id="pg_input_password" />
                     </p>
                     <p>
-                        <button type="button" id="submit_button">Submit</button> <span class="loading-spinner"></span>
+                        <button class="btn btn-outline-dark"  type="button" id="submit_button">Submit</button> <span class="loading-spinner"></span>
                     </p>
                 </form>`
         )
@@ -163,7 +163,14 @@ jQuery(document).ready(function(){
             <div class="flow">
                 <section class="user__summary flow-small mt-5">
 
-                    <div class="user__avatar"></div>
+                    <div class="user__avatar">
+                        ${ data.stats
+                            ? LocationBadge(data.stats.total_locations)
+                            : `
+                            <span class="user__badge loading">
+                                <span class="loading-spinner active"></span>
+                            </span>` }
+                    </div>
 
                     <div class="user__info">
                         <h2 class="user__full-name">${data.display_name}</h2>
@@ -198,14 +205,16 @@ jQuery(document).ready(function(){
 `
         );
 
-        get_user_app('stats')
-            .done((stats) => {
-                if (!stats || stats.length === 0) {
-                    return
-                }
-                jsObject.user.stats = stats
-                jQuery('.user__avatar').html(LocationBadge(stats.total_locations || 0))
-            })
+        if ( !data.stats ) {
+            get_user_app('stats')
+                .done((stats) => {
+                    if (!stats || stats.length === 0) {
+                        return
+                    }
+                    jsObject.user.stats = stats
+                    jQuery('.user__avatar').html(LocationBadge(stats.total_locations || 0))
+                })
+        }
 
         get_user_app('activity')
             .done((activity) => {
@@ -325,7 +334,11 @@ jQuery(document).ready(function(){
 
                 <div class="center">
 
-                    <div class="user__avatar"></div>
+                    <div class="user__avatar">
+                        <span class="user__badge loading">
+                            <span class="loading-spinner active"></span>
+                        </span>
+                    </div>
 
                 </div>
                 <div class="d-flex justify-content-around">

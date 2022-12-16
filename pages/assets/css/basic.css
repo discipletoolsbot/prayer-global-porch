@@ -777,6 +777,12 @@ button {
     width: var(--pg-badge-size);
 }
 
+.user__badge.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
 .user__badge[disabled] {
     opacity: 0.3;
 }

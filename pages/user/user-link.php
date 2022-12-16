@@ -85,6 +85,9 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         $user_id = get_current_user_id();
         $userdata = pg_get_user( $user_id, $this->allowed_user_meta );
 
+        if ( is_user_logged_in() ) {
+            $userdata['stats'] = $this->get_user_stats();
+        }
         ?>
         <script>
             let jsObject = [<?php echo json_encode([
