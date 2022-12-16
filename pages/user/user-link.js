@@ -221,15 +221,8 @@ jQuery(document).ready(function(){
                 jsObject.user.activity = activity
             })
 
-        get_user_app( 'get_challenges', { visibility: 'private' } )
-            .done((challenges) => {
-                jsObject.user['private_challenges'] = challenges
-            })
-
-        get_user_app( 'get_challenges', { visibility: 'public' } )
-            .done((challenges) => {
-                jsObject.user['public_challenges'] = challenges
-            })
+        getChallenges('public')
+        getChallenges('private')
 
         if ( !data.location || data.location === '' ) {
             const pg_user_hash = Cookies.get('pg_user_hash')
@@ -439,8 +432,8 @@ jQuery(document).ready(function(){
 `
         )
 
-        getChallenges( 'public' )
-        getChallenges( 'private' )
+        buildChallengeList( 'public' )
+        buildChallengeList( 'private' )
 
         jQuery('#private-challenge-button').on('click', () => {
             challengeVisibility.val('private')
@@ -518,7 +511,9 @@ jQuery(document).ready(function(){
                 .done((challenge) => {
                     challengeModal.modal('hide')
 
-                    getChallenges(visibility)
+                    getChallenges(visibility, () => {
+                        buildChallengeList(visibility)
+                    })
                 })
                 .fail(() => {
                     isSavingChallenge = false
@@ -595,8 +590,18 @@ jQuery(document).ready(function(){
         return timeString
     }
 
+    function getChallenges( visibility, callback ) {
+        get_user_app( 'get_challenges', { visibility } )
+            .done((challenges) => {
+                jsObject.user[visibility + '_challenges'] = challenges
 
-    function getChallenges( visibility ) {
+                if ( callback ) {
+                    callback(challenges)
+                }
+            })
+    }
+
+    function buildChallengeList( visibility ) {
 
         const containers = {
             public: '.public-challenges__list',
@@ -611,7 +616,7 @@ jQuery(document).ready(function(){
         if (challenges && challenges.length === 0) {
             container.html('No' + visibility + 'challenges found')
         }
-        container.html( buildChallengeList( challenges ) )
+        container.html( buildChallengeListHTML( challenges ) )
 
         jQuery( containerSelector + ' .edit-challenge-button').on('click', function() {
             const challengeId = Number(this.dataset.challengeId)
@@ -629,7 +634,7 @@ jQuery(document).ready(function(){
 
     }
 
-    function buildChallengeList( challenges ) {
+    function buildChallengeListHTML( challenges ) {
         const tableHead = `
             <thead>
                 <tr>
