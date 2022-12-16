@@ -214,6 +214,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                                         <input class="form-control" type="date" id="challenge-end-date" placeholder="End Date">
                                         <input class="form-control" type="time" id="challenge-end-time" placeholder="End Time">
                                     </div>
+                                    <div class="text-danger form-text" id="challenge-help-text"></div>
                                 </div>
                             </div>
                             <div class="modal-footer">

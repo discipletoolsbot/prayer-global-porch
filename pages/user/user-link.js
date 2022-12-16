@@ -21,6 +21,7 @@ jQuery(document).ready(function(){
     const createNewChallengeButton = jQuery('.create-new-challenge-button')
     const editChallengeButton = jQuery('.edit-challenge-button')
     const setChallengStartNowButton = jQuery('#set-challenge-start-to-now')
+    const challengeHelpText = jQuery('#challenge-help-text')
 
     let isSavingLocation = false
     let isSavingChallenge = false
@@ -458,6 +459,7 @@ jQuery(document).ready(function(){
             challengeStartDateGroup.show()
             challengeEndDateGroup.hide()
             challengeEndDate.attr('required', false)
+            challengeEndTime.attr('required', false)
 
             challengeTitle.focus()
         })
@@ -466,6 +468,7 @@ jQuery(document).ready(function(){
             challengeStartDateGroup.show()
             challengeEndDateGroup.show()
             challengeEndDate.attr('required', true)
+            challengeEndTime.attr('required', true)
 
             challengeTitle.focus()
         })
@@ -477,6 +480,8 @@ jQuery(document).ready(function(){
             }
             isSavingChallenge = true
             challengeLoadingSpinner.addClass('active')
+            challengeHelpText.html('')
+
             const challengeType = jQuery('input[name="challenge-type"]:checked').attr('id')
             const title = challengeTitle.val()
             const startDate = challengeStartDate.val()
@@ -506,6 +511,13 @@ jQuery(document).ready(function(){
             if ( challengeType === 'timed_challenge' ) {
                 data.end_date = endDate
                 data.end_time = endTime
+
+                if (  endDate < startDate || ( endDate === startDate && endTime <= startTime ) ) {
+                    challengeHelpText.html('The end date must be after the start date')
+                    isSavingChallenge = false
+                    challengeLoadingSpinner.removeClass('active')
+                    return
+                }
             }
 
             const actions = {
@@ -545,6 +557,7 @@ jQuery(document).ready(function(){
         challengeEndDate.val('')
         challengeEndTime.val('')
         challengeEndDate.attr('required', false)
+        challengeEndTime.attr('required', false)
         createNewChallengeButton.show()
         editChallengeButton.hide()
         challengeModalAction.val('create')
@@ -570,6 +583,7 @@ jQuery(document).ready(function(){
             challengeEndDate.val(toDateInputFormat(end_time))
             challengeEndTime.val(toTimeInputFormat(end_time))
             challengeEndDate.attr('required', true)
+            challengeEndTime.attr('required', true)
         }
         createNewChallengeButton.hide()
         editChallengeButton.show()
