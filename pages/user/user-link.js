@@ -219,7 +219,7 @@ jQuery(document).ready(function(){
 
             get_user_app('ip_location', { hash: pg_user_hash })
                 .done((data) => {
-                    if (!data || data === "") {
+                    if (!data || !data.location ) {
                         jQuery('.user__location-label').html('Please select your location')
                         return
                     }
