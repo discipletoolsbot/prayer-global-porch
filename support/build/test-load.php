@@ -83,116 +83,73 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
             'root' => esc_url_raw( rest_url() ),
             'nonce' => wp_create_nonce( 'wp_rest' ),
             'parts' => $this->parts,
-            'global' => [],
-            'custom' => []
+            'user' => [
+                'country' => 'United States',
+                'grid_id'=>'100364522',
+                'hash'=>'3ba4f83cfbd24b4be862536cfd9babe2025a2e027b69e2defbf2e62edcf3efa5',
+                'label'=>'Golden, Colorado, United States',
+                'lat'=>39.828250885009766,
+                'level'=>'district',
+                'lng'=>-105.06230163574219,
+                'source'=>'ip'
+            ]
         ];
-        $list_4770 = pg_query_4770_locations();
 
-        $list_of_custom_laps = $wpdb->get_results("". ARRAY_A );
+        // query to get custom list
+        $custom_laps_ids = $wpdb->get_results("
+                SELECT p.ID, pm2.meta_value as public_key
+                FROM wp_posts p
+                JOIN wp_postmeta pm ON pm.post_id=p.ID AND pm.meta_value = 'custom' AND pm.meta_key = 'type'
+                LEFT JOIN wp_postmeta pm2 ON pm2.post_id=p.ID AND pm2.meta_key = 'prayer_app_custom_magic_key'
+                WHERE p.post_type = 'laps';"
+            , ARRAY_A );
 
-        // Global
-        $post_global_ids = [
-            [
-                'post_id' => 241,
-                'post_type' => 'laps',
-                'meta_key' => 'prayer_app_global_magic_key',
-                'public_key' => 'cfb333',
-                'root' => 'prayer_app',
-                'type' => 'global'
-            ],
-        ];
-        $current_lap = pg_current_global_lap();
-        $raw_list = $wpdb->get_col( $wpdb->prepare(
-            "SELECT DISTINCT grid_id
-                    FROM $wpdb->dt_reports
-                    WHERE
-                          timestamp >= %d
-                      AND type = 'prayer_app'",
-            $current_lap['start_time'] ) );
-        $list = [];
-        if ( ! empty( $raw_list ) ) {
-            foreach ( $raw_list as $item ) {
-                $list[$item] = $item;
-            }
+        $post_list = [];
+
+        // query to get count required
+        foreach( $custom_laps_ids as $value ) {
+            $missing = $wpdb->get_var($wpdb->prepare( "
+                SELECT (4770 - count(*) ) as missing
+                FROM ( SELECT
+                    lg1.grid_id
+                    FROM wp_dt_location_grid lg1
+                    WHERE lg1.level = 0
+                    AND lg1.grid_id NOT IN ( SELECT lg11.admin0_grid_id FROM wp_dt_location_grid lg11 WHERE lg11.level = 1 AND lg11.admin0_grid_id = lg1.grid_id )
+                    AND lg1.admin0_grid_id NOT IN (100050711,100219347,100089589,100074576,100259978,100018514)
+                    UNION ALL
+                    SELECT
+                    lg2.grid_id
+                    FROM wp_dt_location_grid lg2
+                    WHERE lg2.level = 1
+                    AND lg2.admin0_grid_id NOT IN (100050711,100219347,100089589,100074576,100259978,100018514)
+                    UNION ALL
+                    SELECT
+                    lg3.grid_id
+                    FROM wp_dt_location_grid lg3
+                    WHERE lg3.level = 2
+                    AND lg3.admin0_grid_id IN (100050711,100219347,100089589,100074576,100259978,100018514)
+                ) as tb
+                JOIN (
+                    SELECT DISTINCT r.grid_id
+                    FROM wp_dt_reports r
+                    WHERE r.post_id = %d
+                ) tr ON tr.grid_id=tb.grid_id AND tr.grid_id IS NOT NULL
+            ", $value['ID'] ) );
+
+            $post_list[] = [
+                'post_id' => $value['ID'],
+                'public_key' => $value['public_key'],
+                'missing' => $missing
+            ];
+            $jsobject[$value['ID']] = [];
+            $jsobject[$value['ID']]['post_id'] = $value['ID'];
+            $jsobject[$value['ID']]['grid_id'] = '';
+            $jsobject[$value['ID']]['parts'] = [
+                
+            ];
         }
-        if ( ! empty( $list ) ) {
-            foreach ( $list as $grid_id ) {
-                if ( isset( $list_4770[$grid_id] ) ) {
-                    unset( $list_4770[$grid_id] );
-                }
-            }
-        }
-        shuffle($list);
-        $jsobject['global'][$current_lap['post_id']] = [];
-        $jsobject['global'][$current_lap['post_id']]['list'] = $list;
-        $jsobject['global'][$current_lap['post_id']]['count'] = count( $list );
-        $jsobject['global'][$current_lap['post_id']]['parts'] = $post_global_ids[0];
 
-        $post_ids = [
-            [
-                'post_id' => 260,
-                'post_type' => 'laps',
-                'public_key' => 'ff2cd5',
-                'meta_key' => 'prayer_app_custom_magic_key',
-                'root' => 'prayer_app',
-                'type' => 'custom'
-            ],
-            [
-                'post_id' => 258,
-                'post_type' => 'laps',
-                'public_key' => '2de150',
-                'meta_key' => 'prayer_app_custom_magic_key',
-                'root' => 'prayer_app',
-                'type' => 'custom'
-            ],
-            [
-                'post_id' => 247,
-                'post_type' => 'laps',
-                'public_key' => 'd5ce37',
-                'meta_key' => 'prayer_app_custom_magic_key',
-                'root' => 'prayer_app',
-                'type' => 'custom'
-            ],
-            [
-                'post_id' => 245,
-                'post_type' => 'laps',
-                'public_key' => '703454',
-                'meta_key' => 'prayer_app_custom_magic_key',
-                'root' => 'prayer_app',
-                'type' => 'custom'
-            ],
 
-        ];
-        foreach( $post_ids as $index => $p ) {
-            $list_4770 = pg_query_4770_locations();
-            $raw_list = $wpdb->get_col( $wpdb->prepare(
-                "SELECT DISTINCT grid_id
-                    FROM $wpdb->dt_reports
-                    WHERE
-                      post_id = %d
-                      AND type = 'prayer_app'
-                      AND subtype = 'custom'
-                      ",
-                $p['post_id'] ) );
-            $list = [];
-            if ( ! empty( $raw_list ) ) {
-                foreach ( $raw_list as $item ) {
-                    $list[$item] = $item;
-                }
-            }
-            if ( ! empty( $list ) ) {
-                foreach ( $list as $grid_id ) {
-                    if ( isset( $list_4770[$grid_id] ) ) {
-                        unset( $list_4770[$grid_id] );
-                    }
-                }
-            }
-            shuffle($list);
-            $jsobject['custom'][$p['post_id']] = [];
-            $jsobject['custom'][$p['post_id']]['list'] = $list;
-            $jsobject['custom'][$p['post_id']]['count'] = count( $list );
-            $jsobject['custom'][$p['post_id']]['parts'] = $p;
-        }
 
         ?>
         <script>
@@ -207,7 +164,7 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
 
         <section class="page-section mt-5" >
             <div class="container">
-                Total <span id="total"></span> | Unprayed For <span id="unprayed"></span> | Reduced Count <span id="reduced"></span>
+                <input type="text" value="" id="post_id" /><button type="button" id="start">Start</button>
                 <hr>
                 <div id="results"></div>
             </div>
@@ -229,29 +186,27 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                             console.log(e)
                         })
                 }
+
+                function send_log( grid_id, post_id ) {
+                    window.api_post( 'log', { grid_id: grid_id, pace: 1, user: {country:"United States",grid_id:"100364522",hash:"3ba4f83cfbd24b4be862536cfd9babe2025a2e027b69e2defbf2e62edcf3efa5",
+                            label:"Golden, Colorado, United States",lat:39.828250885009766, level:"district",lng:-105.06230163574219,source:"ip"}
+                        }, jsObject[gval].parts, 'https://prayer.global/wp-json/prayer_app/v1/custom' )
+                        .done(function(x) {
+                            console.log(x)
+                            jQuery('#results').prepend(post_id + ' - ' + grid_id)
+                            send_log( x.location.grid_id, post_id )
+                        })
+                }
+
+                jQuery('#start').on('click', function() {
+                        let gval = jQuery('#post_id').val()
+                        send_log( jsObject[gval].grid_id, jsObject[gval].post_id )
+                    }
+                )
+
                 function delay(time) {
                     return new Promise(resolve => setTimeout(resolve, time));
                 }
-
-                jQuery.each(jsObject.global, function(ig, vg ) {
-                    window.global_loop = 0
-                    jQuery.each( vg.list, function( i ,v ){
-                        if ( window.global_loop > 10 ) {
-                            return
-                        }else {
-                            window.global_loop++
-                        }
-                        delay(1000).then(
-                            window.api_post( 'log', { grid_id: v, pace: 1, user: {country:"United States",grid_id:"100364522",hash:"3ba4f83cfbd24b4be862536cfd9babe2025a2e027b69e2defbf2e62edcf3efa5",
-                                    label:"Golden, Colorado, United States",lat:39.828250885009766, level:"district",lng:-105.06230163574219,
-                                    source:"ip"}}, vg.parts, 'https://prayer.global/wp-json/prayer_app/v1/global')
-                                .done(function(x) {
-                                    console.log(x)
-                                    jQuery('#results').append(`Global ${x.report_id} <br>` )
-                                })
-                        );
-                    })
-                })
 
                 jQuery.each(jsObject.custom, function(ig, vg ) {
                     window.lap_loop = 0
