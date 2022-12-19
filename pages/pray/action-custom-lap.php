@@ -344,7 +344,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
     public function save_log( $parts, $data ) {
 
         if ( !isset( $parts['post_id'], $parts['root'], $parts['type'], $data['grid_id'] ) ) {
-            return new WP_Error( __METHOD__, "Missing parameters", [ 'status' => 400 ] );
+            return new WP_Error( __METHOD__, "Missing parameters", [ 'status' => 400, 'data' => [ $parts, $data ] ] );
         }
 
         // prayer location log
@@ -500,6 +500,9 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                     break;
                 }
             }
+            dt_write_log('not found');
+        } else {
+            dt_write_log('found');
         }
 
         return PG_Stacker::build_location_stack_v2( $grid_id );
