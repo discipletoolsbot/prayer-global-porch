@@ -622,6 +622,11 @@ function pg_get_user( int $user_id, array $allowed_meta ) {
 }
 
 function pg_generate_new_global_prayer_lap() {
+    if ( get_option('pg_generate_new_lap_in_progress') ) {
+        return false;
+    } else {
+        update_option('pg_generate_new_lap_in_progress', true, true );
+    }
     global $wpdb;
 
     // build new lap number
@@ -653,7 +658,8 @@ function pg_generate_new_global_prayer_lap() {
         // @handle error
         dt_write_log( 'failed to create' );
         dt_write_log( $new_post );
-        exit;
+        delete_option('pg_generate_new_lap_in_progress');
+        return false;
     }
 
     // update current_lap
@@ -668,6 +674,8 @@ function pg_generate_new_global_prayer_lap() {
 
     // close previous lap
     DT_Posts::update_post( 'laps', $previous_lap['post_id'], [ 'status' => 'complete', 'end_date' => $date, 'end_time' => $time ], false, false );
+
+    delete_option('pg_generate_new_lap_in_progress');
 
     return $new_post['ID'];
 }

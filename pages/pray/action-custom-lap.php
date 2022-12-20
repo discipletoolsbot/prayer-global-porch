@@ -490,11 +490,11 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         $global_priority_list = array_intersect( $custom_remaining, $global_remaining );
         shuffle($global_priority_list);
         if ( isset( $global_priority_list[0] ) ) {
-            dt_write_log('$global_priority_list');
+//            dt_write_log('$global_priority_list');
             return PG_Stacker::build_location_stack_v2( $global_priority_list[0] );
         }
 
-        dt_write_log('Not Matched to $global_priority_list');
+        dt_write_log('No Match :: ' . $parts['post_id']);
 
         // shuffle and select a grid id
         shuffle( $custom_remaining );
