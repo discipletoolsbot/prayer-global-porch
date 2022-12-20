@@ -284,7 +284,9 @@ trait PG_Lap_Trait {
         $id = dt_report_insert( $args, true, false );
 
         $response = $this->get_new_location();
-        $response['report_id'] = $id;
+        if ( $response ) {
+            $response['report_id'] = $id;
+        }
 
         return $response;
     }
@@ -407,8 +409,8 @@ trait PG_Lap_Trait {
         }
 
         if ( empty( $list_4770 ) ) {
-                pg_generate_new_global_prayer_lap();
-                return false;
+             dt_write_log(__METHOD__ . ' : generated a new prayer lap');
+            $list_4770 = pg_generate_new_global_prayer_lap();
         }
 
         shuffle( $list_4770 );

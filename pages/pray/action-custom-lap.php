@@ -531,11 +531,11 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         }
 
         if ( empty( $list_4770 ) ) {
-            // trigger new global lap
-            dt_write_log( 'generate new lap' );
-            pg_generate_new_global_prayer_lap();
+            dt_write_log(__METHOD__ . ' :: new global lap generated');
+            $list_4770 = pg_generate_new_global_prayer_lap();
         }
-        dt_write_log( count( $list_4770 ) );
+
+        dt_write_log(count( $list_4770 ));
 
         return $list_4770;
     }

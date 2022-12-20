@@ -628,14 +628,35 @@ function pg_get_user( int $user_id, array $allowed_meta ) {
     return $userdata;
 }
 
+/**
+ * @return array|false|mixed
+ */
 function pg_generate_new_global_prayer_lap() {
+    // hold generation while being created
     if ( get_option( 'pg_generate_new_lap_in_progress' ) ) {
-        sleep( 10 );
-        return false;
+        sleep( 8 );
+        return pg_query_4770_locations();
     } else {
         update_option( 'pg_generate_new_lap_in_progress', true );
     }
     global $wpdb;
+
+    // dup check, instant dup generation
+    $time = time();
+    $start_time_dup = $wpdb->get_var($wpdb->prepare(
+        "SELECT count(*)
+                FROM $wpdb->postmeta pm
+                JOIN $wpdb->posts p ON p.ID=pm.post_id
+                WHERE pm.meta_key = 'start_time'
+                    AND pm.meta_value = %d
+                    AND p.post_type = 'laps'
+                    ", $time )
+    );
+    if ( $start_time_dup ) {
+        delete_option( 'pg_generate_new_lap_in_progress' );
+        sleep( 5 );
+        return pg_query_4770_locations();
+    }
 
     // build new lap number
     $completed_prayer_lap_number = $wpdb->get_var(
@@ -649,8 +670,6 @@ function pg_generate_new_global_prayer_lap() {
 
     // create key
     $key = pg_generate_key();
-
-    $time = time();
     $date = gmdate( 'Y-m-d H:m:s', time() );
 
     $fields = [];
@@ -661,13 +680,13 @@ function pg_generate_new_global_prayer_lap() {
     $fields['start_time'] = $time;
     $fields['global_lap_number'] = $next_global_lap_number;
     $fields['prayer_app_global_magic_key'] = $key;
-    $new_post = DT_Posts::create_post( 'laps', $fields, false, false );
+    $new_post = DT_Posts::create_post( 'laps', $fields, true, false );
     if ( is_wp_error( $new_post ) ) {
         // @handle error
         dt_write_log( 'failed to create' );
         dt_write_log( $new_post );
         delete_option( 'pg_generate_new_lap_in_progress' );
-        return false;
+        return pg_query_4770_locations();
     }
 
     // update current_lap
@@ -681,9 +700,9 @@ function pg_generate_new_global_prayer_lap() {
     update_option( 'pg_current_global_lap', $lap, true );
 
     // close previous lap
-    DT_Posts::update_post( 'laps', $previous_lap['post_id'], [ 'status' => 'complete', 'end_date' => $date, 'end_time' => $time ], false, false );
+    DT_Posts::update_post( 'laps', $previous_lap['post_id'], [ 'status' => 'complete', 'end_date' => $date, 'end_time' => $time ], true, false );
 
     delete_option( 'pg_generate_new_lap_in_progress' );
 
-    return $new_post['ID'];
+    return pg_query_4770_locations();
 }
