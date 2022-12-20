@@ -256,10 +256,19 @@ jQuery(document).ready(function($){
 
     }) /* for each loop */
 
+    const images = [
+      { src: jsObject.image_folder + 'avatar1.png', id: 'avatar1' },
+      { src: jsObject.image_folder + 'avatar2.png', id: 'avatar2' },
+      { src: jsObject.image_folder + 'avatar3.png', id: 'avatar3' },
+      { src: jsObject.image_folder + 'avatar4.png', id: 'avatar4' },
+      { src: jsObject.image_folder + 'avatar5.png', id: 'avatar5' },
+      { src: jsObject.image_folder + 'avatar6.png', id: 'avatar6' },
+    ]
+
     /* load prayer warriors layer */
     map.on('load', function() {
       let features = []
-      jQuery.each( jsObject.participants, function(i,v){
+      jsObject.participants.forEach((v, i) => {
         features.push({
             "type": "Feature",
             "geometry": {
@@ -267,42 +276,45 @@ jQuery(document).ready(function($){
               "coordinates": [v.longitude, v.latitude]
             },
             "properties": {
-              "name": "Name"
+              "name": "Name",
+              "imageId": images[i%images.length].id
             }
           }
         )
       })
-      let geojson = {
-        "type": "FeatureCollection",
-        "features": features
-      }
 
       map.addSource('participants', {
         'type': 'geojson',
-        'data': geojson
-      });
-      map.loadImage(
-        //jsObject.image_folder + 'praying-hands-emoji64.png',
-        //jsObject.image_folder + 'light-emoji64.png',
-        //jsObject.image_folder + 'running-shoe-emoji64.png',
-        //jsObject.image_folder + 'running-shoe-purple-emoji64.png',
-        //jsObject.image_folder + 'fire-emoji64.png',
-        jsObject.image_folder + 'praying-hand-up-40.png',
-        (error, image) => {
-          if (error) throw error;
-          map.addImage('custom-marker', image);
+        'data': {
+          "type": "FeatureCollection",
+          "features": features
+        }
+      })
+
+      Promise.all(
+        images.map(({src, id}) => new Promise((resolve) => {
+          map.loadImage(
+            src,
+            (error, image) => {
+              map.addImage(id, image)
+              resolve()
+            }
+          )
+        }))
+      )
+      .then(() => {
           map.addLayer({
             'id': 'points',
             'type': 'symbol',
             'source': 'participants',
             'layout': {
-              'icon-image': 'custom-marker',
+              'icon-image': [ 'get', 'imageId' ],
               "icon-size": [
                 'interpolate',
-                ['linear', 1],
+                ['exponential', 1],
                 ['zoom'],
-                1, 0.15,
-                15, 0.5
+                1, 0.1,
+                18, 1.5
               ],
               'icon-padding': 0,
               "icon-allow-overlap": true,
@@ -313,9 +325,45 @@ jQuery(document).ready(function($){
               'text-offset': [0, 1.25],
               'text-anchor': 'top'
             }
-          });
+          })
         })
-    })
+
+//      map.loadImage(
+//        //jsObject.image_folder + 'praying-hands-emoji64.png',
+//        //jsObject.image_folder + 'light-emoji64.png',
+//        //jsObject.image_folder + 'running-shoe-emoji64.png',
+//        //jsObject.image_folder + 'running-shoe-purple-emoji64.png',
+//        //jsObject.image_folder + 'fire-emoji64.png',
+//        jsObject.image_folder + 'praying-hand-up-40.png',
+//        (error, image) => {
+//          if (error) throw error;
+//          map.addImage('custom-marker', image);
+//          map.addLayer({
+//            'id': 'points',
+//            'type': 'symbol',
+//            'source': 'participants',
+//            'layout': {
+//              'icon-image': 'custom-marker',
+//              "icon-size": [
+//                'interpolate',
+//                ['linear', 1],
+//                ['zoom'],
+//                1, 0.15,
+//                15, 0.5
+//              ],
+//              'icon-padding': 0,
+//              "icon-allow-overlap": true,
+//              'text-font': [
+//                'Open Sans Semibold',
+//                'Arial Unicode MS Bold'
+//              ],
+//              'text-offset': [0, 1.25],
+//              'text-anchor': 'top'
+//            }
+//        })
+//    })
+
+  })
 
     /* load user locations layer */
     map.on('load', function() {
