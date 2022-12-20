@@ -153,7 +153,7 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                 <div id="results"></div>
             </div>
         </section>
-        <div style="position:absolute; bottom: 1em; right:1em; border-radius: 50%;background-color:lightgrey;padding: .5em 1em;" id="counter">0</div>
+        <div style="position:absolute; bottom: 1em; right:1em; border-radius: 50%;background-color:lightgrey;padding: .5em 1em; font-size:3em;" id="counter">0</div>
         <script>
             jQuery(document).ready(function(){
                 window.api_post = ( action, data, parts, url ) => {
