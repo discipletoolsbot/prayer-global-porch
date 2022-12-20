@@ -64,10 +64,6 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         if ( (int) $current_lap['post_id'] === (int) $this->parts['post_id'] ) {
             ?>
             <!-- Resources -->
-<!--            <script src="https://cdn.amcharts.com/lib/5/index.js"></script>-->
-<!--            <script src="https://cdn.amcharts.com/lib/5/map.js"></script>-->
-<!--            <script src="https://cdn.amcharts.com/lib/5/geodata/worldLow.js"></script>-->
-<!--            <script src="https://cdn.amcharts.com/lib/5/themes/Animated.js"></script>-->
             <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js?ver=3"></script>
             <script>
                 let jsObject = [<?php echo json_encode([
@@ -299,9 +295,37 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 return $this->get_new_location( $params['parts'] );
             case 'ip_location':
                 return $this->get_ip_location();
+            case 'increment_log':
+                return $this->increment_log( $params['parts'], $params['data'] );
             default:
                 return new WP_Error( __METHOD__, "Incorrect action", [ 'status' => 400 ] );
         }
+    }
+
+    /**
+     * @param $parts
+     * @param $data
+     * @return int|WP_Error
+     */
+    public function increment_log( $parts, $data ) {
+        if ( !isset( $parts['post_id'], $parts['root'], $parts['type'], $data['report_id'] ) ) {
+            return new WP_Error( __METHOD__, "Missing parameters", [ 'status' => 400 ] );
+        }
+        /* Check that the report exists */
+        $report = Disciple_Tools_Reports::get( $data['report_id'], 'id' );
+
+        if ( !$report || empty( $report ) || is_wp_error( $report ) ) {
+            return new WP_Error( __METHOD__, "Report doesn't exist", [ 'status' => 400 ] );
+        }
+
+        $new_value = (int) $report['value'] + 1;
+        /* update the report */
+        Disciple_Tools_Reports::update( [
+            "id" => $data['report_id'],
+            "value" => $new_value,
+        ] );
+
+        return $new_value;
     }
 
     /**
@@ -320,7 +344,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
     public function save_log( $parts, $data ) {
 
         if ( !isset( $parts['post_id'], $parts['root'], $parts['type'], $data['grid_id'] ) ) {
-            return new WP_Error( __METHOD__, "Missing parameters", [ 'status' => 400 ] );
+            return new WP_Error( __METHOD__, "Missing parameters", [ 'status' => 400, 'data' => [ $parts, $data ] ] );
         }
 
         // prayer location log
@@ -353,7 +377,9 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         $id = dt_report_insert( $args, true, false );
 
         $response = $this->get_new_location( $parts );
-        $response['report_id'] = $id;
+        if ( $response ) {
+            $response['report_id'] = $id;
+        }
 
         return $response;
     }
@@ -430,7 +456,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
     }
 
     /**
-     * Global query
+     * Custom query
      * @return array|false|void
      */
     public function get_new_location( $parts ) {
@@ -440,21 +466,22 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         }
 
         // get lists
-        $list_4770 = pg_query_4770_locations();
-        $list_prayed = $this->_query_prayed_list( $parts['post_id'] );
+        $list_4770 = $custom_remaining = pg_query_4770_locations();
+        $custom_prayed = $this->_query_prayed_list( $parts['post_id'] );
         $global_remaining = $this->_remaining_global_prayed_list( $list_4770 );
 
         // subtract prayed places
-        if ( ! empty( $list_prayed ) ) {
-            foreach ( $list_prayed as $grid_id ) {
-                if ( isset( $list_4770[$grid_id] ) ) {
-                    unset( $list_4770[$grid_id] );
+        if ( ! empty( $custom_prayed ) ) {
+            foreach ( $custom_prayed as $grid_id ) {
+                if ( isset( $custom_remaining[$grid_id] ) ) {
+                    unset( $custom_remaining[$grid_id] );
                 }
             }
         }
 
         // if completed, trigger close
-        if ( empty( $list_4770 ) ) {
+        if ( empty( $custom_remaining ) ) {
+            update_post_meta( $parts['post_id'], 'status', 'complete' );
             if ( dt_is_rest() ) { // signal new lap to rest request
                 return false;
             } else { // if first load on finished lap, redirect to new lap
@@ -463,19 +490,18 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
-        // shuffle and select a grid id
-        shuffle( $list_4770 );
-        $grid_id = $list_4770[0];
-
-        if ( ! isset( $global_remaining[$grid_id] ) ) {
-            // look for global grid id that is still remaining for the custom lap
-            foreach( $global_remaining as $gi => $gv ) {
-                if( isset( $list_4770[$gi] ) ) {
-                    $grid_id = $gi;
-                    break;
-                }
-            }
+        // match to global
+        $global_priority_list = array_intersect( $custom_remaining, $global_remaining );
+        shuffle( $global_priority_list );
+        if ( isset( $global_priority_list[0] ) ) {
+            return PG_Stacker::build_location_stack_v2( $global_priority_list[0] );
         }
+
+        // no global match, select from remaining custom location
+        shuffle( $custom_remaining );
+        $grid_id = $custom_remaining[0];
+
+        dt_write_log( 'No Match :: ' . $parts['post_id'] );
 
         return PG_Stacker::build_location_stack_v2( $grid_id );
     }
@@ -489,7 +515,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                     FROM $wpdb->dt_reports
                     WHERE timestamp >= %d
                       AND type = 'prayer_app'",
-            $current_lap['start_time'] ) );
+        $current_lap['start_time'] ) );
 
         $list = [];
         if ( ! empty( $raw_list ) ) {
@@ -498,11 +524,18 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
-        foreach( $list_4770 as $i => $v ) {
+        foreach ( $list_4770 as $i => $v ) {
             if ( isset( $list[$i] ) ) {
                 unset( $list_4770[$i] );
             }
         }
+
+        if ( empty( $list_4770 ) ) {
+            // trigger new global lap
+            dt_write_log( 'generate new lap' );
+            pg_generate_new_global_prayer_lap();
+        }
+        dt_write_log( count( $list_4770 ) );
 
         return $list_4770;
     }
@@ -518,10 +551,10 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                       AND type = 'prayer_app'
                       AND subtype = 'custom'
                       ",
-            $post_id ) );
+        $post_id ) );
 
         $list = [];
-        if ( ! empty( $raw_list ) ) {
+        if ( !empty( $raw_list ) ) {
             foreach ( $raw_list as $item ) {
                 $list[$item] = $item;
             }

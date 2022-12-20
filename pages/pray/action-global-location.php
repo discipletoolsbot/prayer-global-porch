@@ -68,7 +68,8 @@ class PG_Global_Prayer_App_Location extends PG_Global_Prayer_App {
         if ( 'location' === $action && $this->is_valid_grid_id( $this->grid_id ) ) {
             return true;
         }
-        add_filter( 'dt_blank_access', function() { return false; } );
+        add_filter( 'dt_blank_access', function() { return false;
+        } );
         return false;
     }
 

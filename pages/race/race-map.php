@@ -145,12 +145,12 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
             </div>
             <div id="map-wrapper">
                 <div id="head_block">
-                    <?php require( __DIR__ . '/nav-race-map.php') ?>
+                    <?php require( __DIR__ . '/nav-race-map.php' ) ?>
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
                 <div id="foot_block">
-                    <div class="map-overlay" id="map-legend" data-map-type="<?php echo $this->map_type ?>"></div>
+                    <div class="map-overlay" id="map-legend" data-map-type="<?php echo esc_attr( $this->map_type ) ?>"></div>
                     <div class="row">
                         <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
                         <div class="col col-6 col-sm-3 center">

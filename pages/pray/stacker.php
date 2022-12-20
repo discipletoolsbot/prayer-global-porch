@@ -196,7 +196,7 @@ class PG_Stacker {
                 AND r.type = 'prayer_app'
         ";
 
-        $args = [$user_id];
+        $args = [ $user_id ];
 
         if ( !is_null( $grid_id ) ) {
             $sql .= "AND r.grid_id = %d";
@@ -210,7 +210,7 @@ class PG_Stacker {
         $args[] = $offset;
         $args[] = $limit;
 
-        $user_activity = $wpdb->get_results( $wpdb->prepare( $sql, $args ), ARRAY_A );
+        $user_activity = $wpdb->get_results( $wpdb->prepare( $sql, $args ), ARRAY_A ); // @phpcs:ignore
 
         $user_stats = [
             "offset" => (int) $offset,

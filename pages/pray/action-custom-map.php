@@ -99,7 +99,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>heatmap.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'heatmap.css' ) ) ?>" type="text/css" media="all">
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>report.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'report.js' ) ) ?>"></script>
-        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/share.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'js/share.js' ) ) ?>"></script>
+        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/share.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/share.js' ) ) ?>"></script>
         <?php
     }
 
@@ -348,7 +348,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
     public function get_participants( $parts ){
         global $wpdb;
         $participants_raw = $wpdb->get_results( $wpdb->prepare( "
-           SELECT r.lng as longitude, r.lat as latitude
+           SELECT r.lng as longitude, r.lat as latitude, r.hash
            FROM $wpdb->dt_reports r
            LEFT JOIN $wpdb->dt_location_grid lg ON lg.grid_id=r.grid_id
             WHERE r.post_type = 'laps'
@@ -360,7 +360,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         if ( ! empty( $participants_raw ) ) {
             foreach ( $participants_raw as $p ) {
                 if ( ! empty( $p['longitude'] ) ) {
-                    $participants[] = [
+                    $participants[$p['hash']] = [
                         'longitude' => (float) $p['longitude'],
                         'latitude' => (float) $p['latitude']
                     ];
@@ -368,7 +368,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             }
         }
 
-        return $participants;
+        return array_values( $participants );
     }
 
     public function get_user_locations( $parts, $data ){
