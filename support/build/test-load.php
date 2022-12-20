@@ -92,7 +92,8 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                 'level'=>'district',
                 'lng'=>-105.06230163574219,
                 'source'=>'ip'
-            ]
+            ],
+            'posts' => []
         ];
 
         // query to get custom list
@@ -101,16 +102,17 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                 FROM wp_posts p
                 JOIN wp_postmeta pm ON pm.post_id=p.ID AND pm.meta_value = 'custom' AND pm.meta_key = 'type'
                 LEFT JOIN wp_postmeta pm2 ON pm2.post_id=p.ID AND pm2.meta_key = 'prayer_app_custom_magic_key'
-                WHERE p.post_type = 'laps';"
+                LEFT JOIN wp_postmeta pm3 ON pm3.post_id=p.ID AND pm3.meta_key = 'status'
+                WHERE p.post_type = 'laps' AND pm3.meta_value = 'active';"
             , ARRAY_A );
 
         // query to get count required
         foreach( $custom_laps_ids as $value ) {
 
-            $jsobject[$value['ID']] = [];
-            $jsobject[$value['ID']]['post_id'] = $value['ID'];
-            $jsobject[$value['ID']]['grid_id'] = '';
-            $jsobject[$value['ID']]['parts'] = [
+            $jsobject['posts'][$value['ID']] = [];
+            $jsobject['posts'][$value['ID']]['post_id'] = $value['ID'];
+            $jsobject['posts'][$value['ID']]['grid_id'] = '';
+            $jsobject['posts'][$value['ID']]['parts'] = [
                 'post_id' => $value['ID'],
                 'post_type' => 'laps',
                 'public_key' => $value['public_key'],
@@ -136,7 +138,6 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
 
         <section class="page-section mt-5" >
             <div class="container">
-                <input type="text" value="" id="post_id" /><button type="button" class="button" id="start">Start</button><br>
                 <div id="list"></div>
                 <hr>
                 <div id="results"></div>
@@ -163,7 +164,7 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                 function send_log( grid_id, post_id ) {
                     window.api_post( 'log', { grid_id: grid_id, pace: 1, user: {country:"United States",grid_id:"100364522",hash:"3ba4f83cfbd24b4be862536cfd9babe2025a2e027b69e2defbf2e62edcf3efa5",
                             label:"Golden, Colorado, United States",lat:39.828250885009766, level:"district",lng:-105.06230163574219,source:"ip"}
-                        }, jsObject[post_id].parts, 'https://prayer.global/wp-json/prayer_app/v1/custom' )
+                        }, jsObject.posts[post_id].parts, 'https://prayer.global/wp-json/prayer_app/v1/custom' )
                         .done(function(x) {
                             console.log(x)
                             if ( x ) {
@@ -173,13 +174,13 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                         })
                 }
 
-                jQuery.each(jsObject, function(i,v){
-                    jQuery('#list').append(i + ', ')
+                jQuery.each(jsObject.posts, function(i,v){
+                    jQuery('#list').append( `<button class="btn start" type="button" style="border:1px solid grey;margin:5px;" data-value="${i}">${i}</button>`)
                 })
 
-                jQuery('#start').on('click', function() {
-                        let gval = jQuery('#post_id').val()
-                        send_log( jsObject[gval].grid_id, jsObject[gval].post_id )
+                jQuery('.start').on('click', function() {
+                        let gval = jQuery(this).data('value')
+                        send_log( jsObject.posts[gval].grid_id, jsObject.posts[gval].post_id )
                     }
                 )
             })

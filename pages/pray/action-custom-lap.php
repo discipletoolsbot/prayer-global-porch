@@ -377,7 +377,9 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         $id = dt_report_insert( $args, true, false );
 
         $response = $this->get_new_location( $parts );
-        $response['report_id'] = $id;
+        if ( $response ) {
+            $response['report_id'] = $id;
+        }
 
         return $response;
     }
@@ -479,6 +481,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
 
         // if completed, trigger close
         if ( empty( $custom_remaining ) ) {
+            update_post_meta($parts['post_id'], 'status', 'complete' );
             if ( dt_is_rest() ) { // signal new lap to rest request
                 return false;
             } else { // if first load on finished lap, redirect to new lap
@@ -487,18 +490,18 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
+        // match to global
         $global_priority_list = array_intersect( $custom_remaining, $global_remaining );
         shuffle($global_priority_list);
         if ( isset( $global_priority_list[0] ) ) {
-//            dt_write_log('$global_priority_list');
             return PG_Stacker::build_location_stack_v2( $global_priority_list[0] );
         }
 
-        dt_write_log('No Match :: ' . $parts['post_id']);
-
-        // shuffle and select a grid id
+        // no global match, select from remaining custom location
         shuffle( $custom_remaining );
         $grid_id = $custom_remaining[0];
+
+        dt_write_log('No Match :: ' . $parts['post_id']);
 
         return PG_Stacker::build_location_stack_v2( $grid_id );
     }

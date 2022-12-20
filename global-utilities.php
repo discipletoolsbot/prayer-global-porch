@@ -282,6 +282,9 @@ function _pg_stats_builder( $data ) : array {
      * COMPLETED & REMAINING
      */
     $completed = (int) $data['locations_completed'];
+    if ( PG_TOTAL_STATES < $completed ) {
+        $completed = PG_TOTAL_STATES;
+    }
     $data['completed'] = number_format( $completed );
     $data['completed_int'] = $completed;
     $completed_percent = ROUND( $completed / PG_TOTAL_STATES * 100, 0 );
@@ -289,8 +292,12 @@ function _pg_stats_builder( $data ) : array {
         $completed_percent = 100;
     }
     $data['completed_percent'] = $completed_percent;
-    $data['remaining'] = number_format( PG_TOTAL_STATES - $completed );
-    $data['remaining_int'] = PG_TOTAL_STATES - $completed;
+    $remaining = PG_TOTAL_STATES - $completed;
+    if ( 0 > $remaining ) {
+        $remaining = 0;
+    }
+    $data['remaining'] = number_format( $remaining );
+    $data['remaining_int'] = $remaining;
     $data['remaining_percent'] = 100 - $data['completed_percent'];
 
     /**
@@ -625,7 +632,7 @@ function pg_generate_new_global_prayer_lap() {
     if ( get_option('pg_generate_new_lap_in_progress') ) {
         return false;
     } else {
-        update_option('pg_generate_new_lap_in_progress', true, true );
+        update_option('pg_generate_new_lap_in_progress', true );
     }
     global $wpdb;
 
