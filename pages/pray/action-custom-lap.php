@@ -494,6 +494,8 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             return PG_Stacker::build_location_stack_v2( $global_priority_list[0] );
         }
 
+        dt_write_log('Not Matched to $global_priority_list');
+
         // shuffle and select a grid id
         shuffle( $custom_remaining );
         $grid_id = $custom_remaining[0];
@@ -525,6 +527,11 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
+        if ( empty( $list_4770 ) ) {
+            // trigger new global lap
+            dt_write_log('generate new lap');
+            pg_generate_new_global_prayer_lap();
+        }
         dt_write_log(count($list_4770));
 
         return $list_4770;
