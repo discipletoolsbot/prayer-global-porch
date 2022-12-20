@@ -77,6 +77,7 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
     public function footer_javascript(){
         require_once( WP_CONTENT_DIR . '/plugins/prayer-global-porch/pages/assets/footer.php' );
 
+        $global_lap = pg_current_global_lap();
         global $wpdb;
         $jsobject = [
             'map_key' => DT_Mapbox_API::get_key(),
@@ -85,15 +86,24 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
             'parts' => $this->parts,
             'user' => [
                 'country' => 'United States',
-                'grid_id'=>'100364522',
-                'hash'=>'3ba4f83cfbd24b4be862536cfd9babe2025a2e027b69e2defbf2e62edcf3efa5',
-                'label'=>'Golden, Colorado, United States',
-                'lat'=>39.828250885009766,
-                'level'=>'district',
-                'lng'=>-105.06230163574219,
-                'source'=>'ip'
+                'grid_id' =>'100364522',
+                'hash' =>'3ba4f83cfbd24b4be862536cfd9babe2025a2e027b69e2defbf2e62edcf3efa5',
+                'label' =>'Golden, Colorado, United States',
+                'lat' =>39.828250885009766,
+                'level' =>'district',
+                'lng' =>-105.06230163574219,
+                'source' =>'ip'
             ],
-            'posts' => []
+            'posts' => [],
+            'global_parts' => [
+                'post_id' => $global_lap['post_id'],
+                'post_type' => 'laps',
+                'public_key' => $global_lap['key'],
+                'meta_key' => 'prayer_app_global_magic_key',
+                'root' => 'prayer_app',
+                'type' => 'global',
+                'action' => ''
+            ]
         ];
 
         // query to get custom list
@@ -103,11 +113,11 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                 JOIN wp_postmeta pm ON pm.post_id=p.ID AND pm.meta_value = 'custom' AND pm.meta_key = 'type'
                 LEFT JOIN wp_postmeta pm2 ON pm2.post_id=p.ID AND pm2.meta_key = 'prayer_app_custom_magic_key'
                 LEFT JOIN wp_postmeta pm3 ON pm3.post_id=p.ID AND pm3.meta_key = 'status'
-                WHERE p.post_type = 'laps' AND pm3.meta_value = 'active';"
-            , ARRAY_A );
+                WHERE p.post_type = 'laps' AND pm3.meta_value = 'active';",
+        ARRAY_A );
 
         // query to get count required
-        foreach( $custom_laps_ids as $value ) {
+        foreach ( $custom_laps_ids as $value ) {
 
             $jsobject['posts'][$value['ID']] = [];
             $jsobject['posts'][$value['ID']]['post_id'] = $value['ID'];
@@ -127,7 +137,7 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
 
         ?>
         <script>
-            let jsObject = [<?php echo json_encode($jsobject) ?>][0]
+            let jsObject = [<?php echo json_encode( $jsobject ) ?>][0]
         </script>
         <?php
     }
@@ -138,11 +148,12 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
 
         <section class="page-section mt-5" >
             <div class="container">
-                <div id="list"></div>
+                <div id="list"><button type="button" class="btn global" style="border:1px solid grey;margin:5px;">Global</button></div>
                 <hr>
                 <div id="results"></div>
             </div>
         </section>
+        <div style="position:absolute; bottom: 1em; right:1em; border-radius: 50%;background-color:lightgrey;padding: .5em 1em;" id="counter">0</div>
         <script>
             jQuery(document).ready(function(){
                 window.api_post = ( action, data, parts, url ) => {
@@ -160,6 +171,8 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                             console.log(e)
                         })
                 }
+                window.counter = 0
+                window.globalcounter = 0
 
                 function send_log( grid_id, post_id ) {
                     window.api_post( 'log', { grid_id: grid_id, pace: 1, user: {country:"United States",grid_id:"100364522",hash:"3ba4f83cfbd24b4be862536cfd9babe2025a2e027b69e2defbf2e62edcf3efa5",
@@ -169,6 +182,8 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                             console.log(x)
                             if ( x ) {
                                 jQuery('#results').prepend(post_id + ' - ' + grid_id + '<br>')
+                                window.counter++
+                                jQuery('#counter').html(window.counter)
                                 send_log( x.location.grid_id, post_id )
                             }
                         })
@@ -181,6 +196,25 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                 jQuery('.start').on('click', function() {
                         let gval = jQuery(this).data('value')
                         send_log( jsObject.posts[gval].grid_id, jsObject.posts[gval].post_id )
+                    }
+                )
+
+                function send_log_global( grid_id ) {
+                    window.api_post( 'log', { grid_id: grid_id, pace: 1, user: {country:"United States",grid_id:"100364522",hash:"3ba4f83cfbd24b4be862536cfd9babe2025a2e027b69e2defbf2e62edcf3efa5",
+                            label:"Golden, Colorado, United States",lat:39.828250885009766, level:"district",lng:-105.06230163574219,source:"ip"}
+                    }, jsObject.global_parts, 'https://prayer.global/wp-json/prayer_app/v1/global' )
+                        .done(function(x) {
+                            console.log(x)
+                            if ( x ) {
+                                jQuery('#results').prepend('Global - ' + grid_id + '<br>')
+                                window.globalcounter++
+                                jQuery('#counter').html(window.globalcounter)
+                                send_log_global( x.location.grid_id )
+                            }
+                        })
+                }
+                jQuery('.global').on('click', function() {
+                        send_log_global( 100235142 )
                     }
                 )
             })
