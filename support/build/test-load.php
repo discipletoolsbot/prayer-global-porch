@@ -108,44 +108,18 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
 
         // query to get count required
         foreach( $custom_laps_ids as $value ) {
-            $missing = $wpdb->get_var($wpdb->prepare( "
-                SELECT (4770 - count(*) ) as missing
-                FROM ( SELECT
-                    lg1.grid_id
-                    FROM wp_dt_location_grid lg1
-                    WHERE lg1.level = 0
-                    AND lg1.grid_id NOT IN ( SELECT lg11.admin0_grid_id FROM wp_dt_location_grid lg11 WHERE lg11.level = 1 AND lg11.admin0_grid_id = lg1.grid_id )
-                    AND lg1.admin0_grid_id NOT IN (100050711,100219347,100089589,100074576,100259978,100018514)
-                    UNION ALL
-                    SELECT
-                    lg2.grid_id
-                    FROM wp_dt_location_grid lg2
-                    WHERE lg2.level = 1
-                    AND lg2.admin0_grid_id NOT IN (100050711,100219347,100089589,100074576,100259978,100018514)
-                    UNION ALL
-                    SELECT
-                    lg3.grid_id
-                    FROM wp_dt_location_grid lg3
-                    WHERE lg3.level = 2
-                    AND lg3.admin0_grid_id IN (100050711,100219347,100089589,100074576,100259978,100018514)
-                ) as tb
-                JOIN (
-                    SELECT DISTINCT r.grid_id
-                    FROM wp_dt_reports r
-                    WHERE r.post_id = %d
-                ) tr ON tr.grid_id=tb.grid_id AND tr.grid_id IS NOT NULL
-            ", $value['ID'] ) );
 
-            $post_list[] = [
-                'post_id' => $value['ID'],
-                'public_key' => $value['public_key'],
-                'missing' => $missing
-            ];
             $jsobject[$value['ID']] = [];
             $jsobject[$value['ID']]['post_id'] = $value['ID'];
             $jsobject[$value['ID']]['grid_id'] = '';
             $jsobject[$value['ID']]['parts'] = [
-                
+                'post_id' => $value['ID'],
+                'post_type' => 'laps',
+                'public_key' => $value['public_key'],
+                'meta_key' => 'prayer_app_custom_magic_key',
+                'root' => 'prayer_app',
+                'type' => 'custom',
+                'action' => ''
             ];
         }
 
@@ -164,7 +138,8 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
 
         <section class="page-section mt-5" >
             <div class="container">
-                <input type="text" value="" id="post_id" /><button type="button" id="start">Start</button>
+                <input type="text" value="" id="post_id" /><button type="button" class="button" id="start">Start</button><br>
+                <div id="list"></div>
                 <hr>
                 <div id="results"></div>
             </div>
@@ -190,44 +165,25 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                 function send_log( grid_id, post_id ) {
                     window.api_post( 'log', { grid_id: grid_id, pace: 1, user: {country:"United States",grid_id:"100364522",hash:"3ba4f83cfbd24b4be862536cfd9babe2025a2e027b69e2defbf2e62edcf3efa5",
                             label:"Golden, Colorado, United States",lat:39.828250885009766, level:"district",lng:-105.06230163574219,source:"ip"}
-                        }, jsObject[gval].parts, 'https://prayer.global/wp-json/prayer_app/v1/custom' )
+                        }, jsObject[post_id].parts, 'https://prayer.global/wp-json/prayer_app/v1/custom' )
                         .done(function(x) {
                             console.log(x)
-                            jQuery('#results').prepend(post_id + ' - ' + grid_id)
-                            send_log( x.location.grid_id, post_id )
+                            if ( x ) {
+                                jQuery('#results').prepend(post_id + ' - ' + grid_id + '<br>')
+                                send_log( x.location.grid_id, post_id )
+                            }
                         })
                 }
+
+                jQuery.each(jsObject, function(i,v){
+                    jQuery('#list').append(i + ', ')
+                })
 
                 jQuery('#start').on('click', function() {
                         let gval = jQuery('#post_id').val()
                         send_log( jsObject[gval].grid_id, jsObject[gval].post_id )
                     }
                 )
-
-                function delay(time) {
-                    return new Promise(resolve => setTimeout(resolve, time));
-                }
-
-                jQuery.each(jsObject.custom, function(ig, vg ) {
-                    window.lap_loop = 0
-                    jQuery.each( vg.list, function( i ,v ){
-                        if ( window.lap_loop > 10 ) {
-                            return
-                        }else {
-                            window.lap_loop++
-                        }
-                        delay(1000).then(
-                            window.api_post( 'log', { grid_id: v, pace: 1, user: {country:"United States",grid_id:"100364522",hash:"3ba4f83cfbd24b4be862536cfd9babe2025a2e027b69e2defbf2e62edcf3efa5",
-                                    label:"Golden, Colorado, United States",lat:39.828250885009766, level:"district",lng:-105.06230163574219,
-                                    source:"ip"}}, vg.parts, 'https://prayer.global/wp-json/prayer_app/v1/custom' )
-                                .done(function(x) {
-                                    console.log(x)
-                                    jQuery('#results').append(`Custom ${x.report_id} <br>` )
-                                })
-                        );
-                    })
-                })
-
             })
         </script>
         <!-- END section -->

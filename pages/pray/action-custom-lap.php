@@ -486,8 +486,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 exit;
             }
         }
-
-
+        
         // shuffle and select a grid id
         shuffle( $list_4770 );
         $grid_id = $list_4770[0];
@@ -500,9 +499,9 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                     break;
                 }
             }
-            dt_write_log('not found');
+            dt_write_log('not found - ' . $grid_id);
         } else {
-            dt_write_log('found');
+            dt_write_log('found - '. $grid_id);
         }
 
         return PG_Stacker::build_location_stack_v2( $grid_id );
@@ -532,7 +531,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
-        dt_write_log($list_4770);
+        dt_write_log(count( $list_4770 ));
 
         return $list_4770;
     }
