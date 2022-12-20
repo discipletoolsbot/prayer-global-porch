@@ -104,8 +104,6 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                 WHERE p.post_type = 'laps';"
             , ARRAY_A );
 
-        $post_list = [];
-
         // query to get count required
         foreach( $custom_laps_ids as $value ) {
 

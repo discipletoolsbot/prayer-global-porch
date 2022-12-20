@@ -464,21 +464,21 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         }
 
         // get lists
-        $list_4770 = pg_query_4770_locations();
-        $list_prayed = $this->_query_prayed_list( $parts['post_id'] );
+        $list_4770 = $custom_remaining = pg_query_4770_locations();
+        $custom_prayed = $this->_query_prayed_list( $parts['post_id'] );
         $global_remaining = $this->_remaining_global_prayed_list( $list_4770 );
 
         // subtract prayed places
-        if ( ! empty( $list_prayed ) ) {
-            foreach ( $list_prayed as $grid_id ) {
-                if ( isset( $list_4770[$grid_id] ) ) {
-                    unset( $list_4770[$grid_id] );
+        if ( ! empty( $custom_prayed ) ) {
+            foreach ( $custom_prayed as $grid_id ) {
+                if ( isset( $custom_remaining[$grid_id] ) ) {
+                    unset( $custom_remaining[$grid_id] );
                 }
             }
         }
 
         // if completed, trigger close
-        if ( empty( $list_4770 ) ) {
+        if ( empty( $custom_remaining ) ) {
             if ( dt_is_rest() ) { // signal new lap to rest request
                 return false;
             } else { // if first load on finished lap, redirect to new lap
@@ -486,23 +486,17 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 exit;
             }
         }
-        
-        // shuffle and select a grid id
-        shuffle( $list_4770 );
-        $grid_id = $list_4770[0];
 
-        if ( ! isset( $global_remaining[$grid_id] ) ) {
-            // look for global grid id that is still remaining for the custom lap
-            foreach ( $global_remaining as $gi => $gv ) {
-                if ( isset( $list_4770[$gi] ) ) {
-                    $grid_id = $gi;
-                    break;
-                }
-            }
-            dt_write_log('not found - ' . $grid_id);
-        } else {
-            dt_write_log('found - '. $grid_id);
+        $global_priority_list = array_intersect( $custom_remaining, $global_remaining );
+        shuffle($global_priority_list);
+        if ( isset( $global_priority_list[0] ) ) {
+            dt_write_log('$global_priority_list');
+            return PG_Stacker::build_location_stack_v2( $global_priority_list[0] );
         }
+
+        // shuffle and select a grid id
+        shuffle( $custom_remaining );
+        $grid_id = $custom_remaining[0];
 
         return PG_Stacker::build_location_stack_v2( $grid_id );
     }
@@ -531,7 +525,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
-        dt_write_log(count( $list_4770 ));
+        dt_write_log(count($list_4770));
 
         return $list_4770;
     }
