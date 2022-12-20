@@ -127,7 +127,7 @@ jQuery(document).ready(function(){
         // load variables
         window.report_content = window.current_content = test_for_redundant_grid( l1 )
         load_location()
-        
+
         // modal logic
         if ( typeof window.viewed === 'undefined' ) {
           toggle_timer( true )
@@ -158,7 +158,7 @@ jQuery(document).ready(function(){
   }
   initialize_location() // initialize prayer framework
   function test_for_redundant_grid( content ) {
-    if ( typeof content === 'undefined' ){
+    if ( typeof content === 'undefined' || typeof content.location === 'undefined' || typeof content.location.grid_id === 'undefined' ){
       return content
     }
     if ( window.previous_grids.includes( content.location.grid_id ) ) {
