@@ -544,14 +544,12 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         ];
 
         if ( isset( $data['start_date'] ) ) {
-            $start_time = strtotime( $data['start_date'] . ' ' . $data['start_time'] );
-            $fields["start_date"] = $start_time;
-            $fields["start_time"] = $start_time;
+            $fields["start_date"] = (int) $data['start_date'];
+            $fields["start_time"] = (int) $data['start_date'];
         }
         if ( isset( $data['end_date'] ) ) {
-            $end_time = strtotime( $data['end_date'] . ' ' . $data['end_time'] );
-            $fields["end_date"] = $end_time;
-            $fields["end_time"] = $end_time;
+            $fields["end_date"] = (int) $data['end_date'];
+            $fields["end_time"] = (int) $data['end_date'];
         }
 
         $fields['assigned_to'] = $user_id;
@@ -594,14 +592,12 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         }
 
         if ( isset( $data['start_date'] ) ) {
-            $start_time = strtotime( $data['start_date'] . ' ' . $data['start_time'] );
-            $fields["start_date"] = $start_time;
-            $fields["start_time"] = $start_time;
+            $fields["start_date"] = (int) $data['start_date'];
+            $fields["start_time"] = (int) $data['start_date'];
         }
         if ( isset( $data['end_date'] ) ) {
-            $end_time = strtotime( $data['end_date'] . ' ' . $data['end_time'] );
-            $fields["end_date"] = $end_time;
-            $fields["end_time"] = $end_time;
+            $fields["end_date"] = (int) $data['end_date'];
+            $fields["end_time"] = (int) $data['end_date'];
         }
 
         $post = DT_Posts::update_post( 'laps', $data['post_id'], $fields );

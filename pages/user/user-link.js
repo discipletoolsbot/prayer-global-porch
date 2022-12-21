@@ -504,13 +504,10 @@ jQuery(document).ready(function(){
             const visibility = challengeVisibility.val()
             const modalAction = challengeModalAction.val()
 
-            const timeOffset = (new Date()).getTimezoneOffset()
-
             const data = {
                 title,
                 visibility,
                 challenge_type: challengeType,
-                time_offset: timeOffset,
             }
 
             if ( modalAction === 'edit' ) {
@@ -518,14 +515,15 @@ jQuery(document).ready(function(){
                 data.post_id = post_id
             }
 
-            data.start_date = startDate
-            data.start_time = startTime
+            const start_date_seconds = new Date( `${startDate} ${startTime}` ).getTime() / 1000
+
+            data.start_date = start_date_seconds
 
             if ( challengeType === 'timed_challenge' ) {
-                data.end_date = endDate
-                data.end_time = endTime
+                const end_date_seconds = new Date( `${endDate} ${endTime}` ).getTime() / 1000
+                data.end_date = end_date_seconds
 
-                if (  endDate < startDate || ( endDate === startDate && endTime <= startTime ) ) {
+                if ( endDate < startDate ) {
                     challengeHelpText.html('The end date must be after the start date')
                     isSavingChallenge = false
                     challengeLoadingSpinner.removeClass('active')
@@ -615,8 +613,7 @@ jQuery(document).ready(function(){
     }
 
     function toTimeInputFormat(timestamp) {
-        const localTimeOffset = (new Date()).getTimezoneOffset()
-        const date = new Date( Number(timestamp) * 1000 + localTimeOffset )
+        const date = new Date( Number(timestamp) * 1000 )
         let timeString
         try {
             timeString = date.toTimeString().split(':').slice(0,2).join(':')
