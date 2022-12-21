@@ -119,8 +119,16 @@ jQuery(document).ready(function(){
     // load current location
     window.api_post( 'refresh', { grid_id } )
       .done( function(l1) {
+        // no remaining locations, send to map
+        if ( ! l1 ) {
+          window.location.href = jsObject.map_url
+          return
+        }
+        // load variables
         window.report_content = window.current_content = test_for_redundant_grid( l1 )
         load_location()
+
+        // modal logic
         if ( typeof window.viewed === 'undefined' ) {
           toggle_timer( true )
           open_welcome.modal('show')
@@ -150,6 +158,9 @@ jQuery(document).ready(function(){
   }
   initialize_location() // initialize prayer framework
   function test_for_redundant_grid( content ) {
+    if ( typeof content === 'undefined' || typeof content.location === 'undefined' || typeof content.location.grid_id === 'undefined' ){
+      return content
+    }
     if ( window.previous_grids.includes( content.location.grid_id ) ) {
       window.api_post('refresh', {} )
         .done( function(new_content) {
@@ -336,6 +347,10 @@ jQuery(document).ready(function(){
     if ( typeof content === 'undefined' ) {
       window.current_content = window.next_content
       content = window.next_content
+      if ( typeof content === 'undefined' ) {
+        window.location.href = jsObject.map_url
+        return
+      }
     }
 
     button_text.html('Keep Praying...')

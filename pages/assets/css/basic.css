@@ -740,12 +740,12 @@ button {
     display: none;
 }
 
-#createChallengeLabel.private:before {
+#createChallengeLabel[data-visibility="private"]:before {
     content: '\f200';
     font-family: 'Ionicons';
     padding-right: 16px;
 }
-#createChallengeLabel.public:before {
+#createChallengeLabel[data-visibility="public"]:before {
     content: '\f4c9';
     font-family: 'Ionicons';
     padding-right: 16px;
@@ -775,6 +775,12 @@ button {
     position: relative;
     height: var(--pg-badge-size);
     width: var(--pg-badge-size);
+}
+
+.user__badge.loading {
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .user__badge[disabled] {
@@ -925,4 +931,14 @@ button {
     color: var(--bs-btn-active-bg);
     background: #d1d6dd;
     font-weight: bold;
+}
+
+.dropdown-toggle {
+    width: 2rem;
+    height: 2rem;
+    padding: 0;
+    line-height: 0;
+}
+.dropdown-toggle::after {
+    display: none;
 }
