@@ -154,7 +154,7 @@ jQuery(document).ready(function($){
       minZoom: 1,
       maxZoom: 12,
       zoom: zoom,
-      maxBounds: [ [-170, -85], [180, 85] ]
+      maxBounds: [ [-170, -75], [180, 85] ]
     });
     map.dragRotate.disable();
     map.touchZoomRotate.disableRotation();
@@ -232,9 +232,11 @@ jQuery(document).ready(function($){
     jQuery('.remaining').html( jsObject.stats.remaining )
     jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
     jQuery('.prayer_warriors').html( jsObject.stats.participants )
+    jQuery('.lap_pace').html( jsObject.stats.lap_pace_small )
 
     jQuery('#head_block').show()
     jQuery('#foot_block').show()
+
   } /* .loadgrid */
 
   setInterval(function(){
@@ -248,6 +250,7 @@ jQuery(document).ready(function($){
         jQuery('.remaining').html( jsObject.stats.remaining )
         jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
         jQuery('.prayer_warriors').html( jsObject.stats.participants )
+        jQuery('.lap_pace').html( jsObject.stats.lap_pace_small )
 
         jsObject.grid_data = x.grid_data
         reload_load_grid()
@@ -291,6 +294,7 @@ jQuery(document).ready(function($){
     jQuery('.remaining').html( jsObject.stats.remaining )
     jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
     jQuery('.prayer_warriors').html( jsObject.stats.participants )
+    jQuery('.lap_pace').html( jsObject.stats.lap_pace_small )
 
     jQuery('#head_block').show()
     jQuery('#foot_block').show()

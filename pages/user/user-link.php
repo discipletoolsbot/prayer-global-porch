@@ -4,12 +4,18 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 /**
  * Class Prayer_Global_Porch_Public_Porch_Profile
  */
-class Prayer_Global_Porch_User_Page extends DT_Magic_Url_Base {
+class PG_User_App_Profile extends DT_Magic_Url_Base {
 
-    public $page_title = 'Private User Page';
-    public $root = "user_app";
-    public $type = 'private';
+    public $page_title = 'User Profile';
+    public $root = 'user_app';
+    public $type = 'profile';
     public $post_type = 'user';
+    public $allowed_user_meta = [
+        'location',
+        'location_hash',
+        'send_lap_emails',
+        'send_general_emails',
+    ];
 
     private static $_instance = null;
     public static function instance() {
@@ -61,41 +67,27 @@ class Prayer_Global_Porch_User_Page extends DT_Magic_Url_Base {
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        return [
+        return array_merge( $allowed_js, [
             'jquery',
             'jquery-ui',
             'foundations-js',
             'porch-user-site-js',
-        ];
+            'mapbox-search-widget',
+            'mapbox-gl',
+        ]);
     }
 
-    public function wp_enqueue_scripts() {
-
-        // styles
-//        wp_enqueue_style( 'foundations-css', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/css/foundation.min.css', array(), '6.6.3', 'all' );
-//        add_filter( 'style_loader_tag', function( $html, $handle ) {
-//            if ( 'foundations-css' === $handle ) {
-//                return str_replace( "media='all'", "media='all' integrity='sha256-ogmFxjqiTMnZhxCqVmcqTvjfe1Y/ec4WaRj/aQPvn+I=' crossorigin='anonymous'", $html );
-//            }
-//            return $html;
-//        }, 10, 2 );
-//        wp_enqueue_style( 'porch-user-style-css', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'css/style.css', array( 'foundations-css' ), filemtime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'css/style.css' ), 'all' );
-//
-//        // javascript
-//        wp_register_script( 'foundations-js', 'https://cdn.jsdelivr.net/npm/foundation-sites@6.6.3/dist/js/foundation.min.js', [ 'jquery' ], '6.6.3' );
-//        wp_enqueue_script( 'foundations-js' );
-//        add_filter( 'style_loader_tag', function( $html, $handle ) {
-//            if ( 'foundations-js' === $handle ) {
-//                return str_replace( "media='all'", "media='all' integrity='sha256-pRF3zifJRA9jXGv++b06qwtSqX1byFQOLjqa2PTEb2o=' crossorigin='anonymous'", $html );
-//            }
-//            return $html;
-//        }, 10, 2 );
-
-//        wp_enqueue_script( 'porch-user-site-js', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'js/site.js', [ 'jquery' ], filemtime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'js/site.js' ) );
-    }
+    public function wp_enqueue_scripts() {}
 
     public function header_javascript(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
+
+        $user_id = get_current_user_id();
+        $userdata = pg_get_user( $user_id, $this->allowed_user_meta );
+
+        if ( is_user_logged_in() ) {
+            $userdata['stats'] = $this->get_user_stats();
+        }
         ?>
         <script>
             let jsObject = [<?php echo json_encode([
@@ -103,104 +95,17 @@ class Prayer_Global_Porch_User_Page extends DT_Magic_Url_Base {
                 'root' => esc_url_raw( rest_url() ),
                 'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
-                'user' => wp_get_current_user(),
+                'user' => $userdata,
                 'translations' => [
                     'add' => __( 'Add Magic', 'disciple-tools-porch-template' ),
                 ],
+                'is_logged_in' => is_user_logged_in() ? 1 : 0,
+                'logout_url' => esc_url( wp_logout_url( '/' ) )
             ]) ?>][0]
-
-            window.user_status = <?php echo ( is_user_logged_in() ) ? 1 : 0; ?>
-
-            jQuery(document).ready(function(){
-
-                if ( window.user_status ) {
-                   window.write_profile( jsObject.user.data )
-                } else {
-                    window.write_login()
-                }
-
-            })
-
-            window.get_user_app = (action, data ) => {
-                return jQuery.ajax({
-                    type: "POST",
-                    data: JSON.stringify({ action: action, parts: jsObject.parts, data: data }),
-                    contentType: "application/json; charset=utf-8",
-                    dataType: "json",
-                    url: jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type,
-                    beforeSend: function (xhr) {
-                        xhr.setRequestHeader('X-WP-Nonce', jsObject.nonce )
-                    }
-                })
-                    .fail(function(e) {
-                        console.log(e)
-                        jQuery('#error').html(e)
-                    })
-            }
-
-            window.send_login = () => {
-                let email = jQuery('#pg_input_email').val()
-                let pass = jQuery('#pg_input_password').val()
-                jQuery('.loading-spinner').addClass('active')
-
-                window.get_user_app('login', { email: email, pass: pass } )
-                    .done(function(data){
-                        console.log(data)
-                        jQuery('.loading-spinner').removeClass('active')
-                        if ( data ) {
-                            window.write_profile(data)
-                        }
-                    })
-            }
-
-            window.write_profile = (data) => {
-                jQuery('#pg_content').html(`
-                    <table class="table">
-                        <tbody>
-                        <tr>
-                            <td>User ID</td>
-                            <td id="pg_user_id"></td>
-                        </tr>
-                        <tr>
-                            <td>User Display Name</td>
-                            <td id="pg_user_display"></td>
-                        </tr>
-                        <tr>
-                            <td>User Email</td>
-                            <td id="pg_user_email"></td>
-                        </tr>
-                        </tbody>
-                    </table>
-
-                    <a href="<?php echo esc_url( wp_logout_url( '/' ) ); ?>">Logout</a>
-                `)
-                jQuery('#pg_user_id').html(data.ID)
-                jQuery('#pg_user_display').html(data.display_name)
-                jQuery('#pg_user_email').html(data.user_email)
-
-            }
-            window.write_login = () => {
-                jQuery('#pg_content').html(`
-                <form id="login_form">
-                            <p>
-                                Email<br>
-                                <input type="text" id="pg_input_email"  />
-                            </p>
-                            <p>
-                                Password<br>
-                                <input type="password" id="pg_input_password" />
-                            </p>
-                            <p>
-                                <button type="button" id="submit_button">Submit</button> <span class="loading-spinner"></span>
-                            </p>
-                        </form>
-                `)
-                jQuery('#submit_button').on('click', function(){
-                    window.send_login()
-
-                })
-            }
         </script>
+        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/components.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/components.js' ) ) ?>"></script>
+        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>user-link.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'user-link.js' ) ) ?>"></script>
+        <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js?ver=3"></script>
         <style>
             #login_form input {
                 padding:.5em;
@@ -214,21 +119,168 @@ class Prayer_Global_Porch_User_Page extends DT_Magic_Url_Base {
     }
 
     public function body(){
+        DT_Mapbox_API::load_mapbox_search_widget();
+        DT_Mapbox_API::mapbox_search_widget_css();
+
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' );
 
         ?>
-        <section class="pb_section" data-section="login" id="section-login">
+        <section class="page-section" data-section="login" id="section-login">
             <div class="container">
-                <div class="row justify-content-md-center text-center mb-5">
-                    <div class="col-lg-7">
-                        <h2 class="mt-0 heading-border-top font-weight-normal" id="pg_title">Login</h2>
-                        <p></p>
-                    </div>
-                </div>
-                <div class="row justify-content-md-center text-center mb-5">
-                    <div class="col-lg-7" id="pg_content"></div>
+                <div class="row justify-content-md-center text-center">
+                    <div class="col-lg-7 flow" id="pg_content"></div>
                 </div>
             </div>
+            <div class="offcanvas offcanvas-end" id="user-profile-details" data-bs-backdrop="true" data-bs-scroll="false">
+                <div class="offcanvas__header">
+                    <button type="button" data-bs-dismiss="offcanvas" style="text-align: start">
+                        <i class="ion-chevron-right three-em"></i>
+                    </button>
+                </div>
+                <div class="offcanvas__content">
+                    <div class="container">
+                        <div class="row justify-content-md-center">
+                            <div class="flow" id="user-details-content"></div>
+                        </div>
+                    </div>
+                </div>
+           </div>
+
+            <div class="modal fade" id="location-modal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="locationModalLabel">Change Your Location</h1>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <div id="mapbox-wrapper">
+                                <div id="mapbox-autocomplete" class="mapbox-autocomplete" data-autosubmit="false" data-add-address="true">
+                                    <div class="input-group mb-2">
+                                        <input required id="mapbox-search" type="text" name="mapbox_search" class="form-control" autocomplete="off" placeholder="Select Location" />
+                                        <button id="mapbox-clear-autocomplete" class="btn btn-danger" type="button" title="Delete Location" style="">
+                                            <i class="ion-close"></i>
+                                        </button>
+                                    </div>
+                                    <div class="mapbox-error-message text-danger small"></div>
+                                    <div id="mapbox-spinner-button" style="display: none;">
+                                        <span class="" style="border-radius: 50%;width: 24px;height: 24px;border: 0.25rem solid lightgrey;border-top-color: black;animation: spin 1s infinite linear;display: inline-block;"></span>
+                                    </div>
+                                    <div id="mapbox-autocomplete-list" class="mapbox-autocomplete-items"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-outline-dark cancel-user-location" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary save-user-location">Save</button>
+                        </div>
+                   </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="create-challenge-modal" tabindex="-1" aria-labelledby="createChallengeLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="createChallengeLabel" data-visibility="">Create Challenge</h1>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <form action="" id="challenge-form">
+                            <div class="modal-body">
+                                <!-- Buttons group for choosing which type of challenge to start -->
+                                <div class="btn-group-vertical mb-3 w-100" role="group" aria-label="Choose type of challenge">
+                                    <input type="radio" class="btn-check ongoing-challenge-button" name="challenge-type" id="ongoing_challenge" autocomplete="off" required>
+                                    <label class="btn btn-secondary" for="ongoing_challenge" role="button">Pray for the whole world</label>
+                                    <input type="radio" class="btn-check timed-challenge-button" name="challenge-type" id="timed_challenge" autocomplete="off" required/>
+                                    <label class="btn btn-secondary" for="timed_challenge" role="button">Timed Challenge</label>
+                                </div>
+
+                                <input type="hidden" id="challenge-visibility">
+                                <input type="hidden" id="challenge-modal-action" value="create">
+                                <input type="hidden" id="challenge-post-id">
+
+                                <!-- Form for inputs to go into -->
+                                <div class="mb-3 challenge-title-group">
+                                    <label for="challenge-title" class="form-label">Challenge Title</label>
+                                    <input class="form-control" type="text" id="challenge-title" placeholder="Give your challenge a unique name" required>
+                                </div>
+                                <div class="mb-3 challenge-start-date-group">
+                                    <label for="challenge-start-date" class="form-label">Challenge Start Date</label><button type="button" class="btn btn-outline-secondary btn-sm ms-3" id="set-challenge-start-to-now">Now</button>
+                                    <div class="d-flex">
+                                        <input class="form-control" type="date" id="challenge-start-date" placeholder="Start Date" required>
+                                        <input class="form-control" type="time" id="challenge-start-time" placeholder="Start Time" required>
+                                    </div>
+                                </div>
+                                <div class="mb-3 challenge-end-date-group">
+                                    <label for="challenge-end-date" class="form-label">Challenge End Date</label>
+                                    <div class="d-flex">
+                                        <input class="form-control" type="date" id="challenge-end-date" placeholder="End Date">
+                                        <input class="form-control" type="time" id="challenge-end-time" placeholder="End Time">
+                                    </div>
+                                    <div class="text-danger form-text" id="challenge-help-text"></div>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <span class="loading-spinner challenge-loading"></span>
+                                <button class="btn btn-outline-dark cancel-new-challenge-button" data-bs-dismiss="modal" type="button">Cancel</button>
+                                <button class="btn btn-primary create-new-challenge-button">Create</button>
+                                <button class="btn btn-primary edit-challenge-button">Edit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="modal fade" id="user-data-report" tabindex="-1" aria-labelledby="userDataReportModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="userDataReportModalLabel">Data Report</h1>
+                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            Data Reporty stuff
+                            <br>
+                            The contents of their user/contact record?
+                            <br>
+                            Linked groups?
+                            <br>
+                            Prayer data?
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal fade" id="erase-user-account-modal" tabindex="-1" aria-labelledby="eraseUserModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="eraseUserModalLabel">Erase Account</h1>
+                            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                This will delete your account from Prayer.Global.
+                            </p>
+                            <p>
+                                You will lose all progress and data assosciated with your account
+                            </p>
+                            <p>
+                                If you are sure you want to proceed please type "delete" into the box below and click "I am sure" button
+                            </p>
+                            <div class="mb-3">
+                                <label for="delete-confirmation" class="form-label">Confirm delete</label>
+                                <input type="text" class="form-control text-danger" id="delete-confirmation" placeholder="delete">
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <button class="btn btn-outline-dark" data-bs-dismiss="modal" type="button">Cancel</button>
+                            <button class="btn btn-danger" id="confirm-user-account-delete" disabled>I am sure</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
         </section>
         <?php
     }
@@ -269,11 +321,31 @@ class Prayer_Global_Porch_User_Page extends DT_Magic_Url_Base {
                         // password match
                         $logged_in = $this->programmatic_login( $user->data->user_login );
                         if ( $logged_in ) {
-                            return $user;
+                            $response = [
+                                "user" => pg_get_user( $user->ID, $this->allowed_user_meta ),
+                            ];
+
+                            return $response;
                         }
                     }
                 }
                 return false;
+            case 'update_user':
+                return $this->update_user( $params['data'] );
+            case 'activity':
+                return $this->get_user_activity( $params['data'] );
+            case 'stats':
+                return $this->get_user_stats();
+            case 'ip_location':
+                return $this->get_ip_location( $params['data'] );
+            case 'save_location':
+                return $this->save_location( $params['data'] );
+            case 'create_challenge':
+                return $this->create_challenge( $params['data'] );
+            case 'edit_challenge':
+                return $this->edit_challenge( $params['data'] );
+            case 'get_challenges':
+                return $this->get_challenges( $params['data'] );
             default:
                 return $params;
         }
@@ -323,5 +395,259 @@ class Prayer_Global_Porch_User_Page extends DT_Magic_Url_Base {
         return get_user_by( 'login', $username );
     }
 
+    /**
+     * Update the user's data
+     *
+     * @param array $data
+     * @return void|WP_Error
+     */
+    public function update_user( $data ) {
+        $user_id = get_current_user_id();
+
+        foreach ($data as $meta_key => $meta_value) {
+            if ( !in_array( $meta_key, $this->allowed_user_meta, true ) ) {
+                continue;
+            }
+
+            $meta_key = PG_NAMESPACE . $meta_key;
+
+            $response = update_user_meta( $user_id, $meta_key, $meta_value );
+
+            if ( is_wp_error( $response ) ) {
+                return $response;
+            }
+        }
+    }
+
+    public function get_user_activity( $data ) {
+        $offset = isset( $data['offset'] ) ? $data['offset'] : 0;
+        $limit = isset( $data['limit'] ) ? $data['limit'] : 50;
+
+        $activity = PG_Stacker::build_user_location_stats( null, $offset, $limit );
+        return $activity;
+    }
+
+    public function get_user_stats() {
+        global $wpdb;
+
+        $user_id = get_current_user_id();
+
+        $user_stats = $wpdb->get_row( $wpdb->prepare( "
+            SELECT COUNT(r.id) as total_locations, SUM(r.value) as total_minutes
+            FROM $wpdb->dt_reports r
+            WHERE r.user_id = %d
+            AND r.type = 'prayer_app'
+            ORDER BY r.timestamp DESC
+            ", $user_id ), ARRAY_A );
+
+        $user_stats['total_locations'] = (int) $user_stats['total_locations'];
+        $user_stats['total_minutes'] = (int) $user_stats['total_minutes'];
+        return $user_stats;
+    }
+
+    public function get_ip_location( $data ) {
+        $response = DT_Ipstack_API::get_location_grid_meta_from_current_visitor();
+
+        if ( $response ) {
+            if ( isset( $data['hash'] ) ) {
+                $hash = $data['hash'];
+            } else {
+                $hash = hash( 'sha256', serialize( $response ) . mt_rand( 1000000, 10000000000000000 ) );
+            }
+            $country = $this->_extract_country_from_label( $response['label'] );
+            $response['country'] = $country;
+            $response['lat'] = strval( $response['lat'] );
+            $response['lng'] = strval( $response['lng'] );
+            $response['hash'] = $hash;
+        }
+
+        $data = [
+            "location" => $response,
+            "location_hash" => $hash,
+        ];
+
+        $this->update_user( $data );
+
+        return $data;
+    }
+
+    public function save_location( $data ) {
+        if ( !isset( $data['lat'], $data['lng'], $data['label'], $data['level'] ) ) {
+            return new WP_Error( __METHOD__, 'Missing lat, lng, label or level', [ 'status' => 400 ] );
+        }
+
+        /* Get the grid_id for this lat lng */
+        $geocoder = new Location_Grid_Geocoder();
+
+        $grid_row = $geocoder->get_grid_id_by_lnglat( $data['lng'], $data['lat'] );
+
+        $old_location = get_user_meta( get_current_user_id(), PG_NAMESPACE . 'location', true );
+
+        $data['grid_id'] = $grid_row ? $grid_row['grid_id'] : false;
+        $data['lat'] = strval( $data['lat'] );
+        $data['lng'] = strval( $data['lng'] );
+        $data['country'] = $this->_extract_country_from_label( $data['label'] );
+        $data['hash'] = $old_location ? $old_location['hash'] : '';
+
+        $this->update_user( [
+            'location' => $data,
+        ] );
+
+        return $data;
+    }
+
+    /**
+     * Extract_country_from_label
+     * @param string $label
+     * @return array|bool|string
+     */
+    private function _extract_country_from_label( string $label ) {
+        if ( $label === '' ) {
+            return '';
+        }
+        return array_reverse( explode( ', ', $label ) )[0];
+    }
+
+    public function geolocate_by_latlng( $data ) {
+        if ( !isset( $data['lat'], $data['lng'] ) ) {
+            return new WP_Error( __METHOD__, 'Latitude or longitude missing', [ 'status' => 400 ] );
+        }
+
+        $geocoder = new Location_Grid_Geocoder();
+
+        $grid_row = $geocoder->get_grid_id_by_lnglat( $data['lng'], $data['lat'] );
+
+        if ( !$grid_row ) {
+            return '';
+        }
+
+        $label = $geocoder->_format_full_name( $grid_row );
+
+        return $label;
+    }
+
+    public function create_challenge( $data ) {
+        if ( !isset( $data['title'], $data['visibility'], $data['challenge_type'] ) ) {
+            return new WP_Error( __METHOD__, 'Challenge Title, visibility or type missing', [ 'status' => 400 ] );
+        }
+
+        $user_id = get_current_user_id();
+
+        if ( !$user_id || !DT_Posts::can_create( 'laps' ) ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
+        $fields = [
+            'title' => $data['title'],
+            'challenge_type' => $data['challenge_type'],
+            'visibility' => $data['visibility'],
+        ];
+
+        if ( isset( $data['start_date'] ) ) {
+            $start_time = strtotime( $data['start_date'] . ' ' . $data['start_time'] );
+            $fields["start_date"] = $start_time;
+            $fields["start_time"] = $start_time;
+        }
+        if ( isset( $data['end_date'] ) ) {
+            $end_time = strtotime( $data['end_date'] . ' ' . $data['end_time'] );
+            $fields["end_date"] = $end_time;
+            $fields["end_time"] = $end_time;
+        }
+
+        $fields['assigned_to'] = $user_id;
+        $fields['type'] = 'custom';
+
+        $post = DT_Posts::create_post( 'laps', $fields );
+
+        return $post;
+    }
+
+    public function edit_challenge( $data ) {
+        if ( !isset( $data['post_id'] ) ) {
+            return new WP_Error( __METHOD__, 'Challenge post_id is missing', [ 'status' => 400 ] );
+        }
+
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
+        $old_challenge = DT_Posts::get_post( 'laps', $data['post_id'] );
+
+        if ( !$old_challenge || !DT_Posts::can_update( 'laps', $data['post_id'] ) ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
+        $fields = [];
+
+        if ( isset( $data['title'] ) ) {
+            $fields['title'] = $data['title'];
+        }
+
+        if ( isset( $data['challenge_type'] ) ) {
+            $fields['challenge_type'] = $data['challenge_type'];
+        }
+
+        if ( isset( $data['visibility'] ) ) {
+            $fields['visibility'] = $data['visibility'];
+        }
+
+        if ( isset( $data['start_date'] ) ) {
+            $start_time = strtotime( $data['start_date'] . ' ' . $data['start_time'] );
+            $fields["start_date"] = $start_time;
+            $fields["start_time"] = $start_time;
+        }
+        if ( isset( $data['end_date'] ) ) {
+            $end_time = strtotime( $data['end_date'] . ' ' . $data['end_time'] );
+            $fields["end_date"] = $end_time;
+            $fields["end_time"] = $end_time;
+        }
+
+        $post = DT_Posts::update_post( 'laps', $data['post_id'], $fields );
+
+        return $post;
+    }
+
+    public function get_challenges( $data ) {
+        global $wpdb;
+
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
+        $visibility = isset( $data['visibility'] ) ? $data['visibility'] : 'public';
+
+        $data = [];
+
+        $user_meta_value = "user-$user_id";
+
+        $results = $wpdb->get_results( $wpdb->prepare(
+            "
+                SELECT pm.post_id, p.post_title, pm3.meta_value as lap_key, pm4.meta_value as start_time, pm5.meta_value as visibility, pm7.meta_value as end_time, pm8.meta_value as challenge_type
+                FROM $wpdb->posts p
+                JOIN $wpdb->postmeta pm ON pm.post_id=p.ID AND pm.meta_key = 'type' AND pm.meta_value = 'custom'
+                JOIN $wpdb->postmeta pm2 ON pm2.post_id=p.ID AND pm2.meta_key = 'status' AND pm2.meta_value = 'active'
+                LEFT JOIN $wpdb->postmeta pm3 ON pm3.post_id=p.ID AND pm3.meta_key = 'prayer_app_custom_magic_key'
+                LEFT JOIN $wpdb->postmeta pm4 ON pm4.post_id=p.ID AND pm4.meta_key = 'start_time'
+                LEFT JOIN $wpdb->postmeta pm5 ON pm5.post_id=p.ID AND pm5.meta_key = 'visibility'
+                JOIN $wpdb->postmeta pm6 ON pm6.post_id=p.ID AND pm6.meta_key = 'assigned_to' AND pm6.meta_value = %s
+                LEFT JOIN $wpdb->postmeta pm7 ON pm7.post_id=p.ID AND pm7.meta_key = 'end_time'
+                LEFT JOIN $wpdb->postmeta pm8 ON pm8.post_id=p.ID AND pm8.meta_key = 'challenge_type'
+                WHERE p.post_type = 'laps'
+                AND pm5.meta_value = %s OR pm5.meta_value IS NULL OR pm5.meta_value = 'none'
+                ORDER BY p.post_title
+             ", $user_meta_value, $visibility ), ARRAY_A );
+
+        foreach ( $results as $row ) {
+            $row['stats'] = pg_custom_lap_stats_by_post_id( $row['post_id'] );
+            $data[] = $row;
+        }
+
+        return $data;
+    }
+
 }
-Prayer_Global_Porch_User_Page::instance();
+PG_User_App_Profile::instance();

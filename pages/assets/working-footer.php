@@ -1,8 +1,8 @@
-<footer class="pb_footer bg-light cover-bg-black cover-bg-opacity-4" role="contentinfo"  style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/1900x1200_img_2.jpg);">
+<footer class="pg-footer" role="contentinfo"  style="background-image:  linear-gradient(0deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/1900x1200_img_2.jpg);">
     <div class="container">
         <div class="row" >
             <div class="col-md-3">
-                <p class="pb_font-14">
+                <p class="small">
                     Made with &#10084;&#65039; by <a href="https://gospelambition.org" style="color:black;">Gospel Ambition</a>.<br>
                     Powered by <a href="https://disciple.tools" style="color:black;">Disciple.Tools</a>.<br>
                     Part of the <a href="https://pray4movement.org" style="color:black;">Pray4Movement network</a>.
@@ -32,7 +32,7 @@
 
         <div class="row" style="padding-top: 5rem;">
             <div class="col text-center">
-                <p class="pb_font-14">Prayer Global &copy; <script>document.write(new Date().getFullYear())</script> Gospel Ambition</p>
+                <p class="small">Prayer Global &copy; <script>document.write(new Date().getFullYear())</script> Gospel Ambition</p>
             </div>
         </div>
     </div>

@@ -1,74 +1,46 @@
 <?php
 $url = dt_get_url_path();
+$is_logged_in = is_user_logged_in();
+
+$hide_if_logged_in = $is_logged_in ? 'display: none' : '';
+$hide_if_logged_out = $is_logged_in ? '' : 'display: none';
 
 /**
  * Nav for Home Page
  */
-if ( '' === $url ) { ?>
-<nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_navbar_nav pb_scrolled-light" id="pb-navbar">
-    <div class="container">
-        <a class="navbar-brand" href="/">Prayer.Global</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
+$dark_nav_class = '' === $url || str_contains( $url, 'stats' ) || str_contains( $url, 'completed' ) ? 'navbar-dark' : '';
+$hide_cta_class = str_contains( $url, 'challenges' ) || str_contains( $url, 'user_app' ) ? 'd-none' : '';
+?>
+<nav class="navbar <?php echo esc_attr( $dark_nav_class ) ?> pg-navbar bg-none scrolled-light" id="pg-navbar">
+    <div class="container align-items-center">
+        <a class="navbar-brand me-auto" href="/">Prayer.Global</a>
+        <a class="navbar__cta btn btn-outline-dark py-2 py-lg-4 me-3 <?php echo esc_attr( $hide_cta_class ) ?>" href="/newest/lap/">Start Praying</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
             <span><i class="ion-navicon"></i></span>
         </button>
-        <div class="collapse navbar-collapse" id="probootstrap-navbar">
-            <ul class="navbar-nav ml-auto pb-3">
-                <li class="nav-item"><a class="nav-link" href="#section-challenge">Challenge</a></li>
-                <li class="nav-item"><a class="nav-link" href="#section-lap">Status</a></li>
-                <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>
-                <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
-                <li class="nav-item d-lg-none"><a class="nav-link" href="/race_app/big_map/">Race Map</a></li>
-                <li class="nav-item d-lg-none"></li>
-                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" href="/newest/lap/">Start Praying</a></li>
-            </ul>
-        </div>
     </div>
-</nav>
-
-<?php } else if ( str_contains( $url, 'stats' ) ) { ?>
-<nav class="navbar navbar-expand-lg navbar-dark pb_navbar pb_navbar_nav pb_scrolled-light" id="pb-navbar">
-    <div class="container">
-        <a class="navbar-brand" href="/">Prayer.Global</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span><i class="ion-navicon"></i></span>
-        </button>
-        <div class="collapse navbar-collapse" id="probootstrap-navbar">
-            <ul class="navbar-nav ml-auto pb-3">
-                <li class="nav-item"><a class="nav-link" href="#section-challenge">Challenge</a></li>
-                <li class="nav-item"><a class="nav-link" href="#section-lap">Status</a></li>
-                <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>
-                <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
-                <li class="nav-item d-lg-none"><a class="nav-link" href="/race_app/big_map/">Race Map</a></li>
-                <li class="nav-item d-lg-none"></li>
-                <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" href="/newest/lap/">Start Praying</a></li>
-            </ul>
+    <div class="offcanvas offcanvas-end pg-navmenu" data-bs-backdrop="true" data-bs-scroll="true" id="probootstrap-navbar">
+        <div class="offcanvas-header">
+          <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">Prayer.Global</h5>
+          <button type="button" class="btn-close pe-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
         </div>
-    </div>
-</nav>
-
-<?php } else {
-    /**
-     * Nav for Inner Pages
-     */
-    ?>
-    <nav class="navbar navbar-expand-lg navbar-light pb_navbar_light pb_navbar_nav pb_scrolled-light" id="pb-navbar">
-        <div class="container">
-            <a class="navbar-brand" href="/">Prayer.Global</a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span><i class="ion-navicon"></i></span>
-            </button>
-            <div class="collapse navbar-collapse" id="probootstrap-navbar">
-                <ul class="navbar-nav ml-auto pb-3">
-                    <li class="nav-item"><a class="nav-link" href="#section-challenge">Challenge</a></li>
-                    <li class="nav-item"><a class="nav-link" href="#section-lap">Status</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/newest/map/">Map</a></li>
-                    <li class="nav-item"><a class="nav-link" href="/challenges/active/">Groups</a></li>
-                    <li class="nav-item d-lg-none"><a class="nav-link" href="/race_app/big_map/">Race Map</a></li>
-                    <li class="nav-item d-lg-none"></li>
-                    <li class="nav-item"><a class="nav-link btn smoothscroll pb_outline-dark highlight" style="border:1px black solid;" href="/newest/lap/">Start Praying</a></li>
-                </ul>
+        <div class="offcanvas-body">
+            <div class="navbar-nav justify-content-end me-3" id="nav-links">
+                <a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="/newest/lap/">Start Praying</a>
+                <a class="nav-link" href="/">Home</a>
+                <a class="nav-link" href="<?php echo ( $url !== '' ) ? esc_url( trailingslashit( site_url() ) ) : '' ?>#section-challenge">Challenge</a>
+                <a class="nav-link" href="<?php echo ( $url !== '' ) ? esc_url( trailingslashit( site_url() ) ) : '' ?>#section-lap">Status</a>
+                <a class="nav-link" href="/newest/map/">Map</a>
+                <a class="nav-link" href="/challenges/active/">Groups</a>
+                <!-- <a href="/user_app/profile" class="nav-link" id="login-register-link" style="<?php echo esc_attr( $hide_if_logged_in ) ?>">Login / Register</a> -->
+                <a href="/user_app/profile" class="nav-link" id="user-profile-link" style="<?php echo esc_attr( $hide_if_logged_out ) ?>">User Profile</a>
+                <a href="<?php echo esc_url( wp_logout_url( '/' ) )?>" class="nav-link" id="logout-link" style="<?php echo esc_attr( $hide_if_logged_out ) ?>">Logout</a>
+            </div>
+            <div class="nav-buttons">
+                <button class="icon-button share-button" data-toggle="modal" data-target="#exampleModal">
+                    <img src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>images/share.svg" alt="Share">
+                </button>
             </div>
         </div>
-    </nav>
-
-<?php } ?>
+    </div>
+</nav>

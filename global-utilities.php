@@ -245,45 +245,59 @@ function _pg_custom_stats_builder_query( &$data ) {
 
 function _pg_stats_builder( $data ) : array {
 //    dt_write_log(__METHOD__);
-
     /**
      * TIME CALCULATIONS
      */
-    $time_difference = $data['end_time'] - $data['start_time'];
-    $days = floor( $time_difference / 60 / 60 / 24 );
-    $hours = floor( ( $time_difference / 60 / 60 ) - ( $days * 24 ) );
-    $minutes = floor( ( $time_difference / 60 ) - ( $hours * 60 ) - ( $days * 24 * 60 ) );
-    if ( empty( $days ) && empty( $hours ) ){
-        $data['time_elapsed'] = "$minutes minutes";
-        $data['time_elapsed_small'] = $minutes."m";
+    $now = $data['end_time'];
+    $time_difference = $now - $data['start_time'];
+    _pg_format_duration( $data, $time_difference, 'time_elapsed', 'time_elapsed_small' );
+
+    $prayer_speed = (int) $time_difference !== 0 ? (int) $data['locations_completed'] / $time_difference : 0;
+    $locations_per_hour = $prayer_speed * 60 * 60;
+    $locations_per_day = $locations_per_hour * 24;
+    $data['locations_per_hour'] = $locations_per_hour < 1 && $locations_per_hour !== 0 ? number_format( $locations_per_hour, 2 ) : number_format( $locations_per_hour );
+    $data['locations_per_day'] = $locations_per_day < 1 && $locations_per_day !== 0 ? number_format( $locations_per_day, 2 ) : number_format( $locations_per_day );
+
+    if ( $data['on_going'] === false ) {
+        $time_remaining = $data['end_time'] - $now;
+        _pg_format_duration( $data, $time_remaining, 'time_remaining', 'time_remaining_small' );
+
+        $locations_remaining = PG_TOTAL_STATES - (int) $data['locations_completed'];
+        $needed_prayer_speed = $time_remaining !== 0 ? $locations_remaining / $time_remaining : 0;
+        $locations_per_hour = $needed_prayer_speed * 60 * 60;
+        $locations_per_day = $locations_per_hour * 24;
+        $data['needed_locations_per_hour'] = $locations_per_hour < 1 && $locations_per_hour !== 0 ? number_format( $locations_per_hour, 2 ) : number_format( $locations_per_hour );
+        $data['needed_locations_per_day'] = $locations_per_day < 1 && $locations_per_day !== 0 ? number_format( $locations_per_day, 2 ) : number_format( $locations_per_day );
     }
-    else if ( empty( $days ) ) {
-        $data['time_elapsed'] = "$hours hours, $minutes minutes";
-        $data['time_elapsed_small'] = $hours."h, ".$minutes."m";
-    }
-    else if ( $days > 365 ) {
-        $years = floor( $time_difference / 60 / 60 / 24 / 365 );
-        $data['time_elapsed'] = "$years years, $days days, $hours hours, $minutes minutes";
-        $data['time_elapsed_small'] = $years."y, ".$days."d, ".$hours."h, ".$minutes."m";
-    }
-    else {
-        $data['time_elapsed'] = "$days days, $hours hours, $minutes minutes";
-        $data['time_elapsed_small'] = $days."d, ".$hours."h, ".$minutes."m";
-    }
+    /**
+     * QUANTITY OF PRAYER
+     */
+    $minutes_prayed = (int) $data['minutes_prayed'];
+    $data['minutes_prayed'] = number_format( $minutes_prayed );
+    $data['minutes_prayed_int'] = $minutes_prayed;
+    $seconds_prayed = $minutes_prayed * 60;
+    _pg_format_duration( $data, $seconds_prayed, 'minutes_prayed_formatted', 'minutes_prayer_formatted_small' );
 
     /**
      * COMPLETED & REMAINING
      */
     $completed = (int) $data['locations_completed'];
+    if ( PG_TOTAL_STATES < $completed ) {
+        $completed = PG_TOTAL_STATES;
+    }
     $data['completed'] = number_format( $completed );
     $data['completed_int'] = $completed;
-    $completed_percent = ROUND( $completed / 4770 * 100, 0 );
+    $completed_percent = ROUND( $completed / PG_TOTAL_STATES * 100, 0 );
     if ( 100 < $completed_percent ) {
         $completed_percent = 100;
     }
     $data['completed_percent'] = $completed_percent;
-    $data['remaining'] = number_format( 4770 - $completed );
-    $data['remaining_int'] = 4770 - $completed;
+    $remaining = PG_TOTAL_STATES - $completed;
+    if ( 0 > $remaining ) {
+        $remaining = 0;
+    }
+    $data['remaining'] = number_format( $remaining );
+    $data['remaining_int'] = $remaining;
     $data['remaining_percent'] = 100 - $data['completed_percent'];
 
     /**
@@ -293,33 +307,6 @@ function _pg_stats_builder( $data ) : array {
     $data['participants'] = number_format( $participants );
     $data['participants_int'] = $participants;
 
-    /**
-     * QUANTITY OF PRAYER
-     */
-    $minutes_prayed = (int) $data['minutes_prayed'];
-    $data['minutes_prayed'] = number_format( $minutes_prayed );
-    $data['minutes_prayed_int'] = $minutes_prayed;
-    $seconds_prayed = $minutes_prayed * 60;
-    $days = floor( $seconds_prayed / 60 / 60 / 24 );
-    $hours = floor( ( $seconds_prayed / 60 / 60 ) - ( $days * 24 ) );
-    $minutes = floor( ( $seconds_prayed / 60 ) - ( $hours * 60 ) - ( $days * 24 * 60 ) );
-    if ( empty( $days ) && empty( $hours ) ){
-        $data['minutes_prayed_formatted'] = "$minutes minutes";
-        $data['minutes_prayed_formatted_small'] = $minutes."m";
-    }
-    else if ( empty( $days ) ) {
-        $data['minutes_prayed_formatted'] = "$hours hours, $minutes minutes";
-        $data['minutes_prayed_formatted_small'] = $hours."h, ".$minutes."m";
-    }
-    else if ( $days > 365 ) {
-        $years = floor( $seconds_prayed / 60 / 60 / 24 / 365 );
-        $data['minutes_prayed_formatted'] = "$years years, $days days, $hours hours, $minutes minutes";
-        $data['minutes_prayed_formatted_small'] = $years."y, ".$days."d, ".$hours."h, ".$minutes."m";
-    }
-    else {
-        $data['minutes_prayed_formatted'] = "$days days, $hours hours, $minutes minutes";
-        $data['minutes_prayed_formatted_small'] = $days."d, ".$hours."h, ".$minutes."m";
-    }
     $data['start_time_formatted'] = gmdate( 'M d, Y', $data['start_time'] );
     $data['end_time_formatted'] = gmdate( 'M d, Y', $data['end_time'] );
 
@@ -328,6 +315,34 @@ function _pg_stats_builder( $data ) : array {
     return $data;
 }
 
+function _pg_format_duration( &$data, $time, $key_long, $key_short ) {
+
+    if ( $time === 0 ) {
+        $data[$key_long] = "--";
+        $data[$key_short] = "--";
+        return;
+    }
+    $days = floor( $time / 60 / 60 / 24 );
+    $hours = floor( ( $time / 60 / 60 ) - ( $days * 24 ) );
+    $minutes = floor( ( $time / 60 ) - ( $hours * 60 ) - ( $days * 24 * 60 ) );
+    if ( empty( $days ) && empty( $hours ) ){
+        $data[$key_long] = "$minutes minutes";
+        $data[$key_short] = $minutes." min";
+    }
+    else if ( empty( $days ) ) {
+        $data[$key_long] = "$hours hours, $minutes minutes";
+        $data[$key_short] = $hours."h, ".$minutes."m";
+    }
+    else if ( $days > 365 ) {
+        $years = floor( $time / 60 / 60 / 24 / 365 );
+        $data[$key_long] = "$years years, $days days, $hours hours, $minutes minutes";
+        $data[$key_short] = $years."y, ".$days."d, ".$hours."h, ".$minutes."m";
+    }
+    else {
+        $data[$key_long] = "$days days, $hours hours, $minutes minutes";
+        $data[$key_short] = $days."d, ".$hours."h, ".$minutes."m";
+    }
+}
 
 function pg_query_4770_locations() {
 
@@ -489,7 +504,7 @@ function pg_is_lap_complete( $post_id ) {
     if ( ! $complete ) {
         global $wpdb;
         $count = $wpdb->get_var( $wpdb->prepare( "SELECT COUNT( DISTINCT( grid_id ) ) FROM $wpdb->dt_reports WHERE post_id = %d AND type = 'prayer_app' AND subtype = 'custom'", $post_id ) );
-        if ( $count >= 4770 ){
+        if ( $count >= PG_TOTAL_STATES ){
             update_post_meta( $post_id, 'lap_completed', time() );
             return true;
         } else {
@@ -498,4 +513,196 @@ function pg_is_lap_complete( $post_id ) {
     } else {
         return true;
     }
+}
+
+function pg_google_analytics() {
+    ?>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-2W6MY68VEM"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-2W6MY68VEM');
+    </script>
+
+    <?php
+}
+
+function pg_og_tags( $details = [] ) {
+    global $wp;
+    $details = array_merge([
+        "url" => home_url(),
+        "type" => "app",
+        "title" => 'Prayer.Global',
+        "description" => 'Join us in covering the world in prayer for disciple making using a creative, community-driven prayer coordination app.',
+        "image" => trailingslashit( plugin_dir_url( __DIR__ ) ) . 'pages/assets/images/favicons/prayer-global-og.png',
+    ], $details);
+
+    ?>
+
+    <meta name="twitter:card"              content="<?php echo esc_attr( $details['type'] ) ?>" />
+
+    <meta property="og:url"                content="<?php echo esc_url( $details['url'] ) ?>" />
+    <meta property="og:type"               content="<?php echo esc_attr( $details['type'] ) ?>" />
+    <meta property="og:title"              content="<?php echo esc_attr( $details['title'] ) ?>" />
+    <meta property="og:description"        content="<?php echo esc_attr( $details['description'] ) ?>" />
+    <meta property="og:image"              content="<?php echo esc_url( $details['image'] ) ?>" />
+    <meta name="description"               content="<?php echo esc_attr( $details['description'] ) ?>">
+
+    <?php
+}
+
+/**
+ * Adds soft duration text into an array of objects with timestamps in. E.g. 2 days ago, 1 month ago
+ * Timestamps must be unix timestamps
+ *
+ * @param $object
+ * @param $timestamp_key
+ * @param $when_key
+ * @param $timestamp_formatted_key
+ * @return mixed
+ */
+function pg_soft_time_format( $object, $timestamp_key, $when_key, $timestamp_formatted_key ) {
+    $time = time() - (int) $object[$timestamp_key];
+
+    $days = floor( $time / 60 / 60 / 24 );
+    $hours = floor( ( $time / 60 / 60 ) - ( $days * 24 ) );
+    $minutes = floor( ( $time / 60 ) - ( $hours * 60 ) - ( $days * 24 * 60 ) );
+    $seconds = $time;
+
+    if ( empty( $days ) && empty( $hours ) && empty( $minutes ) ) {
+        $seconds_word = $seconds > 1 ? 'seconds' : 'second';
+        $object[$when_key] = "$seconds $seconds_word ago";
+    } else if ( empty( $days ) && empty( $hours ) ) {
+        $minutes_word = $minutes > 1 ? 'minutes' : 'minute';
+        $object[$when_key] = "$minutes $minutes_word ago";
+    } else if ( empty( $days ) ) {
+        $hours_word = $hours > 1 ? 'hours' : 'hour';
+        $object[$when_key] = "$hours $hours_word ago";
+    } else if ( $days < 7 ) {
+        $days_word = $days > 1 ? 'days' : 'day';
+        $object[$when_key] = "$days $days_word ago";
+    } else if ( $days < 30 ) {
+        $weeks = floor( $days / 7 );
+        $weeks_word = $weeks > 1 ? 'weeks' : 'week';
+        $object[$when_key] = "$weeks $weeks_word ago";
+    } else if ( $days > 30 ) {
+        $months = floor( $days / 30 );
+        $months_word = $months > 1 ? 'months' : 'month';
+        $object[$when_key] = "$months $months_word ago";
+    } else {
+        $object[$when_key] = "";
+    }
+
+    $object[$timestamp_formatted_key] = gmdate( $time );
+
+    return $object;
+}
+
+/**
+ * Get the user data merged with meta data
+ * @param int $user_id
+ * @param array $allowed_meta
+ * @return mixed
+ */
+function pg_get_user( int $user_id, array $allowed_meta ) {
+    $userdata = get_userdata( $user_id );
+
+    if ( $userdata instanceof stdClass ) {
+        $userdata = get_object_vars( $userdata );
+    } elseif ( $userdata instanceof WP_User ) {
+        $userdata = $userdata->to_array();
+    } else {
+        $userdata = [];
+    }
+
+    foreach ( $allowed_meta as $meta_key ) {
+        $namespaced_meta_key = PG_NAMESPACE . $meta_key;
+        $meta_value = get_user_meta( $user_id, $namespaced_meta_key, true );
+        $userdata[$meta_key] = $meta_value;
+    }
+
+    return $userdata;
+}
+
+/**
+ * @return array|false|mixed
+ */
+function pg_generate_new_global_prayer_lap() {
+    // hold generation while being created
+    if ( get_option( 'pg_generate_new_lap_in_progress' ) ) {
+        sleep( 8 );
+        return pg_query_4770_locations();
+    } else {
+        update_option( 'pg_generate_new_lap_in_progress', true );
+    }
+    global $wpdb;
+
+    // dup check, instant dup generation
+    $time = time();
+    $start_time_dup = $wpdb->get_var($wpdb->prepare(
+        "SELECT count(*)
+                FROM $wpdb->postmeta pm
+                JOIN $wpdb->posts p ON p.ID=pm.post_id
+                WHERE pm.meta_key = 'start_time'
+                    AND pm.meta_value = %d
+                    AND p.post_type = 'laps'
+                    ", $time )
+    );
+    if ( $start_time_dup ) {
+        delete_option( 'pg_generate_new_lap_in_progress' );
+        sleep( 5 );
+        return pg_query_4770_locations();
+    }
+
+    // build new lap number
+    $completed_prayer_lap_number = $wpdb->get_var(
+        "SELECT COUNT(*) as laps
+                    FROM $wpdb->posts p
+                    JOIN $wpdb->postmeta pm ON p.ID=pm.post_id AND pm.meta_key = 'type' AND pm.meta_value = 'global'
+                    JOIN $wpdb->postmeta pm2 ON p.ID=pm2.post_id AND pm2.meta_key = 'status' AND pm2.meta_value IN ('complete', 'active')
+                    WHERE p.post_type = 'laps';"
+    );
+    $next_global_lap_number = $completed_prayer_lap_number + 1;
+
+    // create key
+    $key = pg_generate_key();
+    $date = gmdate( 'Y-m-d H:m:s', time() );
+
+    $fields = [];
+    $fields['title'] = 'Global #' . $next_global_lap_number;
+    $fields['status'] = 'active';
+    $fields['type'] = 'global';
+    $fields['start_date'] = $date;
+    $fields['start_time'] = $time;
+    $fields['global_lap_number'] = $next_global_lap_number;
+    $fields['prayer_app_global_magic_key'] = $key;
+    $new_post = DT_Posts::create_post( 'laps', $fields, true, false );
+    if ( is_wp_error( $new_post ) ) {
+        // @handle error
+        dt_write_log( 'failed to create' );
+        dt_write_log( $new_post );
+        delete_option( 'pg_generate_new_lap_in_progress' );
+        return pg_query_4770_locations();
+    }
+
+    // update current_lap
+    $previous_lap = pg_current_global_lap();
+    $lap = [
+        'lap_number' => $next_global_lap_number,
+        'post_id' => $new_post['ID'],
+        'key' => $key,
+        'start_time' => $time,
+    ];
+    update_option( 'pg_current_global_lap', $lap, true );
+
+    // close previous lap
+    DT_Posts::update_post( 'laps', $previous_lap['post_id'], [ 'status' => 'complete', 'end_date' => $date, 'end_time' => $time ], true, false );
+
+    delete_option( 'pg_generate_new_lap_in_progress' );
+
+    return pg_query_4770_locations();
 }

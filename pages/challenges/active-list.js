@@ -25,22 +25,22 @@ jQuery(document).ready(function() {
       jQuery.each( data, function(i,v){
         html_content += `<tr>
                           <td>${v.start_time}</td>
-                          <th>${v.post_title}</th>
+                          <th><a href="/prayer_app/custom/${v.lap_key}">${v.post_title}</a></th>
                           <td>${v.stats.participants}</td>
                           <td>${v.stats.completed}</td>
                           <td>${v.stats.remaining}</td>
                           <td>${v.stats.time_elapsed_small}</td>
                           <td style="text-align:right;">
                             <a href="/prayer_app/custom/${v.lap_key}">Pray</a> |
-                            <a href="/prayer_app/custom/${v.lap_key}/map">View Map</a> |
-                            <a href="/prayer_app/custom/${v.lap_key}/tools">Share Tools</a> |
-                            <a href="/prayer_app/custom/${v.lap_key}/display">Screen Display</a>
+                            <a href="/prayer_app/custom/${v.lap_key}/map">Map</a> |
+                            <a href="/prayer_app/custom/${v.lap_key}/tools">Sharing</a> |
+                            <a href="/prayer_app/custom/${v.lap_key}/display">Display</a>
                           </td>
                         </tr>`
       })
 
       jQuery('#content').html(
-            `<table class="display responsive" style="width:100%;" id="list-table" data-order='[[ 0, "desc" ]]'>
+            `<table class="display " style="width:100%;" id="list-table" data-order='[[ 0, "desc" ]]'>
                     <thead>
                         <th></th>
                         <th>Name</th>
@@ -59,7 +59,26 @@ jQuery(document).ready(function() {
       jQuery('#list-table').DataTable({
         lengthChange: false,
         pageLength: 30,
-        responsive: true,
+        responsive: {
+          details: {
+              display: $.fn.dataTable.Responsive.display.childRowImmediate,
+              type: '',
+              renderer: function ( api, rowIdx, columns ) {
+                var data = $.map( columns, function ( col, i ) {
+                    return col.hidden ?
+                        '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
+                            '<td class="dtr-title">'+col.title+':'+'</td> '+
+                            '<td class="dtr-data">'+col.data+'</td>'+
+                        '</tr>' :
+                        '';
+                } ).join('');
+ 
+                return data ?
+                    $('<table/>').append( data ) :
+                    false;
+            },
+          },
+        },
         order: [[0, 'desc']],
         columnDefs: [
           {

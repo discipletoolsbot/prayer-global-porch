@@ -49,14 +49,14 @@ class PG_Stacker {
      * @return array
      */
     public static function build_location_stack_v2( $grid_id ) {
-
-        // get queries
-        $stack = self::_stack_query( $grid_id );
-
         $stack['list'] = [];
         $lists = [];
 
-        // PRAYER SHUFFLE
+        // BUILD FACTS
+        $stack = self::_stack_query( $grid_id );
+
+        // PRAYER CONCEPTS
+        PG_Stacker_Text_V2::_for_movement( $lists, $stack );
         PG_Stacker_Text_V2::_population_prayers( $lists, $stack );
         PG_Stacker_Text_V2::_language_prayers( $lists, $stack );
         PG_Stacker_Text_V2::_religion_prayers( $lists, $stack );
@@ -71,21 +71,12 @@ class PG_Stacker {
         PG_Stacker_Text_V2::_for_multiplication( $lists, $stack );
         PG_Stacker_Text_V2::_for_urgency( $lists, $stack );
         PG_Stacker_Text_V2::_for_church_health( $lists, $stack );
+        PG_Stacker_Text_V2::_non_christians( $lists, $stack );
+        PG_Stacker_Text_V2::_christian_adherents( $lists, $stack );
+        PG_Stacker_Text_V2::_believers( $lists, $stack );
 //        PG_Stacker_Text_V2::_cities($lists, $stack );
 
-        switch ( $stack['location']['favor'] ) {
-            case 'non_christians':
-                PG_Stacker_Text_V2::_non_christians( $lists, $stack );
-                break;
-            case 'christian_adherents':
-                PG_Stacker_Text_V2::_christian_adherents( $lists, $stack );
-                break;
-            case 'believers':
-                PG_Stacker_Text_V2::_believers( $lists, $stack );
-                break;
-            default:
-                break;
-        }
+
         foreach ( $lists as $content ) { // kill duplication
             $content['id'] = hash( 'sha256', serialize( $content ) . microtime() );
             $stack['list'][$content['id']] = [
@@ -113,6 +104,136 @@ class PG_Stacker {
         $stack = $reduced_stack;
 
         return $stack;
+    }
+
+    public static function build_location_stats( $grid_id ) {
+        global $wpdb;
+
+        $user_id = get_current_user_id();
+        // get some basic stats on the country
+        $stack = self::_stack_query( $grid_id );
+
+        if ( $user_id ) {
+            $community_activity = $wpdb->get_results( $wpdb->prepare( "
+            SELECT r.value as minutes, r.timestamp as timestamp, p.post_title as group_name, IF(r.user_id = %d, 1, 0) as is_mine
+            FROM $wpdb->dt_reports r
+            JOIN $wpdb->posts p
+            ON r.post_id = p.ID
+            WHERE r.grid_id = %d
+            AND r.type = 'prayer_app'
+            ORDER BY r.timestamp DESC
+            ", $user_id, $grid_id ), ARRAY_A );
+        } else {
+            $community_activity = $wpdb->get_results( $wpdb->prepare( "
+            SELECT r.value as minutes, r.timestamp as timestamp, p.post_title as group_name, 0 as is_mine
+            FROM $wpdb->dt_reports r
+            JOIN $wpdb->posts p
+            ON r.post_id = p.ID
+            WHERE r.grid_id = %d
+            AND r.type = 'prayer_app'
+            ORDER BY r.timestamp DESC
+            ", $grid_id ), ARRAY_A );
+        }
+
+        $community_stats = [
+            "time_prayed" => [
+                "me" => 0,
+                "community" => 0,
+                "total" => 0,
+            ],
+            "times_prayed" => [
+                "me" => 0,
+                "community" => 0,
+                "total" => 0,
+            ],
+            "logs" => [],
+        ];
+
+        foreach ( $community_activity as $key => $activity ) {
+            $community_activity[$key] = pg_soft_time_format( $activity, 'timestamp', 'when_text', 'when_time_formatted' );
+
+            $minutes_prayed = (int) $activity['minutes'];
+            $community_activity[$key]['time_prayed_text'] = ( $minutes_prayed === 1 ) ? "1 min" : "$minutes_prayed mins";
+            $community_activity[$key]['is_mine'] = (int) $activity['is_mine'];
+
+            if ( $activity['is_mine'] ) {
+                $community_stats['times_prayed']['me'] += 1;
+                $community_stats['time_prayed']['me'] += $minutes_prayed;
+            } else {
+                $community_stats['times_prayed']['community'] += 1;
+                $community_stats['time_prayed']['community'] += $minutes_prayed;
+            }
+        }
+
+        $community_stats['times_prayed']['total'] = $community_stats['times_prayed']['me'] + $community_stats['times_prayed']['community'];
+        $community_stats['time_prayed']['total'] = $community_stats['time_prayed']['me'] + $community_stats['time_prayed']['community'];
+        $community_stats['logs'] = $community_activity;
+
+        $stack["stats"] = $community_stats;
+
+        return $stack;
+    }
+
+    public static function build_user_location_stats( $grid_id = null, $offset = 0, $limit = 50 ) {
+         global $wpdb;
+
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return [];
+        }
+
+        $sql = "
+        SELECT r.value as minutes, r.timestamp as timestamp, p.post_title as group_name, l0.name as country_name, l.name as grid_name
+        FROM $wpdb->dt_reports r
+            JOIN $wpdb->posts p
+                ON r.post_id = p.ID
+            JOIN $wpdb->dt_location_grid l
+                ON l.grid_id = r.grid_id
+            JOIN $wpdb->dt_location_grid l0
+                ON l0.grid_id = l.admin0_grid_id
+            WHERE r.user_id = %d
+                AND r.type = 'prayer_app'
+        ";
+
+        $args = [ $user_id ];
+
+        if ( !is_null( $grid_id ) ) {
+            $sql .= "AND r.grid_id = %d";
+            $args[] = $grid_id;
+        }
+
+        $sql .= "
+            ORDER BY r.timestamp DESC
+            LIMIT %d, %d
+        ";
+        $args[] = $offset;
+        $args[] = $limit;
+
+        $user_activity = $wpdb->get_results( $wpdb->prepare( $sql, $args ), ARRAY_A ); // @phpcs:ignore
+
+        $user_stats = [
+            "offset" => (int) $offset,
+            "limit" => (int) $limit,
+            "logs" => [],
+        ];
+
+        foreach ($user_activity as $key => $activity) {
+            $user_activity[$key] = pg_soft_time_format( $activity, 'timestamp', 'when_text', 'when_text_formatted' );
+
+            $minutes_prayed = (int) $activity['minutes'];
+            $user_activity[$key]['time_prayed_text'] = ( $minutes_prayed === 1 ) ? "1 min" : "$minutes_prayed mins";
+            $user_activity[$key]['is_mine'] = 1;
+            $user_activity[$key]['location_name'] = $activity['grid_name'] . ', ' . $activity['country_name'];
+        }
+
+        $user_stats['logs'] = $user_activity;
+
+        return $user_stats;
+    }
+
+    private static function _value_or_zero( $value ) {
+        return is_null( $value ) ? 0 : (int) $value;
     }
 
     private static function _demographics( &$stack, $position = false ) {

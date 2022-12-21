@@ -187,14 +187,16 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 'description' => '',
                 'type'        => 'number',
                 'default'     => '',
-                "hidden" => true,
+                'tile' => 'details',
+                "hidden" => false,
             ];
             $fields['end_time'] = [
                 'name'        => __( 'End Time', 'prayer-global' ),
                 'description' => '',
                 'type'        => 'number',
                 'default'     => '',
-                "hidden" => true,
+                'tile' => 'details',
+                "hidden" => false,
             ];
 
             $fields['global_lap_number'] = [
@@ -218,6 +220,40 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 'type'        => 'text',
                 'default'     => substr( md5( rand( 10000, 100000 ) ), 0, 3 ) . substr( md5( rand( 10000, 100000 ) ), 0, 3 ),
                 'tile' => 'details',
+            ];
+            $fields['visibility'] = [
+                'name' => __( "Status", 'prayer-global' ),
+                'type' => 'key_select',
+                'tile' => 'details',
+                'default' => [
+                    'public'   => [
+                        'label' => __( 'Public', 'prayer-global' ),
+                        'description' => __( "This lap is public and will show up on the public list of challenges", 'prayer-global' ),
+                    ],
+                    'private'   => [
+                        'label' => __( 'Private', 'prayer-global' ),
+                        'description' => __( "This lap is private and won't show up on the public list of challenges", 'prayer-global' ),
+                    ],
+                ],
+                'select_cannot_be_empty' => true,
+                'font-icon' => 'mdi mdi-lock-plus-outline',
+            ];
+            $fields['challenge_type'] = [
+                'name' => __( "Challenge Type", 'prayer-global' ),
+                'type' => 'key_select',
+                'tile' => 'details',
+                'default' => [
+                    'ongoing_challenge'   => [
+                        'label' => __( 'Ongoing Challenge', 'prayer-global' ),
+                        'description' => __( "This challenge has no end date/time", 'prayer-global' ),
+                    ],
+                    'timed_challenge'   => [
+                        'label' => __( 'Timed Challenge', 'prayer-global' ),
+                        'description' => __( "This challenge is a race to pray for the world by a certain time", 'prayer-global' ),
+                    ],
+                ],
+                'select_cannot_be_empty' => true,
+                'font-icon' => 'mdi mdi-arm-flex-outline',
             ];
 
             $fields['contacts'] = [
@@ -343,7 +379,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 $fields["prayer_app_custom_magic_key"] = substr( md5( rand( 10000, 100000 ) ), 0, 3 ) . substr( md5( rand( 10000, 100000 ) ), 0, 3 );
             }
             if ( ! isset( $fields["start_date"] ) || empty( $fields["start_date"] ) ){
-                $fields["start_date"] = gmdate( 'Y-m-d H:m:s', time() );
+                $fields["start_date"] = gmdate( 'Y-m-d H:i:s', time() );
             }
             if ( ! isset( $fields["start_time"] ) || empty( $fields["start_time"] ) ){
                 $fields["start_time"] = time();

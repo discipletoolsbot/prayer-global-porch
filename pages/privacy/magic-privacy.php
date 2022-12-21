@@ -69,7 +69,7 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
         ?>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
-        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/basic.css' ) ) ?>" type="text/css" media="all">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <?php
     }
 
@@ -80,25 +80,25 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
     public function body(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' ) ?>
 
-        <section class="pb_section" >
+        <section class="page-section mt-5" >
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 heading-border-top font-weight-normal">Privacy Policy</h2>
+                        <h2 class="mt-0 header-border-top font-weight-normal">Privacy Policy</h2>
                         <p>
                         </p>
                     </div>
                 </div>
-                <div class="grid-x grid-margin-x grid-padding-y">
+                <div class="row">
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         This privacy policy has been compiled to better serve those who are concerned with how their "Personally Identifiable Information" (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">What permissions do the social sign-on logins ask for?</h3>
                         <ul>
@@ -108,7 +108,7 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">What personal information do we collect from the people through our website?</h3>
                         <ul>
@@ -119,7 +119,7 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">When do we collect information?</h3>
                         <ul>
@@ -129,7 +129,7 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">How do we use your information?</h3>
                         <ul>
@@ -140,7 +140,7 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">How do we protect your information?</h3>
                         <p>While we use encryption to protect sensitive information transmitted online, we also protect your information offline. Only team members who need the information to perform a specific job (for example, web administrator or customer service) are granted access to personally identifiable information.</p>
@@ -149,7 +149,7 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">Do we use "cookies"?</h3>
                         <p>Any use of Cookies - or of other tracking tools - by this Application or by the owners of third party services used by this Application, unless stated otherwise, serves to identify Users and remember their preferences, for the sole purpose of providing the service required by the User.</p>
@@ -157,7 +157,7 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">Your Access to and Control Over Information.</h3>
                         <p>You may opt out of any future contact from us at any time. You can do the following at any time by contacting us via our contact email address:</p>
@@ -170,7 +170,7 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
                     </div>
 
                     <!-- Item -->
-                    <div class="cell">
+                    <div class="col-12">
                         <hr>
                         <h3 class="secondary">Updates</h3>
                         <p>Our Privacy Policy may change from time to time and all updates will be posted on this page.</p>

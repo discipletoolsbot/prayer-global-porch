@@ -68,18 +68,19 @@ class PG_Global_Prayer_App_Stats extends PG_Global_Prayer_App {
 
         ?>
         <style>
-            .pb_cover_v1.completed-lap .container .row {
+            .cover.completed-lap .container .row {
                 height: 10vh;
                 padding-top:10vh;
             }
-            .pb_cover_v1 {
-                height: 100vh;
+            .cover {
+                min-height: 100vh;
+                height: fit-content;
             }
         </style>
 
         <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/nav.php' );  ?>
 
-        <section class="pb_cover_v1 completed-lap text-left cover-bg-black cover-bg-opacity-4" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
+        <section class="cover completed-lap cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
             <div class="container">
                 <div class="row ">
                     <div class="col text-center">
@@ -90,14 +91,14 @@ class PG_Global_Prayer_App_Stats extends PG_Global_Prayer_App {
                     <div class="w-100"></div>
                     <div class="col-md-6 justify-content-end">
                         <h2 class="heading mb-3">Prayer</h2>
-                        <div class="sub-heading pl-4">
+                        <div class="sub-heading ps-4">
                             <p class="mb-0"><span class="minutes_prayed"></span> of Prayer</p>
                             <p class="mb-0"><span class="completed_percent"></span>% of the World Covered in Prayer</p>
                         </div>
                     </div>
                     <div class="col-md-6 justify-content-end">
                         <h2 class="heading mb-3">Pace</h2>
-                        <div class="sub-heading pl-4">
+                        <div class="sub-heading ps-4">
                             <p class="mb-0">Start: <span class="start_time_full"></span></p>
                             <p class="mb-0">End: <span class="end_time"></span></p>
                             <p class="mb-0"><span class="time_elapsed"></span></p>
@@ -110,16 +111,16 @@ class PG_Global_Prayer_App_Stats extends PG_Global_Prayer_App {
                     <div class="w-100"></div>
 
                     <div class="col-md-6">
-                        <div class="sub-heading pl-4">
+                        <div class="sub-heading ps-4">
                             <p class="mb-0">Prayer Warriors</p>
-                            <p class="mb-0 pl-3"><span class="prayer_warriors"></span></p>
+                            <p class="mb-0 ps-3"><span class="prayer_warriors"></span></p>
                             <p></p>
                             <p class="mb-2">Top Warrior Locations</p>
                             <ol class="top_locations"></ol>
                         </div>
                     </div>
                     <div class="col-md-6">
-                        <div class="sub-heading pl-4"><!--bottom right section--></div>
+                        <div class="sub-heading ps-4"><!--bottom right section--></div>
                     </div>
                 </div>
             </div>

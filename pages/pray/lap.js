@@ -18,7 +18,7 @@ jQuery(document).ready(function(){
       })
   }
   function load_next_content() {
-    window.api_post( 'refresh', { grid_id: window.current_content.location.grid_id, favor: window.favor } )
+    window.api_post( 'refresh', { grid_id: window.current_content.location.grid_id } )
       .done(function(location) {
         if ( location === false ) {
           window.location = '/'+jsObject.parts.root+'/'+jsObject.parts.type+'/'+jsObject.parts.public_key
@@ -30,6 +30,7 @@ jQuery(document).ready(function(){
     toggle_timer( false )
     button_progress.css('width', '0' )
     window.time = 0
+    window.time_finished = false
     load_location()
   }
   function ip_location() {
@@ -39,7 +40,7 @@ jQuery(document).ready(function(){
         if ( location ) {
           // persist user identity hash
           let pg_user_hash = Cookies.get('pg_user_hash')
-          if ( ! pg_user_hash ) {
+          if ( ! pg_user_hash || pg_user_hash === 'undefined' ) {
             Cookies.set('pg_user_hash', location.hash )
           } else {
             location.hash = pg_user_hash
@@ -77,11 +78,12 @@ jQuery(document).ready(function(){
   let pace_open_options = jQuery('#option_filter')
   let open_welcome = jQuery('#welcome_screen')
   let pace_buttons = jQuery('.pace')
-  let favor_buttons = jQuery('.favor')
 
   let location_map_wrapper = jQuery('#location-map')
 
   let more_prayer_fuel = jQuery('#more_prayer_fuel')
+  let prayer_odometer = jQuery('.prayer-odometer')
+  let odometer_location_count = jQuery('.location-count')
   let i
 
   window.previous_grids = []
@@ -89,20 +91,18 @@ jQuery(document).ready(function(){
   window.percent = 0
   window.time = 0
   window.seconds = 60
+  window.time_finished = false
   window.pace = Cookies.get('pg_pace')
   if ( typeof window.pace === 'undefined' ) {
     window.pace = 1
     Cookies.set('pg_pace', 1)
   }
-  window.favor = Cookies.get('pg_favor')
-  if ( typeof window.favor === 'undefined' ) {
-    window.favor = 'guided'
-    Cookies.set('pg_favor', 'guided' )
-  }
   window.viewed = Cookies.get('pg_viewed')
-  window.items = parseInt( window.pace ) + 5
+  window.items = parseInt( window.pace ) + 6
+  window.odometer = {
+    location_count: 0,
+  }
   window.report_content = []
-
 
   /**
    * INITIALIZE
@@ -113,14 +113,22 @@ jQuery(document).ready(function(){
     // set options fields
     pace_buttons.removeClass('btn-secondary').addClass('btn-outline-secondary')
     jQuery('#pace__'+window.pace).removeClass('btn-outline-secondary').addClass('btn-secondary')
-    favor_buttons.removeClass('btn-secondary').addClass('btn-outline-secondary')
-    jQuery('.favor__'+window.favor).removeClass('btn-outline-secondary').addClass('btn-secondary')
 
+    /* Passing query params through api allows different types of laps to use query params in different ways */
+    const grid_id = new URL(window.location.href).searchParams.get('grid_id')
     // load current location
-    window.api_post( 'refresh', { favor: window.favor } )
+    window.api_post( 'refresh', { grid_id } )
       .done( function(l1) {
+        // no remaining locations, send to map
+        if ( ! l1 ) {
+          window.location.href = jsObject.map_url
+          return
+        }
+        // load variables
         window.report_content = window.current_content = test_for_redundant_grid( l1 )
         load_location()
+
+        // modal logic
         if ( typeof window.viewed === 'undefined' ) {
           toggle_timer( true )
           open_welcome.modal('show')
@@ -138,7 +146,7 @@ jQuery(document).ready(function(){
     ip_location()
 
     // load next location
-    window.api_post('refresh', { favor: window.favor } )
+    window.api_post('refresh', {} )
       .done( function(l2) {
         window.next_content = test_for_redundant_grid( l2 )
       })
@@ -150,12 +158,23 @@ jQuery(document).ready(function(){
   }
   initialize_location() // initialize prayer framework
   function test_for_redundant_grid( content ) {
+    if ( typeof content === 'undefined' || typeof content.location === 'undefined' || typeof content.location.grid_id === 'undefined' ){
+      return content
+    }
     if ( window.previous_grids.includes( content.location.grid_id ) ) {
-      window.api_post('refresh', { favor: window.favor } )
+      window.api_post('refresh', {} )
         .done( function(new_content) {
-          return test_for_redundant_grid( new_content )
+          // return test_for_redundant_grid( new_content )
+          if ( typeof window.test_for_redundant === 'undefined' ) {
+            window.test_for_redundant = 0
+          }
+          if ( window.test_for_redundant < 3 ) {
+            window.test_for_redundant++
+            return test_for_redundant_grid( new_content )
+          }
         })
     } else {
+      window.test_for_redundant = 0
       window.previous_grids.push(content.location.grid_id )
       return content
     }
@@ -181,7 +200,7 @@ jQuery(document).ready(function(){
       if ( jsObject.is_custom ) {
         window.location.href = jsObject.map_url
       } else {
-        window.location.href = 'https://prayer.global'
+        window.location.href = '/'
       }
     })
     decision_map.off('click')
@@ -190,7 +209,7 @@ jQuery(document).ready(function(){
     })
     decision_next.off('click')
     decision_next.on('click', function( e ) {
-      window.api_post( 'refresh', { favor: window.favor } )
+      window.api_post( 'refresh', {} )
         .done( function(l1) {
           window.report_content = window.current_content = test_for_redundant_grid( l1 )
           load_next_content()
@@ -199,55 +218,47 @@ jQuery(document).ready(function(){
     })
     question_yes_done.off('click')
     question_yes_done.on('click', function( e ) {
+      const celebrationDuration = 3000
       question_panel.hide()
+      clear_timer()
       celebrate()
+      window.celebrationFireworks(celebrationDuration)
+      update_odometer({ location_count: window.odometer.location_count + 1})
       setTimeout(
         function()
         {
           window.location = jsObject.map_url
-        }, 3000);
+        }, celebrationDuration);
     })
     question_yes_next.off('click')
     question_yes_next.on('click', function( e ) {
+      const celebrationDuration = 3000
       question_panel.hide()
+      clear_timer()
       celebrate()
+      window.celebrationFireworks(celebrationDuration)
+      update_odometer({ location_count: window.odometer.location_count + 1})
       setTimeout(
         function()
         {
           advance_to_next_location()
-        }, 3000);
+        }, celebrationDuration);
     })
     pace_buttons.off('click')
     pace_buttons.on('click', function(e) {
+      console.log(e.currentTarget.id)
       pace_buttons.removeClass('btn-secondary').addClass('btn-outline-secondary')
-      jQuery('.'+e.currentTarget.id).removeClass('btn-outline-secondary').addClass('btn-secondary')
+      jQuery('#'+e.currentTarget.id).removeClass('btn-outline-secondary').addClass('btn-secondary')
 
       window.pace = e.currentTarget.value
       window.seconds = e.currentTarget.value * 60
 
       Cookies.set( 'pg_pace', window.pace )
 
-      window.items = parseInt( window.pace ) + 5
+      window.items = parseInt( window.pace ) + 6
 
       jQuery('.container.block').show()
       jQuery('.container.block:nth-child(+n+' + window.items + ')').hide()
-    })
-    favor_buttons.off('click')
-    favor_buttons.on('click', function(e) {
-
-      favor_buttons.removeClass('btn-secondary').addClass('btn-outline-secondary')
-      let item_id = jQuery(this).data('item-id')
-      jQuery('.'+item_id).removeClass('btn-outline-secondary').addClass('btn-secondary')
-
-      window.favor = e.currentTarget.value
-
-      Cookies.set( 'pg_favor', window.favor )
-
-      window.api_post( 'refresh', { favor: window.favor } )
-        .done(function(x) {
-          window.next_content = x
-        })
-
     })
     pace_open_options.off('show.bs.modal')
     pace_open_options.on('show.bs.modal', function () {
@@ -268,7 +279,10 @@ jQuery(document).ready(function(){
     })
   }
   function toggle_timer( set_to_pause = false ) {
-    if ( typeof window.paused === 'undefined' || window.paused === '' || set_to_pause ) {
+    /* Default to set_to_pause param; fall back to window.paused */
+    const pauseTimer = set_to_pause === true || typeof set_to_pause === 'undefined' && ( typeof window.paused === 'undefined' || window.paused === '' )
+
+    if ( pauseTimer ) {
       // console.log('pausing')
       praying_close_button.hide()
       praying_continue_button.show()
@@ -293,11 +307,51 @@ jQuery(document).ready(function(){
     }
   }
 
+  function clear_timer() {
+    clearInterval(window.interval)
+  }
+
+  function update_odometer({ location_count }) {
+    window.odometer = {
+      location_count,
+    }
+    odometer_location_count.html(location_count)
+
+    const odometerX = 20 + prayer_odometer.innerWidth() / 2
+    const odometerY = 30 + prayer_odometer.innerHeight() / 2
+
+    const origin = {
+      x: odometerX / innerWidth,
+      y: 1 - odometerY / innerHeight,
+    }
+
+    confetti({
+      gravity: 1,
+      colors: ['#DD0'],
+      origin,
+      shapes: ['circle'],
+      spread: 30,
+      ticks: 50,
+      scalar: 0.75,
+      particleCount: 100,
+      startVelocity: 20,
+      zIndex: 100000,
+    })
+  }
+
   /**
    * FRAMEWORK LOADERS
    */
   function load_location( ) {
     let content = window.report_content = window.current_content
+    if ( typeof content === 'undefined' ) {
+      window.current_content = window.next_content
+      content = window.next_content
+      if ( typeof content === 'undefined' ) {
+        window.location.href = jsObject.map_url
+        return
+      }
+    }
 
     button_text.html('Keep Praying...')
     button_progress.css('width', '0' )
@@ -330,9 +384,11 @@ jQuery(document).ready(function(){
     if ( window.interval ) {
       clearInterval(window.interval)
     }
+    window.tick = 0
     window.interval = setInterval(function() {
+      window.time = window.time + .1
+
       if (window.time <= window.seconds) {
-        window.time = window.time + .1
         window.percent = 1.6666 * ( window.time / window.pace )
         if ( window.percent > 100 ) {
           window.percent = 100
@@ -340,10 +396,13 @@ jQuery(document).ready(function(){
         // console.log( window.time + ' ' + window.percent )
         button_progress.css('width', window.percent+'%' )
       }
-      else {
+      else if (!window.time_finished) {
         window.api_post( 'log', { grid_id: window.current_content.location.grid_id, pace: window.pace, user: window.user_location } )
           .done(function(x) {
-            console.log(x)
+            if ( ! x ) {
+              window.location.href = jsObject.map_url
+              return
+            }
             window.current_content = false
             window.current_content = window.next_content
             window.next_content = false
@@ -353,7 +412,20 @@ jQuery(document).ready(function(){
         question_panel.show()
         button_progress.css('width', '0' )
         button_text.html('Keep Praying...')
-        clearInterval(window.interval);
+        /* Set a variable so that we know that the timer has stopped running and that we've logged it once*/
+        window.time_finished = true
+      }
+
+      if (window.time_finished === true) {
+        window.tick = window.tick + 0.1
+      }
+
+      if (window.tick > 60) {
+        window.api_post( 'increment_log', { report_id: window.next_content['report_id'] } )
+          .done(function(x) {
+            console.log('incremented log', x)
+          })
+        window.tick = 0
       }
     }, 100);
   }
@@ -412,6 +484,14 @@ jQuery(document).ready(function(){
           }
         })
           .done(function (geojson) {
+            /* Make sure that grid_id properties are strings to enable correct filtering for red fill */
+            /* TODO: fix any geojson files that have integers as their grid_id properties and convert them to strings */
+            if (geojson.features.length > 0 && typeof geojson.features[0].properties.grid_id === 'number') {
+              geojson.features.forEach((feature, i) => {
+                geojson.features[i].properties.grid_id = `${feature.properties.grid_id}`
+              });
+            }
+
             map.addSource('parent_collection', {
               'type': 'geojson',
               'data': geojson
@@ -469,7 +549,6 @@ jQuery(document).ready(function(){
                   }
                 }]
             }
-            console.log(point_geojson)
             map.addSource('point_geojson', {
               'type': 'geojson',
               'data': point_geojson
@@ -986,7 +1065,7 @@ jQuery(document).ready(function(){
     if ( data.image_url ) {
       image = '<p class="mt-3 mb-3"><img src="'+data.image_url+'" class="img-fluid" alt="" /></p>'
     } else {
-      image = '<p class="mt-3 mb-3 font-weight-bold six-em"><i class="ion-android-warning red"></i></p>'
+      image = '<p class="mt-3 mb-3"><img class="img-fluid" src="'+jsObject.nope+'" alt="" /></p>'
     }
     div.append(
       `<div class="container block">
@@ -1220,278 +1299,3 @@ jQuery(document).ready(function(){
   }
 
 })
-
-// function wide_globe(){
-//   jQuery('#location-map').html(`<div class="chartdiv wide_globe" id="wide_globe"></div>`)
-//   let content = window.current_content
-//   // https://www.amcharts.com/demos/rotating-globe/
-//   am5.ready(function() {
-//
-//     var root = am5.Root.new("wide_globe");
-//
-//     root.setThemes([
-//       am5themes_Animated.new(root)
-//     ]);
-//
-//     var chart = root.container.children.push(am5map.MapChart.new(root, {
-//       panX: "rotateX",
-//       projection: am5map.geoNaturalEarth1(),
-//       paddingBottom: 20,
-//       paddingTop: 20,
-//       paddingLeft: 20,
-//       paddingRight: 20,
-//       wheelY: 'none'
-//     }));
-//
-//     var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
-//       geoJSON: am5geodata_worldLow
-//     }));
-//
-//     polygonSeries.mapPolygons.template.setAll({
-//       tooltipText: "{name}",
-//       toggleKey: "active",
-//       interactive: true
-//     });
-//
-//     polygonSeries.mapPolygons.template.states.create("hover", {
-//       fill: root.interfaceColors.get("primaryButtonHover")
-//     });
-//
-//     var backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
-//     backgroundSeries.mapPolygons.template.setAll({
-//       fill: root.interfaceColors.get("alternativeBackground"),
-//       fillOpacity: 0.1,
-//       strokeOpacity: 0
-//     });
-//     backgroundSeries.data.push({
-//       geometry: am5map.getGeoRectangle(90, 180, -90, -180)
-//     });
-//
-//     var graticuleSeries = chart.series.push(am5map.GraticuleSeries.new(root, {}));
-//     graticuleSeries.mapLines.template.setAll({ strokeOpacity: 0.1, stroke: root.interfaceColors.get("alternativeBackground") })
-//
-//     chart.animate({
-//       key: "rotationX",
-//       from: 0,
-//       to: 360,
-//       duration: 60000,
-//       loops: Infinity
-//     });
-//
-//     chart.appear(1000, 100);
-//
-//     let cities = {
-//       "type": "FeatureCollection",
-//       "features": [{
-//         "type": "Feature",
-//         "properties": {
-//           "name": content.location.full_name
-//         },
-//         "geometry": {
-//           "type": "Point",
-//           "coordinates": [content.location.longitude, content.location.latitude]
-//         }
-//       }]
-//     };
-//
-//     let pointSeries = chart.series.push(
-//       am5map.MapPointSeries.new(root, {
-//         geoJSON: cities
-//       })
-//     );
-//
-//     pointSeries.bullets.push(function() {
-//       return am5.Bullet.new(root, {
-//         sprite: am5.Circle.new(root, {
-//           radius: 30,
-//           fill: 'green',
-//         })
-//       });
-//     });
-//
-//     chart.seriesContainer.draggable = false;
-//     chart.seriesContainer.resizable = false;
-//
-//   }); // end am5.ready()
-// }
-// function rotating_globe(){
-//   jQuery('#location-map').html(`<div class="chartdiv rotating_globe" id="rotating_globe"></div>`)
-//   let content = window.current_content
-//   // https://www.amcharts.com/demos/rotating-globe/
-//   am5.ready(function() {
-//
-//     var root = am5.Root.new("rotating_globe");
-//
-//     root.setThemes([
-//       am5themes_Animated.new(root)
-//     ]);
-//
-//     var chart = root.container.children.push(am5map.MapChart.new(root, {
-//       panX: "rotateX",
-//       projection: am5map.geoOrthographic(),
-//       paddingBottom: 20,
-//       paddingTop: 20,
-//       paddingLeft: 20,
-//       paddingRight: 20,
-//       wheelY: 'none'
-//     }));
-//
-//     var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
-//       geoJSON: am5geodata_worldLow
-//     }));
-//
-//     polygonSeries.mapPolygons.template.setAll({
-//       tooltipText: "{name}",
-//       toggleKey: "active",
-//       interactive: true
-//     });
-//
-//     polygonSeries.mapPolygons.template.states.create("hover", {
-//       fill: root.interfaceColors.get("primaryButtonHover")
-//     });
-//
-//     var backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
-//     backgroundSeries.mapPolygons.template.setAll({
-//       fill: root.interfaceColors.get("alternativeBackground"),
-//       fillOpacity: 0.1,
-//       strokeOpacity: 0
-//     });
-//     backgroundSeries.data.push({
-//       geometry: am5map.getGeoRectangle(90, 180, -90, -180)
-//     });
-//
-//     var graticuleSeries = chart.series.push(am5map.GraticuleSeries.new(root, {}));
-//     graticuleSeries.mapLines.template.setAll({ strokeOpacity: 0.1, stroke: root.interfaceColors.get("alternativeBackground") })
-//
-//
-//     chart.animate({
-//       key: "rotationX",
-//       from: 0,
-//       to: 360,
-//       duration: 60000,
-//       loops: Infinity
-//     });
-//
-//     chart.appear(1000, 100);
-//
-//     let cities = {
-//       "type": "FeatureCollection",
-//       "features": [{
-//         "type": "Feature",
-//         "properties": {
-//           "name": content.location.full_name
-//         },
-//         "geometry": {
-//           "type": "Point",
-//           "coordinates": [content.location.longitude, content.location.latitude]
-//         }
-//       }]
-//     };
-//
-//     let pointSeries = chart.series.push(
-//       am5map.MapPointSeries.new(root, {
-//         geoJSON: cities
-//       })
-//     );
-//
-//     pointSeries.bullets.push(function() {
-//       return am5.Bullet.new(root, {
-//         sprite: am5.Circle.new(root, {
-//           radius: 30,
-//           fill: 'green',
-//         })
-//       });
-//     });
-//     chart.deltaLongitude = content.location.longitude;
-//
-//   }); // end am5.ready()
-// }
-// function zoom_globe(){
-//   jQuery('#location-map').html(`<div class="chartdiv zoom_globe" id="zoom_globe"></div>`)
-//   let content = window.current_content
-//   // https://www.amcharts.com/demos/rotating-globe/
-//   am5.ready(function() {
-//
-//     var root = am5.Root.new("zoom_globe");
-//
-//     // root.setThemes([
-//     //   am5themes_Animated.new(root)
-//     // ]);
-//
-//     var chart = root.container.children.push(am5map.MapChart.new(root, {
-//       panX: "rotateX",
-//       panY: "rotateY",
-//       projection: am5map.geoNaturalEarth1(),
-//       paddingBottom: 20,
-//       paddingTop: 20,
-//       paddingLeft: 20,
-//       paddingRight: 20,
-//       homeZoomLevel: 3.5,
-//       homeGeoPoint: { longitude: content.location.longitude, latitude: content.location.latitude },
-//       wheelY: 'none'
-//     }));
-//
-//     var polygonSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {
-//       geoJSON: am5geodata_worldLow
-//     }));
-//
-//     polygonSeries.mapPolygons.template.setAll({
-//       tooltipText: "{name}",
-//       toggleKey: "active",
-//       interactive: true
-//     });
-//
-//     polygonSeries.mapPolygons.template.states.create("hover", {
-//       fill: root.interfaceColors.get("primaryButtonHover")
-//     });
-//
-//     var backgroundSeries = chart.series.push(am5map.MapPolygonSeries.new(root, {}));
-//     backgroundSeries.mapPolygons.template.setAll({
-//       fill: root.interfaceColors.get("alternativeBackground"),
-//       fillOpacity: 0.1,
-//       strokeOpacity: 0
-//     });
-//     backgroundSeries.data.push({
-//       geometry: am5map.getGeoRectangle(90, 180, -90, -180)
-//     });
-//
-//     var graticuleSeries = chart.series.push(am5map.GraticuleSeries.new(root, {}));
-//     graticuleSeries.mapLines.template.setAll({ strokeOpacity: 0.1, stroke: root.interfaceColors.get("alternativeBackground") })
-//
-//     chart.appear(1000, 100);
-//
-//     let cities = {
-//       "type": "FeatureCollection",
-//       "features": [{
-//         "type": "Feature",
-//         "properties": {
-//           "name": content.location.full_name
-//         },
-//         "geometry": {
-//           "type": "Point",
-//           "coordinates": [content.location.longitude, content.location.latitude]
-//         }
-//       }]
-//     };
-//
-//     let pointSeries = chart.series.push(
-//       am5map.MapPointSeries.new(root, {
-//         geoJSON: cities
-//       })
-//     );
-//
-//     pointSeries.bullets.push(function() {
-//       return am5.Bullet.new(root, {
-//         sprite: am5.Circle.new(root, {
-//           radius: 30,
-//           fill: 'green',
-//         })
-//       });
-//     });
-//
-//     polygonSeries.events.on("datavalidated", function() {
-//       chart.goHome();
-//     });
-//
-//   }); // end am5.ready()
-// }

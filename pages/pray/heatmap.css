@@ -1,6 +1,9 @@
 body {
     background: white !important;
 }
+button {
+    line-height: initial;
+}
 #initialize-screen {
     width: 100%;
     height: 2000px;
@@ -20,21 +23,30 @@ progress {
 }
 .pb_navbar .navbar-toggler {
     color: black;
-    border-color: black;
+    border: none;
     cursor: pointer;
     padding-right: 0;
+    font-size: 30px;
+}
+.pb_navbar .navbar-toggler:active, .pb_navbar .navbar-toggler:focus {
+    box-shadow: none;
+    outline: none; }
+.navbar-light .navbar-brand, .navbar-light .brand-color {
+    color: var(--bs-navbar-brand-color);
 }
 #head_block, #foot_block {
     position: absolute;
     width:100%;
     z-index: 5;
     background: white;
-    padding: 1em;
+    padding: 1em 2em;
     opacity: .9;
     display:none;
+    line-height: 1.5;
 }
 #head_block {
     margin: 0 auto 1em;
+    z-index: 10;
 }
 #head_block_wrapper {
     position: absolute;
@@ -54,23 +66,41 @@ progress {
 #foot_block {
     bottom: 0;
     margin: 1em auto 0;
+    line-height: 1.5;
+}
+#foot_block i {
+    line-height: 1;
 }
 #offcanvas_menu {
     background: white;
-    z-index: 15;
     padding: 1em;
 }
 #offcanvas_location_details {
     background: white;
-    z-index: 15;
-    padding: 1em;
     min-width: 40%;
+    overflow-x: hidden;
 }
 #offcanvas_stats {
     background: white;
-    z-index: 15;
-    padding: 1em;
     height: 80%;
+}
+
+@media (max-width: 576px) {
+    #head_block {
+        padding: 1em 0.7em;
+    }
+
+    #foot_block {
+        padding: 0.5em 0.7em 1em;
+    }
+
+    .row {
+        --bs-gutter-x: 0;
+    }
+
+    .foot__icon {
+        height: 40px;
+    }
 }
 
 .nav-item {
@@ -96,10 +126,23 @@ progress {
 }
 .stats-title {
     font-size: 1.5rem;
+    font-weight: 400;
 }
 .stats-figure {
     font-size: 2rem;
 }
+.remaining, .completed {
+    color: white;
+    padding: 5px min(10px, 10%);
+    border-radius: 10px;
+}
+.green-bg {
+    background-color: green;
+}
+.red-bg {
+    background-color: red;
+}
+
 @media (max-width: 768px) {
     .mapboxgl-ctrl-group {
         margin-top:100px !important;
@@ -123,6 +166,13 @@ progress {
         padding-top: 0;
     }
 }
+
+@media (max-width: 576px) {
+    .navbar .two-em {
+        font-size: 1.25em;
+    }
+}
+
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -146,9 +196,9 @@ progress {
     margin: 0;
     padding: 0;
     overflow: hidden;
-}
-#nav-list li {
-    float:right;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 }
 #nav-list li a {
     display: block;
@@ -244,4 +294,88 @@ progress {
 }
 .uppercase {
     text-transform:capitalize;
+}
+
+.map-overlay {
+	position: absolute;
+	right: 0;
+	background: #fff;
+    margin-right: 20px;
+	overflow: auto;
+	border-radius: 5px;
+}
+
+#map-legend {
+	padding: 10px;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+    line-height: 18px;
+    margin-bottom: 40px;
+
+    top: 0;
+    transform: translateY(-120%);
+
+    display: flex;
+}
+
+#map-legend > * + * {
+    margin-left: 10px;
+}
+
+.map-legend__layer {
+    display: flex;
+    align-items: center;
+}
+
+.map-legend__color-swatch {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+@media ( max-width: 576px ) {
+    #map-legend[data-map-type="heatmap"] {
+        flex-direction: column;
+    }
+
+    #map-legend[data-map-type="heatmap"] > * + * {
+        margin-left: 0;
+    }
+
+    #map-legend[data-map-type="heatmap"] .map-legend__color-swatch {
+        border-radius: 0;
+    }
+}
+
+.map-toggle {
+    width: 50px;
+    margin: 0 auto;
+    border-radius: 10px;
+    height: 50px;
+    padding: 2px;
+    cursor: pointer;
+    border: 2px solid lightgrey;
+    transition: box-shadow 0.1s;
+}
+.map-toggle .foot__icon {
+    max-width: 100%;
+    height: 100%;
+    opacity: 0.3;
+}
+
+.map-toggle.active {
+    border-color: var(--pg-brand-color);
+}
+.map-toggle.active .foot__icon {
+    opacity: 1;
+}
+
+.map-toggle.active:hover {
+   box-shadow: 0 5px 5px 0 #1d82ff55;
+}
+.map-toggle:hover {
+   box-shadow: 0 5px 5px 0 #d3d3d355;
+}
+.map-toggle:active {
+    box-shadow: none;
 }

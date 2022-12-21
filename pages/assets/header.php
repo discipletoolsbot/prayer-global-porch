@@ -1,8 +1,10 @@
 <?php
 global $wp;
-$current_url = home_url( add_query_arg( array(), $wp->request ) );
+$current_url = add_query_arg( $wp->query_vars, home_url( $wp->request ) );
+pg_google_analytics();
 ?>
 <meta name="apple-mobile-web-app-title" content="Prayer.Global">
+
 <link rel="apple-touch-icon" sizes="180x180" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ); ?>assets/images/favicons/apple-touch-icon.png">
 
 <link rel="icon" type="image/png" sizes="512x512" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ); ?>assets/images/favicons/android-chrome-512x512.png">
@@ -20,31 +22,17 @@ $current_url = home_url( add_query_arg( array(), $wp->request ) );
 
 <link rel="manifest" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ); ?>assets/images/favicons/site.webmanifest">
 
-<meta property="og:url"                content="<?php echo esc_url( $current_url ) ?>" />
-<meta property="og:type"               content="app" />
-<meta property="og:title"              content="Prayer.Global" />
-<meta property="og:description"        content="Join us in covering the world in prayer for disciple making using a creative, community-driven prayer coordination app." />
-<meta property="og:image"              content="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ); ?>assets/images/favicons/prayer-global-og.png" />
-<meta name="description" content="Join us in covering the world in prayer for disciple making using a creative, community-driven prayer coordination app.">
+<?php pg_og_tags( [ "url" => $current_url ] ) ?>
 
 <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
 
-<link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>css/bootstrap/bootstrap.css">
+<link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>css/bootstrap/bootstrap5.2.2.css">
 <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>fonts/ionicons/css/ionicons.min.css">
 
 <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>fonts/fontawesome/css/font-awesome.min.css">
 
-
-<link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>css/slick.css">
-<link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>css/slick-theme.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'css/slick-theme.css' ) ) ?>">
-
-<link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>css/helpers.css">
-<link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>css/style.css">
-
-<link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>pg.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) )  . 'pg.css' ) ) ?>">
-
 <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>js/jquery.min.js"></script>
 
-<link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/basic.css' ) ) ?>" type="text/css" media="all">
-
+<link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
 

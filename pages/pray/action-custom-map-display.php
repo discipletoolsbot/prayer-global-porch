@@ -54,7 +54,6 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
         $allowed_css[] = 'mapbox-gl-css';
         $allowed_css[] = 'introjs-css';
-        $allowed_css[] = 'foundation-css';
         $allowed_css[] = 'heatmap-css';
         $allowed_css[] = 'site-css';
         return $allowed_css;
@@ -73,6 +72,7 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
 
     public function header_javascript(){
         ?>
+        <?php pg_google_analytics() ?>
         <script>
             let jsObject = [<?php echo json_encode([
                 'map_key' => DT_Mapbox_API::get_key(),
@@ -87,11 +87,13 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
                 'translations' => [
                     'add' => __( 'Add Magic', 'prayer-global' ),
                 ],
+                'map_type' => 'binary',
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/bootstrap/bootstrap5.2.2.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
-        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/basic.css' ) ) ?>" type="text/css" media="all">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>heatmap.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'heatmap.css' ) ) ?>" type="text/css" media="all">
         <?php
     }
@@ -122,17 +124,18 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
                 <div id="foot_block">
-                    <div class="grid-x grid-padding-x">
-                        <div class="cell medium-2" id="qr-cell"></div>
-                        <div class="cell medium-2 center"><strong>Prayer Warriors</strong><br><strong><span class="three-em prayer_warriors"></span></strong></div>
-                        <div class="cell medium-2 center"><strong>Places Covered</strong><br><strong><span class="three-em green completed"></span></strong></div>
-                        <div class="cell medium-2 center"><strong>Places Remaining</strong><br><strong><span class="three-em red remaining"></span></strong></div>
-                        <div class="cell medium-2 center hide-for-small-only"><strong>World Coverage</strong><br><strong><span class="three-em completed completed_percent"></span><span class="three-em">%</span></strong></div>
-                        <div class="cell medium-2 center hide-for-small-only"><strong>Since Start</strong><br><strong><span class="three-em time_elapsed" style="whitespace:nowrap;">0</span></strong></div>
+                    <div class="row">
+                        <div class="col col-sm-2" id="qr-cell"></div>
+                        <div class="col col-sm-1"></div>
+                        <div class="col col-sm-2 center"><strong>Prayer Warriors</strong><br><strong><span class="three-em prayer_warriors"></span></strong></div>
+                        <div class="col col-sm-2 center"><strong>Places Remaining</strong><br><strong><span class="three-em red-bg remaining"></span></strong></div>
+                        <div class="col col-sm-2 center"><strong>Places Covered</strong><br><strong><span class="three-em green-bg completed"></span></strong></div>
+                        <div class="col col-sm-2 center d-none d-sm-block"><strong>World Coverage</strong><br><strong><span class="three-em  completed_percent"></span><span class="three-em">%</span></strong></div>
+                        <div class="col col-sm-1"></div>
                     </div>
                     <div id="qr-code-block">
                         <div class="two-em center">PRAY WITH US</div>
-                        <img class="qr-code-image" src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&amp;data=https://prayer.global/prayer_app/custom/<?php echo esc_html( $lap_stats['key'] ) ?>">
+                        <img class="qr-code-image" src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&amp;data=<?php echo esc_url( get_site_url() ) ?>/prayer_app/custom/<?php echo esc_html( $lap_stats['key'] ) ?>">
                         <div class="center uppercase">TURN THE MAP FROM RED TO GREEN</div>
                     </div>
                 </div>
@@ -141,14 +144,13 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
         <div class="off-canvas position-right" id="offcanvas_menu" data-close-on-click="true" data-off-canvas>
             <button type="button" data-toggle="offcanvas_menu"><i class="ion-chevron-right three-em"></i></button>
             <hr>
-            <div class="show-for-small-only">
+            <div class="d-sm-none">
                 <hr>
             </div>
         </div>
         <div class="off-canvas position-right " id="offcanvas_location_details" data-close-on-click="true" data-content-overlay="false" data-off-canvas>
-            <button type="button" data-toggle="offcanvas_location_details"><i class="ion-chevron-right three-em"></i></button>
-            <hr>
-            <div class="grid-x grid-padding-x" id="grid_details_content"></div>
+            <div class="offcanvas__header"><button type="button" data-toggle="offcanvas_location_details"><i class="ion-chevron-right three-em"></i></button></div>
+            <div class="row offcanvas__content" id="grid_details_content"></div>
         </div>
         <?php
     }

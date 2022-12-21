@@ -75,11 +75,11 @@ class Prayer_Global_Porch_Contact_Us extends DT_Magic_Url_Base
     public function body(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' ) ?>
 
-        <section class="pb_section" data-section="about" id="section-about">
+        <section class="page-section mt-5" data-section="about" id="section-about">
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 pb-3 heading-border-top font-weight-normal">Contact Us</h2>
+                        <h2 class="mt-0 pb-3 header-border-top font-weight-normal">Contact Us</h2>
                         <p>
                             First, thank you for reaching out.
                         </p>

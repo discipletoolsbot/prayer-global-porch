@@ -87,15 +87,10 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
             ]) ?>][0]
         </script>
-        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/basic.css' ) ) ?>" type="text/css" media="all">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.css"/>
         <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.js"></script>
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>active-list.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'active-list.js' ) ) ?>"></script>
-        <style>
-            section {
-                margin-top: 110px;
-            }
-        </style>
         <?php
     }
 
@@ -113,6 +108,9 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
             }
             .challenge-row:hover{
                 background-color: #f9f9f9;
+            }
+            section {
+                margin-top: 130px;
             }
         </style>
         <section>
@@ -189,7 +187,9 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
                 JOIN $wpdb->postmeta pm2 ON pm2.post_id=p.ID AND pm2.meta_key = 'status' AND pm2.meta_value = 'active'
                 LEFT JOIN $wpdb->postmeta pm3 ON pm3.post_id=p.ID AND pm3.meta_key = 'prayer_app_custom_magic_key'
                 LEFT JOIN $wpdb->postmeta pm4 ON pm4.post_id=p.ID AND pm4.meta_key = 'start_time'
+                LEFT JOIN $wpdb->postmeta pm5 ON pm5.post_id=p.ID AND pm5.meta_key = 'visibility'
                 WHERE p.post_type = 'laps'
+                AND pm5.meta_value = 'public' OR pm5.meta_value IS NULL OR pm5.meta_value = 'none'
                 ORDER BY p.post_title
              ", ARRAY_A );
 
