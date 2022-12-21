@@ -409,7 +409,7 @@ trait PG_Lap_Trait {
         }
 
         if ( empty( $list_4770 ) ) {
-             dt_write_log(__METHOD__ . ' : generated a new prayer lap');
+             dt_write_log( __METHOD__ . ' : generated a new prayer lap' );
             $list_4770 = pg_generate_new_global_prayer_lap();
         }
 
