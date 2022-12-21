@@ -471,7 +471,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         if ( $response ) {
             /* Use the existing supplied hash if given */
             if ( isset( $data['hash'] ) ) {
-                $hash =  sanitize_text_field( wp_unslash( $data['hash'] ) );
+                $hash = sanitize_text_field( wp_unslash( $data['hash'] ) );
             } else {
                 $hash = hash( 'sha256', serialize( $response ) . mt_rand( 1000000, 10000000000000000 ) );
             }
