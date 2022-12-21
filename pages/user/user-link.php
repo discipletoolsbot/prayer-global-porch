@@ -44,12 +44,6 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
             return;
         }
 
-        // require login access
-//        if ( ! is_user_logged_in() ) {
-//            wp_safe_redirect( dt_custom_login_url( 'login' ) );
-//        }
-
-
         // load if valid url
         add_action( 'dt_blank_body', [ $this, 'body' ] ); // body for no post key
 
@@ -404,12 +398,22 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public function update_user( $data ) {
         $user_id = get_current_user_id();
 
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
         foreach ($data as $meta_key => $meta_value) {
             if ( !in_array( $meta_key, $this->allowed_user_meta, true ) ) {
                 continue;
             }
 
             $meta_key = PG_NAMESPACE . $meta_key;
+
+            $meta_key = sanitize_text_field( wp_unslash( $meta_key ) );
+
+            if ( is_array( $meta_value ) ) {
+                $meta_value = dt_sanitize_array( $meta_value );
+            }
 
             $response = update_user_meta( $user_id, $meta_key, $meta_value );
 
@@ -420,8 +424,14 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     }
 
     public function get_user_activity( $data ) {
-        $offset = isset( $data['offset'] ) ? $data['offset'] : 0;
-        $limit = isset( $data['limit'] ) ? $data['limit'] : 50;
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
+        $offset = isset( $data['offset'] ) ? (int) $data['offset'] : 0;
+        $limit = isset( $data['limit'] ) ? (int) $data['limit'] : 50;
 
         $activity = PG_Stacker::build_user_location_stats( null, $offset, $limit );
         return $activity;
@@ -431,6 +441,10 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         global $wpdb;
 
         $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
 
         $user_stats = $wpdb->get_row( $wpdb->prepare( "
             SELECT COUNT(r.id) as total_locations, SUM(r.value) as total_minutes
@@ -446,11 +460,18 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     }
 
     public function get_ip_location( $data ) {
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
         $response = DT_Ipstack_API::get_location_grid_meta_from_current_visitor();
 
         if ( $response ) {
+            /* Use the existing supplied hash if given */
             if ( isset( $data['hash'] ) ) {
-                $hash = $data['hash'];
+                $hash = sanitize_text_field( wp_unslash( $data['hash'] ) );
             } else {
                 $hash = hash( 'sha256', serialize( $response ) . mt_rand( 1000000, 10000000000000000 ) );
             }
@@ -476,17 +497,27 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
             return new WP_Error( __METHOD__, 'Missing lat, lng, label or level', [ 'status' => 400 ] );
         }
 
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
         /* Get the grid_id for this lat lng */
         $geocoder = new Location_Grid_Geocoder();
 
-        $grid_row = $geocoder->get_grid_id_by_lnglat( $data['lng'], $data['lat'] );
+        $lat = (float) $data['lat'];
+        $lng = (float) $data['lng'];
+        $label = sanitize_text_field( wp_unslash( $data['label'] ) );
+
+        $grid_row = $geocoder->get_grid_id_by_lnglat( $lng, $lat );
 
         $old_location = get_user_meta( get_current_user_id(), PG_NAMESPACE . 'location', true );
 
         $data['grid_id'] = $grid_row ? $grid_row['grid_id'] : false;
-        $data['lat'] = strval( $data['lat'] );
-        $data['lng'] = strval( $data['lng'] );
-        $data['country'] = $this->_extract_country_from_label( $data['label'] );
+        $data['lat'] = strval( $lat );
+        $data['lng'] = strval( $lng );
+        $data['country'] = $this->_extract_country_from_label( $label );
         $data['hash'] = $old_location ? $old_location['hash'] : '';
 
         $this->update_user( [
@@ -513,9 +544,15 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
             return new WP_Error( __METHOD__, 'Latitude or longitude missing', [ 'status' => 400 ] );
         }
 
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
         $geocoder = new Location_Grid_Geocoder();
 
-        $grid_row = $geocoder->get_grid_id_by_lnglat( $data['lng'], $data['lat'] );
+        $grid_row = $geocoder->get_grid_id_by_lnglat( (float) $data['lng'], (float) $data['lat'] );
 
         if ( !$grid_row ) {
             return '';
@@ -537,20 +574,26 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
             return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
         }
 
+        $title = sanitize_text_field( wp_unslash( $data['title'] ) );
+        $challenge_type = sanitize_text_field( wp_unslash( $data['challenge_type'] ) );
+        $visibility = sanitize_text_field( wp_unslash( $data['visibility'] ) );
+
         $fields = [
-            'title' => $data['title'],
-            'challenge_type' => $data['challenge_type'],
-            'visibility' => $data['visibility'],
+            'title' => $title,
+            'challenge_type' => $challenge_type,
+            'visibility' => $visibility,
         ];
 
         if ( isset( $data['start_date'] ) ) {
-            $start_time = strtotime( $data['start_date'] . ' ' . $data['start_time'] );
-            $fields["start_date"] = $start_time;
+            $start_date = sanitize_text_field( wp_unslash( $data['start_date'] ) );
+            $start_time = strtotime( $start_date );
+            $fields["start_date"] = gmdate( 'Y-m-d H:m:s', $start_time );
             $fields["start_time"] = $start_time;
         }
         if ( isset( $data['end_date'] ) ) {
-            $end_time = strtotime( $data['end_date'] . ' ' . $data['end_time'] );
-            $fields["end_date"] = $end_time;
+            $end_date = sanitize_text_field( wp_unslash( $data['end_date'] ) );
+            $end_time = strtotime( $end_date );
+            $fields["end_date"] = gmdate( 'Y-m-d H:m:s', $end_time );
             $fields["end_time"] = $end_time;
         }
 
@@ -614,11 +657,11 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
         $user_id = get_current_user_id();
 
-        if ( !$user_id ) {
+        if ( !$user_id || !DT_Posts::can_access( 'laps' ) ) {
             return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
         }
 
-        $visibility = isset( $data['visibility'] ) ? $data['visibility'] : 'public';
+        $visibility = isset( $data['visibility'] ) ? sanitize_text_field( wp_unslash( $data['visibility'] ) ) : 'public';
 
         $data = [];
 
