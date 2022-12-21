@@ -282,6 +282,9 @@ function _pg_stats_builder( $data ) : array {
      * COMPLETED & REMAINING
      */
     $completed = (int) $data['locations_completed'];
+    if ( PG_TOTAL_STATES < $completed ) {
+        $completed = PG_TOTAL_STATES;
+    }
     $data['completed'] = number_format( $completed );
     $data['completed_int'] = $completed;
     $completed_percent = ROUND( $completed / PG_TOTAL_STATES * 100, 0 );
@@ -289,8 +292,12 @@ function _pg_stats_builder( $data ) : array {
         $completed_percent = 100;
     }
     $data['completed_percent'] = $completed_percent;
-    $data['remaining'] = number_format( PG_TOTAL_STATES - $completed );
-    $data['remaining_int'] = PG_TOTAL_STATES - $completed;
+    $remaining = PG_TOTAL_STATES - $completed;
+    if ( 0 > $remaining ) {
+        $remaining = 0;
+    }
+    $data['remaining'] = number_format( $remaining );
+    $data['remaining_int'] = $remaining;
     $data['remaining_percent'] = 100 - $data['completed_percent'];
 
     /**
@@ -619,4 +626,83 @@ function pg_get_user( int $user_id, array $allowed_meta ) {
     }
 
     return $userdata;
+}
+
+/**
+ * @return array|false|mixed
+ */
+function pg_generate_new_global_prayer_lap() {
+    // hold generation while being created
+    if ( get_option( 'pg_generate_new_lap_in_progress' ) ) {
+        sleep( 8 );
+        return pg_query_4770_locations();
+    } else {
+        update_option( 'pg_generate_new_lap_in_progress', true );
+    }
+    global $wpdb;
+
+    // dup check, instant dup generation
+    $time = time();
+    $start_time_dup = $wpdb->get_var($wpdb->prepare(
+        "SELECT count(*)
+                FROM $wpdb->postmeta pm
+                JOIN $wpdb->posts p ON p.ID=pm.post_id
+                WHERE pm.meta_key = 'start_time'
+                    AND pm.meta_value = %d
+                    AND p.post_type = 'laps'
+                    ", $time )
+    );
+    if ( $start_time_dup ) {
+        delete_option( 'pg_generate_new_lap_in_progress' );
+        sleep( 5 );
+        return pg_query_4770_locations();
+    }
+
+    // build new lap number
+    $completed_prayer_lap_number = $wpdb->get_var(
+        "SELECT COUNT(*) as laps
+                    FROM $wpdb->posts p
+                    JOIN $wpdb->postmeta pm ON p.ID=pm.post_id AND pm.meta_key = 'type' AND pm.meta_value = 'global'
+                    JOIN $wpdb->postmeta pm2 ON p.ID=pm2.post_id AND pm2.meta_key = 'status' AND pm2.meta_value IN ('complete', 'active')
+                    WHERE p.post_type = 'laps';"
+    );
+    $next_global_lap_number = $completed_prayer_lap_number + 1;
+
+    // create key
+    $key = pg_generate_key();
+    $date = gmdate( 'Y-m-d H:m:s', time() );
+
+    $fields = [];
+    $fields['title'] = 'Global #' . $next_global_lap_number;
+    $fields['status'] = 'active';
+    $fields['type'] = 'global';
+    $fields['start_date'] = $date;
+    $fields['start_time'] = $time;
+    $fields['global_lap_number'] = $next_global_lap_number;
+    $fields['prayer_app_global_magic_key'] = $key;
+    $new_post = DT_Posts::create_post( 'laps', $fields, true, false );
+    if ( is_wp_error( $new_post ) ) {
+        // @handle error
+        dt_write_log( 'failed to create' );
+        dt_write_log( $new_post );
+        delete_option( 'pg_generate_new_lap_in_progress' );
+        return pg_query_4770_locations();
+    }
+
+    // update current_lap
+    $previous_lap = pg_current_global_lap();
+    $lap = [
+        'lap_number' => $next_global_lap_number,
+        'post_id' => $new_post['ID'],
+        'key' => $key,
+        'start_time' => $time,
+    ];
+    update_option( 'pg_current_global_lap', $lap, true );
+
+    // close previous lap
+    DT_Posts::update_post( 'laps', $previous_lap['post_id'], [ 'status' => 'complete', 'end_date' => $date, 'end_time' => $time ], true, false );
+
+    delete_option( 'pg_generate_new_lap_in_progress' );
+
+    return pg_query_4770_locations();
 }

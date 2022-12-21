@@ -126,9 +126,9 @@ class Prayer_Global_Porch {
         require_once( 'pages/user/user-link.php' );
 
         // admin
-//        require_once( 'charts/charts-loader.php' );
-        require_once( 'support/build/show-all-content.php' );
-//        require_once('support/build/add-records.php');
+//      require_once( 'charts/charts-loader.php' );
+        require_once( 'support/build/loader.php' );
+
 
         // 404
         require_once( 'pages/404/404.php' );

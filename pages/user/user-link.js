@@ -4,19 +4,27 @@ jQuery(document).ready(function(){
 
     const challengeModal = jQuery('#create-challenge-modal')
     const challengeModalTitle = jQuery('#createChallengeLabel')
-    const challengeModalTitleIcon = jQuery('#createChallengeLabel i')
     const challengeTitleGroup = jQuery('.challenge-title-group')
     const challengeStartDateGroup = jQuery('.challenge-start-date-group')
     const challengeEndDateGroup = jQuery('.challenge-end-date-group')
 
     const challengeTitle = jQuery('#challenge-title')
     const challengeStartDate = jQuery('#challenge-start-date')
+    const challengeStartTime = jQuery('#challenge-start-time')
     const challengeEndDate = jQuery('#challenge-end-date')
+    const challengeEndTime = jQuery('#challenge-end-time')
     const challengeVisibility = jQuery('#challenge-visibility')
-    const challengeType = jQuery('input[name="challenge-type"]:checked')
+    const challengeModalAction = jQuery('#challenge-modal-action')
+    const challengePostId = jQuery('#challenge-post-id')
 
+    const challengeLoadingSpinner = jQuery('.challenge-loading')
+    const createNewChallengeButton = jQuery('.create-new-challenge-button')
+    const editChallengeButton = jQuery('.edit-challenge-button')
+    const setChallengStartNowButton = jQuery('#set-challenge-start-to-now')
+    const challengeHelpText = jQuery('#challenge-help-text')
 
     let isSavingLocation = false
+    let isSavingChallenge = false
 
     if ( jsObject.is_logged_in ) {
         write_main( jsObject.user )
@@ -49,6 +57,7 @@ jQuery(document).ready(function(){
     })
     challengeModal.on('hidden.bs.modal', () => {
         resetChallengeForm()
+        isSavingChallenge = false
     })
 
     jQuery('.save-user-location').on('click', (e) => {
@@ -89,6 +98,12 @@ jQuery(document).ready(function(){
         }
     })
 
+    setChallengStartNowButton.on('click', () => {
+        const now = Date.now() / 1000
+
+        challengeStartDate.val(toDateInputFormat(now))
+        challengeStartTime.val(toTimeInputFormat(now))
+    })
 
     function get_user_app (action, data ) {
         return jQuery.ajax({
@@ -237,6 +252,9 @@ jQuery(document).ready(function(){
                 }
                 jsObject.user.activity = activity
             })
+
+        getChallenges('public')
+        getChallenges('private')
 
         if ( !data.location || data.location === '' ) {
             const pg_user_hash = Cookies.get('pg_user_hash')
@@ -428,13 +446,12 @@ jQuery(document).ready(function(){
     function write_challenges() {
 
         userProfileDetails.html(`
-            <h2 class="header-border-bottom">Challenges</h2>
             <section class="private-challenges flow-small">
                 <h3 class="header-border-bottom">Private Challenges</h3>
 
                 ${CreateChallengeButton( 'Private', 'private-challenge-button' )}
 
-                <div class="d-flex justify-content-center center private-challenges__list">
+                <div class="d-flex justify-content-center private-challenges__list">
                     <span class="loading-spinner active"></span>
                 </div>
             </section>
@@ -443,28 +460,25 @@ jQuery(document).ready(function(){
 
                 ${CreateChallengeButton( 'Public', 'public-challenge-button' )}
 
-                <div class="d-flex justify-content-center center public-challenges__list">
+                <div class="d-flex justify-content-center public-challenges__list">
                     <span class="loading-spinner active"></span>
                 </div>
             </section>
 `
         )
 
-        getChallenges( 'public' )
-        getChallenges( 'private' )
+        buildChallengeList( 'public' )
+        buildChallengeList( 'private' )
 
         jQuery('#private-challenge-button').on('click', () => {
             challengeVisibility.val('private')
             challengeModalTitle.html('Create Private Challenge')
-            challengeModalTitleIcon.addClass('ion-locked')
-            challengeModalTitle.addClass('private')
-            challengeModalTitle.removeClass('public')
+            challengeModalTitle[0].dataset.visibility = 'private'
         })
         jQuery('#public-challenge-button').on('click', () => {
             challengeVisibility.val('public')
             challengeModalTitle.html('Create Public Challenge')
-            challengeModalTitle.addClass('public')
-            challengeModalTitle.removeClass('private')
+            challengeModalTitle[0].dataset.visibility = 'public'
         })
 
         jQuery('.ongoing-challenge-button').on('click', () => {
@@ -472,6 +486,7 @@ jQuery(document).ready(function(){
             challengeStartDateGroup.show()
             challengeEndDateGroup.hide()
             challengeEndDate.attr('required', false)
+            challengeEndTime.attr('required', false)
 
             challengeTitle.focus()
         })
@@ -480,37 +495,76 @@ jQuery(document).ready(function(){
             challengeStartDateGroup.show()
             challengeEndDateGroup.show()
             challengeEndDate.attr('required', true)
+            challengeEndTime.attr('required', true)
 
             challengeTitle.focus()
         })
 
         jQuery('#challenge-form').on('submit', (event) => {
             event.preventDefault()
+            if ( isSavingChallenge === true ) {
+                return
+            }
+            isSavingChallenge = true
+            challengeLoadingSpinner.addClass('active')
+            challengeHelpText.html('')
+
             const challengeType = jQuery('input[name="challenge-type"]:checked').attr('id')
             const title = challengeTitle.val()
             const startDate = challengeStartDate.val()
+            const startTime = challengeStartTime.val()
             const endDate = challengeEndDate.val()
+            const endTime = challengeEndTime.val()
             const visibility = challengeVisibility.val()
+            const modalAction = challengeModalAction.val()
+
+            const timeOffset = (new Date()).getTimezoneOffset()
 
             const data = {
                 title,
                 visibility,
                 challenge_type: challengeType,
+                time_offset: timeOffset,
             }
 
-            if ( startDate && startDate !== '' ) {
-                data.start_date = startDate
+            if ( modalAction === 'edit' ) {
+                const post_id = challengePostId.val()
+                data.post_id = post_id
             }
+
+            data.start_date = startDate
+            data.start_time = startTime
 
             if ( challengeType === 'timed_challenge' ) {
                 data.end_date = endDate
+                data.end_time = endTime
+
+                if (  endDate < startDate || ( endDate === startDate && endTime <= startTime ) ) {
+                    challengeHelpText.html('The end date must be after the start date')
+                    isSavingChallenge = false
+                    challengeLoadingSpinner.removeClass('active')
+                    return
+                }
             }
 
-            get_user_app('create_challenge', data)
+            const actions = {
+                'edit': 'edit_challenge',
+                'create': 'create_challenge'
+            }
+
+            get_user_app( actions[modalAction], data)
                 .done((challenge) => {
                     challengeModal.modal('hide')
 
-                    getChallenges(visibility)
+                    getChallenges(visibility, () => {
+                        buildChallengeList(visibility)
+                    })
+                })
+                .fail(() => {
+                    isSavingChallenge = false
+                })
+                .always(() => {
+                    challengeLoadingSpinner.removeClass('active')
                 })
         })
 
@@ -526,50 +580,144 @@ jQuery(document).ready(function(){
         challengeEndDateGroup.hide()
         challengeTitle.val('')
         challengeStartDate.val('')
+        challengeStartTime.val('')
         challengeEndDate.val('')
+        challengeEndTime.val('')
         challengeEndDate.attr('required', false)
+        challengeEndTime.attr('required', false)
+        createNewChallengeButton.show()
+        editChallengeButton.hide()
+        challengeModalAction.val('create')
+        challengePostId.val('')
     }
 
-    function getChallenges( visibility ) {
-
-        const containers = {
-            public: jQuery('.public-challenges__list'),
-            private: jQuery('.private-challenges__list'),
+    function setChallengeForm({ visibility, challenge_type, post_title, start_time, end_time, post_id }) {
+        jQuery('input[name="challenge-type"]#' + challenge_type).prop('checked', true)
+        jQuery('#createChallengeLabel').data('visibility', visibility)
+        challengeModalAction.val('edit')
+        challengePostId.val(post_id)
+        challengeModalTitle[0].dataset.visibility = visibility
+        challengeTitleGroup.show()
+        challengeTitle.val(post_title)
+        challengeVisibility.val(visibility)
+        challengeStartDateGroup.show()
+        challengeStartDate.val(toDateInputFormat(start_time))
+        challengeStartTime.val(toTimeInputFormat(start_time))
+        if ( challenge_type === 'ongoing_challenge' ) {
+            challengeEndDateGroup.hide()
+        } else {
+            challengeEndDateGroup.show()
+            challengeEndDate.val(toDateInputFormat(end_time))
+            challengeEndTime.val(toTimeInputFormat(end_time))
+            challengeEndDate.attr('required', true)
+            challengeEndTime.attr('required', true)
         }
+        createNewChallengeButton.hide()
+        editChallengeButton.show()
+    }
 
-        const container = containers[visibility]
+    function toDateInputFormat(timestamp) {
+        const date = new Date( Number(timestamp) * 1000 )
+        let isoString
+        try {
+            isoString = date.toISOString()
+        } catch (error) {
+            isoString = ''
+        }
+        const isoDate = isoString.split('T')[0]
+        return isoDate
+    }
 
+    function toTimeInputFormat(timestamp) {
+        const localTimeOffset = (new Date()).getTimezoneOffset()
+        const date = new Date( Number(timestamp) * 1000 + localTimeOffset )
+        let timeString
+        try {
+            timeString = date.toTimeString().split(':').slice(0,2).join(':')
+        } catch (error) {
+            timeString = ''
+        }
+        return timeString
+    }
+
+    function getChallenges( visibility, callback ) {
         get_user_app( 'get_challenges', { visibility } )
             .done((challenges) => {
-                if (challenges && challenges.length === 0) {
-                    container.html('No' + visibility + 'challenges found')
-                }
                 jsObject.user[visibility + '_challenges'] = challenges
-                container.html( buildChallengeList( challenges ) )
+
+                if ( callback ) {
+                    callback(challenges)
+                }
             })
+    }
+
+    function buildChallengeList( visibility ) {
+
+        const containers = {
+            public: '.public-challenges__list',
+            private: '.private-challenges__list',
+        }
+
+        const containerSelector = containers[visibility]
+        const container = jQuery(containerSelector)
+
+        const challenges = jsObject.user[visibility + '_challenges']
+
+        if (challenges && challenges.length === 0) {
+            container.html('No' + visibility + 'challenges found')
+        }
+        container.html( buildChallengeListHTML( challenges ) )
+
+        jQuery( containerSelector + ' .edit-challenge-button').on('click', function() {
+            const challengeId = Number(this.dataset.challengeId)
+
+            const challenges = jsObject.user[visibility + '_challenges']
+
+            const challenge = challenges.find(({ post_id }) => Number(post_id) === challengeId)
+
+            if ( !challenge ) {
+                return
+            }
+
+            setChallengeForm(challenge)
+        })
 
     }
 
-    function buildChallengeList( challenges ) {
+    function buildChallengeListHTML( challenges ) {
         const tableHead = `
             <thead>
                 <tr>
                     <th>Name</th>
+                    <th></th>
                 </tr>
             </thead>
 `
 
         let tableBody = ''
         challenges.forEach((challenge) => {
+            const urlRoot = `/prayer_app/custom/${challenge.lap_key}`
             tableBody += `
                 <tr>
-                    <td><a href="/prayer_app/custom/${challenge.lap_key}/map">${challenge.post_title}</a></td>
+                    <td><a href="${urlRoot}/map">${challenge.post_title}</a></td>
+                    <td style="width: 5%">
+                        <div class="btn-group">
+                            <button class="btn btn-outline-secondary dropdown-toggle rounded-circle border-0 d-flex align-items-center justify-content-center" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                                <i class="icon ion-android-more-vertical fs-3"></i>
+                            </button>
+                            <ul class="dropdown-menu">
+                                <li><a href="#" data-bs-toggle="modal" data-bs-target="#create-challenge-modal" data-challenge-id="${challenge.post_id}" class="dropdown-item edit-challenge-button">Edit</a></li>
+                                <li><a href="${urlRoot}/tools" class="dropdown-item">Share Tools</a></li>
+                                <li><a href="${urlRoot}/display" class="dropdown-item">Display Map</a></li>
+                            </ul>
+                        </div>
+                    </td>
                 </tr>
 `
         })
 
         const html = `
-        <table>
+        <table class="table">
             ${tableHead}
             <tbody>
                 ${tableBody}
@@ -750,6 +898,7 @@ jQuery(document).ready(function(){
             id,
         })
     }
+
     /**
      * Creates markup for a button to trigger a modal
      * 
@@ -759,10 +908,16 @@ jQuery(document).ready(function(){
      * @param string classes Optional extra classes
      * @param string id Optional id to give the button
      */
-    function ModalButton({ text, modalId, buttonType = '', classes = '', id = '' } ) {
+    function ModalButton({ text, modalId, buttonType = '', classes = '', id = '', dataAttributes = [] } ) {
+
+        const attributes = []
+        dataAttributes.forEach(({name, value}) => {
+            attributes.push(`data-${name}="${value}"`)
+        })
+        const dataAttributesHTML = attributes.join(' ')
 
         return `
-        <button id="${id}" class="btn btn-${buttonType} ${classes}" data-bs-toggle="modal" data-bs-target="#${modalId}">
+        <button id="${id}" class="btn btn-${buttonType} ${classes}" data-bs-toggle="modal" data-bs-target="#${modalId}" ${dataAttributesHTML}>
             ${text}
         </button>`
     }
