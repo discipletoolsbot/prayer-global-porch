@@ -17,6 +17,7 @@ jQuery(document).ready(function($){
   const mapType = jsObject.hasOwnProperty('map_type') ? jsObject.map_type : defaultMapType
 
   const participantsLayerId = 'participants'
+  const participantsClusterLayerId = 'participants-clustered'
   const userLocationsLayerId = 'user_locations'
   const toggleableLayerIds = [participantsLayerId, userLocationsLayerId]
 
@@ -369,12 +370,23 @@ jQuery(document).ready(function($){
     }) /* for each loop */
 
     const images = [
-      { src: jsObject.image_folder + 'avatar1.png', id: 'avatar1' },
-      { src: jsObject.image_folder + 'avatar2.png', id: 'avatar2' },
-      { src: jsObject.image_folder + 'avatar3.png', id: 'avatar3' },
-      { src: jsObject.image_folder + 'avatar4.png', id: 'avatar4' },
-      { src: jsObject.image_folder + 'avatar5.png', id: 'avatar5' },
-      { src: jsObject.image_folder + 'avatar6.png', id: 'avatar6' },
+      { src: jsObject.image_folder + 'avatar-d1.png', id: 'avatar1' },
+      { src: jsObject.image_folder + 'avatar-d2.png', id: 'avatar2' },
+      { src: jsObject.image_folder + 'avatar-d3.png', id: 'avatar3' },
+      { src: jsObject.image_folder + 'avatar-d4.png', id: 'avatar4' },
+      { src: jsObject.image_folder + 'avatar-d5.png', id: 'avatar5' },
+      { src: jsObject.image_folder + 'avatar-d6.png', id: 'avatar6' },
+      { src: jsObject.image_folder + 'avatar-d7.png', id: 'avatar7' },
+      { src: jsObject.image_folder + 'avatar-d8.png', id: 'avatar8' },
+      { src: jsObject.image_folder + 'avatar-d9.png', id: 'avatar9' },
+      { src: jsObject.image_folder + 'avatar-d10.png', id: 'avatar0' },
+    ]
+
+    const groupImage = { src: jsObject.image_folder + 'avatar-group.png', id: 'avatar-group' }
+
+    const allImages = [
+      ...images,
+      groupImage,
     ]
 
     /* load prayer warriors layer */
@@ -389,7 +401,9 @@ jQuery(document).ready(function($){
             },
             "properties": {
               "name": "Name",
-              "imageId": images[i%images.length].id
+              "imageId": images[i%images.length].id,
+              "i": i,
+              "imagesLength": images.length,
             }
           }
         )
@@ -400,11 +414,18 @@ jQuery(document).ready(function($){
         'data': {
           "type": "FeatureCollection",
           "features": features
+        },
+        'cluster': true,
+        'clusterMaxZoom': 10,
+        'clusterRadius': 30,
+        'clusterProperties': {
+          'iSum': [ '+', [ 'get', 'i' ] ],
+          'imagesLength': [ 'min', [ 'get', 'imagesLength' ] ],
         }
       })
 
       Promise.all(
-        images.map(({src, id}) => new Promise((resolve) => {
+        allImages.map(({src, id}) => new Promise((resolve) => {
           map.loadImage(
             src,
             (error, image) => {
@@ -416,26 +437,39 @@ jQuery(document).ready(function($){
       )
       .then(() => {
           map.addLayer({
+            'id': participantsClusterLayerId,
+            'type': 'symbol',
+            'source': 'participants',
+            'filter': [ 'has', 'point_count' ],
+            'layout': {
+              'icon-image': 'avatar-group',
+              "icon-size": [
+                'interpolate',
+                ['linear', 1],
+                ['zoom'],
+                1, 0.3,
+                18, 1,
+              ],
+              'icon-padding': 0,
+              "icon-allow-overlap": true,
+            }
+          })
+          map.addLayer({
             'id': participantsLayerId,
             'type': 'symbol',
             'source': 'participants',
+            'filter': [ '!', [ 'has', 'point_count' ] ],
             'layout': {
               'icon-image': [ 'get', 'imageId' ],
               "icon-size": [
                 'interpolate',
-                ['exponential', 1],
+                ['linear', 1],
                 ['zoom'],
-                1, 0.1,
-                18, 1.5
+                1, 0.15,
+                18, 1
               ],
               'icon-padding': 0,
               "icon-allow-overlap": true,
-              'text-font': [
-                'Open Sans Semibold',
-                'Arial Unicode MS Bold'
-              ],
-              'text-offset': [0, 1.25],
-              'text-anchor': 'top'
             }
           })
         })
