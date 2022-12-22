@@ -127,6 +127,9 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                         <a class="btn btn-outline-dark py-2" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a>
                     </div>
                 </div>
+                <div class="holding-page">
+                    <h1 class="six-em">Starts on <?php echo $lap_stats['start_time'] ?></h1>
+                </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
                 <div id="foot_block">
