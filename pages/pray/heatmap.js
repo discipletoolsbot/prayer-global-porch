@@ -526,7 +526,6 @@ jQuery(document).ready(function($){
     }
 
     const holdingPage = jQuery('.holding-page')
-    const prayButton = jQuery('.holding-page .pray-button')
     if ( jsObject.stats.start_time * 1000 > Date.now() ) {
       const startDate = new Date(jsObject.stats.start_time * 1000 )
       const startTime = startDate.toLocaleTimeString().split(':').slice(0,2).join(':')
@@ -539,7 +538,7 @@ jQuery(document).ready(function($){
       }, 1000)
 
       jQuery('.holding-page .starts-on-date').html( `${jsObject.stats.start_time_formatted} <br/> ${startTime}` )
-      prayButton.html('Start warming up')
+      jQuery('.holding-page .pray-button').html('Start warming up')
       holdingPage.show()
 
     } else {
@@ -551,15 +550,17 @@ jQuery(document).ready(function($){
   } /* .preCache */
 
   function incrementCountdown() {
+    const prayButton = jQuery('.holding-page .pray-button')
     let now = new Date().getTime() / 1000
     let timeLeft = jsObject.stats.start_time - now;
 
-    if ( timeLeft < 0 ) {
+    if ( Math.floor( timeLeft ) === 0 ) {
       jQuery('.holding-page .time-remaining').html('Go')
+      window.schoolPride()
       prayButton.html('Start Praying')
       prayButton.off('click')
       prayButton.on('click', () => {
-        location.href(`/prayer_app/custom/${jsObject.parts.public_key}`)
+        location.href = `/prayer_app/custom/${jsObject.parts.public_key}`
       })
 
       clearInterval(countdownInterval)
@@ -576,6 +577,9 @@ jQuery(document).ready(function($){
     let minutes = Math.floor((timeLeft / 60) - ( hours * 60 ) - ( days * 24 * 60 ) );
     let seconds = Math.floor(timeLeft - ( minutes * 60 ) - ( hours * 60 * 60 ) - ( days * 24 * 60 * 60 ) ) ;
 
+    if ( hours < 10 ) {
+      hours = `0${hours}`
+    }
     if ( minutes < 10 ) {
       minutes = `0${minutes}`
     }
@@ -583,9 +587,16 @@ jQuery(document).ready(function($){
       seconds = `0${seconds}`
     }
 
-    const formattedTimeLeft = `${days} days <br /> <span class="time-counter">${hours}:${minutes}:${seconds}</span>`
+    if ( Number(minutes) === 0) {
+      return `<span class="time-counter">${seconds}</span>`
+    }
+    if ( Number(hours) === 0) {
+      return `<span class="time-counter">${minutes}:${seconds}</span>`
+    }
+    if (days === 0) {
+    }
 
-    return formattedTimeLeft
+      return `${days} days <br /> <span class="time-counter">${hours}:${minutes}:${seconds}</span>`
   }
 
   function load_grid_details( grid_id ) {
