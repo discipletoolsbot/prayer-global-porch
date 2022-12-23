@@ -20,6 +20,8 @@ jQuery(document).ready(function($){
   const userLocationsLayerId = 'user_locations'
   const toggleableLayerIds = [participantsLayerId, userLocationsLayerId]
 
+  let countdownInterval
+
   window.get_page = (action) => {
     return jQuery.ajax({
       type: "POST",
@@ -522,9 +524,69 @@ jQuery(document).ready(function($){
     } else {
       jQuery('.end_time').html( jsObject.stats.end_time_formatted )
     }
+
+    const holdingPage = jQuery('.holding-page')
+    const prayButton = jQuery('.holding-page .pray-button')
+    if ( jsObject.stats.start_time * 1000 > Date.now() ) {
+      const startDate = new Date(jsObject.stats.start_time * 1000 )
+      const startTime = startDate.toLocaleTimeString().split(':').slice(0,2).join(':')
+
+      setTimeout(() => {
+
+        incrementCountdown()
+
+        countdownInterval = setInterval(incrementCountdown, 1000)
+      }, 1000)
+
+      jQuery('.holding-page .starts-on-date').html( `${jsObject.stats.start_time_formatted} <br/> ${startTime}` )
+      prayButton.html('Start warming up')
+      holdingPage.show()
+
+    } else {
+      holdingPage.hide()
+    }
+
     jQuery('#head_block').show()
     jQuery('#foot_block').show()
   } /* .preCache */
+
+  function incrementCountdown() {
+    let now = new Date().getTime() / 1000
+    let timeLeft = jsObject.stats.start_time - now;
+
+    if ( timeLeft < 0 ) {
+      jQuery('.holding-page .time-remaining').html('Go')
+      prayButton.html('Start Praying')
+      prayButton.off('click')
+      prayButton.on('click', () => {
+        location.href(`/prayer_app/custom/${jsObject.parts.public_key}`)
+      })
+
+      clearInterval(countdownInterval)
+      return
+    }
+
+    const formattedTimeLeft = formatTimeLeft(timeLeft)
+    jQuery('.holding-page .time-remaining').html(formattedTimeLeft)
+  }
+
+  function formatTimeLeft(timeLeft) {
+    let days = Math.floor(timeLeft / (60 * 60 * 24) );
+    let hours = Math.floor((timeLeft / (60 * 60 )) - ( days * 24 ) );
+    let minutes = Math.floor((timeLeft / 60) - ( hours * 60 ) - ( days * 24 * 60 ) );
+    let seconds = Math.floor(timeLeft - ( minutes * 60 ) - ( hours * 60 * 60 ) - ( days * 24 * 60 * 60 ) ) ;
+
+    if ( minutes < 10 ) {
+      minutes = `0${minutes}`
+    }
+    if ( seconds < 10 ) {
+      seconds = `0${seconds}`
+    }
+
+    const formattedTimeLeft = `${days} days <br /> <span class="time-counter">${hours}:${minutes}:${seconds}</span>`
+
+    return formattedTimeLeft
+  }
 
   function load_grid_details( grid_id ) {
     let div = jQuery('#grid_details_content')

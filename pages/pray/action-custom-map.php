@@ -94,6 +94,9 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/bootstrap/bootstrap5.2.2.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
@@ -106,6 +109,8 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
     public function body(){
         $parts = $this->parts;
         $lap_stats = pg_custom_lap_stats_by_post_id( $parts['post_id'] );
+        $now = time();
+        $hasChallengeStarted = $lap_stats['start_time'] < $now;
         DT_Mapbox_API::geocoder_scripts();
         ?>
         <style id="custom-style"></style>
@@ -124,11 +129,13 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 <div id="head_block">
                     <div class="d-flex align-items-center justify-content-between">
                         <span class="two-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
-                        <a class="btn btn-outline-dark py-2" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a>
+                        <a class="btn btn-outline-dark py-2" <?php echo $hasChallengeStarted ? '' : "style='display: none'" ?> href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a>
                     </div>
                 </div>
                 <div class="holding-page">
-                    <h1 class="six-em">Starts on <?php echo $lap_stats['start_time'] ?></h1>
+                    <h1 class="three-em center">Starts on <span class="starts-on-date"></span></h1>
+                    <h2 class="six-em center time-remaining text-secondary"></h2>
+                    <button class="btn btn-outline-dark btn-lg pray-button"></button>
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
