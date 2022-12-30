@@ -112,7 +112,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         $parts = $this->parts;
         $lap_stats = pg_custom_lap_stats_by_post_id( $parts['post_id'] );
         $now = time();
-        $hasChallengeStarted = $lap_stats['start_time'] < $now;
+        $has_challenge_started = $lap_stats['start_time'] < $now;
         DT_Mapbox_API::geocoder_scripts();
         ?>
         <style id="custom-style"></style>
@@ -131,7 +131,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 <div id="head_block">
                     <div class="d-flex align-items-center justify-content-between">
                         <span class="two-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
-                        <a class="btn btn-outline-dark py-2" <?php echo $hasChallengeStarted ? '' : "style='display: none'" ?> href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a>
+                        <a class="btn btn-outline-dark py-2" <?php echo esc_attr( $has_challenge_started ) ? '' : "style='display: none'" ?> href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a>
                     </div>
                 </div>
                 <div class="holding-page flow-small">
