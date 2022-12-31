@@ -494,7 +494,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         $global_priority_list = array_intersect( $custom_remaining, $global_remaining );
         shuffle( $global_priority_list );
         if ( isset( $global_priority_list[0] ) ) {
-            return PG_Stacker::build_location_stack_v2( $global_priority_list[0] );
+            return PG_Stacker::build_location_stack( $global_priority_list[0] );
         }
 
         // no global match, select from remaining custom location
@@ -503,7 +503,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
 
         dt_write_log( 'No Match :: ' . $parts['post_id'] );
 
-        return PG_Stacker::build_location_stack_v2( $grid_id );
+        return PG_Stacker::build_location_stack( $grid_id );
     }
 
     public function _remaining_global_prayed_list( $list_4770 ) {

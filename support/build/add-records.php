@@ -1,6 +1,8 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
+//Prayer_Global_Add::instance();
+
 class Prayer_Global_Add extends DT_Magic_Url_Base
 {
     public $page_title = 'Prayer.Global';
@@ -301,4 +303,4 @@ class Prayer_Global_Add extends DT_Magic_Url_Base
     }
 
 }
-Prayer_Global_Add::instance();
+

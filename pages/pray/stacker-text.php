@@ -1,414 +1,8 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
-class PG_Stacker_Text
-{
-    public static function photos_text( $stack): array
-    {
-        /**
-         * Photos Block
-         */
-        return [
-            [
-                'section_summary' => 'What people or activities could you pray for in this photo?',
-                'prayer' => '',
-            ],
-            [
-                'section_summary' => 'What people or resources could you pray for in this photo?',
-                'prayer' => '',
-            ],
-            [
-                'section_summary' => 'What culture or activities could you pray for in this photo?',
-                'prayer' => '',
-            ],
-            [
-                'section_summary' => 'What conditions of education, economy, religion, or environment could you pray for here?',
-                'prayer' => '',
-            ],
-            [
-                'section_summary' => 'What conditions of religion or environment could you pray for here?',
-                'prayer' => '',
-            ],
-            [
-                'section_summary' => 'What conditions of education or environment could you pray for here?',
-                'prayer' => '',
-            ],
-            [
-                'section_summary' => 'What conditions of economy or religion could you pray for here?',
-                'prayer' => '',
-            ],
-        ];
-    }
 
-    public static function least_reached_text( $stack): array
-    {
-        /**
-         * Least Reached Block
-         */
-        return [
-            [
-                'section_summary' => '',
-                'prayer' => 'Lord we ask you on behalf of the ' . $stack['least_reached']['name'] . ' people. ' . number_format( (float) $stack['least_reached']['PercentEvangelical'], 1 ) . '% are known to be believers. Oh God, please share with them the great gift of your son Jesus and your kingdom.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Lord, please remember the ' . $stack['least_reached']['name'] . ' people. You said you wanted worshippers of every tongue and tribe and nation, yet we know of no worshippers among them.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Lord, you sent Jesus as a witness to testify about the light so that all the ' . $stack['least_reached']['name'] . ' people might believe through him.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Lord, bring the blind by a way that they don’t know. Lead the ' . $stack['least_reached']['name'] . ' people in paths that they don’t know. Make darkness light before them and crooked places straight. Do not forsake the ' . $stack['least_reached']['name'] . ' people.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Lord, I thank you that you will bring health and a cure to the ' . $stack['least_reached']['name'] . ' people. Reveal to them abundance of peace and truth.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Father, open to your people a door for the word, to speak the mystery of Christ to the ' . $stack['least_reached']['name'] . ' people.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Father, I pray against the principalities, against the powers, against the world’s rulers of darkness of this age, and against the spiritual forces of the wickedness in the heavenly places that are warring against the ' . $stack['least_reached']['name'] . ' people.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Jesus, I pray that all the ' . $stack['least_reached']['name'] . ' people will remember and turn to you, Lord God. May all the ' . $stack['least_reached']['name'] . ' people worship before you. For the kingdom of the ' . $stack['least_reached']['name'] . ' people is yours.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Lord God, I thank you that the blood of Christ, who through the eternal Spirit offered himself without defect to God, can cleanse the ' . $stack['least_reached']['name'] . ' people conscience from dead works to serve the living God.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Spirit, I pray that the ' . $stack['least_reached']['name'] . ' people will come and worship before you, Lord. May they glorify your name for you are great.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Lord, Let your Kingdom come among the ' . $stack['least_reached']['name'] . ' people. Let your will be done, as in heaven, so on earth.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Lord, remember the ' . $stack['least_reached']['name'] . ' people. Make the ' . $stack['least_reached']['name'] . ' people a chosen race, a royal priesthood, a holy nation, a people for your own possession.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Father, I pray that the ' . $stack['least_reached']['name'] . ' people will not be afraid or ashamed. Prevent them from being confounded or disappointed in their search for you. May the ' . $stack['least_reached']['name'] . ' people know you.',
-            ],
-            [
-                'section_summary' => '',
-                'prayer' => 'Father, ' . number_format( (float) $stack['least_reached']['PercentEvangelical'], 1 ) . '% are known to be believers. Please, Lord call more today.',
-            ],
-        ];
-    }
-
-    public static function key_city_text( $stack, $key_city): array
-    {
-        /**
-         * Key City Block
-         */
-        return [
-            [
-                'section_summary' => 'Pray that God raises up new churches in the city of ' . $key_city['full_name'] . '.',
-            ],
-        ];
-    }
-
-    public static function cities_text( $stack): array
-    {
-        /**
-         * Key City Block
-         */
-        return [
-            [
-                'prayer' => 'Pray that God encourage his people in all these cities.',
-            ],
-            [
-                'prayer' => 'Pray that new churches are planted in these cities.',
-            ],
-        ];
-    }
-
-    public static function prayer_text( $stack): array
-    {
-
-        return [
-            /**
-             * PRAYERS TARGETING BELIEVERS
-             */
-            'believers' => [
-                [
-                    'prayer' => 'Father, even as we pray for people of ' . $stack['location']['name'] . ' and long to see disciples made and multiplied, we cry out for a prayer movement to stir inside and outside of ' . $stack['location']['full_name'] . '.',
-                ],
-                [
-                    'prayer' => 'Lord, stir the hearts of Your people to agree with You and with one another in strong faith, passion, and perseverance to see You build Your Church in ' . $stack['location']['full_name'] . '.',
-                ],
-                [
-                    'prayer' => 'Lord we pray you unite believers to pray at all times in the Spirit, with all prayer and supplication, for spiritual breakthrough and protection and transformation throughout ' . $stack['location']['full_name'] . ' in this generation.',
-                ],
-                [
-                    'prayer' => 'Father, we pray that the people of ' . $stack['location']['full_name'] . ' that they will learn to study the Bible, understand it, obey it, and share it.',
-                ],
-                [
-                    'prayer' => 'God, we pray both the men and women of ' . $stack['location']['full_name'] . ' that they will find ways to meet in groups of two or three to encourage and correct one another from your Word.',
-                ],
-                [
-                    'prayer' => 'Lord, we pray for the believers in ' . $stack['location']['full_name'] . ' to be more like Jesus, which is the greatest blessing we can offer them.',
-                ],
-                [
-                    'prayer' => 'God, we pray for the believers in ' . $stack['location']['full_name'] . ' that they will know how easy it is to spend an hour in prayer with you, and will do it.',
-                ],
-                [
-                    'prayer' => 'Father, we pray for the believers in ' . $stack['location']['full_name'] . ' to be good stewards of their relationships.',
-                ],
-                [
-                    'prayer' => 'God, we pray for the believers in ' . $stack['location']['full_name'] . ' to be generous so that they would be worthy of greater investment by you.',
-                ],
-            ],
-            /**
-             * PRAYERS TARGETING CULTURAL CHRISTIANS
-             */
-            'christian_adherents' => [
-                [
-                    'prayer' => 'Lord, help the people of ' . $stack['location']['full_name'] . ' to discover the essence of being a disciple, making disciples, and how to plant churches that multiply.',
-                ],
-                [
-                    'prayer' => 'Father, we pray that the people of ' . $stack['location']['full_name'] . ' that they will learn to study the Bible, understand it, obey it, and share it.',
-                ],
-            ],
-            /**
-             * PRAYERS TARGETING NON CHRISTIANS
-             */
-            'non_christians' => [
-                [
-                    'prayer' => 'God, please help the people of ' . $stack['location']['full_name'] . ' to become disciples who hear from you and then obey you.',
-                ],
-                [
-                    'prayer' => 'God, we pray both the men and women of ' . $stack['location']['full_name'] . ' that they will find ways to meet in groups of two or three to encourage and correct one another from your Word.',
-                ],
-            ]
-        ];
-
-    }
-
-    public static function faith_status_text( $stack): array
-    {
-
-        return [
-            /**
-             * PRAYERS TARGETING BELIEVERS
-             */
-            'believers' => [
-                [
-                    'prayer' => '',
-                ],
-                [
-                    'prayer' => '',
-                ],
-            ],
-            /**
-             * PRAYERS TARGETING CULTURAL CHRISTIANS
-             */
-            'christian_adherents' => [
-                [
-                    'prayer' => '',
-                ],
-            ],
-            /**
-             * PRAYERS TARGETING NON CHRISTIANS
-             */
-            'non_christians' => [
-                [
-                    'prayer' => '',
-                ],
-            ]
-        ];
-
-    }
-
-    public static function verse_text( $stack): array
-    {
-
-        return [
-            /**
-             * PRAYERS TARGETING BELIEVERS
-             */
-            'believers' => [
-                [
-                    'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
-                    'reference' => 'Matthew 24:14',
-                    'prayer' => 'Pray the gospel is preached in ' . $stack['location']['name'] . '.',
-                ],
-                [
-                    'verse' => '"Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, teaching them to observe all that I have commanded you; and lo, I am with you always, to the close of the age."',
-                    'reference' => 'Matthew 28:19-20',
-                    'prayer' => 'Pray the gospel is preached in to all nations including ' . $stack['location']['name'] . '.',
-                ],
-                [
-                    'verse' => '"For the earth will be filled with the knowledge of the glory of the LORD as the waters cover the sea."',
-                    'reference' => 'Habakkuk 2:14',
-                    'prayer' => 'Pray knowledge of the glory of the Lord fills ' . $stack['location']['full_name'] . '.',
-                ],
-                [
-                    'verse' => '"How then will they call on him in whom they have not believed? And how are they to believe in him of whom they have never heard? And how are they to hear without someone preaching? ... So faith comes from hearing, and hearing through the word of Christ"',
-                    'reference' => 'Rom. 10:14,17',
-                    'prayer' => 'Open the hearts and lips of Your ' . $stack['location']['believers'] . ' people in ' . $stack['location']['name'] . ' to humbly and boldly and broadly share Your Good News for the glory of Your name.',
-                ],
-                [
-                    'verse' => '"All Scripture is breathed out by God and profitable for teaching, for reproof, for correction, and for training in righteousness, that the man of God may be complete, equipped for every good work"',
-                    'reference' => '2 Timothy 3:16-17',
-                    'prayer' => 'May Your Word, O God, be the foundational source of truth and discernment for all matters of faith and practice and shepherding among the people of ' . $stack['location']['full_name'] . '.',
-                ],
-                [
-                    'verse' => '"All Scripture is breathed out by God and profitable for teaching, for reproof, for correction, and for training in righteousness, that the man of God may be complete, equipped for every good work"',
-                    'reference' => '2 Timothy 3:16-17',
-                    'prayer' => 'We pray against competing spiritual authorities ' . $stack['location']['name'] . ' and ask that as biblical understanding increases that love, dependence upon, and obedience to You would correspondingly increase.',
-                ],
-                [
-                    'verse' => '"And when they had appointed elders for them in every church, with prayer and fasting they committed them to the Lord in whom they had believed."',
-                    'reference' => 'Acts 14:23',
-                    'prayer' => 'Father, just as the earliest church-planting efforts included the appointment of local leaders over those young congregations, we pray for qualified locals to humbly serve and lead Your Church in ' . $stack['location']['full_name'] . '.',
-                ],
-                [
-                    'verse' => '"Now when they saw the boldness of Peter and John, and perceived that they were uneducated, common men, they were astonished. And they recognized that they had been with Jesus"',
-                    'reference' => 'Acts 4:13',
-                    'prayer' => 'Lord, while we acknowledge the value of education and training, we affirm the superior value of abiding in and being with You. We pray for the ' . $stack['location']['believers'] . ' believers in ' . $stack['location']['name'] . ' that they abide in You.',
-                ],
-                [
-                    'verse' => '"Now when they saw the boldness of Peter and John, and perceived that they were uneducated, common men, they were astonished. And they recognized that they had been with Jesus"',
-                    'reference' => 'Acts 4:13',
-                    'prayer' => 'Lord, we ask You to raise up men and women of godly character as lay leaders to serve and shepherd Your people. Let not formal training, diplomas, or titles be the ultimate criteria for influence or a bottleneck to spiritual maturity or church growth.',
-                ],
-                [
-                    'verse' => '"And the Lord added to their number day by day those who were being saved. ... And more than ever believers were added to the Lord, multitudes of both men and women, ... And the word of God continued to increase, and the number of disciples multiplied greatly ..."',
-                    'reference' => 'Acts 2:47b; 5:14; 6:7',
-                    'prayer' => 'O Lord, in Jesus’ name, we pray for this kind of rapid reproduction in ' . $stack['location']['full_name'] . '. May Your word increase and may disciples multiply.',
-                ],
-                [
-                    'verse' => '"And the Lord added to their number day by day those who were being saved. ... And the word of God continued to increase, and the number of disciples multiplied greatly ..."',
-                    'reference' => 'Acts 2:47b; 5:14; 6:7',
-                    'prayer' => 'Bless Your church in ' . $stack['location']['full_name'] . ' with spiritual gifts, godly leaders, unity in the faith and in the knowledge of Your Son, integrity, and an interdependence that nurtures the church in love.',
-                ],
-                [
-                    'verse' => '"And the Lord added to their number day by day those who were being saved. ... And the word of God continued to increase, and the number of disciples multiplied greatly ..."',
-                    'reference' => 'Acts 2:47b; 5:14; 6:7',
-                    'prayer' => 'For the good of ' . $stack['location']['full_name'] . ' and the glory of Your name, we pray for healthy churches here that are characterized by worship in spirit and truth, love-motivated gospel-sharing, intentional discipleship, and genuine life-on-life community.',
-                ],
-                [
-                    'verse' => '"Pray also for me, that whenever I speak, words may be given to me so that I will fearlessly make known the mystery of the gospel."',
-                    'reference' => 'Ephesians 6:18',
-                    'prayer' => 'Father, we pray every disciple in ' . $stack['location']['name'] . ' boldly proclaim the mystery of the gospel.',
-                ],
-                [
-                    'verse' => '"By this everyone will know that you are my disciples, if you love one another."',
-                    'reference' => 'John 13:35',
-                    'prayer' => 'Lord, stir the hearts of Your people in ' . $stack['location']['full_name'] . ' to agree with You and with one another in strong love that their ' . number_format( $stack['location']['non_christians_int'] + $stack['location']['christian_adherents_int'] ) . ' neighbors might know that they are yours.',
-                ],
-            ],
-            /**
-             * PRAYERS TARGETING CULTURAL CHRISTIANS
-             */
-            'christian_adherents' => [
-                [
-                    'verse' => '"Day after day, in the temple courts and from house to house, they never stopped teaching and proclaiming the good news"',
-                    'reference' => 'Acts 5:42',
-                    'prayer' => 'Father, give to the ' . $stack['location']['believers'] . ' believers in ' . $stack['location']['name'] . ' the same fire and passion for the truth of your Son, as the early church. May the message jump from one house to another house throughout the entire ' . $stack['location']['admin_level_name'] . '.',
-                ],
-                [
-                    'verse' => '"And there arose on that day a great persecution against the church in Jerusalem, and they were all scattered throughout the regions of Judea and Samaria, except the apostles. ... Now those who were scattered went about preaching the word"',
-                    'reference' => 'Acts 8:1b,4',
-                    'prayer' => 'Father, we ask You to give the ' . $stack['location']['believers'] . ' believers in ' . $stack['location']['full_name'] . ' a collective vision to preach Your word and plant Your church, even in the face of persecution.',
-                ],
-            ],
-            /**
-             * PRAYERS TARGETING NON CHRISTIANS
-             */
-            'non_christians' => [
-                [
-                    'verse' => '"And there arose on that day a great persecution against the church in Jerusalem, and they were all scattered throughout the regions of Judea and Samaria, except the apostles. ... Now those who were scattered went about preaching the word"',
-                    'reference' => 'Acts 8:1b,4',
-                    'prayer' => 'Father, we know the expansion of your church is not a job reserved for foreign missionaries or paid staff or specifically gifted individuals. We affirm that you gave the Great Commission to your Bride and we pray that the church of ' . $stack['location']['full_name'] . ' powerfully proclaim you even in persecution.',
-                ],
-                [
-                    'verse' => '"And the Lord added to their number day by day those who were being saved. ... And more than ever believers were added to the Lord, multitudes of both men and women, ... And the word of God continued to increase, and the number of disciples multiplied greatly ..."',
-                    'reference' => 'Acts 2:47b; 5:14; 6:7',
-                    'prayer' => 'O Lord, in Jesus’ name, we pray for this kind of rapid reproduction in ' . $stack['location']['full_name'] . '. May Your word increase and may disciples multiply.',
-                ],
-            ]
-        ];
-
-    }
-
-    public static function demographics_content_text( $stack): array
-    {
-
-        return [
-            /**
-             * PRAYERS TARGETING BELIEVERS
-             */
-            'believers' => [
-                [
-                    'section_summary' => 'The ' . $stack['location']['admin_level_name'] . ' of <strong>' . $stack['location']['full_name'] . '</strong> has a population of <strong>' . $stack['location']['population'] . '</strong>.<br><br> We estimate ' . $stack['location']['name'] . ' has <strong>' . $stack['location']['believers'] . '</strong> people who might know Jesus, <strong>' . $stack['location']['christian_adherents'] . '</strong> people who might know about Jesus culturally, and <strong>' . $stack['location']['non_christians'] . '</strong> people who do not know Jesus.<br><br>This is <strong>1</strong> believer for every <strong>' . $stack['location']['lost_per_believer'] . '</strong> neighbors who need Jesus.',
-                ],
-            ],
-            /**
-             * PRAYERS TARGETING CULTURAL CHRISTIANS
-             */
-            'christian_adherents' => [
-                [
-                    'section_summary' => 'The ' . $stack['location']['admin_level_name'] . ' of <strong>' . $stack['location']['full_name'] . '</strong> has a population of <strong>' . $stack['location']['population'] . '</strong>.<br><br> We estimate ' . $stack['location']['name'] . ' has <strong>' . $stack['location']['believers'] . '</strong> people who might know Jesus, <strong>' . $stack['location']['christian_adherents'] . '</strong> people who might know about Jesus culturally, and <strong>' . $stack['location']['non_christians'] . '</strong> people who do not know Jesus.<br><br>This is <strong>1</strong> believer for every <strong>' . $stack['location']['lost_per_believer'] . '</strong> neighbors who need Jesus.',
-                ],
-            ],
-            /**
-             * PRAYERS TARGETING NON CHRISTIANS
-             */
-            'non_christians' => [
-                [
-                    'section_summary' => 'The ' . $stack['location']['admin_level_name'] . ' of <strong>' . $stack['location']['full_name'] . '</strong> has a population of <strong>' . $stack['location']['population'] . '</strong>.<br><br> We estimate ' . $stack['location']['name'] . ' has <strong>' . $stack['location']['believers'] . '</strong> people who might know Jesus, <strong>' . $stack['location']['christian_adherents'] . '</strong> people who might know about Jesus culturally, and <strong>' . $stack['location']['non_christians'] . '</strong> people who do not know Jesus.<br><br>This is <strong>1</strong> believer for every <strong>' . $stack['location']['lost_per_believer'] . '</strong> neighbors who need Jesus.',
-                ],
-            ]
-        ];
-
-    }
-
-    public static function demogrphics_4_fact_text( $stack): array
-    {
-
-        return [
-            /**
-             * PRAYERS TARGETING BELIEVERS
-             */
-            'believers' => [
-                [
-                    'prayer' => '',
-                ],
-            ],
-            /**
-             * PRAYERS TARGETING CULTURAL CHRISTIANS
-             */
-            'christian_adherents' => [
-                [
-                    'prayer' => '',
-                ],
-            ],
-            /**
-             * PRAYERS TARGETING NON CHRISTIANS
-             */
-            'non_christians' => [
-                [
-                    'prayer' => '',
-                ],
-            ]
-        ];
-
-    }
-
-}
-
-class PG_Stacker_Text_V2 {
+class PG_Stacker_Text {
     /*********************************************************************
      *
      * V2 TEXT STACK ELEMENTS
@@ -654,13 +248,13 @@ class PG_Stacker_Text_V2 {
                 'section_label' => 'Prayer Movement',
                 'prayer' => 'Lord, cause a passion for prayer among the people of ' . $stack['location']['full_name'] . '.',
                 'reference' => 'John 17:20-21',
-                'verse' => 'I (Jesus) pray also for those who will believe in me through their message, that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world my believe that you have sent me.',
+                'verse' => 'I (Jesus) pray also for those who will believe in me through their message, that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world may believe that you have sent me.',
             ],
             [
                 'section_label' => 'Prayer Movement',
                 'prayer' => 'Lord, stir the hearts of Your people in the '.$stack['location']['admin_level_name'].' of ' . $stack['location']['name'] . ' to agree with You and agree with one another in love.',
                 'reference' => 'John 17:20-21',
-                'verse' => 'I (Jesus) pray also for those who will believe in me through their message, that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world my believe that you have sent me.',
+                'verse' => 'I (Jesus) pray also for those who will believe in me through their message, that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world may believe that you have sent me.',
             ],
             [
                 'section_label' => 'Prayer Movement',
@@ -680,6 +274,217 @@ class PG_Stacker_Text_V2 {
                 'reference' => '',
                 'verse' => '',
             ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+
+
+    public static function _believer_promises( &$lists, $stack, $all = false ) {
+        $templates = [
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'Father, you desire to blot out the sins of the people of '.$stack['location']['full_name'].'. You said, If they turn to you, you will dissolve their sins like mist.',
+                'reference' => 'Isaiah 44:22',
+                'verse' => 'I have blotted out, as a thick cloud, your transgressions, and, as a cloud, your sins. Return to me, for I have redeemed you.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'Father, look after and teach the way that is best to the '.$stack['location']['believers'].' believers living in '.$stack['location']['full_name'].'.',
+                'reference' => 'Psalm 32:8',
+                'verse' => 'I will instruct you and teach you in the way which you shall go. I will counsel you with my eye on you.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'Spirit, train the church of ### to trust with all their hearts, and you will make their paths straight.',
+                'reference' => 'Proverbs 3:5-6',
+                'verse' => 'Trust in Yahweh with all your heart, and don’t lean on your own understanding. In all your ways acknowledge him, and he will make your paths straight.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'Jesus, for those distressed and afraid in ###, show them today that you give peace at all times and in every situation.',
+                'reference' => '2 Thessalonians 3:16',
+                'verse' => 'Now may the Lord of peace himself give you peace at all times in all ways. The Lord be with you all.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'Father, for those in trouble in #### move them to call on you for rescue today.',
+                'reference' => 'Psalm 91:15',
+                'verse' => 'He will call on me, and I will answer him. I will be with him in trouble. I will deliver him, and honor him.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I am your shelter and a place of safety from your enemies.',
+                'reference' => 'Psalm 61:3',
+                'verse' => 'For you have been a refuge for me, a strong tower from the enemy.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'If you wait for Me, I will work on your behalf.',
+                'reference' => 'Isaiah 64:4',
+                'verse' => 'For from of old men have not heard, nor perceived by the ear, neither has the eye seen a God besides you, who works for him who waits for him.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'My love will never fail you.',
+                'reference' => '1 Corinthians 13:8',
+                'verse' => 'Love never fails. But where there are prophecies, they will be done away with. Where there are various languages, they will cease. Where there is knowledge, it will be done away with.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I will heal your broken heart and mend all your wounds.',
+                'reference' => 'Psalm 147:3',
+                'verse' => 'He heals the broken in heart, and binds up their wounds.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I will bless you in times of mourning with My comfort.',
+                'reference' => 'Matthew 5:4',
+                'verse' => 'Blessed are those who mourn, for they shall be comforted.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'You will find freedom wherever My Spirit dwells.',
+                'reference' => '2 Corinthians 3:17',
+                'verse' => 'Now the Lord is the Spirit and where the Spirit of the Lord is, there is liberty.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'You can know and depend on the love I have for you.',
+                'reference' => '1 John 4:16',
+                'verse' => 'We know and have believed the love which God has for us. God is love, and he who remains in love remains in God, and God remains in him.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'You can trust in Me for I will never forsake you.',
+                'reference' => 'Psalm 9:10',
+                'verse' => 'Those who know your name will put their trust in you, for you, Yahweh, have not forsaken those who seek you.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I put people who are lonely in families.',
+                'reference' => 'Psalm 68:6',
+                'verse' => 'God sets the lonely in families. He brings out the prisoners with singing, but the rebellious dwell in a sun-scorched land.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I hear you when you ask for anything according to My will.',
+                'reference' => '1 John 5:14',
+                'verse' => 'This is the boldness which we have toward him, that, if we ask anything according to his will, he listens to us.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I will reward those who diligently seek Me with a heart of faith.',
+                'reference' => 'Hebrews 11:6',
+                'verse' => 'Without faith it is impossible to be well pleasing to him, for he who comes to God must believe that he exists, and that he is a rewarder of those who seek him.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I will sanctify you and keep you blameless until Jesus returns.',
+                'reference' => '1 Thessalonians 5:23-24',
+                'verse' => 'May the God of peace himself sanctify you completely. May your whole spirit, soul, and body be preserved blameless at the coming of our Lord Jesus Christ. He who calls you is faithful, who will also do it.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'Those who overcome will sit with My Son on His throne.',
+                'reference' => 'Revelation 3:21',
+                'verse' => 'He who overcomes, I will give to him to sit down with me on my throne, as I also overcame, and sat down with my Father on his throne.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'My promise of life is for you and your family. ',
+                'reference' => 'Acts 2:39',
+                'verse' => 'For the promise is to you, and to your children, and to all who are far off, even as many as the Lord our God will call to himself.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'The earth belongs to Me and all that is in it.',
+                'reference' => 'Psalm 24:1',
+                'verse' => 'The earth is Yahweh’s, with its fullness; the world, and those who dwell therein.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'The grass will dry up and flowers will fail but My Word will endure forever.',
+                'reference' => '1 Peter 1:24-25',
+                'verse' => 'For, “All flesh is like grass, and all of man’s glory like the flower in the grass. The grass withers, and its flower falls; 25 but the Lord’s word endures forever.” This is the word of Good News which was preached to you.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I have called you out of darkness into My glorious light.',
+                'reference' => '1 Peter 2:9',
+                'verse' => 'But you are a chosen race, a royal priesthood, a holy nation, a people for God’s own possession, that you may proclaim the excellence of him who called you out of darkness into his marvelous light',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I have chosen the weak things of this world to confound the strong.',
+                'reference' => '1 Corinthians 1:27',
+                'verse' => 'but God chose the foolish things of the world that he might put to shame those who are wise. God chose the weak things of the world, that he might put to shame the things that are strong;',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I delight to reveal My kingdom to those with a childlike heart. ',
+                'reference' => 'Matthew 11:25-26',
+                'verse' => 'At that time, Jesus answered, “I thank you, Father, Lord of heaven and earth, that you hid these things from the wise and understanding, and revealed them to infants. Yes, Father, for so it was well-pleasing in your sight.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I have brought you close through the blood of Christ. ',
+                'reference' => 'Ephesians 2:13',
+                'verse' => 'But now in Christ Jesus you who once were far off are made near in the blood of Christ.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'Your old life is dead and your new life is hid with Christ in Me.',
+                'reference' => 'Colossians 3:3',
+                'verse' => 'For you died, and your life is hidden with Christ in God.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'The same Spirit that raised Jesus from the dead will also give life to you. ',
+                'reference' => 'Romans 8:11',
+                'verse' => 'But if the Spirit of him who raised up Jesus from the dead dwells in you, he who raised up Christ Jesus from the dead will also give life to your mortal bodies through his Spirit who dwells in you.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I have blessed you in Christ with every heavenly blessing. ',
+                'reference' => 'Ephesians 1:3',
+                'verse' => 'Blessed be the God and Father of our Lord Jesus Christ, who has blessed us with every spiritual blessing in the heavenly places in Christ',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'I will never abandon you.',
+                'reference' => 'Hebrews 13:5 ',
+                'verse' => 'Be free from the love of money, content with such things as you have, for he has said, “I will in no way leave you, neither will I in any way forsake you.',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _lost_promises( &$lists, $stack, $all = false ) {
+        $templates = [
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'Father, you desire to blot out the sins of the people of '.$stack['location']['full_name'].'. You said, If they turn to you, you will dissolve their sins like mist.',
+                'reference' => 'Isaiah 44:22',
+                'verse' => 'I have blotted out, as a thick cloud, your transgressions, and, as a cloud, your sins. Return to me, for I have redeemed you.',
+            ],
+            [
+                'section_label' => 'Promises',
+                'prayer' => 'Oh Lord, show the fatherless in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' that you can be their real Father.',
+                'reference' => '2 Corinthians 6:18',
+                'verse' => 'I will be to you a Father. You will be to me sons and daughters,’ says the Lord Almighty.',
+            ],
+
         ];
 
         if ( $all ) {
@@ -1420,6 +1225,199 @@ class PG_Stacker_Text_V2 {
         }
         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
         return $lists;
+    }
+
+    public static function least_reached_text( $stack): array
+    {
+        /**
+         * Least Reached Block
+         */
+        return [
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord we ask you on behalf of the ' . $stack['least_reached']['name'] . ' people. ' . number_format( (float) $stack['least_reached']['PercentEvangelical'], 1 ) . '% are known to be believers. Oh God, please share with them the great gift of your son Jesus and your kingdom.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord, please remember the ' . $stack['least_reached']['name'] . ' people. You said you wanted worshippers of every tongue and tribe and nation, yet we know of no worshippers among them.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord, you sent Jesus as a witness to testify about the light so that all the ' . $stack['least_reached']['name'] . ' people might believe through him.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord, bring the blind by a way that they don’t know. Lead the ' . $stack['least_reached']['name'] . ' people in paths that they don’t know. Make darkness light before them and crooked places straight. Do not forsake the ' . $stack['least_reached']['name'] . ' people.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord, I thank you that you will bring health and a cure to the ' . $stack['least_reached']['name'] . ' people. Reveal to them abundance of peace and truth.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Father, open to your people a door for the word, to speak the mystery of Christ to the ' . $stack['least_reached']['name'] . ' people.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Father, I pray against the principalities, against the powers, against the world’s rulers of darkness of this age, and against the spiritual forces of the wickedness in the heavenly places that are warring against the ' . $stack['least_reached']['name'] . ' people.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Jesus, I pray that all the ' . $stack['least_reached']['name'] . ' people will remember and turn to you, Lord God. May all the ' . $stack['least_reached']['name'] . ' people worship before you. For the kingdom of the ' . $stack['least_reached']['name'] . ' people is yours.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord God, I thank you that the blood of Christ, who through the eternal Spirit offered himself without defect to God, can cleanse the ' . $stack['least_reached']['name'] . ' people conscience from dead works to serve the living God.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Spirit, I pray that the ' . $stack['least_reached']['name'] . ' people will come and worship before you, Lord. May they glorify your name for you are great.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord, Let your Kingdom come among the ' . $stack['least_reached']['name'] . ' people. Let your will be done, as in heaven, so on earth.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Lord, remember the ' . $stack['least_reached']['name'] . ' people. Make the ' . $stack['least_reached']['name'] . ' people a chosen race, a royal priesthood, a holy nation, a people for your own possession.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Father, I pray that the ' . $stack['least_reached']['name'] . ' people will not be afraid or ashamed. Prevent them from being confounded or disappointed in their search for you. May the ' . $stack['least_reached']['name'] . ' people know you.',
+            ],
+            [
+                'section_summary' => '',
+                'prayer' => 'Father, ' . number_format( (float) $stack['least_reached']['PercentEvangelical'], 1 ) . '% are known to be believers. Please, Lord call more today.',
+            ],
+        ];
+    }
+
+    public static function photos_text( $stack): array
+    {
+        /**
+         * Photos Block
+         */
+        return [
+            [
+                'section_summary' => 'What people or activities could you pray for in this photo?',
+                'prayer' => '',
+            ],
+            [
+                'section_summary' => 'What people or resources could you pray for in this photo?',
+                'prayer' => '',
+            ],
+            [
+                'section_summary' => 'What culture or activities could you pray for in this photo?',
+                'prayer' => '',
+            ],
+            [
+                'section_summary' => 'What conditions of education, economy, religion, or environment could you pray for here?',
+                'prayer' => '',
+            ],
+            [
+                'section_summary' => 'What conditions of religion or environment could you pray for here?',
+                'prayer' => '',
+            ],
+            [
+                'section_summary' => 'What conditions of education or environment could you pray for here?',
+                'prayer' => '',
+            ],
+            [
+                'section_summary' => 'What conditions of economy or religion could you pray for here?',
+                'prayer' => '',
+            ],
+        ];
+    }
+
+    public static function key_city_text( $stack, $key_city): array
+    {
+        /**
+         * Key City Block
+         */
+        return [
+            [
+                'section_summary' => 'Pray that God raises up new churches in the city of ' . $key_city['full_name'] . '.',
+            ],
+        ];
+    }
+
+    public static function cities_text( $stack): array
+    {
+        /**
+         * Key City Block
+         */
+        return [
+            [
+                'prayer' => 'Pray that God encourage his people in all these cities.',
+            ],
+            [
+                'prayer' => 'Pray that new churches are planted in these cities.',
+            ],
+        ];
+    }
+
+    public static function demographics_content_text( $stack): array
+    {
+
+        return [
+            /**
+             * PRAYERS TARGETING BELIEVERS
+             */
+            'believers' => [
+                [
+                    'section_summary' => 'The ' . $stack['location']['admin_level_name'] . ' of <strong>' . $stack['location']['full_name'] . '</strong> has a population of <strong>' . $stack['location']['population'] . '</strong>.<br><br> We estimate ' . $stack['location']['name'] . ' has <strong>' . $stack['location']['believers'] . '</strong> people who might know Jesus, <strong>' . $stack['location']['christian_adherents'] . '</strong> people who might know about Jesus culturally, and <strong>' . $stack['location']['non_christians'] . '</strong> people who do not know Jesus.<br><br>This is <strong>1</strong> believer for every <strong>' . $stack['location']['lost_per_believer'] . '</strong> neighbors who need Jesus.',
+                ],
+            ],
+            /**
+             * PRAYERS TARGETING CULTURAL CHRISTIANS
+             */
+            'christian_adherents' => [
+                [
+                    'section_summary' => 'The ' . $stack['location']['admin_level_name'] . ' of <strong>' . $stack['location']['full_name'] . '</strong> has a population of <strong>' . $stack['location']['population'] . '</strong>.<br><br> We estimate ' . $stack['location']['name'] . ' has <strong>' . $stack['location']['believers'] . '</strong> people who might know Jesus, <strong>' . $stack['location']['christian_adherents'] . '</strong> people who might know about Jesus culturally, and <strong>' . $stack['location']['non_christians'] . '</strong> people who do not know Jesus.<br><br>This is <strong>1</strong> believer for every <strong>' . $stack['location']['lost_per_believer'] . '</strong> neighbors who need Jesus.',
+                ],
+            ],
+            /**
+             * PRAYERS TARGETING NON CHRISTIANS
+             */
+            'non_christians' => [
+                [
+                    'section_summary' => 'The ' . $stack['location']['admin_level_name'] . ' of <strong>' . $stack['location']['full_name'] . '</strong> has a population of <strong>' . $stack['location']['population'] . '</strong>.<br><br> We estimate ' . $stack['location']['name'] . ' has <strong>' . $stack['location']['believers'] . '</strong> people who might know Jesus, <strong>' . $stack['location']['christian_adherents'] . '</strong> people who might know about Jesus culturally, and <strong>' . $stack['location']['non_christians'] . '</strong> people who do not know Jesus.<br><br>This is <strong>1</strong> believer for every <strong>' . $stack['location']['lost_per_believer'] . '</strong> neighbors who need Jesus.',
+                ],
+            ]
+        ];
+
+    }
+
+    public static function demogrphics_4_fact_text( $stack): array
+    {
+
+        return [
+            /**
+             * PRAYERS TARGETING BELIEVERS
+             */
+            'believers' => [
+                [
+                    'prayer' => '',
+                ],
+            ],
+            /**
+             * PRAYERS TARGETING CULTURAL CHRISTIANS
+             */
+            'christian_adherents' => [
+                [
+                    'prayer' => '',
+                ],
+            ],
+            /**
+             * PRAYERS TARGETING NON CHRISTIANS
+             */
+            'non_christians' => [
+                [
+                    'prayer' => '',
+                ],
+            ]
+        ];
+
     }
 
 }

@@ -430,8 +430,6 @@ jQuery(document).ready(function(){
     }, 100);
   }
 
-
-
   /**
    * CELEBRATE FUNCTION
    */
