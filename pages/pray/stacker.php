@@ -35,8 +35,8 @@ class PG_Stacker {
         PG_Stacker_Text::_non_christians( $lists, $stack );
         PG_Stacker_Text::_christian_adherents( $lists, $stack );
         PG_Stacker_Text::_believers( $lists, $stack );
-        PG_Stacker_Text::_promises_believer( $lists, $stack );
-        PG_Stacker_Text::_promises_lost( $lists, $stack );
+        PG_Stacker_Text::_promises_to_believers( $lists, $stack );
+        PG_Stacker_Text::_promises_to_lost( $lists, $stack );
 //        PG_Stacker_Text::_cities($lists, $stack );
 
 

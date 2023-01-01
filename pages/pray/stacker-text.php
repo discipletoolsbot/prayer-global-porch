@@ -285,7 +285,7 @@ class PG_Stacker_Text {
 
 
 
-    public static function _promises_believer( &$lists, $stack, $all = false ) {
+    public static function _promises_to_believers( &$lists, $stack, $all = false ) {
         $section_label = 'Pray Promises';
         $templates = [
             [
@@ -417,7 +417,7 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _promises_lost( &$lists, $stack, $all = false ) {
+    public static function _promises_to_lost( &$lists, $stack, $all = false ) {
         $section_label = 'Pray Promises';
         $templates = [
             [
