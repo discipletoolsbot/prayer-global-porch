@@ -87,8 +87,8 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
 
         $lists = [];
 
-        $lists = PG_Stacker_Text::_believer_promises( $lists, $stack, true );
-        $lists = PG_Stacker_Text::_lost_promises( $lists, $stack, true );
+//        $lists = PG_Stacker_Text::_promises_believer( $lists, $stack, true );
+        $lists = PG_Stacker_Text::_promises_lost( $lists, $stack, true );
 //        $lists = PG_Stacker_Text::_for_movement( $lists, $stack, true );
 //        $lists = PG_Stacker_Text::_population_prayers( $lists, $stack, true );
 //        $lists = PG_Stacker_Text::_language_prayers( $lists, $stack, true );

@@ -285,179 +285,126 @@ class PG_Stacker_Text {
 
 
 
-    public static function _believer_promises( &$lists, $stack, $all = false ) {
+    public static function _promises_believer( &$lists, $stack, $all = false ) {
+        $section_label = 'Pray Promises';
         $templates = [
             [
-                'section_label' => 'Promises',
-                'prayer' => 'Father, you desire to blot out the sins of the people of '.$stack['location']['full_name'].'. You said, If they turn to you, you will dissolve their sins like mist.',
-                'reference' => 'Isaiah 44:22',
-                'verse' => 'I have blotted out, as a thick cloud, your transgressions, and, as a cloud, your sins. Return to me, for I have redeemed you.',
-            ],
-            [
-                'section_label' => 'Promises',
+                'section_label' => $section_label,
                 'prayer' => 'Father, look after and teach the way that is best to the '.$stack['location']['believers'].' believers living in '.$stack['location']['full_name'].'.',
                 'reference' => 'Psalm 32:8',
                 'verse' => 'I will instruct you and teach you in the way which you shall go. I will counsel you with my eye on you.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'Spirit, train the church of ### to trust with all their hearts, and you will make their paths straight.',
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, train the church of '.$stack['location']['full_name'].' to trust with all their hearts, and you will make their paths straight.',
                 'reference' => 'Proverbs 3:5-6',
                 'verse' => 'Trust in Yahweh with all your heart, and don’t lean on your own understanding. In all your ways acknowledge him, and he will make your paths straight.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'Jesus, for those distressed and afraid in ###, show them today that you give peace at all times and in every situation.',
-                'reference' => '2 Thessalonians 3:16',
-                'verse' => 'Now may the Lord of peace himself give you peace at all times in all ways. The Lord be with you all.',
-            ],
-            [
-                'section_label' => 'Promises',
-                'prayer' => 'Father, for those in trouble in #### move them to call on you for rescue today.',
-                'reference' => 'Psalm 91:15',
-                'verse' => 'He will call on me, and I will answer him. I will be with him in trouble. I will deliver him, and honor him.',
-            ],
-            [
-                'section_label' => 'Promises',
-                'prayer' => 'I am your shelter and a place of safety from your enemies.',
-                'reference' => 'Psalm 61:3',
-                'verse' => 'For you have been a refuge for me, a strong tower from the enemy.',
-            ],
-            [
-                'section_label' => 'Promises',
-                'prayer' => 'If you wait for Me, I will work on your behalf.',
-                'reference' => 'Isaiah 64:4',
-                'verse' => 'For from of old men have not heard, nor perceived by the ear, neither has the eye seen a God besides you, who works for him who waits for him.',
-            ],
-            [
-                'section_label' => 'Promises',
-                'prayer' => 'My love will never fail you.',
+                'section_label' => $section_label,
+                'prayer' => 'Father, let those from the '.$stack['location']['believers'].' believers who are shaken and weak remember that Your love will never fail them.',
                 'reference' => '1 Corinthians 13:8',
                 'verse' => 'Love never fails. But where there are prophecies, they will be done away with. Where there are various languages, they will cease. Where there is knowledge, it will be done away with.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'I will heal your broken heart and mend all your wounds.',
-                'reference' => 'Psalm 147:3',
-                'verse' => 'He heals the broken in heart, and binds up their wounds.',
-            ],
-            [
-                'section_label' => 'Promises',
-                'prayer' => 'I will bless you in times of mourning with My comfort.',
-                'reference' => 'Matthew 5:4',
-                'verse' => 'Blessed are those who mourn, for they shall be comforted.',
-            ],
-            [
-                'section_label' => 'Promises',
-                'prayer' => 'You will find freedom wherever My Spirit dwells.',
-                'reference' => '2 Corinthians 3:17',
-                'verse' => 'Now the Lord is the Spirit and where the Spirit of the Lord is, there is liberty.',
-            ],
-            [
-                'section_label' => 'Promises',
-                'prayer' => 'You can know and depend on the love I have for you.',
+                'section_label' => $section_label,
+                'prayer' => 'Father, remind your church in '.$stack['location']['name'].' that they can know and depend on the love You have for them.',
                 'reference' => '1 John 4:16',
                 'verse' => 'We know and have believed the love which God has for us. God is love, and he who remains in love remains in God, and God remains in him.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'You can trust in Me for I will never forsake you.',
+                'section_label' => $section_label,
+                'prayer' => 'Father, encourage your church in '.$stack['location']['name'].' that You never forsake them.',
                 'reference' => 'Psalm 9:10',
                 'verse' => 'Those who know your name will put their trust in you, for you, Yahweh, have not forsaken those who seek you.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'I put people who are lonely in families.',
+                'section_label' => $section_label,
+                'prayer' => 'Father, put the people who are lonely into families in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
                 'reference' => 'Psalm 68:6',
                 'verse' => 'God sets the lonely in families. He brings out the prisoners with singing, but the rebellious dwell in a sun-scorched land.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'I hear you when you ask for anything according to My will.',
+                'section_label' => $section_label,
+                'prayer' => 'Father, answer the requests of your people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
                 'reference' => '1 John 5:14',
                 'verse' => 'This is the boldness which we have toward him, that, if we ask anything according to his will, he listens to us.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'I will reward those who diligently seek Me with a heart of faith.',
+                'section_label' => $section_label,
+                'prayer' => 'Father, please reward those who diligently seek You with a heart of faith in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
                 'reference' => 'Hebrews 11:6',
                 'verse' => 'Without faith it is impossible to be well pleasing to him, for he who comes to God must believe that he exists, and that he is a rewarder of those who seek him.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'I will sanctify you and keep you blameless until Jesus returns.',
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, sanctify the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' and keep them blameless until Jesus returns.',
                 'reference' => '1 Thessalonians 5:23-24',
                 'verse' => 'May the God of peace himself sanctify you completely. May your whole spirit, soul, and body be preserved blameless at the coming of our Lord Jesus Christ. He who calls you is faithful, who will also do it.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'Those who overcome will sit with My Son on His throne.',
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, protect the overcomers in '.$stack['location']['full_name'].', so that they will one day sit with Jesus on His throne.',
                 'reference' => 'Revelation 3:21',
                 'verse' => 'He who overcomes, I will give to him to sit down with me on my throne, as I also overcame, and sat down with my Father on his throne.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'My promise of life is for you and your family. ',
+                'section_label' => $section_label,
+                'prayer' => 'Jesus, call those who are far off in '.$stack['location']['full_name'].', so that they and their family can receive life.',
                 'reference' => 'Acts 2:39',
                 'verse' => 'For the promise is to you, and to your children, and to all who are far off, even as many as the Lord our God will call to himself.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'The earth belongs to Me and all that is in it.',
+                'section_label' => $section_label,
+                'prayer' => 'Father, you said, "The earth belongs to Me and all that is in it". Please, call '.$stack['location']['full_name'].' into obedience and eternal life.',
                 'reference' => 'Psalm 24:1',
                 'verse' => 'The earth is Yahweh’s, with its fullness; the world, and those who dwell therein.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'The grass will dry up and flowers will fail but My Word will endure forever.',
-                'reference' => '1 Peter 1:24-25',
-                'verse' => 'For, “All flesh is like grass, and all of man’s glory like the flower in the grass. The grass withers, and its flower falls; 25 but the Lord’s word endures forever.” This is the word of Good News which was preached to you.',
-            ],
-            [
-                'section_label' => 'Promises',
-                'prayer' => 'I have called you out of darkness into My glorious light.',
+                'section_label' => $section_label,
+                'prayer' => 'Lord, let it be said of the '.$stack['location']['all_lost'].' lost in '.$stack['location']['name'].' that You have called them out of darkness into Your glorious light.',
                 'reference' => '1 Peter 2:9',
                 'verse' => 'But you are a chosen race, a royal priesthood, a holy nation, a people for God’s own possession, that you may proclaim the excellence of him who called you out of darkness into his marvelous light',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'I have chosen the weak things of this world to confound the strong.',
+                'section_label' => $section_label,
+                'prayer' => 'Father, You have chosen the weak things of this world to confound the strong. Make the poor and outcast in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' a testimony of your strength.',
                 'reference' => '1 Corinthians 1:27',
-                'verse' => 'but God chose the foolish things of the world that he might put to shame those who are wise. God chose the weak things of the world, that he might put to shame the things that are strong;',
+                'verse' => 'God chose the foolish things of the world that he might put to shame those who are wise. God chose the weak things of the world, that he might put to shame the things that are strong;',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'I delight to reveal My kingdom to those with a childlike heart. ',
+                'section_label' => $section_label,
+                'prayer' => 'Father, reveal your kingdom to those with a childlike heart in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
                 'reference' => 'Matthew 11:25-26',
                 'verse' => 'At that time, Jesus answered, “I thank you, Father, Lord of heaven and earth, that you hid these things from the wise and understanding, and revealed them to infants. Yes, Father, for so it was well-pleasing in your sight.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'I have brought you close through the blood of Christ. ',
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, thank you for those whom You have brought close through the blood of Christ already in '.$stack['location']['full_name'].'.',
                 'reference' => 'Ephesians 2:13',
                 'verse' => 'But now in Christ Jesus you who once were far off are made near in the blood of Christ.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'Your old life is dead and your new life is hid with Christ in Me.',
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, teach the '.$stack['location']['believers'].' believers that their old life is dead and their new life is hid with Christ.',
                 'reference' => 'Colossians 3:3',
                 'verse' => 'For you died, and your life is hidden with Christ in God.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'The same Spirit that raised Jesus from the dead will also give life to you. ',
+                'section_label' => $section_label,
+                'prayer' => 'Lord, please make the same Spirit that raised Jesus from the dead give life to those are called by his name in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
                 'reference' => 'Romans 8:11',
                 'verse' => 'But if the Spirit of him who raised up Jesus from the dead dwells in you, he who raised up Christ Jesus from the dead will also give life to your mortal bodies through his Spirit who dwells in you.',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'I have blessed you in Christ with every heavenly blessing. ',
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, encourage the church of '.$stack['location']['full_name'].' that they are blessed with every heavenly blessing.',
                 'reference' => 'Ephesians 1:3',
                 'verse' => 'Blessed be the God and Father of our Lord Jesus Christ, who has blessed us with every spiritual blessing in the heavenly places in Christ',
             ],
             [
-                'section_label' => 'Promises',
-                'prayer' => 'I will never abandon you.',
+                'section_label' => $section_label,
+                'prayer' => 'Father, thank you that you will never abandon the church of '.$stack['location']['full_name'].'.',
                 'reference' => 'Hebrews 13:5 ',
                 'verse' => 'Be free from the love of money, content with such things as you have, for he has said, “I will in no way leave you, neither will I in any way forsake you.',
             ],
@@ -470,21 +417,63 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _lost_promises( &$lists, $stack, $all = false ) {
+    public static function _promises_lost( &$lists, $stack, $all = false ) {
+        $section_label = 'Pray Promises';
         $templates = [
             [
-                'section_label' => 'Promises',
-                'prayer' => 'Father, you desire to blot out the sins of the people of '.$stack['location']['full_name'].'. You said, If they turn to you, you will dissolve their sins like mist.',
+                'section_label' => $section_label,
+                'prayer' => 'Father, You desire to blot out the sins of the people of '.$stack['location']['full_name'].'. You said, if they turn to You, You will dissolve their sins like mist.',
                 'reference' => 'Isaiah 44:22',
                 'verse' => 'I have blotted out, as a thick cloud, your transgressions, and, as a cloud, your sins. Return to me, for I have redeemed you.',
             ],
             [
-                'section_label' => 'Promises',
+                'section_label' => $section_label,
+                'prayer' => 'Jesus, for those distressed and afraid in '.$stack['location']['full_name'].', show them today that you give peace at all times and in every situation.',
+                'reference' => '2 Thessalonians 3:16',
+                'verse' => 'Now may the Lord of peace himself give you peace at all times in all ways. The Lord be with you all.',
+            ],
+            [
+                'section_label' => $section_label,
                 'prayer' => 'Oh Lord, show the fatherless in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' that you can be their real Father.',
                 'reference' => '2 Corinthians 6:18',
                 'verse' => 'I will be to you a Father. You will be to me sons and daughters,’ says the Lord Almighty.',
             ],
-
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, for those in trouble in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' prompt them to call on You for rescue today.',
+                'reference' => 'Psalm 91:15',
+                'verse' => 'He will call on me, and I will answer him. I will be with him in trouble. I will deliver him, and honor him.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, for those with enemies and who are afraid in '.$stack['location']['name'].', call them into your shelter and safety today.',
+                'reference' => 'Psalm 61:3',
+                'verse' => 'For you have been a refuge for me, a strong tower from the enemy.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Lord, to the people of '.$stack['location']['name'].' you say, "If you wait for Me, I will work on your behalf."',
+                'reference' => 'Isaiah 64:4',
+                'verse' => 'For from of old men have not heard, nor perceived by the ear, neither has the eye seen a God besides you, who works for him who waits for him.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Jesus, please find the broken hearted among the '.$stack['location']['population'].' souls in '.$stack['location']['name'].' and mend their wounds.',
+                'reference' => 'Psalm 147:3',
+                'verse' => 'He heals the broken in heart, and binds up their wounds.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, comfort those who mourn in '.$stack['location']['full_name'].'.',
+                'reference' => 'Matthew 5:4',
+                'verse' => 'Blessed are those who mourn, for they shall be comforted.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Jesus, please send your Spirit to '.$stack['location']['name'].', so they can have freedom.',
+                'reference' => '2 Corinthians 3:17',
+                'verse' => 'Now the Lord is the Spirit and where the Spirit of the Lord is, there is freedom.',
+            ],
         ];
 
         if ( $all ) {
