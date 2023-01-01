@@ -127,7 +127,7 @@ class Prayer_Global_Porch {
 
         // admin
 //      require_once( 'charts/charts-loader.php' );
-      require_once( 'support/build/loader.php' );
+        require_once( 'support/build/loader.php' );
 
 
         // 404
