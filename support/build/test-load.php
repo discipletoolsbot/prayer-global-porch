@@ -1,6 +1,8 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
+//Prayer_Global_Test_Load::instance();
+
 class Prayer_Global_Test_Load extends DT_Magic_Url_Base
 {
 
@@ -225,4 +227,4 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
     }
 
 }
-Prayer_Global_Test_Load::instance();
+

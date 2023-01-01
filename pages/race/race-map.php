@@ -251,10 +251,13 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                     'grid_data' => $this->get_grid( $params['parts'] ),
                     'participants' => $this->get_participants( $params['parts'] ),
                 ];
-            case 'get_grid_details':
-                return $this->get_grid_details( $params['data'] );
             case 'get_grid_stats':
-                return $this->get_grid_stats( $params['data'] );
+            case 'get_grid_details':
+                if ( isset( $params['data']['grid_id'] ) ) {
+                    return PG_Stacker::build_location_stack( $params['data']['grid_id'] );
+                }
+                return false;
+
             case 'get_participants':
                 return $this->get_participants( $params['parts'] );
             case 'get_user_locations':
@@ -369,16 +372,6 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
         }
 
         return $user_locations;
-    }
-
-    public function get_grid_details( $data ) {
-        $details = PG_Stacker::build_location_stack( $data['grid_id'] );
-        return $details;
-    }
-
-    public function get_grid_stats( $data ) {
-        $stats = PG_Stacker::build_location_stats( $data['grid_id'] );
-        return $stats;
     }
 
 }

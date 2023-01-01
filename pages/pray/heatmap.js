@@ -534,6 +534,9 @@ jQuery(document).ready(function($){
 
     window.get_data_page( 'get_grid_details', {grid_id: grid_id} )
       .done(function(response){
+        if ( ! response ) {
+          return
+        }
         window.report_content = response
 
         console.log(response)

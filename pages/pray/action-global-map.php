@@ -274,7 +274,10 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                     'participants' => $this->get_participants( $params['parts'] ),
                 ];
             case 'get_grid_details':
-                return $this->get_grid_details( $params['data'] );
+                if ( isset( $params['data']['grid_id'] ) ) {
+                    return PG_Stacker::build_location_stack( $params['data']['grid_id'] );
+                }
+                return false;
             case 'get_participants':
                 return $this->get_participants( $params['parts'] );
             case 'get_user_locations':
@@ -386,11 +389,6 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         }
 
         return $user_locations;
-    }
-
-    public function get_grid_details( $data ) {
-        $details = PG_Stacker::build_location_stack( $data['grid_id'] );
-        return $details;
     }
 
 }

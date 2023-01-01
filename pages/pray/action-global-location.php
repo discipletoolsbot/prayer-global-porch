@@ -162,7 +162,7 @@ class PG_Global_Prayer_App_Location extends PG_Global_Prayer_App {
     }
 
     public function get_location_by_grid_id( $grid_id ) {
-        return PG_Stacker::build_location_stack_v2( $grid_id );
+        return PG_Stacker::build_location_stack( $grid_id );
     }
 }
 PG_Global_Prayer_App_Location::instance();
