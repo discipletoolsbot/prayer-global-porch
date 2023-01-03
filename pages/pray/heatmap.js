@@ -415,7 +415,7 @@ jQuery(document).ready(function($){
           "type": "FeatureCollection",
           "features": features
         },
-        'cluster': true,
+        'cluster': false,
         'clusterMaxZoom': 10,
         'clusterRadius': 30,
         'clusterProperties': {
