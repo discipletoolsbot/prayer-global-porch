@@ -17,6 +17,7 @@ jQuery(document).ready(function($){
   const mapType = jsObject.hasOwnProperty('map_type') ? jsObject.map_type : defaultMapType
 
   const participantsLayerId = 'participants'
+  const participantsClusterLayerId = 'participants-clustered'
   const userLocationsLayerId = 'user_locations'
   const toggleableLayerIds = [participantsLayerId, userLocationsLayerId]
 
@@ -368,10 +369,30 @@ jQuery(document).ready(function($){
 
     }) /* for each loop */
 
+    const images = [
+      { src: jsObject.image_folder + 'avatar-d1.png', id: 'avatar1' },
+      { src: jsObject.image_folder + 'avatar-d2.png', id: 'avatar2' },
+      { src: jsObject.image_folder + 'avatar-d3.png', id: 'avatar3' },
+      { src: jsObject.image_folder + 'avatar-d4.png', id: 'avatar4' },
+      { src: jsObject.image_folder + 'avatar-d5.png', id: 'avatar5' },
+      { src: jsObject.image_folder + 'avatar-d6.png', id: 'avatar6' },
+      { src: jsObject.image_folder + 'avatar-d7.png', id: 'avatar7' },
+      { src: jsObject.image_folder + 'avatar-d8.png', id: 'avatar8' },
+      { src: jsObject.image_folder + 'avatar-d9.png', id: 'avatar9' },
+      { src: jsObject.image_folder + 'avatar-d10.png', id: 'avatar0' },
+    ]
+
+    const groupImage = { src: jsObject.image_folder + 'avatar-group.png', id: 'avatar-group' }
+
+    const allImages = [
+      ...images,
+      groupImage,
+    ]
+
     /* load prayer warriors layer */
     map.on('load', function() {
       let features = []
-      jQuery.each( jsObject.participants, function(i,v){
+      jsObject.participants.forEach((v, i) => {
         features.push({
             "type": "Feature",
             "geometry": {
@@ -379,44 +400,116 @@ jQuery(document).ready(function($){
               "coordinates": [v.longitude, v.latitude]
             },
             "properties": {
-              "name": "Name"
+              "name": "Name",
+              "imageId": images[i%images.length].id,
+              "i": i,
+              "imagesLength": images.length,
             }
           }
         )
       })
-      let geojson = {
-        "type": "FeatureCollection",
-        "features": features
-      }
 
       map.addSource('participants', {
         'type': 'geojson',
-        'data': geojson
-      });
-      map.loadImage(
-        jsObject.image_folder + 'praying-hand-up-40.png',
-        (error, image) => {
-          if (error) throw error;
-          map.addImage('custom-marker', image);
+        'data': {
+          "type": "FeatureCollection",
+          "features": features
+        },
+        'cluster': false,
+        'clusterMaxZoom': 10,
+        'clusterRadius': 30,
+        'clusterProperties': {
+          'iSum': [ '+', [ 'get', 'i' ] ],
+          'imagesLength': [ 'min', [ 'get', 'imagesLength' ] ],
+        }
+      })
+
+      Promise.all(
+        allImages.map(({src, id}) => new Promise((resolve) => {
+          map.loadImage(
+            src,
+            (error, image) => {
+              map.addImage(id, image)
+              resolve()
+            }
+          )
+        }))
+      )
+      .then(() => {
+          map.addLayer({
+            'id': participantsClusterLayerId,
+            'type': 'symbol',
+            'source': 'participants',
+            'filter': [ 'has', 'point_count' ],
+            'layout': {
+              'icon-image': 'avatar-group',
+              "icon-size": [
+                'interpolate',
+                ['linear', 1],
+                ['zoom'],
+                1, 0.3,
+                18, 1,
+              ],
+              'icon-padding': 0,
+              "icon-allow-overlap": true,
+            }
+          })
           map.addLayer({
             'id': participantsLayerId,
             'type': 'symbol',
             'source': 'participants',
+            'filter': [ '!', [ 'has', 'point_count' ] ],
             'layout': {
-              'icon-image': 'custom-marker',
-              "icon-size": .5,
+              'icon-image': [ 'get', 'imageId' ],
+              "icon-size": [
+                'interpolate',
+                ['linear', 1],
+                ['zoom'],
+                1, 0.15,
+                18, 1
+              ],
               'icon-padding': 0,
               "icon-allow-overlap": true,
-              'text-font': [
-                'Open Sans Semibold',
-                'Arial Unicode MS Bold'
-              ],
-              'text-offset': [0, 1.25],
-              'text-anchor': 'top'
             }
-          });
+          })
         })
-    })
+
+//      map.loadImage(
+//        //jsObject.image_folder + 'praying-hands-emoji64.png',
+//        //jsObject.image_folder + 'light-emoji64.png',
+//        //jsObject.image_folder + 'running-shoe-emoji64.png',
+//        //jsObject.image_folder + 'running-shoe-purple-emoji64.png',
+//        //jsObject.image_folder + 'fire-emoji64.png',
+//        jsObject.image_folder + 'praying-hand-up-40.png',
+//        (error, image) => {
+//          if (error) throw error;
+//          map.addImage('custom-marker', image);
+//          map.addLayer({
+//            'id': 'points',
+//            'type': 'symbol',
+//            'source': 'participants',
+//            'layout': {
+//              'icon-image': 'custom-marker',
+//              "icon-size": [
+//                'interpolate',
+//                ['linear', 1],
+//                ['zoom'],
+//                1, 0.15,
+//                15, 0.5
+//              ],
+//              'icon-padding': 0,
+//              "icon-allow-overlap": true,
+//              'text-font': [
+//                'Open Sans Semibold',
+//                'Arial Unicode MS Bold'
+//              ],
+//              'text-offset': [0, 1.25],
+//              'text-anchor': 'top'
+//            }
+//        })
+//    })
+
+  })
 
     /* load user locations layer */
     map.on('load', function() {
@@ -426,7 +519,7 @@ jQuery(document).ready(function($){
             "type": "Feature",
             "geometry": {
               "type": "Point",
-              "coordinates": [v.longitude, v.latitude]
+              "coordinates": [v.longitude, v.latitude],
             },
             "properties": {
               "name": "Name"
