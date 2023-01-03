@@ -416,8 +416,8 @@ trait PG_Lap_Trait {
         shuffle( $list_4770 );
         $grid_id = $list_4770[0];
 
-        return PG_Stacker::build_location_stack_v2( $grid_id );
-    }
+        return PG_Stacker::build_location_stack( $grid_id );
+}
 
     public static function _query_prayed_list() {
         global $wpdb;

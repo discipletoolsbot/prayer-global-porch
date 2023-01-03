@@ -52,6 +52,9 @@ jQuery(document).ready(function(){
         jQuery('#mapbox-search').val('')
         jQuery('.mapbox-error-message').html('')
     })
+    jQuery('#location-modal').on('shown.bs.modal', () => {
+        jQuery('#mapbox-search').focus()
+    })
     jQuery('#erase-user-account-modal').on('hidden.bs.modal', () => {
         jQuery('#delete-confirmation').val('')
     })
@@ -133,6 +136,20 @@ jQuery(document).ready(function(){
                 jQuery('.loading-spinner').removeClass('active')
                 if ( data ) {
                     show_user_nav()
+
+                    /* ======================================================================= */
+                    /* ==============  MAJOR HACK ALERT ====================================== */
+                    /* ======================================================================= */
+                    /* This feels like a major hack, but I'm not sure how to get around it :O/ */
+                    /* When the user logs in, the nonce needs to change as the user is now logged in */
+                    /* The nonce is created like so substr( wp_hash( $i . '|' . $action . '|' . $uid . '|' . $token, 'nonce' ), -12, 10 ); */
+                    /* When the API returns here, it can't return the correct nonce, as the new auth session cookie hasn't been generated yet */
+                    /* When this api endpoint returns the $token = '' */
+                    /* But when the nonce is checked the $token = 'big-hash-string' */
+                    /* Following through the code, this token is grabbed from the wordpress_logged_in cookie which hasn't been set until the page has loaded properly */
+                    /* This happens after this API call and so the user is "locked out" of the API until they can refresh to get the nonce based on their session token */
+                    location.reload()
+
                     write_main(data.user)
                 }
             })
@@ -216,7 +233,6 @@ jQuery(document).ready(function(){
                 </section>
                 <a class="btn btn-outline-dark" href="${jsObject.logout_url}">Logout</a><br>
             </div>
-            <span id="pg_user_id">${data.ID}</span>
 `
         );
 
@@ -247,7 +263,7 @@ jQuery(document).ready(function(){
 
             get_user_app('ip_location', { hash: pg_user_hash })
                 .done((data) => {
-                    if (!data || data === "") {
+                    if (!data || !data.location ) {
                         jQuery('.user__location-label').html('Please select your location')
                         return
                     }
@@ -269,6 +285,8 @@ jQuery(document).ready(function(){
         jQuery('.user-prayers-link').on('click', () => write_prayers())
         jQuery('.user-challenges-link').on('click', () => write_challenges())
 
+        /* Setup the mapbox search widget */
+        window.write_input_widget()
    }
 
     function write_profile({
@@ -504,13 +522,10 @@ jQuery(document).ready(function(){
             const visibility = challengeVisibility.val()
             const modalAction = challengeModalAction.val()
 
-            const timeOffset = (new Date()).getTimezoneOffset()
-
             const data = {
                 title,
                 visibility,
                 challenge_type: challengeType,
-                time_offset: timeOffset,
             }
 
             if ( modalAction === 'edit' ) {
@@ -518,14 +533,15 @@ jQuery(document).ready(function(){
                 data.post_id = post_id
             }
 
-            data.start_date = startDate
-            data.start_time = startTime
+            const start_date_seconds = new Date( `${startDate} ${startTime}` ).getTime() / 1000
+
+            data.start_date = start_date_seconds
 
             if ( challengeType === 'timed_challenge' ) {
-                data.end_date = endDate
-                data.end_time = endTime
+                const end_date_seconds = new Date( `${endDate} ${endTime}` ).getTime() / 1000
+                data.end_date = end_date_seconds
 
-                if (  endDate < startDate || ( endDate === startDate && endTime <= startTime ) ) {
+                if ( endDate < startDate ) {
                     challengeHelpText.html('The end date must be after the start date')
                     isSavingChallenge = false
                     challengeLoadingSpinner.removeClass('active')
@@ -615,8 +631,7 @@ jQuery(document).ready(function(){
     }
 
     function toTimeInputFormat(timestamp) {
-        const localTimeOffset = (new Date()).getTimezoneOffset()
-        const date = new Date( Number(timestamp) * 1000 + localTimeOffset )
+        const date = new Date( Number(timestamp) * 1000 )
         let timeString
         try {
             timeString = date.toTimeString().split(':').slice(0,2).join(':')
@@ -864,7 +879,7 @@ jQuery(document).ready(function(){
             modalId: 'location-modal',
             buttonType: 'outline-primary',
             classes: 'small border-0',
-            id: 'new-mapbox-search',
+            id: 'change-location',
         })
     }
 

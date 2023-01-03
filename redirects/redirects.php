@@ -39,6 +39,51 @@ class Prayer_Global_Porch_Newest_Lap extends DT_Magic_Url_Base
 }
 Prayer_Global_Porch_Newest_Lap::instance();
 
+class Prayer_Global_Porch_Newest_Lap_Location extends DT_Magic_Url_Base
+{
+    public $page_title = 'Prayer.Global';
+    public $root = 'nl';
+    public $type_name = 'Newest Lap Location';
+    public $post_type = 'contacts';
+
+    private static $_instance = null;
+    public static function instance() {
+        if ( is_null( self::$_instance ) ) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    } // End instance()
+
+    public function __construct() {
+        parent::__construct();
+
+        $url = dt_get_url_path();
+
+        $url_parts = explode( '/', $url );
+
+        if ( $url_parts[0] !== $this->root ) {
+            return;
+        }
+
+        $grid_id = intval( $url_parts[1] );
+
+        if ( !$grid_id ) {
+            return;
+        }
+
+        $this->redirect( $grid_id );
+    }
+
+    public function redirect( $grid_id ) {
+        $current_lap = pg_current_global_lap();
+        $link = '/prayer_app/global/' . $current_lap['key'] . '/location?grid_id=' . $grid_id;
+        wp_redirect( $link );
+        exit;
+    }
+}
+Prayer_Global_Porch_Newest_Lap_Location::instance();
+
+
 
 class Prayer_Global_Porch_Newest_Lap_Stats extends DT_Magic_Url_Base
 {
