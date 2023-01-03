@@ -596,6 +596,9 @@ jQuery(document).ready(function($){
       seconds = `0${seconds}`
     }
 
+    /* #####   Rolled back to only showing days for now   ##### */
+    return daysText
+
     if ( days > 0 ) {
       return `${daysText} <span class="time-counter">${hours}:${minutes}:${seconds}</span>`
     }
