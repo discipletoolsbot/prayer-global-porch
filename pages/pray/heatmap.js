@@ -577,26 +577,35 @@ jQuery(document).ready(function($){
     let minutes = Math.floor((timeLeft / 60) - ( hours * 60 ) - ( days * 24 * 60 ) );
     let seconds = Math.floor(timeLeft - ( minutes * 60 ) - ( hours * 60 * 60 ) - ( days * 24 * 60 * 60 ) ) ;
 
-    if ( hours < 10 ) {
+    let daysText = ''
+    if ( days > 1 ) {
+      daysText = `${days} days <br />`
+    } else if ( days === 1) {
+      daysText = `${days} day <br />`
+    } else {
+      daysText = ''
+    }
+
+    if ( days > 0 && hours < 10 ) {
       hours = `0${hours}`
     }
-    if ( minutes < 10 ) {
+    if ( ( days > 0 || hours > 0 ) && minutes < 10 ) {
       minutes = `0${minutes}`
     }
-    if ( seconds < 10 ) {
+    if ( ( days > 0 || hours > 0 || minutes > 0 ) && seconds < 10 ) {
       seconds = `0${seconds}`
     }
 
-    if ( Number(minutes) === 0) {
-      return `<span class="time-counter">${seconds}</span>`
+    if ( days > 0 ) {
+      return `${daysText} <span class="time-counter">${hours}:${minutes}:${seconds}</span>`
     }
-    if ( Number(hours) === 0) {
+    if ( Number(hours) > 0 ) {
+      return `<span class="time-counter">${hours}:${minutes}:${seconds}</span>`
+    }
+    if ( Number(minutes) > 0) {
       return `<span class="time-counter">${minutes}:${seconds}</span>`
     }
-    if (days === 0) {
-    }
-
-      return `${days} days <br /> <span class="time-counter">${hours}:${minutes}:${seconds}</span>`
+    return `<span class="time-counter">${seconds}</span>`
   }
 
   function load_grid_details( grid_id ) {
