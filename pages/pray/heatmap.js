@@ -21,6 +21,8 @@ jQuery(document).ready(function($){
   const userLocationsLayerId = 'user_locations'
   const toggleableLayerIds = [participantsLayerId, userLocationsLayerId]
 
+  let countdownInterval
+
   window.get_page = (action) => {
     return jQuery.ajax({
       type: "POST",
@@ -615,9 +617,105 @@ jQuery(document).ready(function($){
     } else {
       jQuery('.end_time').html( jsObject.stats.end_time_formatted )
     }
+
+    const holdingPage = jQuery('.holding-page')
+
+    /* Get the value of midnight this morning to compare start date against */
+
+    const challengeDate = new Date( jsObject.stats.start_time * 1000 )
+    const timeSinceMidnight = challengeDate.getSeconds() * 1000 + challengeDate.getMinutes() * 60 * 1000 + challengeDate.getHours() * 60 * 60 * 1000
+    const midnightOfChallengeDate = challengeDate - timeSinceMidnight
+
+    if ( Date.now() < midnightOfChallengeDate ) {
+      const startDate = new Date(jsObject.stats.start_time * 1000 )
+      const startTime = startDate.toLocaleTimeString().split(':').slice(0,2).join(':')
+
+      /* TODO: revert back to interval for seconds countdown */
+      /*
+      setTimeout(() => {
+
+        incrementCountdown()
+
+        countdownInterval = setInterval(incrementCountdown, 1000)
+      }, 1000)
+      */
+      incrementCountdown()
+
+      jQuery('.holding-page .starts-on-date').html( `${jsObject.stats.start_time_formatted} <br/> ${startTime}` )
+      jQuery('.holding-page .pray-button').html('Start warming up')
+      holdingPage.show()
+
+    } else {
+      holdingPage.hide()
+    }
+
     jQuery('#head_block').show()
     jQuery('#foot_block').show()
   } /* .preCache */
+
+  function incrementCountdown() {
+    const prayButton = jQuery('.holding-page .pray-button')
+    let now = new Date().getTime() / 1000
+    let timeLeft = jsObject.stats.start_time - now;
+
+    if ( Math.floor( timeLeft ) === 0 ) {
+      jQuery('.holding-page .time-remaining').html('Go')
+      window.schoolPride()
+      prayButton.html('Start Praying')
+      prayButton.off('click')
+      prayButton.on('click', () => {
+        location.href = `/prayer_app/custom/${jsObject.parts.public_key}`
+      })
+
+      clearInterval(countdownInterval)
+      return
+    }
+
+    const formattedTimeLeft = formatTimeLeft(timeLeft)
+    jQuery('.holding-page .time-remaining').html(formattedTimeLeft)
+  }
+
+  function formatTimeLeft(timeLeft) {
+    /* TODO: Revert back to floor when putting back in seconds countdown */
+    //let days = Math.floor(timeLeft / (60 * 60 * 24) );
+    let days = Math.ceil(timeLeft / (60 * 60 * 24) );
+    let hours = Math.floor((timeLeft / (60 * 60 )) - ( days * 24 ) );
+    let minutes = Math.floor((timeLeft / 60) - ( hours * 60 ) - ( days * 24 * 60 ) );
+    let seconds = Math.floor(timeLeft - ( minutes * 60 ) - ( hours * 60 * 60 ) - ( days * 24 * 60 * 60 ) ) ;
+
+    let daysText = ''
+    if ( days > 1 ) {
+      daysText = `${days} days <br />`
+    } else if ( days === 1) {
+      daysText = `${days} day <br />`
+    } else {
+      daysText = ''
+    }
+
+    if ( days > 0 && hours < 10 ) {
+      hours = `0${hours}`
+    }
+    if ( ( days > 0 || hours > 0 ) && minutes < 10 ) {
+      minutes = `0${minutes}`
+    }
+    if ( ( days > 0 || hours > 0 || minutes > 0 ) && seconds < 10 ) {
+      seconds = `0${seconds}`
+    }
+
+    /* #####   Rolled back to only showing days for now   ##### */
+    return daysText
+
+    if ( days > 0 ) {
+      return `${daysText} <span class="time-counter">${hours}:${minutes}:${seconds}</span>`
+    }
+    if ( Number(hours) > 0 ) {
+      return `<span class="time-counter">${hours}:${minutes}:${seconds}</span>`
+    }
+    if ( Number(minutes) > 0) {
+      return `<span class="time-counter">${minutes}:${seconds}</span>`
+    }
+    return `<span class="time-counter">${seconds}</span>`
+  }
 
   function load_grid_details( grid_id ) {
     let div = jQuery('#grid_details_content')

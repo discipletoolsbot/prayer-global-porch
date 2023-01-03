@@ -1,5 +1,50 @@
 $(document).ready(function($) {
 
+  window.schoolPride = function() {
+    var end = Date.now() + (3 * 1000);
+
+    // go Buckeyes!
+    var colors = ['#bb0000', '#1d82ff', '#ffffff'];
+
+    (function frame() {
+      confetti({
+        particleCount: 3,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0, y: 0.8 },
+        colors: colors
+      });
+      confetti({
+        particleCount: 3,
+        angle: 120,
+        spread: 55,
+        origin: { x: 1, y: 0.8 },
+        colors: colors
+      });
+
+      if (Date.now() < end) {
+        requestAnimationFrame(frame);
+      }
+    }());
+  }
+  window.celebrationCannons = function() {
+    var colors = ['#bb0000', '#1d82ff'];
+
+    const fire = () => {
+      confetti({
+        particleCount: 2,
+        angle: 60,
+        spread: 55,
+        origin: { x: 0 },
+        colors: colors
+      });
+    }
+
+    setTimeout(fire, 0)
+    setTimeout(fire, 100)
+    setTimeout(fire, 200)
+  }
+
   window.celebrationFireworks = function(celebrationDuration = 3000) {
     var duration = celebrationDuration;
     var animationEnd = Date.now() + duration;

@@ -62,8 +62,8 @@ strong {
     text-align:center;
 }
 .six-em {
+    line-height: 1.3;
     font-size: 6em;
-    line-height: .5em;
 }
 .three-em {
     font-size: 3em;
@@ -92,7 +92,6 @@ strong {
 @media (max-width: 768px) {
     .six-em {
         font-size: 3em ;
-        line-height: .5em;
     }
     .three-em {
         font-size: 1.7em ;
@@ -370,10 +369,10 @@ strong {
 }
 
 .flow > * + * {
-    margin-top: 4em;
+    margin-top: 4rem;
 }
 .flow-small > * + * {
-    margin-top: 2em;
+    margin-top: 2rem;
 }
 
 /* Page styles */
@@ -941,4 +940,27 @@ button {
 }
 .dropdown-toggle::after {
     display: none;
+}
+
+/* Custom map holding page */
+
+.holding-page {
+    position: fixed;
+    background: #FFFFFFAA;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    z-index: 9;
+}
+
+.time-counter {
+    font-family: 'Roboto Mono', monospace;
+    font-weight: 300;
 }
