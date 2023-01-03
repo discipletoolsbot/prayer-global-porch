@@ -526,16 +526,27 @@ jQuery(document).ready(function($){
     }
 
     const holdingPage = jQuery('.holding-page')
-    if ( jsObject.stats.start_time * 1000 > Date.now() ) {
+
+    /* Get the value of midnight this morning to compare start date against */
+
+    const challengeDate = new Date( jsObject.stats.start_time * 1000 )
+    const timeSinceMidnight = challengeDate.getSeconds() * 1000 + challengeDate.getMinutes() * 60 * 1000 + challengeDate.getHours() * 60 * 60 * 1000
+    const midnightOfChallengeDate = challengeDate - timeSinceMidnight
+
+    if ( Date.now() < midnightOfChallengeDate ) {
       const startDate = new Date(jsObject.stats.start_time * 1000 )
       const startTime = startDate.toLocaleTimeString().split(':').slice(0,2).join(':')
 
+      /* TODO: revert back to interval for seconds countdown */
+      /*
       setTimeout(() => {
 
         incrementCountdown()
 
         countdownInterval = setInterval(incrementCountdown, 1000)
       }, 1000)
+      */
+      incrementCountdown()
 
       jQuery('.holding-page .starts-on-date').html( `${jsObject.stats.start_time_formatted} <br/> ${startTime}` )
       jQuery('.holding-page .pray-button').html('Start warming up')
@@ -572,7 +583,9 @@ jQuery(document).ready(function($){
   }
 
   function formatTimeLeft(timeLeft) {
-    let days = Math.floor(timeLeft / (60 * 60 * 24) );
+    /* TODO: Revert back to floor when putting back in seconds countdown */
+    //let days = Math.floor(timeLeft / (60 * 60 * 24) );
+    let days = Math.ceil(timeLeft / (60 * 60 * 24) );
     let hours = Math.floor((timeLeft / (60 * 60 )) - ( days * 24 ) );
     let minutes = Math.floor((timeLeft / 60) - ( hours * 60 ) - ( days * 24 * 60 ) );
     let seconds = Math.floor(timeLeft - ( minutes * 60 ) - ( hours * 60 * 60 ) - ( days * 24 * 60 * 60 ) ) ;
