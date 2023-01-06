@@ -29,6 +29,7 @@ window.load_report_modal = () => {
     }
 
   })
+  correction_submit.off('click')
   correction_submit.on('click', function(){
     correction_error.empty()
 
