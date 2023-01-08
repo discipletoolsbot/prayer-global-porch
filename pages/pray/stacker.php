@@ -17,26 +17,40 @@ class PG_Stacker {
         // BUILD FACTS
         $stack = self::_stack_query( $grid_id );
 
+        /**************************/
         // PRAYER CONCEPTS
+        /**************************/
         PG_Stacker_Text::_for_movement( $lists, $stack );
-        PG_Stacker_Text::_population_prayers( $lists, $stack );
-        PG_Stacker_Text::_language_prayers( $lists, $stack );
-        PG_Stacker_Text::_religion_prayers( $lists, $stack );
         PG_Stacker_Text::_for_prayer_movement( $lists, $stack );
+        PG_Stacker_Text::_for_multiplication( $lists, $stack );
+        PG_Stacker_Text::_for_house_churches( $lists, $stack );
+        // add multiplying churches
+        // add multiplying disciples
+
+        PG_Stacker_Text::_population_prayers( $lists, $stack );
+        PG_Stacker_Text::_religion_prayers( $lists, $stack );
+        PG_Stacker_Text::_language_prayers( $lists, $stack );
+        // add languages from people groups
+
         PG_Stacker_Text::_for_abundant_gospel_sowing( $lists, $stack );
         PG_Stacker_Text::_for_new_churches( $lists, $stack );
-        PG_Stacker_Text::_for_obedience( $lists, $stack );
         PG_Stacker_Text::_for_biblical_authority( $lists, $stack );
         PG_Stacker_Text::_for_leadership( $lists, $stack );
-        PG_Stacker_Text::_for_house_churches( $lists, $stack );
-        PG_Stacker_Text::_for_multiplication( $lists, $stack );
-        PG_Stacker_Text::_for_urgency( $lists, $stack );
+        // add for apostolic/pioneering leadership
+        // add for evangelistic leadership
+        // add for prophetic/teaching leadership
+        // add for shepherding/gathering leadership
+
         PG_Stacker_Text::_for_church_health( $lists, $stack );
+        PG_Stacker_Text::_for_obedience( $lists, $stack );
+        PG_Stacker_Text::_for_urgency( $lists, $stack );
+        PG_Stacker_Text::_promises_believer( $lists, $stack );
+        PG_Stacker_Text::_promises_lost( $lists, $stack );
+
         PG_Stacker_Text::_non_christians( $lists, $stack );
         PG_Stacker_Text::_christian_adherents( $lists, $stack );
         PG_Stacker_Text::_believers( $lists, $stack );
-        PG_Stacker_Text::_promises_believer( $lists, $stack );
-        PG_Stacker_Text::_promises_lost( $lists, $stack );
+
 //        PG_Stacker_Text::_cities($lists, $stack );
 
 
@@ -50,7 +64,9 @@ class PG_Stacker {
         shuffle( $stack['list'] );
         $stack['list'] = array_slice( $stack['list'], 0, 8 );
 
-        // FACT SHUFFLE
+        /****************************/
+        // PRAYER FACTS
+        /****************************/
         self::_photos( $stack, 1 );
         self::_faith_status( $stack, 3 );
         self::_least_reached( $stack, 5 );
@@ -61,6 +77,7 @@ class PG_Stacker {
         self::_population_change( $stack );
         self::_demographics( $stack );
 //        self::_cities( $stack );
+
 
         // REDUCE STACK
         $reduced_stack = [];
