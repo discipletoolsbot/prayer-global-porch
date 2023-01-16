@@ -535,13 +535,12 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             $list_4770 = pg_generate_new_global_prayer_lap();
         }
 
-        dt_write_log( count( $list_4770 ) );
-
         return $list_4770;
     }
 
     public function _query_prayed_list( $post_id ) {
         global $wpdb;
+        $time = time();
 
         $raw_list = $wpdb->get_col( $wpdb->prepare(
             "SELECT DISTINCT grid_id
@@ -550,8 +549,9 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                       post_id = %d
                       AND type = 'prayer_app'
                       AND subtype = 'custom'
+                      AND timestamp <= %d
                       ",
-        $post_id ) );
+        $post_id, $time ) );
 
         $list = [];
         if ( !empty( $raw_list ) ) {

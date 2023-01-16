@@ -39,9 +39,11 @@ jQuery(document).ready(function(){
         window.user_location = []
         if ( location ) {
           // persist user identity hash
-          let pg_user_hash = Cookies.get('pg_user_hash')
+          // let pg_user_hash = Cookies.get('pg_user_hash')
+          let pg_user_hash = localStorage.getItem('pg_user_hash')
           if ( ! pg_user_hash || pg_user_hash === 'undefined' ) {
-            Cookies.set('pg_user_hash', location.hash )
+            localStorage.setItem('pg_user_hash', location.hash )
+            // Cookies.set('pg_user_hash', location.hash )
           } else {
             location.hash = pg_user_hash
           }
@@ -92,12 +94,15 @@ jQuery(document).ready(function(){
   window.time = 0
   window.seconds = 60
   window.time_finished = false
-  window.pace = Cookies.get('pg_pace')
+  // window.pace = Cookies.get('pg_pace')
+  window.pace = localStorage.getItem('pg_pace')
   if ( typeof window.pace === 'undefined' ) {
     window.pace = 1
-    Cookies.set('pg_pace', 1)
+    localStorage.setItem('pg_pace', 1 )
+    // Cookies.set('pg_pace', 1)
   }
-  window.viewed = Cookies.get('pg_viewed')
+  // window.viewed = Cookies.get('pg_viewed')
+  window.viewed = localStorage.getItem('pg_viewed')
   window.items = parseInt( window.pace ) + 6
   window.odometer = {
     location_count: 0,

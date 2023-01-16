@@ -165,7 +165,8 @@ jQuery(document).ready(function($){
       jsObject.grid_data = {'data': {}, 'highest_value': 1 }
     })
   let data = {
-    hash: Cookies.get('pg_user_hash')
+    // hash: Cookies.get('pg_user_hash')
+    hash: localStorage.getItem('pg_user_hash')
   }
   window.get_data_page( 'get_user_locations', data )
     .done(function(user_locations){
