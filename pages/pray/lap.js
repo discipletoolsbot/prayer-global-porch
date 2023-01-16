@@ -38,12 +38,9 @@ jQuery(document).ready(function(){
       .done(function(location) {
         window.user_location = []
         if ( location ) {
-          // persist user identity hash
-          // let pg_user_hash = Cookies.get('pg_user_hash')
           let pg_user_hash = localStorage.getItem('pg_user_hash')
           if ( ! pg_user_hash || pg_user_hash === 'undefined' ) {
             localStorage.setItem('pg_user_hash', location.hash )
-            // Cookies.set('pg_user_hash', location.hash )
           } else {
             location.hash = pg_user_hash
           }
@@ -94,15 +91,16 @@ jQuery(document).ready(function(){
   window.time = 0
   window.seconds = 60
   window.time_finished = false
-  // window.pace = Cookies.get('pg_pace')
   window.pace = localStorage.getItem('pg_pace')
-  if ( typeof window.pace === 'undefined' ) {
-    window.pace = 1
-    localStorage.setItem('pg_pace', 1 )
-    // Cookies.set('pg_pace', 1)
+  if ( typeof window.pace === 'undefined' || ! window.pace ) {
+    window.pace = '1'
+    localStorage.setItem('pg_pace', '1' )
   }
-  // window.viewed = Cookies.get('pg_viewed')
   window.viewed = localStorage.getItem('pg_viewed')
+  if ( typeof window.viewed === 'undefined' || ! window.viewed ) {
+    window.viewed = '1'
+    localStorage.setItem('pg_viewed', '1' )
+  }
   window.items = parseInt( window.pace ) + 6
   window.odometer = {
     location_count: 0,
@@ -137,7 +135,7 @@ jQuery(document).ready(function(){
         if ( typeof window.viewed === 'undefined' ) {
           toggle_timer( true )
           open_welcome.modal('show')
-          Cookies.set('pg_viewed', true, { expires: 90 } )
+          localStorage.setItem('pg_viewed', '1' )
         } else {
           setTimeout(function() {
             jQuery('.tutorial').animate({
@@ -255,11 +253,11 @@ jQuery(document).ready(function(){
       pace_buttons.removeClass('btn-secondary').addClass('btn-outline-secondary')
       jQuery('#'+e.currentTarget.id).removeClass('btn-outline-secondary').addClass('btn-secondary')
 
+
       window.pace = e.currentTarget.value
+      localStorage.setItem( 'pg_pace', window.pace )
+
       window.seconds = e.currentTarget.value * 60
-
-      Cookies.set( 'pg_pace', window.pace )
-
       window.items = parseInt( window.pace ) + 6
 
       jQuery('.container.block').show()
