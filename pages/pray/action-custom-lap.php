@@ -460,7 +460,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
      * @return array|false|void
      */
     public function get_new_location( $parts ) {
-        dt_write_log(__METHOD__ . ': Start');
+        dt_write_log( __METHOD__ . ': Start' );
 
         if ( empty( $this->parts ) && ! empty( $parts ) ) {
             $this->parts = $parts;
