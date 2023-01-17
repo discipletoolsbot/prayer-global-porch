@@ -368,11 +368,11 @@ jQuery(document).ready(function(){
     div.empty()
 
     location_map_wrapper.show()
-    mapbox_border_map()
+    // mapbox_border_map()
 
     // LOOP STACK
     jQuery.each(content.list, function(i,block) {
-      get_template( block )
+      // get_template( block )
     })
 
     // FOOTER

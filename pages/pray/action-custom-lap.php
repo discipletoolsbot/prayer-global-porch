@@ -442,7 +442,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         ];
 
         if ( is_user_logged_in() ) {
-            $contact_id = Disciple_Tools_users::get_contact_for_user( get_current_user_id() );
+            $contact_id = Disciple_Tools_Users::get_contact_for_user( get_current_user_id() );
             if ( ! empty( $contact_id ) && ! is_wp_error( $contact_id ) ) {
                 $fields['contacts'] = [
                     'values' => [
@@ -460,6 +460,8 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
      * @return array|false|void
      */
     public function get_new_location( $parts ) {
+        dt_write_log(__METHOD__ . ': Start');
+
         // get 4770 list
         if ( empty( $this->parts ) && ! empty( $parts ) ) {
             $this->parts = $parts;
@@ -469,6 +471,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         $list_4770 = $custom_remaining = pg_query_4770_locations();
         $custom_prayed = $this->_query_prayed_list( $parts['post_id'] );
         $global_remaining = $this->_remaining_global_prayed_list( $list_4770 );
+        $checked_out_locations = $this->_checked_out_locations();
 
         // subtract prayed places
         if ( ! empty( $custom_prayed ) ) {
@@ -479,9 +482,14 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
+
+
         // if completed, trigger close
         if ( empty( $custom_remaining ) ) {
+            $time = time();
             update_post_meta( $parts['post_id'], 'status', 'complete' );
+            update_post_meta( $parts['post_id'], 'end_time', $time );
+            update_post_meta( $parts['post_id'], 'end_date', $time );
             if ( dt_is_rest() ) { // signal new lap to rest request
                 return false;
             } else { // if first load on finished lap, redirect to new lap
@@ -490,20 +498,62 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             }
         }
 
+        // @todo add comparison for the checked out grid_ids
+
+        dt_write_log(__METHOD__ . ': End');
+
         // match to global
         $global_priority_list = array_intersect( $custom_remaining, $global_remaining );
         shuffle( $global_priority_list );
         if ( isset( $global_priority_list[0] ) ) {
+            dt_activity_insert( // insert activity record
+                [
+                    'action'         => 'prayer_promise',
+                    'object_type'    => '',
+                    'object_subtype' => '',
+                    'object_id'      => '',
+                    'object_name'    => '',
+                    'meta_id'        => '',
+                    'meta_key'       => '',
+                    'meta_value'     => $global_priority_list[0],
+                    'meta_parent'    => '',
+                    'object_note'    => '',
+                    'old_value'      => '',
+                    'field_type'     => '',
+                ]
+            );
             return PG_Stacker::build_location_stack( $global_priority_list[0] );
         }
 
-        // no global match, select from remaining custom location
-        shuffle( $custom_remaining );
+        shuffle( $custom_remaining ); // no global match, select from remaining custom location
         $grid_id = $custom_remaining[0];
 
-        dt_write_log( 'No Match :: ' . $parts['post_id'] );
-
         return PG_Stacker::build_location_stack( $grid_id );
+    }
+
+    public function _checked_out_locations() {
+        global $wpdb;
+        $time = time();
+        $time = $time - 90;
+
+        $raw_list = $wpdb->get_col( $wpdb->prepare(
+            "
+            SELECT meta_value as grid_id
+            FROM $wpdb->dt_activity_log
+            WHERE hist_time > %d
+                AND action = ''
+                AND object_type = ''
+                AND object_subtype = ''
+                AND post_id = ''
+            ",
+            $time
+        ) );
+
+        if ( empty( $raw_list ) ) {
+            return [];
+        } else {
+            return $raw_list;
+        }
     }
 
     public function _remaining_global_prayed_list( $list_4770 ) {
