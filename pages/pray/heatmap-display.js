@@ -169,6 +169,8 @@ jQuery(document).ready(function($){
     })
   }
 
+  window.intervalLoopCount = 0
+
   function load_grid() {
     jQuery.each(asset_list, function(i,file){
 
@@ -237,24 +239,30 @@ jQuery(document).ready(function($){
     jQuery('#head_block').show()
     jQuery('#foot_block').show()
 
+    window.intervalLoopCount++
+
   } /* .loadgrid */
 
   setInterval(function(){
-    window.get_page('get_grid')
-      .done(function(x){
-        console.log('reload')
-        // add stats
-        jsObject.stats = x.stats
-        jQuery('.completed').html( jsObject.stats.completed )
-        jQuery('.completed_percent').html( jsObject.stats.completed_percent )
-        jQuery('.remaining').html( jsObject.stats.remaining )
-        jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
-        jQuery('.prayer_warriors').html( jsObject.stats.participants )
-        jQuery('.lap_pace').html( jsObject.stats.lap_pace_small )
+    if ( window.intervalLoopCount > 60 ) {
+      location.reload()
+    } else {
+      window.get_page('get_grid')
+        .done(function(x){
+          console.log('reload')
+          // add stats
+          jsObject.stats = x.stats
+          jQuery('.completed').html( jsObject.stats.completed )
+          jQuery('.completed_percent').html( jsObject.stats.completed_percent )
+          jQuery('.remaining').html( jsObject.stats.remaining )
+          jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
+          jQuery('.prayer_warriors').html( jsObject.stats.participants )
+          jQuery('.lap_pace').html( jsObject.stats.lap_pace_small )
 
-        jsObject.grid_data = x.grid_data
-        reload_load_grid()
-      })
+          jsObject.grid_data = x.grid_data
+          reload_load_grid()
+        })
+    }
   }, 60000 )
 
   function reload_load_grid() {
