@@ -422,14 +422,17 @@ trait PG_Lap_Trait {
     public static function _query_prayed_list() {
         global $wpdb;
         $current_lap = pg_current_global_lap();
+        $time = time();
 
         $raw_list = $wpdb->get_col( $wpdb->prepare(
             "SELECT DISTINCT grid_id
                     FROM $wpdb->dt_reports
                     WHERE
                           timestamp >= %d
-                      AND type = 'prayer_app'",
-        $current_lap['start_time'] ) );
+                      AND type = 'prayer_app'
+                      AND timestamp <= %d
+                      ",
+        $current_lap['start_time'], $time ) );
 
         $list = [];
         if ( ! empty( $raw_list ) ) {

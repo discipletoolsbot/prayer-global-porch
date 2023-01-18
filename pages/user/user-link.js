@@ -259,7 +259,8 @@ jQuery(document).ready(function(){
         getChallenges('private')
 
         if ( !data.location || data.location === '' ) {
-            const pg_user_hash = Cookies.get('pg_user_hash')
+            // const pg_user_hash = Cookies.get('pg_user_hash')
+            const pg_user_hash = localStorage.getItem('pg_user_hash')
 
             get_user_app('ip_location', { hash: pg_user_hash })
                 .done((data) => {
@@ -902,7 +903,7 @@ jQuery(document).ready(function(){
 
     /**
      * Creates markup for a button to trigger a modal
-     * 
+     *
      * @param string text The text to show in the button
      * @param string modalId The id of the modal to trigger
      * @param string buttonType The classtype of the button e.g. primary, outline-success etc. (see bootstrap)
