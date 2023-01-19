@@ -508,7 +508,7 @@ trait PG_Lap_Trait {
         }
 
         // build different ranges of arrays
-        foreach( $raw_list as $item ) {
+        foreach ( $raw_list as $item ) {
             $list['all'][] = $item['grid_id'];
             if ( 'global' === $item['type']) {
                 $list['minus_custom'][] = $item['grid_id'];
