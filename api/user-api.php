@@ -19,6 +19,7 @@ class PG_User_API {
     } // End instance()
 
     public function __construct() {
+        add_filter( 'dt_allow_rest_access', [ $this, 'authorize_url' ], 10, 1 );
         if ( dt_is_rest() ) {
             add_action( 'rest_api_init', [ $this, 'add_endpoints' ] );
         }
@@ -42,6 +43,13 @@ class PG_User_API {
                 ],
             ]
         );
+    }
+
+    public function authorize_url( $authorized ){
+        if ( isset( $_SERVER['REQUEST_URI'] ) && strpos( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ), $this->root . '/v1/'.$this->type ) !== false ) {
+            $authorized = true;
+        }
+        return $authorized;
     }
 
     public function endpoint( WP_REST_Request $request ) {
