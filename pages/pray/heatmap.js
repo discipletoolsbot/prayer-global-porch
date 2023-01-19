@@ -254,24 +254,28 @@ jQuery(document).ready(function($){
     jQuery('#initialize-screen').hide()
     jQuery('.loading-spinner').removeClass('active')
 
-
-    let center = [0, 30]
-    let zoom = 2
+    let options = {
+      container: 'map',
+      style: 'mapbox://styles/discipletools/cl2ksnvie001i15qm1h5ahqea',
+      center: [0, 30],
+      minZoom: 0,
+      maxZoom: 12,
+      zoom: 2,
+      maxBounds: [ [-170, -75], [180, 85] ]
+    }
     if ( isMobile ) {
-      center = [-90, 30]
-      zoom = 1
+      options = {
+        container: 'map',
+        style: 'mapbox://styles/discipletools/cl2ksnvie001i15qm1h5ahqea',
+        center: [-90, 30],
+        minZoom: 0,
+        maxZoom: 12,
+        zoom: 1
+      }
     }
 
     mapboxgl.accessToken = jsObject.map_key;
-    map = new mapboxgl.Map({
-      container: 'map',
-      style: 'mapbox://styles/discipletools/cl2ksnvie001i15qm1h5ahqea',
-      center: center,
-      minZoom: 0,
-      maxZoom: 12,
-      zoom: zoom,
-      // maxBounds: [ [-170, -75], [180, 85] ]
-    });
+    map = new mapboxgl.Map(options);
     map.dragRotate.disable();
     map.touchZoomRotate.disableRotation();
 
@@ -289,7 +293,9 @@ jQuery(document).ready(function($){
     }
     window.map = map
 
-    pan_to_user_location()
+    if ( isMobile ) {
+      pan_to_user_location()
+    }
 
     load_grid()
   }
