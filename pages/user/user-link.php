@@ -326,6 +326,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 return false;
             case 'update_user':
                 return $this->update_user( $params['data'] );
+            case 'delete_user':
+                return $this->delete_user( $params['data'] );
             case 'activity':
                 return $this->get_user_activity( $params['data'] );
             case 'stats':
@@ -421,6 +423,42 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 return $response;
             }
         }
+    }
+
+    public function delete_user( $data ) {
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
+        /* Delete user_id from all prayers with this user_id */
+        global $wpdb;
+        $update_reports = $wpdb->update( $wpdb->dt_reports, [ 'user_id' => null ], [ 'user_id' => $user_id ] );
+
+        /* Unassign user_id from all laps that they have started */
+        $unassign_laps = $wpdb->query( $wpdb->prepare( "
+            DELETE FROM $wpdb->postmeta
+            WHERE meta_id IN (
+                SELECT meta_id FROM (
+                    SELECT pm.meta_id FROM $wpdb->posts p
+                    JOIN $wpdb->postmeta pm
+                    ON p.ID = pm.post_id
+                    WHERE p.post_type = 'laps'
+                    AND pm.meta_key = 'assigned_to'
+                    AND pm.meta_value = %s
+                ) x
+            )
+        ", "user-$user_id" ) );
+
+        $contact_id = Disciple_Tools_Users::get_contact_for_user( $user_id );
+        DT_Contacts_Utils::erase_data( $contact_id, 'this-user@no.op' );
+
+        /* Delete user */
+        require_once( ABSPATH . 'wp-admin/includes/user.php' );
+        wp_delete_user( $user_id );
+
+        return true;
     }
 
     public function get_user_activity( $data ) {

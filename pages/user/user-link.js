@@ -40,10 +40,10 @@ jQuery(document).ready(function(){
         }
     })
     jQuery('#confirm-user-account-delete').on('click', () => {
-        get_user_app('delete_account')
+        get_user_app('delete_user')
             .done((confirmed) => {
                 if (confirmed) {
-                    window.location = jsObject.logout_url
+                    window.location = '/'
                 }
             })
     })
