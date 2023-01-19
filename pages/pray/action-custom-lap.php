@@ -632,7 +632,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         }
 
         // build different ranges of arrays
-        foreach( $raw_list as $item ) {
+        foreach ( $raw_list as $item ) {
             $list['all'][] = $item['grid_id'];
             if ( 'post' === $item['type'] || 'global' === $item['type'] ) {
                 $list['minus_custom'][] = $item['grid_id'];
