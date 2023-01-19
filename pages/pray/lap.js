@@ -17,6 +17,21 @@ jQuery(document).ready(function(){
         console.log(e)
       })
   }
+  window.api_post_global = ( type, action, data ) => {
+    return jQuery.ajax({
+      type: "POST",
+      data: JSON.stringify({ action: action, parts: jsObject.parts, data: data }),
+      contentType: "application/json; charset=utf-8",
+      dataType: "json",
+      url: jsObject.root + 'pg-api/v1/' + type,
+      beforeSend: function (xhr) {
+        xhr.setRequestHeader('X-WP-Nonce', jsObject.nonce )
+      }
+    })
+      .fail(function(e) {
+        console.log(e)
+      })
+  }
   function load_next_content() {
     window.api_post( 'refresh', { grid_id: window.current_content.location.grid_id } )
       .done(function(location) {
@@ -34,7 +49,7 @@ jQuery(document).ready(function(){
     load_location()
   }
   function ip_location() {
-    window.api_post( 'ip_location', [] )
+    window.api_post_global( 'user', 'ip_location', [] )
       .done(function(location) {
         window.user_location = []
         if ( location ) {
