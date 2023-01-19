@@ -378,3 +378,7 @@ WHERE lg3.level = 2
 
 
 
+
+Add grid_id_4770 and index it
+Add table location_grid_languages
+

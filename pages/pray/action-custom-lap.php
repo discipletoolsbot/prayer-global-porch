@@ -460,7 +460,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
      * @return array|false|void
      */
     public function get_new_location( $parts ) {
-        dt_write_log( __METHOD__ . ': Start' );
+//        dt_write_log( __METHOD__ . ': Start' );
 
         if ( empty( $this->parts ) && ! empty( $parts ) ) {
             $this->parts = $parts;
@@ -468,22 +468,20 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
 
         /**
          * GET LISTS
-         *
          * $list_4770 is a full static list of the 4770
          */
         $list_4770 = pg_query_4770_locations();
 
         /**
          * GET REMAINING CUSTOM PRAYER LOCATIONS
-         *
          * The current recorded custom list reduces the full 4770 list, leaving only locations that remain to be covered.
          */
-        $custom_remaining = $this->_query_custom_prayed_list( $parts['post_id'], $list_4770 );
+        $remaining_custom = $this->_query_custom_prayed_list( $parts['post_id'], $list_4770 );
 
         /**
          * HANDLE COMPLETED LAP
          */
-        if ( empty( $custom_remaining ) ) {
+        if ( empty( $remaining_custom ) ) {
             $time = time();
             update_post_meta( $parts['post_id'], 'status', 'complete' );
             update_post_meta( $parts['post_id'], 'end_time', $time );
@@ -502,29 +500,65 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
          * $global_remaining is a list of those locations still available for prayer in the global lap
          * $promised_locations is a list of locations issued in the last 90 seconds
          */
-        $global_remaining = $this->_remaining_global_prayed_list( $list_4770 );
+        $remaining_global = $this->_remaining_global_prayed_list( $list_4770 );
+        $global_priority_list = array_intersect( $remaining_custom, $remaining_global );
         $recently_promised_locations = $this->_recently_promised_locations( $parts['post_id'] );
 
-        $global_priority_list = array_intersect( $custom_remaining, $global_remaining );
-        $global_priority_not_promised = array_diff( $global_priority_list, $recently_promised_locations );
-        $custom_remaining_not_promised = array_diff( $custom_remaining, $recently_promised_locations );
-
-        if ( ! empty( $global_priority_not_promised ) ) {
-            shuffle( $global_priority_not_promised );
-            if ( isset( $global_priority_not_promised[0] ) ) {
-                $this->_log_promise( $parts, $global_priority_not_promised[0] );
-                return PG_Stacker::build_location_stack( $global_priority_not_promised[0] );
+        // global priority minus all promises global and custom
+        $global_priority_not_promised_all = array_diff( $global_priority_list, $recently_promised_locations['all'] );
+        if ( ! empty( $global_priority_not_promised_all ) ) {
+            shuffle( $global_priority_not_promised_all );
+            if ( isset( $global_priority_not_promised_all[0] ) ) {
+                $this->_log_promise( $parts, $global_priority_not_promised_all[0] );
+                return PG_Stacker::build_location_stack( $global_priority_not_promised_all[0] );
             }
         }
-
-        if ( ! empty( $custom_remaining_not_promised ) ) {
-            shuffle( $custom_remaining_not_promised );
-            if ( isset( $custom_remaining_not_promised[0] ) ) {
-                $this->_log_promise( $parts, $custom_remaining_not_promised[0] );
-                return PG_Stacker::build_location_stack( $custom_remaining_not_promised[0] );
+        // global priority minus extra custom laps, leaving just global promises and this custom laps promises
+        $global_priority_not_promised_minus_custom = array_diff( $global_priority_list, $recently_promised_locations['minus_custom'] );
+        if ( ! empty( $global_priority_not_promised_minus_custom ) ) {
+            shuffle( $global_priority_not_promised_minus_custom );
+            if ( isset( $global_priority_not_promised_minus_custom[0] ) ) {
+                $this->_log_promise( $parts, $global_priority_not_promised_minus_custom[0] );
+                return PG_Stacker::build_location_stack( $global_priority_not_promised_minus_custom[0] );
             }
         }
-
+        // global priority minus all but promises for this lap
+        $global_priority_not_promised_post_only = array_diff( $global_priority_list, $recently_promised_locations['post_only'] );
+        if ( ! empty( $global_priority_not_promised_post_only ) ) {
+            shuffle( $global_priority_not_promised_post_only );
+            if ( isset( $global_priority_not_promised_post_only[0] ) ) {
+                $this->_log_promise( $parts, $global_priority_not_promised_post_only[0] );
+                return PG_Stacker::build_location_stack( $global_priority_not_promised_post_only[0] );
+            }
+        }
+        // remaining custom lap minus all current promises
+        $custom_remaining_not_promised_all = array_diff( $remaining_custom, $recently_promised_locations['all'] );
+        if ( ! empty( $custom_remaining_not_promised_all ) ) {
+            shuffle( $custom_remaining_not_promised_all );
+            if ( isset( $custom_remaining_not_promised_all[0] ) ) {
+                $this->_log_promise( $parts, $custom_remaining_not_promised_all[0] );
+                return PG_Stacker::build_location_stack( $custom_remaining_not_promised_all[0] );
+            }
+        }
+        // remaining custom lap minus promises to other custom laps
+        $custom_remaining_not_promised_minus_custom = array_diff( $remaining_custom, $recently_promised_locations['minus_custom'] );
+        if ( ! empty( $custom_remaining_not_promised_minus_custom ) ) {
+            shuffle( $custom_remaining_not_promised_minus_custom );
+            if ( isset( $custom_remaining_not_promised_minus_custom[0] ) ) {
+                $this->_log_promise( $parts, $custom_remaining_not_promised_minus_custom[0] );
+                return PG_Stacker::build_location_stack( $custom_remaining_not_promised_minus_custom[0] );
+            }
+        }
+        // remaining custom lap minus all promises for this custom lap
+        $custom_remaining_not_promised_post_only = array_diff( $remaining_custom, $recently_promised_locations['post_only'] );
+        if ( ! empty( $custom_remaining_not_promised_post_only ) ) {
+            shuffle( $custom_remaining_not_promised_post_only );
+            if ( isset( $custom_remaining_not_promised_post_only[0] ) ) {
+                $this->_log_promise( $parts, $custom_remaining_not_promised_post_only[0] );
+                return PG_Stacker::build_location_stack( $custom_remaining_not_promised_post_only[0] );
+            }
+        }
+        // global priority list ignoring promises
         if ( ! empty( $global_priority_list ) ) {
             shuffle( $global_priority_list );
             if ( isset( $global_priority_list[0] ) ) {
@@ -532,11 +566,11 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 return PG_Stacker::build_location_stack( $global_priority_list[0] );
             }
         }
-
-        shuffle( $custom_remaining );
-        if ( isset( $custom_remaining[0] ) ) {
-            $this->_log_promise( $parts, $custom_remaining[0] );
-            return PG_Stacker::build_location_stack( $custom_remaining[0] );
+        // remaining custom lap ignoring promises
+        shuffle( $remaining_custom );
+        if ( isset( $remaining_custom[0] ) ) {
+            $this->_log_promise( $parts, $remaining_custom[0] );
+            return PG_Stacker::build_location_stack( $remaining_custom[0] );
         } else {
             return [];
         }
@@ -558,11 +592,25 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
     public function _recently_promised_locations( $post_id ) {
         global $wpdb;
         $time = time();
-        $time = $time - 90;
+        $time = $time - 150; // 150 seconds. 1 minute in que, 1 minute to pray, 30 sec to transition
 
-        $raw_list = $wpdb->get_col( $wpdb->prepare(
+        $raw_list = $wpdb->get_results( $wpdb->prepare(
             "
-            SELECT meta_value as grid_id
+            SELECT meta_value as grid_id, 'global' as type
+            FROM $wpdb->dt_activity_log
+            WHERE hist_time > %d
+                AND action = 'prayer_promise'
+                AND object_type = 'prayer_global'
+                AND object_subtype = 'global'
+            UNION ALL
+            SELECT meta_value as grid_id, 'custom' as type
+            FROM $wpdb->dt_activity_log
+            WHERE hist_time > %d
+                AND action = 'prayer_promise'
+                AND object_type = 'prayer_global'
+                AND object_subtype = 'custom'
+            UNION ALL
+            SELECT meta_value as grid_id, 'post' as type
             FROM $wpdb->dt_activity_log
             WHERE hist_time > %d
                 AND action = 'prayer_promise'
@@ -570,14 +618,36 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 AND object_subtype = 'custom'
                 AND object_id = %d
             ",
-            $time, $post_id
-        ) );
+            $time, $time, $time, $post_id
+        ), ARRAY_A );
+
+        $list = [
+            'all' => [],
+            'minus_custom' => [],
+            'post_only' => []
+        ];
 
         if ( empty( $raw_list ) ) {
-            return [];
-        } else {
-            return $raw_list;
+            return $list;
         }
+
+        // build different ranges of arrays
+        foreach( $raw_list as $item ) {
+            $list['all'][] = $item['grid_id'];
+            if ( 'post' === $item['type'] || 'global' === $item['type'] ) {
+                $list['minus_custom'][] = $item['grid_id'];
+            }
+            if ( 'post' === $item['type']) {
+                $list['post_only'][] = $item['grid_id'];
+            }
+        }
+
+        $list['all'] = array_unique( $list['all'] );
+        $list['minus_custom'] = array_unique( $list['minus_custom'] );
+        $list['post_only'] = array_unique( $list['post_only'] );
+
+        return $list;
+
     }
 
     public function _remaining_global_prayed_list( $list_4770 = null ) {
@@ -621,9 +691,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         $post_id, $time ) );
 
         $custom_prayed = array_unique( $list );
-        $custom_remaining = array_diff( $list_4770, $custom_prayed );
-
-        return $custom_remaining;
+        return array_diff( $list_4770, $custom_prayed );
     }
 
     public function get_ip_location() {

@@ -283,7 +283,7 @@ trait PG_Lap_Trait {
         }
         $id = dt_report_insert( $args, true, false );
 
-        $response = $this->get_new_location();
+        $response = $this->get_new_location( $parts );
         if ( $response ) {
             $response['report_id'] = $id;
         }
@@ -394,32 +394,53 @@ trait PG_Lap_Trait {
      * Global query
      * @return array|false|void
      */
-    public function get_new_location() {
+    public function get_new_location( $parts ) {
         // get 4770 list
         $list_4770 = pg_query_4770_locations();
 
         // subtract prayed places
-        $list_prayed = $this->_query_prayed_list();
-        if ( ! empty( $list_prayed ) ) {
-            foreach ( $list_prayed as $grid_id ) {
-                if ( isset( $list_4770[$grid_id] ) ) {
-                    unset( $list_4770[$grid_id] );
-                }
+        $global_list_prayed = $this->_query_prayed_list();
+        $remaining_global = array_diff( $list_4770, $global_list_prayed );
+
+        /**
+         * If empty, generate a new global prayer lap and continue
+         */
+        if ( empty( $remaining_global ) ) {
+            dt_write_log( __METHOD__ . ' : generated a new prayer lap' );
+            $remaining_global = pg_generate_new_global_prayer_lap();
+        }
+
+        /**
+         * Most restrictive, available global locations without all promises both global and custom
+         */
+        $recently_promised_locations = $this->_recently_promised_locations();
+        $list_4770_without_all_promises = array_diff( $remaining_global, $recently_promised_locations['all'] );
+        if ( ! empty( $list_4770_without_all_promises ) ) {
+            shuffle( $list_4770_without_all_promises );
+            if ( isset( $list_4770_without_all_promises[0] ) ) {
+                $this->_log_promise( $parts, $list_4770_without_all_promises[0] );
+                return PG_Stacker::build_location_stack( $list_4770_without_all_promises[0] );
             }
         }
-
-        if ( empty( $list_4770 ) ) {
-            dt_write_log( __METHOD__ . ' : generated a new prayer lap' );
-            $list_4770 = pg_generate_new_global_prayer_lap();
+        /**
+         * Next level restrictive, available global locations without the global promises
+         */
+        $list_4770_without_custom_promises = array_diff( $remaining_global, $recently_promised_locations['minus_custom'] );
+        if ( ! empty( $list_4770_without_custom_promises ) ) {
+            shuffle( $list_4770_without_custom_promises );
+            if ( isset( $list_4770_without_custom_promises[0] ) ) {
+                $this->_log_promise( $parts, $list_4770_without_custom_promises[0] );
+                return PG_Stacker::build_location_stack( $list_4770_without_custom_promises[0] );
+            }
         }
-
-        shuffle( $list_4770 );
-        $grid_id = $list_4770[0];
-
-        return PG_Stacker::build_location_stack( $grid_id );
+        /**
+         * Only the available global locations
+         */
+        shuffle( $remaining_global );
+        return PG_Stacker::build_location_stack( $remaining_global[0] );
     }
 
-    public static function _query_prayed_list() {
+    public function _query_prayed_list() {
         global $wpdb;
         $current_lap = pg_current_global_lap();
         $time = time();
@@ -427,21 +448,13 @@ trait PG_Lap_Trait {
         $raw_list = $wpdb->get_col( $wpdb->prepare(
             "SELECT DISTINCT grid_id
                     FROM $wpdb->dt_reports
-                    WHERE
-                          timestamp >= %d
+                    WHERE timestamp >= %d
                       AND type = 'prayer_app'
                       AND timestamp <= %d
                       ",
         $current_lap['start_time'], $time ) );
 
-        $list = [];
-        if ( ! empty( $raw_list ) ) {
-            foreach ( $raw_list as $item ) {
-                $list[$item] = $item;
-            }
-        }
-
-        return $list;
+        return array_unique( $raw_list );
     }
 
     public function get_ip_location() {
@@ -459,6 +472,66 @@ trait PG_Lap_Trait {
             }
             return $response;
         }
+    }
+
+    public function _recently_promised_locations() {
+        global $wpdb;
+        $time = time();
+        $time = $time - 150; // 150 seconds. 1 minute in que, 1 minute to pray, 30 sec to transition
+
+        $raw_list = $wpdb->get_results( $wpdb->prepare(
+            "
+            SELECT meta_value as grid_id, 'global' as type
+            FROM $wpdb->dt_activity_log
+            WHERE hist_time > %d
+                AND action = 'prayer_promise'
+                AND object_type = 'prayer_global'
+                AND object_subtype = 'global'
+            UNION ALL
+            SELECT meta_value as grid_id, 'custom' as type
+            FROM $wpdb->dt_activity_log
+            WHERE hist_time > %d
+                AND action = 'prayer_promise'
+                AND object_type = 'prayer_global'
+                AND object_subtype = 'custom'
+            ",
+            $time, $time
+        ), ARRAY_A );
+
+        $list = [
+            'all' => [],
+            'minus_custom' => []
+        ];
+
+        if ( empty( $raw_list ) ) {
+            return $list;
+        }
+
+        // build different ranges of arrays
+        foreach( $raw_list as $item ) {
+            $list['all'][] = $item['grid_id'];
+            if ( 'global' === $item['type']) {
+                $list['minus_custom'][] = $item['grid_id'];
+            }
+        }
+
+        $list['all'] = array_unique( $list['all'] );
+        $list['minus_custom'] = array_unique( $list['minus_custom'] );
+
+        return $list;
+    }
+
+    public function _log_promise( $parts, $grid_id ) {
+        dt_activity_insert( // insert activity record
+            [
+                'action'         => 'prayer_promise',
+                'object_type'    => 'prayer_global',
+                'object_subtype' => 'global',
+                'object_id'      => '',
+                'object_name'    => '',
+                'meta_value'    => $grid_id,
+            ]
+        );
     }
 
 }

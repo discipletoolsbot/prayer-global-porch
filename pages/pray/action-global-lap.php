@@ -102,7 +102,7 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
             case 'correction':
                 return $this->save_correction( $params['parts'], $params['data'] );
             case 'refresh':
-                return $this->get_new_location();
+                return $this->get_new_location( $params['parts'] );
             case 'ip_location':
                 return $this->get_ip_location();
             default:
