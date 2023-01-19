@@ -112,6 +112,9 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
             section {
                 margin-top: 130px;
             }
+            .dataTables_wrapper {
+                margin: 2em 0;
+            }
         </style>
         <section>
             <div class="container pb-4">
@@ -126,11 +129,16 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
                     <div class="col-md-3 text-center"></div>
                 </div>
             </div>
-            <div class="container" id="content"><span class="loading-spinner active"></span></div>
+            <div class="center two-em lap-title">Active Challenges</div>
+            <div class="container" id="active_content"><span class="loading-spinner active"></span></div>
+            <div class="center two-em lap-title">Completed Challenges</div>
+            <div class="container" id="complete_content"><span class="loading-spinner active"></span></div>
+            <div class="container" ><hr style="margin: 1em auto;"></div>
+
             <div class="container pb-4">
                 <div class="row">
                     <div class="col-md text-center">
-                        <a href="/prayer_app/group_challenge_request">Request a Group Challenge</a>
+                        <a class="button" href="/prayer_app/group_challenge_request">Request a Group Challenge</a>
                     </div>
                 </div>
             </div>
@@ -181,10 +189,10 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
 
         $results = $wpdb->get_results(
             "
-                SELECT pm.post_id, p.post_title, pm3.meta_value as lap_key, pm4.meta_value as start_time
+                SELECT pm.post_id, p.post_title, pm3.meta_value as lap_key, pm4.meta_value as start_time, pm2.meta_value as status
                 FROM $wpdb->posts p
                 JOIN $wpdb->postmeta pm ON pm.post_id=p.ID AND pm.meta_key = 'type' AND pm.meta_value = 'custom'
-                JOIN $wpdb->postmeta pm2 ON pm2.post_id=p.ID AND pm2.meta_key = 'status' AND pm2.meta_value = 'active'
+                LEFT JOIN $wpdb->postmeta pm2 ON pm2.post_id=p.ID AND pm2.meta_key = 'status'
                 LEFT JOIN $wpdb->postmeta pm3 ON pm3.post_id=p.ID AND pm3.meta_key = 'prayer_app_custom_magic_key'
                 LEFT JOIN $wpdb->postmeta pm4 ON pm4.post_id=p.ID AND pm4.meta_key = 'start_time'
                 LEFT JOIN $wpdb->postmeta pm5 ON pm5.post_id=p.ID AND pm5.meta_key = 'visibility'
