@@ -99,7 +99,7 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
                 $stack = $this->save_log( $params['parts'], $params['data'] );
                 $global_lap = pg_current_global_lap();
                 $params['parts']['post_id'] = $global_lap['post_id'];
-                $params['parts']['public_key'] = $global_lap['public_key'];
+                $params['parts']['public_key'] = $global_lap['key'];
                 $stack['parts'] = $params['parts'];
                 return $stack;
             case 'increment_log':
