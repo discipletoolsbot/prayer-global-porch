@@ -96,13 +96,23 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
 
         switch ( $params['action'] ) {
             case 'log':
-                return $this->save_log( $params['parts'], $params['data'] );
+                $stack = $this->save_log( $params['parts'], $params['data'] );
+                $global_lap = pg_current_global_lap();
+                $params['parts']['post_id'] = $global_lap['post_id'];
+                $params['parts']['public_key'] = $global_lap['public_key'];
+                $stack['parts'] = $params['parts'];
+                return $stack;
             case 'increment_log':
                 return $this->increment_log( $params['parts'], $params['data'] );
             case 'correction':
                 return $this->save_correction( $params['parts'], $params['data'] );
             case 'refresh':
-                return $this->get_new_location( $params['parts'] );
+                $stack = $this->get_new_location( $params['parts'] );
+                $global_lap = pg_current_global_lap();
+                $params['parts']['post_id'] = $global_lap['post_id'];
+                $params['parts']['public_key'] = $global_lap['public_key'];
+                $stack['parts'] = $params['parts'];
+                return $stack;
             case 'ip_location':
                 return $this->get_ip_location();
             default:

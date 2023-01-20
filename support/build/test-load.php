@@ -1,7 +1,7 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
-//Prayer_Global_Test_Load::instance();
+Prayer_Global_Test_Load::instance();
 
 class Prayer_Global_Test_Load extends DT_Magic_Url_Base
 {
@@ -135,8 +135,6 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
             ];
         }
 
-
-
         ?>
         <script>
             let jsObject = [<?php echo json_encode( $jsobject ) ?>][0]
@@ -201,22 +199,22 @@ class Prayer_Global_Test_Load extends DT_Magic_Url_Base
                     }
                 )
 
-                function send_log_global( grid_id ) {
+                function send_log_global( parts, grid_id ) {
                     window.api_post( 'log', { grid_id: grid_id, pace: 1, user: {country:"United States",grid_id:"100364522",hash:"3ba4f83cfbd24b4be862536cfd9babe2025a2e027b69e2defbf2e62edcf3efa5",
                             label:"Golden, Colorado, United States",lat:39.828250885009766, level:"district",lng:-105.06230163574219,source:"ip"}
-                    }, jsObject.global_parts, 'https://prayer.global/wp-json/prayer_app/v1/global' )
+                    }, parts, 'https://prayer.global/wp-json/prayer_app/v1/global' )
                         .done(function(x) {
                             console.log(x)
                             if ( x ) {
-                                jQuery('#results').prepend('Global - ' + grid_id + '<br>')
+                                jQuery('#results').prepend('Global - ' + x.parts.post_id + ' - ' + grid_id + '<br>')
                                 window.globalcounter++
                                 jQuery('#counter').html(window.globalcounter)
-                                send_log_global( x.location.grid_id )
+                                send_log_global( x.parts, x.location.grid_id )
                             }
                         })
                 }
                 jQuery('.global').on('click', function() {
-                        send_log_global( 100235142 )
+                        send_log_global( jsObject.global_parts, 100235142 )
                     }
                 )
             })

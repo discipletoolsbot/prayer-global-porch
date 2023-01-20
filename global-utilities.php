@@ -634,7 +634,7 @@ function pg_get_user( int $user_id, array $allowed_meta ) {
 function pg_generate_new_global_prayer_lap() {
     // hold generation while being created
     if ( get_option( 'pg_generate_new_lap_in_progress' ) ) {
-        sleep( 8 );
+        sleep( 25 );
         return pg_query_4770_locations();
     } else {
         update_option( 'pg_generate_new_lap_in_progress', true );

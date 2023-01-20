@@ -287,12 +287,15 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
 
         switch ( $params['action'] ) {
             case 'log':
-                $result = $this->save_log( $params['parts'], $params['data'] );
-                return $result;
+                $stack = $this->save_log( $params['parts'], $params['data'] );
+                $stack['parts'] = $params['parts'];
+                return $stack;
             case 'correction':
                 return $this->save_correction( $params['parts'], $params['data'] );
             case 'refresh':
-                return $this->get_new_location( $params['parts'] );
+                $stack = $this->get_new_location( $params['parts'] );
+                $stack['parts'] = $params['parts'];
+                return $stack;
             case 'ip_location':
                 return $this->get_ip_location();
             case 'increment_log':

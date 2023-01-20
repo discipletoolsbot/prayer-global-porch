@@ -476,6 +476,7 @@ trait PG_Lap_Trait {
 
     public function _recently_promised_locations() {
         global $wpdb;
+        $current_lap = pg_current_global_lap();
         $time = time();
         $time = $time - 150; // 150 seconds. 1 minute in que, 1 minute to pray, 30 sec to transition
 
@@ -487,6 +488,7 @@ trait PG_Lap_Trait {
                 AND action = 'prayer_promise'
                 AND object_type = 'prayer_global'
                 AND object_subtype = 'global'
+                AND object_id = %d
             UNION ALL
             SELECT meta_value as grid_id, 'custom' as type
             FROM $wpdb->dt_activity_log
@@ -495,7 +497,7 @@ trait PG_Lap_Trait {
                 AND object_type = 'prayer_global'
                 AND object_subtype = 'custom'
             ",
-            $time, $time
+            $time, $current_lap['post_id'], $time
         ), ARRAY_A );
 
         $list = [
@@ -527,7 +529,7 @@ trait PG_Lap_Trait {
                 'action'         => 'prayer_promise',
                 'object_type'    => 'prayer_global',
                 'object_subtype' => 'global',
-                'object_id'      => '',
+                'object_id'      => $parts['post_id'],
                 'object_name'    => '',
                 'meta_value'    => $grid_id,
             ]
