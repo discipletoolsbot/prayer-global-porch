@@ -44,19 +44,19 @@
             </div>
             <div class="col-md">
                 <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-earth"></i></div>
+                    <div class="icon-circle display-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
                     <div class="">
-                        <h3 class="stats-info__title" id="current_completed"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Covered</h3>
+                        <h3 class="stats-info__title" id="current_remaining"><span class="loading-spinner active"></span></h3>
+                        <h3 class="stats-info__subtitle">Remaining</h3>
                     </div>
                 </div>
             </div>
             <div class="col-md">
                 <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
+                    <div class="icon-circle display-4"><i class="text-primary ion-earth"></i></div>
                     <div class="">
-                        <h3 class="stats-info__title" id="current_remaining"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Remaining</h3>
+                        <h3 class="stats-info__title" id="current_completed"><span class="loading-spinner active"></span></h3>
+                        <h3 class="stats-info__subtitle">Covered</h3>
                     </div>
                 </div>
             </div>
@@ -86,15 +86,15 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md">
-                <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
-                    <div class="">
-                        <h3 class="stats-info__title" id="global_minutes_prayed"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Minutes Prayed</h3>
-                    </div>
-                </div>
-            </div>
+<!--            <div class="col-md">-->
+<!--                <div class="stats-info">-->
+<!--                    <div class="icon-circle display-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>-->
+<!--                    <div class="">-->
+<!--                        <h3 class="stats-info__title" id="global_minutes_prayed"><span class="loading-spinner active"></span></h3>-->
+<!--                        <h3 class="stats-info__subtitle">Minutes Prayed</h3>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
             <div class="col-md">
                 <div class="stats-info">
                     <div class="icon-circle display-4"><i class="text-primary ion-earth"></i></div>
