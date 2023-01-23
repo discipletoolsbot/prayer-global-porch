@@ -132,14 +132,11 @@ class Prayer_Global_Porch {
         // admin
 //      require_once( 'charts/charts-loader.php' );
         require_once( 'support/build/loader.php' );
+        require_once( 'pages/about/about.php' );
 
 
         // 404
-        require_once( 'pages/404/404.php' );
-
-
-//        require_once( 'support/cron.php' );
-//        require_once( 'support/config-required-plugins.php' );
+        require_once( 'pages/404/404.php' ); // MUST BE LAST LOADED
 
         $this->i18n();
     }
