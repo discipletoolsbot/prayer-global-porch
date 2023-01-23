@@ -141,8 +141,8 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                             <strong><span class="stats-figure warriors"></span></strong>
                         </div>
                         <div class="col col-sm-6 col-md-3 center d-none d-md-block">
-                            <strong>Minutes Prayed</strong><br>
-                            <strong><span class="stats-figure minutes_prayed"></span></strong>
+                            <strong>World Coverage</strong><br>
+                            <strong class="stats-figure"><span class=" completed_percent">0</span>%</strong>
                         </div>
                     </div>
                 </div>
@@ -221,6 +221,10 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                     <div class="map-toggle active" data-layer-id="user_locations">
                         <img class="foot__icon" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/black-check-50.png' ) ?>" />
                     </div>
+                </div>
+                <div class="col col-6 col-sm-3">
+                    <p class="stats-title">Warriors</p>
+                    <p class="stats-figure warriors">0</p>
                 </div>
                 <div class="col col-6 col-sm-3">
                     <p class="stats-title">World Coverage</p>

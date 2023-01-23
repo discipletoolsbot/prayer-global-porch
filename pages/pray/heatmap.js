@@ -640,7 +640,7 @@ jQuery(document).ready(function($){
     jQuery('.remaining_percent').html( jsObject.stats.remaining_percent )
     jQuery('.warriors').html( jsObject.stats.participants )
     jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
-    jQuery('.minutes_prayed').html( jsObject.stats.minutes_prayed )
+    // jQuery('.minutes_prayed').html( jsObject.stats.minutes_prayed )
     jQuery('.start_time').html( jsObject.stats.start_time_formatted )
     if ( jsObject.stats.remaining_int < 1 ) {
       jQuery('.on-going').show()

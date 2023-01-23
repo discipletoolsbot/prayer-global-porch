@@ -36,7 +36,6 @@ jQuery(document).ready(function() {
                       <th><a href="/prayer_app/global/${v.lap_key}">Lap #${v.lap_number}</a></th>
                       <td>${ end_time }</td>
                       <td>${v.stats.participants}</td>
-                      <td>${v.stats.minutes_prayed}</td>
                       <td>${v.stats.time_elapsed_small}</td>
                       <td>
                          <a href="/prayer_app/global/${v.lap_key}/map">View Map</a>
@@ -51,8 +50,7 @@ jQuery(document).ready(function() {
                     <th>Lap Number</th>
                     <th class="desktop">Completed</th>
                     <th class="desktop">Warriors</th>
-                    <th class="desktop">Minutes Prayed</th>
-                    <th class="desktop">Pace</th>
+                    <th class="desktop">Time Elapsed</th>
                     <th class="desktop">Map</th>
                   </thead>
                 <tbody>
@@ -95,7 +93,7 @@ jQuery(document).ready(function() {
     })
 
   jQuery('#totals_block').html(`Totals across all Laps: Total Warriors: ${jsObject.global_race.participants}
-                        | Total Minutes Prayed: ${jsObject.global_race.minutes_prayed} | Total Time Elapsed: ${jsObject.global_race.time_elapsed_small}`)
+                        | Total Time Elapsed: ${jsObject.global_race.time_elapsed_small}`)
 
 
 }) // end .ready
