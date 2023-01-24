@@ -235,10 +235,6 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                     <p class="stats-figure warriors">0</p>
                 </div>
                 <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Minutes Prayed</p>
-                    <p class="stats-figure minutes_prayed">0</p>
-                </div>
-                <div class="col col-6 col-sm-3">
                     <p class="stats-title">World Coverage</p>
                     <p class="stats-figure"><span class="completed_percent">0</span>%</p>
                 </div>
