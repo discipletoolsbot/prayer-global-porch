@@ -22,6 +22,7 @@
             </div>
             <div class="col-md-3">
                 <ul style="list-style: none;">
+                    <li><a class="white" href="/content_app/about_page/">About</a></li>
                     <li><a class="white" href="/content_app/data_sources/">Data Sources</a></li>
                     <li><a class="white" href="/download_app/media/">Media & Promotion</a></li>
                 </ul>

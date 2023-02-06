@@ -28,7 +28,6 @@ function pg_custom_lap_nav( $key ) {
             <div class="offcanvas-body">
                 <div class="navbar-nav justify-content-end me-3" id="nav-links">
                     <a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="/prayer_app/custom/<?php echo esc_attr( $key ) ?>">Start Praying</a>
-                    <a class="nav-link" href="/#section-challenge">Challenge</a>
                     <a class="nav-link" href="/#section-lap">Status</a>
                     <a class="nav-link" href="/prayer_app/custom/<?php echo esc_attr( $key ) ?>/map/">Map</a>
                     <!-- <a href="/user_app/profile" class="nav-link" id="login-register-link" style="<?php echo esc_attr( $hide_if_logged_in ) ?>">Login / Register</a> -->

@@ -28,7 +28,6 @@ $hide_cta_class = str_contains( $url, 'challenges' ) || str_contains( $url, 'use
             <div class="navbar-nav justify-content-end me-3" id="nav-links">
                 <a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="/newest/lap/">Start Praying</a>
                 <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="<?php echo ( $url !== '' ) ? esc_url( trailingslashit( site_url() ) ) : '' ?>#section-challenge">Challenge</a>
                 <a class="nav-link" href="<?php echo ( $url !== '' ) ? esc_url( trailingslashit( site_url() ) ) : '' ?>#section-lap">Status</a>
                 <a class="nav-link" href="/newest/map/">Map</a>
                 <a class="nav-link" href="/challenges/active/">Groups</a>
