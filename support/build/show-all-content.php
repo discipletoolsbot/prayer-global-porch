@@ -140,6 +140,8 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
 
         $lists['_believers'] = PG_Stacker_Text::_believers( $empty_array, $stack, true);
 
+        $lists['_cities'] = PG_Stacker_Text::_cities( $empty_array, $stack, true);
+
 
         require_once( WP_CONTENT_DIR . '/plugins/prayer-global-porch/pages/assets/nav.php' ) ?>
 
