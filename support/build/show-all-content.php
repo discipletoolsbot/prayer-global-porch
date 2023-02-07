@@ -88,59 +88,67 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
         $empty_array = [];
         $lists = [];
 
-        $lists['_for_movement'] = PG_Stacker_Text::_for_movement( $empty_array, $stack, true);
+        $lists['_for_movement_health'] = PG_Stacker_Text::_for_movement_health( $empty_array, $stack, true );
 
-        $lists['_for_prayer_movement'] = PG_Stacker_Text::_for_prayer_movement( $empty_array, $stack, true);
+        $lists['_for_church_health'] = PG_Stacker_Text::_for_church_health( $empty_array, $stack, true );
 
-        $lists['_for_multiplication'] = PG_Stacker_Text::_for_multiplication( $empty_array, $stack, true);
+        $lists['_for_prayer_movement'] = PG_Stacker_Text::_for_prayer_movement( $empty_array, $stack, true );
 
-        $lists['_for_house_churches'] = PG_Stacker_Text::_for_house_churches( $empty_array, $stack, true);
+        $lists['_for_multiplication'] = PG_Stacker_Text::_for_multiplication( $empty_array, $stack, true );
 
-        $lists['_for_multiplying_churches'] = [];// add multiplying churches
+        $lists['_for_house_churches'] = PG_Stacker_Text::_for_house_churches( $empty_array, $stack, true );
 
-        $lists['_multiplying_disciples'] = [];// add multiplying disciples
+        $lists['_for_multiplying_churches'] = [];
 
-        $lists['_population_prayers'] = PG_Stacker_Text::_population_prayers( $empty_array, $stack, true);
+        $lists['_for_multiplying_disciples'] = [];
 
-        $lists['_religion_prayers'] = PG_Stacker_Text::_religion_prayers( $empty_array, $stack, true);
+        $lists['_for_demographic_feature_total_population'] = PG_Stacker_Text::_for_demographic_feature_total_population( $empty_array, $stack, true );
 
-        $lists['_language_prayers'] = PG_Stacker_Text::_language_prayers( $empty_array, $stack, true);
+        $lists['_for_demographic_feature_population_non_christians'] = PG_Stacker_Text::_for_demographic_feature_population_non_christians( $empty_array, $stack, true );
 
-        $lists['_languages_from_people_groups'] = [];  // add languages from people groups
+        $lists['_for_demographic_feature_population_christian_adherents'] = PG_Stacker_Text::_for_demographic_feature_population_christian_adherents( $empty_array, $stack, true );
 
-        $lists['_for_abundant_gospel_sowing'] = PG_Stacker_Text::_for_abundant_gospel_sowing( $empty_array, $stack, true);
+        $lists['_for_demographic_feature_population_believers'] = PG_Stacker_Text::_for_demographic_feature_population_believers( $empty_array, $stack, true );
 
-        $lists['_for_new_churches'] = PG_Stacker_Text::_for_new_churches( $empty_array, $stack, true);
+        $lists['_for_demographic_feature_primary_religion'] = PG_Stacker_Text::_for_demographic_feature_primary_religion( $empty_array, $stack, true );
 
-        $lists['_for_biblical_authority'] = PG_Stacker_Text::_for_biblical_authority( $empty_array, $stack, true);
+        $lists['_for_demographic_feature_primary_language'] = PG_Stacker_Text::_for_demographic_feature_primary_language( $empty_array, $stack, true );
 
-        $lists['_for_leadership'] = PG_Stacker_Text::_for_leadership( $empty_array, $stack, true); // convert these to the next series below
+        $lists['_for_people_groups_by_least_reached_status'] = [];
+
+        $lists['_for_people_groups_by_reached_status'] = [];
+
+        $lists['_for_people_groups_by_religion'] = [];
+
+        $lists['_for_people_groups_by_population'] = [];
+
+        $lists['_for_abundant_gospel_sowing'] = PG_Stacker_Text::_for_abundant_gospel_sowing( $empty_array, $stack, true );
+
+        $lists['_for_new_churches'] = PG_Stacker_Text::_for_new_churches( $empty_array, $stack, true );
+
+        $lists['_for_leadership'] = PG_Stacker_Text::_for_leadership( $empty_array, $stack, true ); // convert these to the next series below
 
         $lists['_for_apostolic_pioneering_leadership'] = [];
 
         $lists['_for_evangelistic_leadership'] = [];
 
-        $lists['_for_prophetic_teaching_leadership'] = [];
+        $lists['_for_prophetic_leadership'] = [];
 
         $lists['_for_shepherding_leadership'] = [];
 
-        $lists['_for_church_health'] = PG_Stacker_Text::_for_church_health( $empty_array, $stack, true);
+        $lists['_for_teaching_leadership'] = [];
 
-        $lists['_for_obedience'] = PG_Stacker_Text::_for_obedience( $empty_array, $stack, true);
+        $lists['_for_biblical_authority'] = PG_Stacker_Text::_for_biblical_authority( $empty_array, $stack, true );
 
-        $lists['_for_urgency'] = PG_Stacker_Text::_for_urgency( $empty_array, $stack, true);
+        $lists['_for_obedience'] = PG_Stacker_Text::_for_obedience( $empty_array, $stack, true );
 
-        $lists['_promises_believer'] = PG_Stacker_Text::_promises_believer( $empty_array, $stack, true);
+        $lists['_for_urgency'] = PG_Stacker_Text::_for_urgency( $empty_array, $stack, true );
 
-        $lists['_promises_lost'] = PG_Stacker_Text::_promises_lost( $empty_array, $stack, true);
+        $lists['_for_promises_for_the_believer'] = PG_Stacker_Text::_for_promises_for_the_believer( $empty_array, $stack, true );
 
-        $lists['_non_christians'] = PG_Stacker_Text::_non_christians( $empty_array, $stack, true);
+        $lists['_for_promises_for_the_lost'] = PG_Stacker_Text::_for_promises_for_the_lost( $empty_array, $stack, true );
 
-        $lists['_christian_adherents'] = PG_Stacker_Text::_christian_adherents( $empty_array, $stack, true);
-
-        $lists['_believers'] = PG_Stacker_Text::_believers( $empty_array, $stack, true);
-
-        $lists['_cities'] = PG_Stacker_Text::_cities( $empty_array, $stack, true);
+        $lists['_cities'] = PG_Stacker_Text::_cities( $empty_array, $stack, true );
 
 
         require_once( WP_CONTENT_DIR . '/plugins/prayer-global-porch/pages/assets/nav.php' ) ?>
@@ -170,20 +178,37 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
                 <div class="row mb-5">
                     <div class="col-12 mb-3">
                        <hr>
+                        <div class="container block">
+                            <div class="row">
+                                <div class="col text-center ">
+                                    <p class="mt-3 mb-3 font-weight-bold three-em uc" style="text-transform: uppercase;">Concept List</p>
+                                    <?php
+                                    foreach ( $lists as $key => $items ) {
+                                        ?>
+                                        <a href="#<?php echo esc_html( $key ) ?>"><?php echo esc_html( str_replace( '_', ' ', $key ) ) ?></a> (<?php echo esc_html( count( $items ) ) ?> )<br>
+                                        <?php
+                                    }
+                                    ?>
+                                </div>
+                            </div>
+                            <div class="w-100"><hr></div>
+                        </div>
                         <?php
                         foreach ( $lists as $key => $items ) {
                             ?>
-                            <div class="container block">
-                                <div class="row">
+                            <div class="container block" id="<?php echo esc_html( $key ) ?>">
+                                <div class="row" style="background-color:lightgrey;">
                                     <div class="col text-center ">
-                                        <p class="mt-3 mb-3 font-weight-bold three-em uc">Concept: <?php echo esc_html( $key ) ?></p>
+                                        <p class="mt-3 mb-3 font-weight-bold three-em uc" style="text-transform: uppercase;">Concept:</p>
+                                        <p class="mt-3 mb-3 font-weight-bold three-em uc" style="text-transform: uppercase;"><?php echo esc_html( str_replace( '_', ' ', $key ) ) ?></p>
+                                        <p class="mt-3 mb-3 font-weight-bold three-em uc" style="text-transform: uppercase;">(<?php echo esc_html( count( $items ) ) ?> prayers)</p>
                                     </div>
                                 </div>
                                 <div class="w-100"><hr></div>
                             </div>
                             <?php
 
-                            foreach( $items as $item ) {
+                            foreach ( $items as $item ) {
                                 $hash = hash( 'sha256', serialize( $item ) );
                                 $display = empty( $item['reference'] ) ? 'none' :'block';
                                 ?>
@@ -215,10 +240,11 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
                                 <p>
 
                                 </p>
-                            <?php
+                                <?php
                             }
                         }
                         ?>
+
                     </div>
                 </div>
             </div>

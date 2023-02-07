@@ -20,16 +20,16 @@ class PG_Stacker {
         /**************************/
         // PRAYER CONCEPTS
         /**************************/
-        PG_Stacker_Text::_for_movement( $lists, $stack );
+        PG_Stacker_Text::_for_movement_health( $lists, $stack );
         PG_Stacker_Text::_for_prayer_movement( $lists, $stack );
         PG_Stacker_Text::_for_multiplication( $lists, $stack );
         PG_Stacker_Text::_for_house_churches( $lists, $stack );
         // add multiplying churches
         // add multiplying disciples
 
-        PG_Stacker_Text::_population_prayers( $lists, $stack );
-        PG_Stacker_Text::_religion_prayers( $lists, $stack );
-        PG_Stacker_Text::_language_prayers( $lists, $stack );
+        PG_Stacker_Text::_for_demographic_feature_total_population( $lists, $stack );
+        PG_Stacker_Text::_for_demographic_feature_primary_religion( $lists, $stack );
+        PG_Stacker_Text::_for_demographic_feature_primary_language( $lists, $stack );
         // add languages from people groups
 
         PG_Stacker_Text::_for_abundant_gospel_sowing( $lists, $stack );
@@ -44,12 +44,12 @@ class PG_Stacker {
         PG_Stacker_Text::_for_church_health( $lists, $stack );
         PG_Stacker_Text::_for_obedience( $lists, $stack );
         PG_Stacker_Text::_for_urgency( $lists, $stack );
-        PG_Stacker_Text::_promises_believer( $lists, $stack );
-        PG_Stacker_Text::_promises_lost( $lists, $stack );
+        PG_Stacker_Text::_for_promises_for_the_believer( $lists, $stack );
+        PG_Stacker_Text::_for_promises_for_the_lost( $lists, $stack );
 
-//        PG_Stacker_Text::_non_christians( $lists, $stack );
-//        PG_Stacker_Text::_christian_adherents( $lists, $stack );
-//        PG_Stacker_Text::_believers( $lists, $stack );
+//        PG_Stacker_Text::_for_demographic_feature_population_non_christians( $lists, $stack );
+//        PG_Stacker_Text::_for_demographic_feature_population_christian_adherents( $lists, $stack );
+//        PG_Stacker_Text::_for_demographic_feature_population_believers( $lists, $stack );
 
 //        PG_Stacker_Text::_cities($lists, $stack );
 

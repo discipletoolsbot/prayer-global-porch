@@ -9,7 +9,7 @@ class PG_Stacker_Text {
      *
      *********************************************************************/
 
-    public static function _population_prayers( &$lists, $stack, $all = false ) {
+    public static function _for_demographic_feature_total_population( &$lists, $stack, $all = false ) {
         $section_label = 'Population';
         $templates = [
             [
@@ -63,7 +63,7 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _for_movement( &$lists, $stack, $all = false ) {
+    public static function _for_movement_health( &$lists, $stack, $all = false ) {
         $section_label = 'Movement Health';
         $templates = [
             [
@@ -123,7 +123,7 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _language_prayers( &$lists, $stack, $all = false ) {
+    public static function _for_demographic_feature_primary_language( &$lists, $stack, $all = false ) {
         if ( 'English' === $stack['location']['primary_language'] ) {
             return $lists;
         }
@@ -175,7 +175,7 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _religion_prayers( &$lists, $stack, $all = false ) {
+    public static function _for_demographic_feature_primary_religion( &$lists, $stack, $all = false ) {
         if ( 'Christianity' === $stack['location']['primary_religion'] ) {
             return $lists;
         }
@@ -285,7 +285,7 @@ class PG_Stacker_Text {
 
 
 
-    public static function _promises_believer( &$lists, $stack, $all = false ) {
+    public static function _for_promises_for_the_believer( &$lists, $stack, $all = false ) {
         $section_label = 'Pray Promises';
         $templates = [
             [
@@ -417,7 +417,7 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _promises_lost( &$lists, $stack, $all = false ) {
+    public static function _for_promises_for_the_lost( &$lists, $stack, $all = false ) {
         $section_label = 'Pray Promises';
         $templates = [
             [
@@ -1143,7 +1143,7 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _non_christians( &$lists, $stack, $all = false ) {
+    public static function _for_demographic_feature_population_non_christians( &$lists, $stack, $all = false ) {
         $section_label = 'Non-Christians';
         $templates = [
             [
@@ -1168,7 +1168,7 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _christian_adherents( &$lists, $stack, $all = false ) {
+    public static function _for_demographic_feature_population_christian_adherents( &$lists, $stack, $all = false ) {
         $section_label = 'Cultural Christians';
         $templates = [
             [
@@ -1198,7 +1198,7 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _believers( &$lists, $stack, $all = false ) {
+    public static function _for_demographic_feature_population_believers( &$lists, $stack, $all = false ) {
         $section_label = 'Believer Families';
         $templates = [
             [
