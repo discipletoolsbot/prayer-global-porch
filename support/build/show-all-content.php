@@ -87,31 +87,38 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
 
         $lists = [];
 
-//        $lists = PG_Stacker_Text::_promises_believer( $lists, $stack, true );
-        $lists = PG_Stacker_Text::_promises_lost( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_for_movement( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_population_prayers( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_language_prayers( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_religion_prayers( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_for_prayer_movement( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_for_abundant_gospel_sowing( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_for_new_churches( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_for_obedience( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_for_biblical_authority( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_for_leadership( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_for_house_churches( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_for_multiplication( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_for_urgency( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_for_church_health( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_population_prayers( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_movement_prayers( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_language_prayers( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_religion_prayers( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_for_the_church( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_cities( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_non_christians( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_christian_adherents( $lists, $stack, true );
-//        $lists = PG_Stacker_Text::_believers( $lists, $stack, true );
+        $lists = PG_Stacker_Text::_for_movement( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_for_prayer_movement( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_for_multiplication( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_for_house_churches( $lists, $stack, true);
+        // add multiplying churches
+        // add multiplying disciples
+
+        $lists = PG_Stacker_Text::_population_prayers( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_religion_prayers( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_language_prayers( $lists, $stack, true);
+        // add languages from people groups
+
+        $lists = PG_Stacker_Text::_for_abundant_gospel_sowing( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_for_new_churches( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_for_biblical_authority( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_for_leadership( $lists, $stack, true);
+        // add for apostolic/pioneering leadership
+        // add for evangelistic leadership
+        // add for prophetic/teaching leadership
+        // add for shepherding/gathering leadership
+
+        $lists = PG_Stacker_Text::_for_church_health( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_for_obedience( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_for_urgency( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_promises_believer( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_promises_lost( $lists, $stack, true);
+
+        $lists = PG_Stacker_Text::_non_christians( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_christian_adherents( $lists, $stack, true);
+        $lists = PG_Stacker_Text::_believers( $lists, $stack, true);
+
+        dt_write_log( $lists );
 
         $lists = array_reverse( $lists );
 
