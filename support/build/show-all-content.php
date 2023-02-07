@@ -85,42 +85,61 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
         }
         $stack = PG_Stacker::_stack_query( $grid_id );
 
+        $empty_array = [];
         $lists = [];
 
-        $lists = PG_Stacker_Text::_for_movement( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_for_prayer_movement( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_for_multiplication( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_for_house_churches( $lists, $stack, true);
-        // add multiplying churches
-        // add multiplying disciples
+        $lists['_for_movement'] = PG_Stacker_Text::_for_movement( $empty_array, $stack, true);
 
-        $lists = PG_Stacker_Text::_population_prayers( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_religion_prayers( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_language_prayers( $lists, $stack, true);
-        // add languages from people groups
+        $lists['_for_prayer_movement'] = PG_Stacker_Text::_for_prayer_movement( $empty_array, $stack, true);
 
-        $lists = PG_Stacker_Text::_for_abundant_gospel_sowing( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_for_new_churches( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_for_biblical_authority( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_for_leadership( $lists, $stack, true);
-        // add for apostolic/pioneering leadership
-        // add for evangelistic leadership
-        // add for prophetic/teaching leadership
-        // add for shepherding/gathering leadership
+        $lists['_for_multiplication'] = PG_Stacker_Text::_for_multiplication( $empty_array, $stack, true);
 
-        $lists = PG_Stacker_Text::_for_church_health( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_for_obedience( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_for_urgency( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_promises_believer( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_promises_lost( $lists, $stack, true);
+        $lists['_for_house_churches'] = PG_Stacker_Text::_for_house_churches( $empty_array, $stack, true);
 
-        $lists = PG_Stacker_Text::_non_christians( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_christian_adherents( $lists, $stack, true);
-        $lists = PG_Stacker_Text::_believers( $lists, $stack, true);
+        $lists['_for_multiplying_churches'] = [];// add multiplying churches
 
-        dt_write_log( $lists );
+        $lists['_multiplying_disciples'] = [];// add multiplying disciples
 
-        $lists = array_reverse( $lists );
+        $lists['_population_prayers'] = PG_Stacker_Text::_population_prayers( $empty_array, $stack, true);
+
+        $lists['_religion_prayers'] = PG_Stacker_Text::_religion_prayers( $empty_array, $stack, true);
+
+        $lists['_language_prayers'] = PG_Stacker_Text::_language_prayers( $empty_array, $stack, true);
+
+        $lists['_languages_from_people_groups'] = [];  // add languages from people groups
+
+        $lists['_for_abundant_gospel_sowing'] = PG_Stacker_Text::_for_abundant_gospel_sowing( $empty_array, $stack, true);
+
+        $lists['_for_new_churches'] = PG_Stacker_Text::_for_new_churches( $empty_array, $stack, true);
+
+        $lists['_for_biblical_authority'] = PG_Stacker_Text::_for_biblical_authority( $empty_array, $stack, true);
+
+        $lists['_for_leadership'] = PG_Stacker_Text::_for_leadership( $empty_array, $stack, true); // convert these to the next series below
+
+        $lists['_for_apostolic_pioneering_leadership'] = [];
+
+        $lists['_for_evangelistic_leadership'] = [];
+
+        $lists['_for_prophetic_teaching_leadership'] = [];
+
+        $lists['_for_shepherding_leadership'] = [];
+
+        $lists['_for_church_health'] = PG_Stacker_Text::_for_church_health( $empty_array, $stack, true);
+
+        $lists['_for_obedience'] = PG_Stacker_Text::_for_obedience( $empty_array, $stack, true);
+
+        $lists['_for_urgency'] = PG_Stacker_Text::_for_urgency( $empty_array, $stack, true);
+
+        $lists['_promises_believer'] = PG_Stacker_Text::_promises_believer( $empty_array, $stack, true);
+
+        $lists['_promises_lost'] = PG_Stacker_Text::_promises_lost( $empty_array, $stack, true);
+
+        $lists['_non_christians'] = PG_Stacker_Text::_non_christians( $empty_array, $stack, true);
+
+        $lists['_christian_adherents'] = PG_Stacker_Text::_christian_adherents( $empty_array, $stack, true);
+
+        $lists['_believers'] = PG_Stacker_Text::_believers( $empty_array, $stack, true);
+
 
         require_once( WP_CONTENT_DIR . '/plugins/prayer-global-porch/pages/assets/nav.php' ) ?>
 
@@ -150,39 +169,52 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
                     <div class="col-12 mb-3">
                        <hr>
                         <?php
-                        foreach ( $lists as $item ) {
-                            $hash = hash( 'sha256', serialize( $item ) );
-                            $display = empty( $item['reference'] ) ? 'none' :'block';
+                        foreach ( $lists as $key => $items ) {
                             ?>
                             <div class="container block">
                                 <div class="row">
                                     <div class="col text-center ">
-                                        <p class="mt-3 mb-3 font-weight-normal one-em uc"><?php echo esc_html( $item['section_label'] ) ?></p>
-                                    </div>
-                                </div>
-                                <div class="row text-center justify-content-center">
-                                    <div class="col-md-8">
-                                        <p class="mt-3 mb-3 font-weight-bold two-em"><?php echo esc_html( $item['prayer'] ) ?></p>
-                                    </div>
-                                </div>
-
-                                <div class="row text-center justify-content-center <?php echo esc_html( $hash ) ?>" style="display:<?php echo esc_html( $display ) ?>;">
-                                    <div class="col mt-3 mb-3 font-weight-bold text-center">
-                                        <button type="button" class="btn btn-outline-dark btn-sm" onclick="jQuery('#<?php echo esc_html( $hash ) ?>').show();jQuery('.<?php echo esc_html( $hash ) ?>').hide();" ><?php echo esc_html( $item['reference'] ) ?></button>
-                                    </div>
-                                </div>
-                                <div class="row text-center justify-content-center" style="display:none;" id="<?php echo esc_html( $hash ) ?>" >
-                                    <div class="col-md-8">
-                                        <p class="mt-3 mb-0 font-weight-normal font-italic two-em"><?php echo esc_html( $item['verse'] ) ?></p>
-                                        <p class="mt-0 mb-3 font-weight-normal"><?php echo esc_html( $item['reference'] ) ?></p>
+                                        <p class="mt-3 mb-3 font-weight-bold three-em uc">Concept: <?php echo esc_html( $key ) ?></p>
                                     </div>
                                 </div>
                                 <div class="w-100"><hr></div>
                             </div>
-                            <p>
-
-                            </p>
                             <?php
+
+                            foreach( $items as $item ) {
+                                $hash = hash( 'sha256', serialize( $item ) );
+                                $display = empty( $item['reference'] ) ? 'none' :'block';
+                                ?>
+                                <div class="container block">
+                                    <div class="row">
+                                        <div class="col text-center ">
+                                            <p class="mt-3 mb-3 font-weight-normal one-em uc"><?php echo esc_html( $item['section_label'] ) ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center justify-content-center">
+                                        <div class="col-md-8">
+                                            <p class="mt-3 mb-3 font-weight-bold two-em"><?php echo esc_html( $item['prayer'] ) ?></p>
+                                        </div>
+                                    </div>
+
+                                    <div class="row text-center justify-content-center <?php echo esc_html( $hash ) ?>" style="display:<?php echo esc_html( $display ) ?>;">
+                                        <div class="col mt-3 mb-3 font-weight-bold text-center">
+                                            <button type="button" class="btn btn-outline-dark btn-sm" onclick="jQuery('#<?php echo esc_html( $hash ) ?>').show();jQuery('.<?php echo esc_html( $hash ) ?>').hide();" ><?php echo esc_html( $item['reference'] ) ?></button>
+                                        </div>
+                                    </div>
+                                    <div class="row text-center justify-content-center" style="display:none;" id="<?php echo esc_html( $hash ) ?>" >
+                                        <div class="col-md-8">
+                                            <p class="mt-3 mb-0 font-weight-normal font-italic two-em"><?php echo esc_html( $item['verse'] ) ?></p>
+                                            <p class="mt-0 mb-3 font-weight-normal"><?php echo esc_html( $item['reference'] ) ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="w-100"><hr></div>
+                                </div>
+                                <p>
+
+                                </p>
+                            <?php
+                            }
                         }
                         ?>
                     </div>
