@@ -88,19 +88,39 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
         $empty_array = [];
         $lists = [];
 
-        $lists['_for_movement_health'] = PG_Stacker_Text::_for_movement_health( $empty_array, $stack, true );
+        $lists['_for_extraordinary_prayer'] = PG_Stacker_Text::_for_extraordinary_prayer( $empty_array, $stack, true );
+
+        $lists['_for_intentional_movement_strategy'] = PG_Stacker_Text::_for_intentional_movement_strategy( $empty_array, $stack, true );
+
+        $lists['_for_abundant_gospel_sowing'] = PG_Stacker_Text::_for_abundant_gospel_sowing( $empty_array, $stack, true );
+
+        $lists['_for_persons_of_peace'] = PG_Stacker_Text::_for_persons_of_peace( $empty_array, $stack, true );
+
+        $lists['_for_prioritizing_priesthood_of_believers'] = PG_Stacker_Text::_for_prioritizing_priesthood_of_believers( $empty_array, $stack, true );
+
+
+
+        $lists['_for_media_resources'] = PG_Stacker_Text::_for_media_resources( $empty_array, $stack, true );
+
+        $lists['_for_safety'] = PG_Stacker_Text::_for_safety( $empty_array, $stack, true );
+
+        $lists['_for_political_stability'] = PG_Stacker_Text::_for_political_stability( $empty_array, $stack, true );
+
+
 
         $lists['_for_church_health'] = PG_Stacker_Text::_for_church_health( $empty_array, $stack, true );
 
-        $lists['_for_prayer_movement'] = PG_Stacker_Text::_for_prayer_movement( $empty_array, $stack, true );
-
         $lists['_for_multiplication'] = PG_Stacker_Text::_for_multiplication( $empty_array, $stack, true );
 
-        $lists['_for_house_churches'] = PG_Stacker_Text::_for_house_churches( $empty_array, $stack, true );
+        $lists['_for_movement_essential_simple_churches'] = PG_Stacker_Text::_for_movement_essential_simple_churches( $empty_array, $stack, true );
 
-        $lists['_for_multiplying_churches'] = [];
+        $lists['_for_new_churches'] = PG_Stacker_Text::_for_new_churches( $empty_array, $stack, true );
 
-        $lists['_for_multiplying_disciples'] = [];
+        $lists['_for_multiplying_churches'] = PG_Stacker_Text::_for_multiplying_churches( $empty_array, $stack, true );
+
+        $lists['_for_multiplying_disciples'] = PG_Stacker_Text::_for_multiplying_disciples( $empty_array, $stack, true );
+
+
 
         $lists['_for_demographic_feature_total_population'] = PG_Stacker_Text::_for_demographic_feature_total_population( $empty_array, $stack, true );
 
@@ -114,19 +134,20 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
 
         $lists['_for_demographic_feature_primary_language'] = PG_Stacker_Text::_for_demographic_feature_primary_language( $empty_array, $stack, true );
 
-        $lists['_for_people_groups_by_least_reached_status'] = [];
 
-        $lists['_for_people_groups_by_reached_status'] = [];
 
-        $lists['_for_people_groups_by_religion'] = [];
 
-        $lists['_for_people_groups_by_population'] = [];
+        $lists['_for_people_groups_by_least_reached_status'] = PG_Stacker_Text::_for_people_groups_by_least_reached_status( $empty_array, $stack, true );
 
-        $lists['_for_abundant_gospel_sowing'] = PG_Stacker_Text::_for_abundant_gospel_sowing( $empty_array, $stack, true );
+        $lists['_for_people_groups_by_reached_status'] = PG_Stacker_Text::_for_people_groups_by_reached_status( $empty_array, $stack, true );
 
-        $lists['_for_new_churches'] = PG_Stacker_Text::_for_new_churches( $empty_array, $stack, true );
+        $lists['_for_people_groups_by_religion'] = PG_Stacker_Text::_for_people_groups_by_religion( $empty_array, $stack, true );
 
-        $lists['_for_leadership'] = PG_Stacker_Text::_for_leadership( $empty_array, $stack, true ); // convert these to the next series below
+        $lists['_for_people_groups_by_population'] = PG_Stacker_Text::_for_people_groups_by_population( $empty_array, $stack, true );
+
+
+
+        $lists['_for_local_leadership'] = PG_Stacker_Text::_for_local_leadership( $empty_array, $stack, true ); // convert these to the next series below
 
         $lists['_for_apostolic_pioneering_leadership'] = PG_Stacker_Text::_for_apostolic_pioneering_leadership( $empty_array, $stack, true );;
 
@@ -138,17 +159,27 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
 
         $lists['_for_teaching_leadership'] = PG_Stacker_Text::_for_teaching_leadership( $empty_array, $stack, true );;
 
-        $lists['_for_biblical_authority_in_the_church'] = PG_Stacker_Text::_for_biblical_authority_in_the_church( $empty_array, $stack, true );
 
-        $lists['_for_obedience_of_the_disciples'] = PG_Stacker_Text::_for_obedience_of_the_disciples( $empty_array, $stack, true );
 
-        $lists['_for_love_of_the_disciples'] = PG_Stacker_Text::_for_love_of_the_disciples( $empty_array, $stack, true );
+        $lists['_for_biblical_authority_over_the_believers'] = PG_Stacker_Text::_for_biblical_authority_over_the_believers( $empty_array, $stack, true );
 
-        $lists['_for_urgency_of_the_disciples'] = PG_Stacker_Text::_for_urgency_of_the_disciples( $empty_array, $stack, true );
+        $lists['_for_obedience_in_the_believers'] = PG_Stacker_Text::_for_obedience_in_the_believers( $empty_array, $stack, true );
+
+        $lists['_for_trust_in_the_believers'] = PG_Stacker_Text::_for_trust_in_the_believers( $empty_array, $stack, true );
+
+        $lists['_for_faith_in_the_believers'] = PG_Stacker_Text::_for_faith_in_the_believers( $empty_array, $stack, true );
+
+        $lists['_for_love_in_the_believers'] = PG_Stacker_Text::_for_love_in_the_believers( $empty_array, $stack, true );
+
+        $lists['_for_urgency_in_the_believers'] = PG_Stacker_Text::_for_urgency_in_the_believers( $empty_array, $stack, true );
+
+
 
         $lists['_for_bible_promises_for_the_believer'] = PG_Stacker_Text::_for_bible_promises_for_the_believer( $empty_array, $stack, true );
 
         $lists['_for_bible_promises_for_the_lost'] = PG_Stacker_Text::_for_bible_promises_for_the_lost( $empty_array, $stack, true );
+
+
 
         $lists['_cities'] = PG_Stacker_Text::_cities( $empty_array, $stack, true );
 
@@ -247,6 +278,36 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
                         }
                         ?>
 
+                        <div class="container block">
+                            <div class="row">
+                                <div class="col text-center">
+                                    <p class="mt-3 mb-3 font-weight-bold three-em uc" style="text-transform: uppercase;">Variable List</p>
+                                </div>
+                                <div class="col">
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th scope="col">Variable</th>
+                                                <th scope="col">Value</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <?php
+                                            foreach ( $stack['location'] as $key => $item ) {
+                                                ?>
+                                                <tr>
+                                                    <td><?php echo esc_html( $key ) ?></td>
+                                                    <td><?php echo esc_html( $item ) ?></td>
+                                                </tr>
+                                                <?php
+                                            }
+                                            ?>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                            <div class="w-100"><hr></div>
+                        </div>
                     </div>
                 </div>
             </div>

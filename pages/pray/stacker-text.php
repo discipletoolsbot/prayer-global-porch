@@ -1,6 +1,7 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
+// https://www.missionfrontiers.org/issue/article/the-ten-universal-elements
 
 class PG_Stacker_Text {
     /*********************************************************************
@@ -9,9 +10,547 @@ class PG_Stacker_Text {
      *
      *********************************************************************/
 
+    public static function _for_extraordinary_prayer( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+            [
+                'section_label' => 'Prayer Movement',
+                'prayer' => 'Father, we cry out for a prayer movement in the '.$stack['location']['admin_level_name'].' of ' . $stack['location']['full_name'] . '. Please, stir the ' . $stack['location']['believers'] . ' believers here to pray for awakening.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Prayer Movement',
+                'prayer' => 'Lord, cause a passion for prayer among the people of ' . $stack['location']['full_name'] . '.',
+                'reference' => 'John 17:20-21',
+                'verse' => 'I (Jesus) pray also for those who will believe in me through their message, that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world may believe that you have sent me.',
+            ],
+            [
+                'section_label' => 'Prayer Movement',
+                'prayer' => 'Lord, stir the hearts of Your people in the '.$stack['location']['admin_level_name'].' of ' . $stack['location']['name'] . ' to agree with You and agree with one another in love.',
+                'reference' => 'John 17:20-21',
+                'verse' => 'I (Jesus) pray also for those who will believe in me through their message, that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world may believe that you have sent me.',
+            ],
+            [
+                'section_label' => 'Prayer Movement',
+                'prayer' => 'Spirit, teach the church in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to increase their prayer for Your kingdom to come.',
+                'reference' => 'Daniel 6:10',
+                'verse' => 'Now when Daniel learned that the decree had been published, he went home to his upstairs room where the windows opened toward Jerusalem. Three times a day he got down on his knees and prayed, giving thanks to his God...',
+            ],
+            [
+                'section_label' => 'Prayer Movement',
+                'prayer' => 'Spirit, teach the children in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to pray with passion and pleading for Your presence.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Prayer Movement',
+                'prayer' => 'Spirit, awaken a burning desire for Your presence and intimacy among the '.$stack['location']['population'].' people living in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'reference' => '',
+                'verse' => '',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_intentional_movement_strategy( &$lists, $stack, $all = false ) {
+        $section_label = 'Movement Health';
+        $templates = [
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Father, please call new believers full of yearning to see You praised in '.$stack['location']['full_name'].'.',
+//                'reference' => 'Psalm 96:3',
+//                'verse' => 'Declare his glory among the nations, his marvelous deeds among all peoples.',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_abundant_gospel_sowing( &$lists, $stack, $all = false ) {
+        $section_label = 'Movement Health';
+        $templates = [
+            [
+                'section_label' => 'Abundant Gospel Sowing',
+                'prayer' => 'Father, please call new believers full of yearning to see You praised in '.$stack['location']['full_name'].'.',
+                'reference' => 'Psalm 96:3',
+                'verse' => 'Declare his glory among the nations, his marvelous deeds among all peoples.',
+            ],
+            [
+                'section_label' => 'Abundant Gospel Sowing',
+                'prayer' => 'Spirit, give the disciples of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' words, actions, signs and wonders, to proclaim the coming of the Kingdom with boldness and power.',
+                'reference' => 'Matthew 10:7',
+                'verse' => 'As you go, proclaim this message: "The kingdom of heaven has come near."',
+            ],
+            [
+                'section_label' => 'Abundant Gospel Sowing',
+                'prayer' => 'Lord, make the ' . $stack['location']['believers'] . ' believers in ' . $stack['location']['name'] . ' to be brave and clear with the gospel to their ' . $stack['location']['all_lost'] . ' neighbors.',
+                'reference' => 'Acts 14:3',
+                'verse' => 'So Paul and Barnabas spent considerable time there, speaking boldly for the Lord, who confirmed the message of his grace by enabling them to perform signs and wonders.',
+            ],
+            [
+                'section_label' => 'Abundant Gospel Sowing',
+                'prayer' => 'Father, please send new teachers into the harvest, who can correct the lies of our enemy in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'.',
+                'reference' => 'Matthew 9:38',
+                'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
+            ],
+            [
+                'section_label' => 'Abundant Gospel Sowing',
+                'prayer' => 'Father, please send new apostles into the harvest, who can open up new communities for the gospel in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'.',
+                'reference' => 'Matthew 9:38',
+                'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
+            ],
+            [
+                'section_label' => 'Abundant Gospel Sowing',
+                'prayer' => 'Father, please send new evangelists into the harvest in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'.',
+                'reference' => 'Matthew 9:38',
+                'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
+            ],
+            [
+                'section_label' => 'Abundant Gospel Sowing',
+                'prayer' => 'Father, please raise up apostles, evangelists and preachers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'reference' => 'Matthew 9:38',
+                'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_persons_of_peace( &$lists, $stack, $all = false ) {
+        $section_label = 'Movement Health';
+        $templates = [
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Father, please call new believers full of yearning to see You praised in '.$stack['location']['full_name'].'.',
+//                'reference' => 'Psalm 96:3',
+//                'verse' => 'Declare his glory among the nations, his marvelous deeds among all peoples.',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_prioritizing_priesthood_of_believers( &$lists, $stack, $all = false ) {
+        $section_label = 'Movement Health';
+        $templates = [
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Father, please call new believers full of yearning to see You praised in '.$stack['location']['full_name'].'.',
+//                'reference' => 'Psalm 96:3',
+//                'verse' => 'Declare his glory among the nations, his marvelous deeds among all peoples.',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_movement_essential_simple_churches( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+            [
+                'section_label' => 'Simple Churches',
+                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Simple Churches',
+                'prayer' => 'Spirit, help the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to start simple multiplying churches in their homes.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Simple Churches',
+                'prayer' => 'Spirit, help the '.$stack['location']['believers'].' believers find persons of peace today among the '.$stack['location']['all_lost'].' lost neighbors around them. And help them start discovery bible studies in these unbelieving homes.',
+                'reference' => 'Acts 10:30-33',
+                'verse' => 'Suddenly a man in shining clothes stood before me and said, ‘Cornelius, God has heard Your prayer and remembered Your gifts to the poor. Send to Joppa for Simon who is called Peter. He is a guest in the home of Simon the tanner, who lives by the sea.’ So I sent for you immediately, and it was good of you to come. Now we are all here in the presence of God to listen to everything the Lord has commanded you to tell us.”',
+            ],
+            [
+                'section_label' => 'Simple Churches',
+                'prayer' => 'Father, we pray that the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' be filled with simple churches in every neighborhood.',
+                'reference' => 'Isaiah 11:9',
+                'verse' => 'For the earth will be full of the knowledge of the Lord, as the waters cover the sea.',
+            ],
+            [
+                'section_label' => 'Simple Churches',
+                'prayer' => 'Father, we ask for '.$stack['location']['new_churches_needed'].' new simple churches in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'. Place a simple church in every community of the '.$stack['location']['population'].' people living here.',
+                'reference' => 'Psalm 72:19',
+                'verse' => 'And blessed be His glorious name forever; And may the whole earth be filled with His glory. Amen, and Amen.',
+            ],
+            [
+                'section_label' => 'Simple Churches',
+                'prayer' => 'Spirit, teach the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' the wisdom of how to form simple, reproducible churches of 12-30 in every neighborhood.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Simple Churches',
+                'prayer' => 'Father, bless the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' with a multiplying movement of house churches.',
+                'reference' => 'Numbers 14:21',
+                'verse' => '...but indeed, as I live, all the earth will be filled with the glory of the Lord.',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+
+    public static function _for_media_resources( &$lists, $stack, $all = false ) {
+        $section_label = 'Movement Health';
+        $templates = [
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Father, please call new believers full of yearning to see You praised in '.$stack['location']['full_name'].'.',
+//                'reference' => 'Psalm 96:3',
+//                'verse' => 'Declare his glory among the nations, his marvelous deeds among all peoples.',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_safety( &$lists, $stack, $all = false ) {
+        $section_label = 'Movement Health';
+        $templates = [
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Father, please call new believers full of yearning to see You praised in '.$stack['location']['full_name'].'.',
+//                'reference' => 'Psalm 96:3',
+//                'verse' => 'Declare his glory among the nations, his marvelous deeds among all peoples.',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_political_stability( &$lists, $stack, $all = false ) {
+        $section_label = 'Movement Health';
+        $templates = [
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Father, please call new believers full of yearning to see You praised in '.$stack['location']['full_name'].'.',
+//                'reference' => 'Psalm 96:3',
+//                'verse' => 'Declare his glory among the nations, his marvelous deeds among all peoples.',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_church_health( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+
+            [
+                'section_label' => 'The Church',
+                'prayer' => 'Father, please provide access to Your Word. Please provide the translators, printers, books sellers, and app developers the resources and skill to get Your Word to '.$stack['location']['full_name'].'.',
+                'reference' => 'Matthew 24:14',
+                'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
+            ],
+            [
+                'section_label' => 'The Church',
+                'prayer' => 'Lord we pray you unite the '.$stack['location']['believers'].' believers to pray at all times in the Spirit, with all prayer and supplication, for spiritual breakthrough in ' . $stack['location']['name'] . '.',
+                'reference' => 'Philippians 4:6',
+                'verse' => '... in every situation, by prayer and petition, with thanksgiving, present Your requests to God.',
+            ],
+            [
+                'section_label' => 'The Church',
+                'prayer' => 'Father, we pray that the people of ' . $stack['location']['full_name'] . ' will learn to study the Bible, understand it, obey it, and share it.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'The Church',
+                'prayer' => 'God, we pray both the men and women of ' . $stack['location']['full_name'] . ' will find ways to meet in groups of two or three to encourage and correct one another from Your Word.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'The Church',
+                'prayer' => 'Lord, we pray for the believers in ' . $stack['location']['full_name'] . ' to be more like Jesus in their love for friends and enemies.',
+                'reference' => 'Matthew 5:44',
+                'verse' => 'But I tell you, love Your enemies and pray for those who persecute you.',
+            ],
+            [
+                'section_label' => 'The Church',
+                'prayer' => 'God, we pray for the believers in ' . $stack['location']['full_name'] . ' that they will know how to spend an hour in prayer with you.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'The Church',
+                'prayer' => 'Father, we pray the believers are good spiritual stewards of their everyday relationships in ' . $stack['location']['full_name'] . '.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'The Church',
+                'prayer' => 'God, we pray for the believers in ' . $stack['location']['full_name'] . ' to be generous so that they would be worthy of greater investment by you.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'The Church',
+                'prayer' => 'Father, remind your church in ' . $stack['location']['full_name'] . ' that you have set your Son over all rule and authority, power and dominion, and every name that is invoked.',
+                'reference' => 'Ephesians 1:21',
+                'verse' => '...he raised Christ from the dead and seated him at his right hand in the heavenly realms, far above all rule and authority, power and dominion, and every name that is invoked, not only in the present age but also in the one to come.',
+            ],
+            [
+                'section_label' => 'The Church',
+                'prayer' => 'Father, we rejoice that You who began a good work in the church of ' . $stack['location']['full_name'] . ' will carry it on to completion until the day of Jesus Christ!',
+                'reference' => 'Philippians 1:6',
+                'verse' => '...being confident of this, that he who began a good work in you will carry it on to completion until the day of Christ Jesus.',
+            ],
+            [
+                'section_label' => 'The Church',
+                'prayer' => 'Father, let love abound more and more in the church of ' . $stack['location']['full_name'] . '.',
+                'reference' => 'Philippians 1:9',
+                'verse' => 'And this is my prayer: that your love may abound more and more in knowledge and depth of insight',
+            ],
+            [
+                'section_label' => 'The Church',
+                'prayer' => 'Father, let knowledge and depth of insight abound more and more in the church of ' . $stack['location']['full_name'] . '.',
+                'reference' => 'Philippians 1:9',
+                'verse' => 'And this is my prayer: that your love may abound more and more in knowledge and depth of insight',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_new_churches( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+            [
+                'section_label' => 'Church Planting',
+                'prayer' => 'Father, help '.$stack['location']['new_churches_needed'].' new simple churches start among the '.$stack['location']['population'].' people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'. One within reach of everyone living here.',
+                'reference' => 'Habakkuk 2:14',
+                'verse' => 'For the earth will be filled with the knowledge of the glory of the Lord as the waters cover the sea.',
+            ],
+            [
+                'section_label' => 'Church Planting',
+                'prayer' => 'Spirit, please start new house churches in every neighborhood of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'reference' => 'Habakkuk 2:14',
+                'verse' => 'For the earth will be filled with the knowledge of the glory of the Lord as the waters cover the sea.',
+            ],
+            [
+                'section_label' => 'Church Planting',
+                'prayer' => 'Spirit, please give every church in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' a passion to plant another simple church.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Church Planting',
+                'prayer' => 'Father, show Your mercy on the '.$stack['location']['all_lost'].' people in '.$stack['location']['name'].' who are far from you. Please add '.$stack['location']['new_churches_needed'].' new house churches this year.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Church Planting',
+                'prayer' => 'Father, we agree with Your desire that the people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' hear about You.',
+                'reference' => 'Romans 15:21',
+                'verse' => 'Those who were not told about him will see, and those who have not heard will understand.',
+            ],
+            [
+                'section_label' => 'Church Planting',
+                'prayer' => 'Father, let every disciple be a disciple maker, every home a training center, and every church a church planting movement in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Church Planting',
+                'prayer' => 'Father, we ask for networks of simple churches in every city in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', like Paul planted in Corinth and Ephesus.',
+                'reference' => '1 Corinthians 16:19',
+                'verse' => 'The churches in the province of Asia send you greetings. Aquila and Priscilla greet you warmly in the Lord, and so does the church that meets at their house.',
+            ],
+            [
+                'section_label' => 'Church Planting',
+                'prayer' => 'Jesus, '.$stack['location']['population'].' people live in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Please, give them '.$stack['location']['new_churches_needed'].' new simple churches this year.',
+                'reference' => '',
+                'verse' => '',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_multiplication( &$lists, $stack, $all = false ) {
+        $section_label = [
+            'm' => 'Movement',
+            'd' => 'Disciples Making Disciples',
+            'c' => 'Churches Planting Churches'
+        ];
+
+        $templates = [
+            [
+                'section_label' => $section_label['m'],
+                'prayer' => 'Jesus, all authority was given to you, and you commanded all disciples in '. $stack['location']['full_name'] . ' to make more disciples, and you promised to be with them. May Your power and their obedience make more disciples today.',
+                'reference' => 'Matthew 28:18',
+                'verse' => 'All authority in heaven and on earth has been given to me. Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age.',
+            ],
+            [
+                'section_label' => $section_label['m'],
+                'prayer' => 'Father, help the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to know that You can make a big impact through their simple obedience today.',
+                'reference' => 'Exodus 19:6',
+                'verse' => '... you will be for me a kingdom of priests ...',
+            ],
+            [
+                'section_label' => $section_label['m'],
+                'prayer' => 'Spirit, please defend the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' against self-centered spirituality. Open their eyes to the fields white for harvest around them.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label['m'],
+                'prayer' => 'Spirit, please defend the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' against an unwillingness to suffer. Give them courage to face social rejection.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label['m'],
+                'prayer' => 'Please, teach the '.$stack['location']['believers'].' believers in '.$stack['location']['full_name'].' how to pray to you and how to listen for Your voice. That they might follow you into the good works you have prepared for them.',
+                'reference' => 'John 10:27',
+                'verse' => 'My sheep listen to my voice; I know them, and they follow me.',
+            ],
+            [
+                'section_label' => $section_label['m'],
+                'prayer' => 'Please, convict the '.$stack['location']['believers'].' believers in '.$stack['location']['full_name'].' to look to You as their only hope for strength and fruitfulness and life.',
+                'reference' => 'John 15:5',
+                'verse' => 'I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit; apart from me you can do nothing.',
+            ],
+            [
+                'section_label' => $section_label['m'],
+                'prayer' => 'Father, convict the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to be holy and righteous. Inspire them to gather in small groups for accountability and spiritual growth.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label['m'],
+                'prayer' => 'Father, encourage the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to not just be consumers of knowledge but be producers of love, mercy, kindness, and justice.',
+                'reference' => '1 John 3:18',
+                'verse' => '...let us not love with words or speech but with actions and in truth.',
+            ],
+            [
+                'section_label' => $section_label['m'],
+                'prayer' => 'Father, help the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to be spiritually intentional with their relationships among their '.$stack['location']['all_lost'].' lost friends and neighbors.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label['m'],
+                'prayer' => 'Lord, we know that you invest more in those who have been faithful with what they have been given. Please, richly bless each faithful believer in '.$stack['location']['name'].' with more spiritual insight, wisdom, courage and vision.',
+                'reference' => 'Matthew 25:28',
+                'verse' => 'So take the bag of gold from him and give it to the one who has ten bags. For whoever has will be given more, and they will have an abundance. Whoever does not have, even what they have will be taken from them.',
+            ],
+            [
+                'section_label' => $section_label['m'],
+                'prayer' => 'Father, multiply brothers, sisters, and mothers to our spiritual family in '.$stack['location']['full_name'].'.',
+                'reference' => 'Matthew 12:50',
+                'verse' => 'He replied to him, “Who is my mother, and who are my brothers?” Pointing to his disciples, he said, “Here are my mother and my brothers. For whoever does the will of my Father in heaven is my brother and sister and mother.”',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_multiplying_churches( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+//            [
+//                'section_label' => 'Simple Churches',
+//                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_multiplying_disciples( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+//            [
+//                'section_label' => 'Simple Churches',
+//                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+
+
+
     public static function _for_demographic_feature_total_population( &$lists, $stack, $all = false ) {
         $section_label = 'Population';
         $templates = [
+            [
+                'section_label' => 'Far from God',
+                'prayer' => 'Father, you desire the people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to see about you and hear about you.',
+                'reference' => 'Romans 15:21',
+                'verse' => 'Those who were not told about him will see, and those who have not heard will understand.',
+            ],
             [
                 'section_label' => $section_label,
                 'prayer' => 'There are '.$stack['location']['population'].' people living in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Only about '.$stack['location']['believers'].' might be believers.',
@@ -63,56 +602,115 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _for_movement_health( &$lists, $stack, $all = false ) {
-        $section_label = 'Movement Health';
+    public static function _for_demographic_feature_population_non_christians( &$lists, $stack, $all = false ) {
+        $section_label = 'Non-Christians';
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, we pray for every movement leader and disciple in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].' that they would have deepening intimacy with You.',
-                'reference' => 'John 14:20',
-                'verse' => 'On that day you will realize that I am in my Father, and you are in me, and I am in you.',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Spirit, raise up prayer leaders in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'.',
-                'reference' => 'Colossians 4:2',
-                'verse' => 'Devote yourselves to prayer, being watchful and thankful.',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Father, please call new believers full of yearning to see You praised in '.$stack['location']['full_name'].'.',
-                'reference' => 'Psalm 96:3',
-                'verse' => 'Declare his glory among the nations, his marvelous deeds among all peoples.',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Spirit, guide the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' into all truth as they interpret Scriptures.',
-                'reference' => 'Hebrews 4:12',
-                'verse' => 'For the Word of God is alive and active. Sharper than any two-edged sword, it penetrates even to dividing soul and spirit, joints and marrow.',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Spirit, give the believers of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' unity and humility as they work to bring the kingdom to new people and places.',
+                'prayer' => 'Over '.$stack['location']['percent_non_christians'].' percent of the people of '.$stack['location']['name'].' are far from Jesus. Lord, please send Your gospel to them through the internet or radio or television today!',
                 'reference' => '',
                 'verse' => '',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, give the disciples of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' an urgency of seeing every people and place reached for the gospel.',
-                'reference' => 'John 9:4',
-                'verse' => 'As long as it is day, we must do the works of him who sent me. Night is coming, when no one can work.',
+                'prayer' => 'Over '.$stack['location']['percent_non_christians'].' percent of the people of '.$stack['location']['name'].' are far from Jesus.',
+                'reference' => '',
+                'verse' => '',
+            ],
+
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_demographic_feature_population_christian_adherents( &$lists, $stack, $all = false ) {
+        $section_label = 'Cultural Christians';
+        $templates = [
+            [
+                'section_label' => $section_label,
+                'prayer' => "Spirit, ".$stack['location']['christian_adherents']." cultural Christians in ".$stack['location']['full_name']." likely have a Bible in their home. Please, send conviction for them to open it and read it for themselves.",
+                'reference' => '',
+                'verse' => '',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => "Spirit, teach the ".$stack['location']['believers']." believers in ".$stack['location']['name']." that when they seek first God's Kingdom and His righteousness, He will abundantly provide all they need.",
-                'reference' => '2 Corinthians 9:8',
-                'verse' => 'And God is able to bless you abundantly, so that in all things at all times, having all that you need, you will abound in every good work.',
+                'prayer' => "Spirit, teach the ".$stack['location']['christian_adherents']." cultural Christians in ".$stack['location']['full_name']." to pray from the heart and not with scripts or formulas only.",
+                'reference' => '',
+                'verse' => '',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, give the disciples of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' words, actions, signs and wonders, to proclaim the coming of the Kingdom with boldness and power.',
-                'reference' => 'Matthew 10:7',
-                'verse' => 'As you go, proclaim this message: "The kingdom of heaven has come near."',
+                'prayer' => "Spirit, bless the ".$stack['location']['christian_adherents']." cultural Christians in ".$stack['location']['name']." with more knowlege and curiosity about your beautiful gospel, that they might claim it for themselves personally and intimately.",
+                'reference' => '',
+                'verse' => '',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_demographic_feature_population_believers( &$lists, $stack, $all = false ) {
+        $section_label = 'Believer Families';
+        $templates = [
+            [
+                'section_label' => $section_label,
+                'prayer' => "Spirit, consider the ".$stack['location']['believers']." believers in ".$stack['location']['name'].". You promised to convict of sin, righteousness and judgement. Please show mercy and don't leave them idle and distant from Jesus.",
+                'verse' => '',
+                'reference' => '',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_demographic_feature_primary_religion( &$lists, $stack, $all = false ) {
+        if ( 'Christianity' === $stack['location']['primary_religion'] ) {
+            return $lists;
+        }
+
+        $section_label = 'Primary Religion';
+        $templates = [
+            [
+                'section_label' => $section_label,
+                'prayer' => 'The primary religion in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].' is '.$stack['location']['primary_religion'].'.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, give the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' the skill to communicate Your gospel to those who follow '.$stack['location']['primary_religion'].' around them.',
+                'reference' => 'Ephesians 6:19',
+                'verse' => 'Pray also for me, that whenever I speak, words may be given me so that I will fearlessly make known the mystery of the gospel.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, many people in '.$stack['location']['full_name'].' follow '.$stack['location']['primary_religion'].'. Please give them accurate knowledge of Jesus.',
+                'reference' => 'Romans 10:2',
+                'verse' => 'For I can testify about them that they are zealous for God, but their zeal is not based on knowledge.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Lord, increase spiritual dissatisfaction among those in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' who follow '.$stack['location']['primary_religion'] . ', so that they would begin to seek You.',
+                'reference' => 'Romans 10:2',
+                'verse' => 'For I can testify about them that they are zealous for God, but their zeal is not based on knowledge.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Even though the primary religion is '.$stack['location']['primary_religion'] . ' in '.$stack['location']['name'].', Lord, call to Yourself persons of peace among the community...those who fear you with the best knowledge they have.',
+                'reference' => 'Acts 10:1,2',
+                'verse' => 'At Caesarea there was a man named Cornelius, a centurion in what was known as the Italian Regiment. He and all his family were devout and God-fearing; he gave generously to those in need and prayed to God regularly.',
             ],
         ];
 
@@ -175,42 +773,106 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _for_demographic_feature_primary_religion( &$lists, $stack, $all = false ) {
-        if ( 'Christianity' === $stack['location']['primary_religion'] ) {
-            return $lists;
-        }
 
-        $section_label = 'Primary Religion';
+
+
+    public static function _for_people_groups_by_least_reached_status( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+//            [
+//                'section_label' => 'Simple Churches',
+//                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_people_groups_by_reached_status( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+//            [
+//                'section_label' => 'Simple Churches',
+//                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_people_groups_by_religion( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+//            [
+//                'section_label' => 'Simple Churches',
+//                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_people_groups_by_population( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+//            [
+//                'section_label' => 'Simple Churches',
+//                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+
+
+
+
+    public static function _for_local_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
+        $section_label = 'Movement Leadership';
         $templates = [
             [
-                'section_label' => $section_label,
-                'prayer' => 'The primary religion in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].' is '.$stack['location']['primary_religion'].'.',
+                'section_label' => 'Local Leadership',
+                'prayer' => 'Spirit, build the strength and maturity of the local leaders in '.$stack['location']['full_name'].'. Show them that faithfulness is better than knowledge. Show them that the Spirit, the Word, and prayer is enough in order to grow and lead.',
                 'reference' => '',
                 'verse' => '',
             ],
             [
-                'section_label' => $section_label,
-                'prayer' => 'Father, give the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' the skill to communicate Your gospel to those who follow '.$stack['location']['primary_religion'].' around them.',
-                'reference' => 'Ephesians 6:19',
-                'verse' => 'Pray also for me, that whenever I speak, words may be given me so that I will fearlessly make known the mystery of the gospel.',
+                'section_label' => 'Local Leadership',
+                'prayer' => 'God, we ask you to raise up elders and deacons from the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].', who will serve the church and equip it to do Your work.',
+                'reference' => 'Ephesians 4:11',
+                'verse' => 'So Christ himself gave the apostles, the prophets, the evangelists, the pastors and teachers, to equip his people for works of service, so that the body of Christ may be built up until we all reach unity in the faith and in the knowledge of the Son of God and become mature, attaining to the whole measure of the fullness of Christ.',
             ],
+
             [
-                'section_label' => $section_label,
-                'prayer' => 'Father, many people in '.$stack['location']['full_name'].' follow '.$stack['location']['primary_religion'].'. Please give them accurate knowledge of Jesus.',
-                'reference' => 'Romans 10:2',
-                'verse' => 'For I can testify about them that they are zealous for God, but their zeal is not based on knowledge.',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Lord, increase spiritual dissatisfaction among those in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' who follow '.$stack['location']['primary_religion'] . ', so that they would begin to seek You.',
-                'reference' => 'Romans 10:2',
-                'verse' => 'For I can testify about them that they are zealous for God, but their zeal is not based on knowledge.',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Even though the primary religion is '.$stack['location']['primary_religion'] . ' in '.$stack['location']['name'].', Lord, call to Yourself persons of peace among the community...those who fear you with the best knowledge they have.',
-                'reference' => 'Acts 10:1,2',
-                'verse' => 'At Caesarea there was a man named Cornelius, a centurion in what was known as the Italian Regiment. He and all his family were devout and God-fearing; he gave generously to those in need and prayed to God regularly.',
+                'section_label' => 'Movement Leadership',
+                'prayer' => 'Father, we pray for every movement leader and disciple in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].' that they would have deepening intimacy with You.',
+                'reference' => 'John 14:20',
+                'verse' => 'On that day you will realize that I am in my Father, and you are in me, and I am in you.',
             ],
         ];
 
@@ -221,56 +883,36 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    // https://www.missionfrontiers.org/issue/article/the-ten-universal-elements
-
-    /**
-     * 1. Prayer
-     * 2. Abundant Gospel Sowing
-     * 3. Intentional Church Planting
-     * 4. Scriptural Authority
-     * 5. Local Leadership
-     * 6. Lay Leadership
-     * 7. Cell or House Churches
-     * 8. Churches Planting Churches
-     * 9. Rapid Reproduction
-     * 10. Healthy Churches
-     */
-
-    public static function _for_prayer_movement( &$lists, $stack, $all = false ) {
+    public static function _for_apostolic_pioneering_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
+        $section_label = 'Movement Leadership';
         $templates = [
             [
-                'section_label' => 'Prayer Movement',
-                'prayer' => 'Father, we cry out for a prayer movement in the '.$stack['location']['admin_level_name'].' of ' . $stack['location']['full_name'] . '. Please, stir the ' . $stack['location']['believers'] . ' believers here to pray for awakening.',
+                'section_label' => $section_label,
+                'prayer' => 'Father, please raise up apostles to pioneer the growth of the church in '.$stack['location']['name'],
                 'reference' => '',
                 'verse' => '',
             ],
             [
-                'section_label' => 'Prayer Movement',
-                'prayer' => 'Lord, cause a passion for prayer among the people of ' . $stack['location']['full_name'] . '.',
-                'reference' => 'John 17:20-21',
-                'verse' => 'I (Jesus) pray also for those who will believe in me through their message, that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world may believe that you have sent me.',
+                'section_label' => $section_label,
+                'prayer' => 'Lord, raise up apostolic workers to plant churches in every town in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'reference' => 'Titus 1:5',
+                'verse' => 'The reason I left you in Crete was that you might put in order what was left unfinished and appoint elders in every town, as I directed you.',
             ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_evangelistic_leadership( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
             [
-                'section_label' => 'Prayer Movement',
-                'prayer' => 'Lord, stir the hearts of Your people in the '.$stack['location']['admin_level_name'].' of ' . $stack['location']['name'] . ' to agree with You and agree with one another in love.',
-                'reference' => 'John 17:20-21',
-                'verse' => 'I (Jesus) pray also for those who will believe in me through their message, that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world may believe that you have sent me.',
-            ],
-            [
-                'section_label' => 'Prayer Movement',
-                'prayer' => 'Spirit, teach the church in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to increase their prayer for Your kingdom to come.',
-                'reference' => 'Daniel 6:10',
-                'verse' => 'Now when Daniel learned that the decree had been published, he went home to his upstairs room where the windows opened toward Jerusalem. Three times a day he got down on his knees and prayed, giving thanks to his God...',
-            ],
-            [
-                'section_label' => 'Prayer Movement',
-                'prayer' => 'Spirit, teach the children in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to pray with passion and pleading for Your presence.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'Prayer Movement',
-                'prayer' => 'Spirit, awaken a burning desire for Your presence and intimacy among the '.$stack['location']['population'].' people living in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'section_label' => 'Evangelistic Leadership',
+                'prayer' => 'Father, please raise up evangelists to add new believers to churches in '.$stack['location']['name'],
                 'reference' => '',
                 'verse' => '',
             ],
@@ -282,6 +924,369 @@ class PG_Stacker_Text {
         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
         return $lists;
     }
+
+    public static function _for_prophetic_leadership( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+            [
+                'section_label' => 'Local Leadership',
+                'prayer' => 'Father, please raise up prophets in '.$stack['location']['name'].' who can call the church to holiness and purity, preparing your church as a bride for your Son.',
+                'reference' => '',
+                'verse' => '',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_shepherding_leadership( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+            [
+                'section_label' => 'Shepherds',
+                'prayer' => 'Lord, give grace to the local leaders who shepherd the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'reference' => 'John 10:11',
+                'verse' => 'I am the good shepherd. The good shepherd lays down his life for the sheep.',
+            ],
+            [
+                'section_label' => 'Shepherds',
+                'prayer' => 'Lord, please provide elders whose heart is completely yours in every town in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'reference' => 'Titus 1:5',
+                'verse' => 'The reason I left you in Crete was that you might put in order what was left unfinished and appoint elders in every town, as I directed you.',
+            ],
+
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_teaching_leadership( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+            [
+                'section_label' => 'Local Leadership',
+                'prayer' => 'Father, please teachers of Your Word in '.$stack['location']['name'].' who can speak Your gospel boldly and clearly.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Local Leadership',
+                'prayer' => 'Spirit, build the strength and maturity of the local leaders in '.$stack['location']['full_name'].'. Show them that faithfulness is more important than knowledge. Show them that the Spirit, the Word, and prayer is enough in order to grow and lead. ',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Local Leadership',
+                'prayer' => 'Lord, for the leaders in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', let the eyes of their hearts be enlightened in order that they may know the hope to which they are called.',
+                'reference' => 'Ephesians 1:18',
+                'verse' => 'I pray that the eyes of your heart may be enlightened in order that you may know the hope to which he has called you, the riches of his glorious inheritance in his holy people, and his incomparably great power for us who believe. ',
+            ],
+
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+
+
+
+    public static function _for_biblical_authority_over_the_believers( &$lists, $stack, $all = false ) {
+        $section_label = 'Biblical Authority';
+        $templates = [
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, make the Word of God a delight to the people of '.$stack['location']['name'].', like it was to David.',
+                'reference' => 'Psalm 119:16',
+                'verse' => 'I delight in Your decrees, I will not neglect Your word.',
+            ],
+            [
+                'section_label' => 'Biblical Authority',
+                'prayer' => 'Spirit, instill a desire within the people of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to hide Your word in their heart.',
+                'reference' => 'Psalm 119:11',
+                'verse' => 'I have hidden Your word in my heart that I might not sin against you.',
+            ],
+            [
+                'section_label' => 'Biblical Authority',
+                'prayer' => 'Spirit, help the people of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to be consumed with longing for Your Word at all times, like David.',
+                'reference' => 'Psalm 119:20',
+                'verse' => 'My soul is consumed with longing for Your laws at all times.',
+            ],
+            [
+                'section_label' => 'Biblical Authority',
+                'prayer' => 'Lord, teach Your Word to the people of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', so that they can follow Your ways all their life.',
+                'reference' => 'Psalm 119:33',
+                'verse' => 'Teach me, Lord, the way of Your decrees, that I may follow it to the end.',
+            ],
+            [
+                'section_label' => 'Biblical Authority',
+                'prayer' => 'Lord, teach the disciples in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to trust Your Word, like a lamp, in the darkness around them.',
+                'reference' => 'Psalm 119:105',
+                'verse' => 'Your word is a lamp for my feet, a light on my path.',
+            ],
+            [
+                'section_label' => 'Biblical Authority',
+                'prayer' => 'Lord, teach the young people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to trust your Word and find the path of purity.',
+                'reference' => 'Psalm 119:9',
+                'verse' => 'How can a young person stay on the path of purity? By living according to your word.',
+            ],
+            [
+                'section_label' => 'Biblical Authority',
+                'prayer' => 'Spirit, we know that cultures come and go, even in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', but the truth of Your Word endures generations.',
+                'reference' => 'Psalm 119:89',
+                'verse' => 'Your word, Lord, is eternal; it stands firm in the heavens.',
+            ],
+            [
+                'section_label' => 'Biblical Authority',
+                'prayer' => 'Father, defend those who are loyal to your Word in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', even against fierce enemies.',
+                'reference' => 'Psalm 119:61',
+                'verse' => 'Though the wicked bind me with ropes, I will not forget your law.',
+            ],
+            [
+                'section_label' => 'Biblical Authority',
+                'prayer' => 'Spirit, fill the '.$stack['location']['population'].' souls living in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' with a taste for your Word. Make it sweet as honey in their mouth.',
+                'reference' => 'Psalm 119:103',
+                'verse' => 'How sweet are your words to my taste, sweeter than honey to my mouth!',
+            ],
+            [
+                'section_label' => 'Biblical Authority',
+                'prayer' => 'Spirit, fill the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' with tears, because God is not obeyed by those around them.',
+                'reference' => 'Psalm 119:136',
+                'verse' => 'Streams of tears flow from my eyes, for your law is not obeyed.',
+            ],
+            [
+                'section_label' => 'Biblical Authority',
+                'prayer' => 'Father, see the suffering of Your people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Deliver all those who have not forgotten your Word.',
+                'reference' => 'Psalm 119:153',
+                'verse' => 'Look on my suffering and deliver me, for I have not forgotten your law.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, guide the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' into all truth as they interpret Scriptures.',
+                'reference' => 'Hebrews 4:12',
+                'verse' => 'For the Word of God is alive and active. Sharper than any two-edged sword, it penetrates even to dividing soul and spirit, joints and marrow.',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_obedience_in_the_believers( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+            [
+                'section_label' => 'Obedience',
+                'prayer' => 'Spirit, cause the '.$stack['location']['believers'].' believers in ' . $stack['location']['name'] . ' to obey with immediate, radical, costly obedience, like Abraham.',
+                'reference' => 'Genesis 22:2-3',
+                'verse' => 'Then God said, “Take Your son, Your only son, whom you love — Isaac — and go to the region of Moriah. Sacrifice him there as a burnt offering on a mountain I will show you.” Early the next morning Abraham got up and loaded his donkey. He took with him two of his servants and his son Isaac. When he had cut enough wood for the burnt offering, he set out for the place God had told him about.',
+            ],
+            [
+                'section_label' => 'Obedience',
+                'prayer' => 'Jesus, teach the believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' that love for You and obedience to You are connected.',
+                'reference' => 'John 14:15',
+                'verse' => 'If you love me, keep my commands.',
+            ],
+            [
+                'section_label' => 'Obedience',
+                'prayer' => 'Jesus, remind the disciples in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to train each other to obey all that You commanded, and that You will be with them as they do it.',
+                'reference' => 'Matthew 28:20',
+                'verse' => '...teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age.',
+            ],
+            [
+                'section_label' => 'Obedience',
+                'prayer' => 'Jesus, please help the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to be filled with joyful obedience at all times, as you modeled for us all.',
+                'reference' => '',
+                'verse' => '',
+            ],
+
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_trust_in_the_believers( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+            [
+                'section_label' => 'Trust',
+                'prayer' => 'Father, move the ' . $stack['location']['believers'] . ' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to say "Not our will, but Yours be done", like Jesus.',
+                'reference' => 'Luke 22:41-42',
+                'verse' => 'He withdrew about a stone’s throw beyond them, knelt down and prayed, "Father, if you are willing, take this cup from me; yet not my will, but Yours be done."',
+            ],
+
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_faith_in_the_believers( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+            [
+                'section_label' => 'Faith',
+                'prayer' => "Spirit, teach the ".$stack['location']['believers']." believers in ".$stack['location']['name']." that when they seek first Your Kingdom and Your righteousness, You will abundantly provide all they need.",
+                'reference' => '2 Corinthians 9:8',
+                'verse' => 'And God is able to bless you abundantly, so that in all things at all times, having all that you need, you will abound in every good work.',
+            ],
+            [
+                'section_label' => 'Faith',
+                'prayer' => 'Lord, please give the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' the Spirit of wisdom and revelation, so that they might know you better.',
+                'reference' => 'Ephesians 1:17',
+                'verse' => 'I keep asking that the God of our Lord Jesus Christ, the glorious Father, may give you the Spirit of wisdom and revelation, so that you may know him better.',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_love_in_the_believers( &$lists, $stack, $all = false ) { // for rapid reproduction
+        $section_label = 'Love';
+        $templates = [
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, give the believers of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' unity and humility as they work to bring the kingdom to new people and places.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Love',
+                'prayer' => 'Lord, stir the hearts of Your people in ' . $stack['location']['name'] . ' to agree with You and with one another.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Obedience',
+                'prayer' => 'Lord, stir the hearts of Your people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to agree with You and with one another in love.',
+                'reference' => 'John 17:21',
+                'verse' => 'that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world may believe that you have sent me.',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_urgency_in_the_believers( &$lists, $stack, $all = false ) {
+        $section_label = 'Prayer Movement';
+        $templates = [
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Father, give the disciples of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' an urgency of seeing every people and place reached for the gospel.',
+                'reference' => 'John 9:4',
+                'verse' => 'As long as it is day, we must do the works of him who sent me. Night is coming, when no one can work.',
+            ],
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Spirit, encourage the disciples in '.$stack['location']['full_name'].' to live with urgency and a passion for making more disciples.',
+                'reference' => 'James 4:14',
+                'verse' => 'Yet you do not know what Your life will be like tomorrow. You are just a vapor that appears for a little while and then vanishes away.',
+            ],
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Spirit, defend the church in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' against being inward-focused.',
+                'reference' => 'Isaiah 61:1',
+                'verse' => 'The Spirit of the Sovereign LORD is on me, because the LORD has anointed me to proclaim good news to the poor. He has sent me to bind up the brokenhearted, to proclaim freedom for the captives and release from darkness for the prisoners.',
+            ],
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Spirit, encourage the church in '.$stack['location']['full_name'].' to make the most of every opportunity.',
+                'reference' => 'Ephesians 5:15',
+                'verse' => 'Be very careful, then, how you live—not as unwise but as wise, making the most of every opportunity, because the days are evil.',
+            ],
+
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Jesus, your return is closer than when we first believed. Please, set urgency in the hearts of the people living in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'reference' => 'Romans 13:11',
+                'verse' => 'Besides this you know the time, that the hour has come for you to wake from sleep. For salvation is nearer to us now than when we first believed.',
+            ],
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Spirit, disrupt complacency in the '.$stack['location']['believers'].' believers living in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Remind them you are coming soon.',
+                'reference' => 'Matthew 24:42',
+                'verse' => 'Therefore, stay awake, for you do not know on what day your Lord is coming.',
+            ],
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Spirit, give faith and responsive hearts to the '.$stack['location']['population'].' citizens of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'reference' => 'Isaiah 55:6',
+                'verse' => 'Seek the Lord while he may be found; call upon him while he is near;',
+            ],
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Spirit, renew the call of John the Baptist in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Send out bold servants who will call all to repent.',
+                'reference' => 'Matthew 3:2',
+                'verse' => 'Repent, for the kingdom of heaven is at hand.',
+            ],
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Father, set on fire the hearts and passion of your church in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'reference' => 'Romans 12:11',
+                'verse' => 'Do not be slothful in zeal, be fervent in spirit, serve the Lord.',
+            ],
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Spirit, awaken the sleepers and call them to repent and be baptized in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Set an urgency in their hearts.',
+                'reference' => 'Acts 22:16',
+                'verse' => 'And now why do you wait? Rise and be baptized and wash away your sins, calling on his name.’',
+            ],
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Jesus, defend your people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' against the difficulty of these last days.',
+                'reference' => '2 Timothy 3:1-4',
+                'verse' => 'But understand this, that in the last days there will come times of difficulty. For people will be lovers of self, lovers of money, proud, arrogant, abusive, disobedient to their parents, ungrateful, unholy, heartless, unappeasable, slanderous, without self-control, brutal, not loving good, treacherous, reckless, swollen with conceit, lovers of pleasure rather than lovers of God, having the appearance of godliness, but denying its power.',
+            ],
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Jesus, purify the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to not just be hearers, but doers of your Word.',
+                'reference' => 'Revelation 1:3',
+                'verse' => 'Blessed is the one who reads aloud the words of this prophecy, and blessed are those who hear, and who keep what is written in it, for the time is near.',
+            ],
+            [
+                'section_label' => 'Urgency',
+                'prayer' => 'Holy Spirit, have mercy on the simple who turned from you in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Warn them again against their complacency.',
+                'reference' => 'Proverbs 1:32',
+                'verse' => 'For the simple are killed by their turning away, and the complacency of fools destroys them;',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
 
 
 
@@ -483,734 +1488,10 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _for_abundant_gospel_sowing( &$lists, $stack, $all = false ) {
-        $templates = [
-            [
-                'section_label' => 'Abundant Gospel Sowing',
-                'prayer' => 'Lord, make the ' . $stack['location']['believers'] . ' believers in ' . $stack['location']['name'] . ' to be brave and clear with the gospel to their ' . $stack['location']['all_lost'] . ' neighbors.',
-                'reference' => 'Acts 14:3',
-                'verse' => 'So Paul and Barnabas spent considerable time there, speaking boldly for the Lord, who confirmed the message of his grace by enabling them to perform signs and wonders.',
-            ],
-            [
-                'section_label' => 'Abundant Gospel Sowing',
-                'prayer' => 'Father, please send new teachers into the harvest, who can correct the lies of our enemy in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'.',
-                'reference' => 'Matthew 9:38',
-                'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
-            ],
-            [
-                'section_label' => 'Abundant Gospel Sowing',
-                'prayer' => 'Father, please send new apostles into the harvest, who can open up new communities for the gospel in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'.',
-                'reference' => 'Matthew 9:38',
-                'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
-            ],
-            [
-                'section_label' => 'Abundant Gospel Sowing',
-                'prayer' => 'Father, please send new evangelists into the harvest in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'.',
-                'reference' => 'Matthew 9:38',
-                'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
-            ],
-            [
-                'section_label' => 'Abundant Gospel Sowing',
-                'prayer' => 'Father, please raise up apostles, evangelists and preachers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => 'Matthew 9:38',
-                'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
-            ],
-        ];
 
-        // language
-        if ( 'English' !== $stack['location']['primary_language'] ) {
-            $templates = array_merge( $templates, [
-                [
-                    'section_label' => 'Abundant Gospel Sowing',
-                    'prayer' => 'Father, please send new teachers into the harvest, who can teach in the ' . $stack['location']['primary_language'] . ' language and can combat the lies of our enemy.',
-                    'reference' => 'Matthew 9:38',
-                    'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
-                ],
-                [
-                    'section_label' => 'Abundant Gospel Sowing',
-                    'prayer' => 'Father, please send new apostles into the harvest, who can speak the ' . $stack['location']['primary_language'] . ' language and open new communities for the gospel.',
-                    'reference' => 'Matthew 9:38',
-                    'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
-                ],
-                [
-                    'section_label' => 'Abundant Gospel Sowing',
-                    'prayer' => 'Father, please send new evangelists into the harvest, who can speak the ' . $stack['location']['primary_language'] . ' language in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'.',
-                    'reference' => 'Matthew 9:38',
-                    'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
-                ],
-                [
-                    'section_label' => 'Abundant Gospel Sowing',
-                    'prayer' => 'Father, please raise up apostles, evangelists and preachers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', who can speak Your gospel boldly and clearly in the ' . $stack['location']['primary_language'] . ' language.',
-                    'reference' => '',
-                    'verse' => '',
-                ],
-            ]);
-        }
-
-        // large christian adherent population
-        if ( 20 < $stack['location']['percent_christian_adherents'] ) {
-            $templates = array_merge( $templates, [
-                [
-                    'section_label' => 'Abundant Gospel Sowing',
-                    'prayer' => 'Spirit, in mercy, convict the '.$stack['location']['christian_adherents'].' cultural christians in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to look freshly into the gospel with curiosity like the angels.',
-                    'reference' => '1 Peter 1:12',
-                    'verse' => '... they spoke of the things that have now been told you by those who have preached the gospel to you by the Holy Spirit sent from heaven. Even angels long to look into these things.',
-                ],
-                [
-                    'section_label' => 'Abundant Gospel Sowing',
-                    'prayer' => 'Father, help the '.$stack['location']['believers'].' disciples in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to challenge their '.$stack['location']['christian_adherents'].' culturally christian neighbors to make You first and to love You with all their heart, soul, strength, and mind.',
-                    'reference' => 'Jeremiah 31:34',
-                    'verse' => 'No longer will they teach their neighbor, or say to one another, ‘Know the LORD,’ because they will all know me, from the least of them to the greatest,” declares the LORD. “For I will forgive their wickedness and will remember their sins no more.”',
-                ],
-            ]);
-        }
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_new_churches( &$lists, $stack, $all = false ) {
-        $templates = [
-            [
-                'section_label' => 'Church Planting',
-                'prayer' => 'Father, help '.$stack['location']['new_churches_needed'].' new simple churches start among the '.$stack['location']['population'].' people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'. One within reach of everyone living here.',
-                'reference' => 'Habakkuk 2:14',
-                'verse' => 'For the earth will be filled with the knowledge of the glory of the Lord as the waters cover the sea.',
-            ],
-            [
-                'section_label' => 'Church Planting',
-                'prayer' => 'Spirit, please start new house churches in every neighborhood of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => 'Habakkuk 2:14',
-                'verse' => 'For the earth will be filled with the knowledge of the glory of the Lord as the waters cover the sea.',
-            ],
-            [
-                'section_label' => 'Church Planting',
-                'prayer' => 'Spirit, please give every church in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' a passion to plant another simple church.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'Church Planting',
-                'prayer' => 'Father, show Your mercy on the '.$stack['location']['all_lost'].' people in '.$stack['location']['name'].' who are far from you. Please add '.$stack['location']['new_churches_needed'].' new house churches this year.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'Church Planting',
-                'prayer' => 'Father, we agree with Your desire that the people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' hear about You.',
-                'reference' => 'Romans 15:21',
-                'verse' => 'Those who were not told about him will see, and those who have not heard will understand.',
-            ],
-            [
-                'section_label' => 'Church Planting',
-                'prayer' => 'Father, let every disciple be a disciple maker, every home a training center, and every church a church planting movement in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'Church Planting',
-                'prayer' => 'Father, we ask for networks of simple churches in every city in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', like Paul planted in Corinth and Ephesus.',
-                'reference' => '1 Corinthians 16:19',
-                'verse' => 'The churches in the province of Asia send you greetings. Aquila and Priscilla greet you warmly in the Lord, and so does the church that meets at their house.',
-            ],
-            [
-                'section_label' => 'Church Planting',
-                'prayer' => 'Jesus, '.$stack['location']['population'].' people live in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Please, give them '.$stack['location']['new_churches_needed'].' new simple churches this year.',
-                'reference' => '',
-                'verse' => '',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_obedience_of_the_disciples( &$lists, $stack, $all = false ) {
-        $templates = [
-            [
-                'section_label' => 'Obedience',
-                'prayer' => 'Father, move the ' . $stack['location']['believers'] . ' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to say "Not our will, but Yours be done", like Jesus.',
-                'reference' => 'Luke 22:41-42',
-                'verse' => 'He withdrew about a stone’s throw beyond them, knelt down and prayed, "Father, if you are willing, take this cup from me; yet not my will, but Yours be done."',
-            ],
-            [
-                'section_label' => 'Obedience',
-                'prayer' => 'Lord, stir the hearts of Your people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to agree with You and with one another in love.',
-                'reference' => 'John 17:21',
-                'verse' => 'that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world may believe that you have sent me.',
-            ],
-            [
-                'section_label' => 'Obedience',
-                'prayer' => 'Spirit, cause the '.$stack['location']['believers'].' believers in ' . $stack['location']['name'] . ' to obey with immediate, radical, costly obedience, like Abraham.',
-                'reference' => 'Genesis 22:2-3',
-                'verse' => 'Then God said, “Take Your son, Your only son, whom you love — Isaac — and go to the region of Moriah. Sacrifice him there as a burnt offering on a mountain I will show you.” Early the next morning Abraham got up and loaded his donkey. He took with him two of his servants and his son Isaac. When he had cut enough wood for the burnt offering, he set out for the place God had told him about.',
-            ],
-            [
-                'section_label' => 'Obedience',
-                'prayer' => 'Jesus, teach the believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' that love for You and obedience to You are connected.',
-                'reference' => 'John 14:15',
-                'verse' => 'If you love me, keep my commands.',
-            ],
-            [
-                'section_label' => 'Obedience',
-                'prayer' => 'Jesus, remind the disciples in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to train each other to obey all that You commanded, and that You will be with them as they do it.',
-                'reference' => 'Matthew 28:20',
-                'verse' => '...teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age.',
-            ],
-            [
-                'section_label' => 'Obedience',
-                'prayer' => 'Jesus, please help the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to be filled with joyful obedience at all times, as you modeled for us all.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'Obedience',
-                'prayer' => 'Lord, please give the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' the Spirit of wisdom and revelation, so that they might know you better.',
-                'reference' => 'Ephesians 1:17',
-                'verse' => 'I keep asking that the God of our Lord Jesus Christ, the glorious Father, may give you the Spirit of wisdom and revelation, so that you may know him better.',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_biblical_authority_in_the_church( &$lists, $stack, $all = false ) {
-        $templates = [
-            [
-                'section_label' => 'Biblical Authority',
-                'prayer' => 'Spirit, make the Word of God a delight to the people of '.$stack['location']['name'].', like it was to David.',
-                'reference' => 'Psalm 119:16',
-                'verse' => 'I delight in Your decrees, I will not neglect Your word.',
-            ],
-            [
-                'section_label' => 'Biblical Authority',
-                'prayer' => 'Spirit, instill a desire within the people of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to hide Your word in their heart.',
-                'reference' => 'Psalm 119:11',
-                'verse' => 'I have hidden Your word in my heart that I might not sin against you.',
-            ],
-            [
-                'section_label' => 'Biblical Authority',
-                'prayer' => 'Spirit, help the people of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to be consumed with longing for Your Word at all times, like David.',
-                'reference' => 'Psalm 119:20',
-                'verse' => 'My soul is consumed with longing for Your laws at all times.',
-            ],
-            [
-                'section_label' => 'Biblical Authority',
-                'prayer' => 'Lord, teach Your Word to the people of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', so that they can follow Your ways all their life.',
-                'reference' => 'Psalm 119:33',
-                'verse' => 'Teach me, Lord, the way of Your decrees, that I may follow it to the end.',
-            ],
-            [
-                'section_label' => 'Biblical Authority',
-                'prayer' => 'Lord, teach the disciples in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to trust Your Word, like a lamp, in the darkness around them.',
-                'reference' => 'Psalm 119:105',
-                'verse' => 'Your word is a lamp for my feet, a light on my path.',
-            ],
-            [
-                'section_label' => 'Biblical Authority',
-                'prayer' => 'Lord, teach the young people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to trust your Word and find the path of purity.',
-                'reference' => 'Psalm 119:9',
-                'verse' => 'How can a young person stay on the path of purity? By living according to your word.',
-            ],
-            [
-                'section_label' => 'Biblical Authority',
-                'prayer' => 'Spirit, we know that cultures come and go, even in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', but the truth of Your Word endures generations.',
-                'reference' => 'Psalm 119:89',
-                'verse' => 'Your word, Lord, is eternal; it stands firm in the heavens.',
-            ],
-            [
-                'section_label' => 'Biblical Authority',
-                'prayer' => 'Father, defend those who are loyal to your Word in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', even against fierce enemies.',
-                'reference' => 'Psalm 119:61',
-                'verse' => 'Though the wicked bind me with ropes, I will not forget your law.',
-            ],
-            [
-                'section_label' => 'Biblical Authority',
-                'prayer' => 'Spirit, fill the '.$stack['location']['population'].' souls living in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' with a taste for your Word. Make it sweet as honey in their mouth.',
-                'reference' => 'Psalm 119:103',
-                'verse' => 'How sweet are your words to my taste, sweeter than honey to my mouth!',
-            ],
-            [
-                'section_label' => 'Biblical Authority',
-                'prayer' => 'Spirit, fill the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' with tears, because God is not obeyed by those around them.',
-                'reference' => 'Psalm 119:136',
-                'verse' => 'Streams of tears flow from my eyes, for your law is not obeyed.',
-            ],
-            [
-                'section_label' => 'Biblical Authority',
-                'prayer' => 'Father, see the suffering of Your people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Deliver all those who have not forgotten your Word.',
-                'reference' => 'Psalm 119:153',
-                'verse' => 'Look on my suffering and deliver me, for I have not forgotten your law.',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
-        $templates = [
-            [
-                'section_label' => 'Local Leadership',
-                'prayer' => 'Spirit, build the strength and maturity of the local leaders in '.$stack['location']['full_name'].'. Show them that faithfulness is more important than knowledge. Show them that the Spirit, the Word, and prayer is enough in order to grow and lead. ',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'Local Leadership',
-                'prayer' => 'God, we ask you to raise up elders and deacons from the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].', who will serve the church and equip it to do Your work.',
-                'reference' => 'Ephesians 4:11',
-                'verse' => 'So Christ himself gave the apostles, the prophets, the evangelists, the pastors and teachers, to equip his people for works of service, so that the body of Christ may be built up until we all reach unity in the faith and in the knowledge of the Son of God and become mature, attaining to the whole measure of the fullness of Christ.',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_apostolic_pioneering_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
-        $templates = [
-            [
-                'section_label' => 'Pioneering Leadership',
-                'prayer' => 'Father, please raise up apostles to pioneer the growth of the church in '.$stack['location']['name'],
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'Pioneering Leadership',
-                'prayer' => 'Lord, raise up apostolic workers to plant churches in every town in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => 'Titus 1:5',
-                'verse' => 'The reason I left you in Crete was that you might put in order what was left unfinished and appoint elders in every town, as I directed you.',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_evangelistic_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
-        $templates = [
-            [
-                'section_label' => 'Local Leadership',
-                'prayer' => 'Father, please raise up evangelists to add new believers to churches in '.$stack['location']['name'],
-                'reference' => '',
-                'verse' => '',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_prophetic_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
-        $templates = [
-            [
-                'section_label' => 'Local Leadership',
-                'prayer' => 'Father, please raise up prophets in '.$stack['location']['name'].' who can call the church to holiness and purity, preparing your church as a bride for your Son.',
-                'reference' => '',
-                'verse' => '',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_shepherding_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
-        $templates = [
-            [
-                'section_label' => 'Shepherds',
-                'prayer' => 'Lord, give grace to the local leaders who shepherd the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => 'John 10:11',
-                'verse' => 'I am the good shepherd. The good shepherd lays down his life for the sheep.',
-            ],
-            [
-                'section_label' => 'Shepherds',
-                'prayer' => 'Lord, please provide elders whose heart is completely yours in every town in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => 'Titus 1:5',
-                'verse' => 'The reason I left you in Crete was that you might put in order what was left unfinished and appoint elders in every town, as I directed you.',
-            ],
-
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_teaching_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
-        $templates = [
-            [
-                'section_label' => 'Local Leadership',
-                'prayer' => 'Father, please teachers of Your Word in '.$stack['location']['name'].' who can speak Your gospel boldly and clearly.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'Local Leadership',
-                'prayer' => 'Spirit, build the strength and maturity of the local leaders in '.$stack['location']['full_name'].'. Show them that faithfulness is more important than knowledge. Show them that the Spirit, the Word, and prayer is enough in order to grow and lead. ',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'Local Leadership',
-                'prayer' => 'Lord, for the leaders in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', let the eyes of their hearts be enlightened in order that they may know the hope to which they are called.',
-                'reference' => 'Ephesians 1:18',
-                'verse' => 'I pray that the eyes of your heart may be enlightened in order that you may know the hope to which he has called you, the riches of his glorious inheritance in his holy people, and his incomparably great power for us who believe. ',
-            ],
-
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_house_churches( &$lists, $stack, $all = false ) {
-        $templates = [
-            [
-                'section_label' => 'Simple Churches',
-                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'Simple Churches',
-                'prayer' => 'Spirit, help the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to start simple multiplying churches in their homes.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'Simple Churches',
-                'prayer' => 'Spirit, help the '.$stack['location']['believers'].' believers find persons of peace today among the '.$stack['location']['all_lost'].' lost neighbors around them. And help them start discovery bible studies in these unbelieving homes.',
-                'reference' => 'Acts 10:30-33',
-                'verse' => 'Suddenly a man in shining clothes stood before me and said, ‘Cornelius, God has heard Your prayer and remembered Your gifts to the poor. Send to Joppa for Simon who is called Peter. He is a guest in the home of Simon the tanner, who lives by the sea.’ So I sent for you immediately, and it was good of you to come. Now we are all here in the presence of God to listen to everything the Lord has commanded you to tell us.”',
-            ],
-            [
-                'section_label' => 'Simple Churches',
-                'prayer' => 'Father, we pray that the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' be filled with simple churches in every neighborhood.',
-                'reference' => 'Isaiah 11:9',
-                'verse' => 'For the earth will be full of the knowledge of the Lord, as the waters cover the sea.',
-            ],
-            [
-                'section_label' => 'Simple Churches',
-                'prayer' => 'Father, we ask for '.$stack['location']['new_churches_needed'].' new simple churches in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].'. Place a simple church in every community of the '.$stack['location']['population'].' people living here.',
-                'reference' => 'Psalm 72:19',
-                'verse' => 'And blessed be His glorious name forever; And may the whole earth be filled with His glory. Amen, and Amen.',
-            ],
-            [
-                'section_label' => 'Simple Churches',
-                'prayer' => 'Spirit, teach the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' the wisdom of how to form simple, reproducible churches of 12-30 in every neighborhood.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'Simple Churches',
-                'prayer' => 'Father, bless the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' with a multiplying movement of house churches.',
-                'reference' => 'Numbers 14:21',
-                'verse' => '...but indeed, as I live, all the earth will be filled with the glory of the Lord.',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_multiplication( &$lists, $stack, $all = false ) { // churches planting churches & disciple making disciples
-        $section_label = [
-            'm' => 'Movement',
-            'd' => 'Disciples Making Disciples',
-            'c' => 'Churches Planting Churches'
-        ];
-
-        $templates = [
-            [
-                'section_label' => $section_label['m'],
-                'prayer' => 'Jesus, all authority was given to you, and you commanded all disciples in '. $stack['location']['full_name'] . ' to make more disciples, and you promised to be with them. May Your power and their obedience make more disciples today.',
-                'reference' => 'Matthew 28:18',
-                'verse' => 'All authority in heaven and on earth has been given to me. Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age.',
-            ],
-            [
-                'section_label' => $section_label['m'],
-                'prayer' => 'Father, help the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to know that You can make a big impact through their simple obedience today.',
-                'reference' => 'Exodus 19:6',
-                'verse' => '... you will be for me a kingdom of priests ...',
-            ],
-            [
-                'section_label' => $section_label['m'],
-                'prayer' => 'Spirit, please defend the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' against self-centered spirituality. Open their eyes to the fields white for harvest around them.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => $section_label['m'],
-                'prayer' => 'Spirit, please defend the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' against an unwillingness to suffer. Give them courage to face social rejection.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => $section_label['m'],
-                'prayer' => 'Please, teach the '.$stack['location']['believers'].' believers in '.$stack['location']['full_name'].' how to pray to you and how to listen for Your voice. That they might follow you into the good works you have prepared for them.',
-                'reference' => 'John 10:27',
-                'verse' => 'My sheep listen to my voice; I know them, and they follow me.',
-            ],
-            [
-                'section_label' => $section_label['m'],
-                'prayer' => 'Please, convict the '.$stack['location']['believers'].' believers in '.$stack['location']['full_name'].' to look to You as their only hope for strength and fruitfulness and life.',
-                'reference' => 'John 15:5',
-                'verse' => 'I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit; apart from me you can do nothing.',
-            ],
-            [
-                'section_label' => $section_label['m'],
-                'prayer' => 'Father, convict the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to be holy and righteous. Inspire them to gather in small groups for accountability and spiritual growth.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => $section_label['m'],
-                'prayer' => 'Father, encourage the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to not just be consumers of knowledge but be producers of love, mercy, kindness, and justice.',
-                'reference' => '1 John 3:18',
-                'verse' => '...let us not love with words or speech but with actions and in truth.',
-            ],
-            [
-                'section_label' => $section_label['m'],
-                'prayer' => 'Father, help the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to be spiritually intentional with their relationships among their '.$stack['location']['all_lost'].' lost friends and neighbors.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => $section_label['m'],
-                'prayer' => 'Lord, we know that you invest more in those who have been faithful with what they have been given. Please, richly bless each faithful believer in '.$stack['location']['name'].' with more spiritual insight, wisdom, courage and vision.',
-                'reference' => 'Matthew 25:28',
-                'verse' => 'So take the bag of gold from him and give it to the one who has ten bags. For whoever has will be given more, and they will have an abundance. Whoever does not have, even what they have will be taken from them.',
-            ],
-            [
-                'section_label' => $section_label['m'],
-                'prayer' => 'Father, multiply brothers, sisters, and mothers to our spiritual family in '.$stack['location']['full_name'].'.',
-                'reference' => 'Matthew 12:50',
-                'verse' => 'He replied to him, “Who is my mother, and who are my brothers?” Pointing to his disciples, he said, “Here are my mother and my brothers. For whoever does the will of my Father in heaven is my brother and sister and mother.”',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_urgency_of_the_disciples( &$lists, $stack, $all = false ) { // for rapid reproduction
-        $templates = [
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Spirit, encourage the disciples in '.$stack['location']['full_name'].' to live with urgency and a passion for making more disciples.',
-                'reference' => 'James 4:14',
-                'verse' => 'Yet you do not know what Your life will be like tomorrow. You are just a vapor that appears for a little while and then vanishes away.',
-            ],
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Spirit, defend the church in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' against being inward-focused.',
-                'reference' => 'Isaiah 61:1',
-                'verse' => 'The Spirit of the Sovereign LORD is on me, because the LORD has anointed me to proclaim good news to the poor. He has sent me to bind up the brokenhearted, to proclaim freedom for the captives and release from darkness for the prisoners.',
-            ],
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Spirit, encourage the church in '.$stack['location']['full_name'].' to make the most of every opportunity.',
-                'reference' => 'Ephesians 5:15',
-                'verse' => 'Be very careful, then, how you live—not as unwise but as wise, making the most of every opportunity, because the days are evil.',
-            ],
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Father, you desire the people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to see about you and hear about you.',
-                'reference' => 'Romans 15:21',
-                'verse' => 'Those who were not told about him will see, and those who have not heard will understand.',
-            ],
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Jesus, your return is closer than when we first believed. Please, set urgency in the hearts of the people living in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => 'Romans 13:11',
-                'verse' => 'Besides this you know the time, that the hour has come for you to wake from sleep. For salvation is nearer to us now than when we first believed.',
-            ],
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Spirit, disrupt complacency in the '.$stack['location']['believers'].' believers living in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Remind them you are coming soon.',
-                'reference' => 'Matthew 24:42',
-                'verse' => 'Therefore, stay awake, for you do not know on what day your Lord is coming.',
-            ],
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Spirit, give faith and responsive hearts to the '.$stack['location']['population'].' citizens of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => 'Isaiah 55:6',
-                'verse' => 'Seek the Lord while he may be found; call upon him while he is near;',
-            ],
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Spirit, renew the call of John the Baptist in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Send out bold servants who will call all to repent.',
-                'reference' => 'Matthew 3:2',
-                'verse' => 'Repent, for the kingdom of heaven is at hand.',
-            ],
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Father, set on fire the hearts and passion of your church in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => 'Romans 12:11',
-                'verse' => 'Do not be slothful in zeal, be fervent in spirit, serve the Lord.',
-            ],
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Spirit, awaken the sleepers and call them to repent and be baptized in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Set an urgency in their hearts.',
-                'reference' => 'Acts 22:16',
-                'verse' => 'And now why do you wait? Rise and be baptized and wash away your sins, calling on his name.’',
-            ],
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Jesus, defend your people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' against the difficulty of these last days.',
-                'reference' => '2 Timothy 3:1-4',
-                'verse' => 'But understand this, that in the last days there will come times of difficulty. For people will be lovers of self, lovers of money, proud, arrogant, abusive, disobedient to their parents, ungrateful, unholy, heartless, unappeasable, slanderous, without self-control, brutal, not loving good, treacherous, reckless, swollen with conceit, lovers of pleasure rather than lovers of God, having the appearance of godliness, but denying its power.',
-            ],
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Jesus, purify the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to not just be hearers, but doers of your Word.',
-                'reference' => 'Revelation 1:3',
-                'verse' => 'Blessed is the one who reads aloud the words of this prophecy, and blessed are those who hear, and who keep what is written in it, for the time is near.',
-            ],
-            [
-                'section_label' => 'Urgency',
-                'prayer' => 'Holy Spirit, have mercy on the simple who turned from you in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Warn them again against their complacency.',
-                'reference' => 'Proverbs 1:32',
-                'verse' => 'For the simple are killed by their turning away, and the complacency of fools destroys them;',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-
-    public static function _for_church_health( &$lists, $stack, $all = false ) {
-        $templates = [
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'Lord, stir the hearts of Your people in ' . $stack['location']['name'] . ' to agree with You and with one another.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'Father, please provide access to Your Word. Please provide the translators, printers, books sellers, and app developers the resources and skill to get Your Word to '.$stack['location']['full_name'].'.',
-                'reference' => 'Matthew 24:14',
-                'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
-            ],
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'Lord we pray you unite the '.$stack['location']['believers'].' believers to pray at all times in the Spirit, with all prayer and supplication, for spiritual breakthrough in ' . $stack['location']['name'] . '.',
-                'reference' => 'Philippians 4:6',
-                'verse' => '... in every situation, by prayer and petition, with thanksgiving, present Your requests to God.',
-            ],
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'Father, we pray that the people of ' . $stack['location']['full_name'] . ' will learn to study the Bible, understand it, obey it, and share it.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'God, we pray both the men and women of ' . $stack['location']['full_name'] . ' will find ways to meet in groups of two or three to encourage and correct one another from Your Word.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'Lord, we pray for the believers in ' . $stack['location']['full_name'] . ' to be more like Jesus in their love for friends and enemies.',
-                'reference' => 'Matthew 5:44',
-                'verse' => 'But I tell you, love Your enemies and pray for those who persecute you.',
-            ],
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'God, we pray for the believers in ' . $stack['location']['full_name'] . ' that they will know how to spend an hour in prayer with you.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'Father, we pray the believers are good spiritual stewards of their everyday relationships in ' . $stack['location']['full_name'] . '.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'God, we pray for the believers in ' . $stack['location']['full_name'] . ' to be generous so that they would be worthy of greater investment by you.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'Father, remind your church in ' . $stack['location']['full_name'] . ' that you have set your Son over all rule and authority, power and dominion, and every name that is invoked.',
-                'reference' => 'Ephesians 1:21',
-                'verse' => '...he raised Christ from the dead and seated him at his right hand in the heavenly realms, far above all rule and authority, power and dominion, and every name that is invoked, not only in the present age but also in the one to come.',
-            ],
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'Father, we rejoice that You who began a good work in the church of ' . $stack['location']['full_name'] . ' will carry it on to completion until the day of Jesus Christ!',
-                'reference' => 'Philippians 1:6',
-                'verse' => '...being confident of this, that he who began a good work in you will carry it on to completion until the day of Christ Jesus.',
-            ],
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'Father, let love abound more and more in the church of ' . $stack['location']['full_name'] . '.',
-                'reference' => 'Philippians 1:9',
-                'verse' => 'And this is my prayer: that your love may abound more and more in knowledge and depth of insight',
-            ],
-            [
-                'section_label' => 'The Church',
-                'prayer' => 'Father, let knowledge and depth of insight abound more and more in the church of ' . $stack['location']['full_name'] . '.',
-                'reference' => 'Philippians 1:9',
-                'verse' => 'And this is my prayer: that your love may abound more and more in knowledge and depth of insight',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
 
     public static function _cities( &$lists, $stack, $all = false ) {
+        
         if ( empty( $stack['location']['cities_list_w_pop'] ) ) {
             return $lists;
         }
@@ -1230,79 +1511,9 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _for_demographic_feature_population_non_christians( &$lists, $stack, $all = false ) {
-        $section_label = 'Non-Christians';
-        $templates = [
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Over '.$stack['location']['percent_non_christians'].' percent of the people of '.$stack['location']['name'].' are far from Jesus. Lord, please send Your gospel to them through the internet or radio or television today!',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Over '.$stack['location']['percent_non_christians'].' percent of the people of '.$stack['location']['name'].' are far from Jesus.',
-                'reference' => '',
-                'verse' => '',
-            ],
 
-        ];
 
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_demographic_feature_population_christian_adherents( &$lists, $stack, $all = false ) {
-        $section_label = 'Cultural Christians';
-        $templates = [
-            [
-                'section_label' => $section_label,
-                'prayer' => "Spirit, ".$stack['location']['christian_adherents']." cultural Christians in ".$stack['location']['full_name']." likely have a Bible in their home. Please, send conviction for them to open it and read it for themselves.",
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => "Spirit, teach the ".$stack['location']['christian_adherents']." cultural Christians in ".$stack['location']['full_name']." to pray from the heart and not with scripts or formulas only.",
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => "Spirit, bless the ".$stack['location']['christian_adherents']." cultural Christians in ".$stack['location']['name']." with more knowlege and curiosity about your beautiful gospel, that they might claim it for themselves personally and intimately.",
-                'reference' => '',
-                'verse' => '',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
-    public static function _for_demographic_feature_population_believers( &$lists, $stack, $all = false ) {
-        $section_label = 'Believer Families';
-        $templates = [
-            [
-                'section_label' => $section_label,
-                'prayer' => "Spirit, consider the ".$stack['location']['believers']." believers in ".$stack['location']['name'].". You promised to convict of sin, righteousness and judgement. Please show mercy and don't leave them idle and distant from Jesus.",
-                'verse' => '',
-                'reference' => '',
-            ],
-        ];
-
-        if ( $all ) {
-            return array_merge( $templates, $lists );
-        }
-        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
-        return $lists;
-    }
-
+    /* Illustration based blocks */
     public static function least_reached_text( $stack): array
     {
         /**
