@@ -128,25 +128,27 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
 
         $lists['_for_leadership'] = PG_Stacker_Text::_for_leadership( $empty_array, $stack, true ); // convert these to the next series below
 
-        $lists['_for_apostolic_pioneering_leadership'] = [];
+        $lists['_for_apostolic_pioneering_leadership'] = PG_Stacker_Text::_for_apostolic_pioneering_leadership( $empty_array, $stack, true );;
 
-        $lists['_for_evangelistic_leadership'] = [];
+        $lists['_for_evangelistic_leadership'] = PG_Stacker_Text::_for_evangelistic_leadership( $empty_array, $stack, true );;
 
-        $lists['_for_prophetic_leadership'] = [];
+        $lists['_for_prophetic_leadership'] = PG_Stacker_Text::_for_prophetic_leadership( $empty_array, $stack, true );;
 
-        $lists['_for_shepherding_leadership'] = [];
+        $lists['_for_shepherding_leadership'] = PG_Stacker_Text::_for_shepherding_leadership( $empty_array, $stack, true );;
 
-        $lists['_for_teaching_leadership'] = [];
+        $lists['_for_teaching_leadership'] = PG_Stacker_Text::_for_teaching_leadership( $empty_array, $stack, true );;
 
-        $lists['_for_biblical_authority'] = PG_Stacker_Text::_for_biblical_authority( $empty_array, $stack, true );
+        $lists['_for_biblical_authority_in_the_church'] = PG_Stacker_Text::_for_biblical_authority_in_the_church( $empty_array, $stack, true );
 
-        $lists['_for_obedience'] = PG_Stacker_Text::_for_obedience( $empty_array, $stack, true );
+        $lists['_for_obedience_of_the_disciples'] = PG_Stacker_Text::_for_obedience_of_the_disciples( $empty_array, $stack, true );
 
-        $lists['_for_urgency'] = PG_Stacker_Text::_for_urgency( $empty_array, $stack, true );
+        $lists['_for_love_of_the_disciples'] = PG_Stacker_Text::_for_love_of_the_disciples( $empty_array, $stack, true );
 
-        $lists['_for_promises_for_the_believer'] = PG_Stacker_Text::_for_promises_for_the_believer( $empty_array, $stack, true );
+        $lists['_for_urgency_of_the_disciples'] = PG_Stacker_Text::_for_urgency_of_the_disciples( $empty_array, $stack, true );
 
-        $lists['_for_promises_for_the_lost'] = PG_Stacker_Text::_for_promises_for_the_lost( $empty_array, $stack, true );
+        $lists['_for_bible_promises_for_the_believer'] = PG_Stacker_Text::_for_bible_promises_for_the_believer( $empty_array, $stack, true );
+
+        $lists['_for_bible_promises_for_the_lost'] = PG_Stacker_Text::_for_bible_promises_for_the_lost( $empty_array, $stack, true );
 
         $lists['_cities'] = PG_Stacker_Text::_cities( $empty_array, $stack, true );
 

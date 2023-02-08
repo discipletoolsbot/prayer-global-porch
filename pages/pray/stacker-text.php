@@ -285,7 +285,7 @@ class PG_Stacker_Text {
 
 
 
-    public static function _for_promises_for_the_believer( &$lists, $stack, $all = false ) {
+    public static function _for_bible_promises_for_the_believer( &$lists, $stack, $all = false ) {
         $section_label = 'Pray Promises';
         $templates = [
             [
@@ -417,7 +417,7 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _for_promises_for_the_lost( &$lists, $stack, $all = false ) {
+    public static function _for_bible_promises_for_the_lost( &$lists, $stack, $all = false ) {
         $section_label = 'Pray Promises';
         $templates = [
             [
@@ -631,7 +631,7 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _for_obedience( &$lists, $stack, $all = false ) {
+    public static function _for_obedience_of_the_disciples( &$lists, $stack, $all = false ) {
         $templates = [
             [
                 'section_label' => 'Obedience',
@@ -684,7 +684,7 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _for_biblical_authority( &$lists, $stack, $all = false ) {
+    public static function _for_biblical_authority_in_the_church( &$lists, $stack, $all = false ) {
         $templates = [
             [
                 'section_label' => 'Biblical Authority',
@@ -765,7 +765,111 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => 'Local Leadership',
-                'prayer' => 'Father, please raise up apostles, evangelists and preachers in '.$stack['location']['name'].' who can speak Your gospel boldly and clearly in the ' . $stack['location']['primary_language'] . ' language.',
+                'prayer' => 'Spirit, build the strength and maturity of the local leaders in '.$stack['location']['full_name'].'. Show them that faithfulness is more important than knowledge. Show them that the Spirit, the Word, and prayer is enough in order to grow and lead. ',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Local Leadership',
+                'prayer' => 'God, we ask you to raise up elders and deacons from the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].', who will serve the church and equip it to do Your work.',
+                'reference' => 'Ephesians 4:11',
+                'verse' => 'So Christ himself gave the apostles, the prophets, the evangelists, the pastors and teachers, to equip his people for works of service, so that the body of Christ may be built up until we all reach unity in the faith and in the knowledge of the Son of God and become mature, attaining to the whole measure of the fullness of Christ.',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_apostolic_pioneering_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
+        $templates = [
+            [
+                'section_label' => 'Pioneering Leadership',
+                'prayer' => 'Father, please raise up apostles to pioneer the growth of the church in '.$stack['location']['name'],
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => 'Pioneering Leadership',
+                'prayer' => 'Lord, raise up apostolic workers to plant churches in every town in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'reference' => 'Titus 1:5',
+                'verse' => 'The reason I left you in Crete was that you might put in order what was left unfinished and appoint elders in every town, as I directed you.',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_evangelistic_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
+        $templates = [
+            [
+                'section_label' => 'Local Leadership',
+                'prayer' => 'Father, please raise up evangelists to add new believers to churches in '.$stack['location']['name'],
+                'reference' => '',
+                'verse' => '',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_prophetic_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
+        $templates = [
+            [
+                'section_label' => 'Local Leadership',
+                'prayer' => 'Father, please raise up prophets in '.$stack['location']['name'].' who can call the church to holiness and purity, preparing your church as a bride for your Son.',
+                'reference' => '',
+                'verse' => '',
+            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_shepherding_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
+        $templates = [
+            [
+                'section_label' => 'Shepherds',
+                'prayer' => 'Lord, give grace to the local leaders who shepherd the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'reference' => 'John 10:11',
+                'verse' => 'I am the good shepherd. The good shepherd lays down his life for the sheep.',
+            ],
+            [
+                'section_label' => 'Shepherds',
+                'prayer' => 'Lord, please provide elders whose heart is completely yours in every town in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'reference' => 'Titus 1:5',
+                'verse' => 'The reason I left you in Crete was that you might put in order what was left unfinished and appoint elders in every town, as I directed you.',
+            ],
+
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
+    }
+
+    public static function _for_teaching_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
+        $templates = [
+            [
+                'section_label' => 'Local Leadership',
+                'prayer' => 'Father, please teachers of Your Word in '.$stack['location']['name'].' who can speak Your gospel boldly and clearly.',
                 'reference' => '',
                 'verse' => '',
             ],
@@ -777,28 +881,11 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => 'Local Leadership',
-                'prayer' => 'God, we ask you to raise up elders and deacons from the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].', who will serve the church and equip it to do Your work.',
-                'reference' => 'Ephesians 4:11',
-                'verse' => 'So Christ himself gave the apostles, the prophets, the evangelists, the pastors and teachers, to equip his people for works of service, so that the body of Christ may be built up until we all reach unity in the faith and in the knowledge of the Son of God and become mature, attaining to the whole measure of the fullness of Christ.',
-            ],
-            [
-                'section_label' => 'Local Leadership',
-                'prayer' => 'Lord, give grace to the local leaders to shepherd the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => 'John 10:11',
-                'verse' => 'I am the good shepherd. The good shepherd lays down his life for the sheep.',
-            ],
-            [
-                'section_label' => 'Local Leadership',
-                'prayer' => 'Lord, raise up local leaders in every town in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => 'Titus 1:5',
-                'verse' => 'The reason I left you in Crete was that you might put in order what was left unfinished and appoint elders in every town, as I directed you.',
-            ],
-            [
-                'section_label' => 'Local Leadership',
                 'prayer' => 'Lord, for the leaders in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', let the eyes of their hearts be enlightened in order that they may know the hope to which they are called.',
                 'reference' => 'Ephesians 1:18',
                 'verse' => 'I pray that the eyes of your heart may be enlightened in order that you may know the hope to which he has called you, the riches of his glorious inheritance in his holy people, and his incomparably great power for us who believe. ',
             ],
+
         ];
 
         if ( $all ) {
@@ -944,7 +1031,7 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _for_urgency( &$lists, $stack, $all = false ) { // for rapid reproduction
+    public static function _for_urgency_of_the_disciples( &$lists, $stack, $all = false ) { // for rapid reproduction
         $templates = [
             [
                 'section_label' => 'Urgency',

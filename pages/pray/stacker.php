@@ -34,7 +34,7 @@ class PG_Stacker {
 
         PG_Stacker_Text::_for_abundant_gospel_sowing( $lists, $stack );
         PG_Stacker_Text::_for_new_churches( $lists, $stack );
-        PG_Stacker_Text::_for_biblical_authority( $lists, $stack );
+        PG_Stacker_Text::_for_biblical_authority_in_the_church( $lists, $stack );
         PG_Stacker_Text::_for_leadership( $lists, $stack );
         // add for apostolic/pioneering leadership
         // add for evangelistic leadership
@@ -42,10 +42,10 @@ class PG_Stacker {
         // add for shepherding/gathering leadership
 
         PG_Stacker_Text::_for_church_health( $lists, $stack );
-        PG_Stacker_Text::_for_obedience( $lists, $stack );
-        PG_Stacker_Text::_for_urgency( $lists, $stack );
-        PG_Stacker_Text::_for_promises_for_the_believer( $lists, $stack );
-        PG_Stacker_Text::_for_promises_for_the_lost( $lists, $stack );
+        PG_Stacker_Text::_for_obedience_of_the_disciples( $lists, $stack );
+        PG_Stacker_Text::_for_urgency_of_the_disciples( $lists, $stack );
+        PG_Stacker_Text::_for_bible_promises_for_the_believer( $lists, $stack );
+        PG_Stacker_Text::_for_bible_promises_for_the_lost( $lists, $stack );
 
 //        PG_Stacker_Text::_for_demographic_feature_population_non_christians( $lists, $stack );
 //        PG_Stacker_Text::_for_demographic_feature_population_christian_adherents( $lists, $stack );
