@@ -630,12 +630,12 @@ class PG_Stacker_Text {
                 'reference' => 'James 1:23-25',
                 'verse' => 'For if you listen to the word and don’t obey, it is like glancing at your face in a mirror. 24 You see yourself, walk away, and forget what you look like. 25 But if you look carefully into the perfect law that sets you free, and if you do what it says and don’t forget what you heard, then God will bless you for doing it.',
             ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, inspire Bible translators to communicate the Scriptures accurately in the heart languages spoken in '.$stack['location']['full_name'].'.',
+                'reference' => '',
+                'verse' => '',
+            ],
 //            [
 //                'section_label' => $section_label,
 //                'prayer' => '',
@@ -660,53 +660,59 @@ class PG_Stacker_Text {
         $section_label = 'Media';
         $templates = [
             [
-                'section_label' => 'Media',
-                'prayer' => 'Father, please provide access to Your Word. Please provide the translators, printers, books sellers, and app developers the resources and skill to get Your Word to '.$stack['location']['full_name'].'.',
+                'section_label' => $section_label,
+                'prayer' => 'Father, please help good, online teachers get the gospel on Youtube and into '.$stack['location']['full_name'].'.',
                 'reference' => 'Matthew 24:14',
                 'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
             ],
-//            [
-//                'section_label' => 'Media',
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => 'Media',
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => 'Media',
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => 'Media',
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => 'Media',
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => 'Media',
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, guide seekers in '.$stack['location']['full_name'].' to the gospel through searching Youtube or Tiktok today.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, help media producers communicate the gospel in a way that is understandable to the people of '.$stack['location']['full_name'].'.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, as people seek answers on the internet, please help them find the gospel in '.$stack['location']['full_name'].'.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, guide every search on Google for truth in '.$stack['location']['full_name'].' to find a gospel video.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Lord, use Google search to lead people in '.$stack['location']['full_name'].' to the gospel today.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, supernaturally prepare encounters with the gospel on sites like Facebook and Instagram for the '.$stack['location']['population'].' people living in '.$stack['location']['name'].'.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, inspire new kinds of evangelism through social media in '.$stack['location']['full_name'].'.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Jesus, make yourself known to the '.$stack['location']['population'].' people living in '.$stack['location']['name'].' through the internet today.',
+                'reference' => '',
+                'verse' => '',
+            ],
 //            [
 //                'section_label' => $section_label,
 //                'prayer' => '',
@@ -742,49 +748,48 @@ class PG_Stacker_Text {
                 'reference' => 'Psalm 61:3',
                 'verse' => 'For you have been a refuge for me, a strong tower from the enemy.',
             ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, be a refuge and strength for the hurting in '.$stack['location']['full_name'].' today.',
+                'reference' => 'Psalm 46:1',
+                'verse' => 'God is our refuge and strength, an ever-present help in trouble.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, help the stressed and anxious in '.$stack['location']['full_name'].' know that you care for them today.',
+                'reference' => 'Psalm 55:22',
+                'verse' => 'Cast your cares on the Lord and he will sustain you; he will never let the righteous be shaken.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, teach those feeling unsafe in '.$stack['location']['full_name'].' that they can hide under your wings',
+                'reference' => 'Psalm 91:4',
+                'verse' => 'He will cover you with his feathers, and under his wings you will find refuge; his faithfulness will be your shield and rampart.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Jesus, protect the vulnerable in '.$stack['location']['full_name'].' from the evil one.',
+                'reference' => 'John 17:15',
+                'verse' => 'My prayer is not that you take them out of the world but that you protect them from the evil one.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, let the threatened of '.$stack['location']['full_name'].' know that is better to trust in You than to trust in humans.',
+                'reference' => 'Psalm 118:8',
+                'verse' => 'It is better to take refuge in the Lord than to trust in humans.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, help the fearful in '.$stack['location']['full_name'].' to submit to God and resist the devil.',
+                'reference' => 'James 4:7',
+                'verse' => 'Submit yourselves, then, to God. Resist the devil, and he will flee from you.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, encourage those who are afraid in '.$stack['location']['full_name'].' that You are the Healer and You are the Savior.',
+                'reference' => 'Jeremiah 17:14',
+                'verse' => 'Heal me, Lord, and I will be healed; save me and I will be saved, for you are the one I praise.',
+            ],
 //            [
 //                'section_label' => $section_label,
 //                'prayer' => '',
@@ -1029,7 +1034,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => "Spirit, bless the ".$stack['location']['christian_adherents']." cultural Christians in ".$stack['location']['name']." with more knowlege and curiosity about your beautiful gospel, that they might claim it for themselves personally and intimately.",
+                'prayer' => "Spirit, bless the ".$stack['location']['christian_adherents']." cultural Christians in ".$stack['location']['name']." with more knowledge and curiosity about your beautiful gospel, that they might claim it for themselves personally and intimately.",
                 'reference' => '',
                 'verse' => '',
             ],
@@ -1596,7 +1601,7 @@ class PG_Stacker_Text {
 
 
     public static function _for_local_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
-        $section_label = 'Movement Leadership';
+        $section_label = 'Local Leadership';
         $templates = [
             [
                 'section_label' => 'Local Leadership',
@@ -1610,49 +1615,48 @@ class PG_Stacker_Text {
                 'reference' => 'Ephesians 4:11',
                 'verse' => 'So Christ himself gave the apostles, the prophets, the evangelists, the pastors and teachers, to equip his people for works of service, so that the body of Christ may be built up until we all reach unity in the faith and in the knowledge of the Son of God and become mature, attaining to the whole measure of the fullness of Christ.',
             ],
-
             [
                 'section_label' => 'Movement Leadership',
                 'prayer' => 'Father, we pray for every movement leader and disciple in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].' that they would have deepening intimacy with You.',
                 'reference' => 'John 14:20',
                 'verse' => 'On that day you will realize that I am in my Father, and you are in me, and I am in you.',
             ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, grace the churches in '.$stack['location']['full_name'].' with faithful local leaders.',
+                'reference' => 'Proverbs 11:14',
+                'verse' => 'Where there is no guidance, a people falls, but in an abundance of counselors there is safety.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Jesus, teach the local leaders in '.$stack['location']['full_name'].' to be humble and to serve others.',
+                'reference' => 'Matthew 20:26–28',
+                'verse' => 'It shall not be so among you. But whoever would be great among you must be your servant, and whoever would be first among you must be your slave, even as the Son of Man came not to be served but to serve, and to give his life as a ransom for many.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Jesus, help the local leaders in '.$stack['location']['full_name'].' to be faithful with what they have been given, whether a little or a lot.',
+                'reference' => 'Luke 12:48',
+                'verse' => 'Everyone to whom much was given, of him much will be required, and from him to whom they entrusted much, they will demand the more.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Jesus, help the local leaders in '.$stack['location']['full_name'].' not be proud but humble, and willing to wash the feet of all they serve.',
+                'reference' => 'John 13:13–17',
+                'verse' => 'You call me Teacher and Lord, and you are right, for so I am. If I then, your Lord and Teacher, have washed your feet, you also ought to wash one another’s feet. For I have given you an example, that you also should do just as I have done to you. ',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, may the churches in '.$stack['location']['full_name'].' honor local leaders who work hard for the flock of God.',
+                'reference' => 'Acts 20:28',
+                'verse' => 'Pay careful attention to yourselves and to all the flock, in which the Holy Spirit has made you overseers, to care for the church of God, which he obtained with his own blood.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, knowing that teachers will be judged more strictly, help the local leaders in '.$stack['location']['full_name'].' to be careful with their words.',
+                'reference' => 'James 3:1',
+                'verse' => 'Not many of you should become teachers, my brothers, for you know that we who teach will be judged with greater strictness.',
+            ],
 //            [
 //                'section_label' => $section_label,
 //                'prayer' => '',
@@ -1895,12 +1899,12 @@ class PG_Stacker_Text {
                 'reference' => 'Titus 1:5',
                 'verse' => 'The reason I left you in Crete was that you might put in order what was left unfinished and appoint elders in every town, as I directed you.',
             ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Jesus, please bless the leaders of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].' who work hard at shepherding and guiding your people.',
+                'reference' => 'Psalm 78:72',
+                'verse' => 'With upright heart he shepherded them and guided them with his skillful hand.',
+            ],
 //            [
 //                'section_label' => $section_label,
 //                'prayer' => '',

@@ -208,7 +208,7 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
                                     <?php
                                     foreach ( $lists as $key => $items ) {
                                         ?>
-                                        <a href="#<?php echo esc_html( $key ) ?>"><?php echo esc_html( str_replace( '_', ' ', $key ) ) ?></a> (<?php echo esc_html( count( $items ) ) ?> )<br>
+                                        <a href="#<?php echo esc_html( $key ) ?>"><?php echo esc_html( str_replace( '_', ' ', $key ) ) ?></a> ( <?php echo esc_html( count( $items ) ) ?> )<br>
                                         <?php
                                     }
                                     ?>
