@@ -20,39 +20,43 @@ class PG_Stacker {
         /**************************/
         // PRAYER CONCEPTS
         /**************************/
-        PG_Stacker_Text::_for_movement_health( $lists, $stack );
-        PG_Stacker_Text::_for_prayer_movement( $lists, $stack );
-        PG_Stacker_Text::_for_multiplication( $lists, $stack );
-        PG_Stacker_Text::_for_house_churches( $lists, $stack );
-        // add multiplying churches
-        // add multiplying disciples
-
-        PG_Stacker_Text::_for_demographic_feature_total_population( $lists, $stack );
-        PG_Stacker_Text::_for_demographic_feature_primary_religion( $lists, $stack );
-        PG_Stacker_Text::_for_demographic_feature_primary_language( $lists, $stack );
-        // add languages from people groups
-
+        PG_Stacker_Text::_for_extraordinary_prayer( $lists, $stack );
+        PG_Stacker_Text::_for_intentional_movement_strategy( $lists, $stack );
         PG_Stacker_Text::_for_abundant_gospel_sowing( $lists, $stack );
-        PG_Stacker_Text::_for_new_churches( $lists, $stack );
-        PG_Stacker_Text::_for_biblical_authority( $lists, $stack );
-        PG_Stacker_Text::_for_leadership( $lists, $stack );
-        // add for apostolic/pioneering leadership
-        // add for evangelistic leadership
-        // add for prophetic/teaching leadership
-        // add for shepherding/gathering leadership
-
-        PG_Stacker_Text::_for_church_health( $lists, $stack );
-        PG_Stacker_Text::_for_obedience( $lists, $stack );
-        PG_Stacker_Text::_for_urgency( $lists, $stack );
-        PG_Stacker_Text::_for_promises_for_the_believer( $lists, $stack );
-        PG_Stacker_Text::_for_promises_for_the_lost( $lists, $stack );
-
-//        PG_Stacker_Text::_for_demographic_feature_population_non_christians( $lists, $stack );
-//        PG_Stacker_Text::_for_demographic_feature_population_christian_adherents( $lists, $stack );
+        PG_Stacker_Text::_for_persons_of_peace( $lists, $stack );
+        PG_Stacker_Text::_for_prioritizing_priesthood_of_believers( $lists, $stack );
+        PG_Stacker_Text::_for_unleashing_simple_churches( $lists, $stack );
+        PG_Stacker_Text::_for_bible_access( $lists, $stack );
+        PG_Stacker_Text::_for_internet_gospel_access( $lists, $stack );
+        PG_Stacker_Text::_for_safety( $lists, $stack );
+//        PG_Stacker_Text::_for_political_stability( $lists, $stack );
+        PG_Stacker_Text::_for_demographic_feature_total_population( $lists, $stack );
+        PG_Stacker_Text::_for_demographic_feature_population_non_christians( $lists, $stack );
+        PG_Stacker_Text::_for_demographic_feature_population_christian_adherents( $lists, $stack );
 //        PG_Stacker_Text::_for_demographic_feature_population_believers( $lists, $stack );
+//        PG_Stacker_Text::_for_demographic_feature_primary_religion( $lists, $stack );
+//        PG_Stacker_Text::_for_demographic_feature_primary_language( $lists, $stack );
+//        PG_Stacker_Text::_for_people_groups_by_least_reached_status( $lists, $stack );
+//        PG_Stacker_Text::_for_people_groups_by_reached_status( $lists, $stack );
+//        PG_Stacker_Text::_for_people_groups_by_religion( $lists, $stack );
+//        PG_Stacker_Text::_for_people_groups_by_population( $lists, $stack );
+//        PG_Stacker_Text::_for_local_leadership( $lists, $stack ); // convert these to the next series below
+//        PG_Stacker_Text::_for_apostolic_pioneering_leadership( $lists, $stack );;
+//        PG_Stacker_Text::_for_evangelistic_leadership( $lists, $stack );;
+//        PG_Stacker_Text::_for_prophetic_leadership( $lists, $stack );;
+//        PG_Stacker_Text::_for_shepherding_leadership( $lists, $stack );;
+        PG_Stacker_Text::_for_teaching_leadership( $lists, $stack );;
+        PG_Stacker_Text::_for_biblical_authority( $lists, $stack );
+        PG_Stacker_Text::_for_obedience( $lists, $stack );
+        PG_Stacker_Text::_for_reliance_on_god( $lists, $stack );
+        PG_Stacker_Text::_for_faithfulness( $lists, $stack );
+        PG_Stacker_Text::_for_love_and_generosity( $lists, $stack );
+        PG_Stacker_Text::_for_kingdom_urgency( $lists, $stack );
+        PG_Stacker_Text::_for_suffering( $lists, $stack );
+//        PG_Stacker_Text::_cities( $lists, $stack );
 
-//        PG_Stacker_Text::_cities($lists, $stack );
-
+        dt_write_log( $lists );
+        dt_write_log( $stack );
 
         foreach ( $lists as $content ) { // kill duplication
             $content['id'] = hash( 'sha256', serialize( $content ) . microtime() );
