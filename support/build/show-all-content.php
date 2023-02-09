@@ -103,7 +103,11 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
 
 
 
-        $lists['_for_media_resources'] = PG_Stacker_Text::_for_media_resources( $empty_array, $stack, true );
+        $lists['_for_bible_access'] = PG_Stacker_Text::_for_bible_access( $empty_array, $stack, true );
+
+        $lists['_for_internet_gospel_access'] = PG_Stacker_Text::_for_internet_gospel_access( $empty_array, $stack, true );
+
+
 
         $lists['_for_safety'] = PG_Stacker_Text::_for_safety( $empty_array, $stack, true );
 

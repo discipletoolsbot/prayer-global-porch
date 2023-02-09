@@ -132,6 +132,18 @@ class PG_Stacker_Text {
                 'reference' => '',
                 'verse' => '',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -179,7 +191,30 @@ class PG_Stacker_Text {
                 'reference' => '',
                 'verse' => '',
             ],
-
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -233,6 +268,24 @@ class PG_Stacker_Text {
                 'reference' => 'Luke 7:1–10',
                 'verse' => 'When Jesus heard these things, he marveled at (the centurion), and turning to the crowd that followed him, said, “I tell you, not even in Israel have I found such faith.” And when those who had been sent returned to the house, they found the servant well.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -246,9 +299,63 @@ class PG_Stacker_Text {
         $templates = [
 //            [
 //                'section_label' => $section_label,
-//                'prayer' => 'Father, please call new believers full of yearning to see You praised in '.$stack['location']['full_name'].'.',
-//                'reference' => 'Psalm 96:3',
-//                'verse' => 'Declare his glory among the nations, his marvelous deeds among all peoples.',
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
 //            ],
         ];
 
@@ -377,16 +484,140 @@ class PG_Stacker_Text {
         return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
     }
 
-
-    public static function _for_media_resources( &$lists, $stack, $all = false ) {
-        $section_label = 'Movement Health';
+    public static function _for_bible_access( &$lists, $stack, $all = false ) {
+        $section_label = 'Bible Access';
         $templates = [
+            [
+                'section_label' => 'Bible Access',
+                'prayer' => 'Father, please provide access to Your Word for everyone, especially believers in '.$stack['location']['full_name'].'.',
+                'reference' => 'Matthew 24:14',
+                'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
+            ],
             [
                 'section_label' => 'Bible Access',
                 'prayer' => 'Father, please provide access to Your Word. Please provide the translators, printers, books sellers, and app developers the resources and skill to get Your Word to '.$stack['location']['full_name'].'.',
                 'reference' => 'Matthew 24:14',
                 'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+        ];
+
+        if ( $all ) {
+            return array_merge( $templates, $lists );
+        }
+        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+    }
+
+    public static function _for_internet_gospel_access( &$lists, $stack, $all = false ) {
+        $section_label = 'Media';
+        $templates = [
+            [
+                'section_label' => 'Media',
+                'prayer' => 'Father, please provide access to Your Word. Please provide the translators, printers, books sellers, and app developers the resources and skill to get Your Word to '.$stack['location']['full_name'].'.',
+                'reference' => 'Matthew 24:14',
+                'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
+            ],
+//            [
+//                'section_label' => 'Media',
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => 'Media',
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => 'Media',
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => 'Media',
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => 'Media',
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => 'Media',
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -410,6 +641,55 @@ class PG_Stacker_Text {
                 'reference' => 'Psalm 61:3',
                 'verse' => 'For you have been a refuge for me, a strong tower from the enemy.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -423,9 +703,63 @@ class PG_Stacker_Text {
         $templates = [
 //            [
 //                'section_label' => $section_label,
-//                'prayer' => 'Father, please call new believers full of yearning to see You praised in '.$stack['location']['full_name'].'.',
-//                'reference' => 'Psalm 96:3',
-//                'verse' => 'Declare his glory among the nations, his marvelous deeds among all peoples.',
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
 //            ],
         ];
 
@@ -486,6 +820,18 @@ class PG_Stacker_Text {
                 'reference' => 'Habakkuk 2:14',
                 'verse' => 'For the earth will be filled with the knowledge of the glory of the LORD as the waters cover the sea.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -545,6 +891,18 @@ class PG_Stacker_Text {
                 'reference' => '2 Corinthians 3:17',
                 'verse' => 'Now the Lord is the Spirit and where the Spirit of the Lord is, there is freedom.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -574,7 +932,48 @@ class PG_Stacker_Text {
                 'reference' => '',
                 'verse' => '',
             ],
-
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -592,6 +991,60 @@ class PG_Stacker_Text {
                 'reference' => 'Ephesians 2:13',
                 'verse' => 'But now in Christ Jesus you who once were far off are made near in the blood of Christ.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -637,6 +1090,36 @@ class PG_Stacker_Text {
                 'reference' => 'Acts 10:1,2',
                 'verse' => 'At Caesarea there was a man named Cornelius, a centurion in what was known as the Italian Regiment. He and all his family were devout and God-fearing; he gave generously to those in need and prayed to God regularly.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -688,6 +1171,30 @@ class PG_Stacker_Text {
                 'reference' => '2 Timothy 2:15',
                 'verse' => '...a worker who does not need to be ashamed and who correctly handles the word of truth.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -703,8 +1210,62 @@ class PG_Stacker_Text {
         $section_label = 'Prayer Movement';
         $templates = [
 //            [
-//                'section_label' => 'Simple Churches',
-//                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
 //                'reference' => '',
 //                'verse' => '',
 //            ],
@@ -720,8 +1281,62 @@ class PG_Stacker_Text {
         $section_label = 'Prayer Movement';
         $templates = [
 //            [
-//                'section_label' => 'Simple Churches',
-//                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
 //                'reference' => '',
 //                'verse' => '',
 //            ],
@@ -737,8 +1352,62 @@ class PG_Stacker_Text {
         $section_label = 'Prayer Movement';
         $templates = [
 //            [
-//                'section_label' => 'Simple Churches',
-//                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
 //                'reference' => '',
 //                'verse' => '',
 //            ],
@@ -754,8 +1423,62 @@ class PG_Stacker_Text {
         $section_label = 'Prayer Movement';
         $templates = [
 //            [
-//                'section_label' => 'Simple Churches',
-//                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
 //                'reference' => '',
 //                'verse' => '',
 //            ],
@@ -793,6 +1516,48 @@ class PG_Stacker_Text {
                 'reference' => 'John 14:20',
                 'verse' => 'On that day you will realize that I am in my Father, and you are in me, and I am in you.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -822,6 +1587,48 @@ class PG_Stacker_Text {
                 'reference' => 'Matthew 9:38',
                 'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -845,6 +1652,54 @@ class PG_Stacker_Text {
                 'reference' => 'Matthew 9:38',
                 'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -868,6 +1723,54 @@ class PG_Stacker_Text {
                 'reference' => '',
                 'verse' => '',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -891,7 +1794,54 @@ class PG_Stacker_Text {
                 'reference' => 'Titus 1:5',
                 'verse' => 'The reason I left you in Crete was that you might put in order what was left unfinished and appoint elders in every town, as I directed you.',
             ],
-
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -927,7 +1877,42 @@ class PG_Stacker_Text {
                 'reference' => 'Matthew 9:38',
                 'verse' => 'Ask the Lord of the harvest, therefore, to send out workers into his harvest field.',
             ],
-
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -1000,7 +1985,6 @@ class PG_Stacker_Text {
                 'reference' => 'Psalm 119:136',
                 'verse' => 'Streams of tears flow from my eyes, for your law is not obeyed.',
             ],
-
             [
                 'section_label' => $section_label,
                 'prayer' => 'Spirit, guide the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' into all truth as they interpret Scriptures.',
@@ -1066,7 +2050,30 @@ class PG_Stacker_Text {
                 'reference' => 'Ezra 7:10,25',
                 'verse' => 'For Ezra had prepared his heart to seek the law of the LORD, and to do it, and to teach in Israel statutes and judgments.',
             ],
-
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -1192,6 +2199,24 @@ class PG_Stacker_Text {
                 'reference' => '1 Thessalonians 5:23-24',
                 'verse' => 'May the God of peace himself sanctify you completely. May your whole spirit, soul, and body be preserved blameless at the coming of our Lord Jesus Christ. He who calls you is faithful, who will also do it.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -1322,6 +2347,18 @@ class PG_Stacker_Text {
                 'reference' => '2 Corinthians 6:18',
                 'verse' => 'I will be to you a Father. You will be to me sons and daughters,’ says the Lord Almighty.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
@@ -1357,7 +2394,6 @@ class PG_Stacker_Text {
                 'reference' => 'Ephesians 5:15',
                 'verse' => 'Be very careful, then, how you live—not as unwise but as wise, making the most of every opportunity, because the days are evil.',
             ],
-
             [
                 'section_label' => 'Urgency',
                 'prayer' => 'Jesus, your return is closer than when we first believed. Please, set urgency in the hearts of the people living in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
@@ -1433,6 +2469,60 @@ class PG_Stacker_Text {
                 'reference' => 'Matthew 28:19-20',
                 'verse' => 'Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything that I have commanded you.',
             ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => '',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
         ];
 
         if ( $all ) {
