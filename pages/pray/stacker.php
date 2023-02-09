@@ -22,7 +22,7 @@ class PG_Stacker {
         /**************************/
         PG_Stacker_Text::_for_extraordinary_prayer( $lists, $stack );
         PG_Stacker_Text::_for_multiplication( $lists, $stack );
-        PG_Stacker_Text::_for_movement_essential_simple_churches( $lists, $stack );
+        PG_Stacker_Text::_for_unleashing_simple_churches( $lists, $stack );
         // add multiplying churches
         // add multiplying disciples
 
@@ -33,7 +33,7 @@ class PG_Stacker {
 
         PG_Stacker_Text::_for_abundant_gospel_sowing( $lists, $stack );
         PG_Stacker_Text::_for_new_churches( $lists, $stack );
-        PG_Stacker_Text::_for_biblical_authority_over_the_believers( $lists, $stack );
+        PG_Stacker_Text::_for_biblical_authority( $lists, $stack );
         PG_Stacker_Text::_for_local_leadership( $lists, $stack );
         // add for apostolic/pioneering leadership
         // add for evangelistic leadership
@@ -41,8 +41,8 @@ class PG_Stacker {
         // add for shepherding/gathering leadership
 
         PG_Stacker_Text::_for_church_health( $lists, $stack );
-        PG_Stacker_Text::_for_obedience_in_the_believers( $lists, $stack );
-        PG_Stacker_Text::_for_urgency_in_the_believers( $lists, $stack );
+        PG_Stacker_Text::_for_obedience( $lists, $stack );
+        PG_Stacker_Text::_for_kingdom_urgency( $lists, $stack );
         PG_Stacker_Text::_for_bible_promises_for_the_believer( $lists, $stack );
         PG_Stacker_Text::_for_bible_promises_for_the_lost( $lists, $stack );
 

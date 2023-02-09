@@ -98,6 +98,9 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
 
         $lists['_for_prioritizing_priesthood_of_believers'] = PG_Stacker_Text::_for_prioritizing_priesthood_of_believers( $empty_array, $stack, true );
 
+        $lists['_for_unleashing_simple_churches'] = PG_Stacker_Text::_for_unleashing_simple_churches( $empty_array, $stack, true );
+
+
 
 
         $lists['_for_media_resources'] = PG_Stacker_Text::_for_media_resources( $empty_array, $stack, true );
@@ -105,20 +108,6 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
         $lists['_for_safety'] = PG_Stacker_Text::_for_safety( $empty_array, $stack, true );
 
         $lists['_for_political_stability'] = PG_Stacker_Text::_for_political_stability( $empty_array, $stack, true );
-
-
-
-        $lists['_for_church_health'] = PG_Stacker_Text::_for_church_health( $empty_array, $stack, true );
-
-        $lists['_for_multiplication'] = PG_Stacker_Text::_for_multiplication( $empty_array, $stack, true );
-
-        $lists['_for_movement_essential_simple_churches'] = PG_Stacker_Text::_for_movement_essential_simple_churches( $empty_array, $stack, true );
-
-        $lists['_for_new_churches'] = PG_Stacker_Text::_for_new_churches( $empty_array, $stack, true );
-
-        $lists['_for_multiplying_churches'] = PG_Stacker_Text::_for_multiplying_churches( $empty_array, $stack, true );
-
-        $lists['_for_multiplying_disciples'] = PG_Stacker_Text::_for_multiplying_disciples( $empty_array, $stack, true );
 
 
 
@@ -161,23 +150,20 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
 
 
 
-        $lists['_for_biblical_authority_over_the_believers'] = PG_Stacker_Text::_for_biblical_authority_over_the_believers( $empty_array, $stack, true );
+        $lists['_for_biblical_authority'] = PG_Stacker_Text::_for_biblical_authority( $empty_array, $stack, true );
 
-        $lists['_for_obedience_in_the_believers'] = PG_Stacker_Text::_for_obedience_in_the_believers( $empty_array, $stack, true );
+        $lists['_for_obedience'] = PG_Stacker_Text::_for_obedience( $empty_array, $stack, true );
 
-        $lists['_for_trust_in_the_believers'] = PG_Stacker_Text::_for_trust_in_the_believers( $empty_array, $stack, true );
+        $lists['_for_reliance_on_god'] = PG_Stacker_Text::_for_reliance_on_god( $empty_array, $stack, true );
 
-        $lists['_for_faith_in_the_believers'] = PG_Stacker_Text::_for_faith_in_the_believers( $empty_array, $stack, true );
+        $lists['_for_faithfulness'] = PG_Stacker_Text::_for_faithfulness( $empty_array, $stack, true );
 
-        $lists['_for_love_in_the_believers'] = PG_Stacker_Text::_for_love_in_the_believers( $empty_array, $stack, true );
+        $lists['_for_love_and_generosity'] = PG_Stacker_Text::_for_love_and_generosity( $empty_array, $stack, true );
 
-        $lists['_for_urgency_in_the_believers'] = PG_Stacker_Text::_for_urgency_in_the_believers( $empty_array, $stack, true );
+        $lists['_for_kingdom_urgency'] = PG_Stacker_Text::_for_kingdom_urgency( $empty_array, $stack, true );
 
+        $lists['_for_suffering'] = PG_Stacker_Text::_for_suffering( $empty_array, $stack, true );
 
-
-        $lists['_for_bible_promises_for_the_believer'] = PG_Stacker_Text::_for_bible_promises_for_the_believer( $empty_array, $stack, true );
-
-        $lists['_for_bible_promises_for_the_lost'] = PG_Stacker_Text::_for_bible_promises_for_the_lost( $empty_array, $stack, true );
 
 
 
