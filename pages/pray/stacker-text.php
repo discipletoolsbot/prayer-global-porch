@@ -78,7 +78,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_intentional_movement_strategy( &$lists, $stack, $all = false ) {
@@ -149,7 +150,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_abundant_gospel_sowing( &$lists, $stack, $all = false ) {
@@ -220,7 +222,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_persons_of_peace( &$lists, $stack, $all = false ) {
@@ -291,7 +294,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_prioritizing_priesthood_of_believers( &$lists, $stack, $all = false ) {
@@ -362,7 +366,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_unleashing_simple_churches( &$lists, $stack, $all = false ) {
@@ -481,7 +486,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_bible_access( &$lists, $stack, $all = false ) {
@@ -653,7 +659,8 @@ class PG_Stacker_Text {
             return array_merge( $combined_templates, $lists );
         }
         $templates = $templates[$stack['location']['favor']];
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_internet_gospel_access( &$lists, $stack, $all = false ) {
@@ -730,7 +737,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_safety( &$lists, $stack, $all = false ) {
@@ -801,7 +809,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_political_stability( &$lists, $stack, $all = false ) {
@@ -872,7 +881,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_demographic_feature_total_population( &$lists, $stack, $all = false ) {
@@ -943,7 +953,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_demographic_feature_population_non_christians( &$lists, $stack, $all = false ) {
@@ -1014,7 +1025,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_demographic_feature_population_christian_adherents( &$lists, $stack, $all = false ) {
@@ -1085,7 +1097,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_demographic_feature_population_believers( &$lists, $stack, $all = false ) {
@@ -1156,7 +1169,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_demographic_feature_primary_religion( &$lists, $stack, $all = false ) {
@@ -1231,7 +1245,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_demographic_feature_primary_language( &$lists, $stack, $all = false ) {
@@ -1306,7 +1321,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
 
@@ -1380,7 +1396,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_people_groups_by_reached_status( &$lists, $stack, $all = false ) {
@@ -1451,7 +1468,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_people_groups_by_religion( &$lists, $stack, $all = false ) {
@@ -1522,7 +1540,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_people_groups_by_population( &$lists, $stack, $all = false ) {
@@ -1593,7 +1612,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
 
@@ -1668,7 +1688,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_apostolic_pioneering_leadership( &$lists, $stack, $all = false ) { // local leadership and lay leadership
@@ -1739,7 +1760,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_evangelistic_leadership( &$lists, $stack, $all = false ) {
@@ -1810,7 +1832,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_prophetic_leadership( &$lists, $stack, $all = false ) {
@@ -1881,7 +1904,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_shepherding_leadership( &$lists, $stack, $all = false ) {
@@ -1952,7 +1976,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_teaching_leadership( &$lists, $stack, $all = false ) {
@@ -2023,7 +2048,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
 
@@ -2113,7 +2139,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_obedience( &$lists, $stack, $all = false ) {
@@ -2184,7 +2211,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_reliance_on_god( &$lists, $stack, $all = false ) {
@@ -2255,7 +2283,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_faithfulness( &$lists, $stack, $all = false ) {
@@ -2327,7 +2356,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_suffering( &$lists, $stack, $all = false ) {
@@ -2398,7 +2428,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_love_and_generosity( &$lists, $stack, $all = false ) {
@@ -2469,7 +2500,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
     public static function _for_kingdom_urgency( &$lists, $stack, $all = false ) {
@@ -2558,7 +2590,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
 
@@ -2633,7 +2666,8 @@ class PG_Stacker_Text {
         if ( $all ) {
             return array_merge( $templates, $lists );
         }
-        return array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+         $lists = array_merge( [ $templates[array_rand( $templates ) ] ], $lists );
+        return $lists;
     }
 
 
