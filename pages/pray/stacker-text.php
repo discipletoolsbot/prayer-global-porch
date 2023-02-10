@@ -504,15 +504,15 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, how will they hear without a preacher? How will they preach unless they are sent? How will they be sent without a Bible? Please give the people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' access to a Bible in their own language.',
-                'reference' => '',
-                'verse' => '',
+                'prayer' => 'Spirit, how will they hear without a preacher? How will they preach unless they have a Bible? Please give the people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' access to a Bible in their own language.',
+                'reference' => 'Romans 10:14-15',
+                'verse' => 'How, then, can they call on the one they have not believed in? And how can they believe in the one of whom they have not heard? And how can they hear without someone preaching to them? And how can anyone preach unless they are sent? As it is written: “How beautiful are the feet of those who bring good news!”',
             ],
             [
                 'section_label' => $section_label,
                 'prayer' => 'Father, please remove the barriers that keep the '.$stack['location']['non_christians'].' who are far from You in '.$stack['location']['full_name'].' from having access to a Bible.',
-                'reference' => '',
-                'verse' => '',
+                'reference' => 'Matthew 24:14',
+                'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
             ],
             [
                 'section_label' => $section_label,
@@ -675,20 +675,20 @@ class PG_Stacker_Text {
             [
                 'section_label' => $section_label,
                 'prayer' => 'Spirit, guide seekers in '.$stack['location']['full_name'].' to the gospel through searching Youtube or Tiktok today.',
-                'reference' => '',
-                'verse' => '',
+                'reference' => 'Proverbs 8:17',
+                'verse' => 'I love those who love me, and those who diligently seek me will find me.',
             ],
             [
                 'section_label' => $section_label,
                 'prayer' => 'Father, help media producers communicate the gospel in a way that is understandable to the people of '.$stack['location']['full_name'].'.',
-                'reference' => '',
-                'verse' => '',
+                'reference' => 'Deuteronomy 4:29',
+                'verse' => 'But from there, you will seek the LORD your God, and you will find Him if you search for Him with all your heart and all your soul.',
             ],
             [
                 'section_label' => $section_label,
                 'prayer' => 'Father, as people seek answers on the internet, please help them find the gospel in '.$stack['location']['full_name'].'.',
-                'reference' => '',
-                'verse' => '',
+                'reference' => 'Luke 11:9-10',
+                'verse' => 'So I say to you, ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you.',
             ],
             [
                 'section_label' => $section_label,
@@ -711,14 +711,14 @@ class PG_Stacker_Text {
             [
                 'section_label' => $section_label,
                 'prayer' => 'Spirit, inspire new kinds of evangelism through social media in '.$stack['location']['full_name'].'.',
-                'reference' => '',
-                'verse' => '',
+                'reference' => '2 Timothy 4:5',
+                'verse' => 'But you, keep your head in all situations, endure hardship, do the work of an evangelist, discharge all the duties of your ministry.',
             ],
             [
                 'section_label' => $section_label,
                 'prayer' => 'Jesus, make yourself known to the '.$stack['location']['population'].' people living in '.$stack['location']['name'].' through the internet today.',
-                'reference' => '',
-                'verse' => '',
+                'reference' => 'Psalm 19:4',
+                'verse' => 'They have no speech, they use no words; no sound is heard from them. Yet their voice goes out into all the earth, their words to the ends of the world. In the heavens God has pitched a tent for the sun.',
             ],
 //            [
 //                'section_label' => $section_label,
