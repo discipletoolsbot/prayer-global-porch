@@ -940,7 +940,7 @@ jQuery(document).ready(function(){
       </div>
       <div class="row text-center justify-content-center">
         <div class="col-md-8">
-           <p class="font-weight-normal">${data.section_summary}</p>
+           <p class="mt-3 mb-3 font-weight-bold two-em">${data.section_summary}</p>
         </div>
       </div>
       <div class="row text-center justify-content-center">
@@ -953,7 +953,7 @@ jQuery(document).ready(function(){
 
       <div class="row text-center justify-content-center">
         <div class="col-md-8">
-            <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
+            <p class="mt-3 mb-3 font-weight-bold two-em">${data.prayer}</p>
         </div>
       </div>
       <div class="w-100"><hr></div>
@@ -1235,7 +1235,7 @@ jQuery(document).ready(function(){
       </div>
       <div class="row text-center justify-content-center">
           <div class="col-md-9 col-sm">
-            <p class="mt-3 mb-0  one-em">${data.label_1}</p>
+            <p class="mt-3 mb-3 font-weight-bold two-em">${data.label_1}</p>
             <p class="mt-0 mb-0 font-weight-normal">
               <i class="ion-ios-body green three-em"></i>
             </p>
