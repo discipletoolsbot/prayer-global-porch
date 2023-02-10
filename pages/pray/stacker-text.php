@@ -704,13 +704,13 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, please help good, online teachers get the gospel on youtube and into '.$stack['location']['full_name'].'.',
+                'prayer' => 'Father, please help good, online teachers get the gospel on Youtube and into '.$stack['location']['admin_level_name'].' of '. $stack['location']['admin_level_name'].'.',
                 'reference' => 'Matthew 24:14',
                 'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, guide seekers in '.$stack['location']['full_name'].' to the gospel through searching youtube or Tiktok today.',
+                'prayer' => 'Spirit, guide seekers in '.$stack['location']['full_name'].' to the gospel through searching Youtube or Tiktok today.',
                 'reference' => 'Proverbs 8:17',
                 'verse' => 'I love those who love me, and those who diligently seek me will find me.',
             ],
@@ -1227,43 +1227,43 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _for_demographic_feature_primary_religion( &$lists, $stack, $all = false ) {
+    public static function _for_demographic_feature_primary_religion( &$lists, $stack, $all = false ) { // @todo the primary religion is too general for the specific states and counties
         if ( 'Christianity' === $stack['location']['primary_religion'] ) {
             return $lists;
         }
 
         $section_label = 'Primary Religion';
         $templates = [
-            [
-                'section_label' => $section_label,
-                'prayer' => 'The primary religion in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].' is '.$stack['location']['primary_religion'].'.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Father, give the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' the skill to communicate your gospel to those who follow '.$stack['location']['primary_religion'].' around them.',
-                'reference' => 'Ephesians 6:19',
-                'verse' => 'Pray also for me, that whenever I speak, words may be given me so that I will fearlessly make known the mystery of the gospel.',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Father, many people in '.$stack['location']['full_name'].' follow '.$stack['location']['primary_religion'].'. Please give them accurate knowledge of Jesus.',
-                'reference' => 'Romans 10:2',
-                'verse' => 'For I can testify about them that they are zealous for God, but their zeal is not based on knowledge.',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Lord, increase spiritual dissatisfaction among those in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' who follow '.$stack['location']['primary_religion'] . ', so that they would begin to seek you.',
-                'reference' => 'Romans 10:2',
-                'verse' => 'For I can testify about them that they are zealous for God, but their zeal is not based on knowledge.',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Even though the primary religion is '.$stack['location']['primary_religion'] . ' in '.$stack['location']['name'].', Lord, call to yourself persons of peace among the community...those who fear you with the best knowledge they have.',
-                'reference' => 'Acts 10:1,2',
-                'verse' => 'At Caesarea there was a man named Cornelius, a centurion in what was known as the Italian Regiment. He and all his family were devout and God-fearing; he gave generously to those in need and prayed to God regularly.',
-            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'The primary religion in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].' is '.$stack['location']['primary_religion'].'.',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Father, give the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' the skill to communicate your gospel to those who follow '.$stack['location']['primary_religion'].' around them.',
+//                'reference' => 'Ephesians 6:19',
+//                'verse' => 'Pray also for me, that whenever I speak, words may be given me so that I will fearlessly make known the mystery of the gospel.',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Father, many people in '.$stack['location']['full_name'].' follow '.$stack['location']['primary_religion'].'. Please give them accurate knowledge of Jesus.',
+//                'reference' => 'Romans 10:2',
+//                'verse' => 'For I can testify about them that they are zealous for God, but their zeal is not based on knowledge.',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Lord, increase spiritual dissatisfaction among those in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' who follow '.$stack['location']['primary_religion'] . ', so that they would begin to seek you.',
+//                'reference' => 'Romans 10:2',
+//                'verse' => 'For I can testify about them that they are zealous for God, but their zeal is not based on knowledge.',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Even though the primary religion is '.$stack['location']['primary_religion'] . ' in '.$stack['location']['name'].', Lord, call to yourself persons of peace among the community...those who fear you with the best knowledge they have.',
+//                'reference' => 'Acts 10:1,2',
+//                'verse' => 'At Caesarea there was a man named Cornelius, a centurion in what was known as the Italian Regiment. He and all his family were devout and God-fearing; he gave generously to those in need and prayed to God regularly.',
+//            ],
 //            [
 //                'section_label' => $section_label,
 //                'prayer' => '',
@@ -1303,49 +1303,49 @@ class PG_Stacker_Text {
         return $lists;
     }
 
-    public static function _for_demographic_feature_primary_language( &$lists, $stack, $all = false ) {
+    public static function _for_demographic_feature_primary_language( &$lists, $stack, $all = false ) { // @todo the primary religion is too general for the specific states and counties
         if ( 'English' === $stack['location']['primary_language'] ) {
             return $lists;
         }
 
         $section_label = 'Language';
         $templates = [
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Father, please provide access to your written Word in the ' . $stack['location']['primary_language'] . ' language.',
-                'reference' => 'Isaiah 55:11',
-                'verse' => 'So will My word be which goes forth from My mouth; It will not return to Me empty, Without accomplishing what I desire, And without succeeding in the matter for which I sent it.',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Father, please send those who can create videos and podcasts for the ' . $stack['location']['primary_language'] . ' language for the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Father, please provide digital and printed Bibles in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' specifically in the ' . $stack['location']['primary_language'] . ' language. Give success to those who distribute them.',
-                'reference' => 'Isaiah 55:11',
-                'verse' => 'So will My word be which goes forth from My mouth; It will not return to Me empty, Without accomplishing what I desire, And without succeeding in the matter for which I sent it.',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Father, please provide a translation of the Bible in the ' . $stack['location']['primary_language'] . ' language to every seeker in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Spirit, please, send the truth about Jesus through youTube, Tiktok, and Instagram in the ' . $stack['location']['primary_language'] . ' language for the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
-                'reference' => '',
-                'verse' => '',
-            ],
-            [
-                'section_label' => $section_label,
-                'prayer' => 'Lord, raise up workers in the ' . $stack['location']['primary_language'] . ' language, who can communicate accurately the Word of truth.',
-                'reference' => '2 Timothy 2:15',
-                'verse' => '...a worker who does not need to be ashamed and who correctly handles the word of truth.',
-            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Father, please provide access to your written Word in the ' . $stack['location']['primary_language'] . ' language.',
+//                'reference' => 'Isaiah 55:11',
+//                'verse' => 'So will My word be which goes forth from My mouth; It will not return to Me empty, Without accomplishing what I desire, And without succeeding in the matter for which I sent it.',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Father, please send those who can create videos and podcasts for the ' . $stack['location']['primary_language'] . ' language for the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Father, please provide digital and printed Bibles in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' specifically in the ' . $stack['location']['primary_language'] . ' language. Give success to those who distribute them.',
+//                'reference' => 'Isaiah 55:11',
+//                'verse' => 'So will My word be which goes forth from My mouth; It will not return to Me empty, Without accomplishing what I desire, And without succeeding in the matter for which I sent it.',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Father, please provide a translation of the Bible in the ' . $stack['location']['primary_language'] . ' language to every seeker in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Spirit, please, send the truth about Jesus through youTube, Tiktok, and Instagram in the ' . $stack['location']['primary_language'] . ' language for the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+//                'reference' => '',
+//                'verse' => '',
+//            ],
+//            [
+//                'section_label' => $section_label,
+//                'prayer' => 'Lord, raise up workers in the ' . $stack['location']['primary_language'] . ' language, who can communicate accurately the Word of truth.',
+//                'reference' => '2 Timothy 2:15',
+//                'verse' => '...a worker who does not need to be ashamed and who correctly handles the word of truth.',
+//            ],
 //            [
 //                'section_label' => $section_label,
 //                'prayer' => '',
@@ -1599,7 +1599,7 @@ class PG_Stacker_Text {
     }
 
     public static function _for_people_groups_by_population( &$lists, $stack, $all = false ) {
-        $section_label = 'Prayer Movement';
+        $section_label = 'People Groups';
         $templates = [
 //            [
 //                'section_label' => $section_label,
@@ -1974,30 +1974,30 @@ class PG_Stacker_Text {
                 'reference' => 'Psalm 78:72',
                 'verse' => 'With upright heart he shepherded them and guided them with his skillful hand.',
             ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
-//            [
-//                'section_label' => $section_label,
-//                'prayer' => '',
-//                'reference' => '',
-//                'verse' => '',
-//            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Spirit, encourage every one of the '.$stack['location']['believers'].' ordinary believers here to care for others, like a shepherd cares for his sheep.',
+                'reference' => '',
+                'verse' => '',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, you gave the church of '.$stack['location']['full_name'].' the greatest shepherd of all time, Jesus. Please, help them listen to him.',
+                'reference' => 'Ezekiel 34:23',
+                'verse' => 'I will place over them one shepherd, my servant David, and he will tend them; he will tend them and be their shepherd.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Father, for all those you call to look after your flock from the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].', please, make them passionate about hearing your Word.',
+                'reference' => 'Ezekiel 34:7',
+                'verse' => 'Therefore, you shepherds, hear the word of the LORD.',
+            ],
+            [
+                'section_label' => $section_label,
+                'prayer' => 'Good Shepherd, thank you that you know the name of each of the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].'.',
+                'reference' => 'John 10:14',
+                'verse' => 'I am the good shepherd; I know my sheep and my sheep know me',
+            ],
 //            [
 //                'section_label' => $section_label,
 //                'prayer' => '',
