@@ -100,25 +100,25 @@ class PG_Stacker_Positions {
             ]
         ];
 
-        if ( $stack['location']['percent_non_christians'] < 85 ) {
-            $templates[] = [
-                'type' => 'percent_3_bar',
-                'data' => [
-                    'section_label' => $section_label,
-                    'label_1' => "Don't",
-                    'percent_1' => $stack['location']['percent_non_christians'],
-                    'population_1' => $stack['location']['non_christians'],
-                    'label_2' => 'Know About',
-                    'percent_2' => $stack['location']['percent_christian_adherents'],
-                    'population_2' => $stack['location']['christian_adherents'],
-                    'label_3' => 'Know',
-                    'percent_3' => $stack['location']['percent_believers'],
-                    'population_3' => $stack['location']['believers'],
-                    'section_summary' => 'Non-Christians - '.$stack['location']['non_christians'].' | Cultural Christians - '.$stack['location']['christian_adherents'].' | Believers - '.$stack['location']['believers'].'',
-                    'prayer' => '',
-                ]
-            ];
-        }
+//        if ( $stack['location']['percent_non_christians'] < 85 ) {
+//            $templates[] = [
+//                'type' => 'percent_3_bar',
+//                'data' => [
+//                    'section_label' => $section_label,
+//                    'label_1' => "Don't",
+//                    'percent_1' => $stack['location']['percent_non_christians'],
+//                    'population_1' => $stack['location']['non_christians'],
+//                    'label_2' => 'Know About',
+//                    'percent_2' => $stack['location']['percent_christian_adherents'],
+//                    'population_2' => $stack['location']['christian_adherents'],
+//                    'label_3' => 'Know',
+//                    'percent_3' => $stack['location']['percent_believers'],
+//                    'population_3' => $stack['location']['believers'],
+//                    'section_summary' => 'Non-Christians - '.$stack['location']['non_christians'].' | Cultural Christians - '.$stack['location']['christian_adherents'].' | Believers - '.$stack['location']['believers'].'',
+//                    'prayer' => '',
+//                ]
+//            ];
+//        }
 
         // begin demographic birth and death section
         // @note this section produces only one template addition.
