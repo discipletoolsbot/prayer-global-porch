@@ -95,6 +95,7 @@ class Prayer_Global_Porch {
 
         require_once( 'global-utilities.php' );
         require_once( 'pages/pray/stacker-text.php' );
+        require_once( 'pages/pray/stacker-positions.php' );
         require_once( 'pages/pray/stacker.php' );
 
         if ( is_admin() ) {
@@ -121,7 +122,6 @@ class Prayer_Global_Porch {
 
         // challenges
         require_once( 'pages/challenges/active-list.php' );
-
 
         // user
         require_once( 'pages/user/user-link.php' );
