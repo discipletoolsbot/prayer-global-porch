@@ -142,15 +142,15 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
 
         $lists['_for_local_leadership'] = PG_Stacker_Text::_for_local_leadership( $empty_array, $stack, true ); // convert these to the next series below
 
-        $lists['_for_apostolic_pioneering_leadership'] = PG_Stacker_Text::_for_apostolic_pioneering_leadership( $empty_array, $stack, true );;
+        $lists['_for_apostolic_pioneering_leadership'] = PG_Stacker_Text::_for_apostolic_pioneering_leadership( $empty_array, $stack, true );
 
-        $lists['_for_evangelistic_leadership'] = PG_Stacker_Text::_for_evangelistic_leadership( $empty_array, $stack, true );;
+        $lists['_for_evangelistic_leadership'] = PG_Stacker_Text::_for_evangelistic_leadership( $empty_array, $stack, true );
 
-        $lists['_for_prophetic_leadership'] = PG_Stacker_Text::_for_prophetic_leadership( $empty_array, $stack, true );;
+        $lists['_for_prophetic_leadership'] = PG_Stacker_Text::_for_prophetic_leadership( $empty_array, $stack, true );
 
-        $lists['_for_shepherding_leadership'] = PG_Stacker_Text::_for_shepherding_leadership( $empty_array, $stack, true );;
+        $lists['_for_shepherding_leadership'] = PG_Stacker_Text::_for_shepherding_leadership( $empty_array, $stack, true );
 
-        $lists['_for_teaching_leadership'] = PG_Stacker_Text::_for_teaching_leadership( $empty_array, $stack, true );;
+        $lists['_for_teaching_leadership'] = PG_Stacker_Text::_for_teaching_leadership( $empty_array, $stack, true );
 
 
 

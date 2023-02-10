@@ -41,11 +41,11 @@ class PG_Stacker {
 //        PG_Stacker_Text::_for_people_groups_by_religion( $lists, $stack );
 //        PG_Stacker_Text::_for_people_groups_by_population( $lists, $stack );
 //        PG_Stacker_Text::_for_local_leadership( $lists, $stack ); // convert these to the next series below
-//        PG_Stacker_Text::_for_apostolic_pioneering_leadership( $lists, $stack );;
-//        PG_Stacker_Text::_for_evangelistic_leadership( $lists, $stack );;
-//        PG_Stacker_Text::_for_prophetic_leadership( $lists, $stack );;
-//        PG_Stacker_Text::_for_shepherding_leadership( $lists, $stack );;
-        PG_Stacker_Text::_for_teaching_leadership( $lists, $stack );;
+//        PG_Stacker_Text::_for_apostolic_pioneering_leadership( $lists, $stack );
+//        PG_Stacker_Text::_for_evangelistic_leadership( $lists, $stack );
+//        PG_Stacker_Text::_for_prophetic_leadership( $lists, $stack );
+//        PG_Stacker_Text::_for_shepherding_leadership( $lists, $stack );
+        PG_Stacker_Text::_for_teaching_leadership( $lists, $stack );
         PG_Stacker_Text::_for_biblical_authority( $lists, $stack );
         PG_Stacker_Text::_for_obedience( $lists, $stack );
         PG_Stacker_Text::_for_reliance_on_god( $lists, $stack );
