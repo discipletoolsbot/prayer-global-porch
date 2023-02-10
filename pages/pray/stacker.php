@@ -30,22 +30,26 @@ class PG_Stacker {
         PG_Stacker_Text::_for_internet_gospel_access( $lists, $stack );
         PG_Stacker_Text::_for_safety( $lists, $stack );
 //        PG_Stacker_Text::_for_political_stability( $lists, $stack );
+
         PG_Stacker_Text::_for_demographic_feature_total_population( $lists, $stack );
         PG_Stacker_Text::_for_demographic_feature_population_non_christians( $lists, $stack );
-        PG_Stacker_Text::_for_demographic_feature_population_christian_adherents( $lists, $stack );
+//        PG_Stacker_Text::_for_demographic_feature_population_christian_adherents( $lists, $stack );
 //        PG_Stacker_Text::_for_demographic_feature_population_believers( $lists, $stack );
 //        PG_Stacker_Text::_for_demographic_feature_primary_religion( $lists, $stack );
 //        PG_Stacker_Text::_for_demographic_feature_primary_language( $lists, $stack );
+
 //        PG_Stacker_Text::_for_people_groups_by_least_reached_status( $lists, $stack );
 //        PG_Stacker_Text::_for_people_groups_by_reached_status( $lists, $stack );
 //        PG_Stacker_Text::_for_people_groups_by_religion( $lists, $stack );
 //        PG_Stacker_Text::_for_people_groups_by_population( $lists, $stack );
+
         PG_Stacker_Text::_for_local_leadership( $lists, $stack );
         PG_Stacker_Text::_for_apostolic_pioneering_leadership( $lists, $stack );
         PG_Stacker_Text::_for_evangelistic_leadership( $lists, $stack );
         PG_Stacker_Text::_for_prophetic_leadership( $lists, $stack );
-//        PG_Stacker_Text::_for_shepherding_leadership( $lists, $stack );
+        PG_Stacker_Text::_for_shepherding_leadership( $lists, $stack );
         PG_Stacker_Text::_for_teaching_leadership( $lists, $stack );
+
         PG_Stacker_Text::_for_biblical_authority( $lists, $stack );
         PG_Stacker_Text::_for_obedience( $lists, $stack );
         PG_Stacker_Text::_for_reliance_on_god( $lists, $stack );
