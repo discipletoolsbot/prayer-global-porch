@@ -372,7 +372,7 @@ class PG_Stacker_Positions {
         return $stack;
     }
 
-    public static function _position_3( &$stack, $position = 5 ) {
+    public static function _position_3( &$stack, $position = 6 ) {
         $templates = [];
 
         // least reached

@@ -27,25 +27,25 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Lord, stir the hearts of Your people in the '.$stack['location']['admin_level_name'].' of ' . $stack['location']['name'] . ' to agree with You in prayer.',
+                'prayer' => 'Lord, stir the hearts of your people in the '.$stack['location']['admin_level_name'].' of ' . $stack['location']['name'] . ' to agree with you in prayer.',
                 'reference' => 'John 17:20-21',
                 'verse' => 'I (Jesus) pray also for those who will believe in me through their message, that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world may believe that you have sent me.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, teach the church in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to increase their prayer for Your kingdom to come.',
+                'prayer' => 'Spirit, teach the church in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to increase their prayer for your kingdom to come.',
                 'reference' => 'Daniel 6:10',
                 'verse' => 'Now when Daniel learned that the decree had been published, he went home to his upstairs room where the windows opened toward Jerusalem. Three times a day he got down on his knees and prayed, giving thanks to his God...',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, teach the children in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to pray with passion and pleading for Your presence.',
+                'prayer' => 'Spirit, teach the children in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to pray with passion and pleading for your presence.',
                 'reference' => '',
                 'verse' => '',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, awaken a burning desire for Your presence and intimacy among the '.$stack['location']['population'].' people living in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'prayer' => 'Spirit, awaken a burning desire for your presence and intimacy among the '.$stack['location']['population'].' people living in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
                 'reference' => '',
                 'verse' => '',
             ],
@@ -53,7 +53,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => 'Lord we pray you unite the '.$stack['location']['believers'].' believers to pray at all times in the Spirit, with all prayer and supplication, for spiritual breakthrough in ' . $stack['location']['name'] . '.',
                 'reference' => 'Philippians 4:6',
-                'verse' => '... in every situation, by prayer and petition, with thanksgiving, present Your requests to God.',
+                'verse' => '... in every situation, by prayer and petition, with thanksgiving, present your requests to God.',
             ],
             [
                 'section_label' => $section_label,
@@ -63,7 +63,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Please, teach the '.$stack['location']['believers'].' believers in '.$stack['location']['full_name'].' how to pray to you and how to listen for Your voice. That they might follow you into the good works you have prepared for them.',
+                'prayer' => 'Please, teach the '.$stack['location']['believers'].' believers in '.$stack['location']['full_name'].' how to pray to you and how to listen for your voice. That they might follow you into the good works you have prepared for them.',
                 'reference' => 'John 10:27',
                 'verse' => 'My sheep listen to my voice; I know them, and they follow me.',
             ],
@@ -159,7 +159,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => 'Abundant Gospel Sowing',
-                'prayer' => 'Spirit, please give new believers a yearning to see You praised in '.$stack['location']['full_name'].'.',
+                'prayer' => 'Spirit, please give new believers a yearning to see you praised in '.$stack['location']['full_name'].'.',
                 'reference' => 'Psalm 96:3',
                 'verse' => 'Declare his glory among the nations, his marvelous deeds among all peoples.',
             ],
@@ -183,7 +183,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => 'Abundant Gospel Sowing',
-                'prayer' => 'Jesus, all authority was given to you, and you commanded all disciples in '. $stack['location']['full_name'] . ' to make more disciples, and you promised to be with them. May Your power and their obedience make more disciples today.',
+                'prayer' => 'Jesus, all authority was given to you, and you commanded all disciples in '. $stack['location']['full_name'] . ' to make more disciples, and you promised to be with them. May your power and their obedience make more disciples today.',
                 'reference' => 'Matthew 28:18',
                 'verse' => 'All authority in heaven and on earth has been given to me. Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age.',
             ],
@@ -233,7 +233,7 @@ class PG_Stacker_Text {
                 'section_label' => 'Person of Peace',
                 'prayer' => 'Spirit, help the '.$stack['location']['believers'].' believers find a person of peace today among the '.$stack['location']['all_lost'].' lost neighbors around them. And help them start discovery bible studies in these unbelieving homes.',
                 'reference' => 'Acts 10:30-33',
-                'verse' => 'Suddenly a man in shining clothes stood before me and said, ‘Cornelius, God has heard Your prayer and remembered Your gifts to the poor. Send to Joppa for Simon who is called Peter. He is a guest in the home of Simon the tanner, who lives by the sea.’ So I sent for you immediately, and it was good of you to come. Now we are all here in the presence of God to listen to everything the Lord has commanded you to tell us.”',
+                'verse' => 'Suddenly a man in shining clothes stood before me and said, ‘Cornelius, God has heard your prayer and remembered your gifts to the poor. Send to Joppa for Simon who is called Peter. He is a guest in the home of Simon the tanner, who lives by the sea.’ So I sent for you immediately, and it was good of you to come. Now we are all here in the presence of God to listen to everything the Lord has commanded you to tell us.”',
             ],
             [
                 'section_label' => 'Person of Peace',
@@ -305,7 +305,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => 'Father, guide the church in '.$stack['location']['full_name'].' to see their community as a holy priesthood, offering spiritual sacrifices acceptable to God.',
                 'reference' => '1 Peter 2:4-5',
-                'verse' => 'You also, like living stones, are being built into a spiritual house to be a holy priesthood, offering spiritual sacrifices acceptable to God through Jesus Christ.',
+                'verse' => 'you also, like living stones, are being built into a spiritual house to be a holy priesthood, offering spiritual sacrifices acceptable to God through Jesus Christ.',
             ],
             [
                 'section_label' => $section_label,
@@ -317,7 +317,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => 'Spirit, please convict each believer in '.$stack['location']['full_name'].' to take up their calling as a priesthood of believers and pray for the '.$stack['location']['all_lost'].' lost around them.',
                 'reference' => '1 Peter 2:4-5',
-                'verse' => 'You also, like living stones, are being built into a spiritual house to be a holy priesthood',
+                'verse' => 'you also, like living stones, are being built into a spiritual house to be a holy priesthood',
             ],
             [
                 'section_label' => $section_label,
@@ -375,7 +375,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love You, love each other, and make disciples.',
+                'prayer' => 'God, guide the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to multiply spiritual families that love you, love each other, and make disciples.',
                 'reference' => '',
                 'verse' => '',
             ],
@@ -411,7 +411,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'God, we pray both the men and women of ' . $stack['location']['full_name'] . ' will find ways to meet in groups of two or three to encourage and correct one another from Your Word.',
+                'prayer' => 'God, we pray both the men and women of ' . $stack['location']['full_name'] . ' will find ways to meet in groups of two or three to encourage and correct one another from your Word.',
                 'reference' => '',
                 'verse' => '',
             ],
@@ -423,7 +423,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => 'The Church',
-                'prayer' => 'Father, we rejoice that You who began a good work in the church of ' . $stack['location']['full_name'] . ' will carry it on to completion until the day of Jesus Christ!',
+                'prayer' => 'Father, we rejoice that you who began a good work in the church of ' . $stack['location']['full_name'] . ' will carry it on to completion until the day of Jesus Christ!',
                 'reference' => 'Philippians 1:6',
                 'verse' => '...being confident of this, that he who began a good work in you will carry it on to completion until the day of Christ Jesus.',
             ],
@@ -453,13 +453,13 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => 'Church Planting',
-                'prayer' => 'Father, show Your mercy on the '.$stack['location']['all_lost'].' people in '.$stack['location']['name'].' who are far from you. Please add '.$stack['location']['new_churches_needed'].' new house churches this year.',
+                'prayer' => 'Father, show your mercy on the '.$stack['location']['all_lost'].' people in '.$stack['location']['name'].' who are far from you. Please add '.$stack['location']['new_churches_needed'].' new house churches this year.',
                 'reference' => '',
                 'verse' => '',
             ],
             [
                 'section_label' => 'Church Planting',
-                'prayer' => 'Father, we agree with Your desire that the people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' hear about You.',
+                'prayer' => 'Father, we agree with your desire that the people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' hear about you.',
                 'reference' => 'Romans 15:21',
                 'verse' => 'Those who were not told about him will see, and those who have not heard will understand.',
             ],
@@ -510,13 +510,13 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, please remove the barriers that keep the '.$stack['location']['non_christians'].' who are far from You in '.$stack['location']['full_name'].' from having access to a Bible.',
+                'prayer' => 'Father, please remove the barriers that keep the '.$stack['location']['non_christians'].' who are far from you in '.$stack['location']['full_name'].' from having access to a Bible.',
                 'reference' => 'Matthew 24:14',
                 'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, put your Bible in the hands of the '.$stack['location']['non_christians'].', who are far from You and live in this place.',
+                'prayer' => 'Father, put your Bible in the hands of the '.$stack['location']['non_christians'].', who are far from you and live in this place.',
                 'reference' => 'Psalm 119:9-10',
                 'verse' => 'How can a young person stay on the path of purity? By living according to your word. I seek you with all my heart; do not let me stray from your commands.',
             ],
@@ -568,27 +568,27 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, of the '.$stack['location']['christian_adherents'].' people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' who claim Christianity, challenge some of them to pickup Your Word and read it for themselves today.',
+                'prayer' => 'Spirit, of the '.$stack['location']['christian_adherents'].' people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' who claim Christianity, challenge some of them to pickup your Word and read it for themselves today.',
                 'reference' => 'John 8:32',
                 'verse' => 'and you will know the truth, and the truth will set you free.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, your Word is essential for life and growth. Please challenge the '.$stack['location']['christian_adherents'].' cultural Christians in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to read Your Word for themselves today.',
+                'prayer' => 'Father, your Word is essential for life and growth. Please challenge the '.$stack['location']['christian_adherents'].' cultural Christians in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to read your Word for themselves today.',
                 'reference' => 'Matthew 4:4',
                 'verse' => 'Man shall not live by bread alone, but by every word that comes from the mouth of God.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Lord, the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' will disappear on day, but your Word will never disappear. Call all who claim Christianity to anchor their lives on Your Word.',
+                'prayer' => 'Lord, the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' will disappear on day, but your Word will never disappear. Call all who claim Christianity to anchor their lives on your Word.',
                 'reference' => 'Matthew 24:35',
                 'verse' => 'Heaven and earth will disappear, but my words will never disappear.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, Your word can be a lamp to the feet of the '.$stack['location']['christian_adherents'].' people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' who claim to know you, if they open it an read it today.',
+                'prayer' => 'Father, your word can be a lamp to the feet of the '.$stack['location']['christian_adherents'].' people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' who claim to know you, if they open it an read it today.',
                 'reference' => 'Psalm 119:105',
-                'verse' => 'Your word is a lamp to my feet and a light to my path.',
+                'verse' => 'your word is a lamp to my feet and a light to my path.',
             ],
             [
                 'section_label' => $section_label,
@@ -626,7 +626,7 @@ class PG_Stacker_Text {
         $templates['believers'] = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, please provide access to Your Word for everyone, especially believers in '.$stack['location']['full_name'].'.',
+                'prayer' => 'Father, please provide access to your Word for everyone, especially believers in '.$stack['location']['full_name'].'.',
                 'reference' => 'Matthew 24:14',
                 'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
             ],
@@ -640,7 +640,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => 'Father, let your Word be a lamp to the feet of the '.$stack['location']['believers'].' believers in '.$stack['location']['full_name'].'.',
                 'reference' => 'Psalm 119:105',
-                'verse' => 'Your word is a lamp to my feet and a light to my path.',
+                'verse' => 'your word is a lamp to my feet and a light to my path.',
             ],
             [
                 'section_label' => $section_label,
@@ -658,7 +658,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => 'Jesus, provide a Bible for every believer in '.$stack['location']['full_name'].', and teach them to obey it.',
                 'reference' => 'James 1:23-25',
-                'verse' => 'For if you listen to the word and don’t obey, it is like glancing at your face in a mirror. 24 You see yourself, walk away, and forget what you look like. 25 But if you look carefully into the perfect law that sets you free, and if you do what it says and don’t forget what you heard, then God will bless you for doing it.',
+                'verse' => 'For if you listen to the word and don’t obey, it is like glancing at your face in a mirror. 24 you see yourself, walk away, and forget what you look like. 25 But if you look carefully into the perfect law that sets you free, and if you do what it says and don’t forget what you heard, then God will bless you for doing it.',
             ],
             [
                 'section_label' => $section_label,
@@ -704,13 +704,13 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, please help good, online teachers get the gospel on Youtube and into '.$stack['location']['full_name'].'.',
+                'prayer' => 'Father, please help good, online teachers get the gospel on youtube and into '.$stack['location']['full_name'].'.',
                 'reference' => 'Matthew 24:14',
                 'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, guide seekers in '.$stack['location']['full_name'].' to the gospel through searching Youtube or Tiktok today.',
+                'prayer' => 'Spirit, guide seekers in '.$stack['location']['full_name'].' to the gospel through searching youtube or Tiktok today.',
                 'reference' => 'Proverbs 8:17',
                 'verse' => 'I love those who love me, and those who diligently seek me will find me.',
             ],
@@ -730,7 +730,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => 'Spirit, guide every search on Google for truth in '.$stack['location']['full_name'].' to find a gospel video.',
                 'reference' => 'Jeremiah 29:13',
-                'verse' => 'You will seek Me and find Me when you search for Me with all your heart.',
+                'verse' => 'you will seek Me and find Me when you search for Me with all your heart.',
             ],
             [
                 'section_label' => $section_label,
@@ -782,7 +782,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, for those in trouble in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' prompt them to call on You for rescue today.',
+                'prayer' => 'Father, for those in trouble in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' prompt them to call on you for rescue today.',
                 'reference' => 'Psalm 91:15',
                 'verse' => 'He will call on me, and I will answer him. I will be with him in trouble. I will deliver him, and honor him.',
             ],
@@ -818,7 +818,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, let the threatened of '.$stack['location']['full_name'].' know that is better to trust in You than to trust in humans.',
+                'prayer' => 'Father, let the threatened of '.$stack['location']['full_name'].' know that is better to trust in you than to trust in humans.',
                 'reference' => 'Psalm 118:8',
                 'verse' => 'It is better to take refuge in the Lord than to trust in humans.',
             ],
@@ -830,7 +830,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, encourage those who are afraid in '.$stack['location']['full_name'].' that You are the Healer and You are the Savior.',
+                'prayer' => 'Spirit, encourage those who are afraid in '.$stack['location']['full_name'].' that you are the healer and you are the savior.',
                 'reference' => 'Jeremiah 17:14',
                 'verse' => 'Heal me, Lord, and I will be healed; save me and I will be saved, for you are the one I praise.',
             ],
@@ -956,13 +956,13 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Pour Your Spirit out on the '.$stack['location']['population'].' citizens of '.$stack['location']['full_name'].', so that they might know Your name and the name of Your Son.',
+                'prayer' => 'Pour your Spirit out on the '.$stack['location']['population'].' citizens of '.$stack['location']['full_name'].', so that they might know your name and the name of your Son.',
                 'reference' => 'Joel 2:28',
-                'verse' => 'And afterward, I will pour out my Spirit on all people. Your sons and daughters will prophesy, Your old men will dream dreams, Your young men will see visions.',
+                'verse' => 'And afterward, I will pour out my Spirit on all people. your sons and daughters will prophesy, your old men will dream dreams, your young men will see visions.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, we suspect there is 1 believer for every '.$stack['location']['lost_per_believer'] . ' neighbors who are far from you in '.$stack['location']['name'].'. Please, give courage and opportunity to Your children to speak boldly.',
+                'prayer' => 'Father, we suspect there is 1 believer for every '.$stack['location']['lost_per_believer'] . ' neighbors who are far from you in '.$stack['location']['name'].'. Please, give courage and opportunity to your children to speak boldly.',
                 'reference' => 'Ephesians 6:19',
                 'verse' => 'Pray also for me, that whenever I speak, words may be given me so that I will fearlessly make known the mystery of the gospel.',
             ],
@@ -974,13 +974,13 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, you know every soul, and you know who are Yours and who are yet to be Yours out of the '.$stack['location']['population'] .' people living in '. $stack['location']['full_name'] . '. Please, call Your lost sheep to Yourself.',
+                'prayer' => 'Father, you know every soul, and you know who are yours and who are yet to be yours out of the '.$stack['location']['population'] .' people living in '. $stack['location']['full_name'] . '. Please, call your lost sheep to yourself.',
                 'reference' => 'Ezekiel 36:24',
-                'verse' => 'For I will take you out of the nations; I will gather you from all the countries and bring you back into Your own land.',
+                'verse' => 'For I will take you out of the nations; I will gather you from all the countries and bring you back into your own land.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, bring Yourself glory in '.$stack['location']['name'].'. Through Your servants plant '.$stack['location']['new_churches_needed'].' new churches that love you, love one another, and make disciples this year.',
+                'prayer' => 'Father, bring yourself glory in '.$stack['location']['name'].'. Through your servants plant '.$stack['location']['new_churches_needed'].' new churches that love you, love one another, and make disciples this year.',
                 'reference' => 'Habakkuk 2:14',
                 'verse' => 'For the earth will be filled with the knowledge of the glory of the LORD as the waters cover the sea.',
             ],
@@ -1010,7 +1010,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Over '.$stack['location']['percent_non_christians'].' percent of the people of '.$stack['location']['name'].' are far from Jesus. Lord, please send Your gospel to them through the internet or radio or television today!',
+                'prayer' => 'Over '.$stack['location']['percent_non_christians'].' percent of the people of '.$stack['location']['name'].' are far from Jesus. Lord, please send your gospel to them through the internet or radio or television today!',
                 'reference' => '',
                 'verse' => '',
             ],
@@ -1034,7 +1034,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Lord, let it be said of the '.$stack['location']['all_lost'].' lost in '.$stack['location']['name'].' that You have called them out of darkness into Your glorious light.',
+                'prayer' => 'Lord, let it be said of the '.$stack['location']['all_lost'].' lost in '.$stack['location']['name'].' that you have called them out of darkness into your glorious light.',
                 'reference' => '1 Peter 2:9',
                 'verse' => 'But you are a chosen race, a royal priesthood, a holy nation, a people for God’s own possession, that you may proclaim the excellence of him who called you out of darkness into his marvelous light',
             ],
@@ -1046,7 +1046,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, You desire to blot out the sins of the people of '.$stack['location']['full_name'].'. You said, if they turn to You, You will dissolve their sins like mist.',
+                'prayer' => 'Father, you desire to blot out the sins of the people of '.$stack['location']['full_name'].'. you said, if they turn to you, you will dissolve their sins like mist.',
                 'reference' => 'Isaiah 44:22',
                 'verse' => 'I have blotted out, as a thick cloud, your transgressions, and, as a cloud, your sins. Return to me, for I have redeemed you.',
             ],
@@ -1154,7 +1154,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, thank you for the '.$stack['location']['believers'].' whom You have brought close through the blood of Christ already in '.$stack['location']['full_name'].'.',
+                'prayer' => 'Spirit, thank you for the '.$stack['location']['believers'].' whom you have brought close through the blood of Christ already in '.$stack['location']['full_name'].'.',
                 'reference' => 'Ephesians 2:13',
                 'verse' => 'But now in Christ Jesus you who once were far off are made near in the blood of Christ.',
             ],
@@ -1242,7 +1242,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, give the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' the skill to communicate Your gospel to those who follow '.$stack['location']['primary_religion'].' around them.',
+                'prayer' => 'Father, give the '.$stack['location']['believers'].' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' the skill to communicate your gospel to those who follow '.$stack['location']['primary_religion'].' around them.',
                 'reference' => 'Ephesians 6:19',
                 'verse' => 'Pray also for me, that whenever I speak, words may be given me so that I will fearlessly make known the mystery of the gospel.',
             ],
@@ -1254,13 +1254,13 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Lord, increase spiritual dissatisfaction among those in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' who follow '.$stack['location']['primary_religion'] . ', so that they would begin to seek You.',
+                'prayer' => 'Lord, increase spiritual dissatisfaction among those in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' who follow '.$stack['location']['primary_religion'] . ', so that they would begin to seek you.',
                 'reference' => 'Romans 10:2',
                 'verse' => 'For I can testify about them that they are zealous for God, but their zeal is not based on knowledge.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Even though the primary religion is '.$stack['location']['primary_religion'] . ' in '.$stack['location']['name'].', Lord, call to Yourself persons of peace among the community...those who fear you with the best knowledge they have.',
+                'prayer' => 'Even though the primary religion is '.$stack['location']['primary_religion'] . ' in '.$stack['location']['name'].', Lord, call to yourself persons of peace among the community...those who fear you with the best knowledge they have.',
                 'reference' => 'Acts 10:1,2',
                 'verse' => 'At Caesarea there was a man named Cornelius, a centurion in what was known as the Italian Regiment. He and all his family were devout and God-fearing; he gave generously to those in need and prayed to God regularly.',
             ],
@@ -1312,7 +1312,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, please provide access to Your written Word in the ' . $stack['location']['primary_language'] . ' language.',
+                'prayer' => 'Father, please provide access to your written Word in the ' . $stack['location']['primary_language'] . ' language.',
                 'reference' => 'Isaiah 55:11',
                 'verse' => 'So will My word be which goes forth from My mouth; It will not return to Me empty, Without accomplishing what I desire, And without succeeding in the matter for which I sent it.',
             ],
@@ -1336,7 +1336,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, please, send the truth about Jesus through YouTube, Tiktok, and Instagram in the ' . $stack['location']['primary_language'] . ' language for the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'prayer' => 'Spirit, please, send the truth about Jesus through youTube, Tiktok, and Instagram in the ' . $stack['location']['primary_language'] . ' language for the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
                 'reference' => '',
                 'verse' => '',
             ],
@@ -1681,13 +1681,13 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => 'Local Leadership',
-                'prayer' => 'God, we ask you to raise up elders and deacons from the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].', who will serve the church and equip it to do Your work.',
+                'prayer' => 'God, we ask you to raise up elders and deacons from the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].', who will serve the church and equip it to do your work.',
                 'reference' => 'Ephesians 4:11',
                 'verse' => 'So Christ himself gave the apostles, the prophets, the evangelists, the pastors and teachers, to equip his people for works of service, so that the body of Christ may be built up until we all reach unity in the faith and in the knowledge of the Son of God and become mature, attaining to the whole measure of the fullness of Christ.',
             ],
             [
                 'section_label' => 'Movement Leadership',
-                'prayer' => 'Father, we pray for every movement leader and disciple in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].' that they would have deepening intimacy with You.',
+                'prayer' => 'Father, we pray for every movement leader and disciple in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['full_name'].' that they would have deepening intimacy with you.',
                 'reference' => 'John 14:20',
                 'verse' => 'On that day you will realize that I am in my Father, and you are in me, and I am in you.',
             ],
@@ -1713,7 +1713,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => 'Jesus, help the local leaders in '.$stack['location']['full_name'].' not be proud but humble, and willing to wash the feet of all they serve.',
                 'reference' => 'John 13:13–17',
-                'verse' => 'You call me Teacher and Lord, and you are right, for so I am. If I then, your Lord and Teacher, have washed your feet, you also ought to wash one another’s feet. For I have given you an example, that you also should do just as I have done to you. ',
+                'verse' => 'you call me Teacher and Lord, and you are right, for so I am. If I then, your Lord and Teacher, have washed your feet, you also ought to wash one another’s feet. For I have given you an example, that you also should do just as I have done to you. ',
             ],
             [
                 'section_label' => $section_label,
@@ -2030,7 +2030,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, please teachers of Your Word in '.$stack['location']['name'].' who can speak Your gospel boldly and clearly.',
+                'prayer' => 'Father, please teachers of your Word in '.$stack['location']['name'].' who can speak your gospel boldly and clearly.',
                 'reference' => '',
                 'verse' => '',
             ],
@@ -2111,31 +2111,31 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => 'Spirit, make the Word of God a delight to the people of '.$stack['location']['name'].', like it was to David.',
                 'reference' => 'Psalm 119:16',
-                'verse' => 'I delight in Your decrees, I will not neglect Your word.',
+                'verse' => 'I delight in your decrees, I will not neglect your word.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, instill a desire within the people of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to hide Your word in their heart.',
+                'prayer' => 'Spirit, instill a desire within the people of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to hide your word in their heart.',
                 'reference' => 'Psalm 119:11',
-                'verse' => 'I have hidden Your word in my heart that I might not sin against you.',
+                'verse' => 'I have hidden your word in my heart that I might not sin against you.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, help the people of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to be consumed with longing for Your Word at all times, like David.',
+                'prayer' => 'Spirit, help the people of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to be consumed with longing for your Word at all times, like David.',
                 'reference' => 'Psalm 119:20',
-                'verse' => 'My soul is consumed with longing for Your laws at all times.',
+                'verse' => 'My soul is consumed with longing for your laws at all times.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Lord, teach Your Word to the people of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', so that they can follow Your ways all their life.',
+                'prayer' => 'Lord, teach your Word to the people of the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', so that they can follow your ways all their life.',
                 'reference' => 'Psalm 119:33',
-                'verse' => 'Teach me, Lord, the way of Your decrees, that I may follow it to the end.',
+                'verse' => 'Teach me, Lord, the way of your decrees, that I may follow it to the end.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Lord, teach the disciples in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to trust Your Word, like a lamp, in the darkness around them.',
+                'prayer' => 'Lord, teach the disciples in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to trust your Word, like a lamp, in the darkness around them.',
                 'reference' => 'Psalm 119:105',
-                'verse' => 'Your word is a lamp for my feet, a light on my path.',
+                'verse' => 'your word is a lamp for my feet, a light on my path.',
             ],
             [
                 'section_label' => $section_label,
@@ -2145,9 +2145,9 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, we know that cultures come and go, even in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', but the truth of Your Word endures generations.',
+                'prayer' => 'Spirit, we know that cultures come and go, even in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].', but the truth of your Word endures generations.',
                 'reference' => 'Psalm 119:89',
-                'verse' => 'Your word, Lord, is eternal; it stands firm in the heavens.',
+                'verse' => 'your word, Lord, is eternal; it stands firm in the heavens.',
             ],
             [
                 'section_label' => $section_label,
@@ -2201,17 +2201,17 @@ class PG_Stacker_Text {
                 'section_label' => 'Obedience',
                 'prayer' => 'Spirit, cause the '.$stack['location']['believers'].' believers in ' . $stack['location']['name'] . ' to obey with immediate, radical, costly obedience, like Abraham.',
                 'reference' => 'Genesis 22:2-3',
-                'verse' => 'Then God said, “Take Your son, Your only son, whom you love — Isaac — and go to the region of Moriah. Sacrifice him there as a burnt offering on a mountain I will show you.” Early the next morning Abraham got up and loaded his donkey. He took with him two of his servants and his son Isaac. When he had cut enough wood for the burnt offering, he set out for the place God had told him about.',
+                'verse' => 'Then God said, “Take your son, your only son, whom you love — Isaac — and go to the region of Moriah. Sacrifice him there as a burnt offering on a mountain I will show you.” Early the next morning Abraham got up and loaded his donkey. He took with him two of his servants and his son Isaac. When he had cut enough wood for the burnt offering, he set out for the place God had told him about.',
             ],
             [
                 'section_label' => 'Obedience',
-                'prayer' => 'Jesus, teach the believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' that love for You and obedience to You are connected.',
+                'prayer' => 'Jesus, teach the believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' that love for you and obedience to you are connected.',
                 'reference' => 'John 14:15',
                 'verse' => 'If you love me, keep my commands.',
             ],
             [
                 'section_label' => 'Obedience',
-                'prayer' => 'Jesus, remind the disciples in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to train each other to obey all that You commanded, and that You will be with them as they do it.',
+                'prayer' => 'Jesus, remind the disciples in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to train each other to obey all that you commanded, and that you will be with them as they do it.',
                 'reference' => 'Matthew 28:20',
                 'verse' => '...teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age.',
             ],
@@ -2223,13 +2223,13 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => 'Obedience',
-                'prayer' => 'Father, help the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to know that You can make a big impact through their simple obedience today.',
+                'prayer' => 'Father, help the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to know that you can make a big impact through their simple obedience today.',
                 'reference' => 'Exodus 19:6',
                 'verse' => '... you will be for me a kingdom of priests ...',
             ],
             [
                 'section_label' => 'Obedience',
-                'prayer' => 'Father, help the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to know Your commands and to do them.',
+                'prayer' => 'Father, help the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' to know your commands and to do them.',
                 'reference' => 'Ezra 7:10,25',
                 'verse' => 'For Ezra had prepared his heart to seek the law of the LORD, and to do it, and to teach in Israel statutes and judgments.',
             ],
@@ -2271,9 +2271,9 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => 'Trust',
-                'prayer' => 'Father, move the ' . $stack['location']['believers'] . ' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to say "Not our will, but Yours be done", like Jesus.',
+                'prayer' => 'Father, move the ' . $stack['location']['believers'] . ' believers in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to say "Not our will, but yours be done", like Jesus.',
                 'reference' => 'Luke 22:41-42',
-                'verse' => 'He withdrew about a stone’s throw beyond them, knelt down and prayed, "Father, if you are willing, take this cup from me; yet not my will, but Yours be done."',
+                'verse' => 'He withdrew about a stone’s throw beyond them, knelt down and prayed, "Father, if you are willing, take this cup from me; yet not my will, but yours be done."',
             ],
             [
                 'section_label' => 'Suffering',
@@ -2283,7 +2283,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => 'Trust',
-                'prayer' => 'Please, convict the '.$stack['location']['believers'].' believers in '.$stack['location']['full_name'].' to look to You as their only hope for strength and fruitfulness and life.',
+                'prayer' => 'Please, convict the '.$stack['location']['believers'].' believers in '.$stack['location']['full_name'].' to look to you as their only hope for strength and fruitfulness and life.',
                 'reference' => 'John 15:5',
                 'verse' => 'I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit; apart from me you can do nothing.',
             ],
@@ -2301,13 +2301,13 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, remind your church in '.$stack['location']['name'].' that they can know and depend on the love You have for them.',
+                'prayer' => 'Father, remind your church in '.$stack['location']['name'].' that they can know and depend on the love you have for them.',
                 'reference' => '1 John 4:16',
                 'verse' => 'We know and have believed the love which God has for us. God is love, and he who remains in love remains in God, and God remains in him.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, encourage your church in '.$stack['location']['name'].' that You never forsake them.',
+                'prayer' => 'Father, encourage your church in '.$stack['location']['name'].' that you never forsake them.',
                 'reference' => 'Psalm 9:10',
                 'verse' => 'Those who know your name will put their trust in you, for you, Yahweh, have not forsaken those who seek you.',
             ],
@@ -2343,7 +2343,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => 'Faith',
-                'prayer' => "Spirit, teach the ".$stack['location']['believers']." believers in ".$stack['location']['name']." that when they seek first Your Kingdom and Your righteousness, You will abundantly provide all they need.",
+                'prayer' => "Spirit, teach the ".$stack['location']['believers']." believers in ".$stack['location']['name']." that when they seek first your Kingdom and your righteousness, you will abundantly provide all they need.",
                 'reference' => '2 Corinthians 9:8',
                 'verse' => 'And God is able to bless you abundantly, so that in all things at all times, having all that you need, you will abound in every good work.',
             ],
@@ -2374,7 +2374,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, please reward those who diligently seek You with a heart of faith in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'prayer' => 'Father, please reward those who diligently seek you with a heart of faith in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
                 'reference' => 'Hebrews 11:6',
                 'verse' => 'Without faith it is impossible to be well pleasing to him, for he who comes to God must believe that he exists, and that he is a rewarder of those who seek him.',
             ],
@@ -2416,7 +2416,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, let those from the '.$stack['location']['believers'].' believers who are shaken and weak remember that Your love will never fail them.',
+                'prayer' => 'Father, let those from the '.$stack['location']['believers'].' believers who are shaken and weak remember that your love will never fail them.',
                 'reference' => '1 Corinthians 13:8',
                 'verse' => 'Love never fails. But where there are prophecies, they will be done away with. Where there are various languages, they will cease. Where there is knowledge, it will be done away with.',
             ],
@@ -2434,7 +2434,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, You have chosen the weak things of this world to confound the strong. Make the poor and outcast in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' a testimony of your strength.',
+                'prayer' => 'Father, you have chosen the weak things of this world to confound the strong. Make the poor and outcast in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' a testimony of your strength.',
                 'reference' => '1 Corinthians 1:27',
                 'verse' => 'God chose the foolish things of the world that he might put to shame those who are wise. God chose the weak things of the world, that he might put to shame the things that are strong;',
             ],
@@ -2470,7 +2470,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, see the suffering of Your people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Deliver all those who have not forgotten your Word.',
+                'prayer' => 'Father, see the suffering of your people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'. Deliver all those who have not forgotten your Word.',
                 'reference' => 'Psalm 119:153',
                 'verse' => 'Look on my suffering and deliver me, for I have not forgotten your law.',
             ],
@@ -2494,13 +2494,13 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => 'Love',
-                'prayer' => 'Lord, stir the hearts of Your people in ' . $stack['location']['name'] . ' to agree with You and with one another.',
+                'prayer' => 'Lord, stir the hearts of your people in ' . $stack['location']['name'] . ' to agree with you and with one another.',
                 'reference' => '',
                 'verse' => '',
             ],
             [
                 'section_label' => 'Love',
-                'prayer' => 'Lord, stir the hearts of Your people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to agree with You and with one another in love.',
+                'prayer' => 'Lord, stir the hearts of your people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' to agree with you and with one another in love.',
                 'reference' => 'John 17:21',
                 'verse' => 'that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world may believe that you have sent me.',
             ],
@@ -2508,7 +2508,7 @@ class PG_Stacker_Text {
                 'section_label' => 'Love',
                 'prayer' => 'Lord, we pray for the believers in ' . $stack['location']['full_name'] . ' to be more like Jesus in their love for friends and enemies.',
                 'reference' => 'Matthew 5:44',
-                'verse' => 'But I tell you, love Your enemies and pray for those who persecute you.',
+                'verse' => 'But I tell you, love your enemies and pray for those who persecute you.',
             ],
             [
                 'section_label' => 'The Church',
@@ -2532,7 +2532,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => 'Oh Lord, show the fatherless in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' that you can be their real Father.',
                 'reference' => '2 Corinthians 6:18',
-                'verse' => 'I will be to you a Father. You will be to me sons and daughters,’ says the Lord Almighty.',
+                'verse' => 'I will be to you a Father. you will be to me sons and daughters,’ says the Lord Almighty.',
             ],
 //            [
 //                'section_label' => $section_label,
@@ -2568,7 +2568,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => 'Spirit, encourage the disciples in '.$stack['location']['full_name'].' to live with urgency and a passion for making more disciples.',
                 'reference' => 'James 4:14',
-                'verse' => 'Yet you do not know what Your life will be like tomorrow. You are just a vapor that appears for a little while and then vanishes away.',
+                'verse' => 'Yet you do not know what your life will be like tomorrow. you are just a vapor that appears for a little while and then vanishes away.',
             ],
             [
                 'section_label' => $section_label,
@@ -2736,7 +2736,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_summary' => '',
-                'prayer' => 'Lord, please remember the ' . $stack['least_reached']['name'] . ' people. You said you wanted worshippers of every tongue and tribe and nation, yet we know of no worshippers among them.',
+                'prayer' => 'Lord, please remember the ' . $stack['least_reached']['name'] . ' people. you said you wanted worshippers of every tongue and tribe and nation, yet we know of no worshippers among them.',
             ],
             [
                 'section_summary' => '',
