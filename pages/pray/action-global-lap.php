@@ -9,6 +9,8 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
 
     use PG_Lap_Trait;
 
+    public $lap_title;
+
     private static $_instance = null;
     public static function instance() {
         if ( is_null( self::$_instance ) ) {
@@ -49,6 +51,8 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
             wp_redirect( trailingslashit( site_url() ) . $this->root . '/' . $this->type . '/' . $this->parts['public_key'] . '/completed' );
             exit;
         }
+
+        $this->lap_title = 'Global';
 
         add_filter( 'dt_magic_url_base_allowed_css', [ $this, 'dt_magic_url_base_allowed_css' ], 10, 1 );
         add_filter( 'dt_magic_url_base_allowed_js', [ $this, 'dt_magic_url_base_allowed_js' ], 10, 1 );

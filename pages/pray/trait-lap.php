@@ -162,7 +162,7 @@ trait PG_Lap_Trait {
         <!-- Location counter -->
         <div class="prayer-odometer">
             <div>
-                <span class="location-count">0</span><i class="ion-location"></i>
+                <i class="ion-location"></i><span class="location-count">0</span>
             </div>
         </div>
 

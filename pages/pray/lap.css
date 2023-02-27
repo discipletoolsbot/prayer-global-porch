@@ -263,20 +263,26 @@ nav {
 
 .prayer-odometer {
     position: fixed;
+    z-index: 10000;
     bottom: 0;
     left: 0;
     margin-left: 20px;
     margin-bottom: 30px;
     font-size: 2em;
-    background-color: #DDDDDDEE;
-    border-radius: 25px;
+    background-color: #6c757dbb;
+    border-radius: 10px;
     padding: 10px;
     line-height: 1;
     opacity: 1;
+    color: #f7fbff;
 }
 
-.prayer-odometer i {
+.prayer-odometer span {
     margin-left: 10px;
+}
+
+.prayer-odometer p {
+    font-size: 14px;
 }
 
 .red-popover {

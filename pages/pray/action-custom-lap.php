@@ -7,6 +7,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
  */
 class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
 
+    public $lap_title;
     private static $_instance = null;
     public static function instance() {
         if ( is_null( self::$_instance ) ) {
@@ -46,6 +47,28 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         add_filter( 'dt_magic_url_base_allowed_css', [ $this, 'dt_magic_url_base_allowed_css' ], 10, 1 );
         add_filter( 'dt_magic_url_base_allowed_js', [ $this, 'dt_magic_url_base_allowed_js' ], 10, 1 );
 
+        $lap = pg_get_custom_lap_by_post_id( $this->parts['post_id'] );
+        $title_words = preg_split( "/[\s\-_]+/", $lap['title'] );
+
+        if ( $title_words !== false ) {
+            $little_words = [
+                'of',
+                'in',
+                'the',
+                'a',
+                'it',
+                'for',
+            ];
+
+            $filtered_title_words = array_filter( $title_words, function( $word ) use ( $little_words ) {
+                return !in_array( strtolower( $word ), $little_words );
+            });
+            $title_initials = implode( array_map( function( $word ) {
+                return ucfirst( substr( $word, 0, 1 ) );
+            }, $filtered_title_words ) );
+
+            $this->lap_title = $title_initials;
+        }
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
@@ -228,7 +251,10 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         <!-- Location counter -->
         <div class="prayer-odometer">
             <div>
-                <span class="location-count">0</span><i class="ion-location"></i>
+                <i class="ion-location"></i><span class="location-count">0</span>
+                <p class="mt-1 mb-0 text-center">
+                    <?php echo esc_html( $this->lap_title ) ?>
+                </p>
             </div>
         </div>
 
