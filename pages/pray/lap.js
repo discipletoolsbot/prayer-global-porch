@@ -390,12 +390,31 @@ jQuery(document).ready(function(){
       get_template( block )
     })
 
+    attatch_popper_listeners()
+
     // FOOTER
     jQuery('.container.block:nth-child(+n+' + window.items + ')').hide()
 
     prayer_progress_indicator( window.time ) // SETS THE PRAYER PROGRESS WIDGET
 
     window.load_report_modal()
+  }
+  function attatch_popper_listeners() {
+    const redBodyIcons = document.querySelectorAll('.ion-ios-body.red')
+    const config = {
+      trigger: 'focus',
+    }
+    redBodyIcons.forEach((element) => {
+      new bootstrap.Popover(element, { ...config, content: "Don't know Jesus"})
+    })
+    const orangeBodyIcons = document.querySelectorAll('.ion-ios-body.orange')
+    orangeBodyIcons.forEach((element) => {
+      new bootstrap.Popover(element, { ...config, content: "Know about Jesus"})
+    })
+    const greenBodyIcons = document.querySelectorAll('.ion-ios-body.green')
+    greenBodyIcons.forEach((element) => {
+      new bootstrap.Popover(element, { ...config, content: "Know Jesus"})
+    })
   }
   function prayer_progress_indicator( time_start ) {
     window.time = time_start
@@ -470,7 +489,7 @@ jQuery(document).ready(function(){
     console.log(grid_row)
 
     content.empty().html(`
-        <div id="map-wrapper"><div id='mapbox-map'></div></div><div class="text-center p-3"><i class="ion-ios-body red"></i> ${grid_row.non_christians} | <i class="ion-ios-body orange"></i> ${grid_row.christian_adherents} | <i class="ion-ios-body green"></i> ${grid_row.believers}</div>`)
+        <div id="map-wrapper"><div id='mapbox-map'></div></div><div class="text-center p-3">${BodyIcon('red')} ${grid_row.non_christians} | ${BodyIcon('orange')} ${grid_row.christian_adherents} | ${BodyIcon('green')} ${grid_row.believers}</div>`)
 
     window.load_map_with_style = ( ) => {
       let center = [grid_row.p_longitude, grid_row.p_latitude]
@@ -784,17 +803,17 @@ jQuery(document).ready(function(){
     let i = 0
     i = 0
     while ( i < data.percent_1 ) {
-      bodies += '<i class="ion-ios-body red two-em"></i>';
+      bodies += BodyIcon('red', 'medium');
       i++;
     }
     i = 0
     while ( i < data.percent_2 ) {
-      bodies += '<i class="ion-ios-body orange two-em"></i>';
+      bodies += BodyIcon('orange', 'medium');
       i++;
     }
     i = 0
     while ( i < data.percent_3 ) {
-      bodies += '<i class="ion-ios-body green two-em"></i>';
+      bodies += BodyIcon('green', 'medium');
       i++;
     }
     div.append(
@@ -831,17 +850,17 @@ jQuery(document).ready(function(){
     let bodies_3 = ''
     i = 0
     while ( i < data.percent_1 ) {
-      bodies_1 += '<i class="ion-ios-body red two-em"></i>';
+      bodies_1 += BodyIcon('red', 'medium');
       i++;
     }
     i = 0
     while ( i < data.percent_2 ) {
-      bodies_2 += '<i class="ion-ios-body orange two-em"></i>';
+      bodies_2 += BodyIcon('orange', 'medium');
       i++;
     }
     i = 0
     while ( i < data.percent_3 ) {
-      bodies_3 += '<i class="ion-ios-body green two-em"></i>';
+      bodies_3 += BodyIcon('green', 'medium');
       i++;
     }
     div.append(
@@ -1217,7 +1236,7 @@ jQuery(document).ready(function(){
       let bodies_1 = ''
       i = 0
       while ( i < data.lost_per_believer ) {
-        bodies_1 += '<i class="ion-ios-body red"></i>';
+        bodies_1 += BodyIcon('red');
         i++;
       }
       let font_size = '2em'
@@ -1237,7 +1256,7 @@ jQuery(document).ready(function(){
           <div class="col-md-9 col-sm">
             <p class="mt-3 mb-3 font-weight-bold two-em">${data.label_1}</p>
             <p class="mt-0 mb-0 font-weight-normal">
-              <i class="ion-ios-body green three-em"></i>
+             ${BodyIcon('green', 'large')}
             </p>
             <p class="mt-0 mb-3 font-weight-normal" style="font-size: ${font_size};">
               ${bodies_1}
@@ -1312,6 +1331,25 @@ jQuery(document).ready(function(){
       </div>
       <div class="w-100"><hr></div>
     </div>`)
+  }
+
+  function BodyIcon( color, size = '' ) {
+    const iconColors = {
+      red: 'red',
+      orange: 'orange',
+      green: 'green',
+    }
+    const defaultColor = iconColors.orange
+
+    const sizes = {
+      medium: 'two-em',
+      large: 'three-em',
+    }
+
+    const iconColor = color && iconColors.hasOwnProperty(color) ? iconColors[color] : defaultColor
+    const iconSize = size && sizes.hasOwnProperty(size) ? sizes[size] : ''
+
+    return `<i class="ion-ios-body ${iconColor} ${iconSize}" tabindex="0" data-bs-custom-class="${iconColor}-popover"></i>`
   }
 
 })

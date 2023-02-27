@@ -278,3 +278,22 @@ nav {
 .prayer-odometer i {
     margin-left: 10px;
 }
+
+.red-popover {
+    --bs-popover-bg: red;
+    --bs-popover-border-color: red;
+    --bs-popover-body-color: white;
+    font-weight: bold;
+}
+.orange-popover {
+    --bs-popover-bg: orange;
+    --bs-popover-border-color: orange;
+    --bs-popover-body-color: white;
+    font-weight: bold;
+}
+.green-popover {
+    --bs-popover-bg: green;
+    --bs-popover-border-color: green;
+    --bs-popover-body-color: white;
+    font-weight: bold;
+}
