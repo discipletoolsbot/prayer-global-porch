@@ -105,6 +105,14 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/share.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) ) . 'assets/js/share.js' ) ?>"></script>
         <?php
     }
+
+    public function footer_javascript() {
+        ?>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <?php
+    }
+
     public function body(){
         $parts = $this->parts;
         $lap_stats = pg_global_stats_by_key( $parts['public_key'] );
@@ -126,6 +134,8 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 <div id="head_block">
 
                     <?php require( __DIR__ . '/nav-global-map.php' ) ?>
+
+                    <?php require( __DIR__ . '/map-settings.php' ) ?>
 
                 </div>
                 <span class="loading-spinner active"></span>
@@ -227,20 +237,6 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 <div class="col col-6 col-sm-3 on-going" style="display:none;">
                     <p class="stats-title">End Time</p>
                     <p class="stats-figure end_time">0</p>
-                </div>
-                <div class="col col-6 col-sm-3 center">
-                    <strong>Prayer Warriors</strong>
-                    <br>
-                    <div class="map-toggle active" data-layer-id="participants">
-                        <img class="foot__icon" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/avatar1.png' ) ?>" />
-                    </div>
-                </div>
-                <div class="col col-6 col-sm-3 center">
-                    <strong>Your Recent Prayers</strong>
-                    <br>
-                    <div class="map-toggle active" data-layer-id="user_locations">
-                        <img class="foot__icon" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/black-check-50.png' ) ?>" />
-                    </div>
                 </div>
             </div>
         </div>

@@ -333,7 +333,19 @@ progress {
     border-radius: 5px;
 }
 
+#map-settings {
+    position: absolute;
+    left: 0;
+    transform: translateY(100%);
+    margin-left: 2em;
+}
+
 @media ( max-width: 576px ) {
+    #map-settings {
+        margin-left: 1em;
+        transform: translateY(50%);
+    }
+
     #map-legend[data-map-type="heatmap"] {
         flex-direction: column;
     }
@@ -354,17 +366,15 @@ progress {
     height: 50px;
     padding: 2px;
     cursor: pointer;
-    border: 2px solid lightgrey;
+    border: 2px solid #ffff;
     transition: box-shadow 0.1s;
 }
 .map-toggle .foot__icon {
     max-width: 100%;
-    height: 100%;
-    opacity: 0.3;
 }
 
 .map-toggle.active {
-    border-color: var(--pg-brand-color);
+    border: 2px solid var(--pg-brand-color);
 }
 .map-toggle.active .foot__icon {
     opacity: 1;
@@ -377,5 +387,11 @@ progress {
    box-shadow: 0 5px 5px 0 #d3d3d355;
 }
 .map-toggle:active {
+    box-shadow: none;
+}
+.map-toggle[disabled] {
+    opacity: 0.3;
+}
+.map-toggle[disabled].active:hover, .map-toggle[disabled]:hover {
     box-shadow: none;
 }

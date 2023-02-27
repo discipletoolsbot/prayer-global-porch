@@ -932,13 +932,13 @@ button {
     font-weight: bold;
 }
 
-.dropdown-toggle {
-    width: 2rem;
-    height: 2rem;
+.icon-toggle {
+    width: 3rem;
+    height: 3rem;
     padding: 0;
     line-height: 0;
 }
-.dropdown-toggle::after {
+.icon-toggle::after {
     display: none;
 }
 

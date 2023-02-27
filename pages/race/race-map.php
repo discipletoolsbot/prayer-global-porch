@@ -146,6 +146,7 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
             <div id="map-wrapper">
                 <div id="head_block">
                     <?php require( __DIR__ . '/nav-race-map.php' ) ?>
+                    <?php require( __DIR__ . '/map-settings.php' ) ?>
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
@@ -158,9 +159,6 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                             <br>
                             <div class="d-flex align-items-center justify-content-center">
                                 <span class="one-em"><?php echo esc_html( $lap_stats['participants'] ) ?></span>
-                                <div class="map-toggle active mx-0 ms-2" data-layer-id="participants">
-                                    <img class="foot__icon" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/praying-hand-up-20.png' ) ?>" />
-                                </div>
                             </div>
                         </div>
                         <div class="col col-6 col-sm-4 center"><strong>World Prayer Coverage</strong><br><span class="one-em"><?php echo esc_html( $finished_laps ) ?> times</span></div>

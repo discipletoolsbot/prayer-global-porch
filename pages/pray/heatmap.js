@@ -19,7 +19,42 @@ jQuery(document).ready(function($){
   const participantsLayerId = 'participants'
   const participantsClusterLayerId = 'participants-clustered'
   const userLocationsLayerId = 'user_locations'
-  const toggleableLayerIds = [participantsLayerId, userLocationsLayerId]
+  const setting_prefix = 'pg_'
+  const toggleParticipantsId = 'toggle_participants'
+  const toggleUserLocationsId = 'toggle_user_locations'
+  const clusterToggleId = 'cluster_participants'
+  const settings_toggle = document.querySelector('#map-settings .dropdown')
+  const toggleClusteringElement = document.getElementById(clusterToggleId)
+  const toggleParticipantsElement = document.getElementById(toggleParticipantsId)
+  const toggleUserLocationsElement = document.getElementById(toggleUserLocationsId)
+
+  const mapSettingsKey = 'map_settings'
+  let mapSettings = load_setting(mapSettingsKey)
+
+  if (mapSettings === null) {
+    const mapSettingsDefaults = {
+      toggle_participants: true,
+      toggle_user_locations: true,
+      cluster_participants: false,
+    };
+    save_setting(mapSettingsKey, mapSettingsDefaults)
+
+    mapSettings = mapSettingsDefaults
+  }
+
+  if ( settings_toggle ) {
+    if ( mapSettings.toggle_participants ) {
+      toggleParticipantsElement.classList.add('active')
+    } else {
+      toggleClusteringElement.setAttribute('disabled', true)
+    }
+    if ( mapSettings.toggle_user_locations ) {
+      toggleUserLocationsElement.classList.add('active')
+    }
+    if ( mapSettings.cluster_participants ) {
+      toggleClusteringElement.classList.add('active')
+    }
+  }
 
   let countdownInterval
 
@@ -147,6 +182,17 @@ jQuery(document).ready(function($){
 
   pray_for_area_modal && pray_for_area_modal.addEventListener('hidden.bs.modal', (event) => {
     pray_for_area_content.innerHTML = ''
+  })
+
+  settings_toggle && settings_toggle.addEventListener('hide.bs.dropdown', (e) => {
+    const cluster_participants_element = document.getElementById('cluster_participants')
+    const clustered = cluster_participants_element.classList.contains('active')
+
+    if (clustered) {
+      gtag( 'event', 'chose_clustering' )
+    } else {
+      gtag( 'event', 'chose_nonclustering' )
+    }
   })
 
   let initialize_screen = jQuery('.initialize-progress')
@@ -423,12 +469,7 @@ jQuery(document).ready(function($){
       { src: jsObject.image_folder + 'avatar-d10.png', id: 'avatar0' },
     ]
 
-    const groupImage = { src: jsObject.image_folder + 'avatar-group.png', id: 'avatar-group' }
-
-    const allImages = [
-      ...images,
-      groupImage,
-    ]
+    const allImages = images
 
     /* load prayer warriors layer */
     map.on('load', function() {
@@ -456,13 +497,9 @@ jQuery(document).ready(function($){
           "type": "FeatureCollection",
           "features": features
         },
-        'cluster': false,
+        'cluster': mapSettings.cluster_participants,
         'clusterMaxZoom': 10,
         'clusterRadius': 30,
-        'clusterProperties': {
-          'iSum': [ '+', [ 'get', 'i' ] ],
-          'imagesLength': [ 'min', [ 'get', 'imagesLength' ] ],
-        }
       })
 
       Promise.all(
@@ -479,28 +516,52 @@ jQuery(document).ready(function($){
       .then(() => {
           map.addLayer({
             'id': participantsClusterLayerId,
-            'type': 'symbol',
+            'type': 'circle',
             'source': 'participants',
             'filter': [ 'has', 'point_count' ],
             'layout': {
-              'icon-image': 'avatar-group',
-              "icon-size": [
-                'interpolate',
-                ['linear', 1],
-                ['zoom'],
-                1, 0.3,
-                18, 1,
+              'visibility': mapSettings.toggle_participants ? 'visible' : 'none',
+            },
+            paint: {
+              'circle-color': [
+                'step',
+                ['get', 'point_count'],
+                '#51bbd6',
+                100,
+                '#f1f075',
+                750,
+                '#f28cb1'
               ],
-              'icon-padding': 0,
-              "icon-allow-overlap": true,
-            }
+              'circle-radius': [
+                'step',
+                ['get', 'point_count'],
+                20,
+                100,
+                30,
+                750,
+                40
+              ]
+            },
           })
+          map.addLayer({
+            id: 'participants-cluster-count',
+            type: 'symbol',
+            source: 'participants',
+            filter: ['has', 'point_count'],
+            layout: {
+              'visibility': mapSettings.toggle_participants ? 'visible' : 'none',
+              'text-field': ['get', 'point_count_abbreviated'],
+              'text-font': ['DIN Offc Pro Medium', 'Arial Unicode MS Bold'],
+              'text-size': 12
+            }
+          });
           map.addLayer({
             'id': participantsLayerId,
             'type': 'symbol',
             'source': 'participants',
             'filter': [ '!', [ 'has', 'point_count' ] ],
             'layout': {
+              'visibility': mapSettings.toggle_participants ? 'visible' : 'none',
               'icon-image': [ 'get', 'imageId' ],
               "icon-size": [
                 'interpolate',
@@ -514,42 +575,6 @@ jQuery(document).ready(function($){
             }
           })
         })
-
-//      map.loadImage(
-//        //jsObject.image_folder + 'praying-hands-emoji64.png',
-//        //jsObject.image_folder + 'light-emoji64.png',
-//        //jsObject.image_folder + 'running-shoe-emoji64.png',
-//        //jsObject.image_folder + 'running-shoe-purple-emoji64.png',
-//        //jsObject.image_folder + 'fire-emoji64.png',
-//        jsObject.image_folder + 'praying-hand-up-40.png',
-//        (error, image) => {
-//          if (error) throw error;
-//          map.addImage('custom-marker', image);
-//          map.addLayer({
-//            'id': 'points',
-//            'type': 'symbol',
-//            'source': 'participants',
-//            'layout': {
-//              'icon-image': 'custom-marker',
-//              "icon-size": [
-//                'interpolate',
-//                ['linear', 1],
-//                ['zoom'],
-//                1, 0.15,
-//                15, 0.5
-//              ],
-//              'icon-padding': 0,
-//              "icon-allow-overlap": true,
-//              'text-font': [
-//                'Open Sans Semibold',
-//                'Arial Unicode MS Bold'
-//              ],
-//              'text-offset': [0, 1.25],
-//              'text-anchor': 'top'
-//            }
-//        })
-//    })
-
   })
 
     /* load user locations layer */
@@ -586,6 +611,7 @@ jQuery(document).ready(function($){
             'type': 'symbol',
             'source': 'user_locations',
             'layout': {
+              'visibility': mapSettings.toggle_user_locations ? 'visible' : 'none',
               'icon-image': 'custom-marker-user',
               "icon-size": .5,
               'icon-padding': 0,
@@ -606,8 +632,8 @@ jQuery(document).ready(function($){
         return
       }
 
-      for ( const id of toggleableLayerIds ) {
-        const toggleElement = document.querySelector(`.map-toggle[data-layer-id=${id}]`)
+      const toggleElements = document.querySelectorAll(`.map-toggle[data-layer-id], .map-toggle[data-source-id]`)
+      for ( const toggleElement of toggleElements ) {
 
         if (!toggleElement) {
           continue
@@ -617,19 +643,70 @@ jQuery(document).ready(function($){
           e.preventDefault()
           e.stopPropagation()
 
-          const clickedLayer = this.dataset.layerId
+          const layerId = this.dataset.layerId
+          const sourceId = this.dataset.sourceId
 
-          const visibility = map.getLayoutProperty(clickedLayer, "visibility");
+          let layerIds = []
+          if ( sourceId ) {
+            const style = map.getStyle()
 
-          // Toggle layer visibility by changing the layout object's visibility property.
-          if (visibility === "visible" || typeof visibility === 'undefined') {
-            map.setLayoutProperty(clickedLayer, "visibility", "none");
-            this.classList.remove('active')
+            layerIds = style.layers
+                          .filter(({ source }) => source === sourceId)
+                          .map(({id}) => id)
+
           } else {
-            map.setLayoutProperty(clickedLayer, "visibility", "visible");
+            layerIds = [ layerId ]
+          }
+
+          if ( layerIds.length === 0 ) {
+            return
+          }
+
+          const visibility = map.getLayoutProperty(layerIds[0], "visibility");
+
+          const isParticipantsToggle = this.id === toggleParticipantsId
+
+          if (visibility === "visible" || typeof visibility === 'undefined') {
+            layerIds.forEach((layerId) => {
+              map.setLayoutProperty(layerId, "visibility", "none");
+            })
+            this.classList.remove('active')
+            save_map_setting( this.id, false )
+            if ( isParticipantsToggle ) {
+              toggleClusteringElement.setAttribute('disabled', true)
+            }
+          } else {
+            layerIds.forEach((layerId) => {
+              map.setLayoutProperty(layerId, "visibility", "visible");
+            })
             this.classList.add('active')
+            save_map_setting( this.id, true )
+            if ( isParticipantsToggle ) {
+              toggleClusteringElement.removeAttribute('disabled')
+            }
           }
         }
+      }
+
+      toggleClusteringElement.onclick = function(e) {
+        e.preventDefault()
+        e.stopPropagation()
+
+        const style = map.getStyle()
+
+        const clustered = style.sources.participants.cluster
+
+        if ( clustered ) {
+          style.sources.participants.cluster = false
+          this.classList.remove('active')
+          save_map_setting( clusterToggleId, false )
+        } else {
+          style.sources.participants.cluster = true
+          this.classList.add('active')
+          save_map_setting( clusterToggleId, true )
+        }
+
+        map.setStyle(style)
       }
     })
 
@@ -1074,5 +1151,28 @@ jQuery(document).ready(function($){
 
     }) /* for each loop */
 
+  }
+
+  function save_map_setting(name, value) {
+    const mapSettings = load_setting(mapSettingsKey)
+
+    const newSettings = { ...mapSettings, [name]: value }
+
+    save_setting(mapSettingsKey, newSettings)
+  }
+  function save_setting(name, value) {
+    const settingName = setting_prefix + name
+    localStorage.setItem( settingName, JSON.stringify(value) )
+  }
+  function load_setting(name) {
+    const settingName = setting_prefix + name
+    const setting = localStorage.getItem(settingName)
+
+    try {
+      const unpackedSetting = JSON.parse(setting)
+      return unpackedSetting
+    } catch (e) {
+      return setting
+    }
   }
 })

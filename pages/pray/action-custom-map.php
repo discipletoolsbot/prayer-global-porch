@@ -108,6 +108,13 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         <?php
     }
 
+    public function footer_javascript() {
+        ?>
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        <?php
+    }
+
     public function body(){
         $parts = $this->parts;
         $lap_stats = pg_custom_lap_stats_by_post_id( $parts['post_id'] );
@@ -133,6 +140,9 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                         <span class="two-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
                         <a class="btn btn-outline-dark py-2" <?php echo esc_attr( $has_challenge_started ) ? '' : "style='display: none'" ?> href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a>
                     </div>
+
+                    <?php require( __DIR__ . '/map-settings.php' ) ?>
+
                 </div>
                 <div class="holding-page flow-small">
                     <span class="six-em center">Starts on <span class="starts-on-date"></span></span>
@@ -143,6 +153,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 <div id='map'></div>
                 <div id="foot_block">
                     <div class="map-overlay" id="map-legend"></div>
+
                     <div class="row">
                         <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats" aria-controls="offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
                         <div class="col col-sm-6 col-md-3 center "><strong>Places Remaining</strong><br><strong><span class="one-em red-bg stats-figure remaining"></span></strong></div>
@@ -258,23 +269,6 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                     <p class="stats-title">Time Remaining</p>
                     <p class="stats-figure time_remaining">0</p>
                 </div>
-
-                
-                <div class="col col-6 col-sm-3 center">
-                    <strong>Prayer Warriors</strong>
-                    <br>
-                    <div class="map-toggle active" data-layer-id="participants">
-                        <img class="foot__icon" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/avatar1.png' ) ?>" />
-                    </div>
-                </div>
-                <div class="col col-6 col-sm-3 center">
-                    <strong>Your Recent Prayers</strong>
-                    <br>
-                    <div class="map-toggle active" data-layer-id="user_locations">
-                        <img class="foot__icon" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/black-check-50.png' ) ?>" />
-                    </div>
-                </div>
-
             </div>
             <div class="text-center"><a href="/" class="navbar-brand text-center">Exit <?php echo esc_html( $lap_stats['title'] ) ?></a></div>
         </div>
