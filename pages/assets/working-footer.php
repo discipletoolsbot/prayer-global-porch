@@ -17,7 +17,7 @@
             <div class="col-md-3">
                 <ul style="list-style: none;">
                     <li><a class="white" href="/prayer_app/contact_us/">Contact Us</a></li>
-                    <li><a class="white" href="https://gospelambition.org/donate/">Donate</a></li>
+                    <li><a class="white fw-bold" href="/content_app/give_page">Give</a></li>
                 </ul>
             </div>
             <div class="col-md-3">

@@ -133,6 +133,7 @@ class Prayer_Global_Porch {
 //      require_once( 'charts/charts-loader.php' );
         require_once( 'support/build/loader.php' );
         require_once( 'pages/about/about.php' );
+        require_once( 'pages/give/give.php' );
 
 
         // 404

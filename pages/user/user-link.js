@@ -158,11 +158,9 @@ jQuery(document).ready(function(){
     function show_user_nav() {
         const loginRegisterLink = jQuery('#login-register-link')
         const userProfileLink = jQuery('#user-profile-link')
-        const logoutLink = jQuery('#logout-link')
 
         loginRegisterLink.hide()
         userProfileLink.show()
-        logoutLink.show()
     }
 
     function write_login () {
@@ -231,7 +229,6 @@ jQuery(document).ready(function(){
                         </button>
                     </div>
                 </section>
-                <a class="btn btn-outline-dark" href="${jsObject.logout_url}">Logout</a><br>
             </div>
 `
         );

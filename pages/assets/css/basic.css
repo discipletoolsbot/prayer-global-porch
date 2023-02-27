@@ -179,6 +179,7 @@ strong {
 /* Composition */
 
 .page-section {
+    margin-top: 3rem;
     padding: 9em 0;
     position: relative;
     display: block;
