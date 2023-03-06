@@ -50,7 +50,9 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         $lap = pg_get_custom_lap_by_post_id( $this->parts['post_id'] );
         $title_words = preg_split( "/[\s\-_]+/", $lap['title'] );
 
-        if ( $title_words !== false ) {
+        if ( strlen( $lap['title'] ) < 6 ) {
+            $this->lap_title = $lap['title'];
+        } else if ( $title_words !== false ) {
             $little_words = [
                 'of',
                 'in',
