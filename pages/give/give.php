@@ -57,7 +57,12 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        return [];
+        return array_merge( $allowed_js, [
+            'stripe',
+            'fetch',
+            'jQuery',
+            'client-stripe-js',
+        ] );
     }
 
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
