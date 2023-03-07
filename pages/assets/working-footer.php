@@ -3,7 +3,7 @@
         <div class="row" >
             <div class="col-md-3">
                 <p class="small">
-                    Made with &#10084;&#65039; by <a href="https://gospelambition.org" style="color:black;">Gospel Ambition</a>.<br>
+                    Made with <a href="/user_app/login">&#10084;&#65039;</a> by <a href="https://gospelambition.org" style="color:black;">Gospel Ambition</a>.<br>
                     Powered by <a href="https://disciple.tools" style="color:black;">Disciple.Tools</a>.<br>
                     Part of the <a href="https://pray4movement.org" style="color:black;">Pray4Movement network</a>.
                 </p>
