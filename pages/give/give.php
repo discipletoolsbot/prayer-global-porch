@@ -52,9 +52,25 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
 
             add_filter( 'dt_magic_url_base_allowed_css', [ $this, 'dt_magic_url_base_allowed_css' ], 10, 1 );
             add_filter( 'dt_magic_url_base_allowed_js', [ $this, 'dt_magic_url_base_allowed_js' ], 10, 1 );
+
+            add_filter( 'dt_allow_rest_access', [ $this, 'authorize_url' ], 10, 1 );
+
         }
 
     }
+
+    public function authorize_url( $authorized ){
+
+        $url = 'go-stripe/v1/pay';
+        if ( isset( $_SERVER['REQUEST_URI'] ) &&
+            strpos( sanitize_text_field( wp_unslash( $_SERVER['REQUEST_URI'] ) ), $url ) !== false ) {
+            $authorized = true;
+        }
+
+        return $authorized;
+    }
+
+
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
         return array_merge( $allowed_js, [
