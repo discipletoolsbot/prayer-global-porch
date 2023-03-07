@@ -26,11 +26,11 @@ jQuery(document).ready(function(){
     let isSavingLocation = false
     let isSavingChallenge = false
 
-    if ( jsObject.is_logged_in ) {
-        write_main( jsObject.user )
-    } else {
-        write_login()
-    }
+
+    window.onGetAuthUser(
+        (user) => write_main( user ),
+        () => window.loginRedirect()
+    )
 
     jQuery('#delete-confirmation').on('keyup', (e) => {
         if (e.target.value === 'delete') {
@@ -41,7 +41,7 @@ jQuery(document).ready(function(){
     })
     jQuery('#confirm-user-account-delete').on('click', () => {
         get_user_app('delete_user')
-            .done((confirmed) => {
+            .then((confirmed) => {
                 if (confirmed) {
                     window.location = '/'
                 }
@@ -85,7 +85,7 @@ jQuery(document).ready(function(){
             jQuery('.mapbox-error-message').html('')
 
             get_user_app('save_location', location)
-                .done((location) => {
+                .then((location) => {
                     jsObject.user.location = location
                     jQuery('#location-modal').modal('hide')
                     jQuery('#mapbox-spinner-button').hide()
@@ -109,21 +109,10 @@ jQuery(document).ready(function(){
     })
 
     function get_user_app (action, data ) {
-        return jQuery.ajax({
-            type: "POST",
-            data: JSON.stringify({ action: action, parts: jsObject.parts, data: data }),
-            contentType: "application/json; charset=utf-8",
-            dataType: "json",
-            url: jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type,
-            beforeSend: function (xhr) {
-                xhr.setRequestHeader('Http-X-Wp-Nonce', jsObject.nonce )
-                xhr.setRequestHeader('X-Wp-Nonce', jsObject.nonce )
-            }
-        })
-            .fail(function(e) {
-                console.log(e)
-                jQuery('#error').html(e)
-            })
+        return window.api_fetch( jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type, {
+            method: 'POST',
+            body: JSON.stringify({ action: action, parts: jsObject.parts, data: data }),
+        } )
     }
 
     function send_login () {
@@ -132,7 +121,7 @@ jQuery(document).ready(function(){
         jQuery('.loading-spinner').addClass('active')
 
         get_user_app('login', { email: email, pass: pass } )
-            .done(function(data){
+            .then(function(data){
                 jQuery('.loading-spinner').removeClass('active')
                 if ( data ) {
                     show_user_nav()
@@ -163,79 +152,54 @@ jQuery(document).ready(function(){
         userProfileLink.show()
     }
 
-    function write_login () {
-        jQuery('#pg_content').html(`
-                <form id="login_form">
-                    <p>
-                        <h2 class="header-border-top">Login</h2>
-                    </p>
-                    <p>
-                        Email<br>
-                        <input type="text" id="pg_input_email"  />
-                    </p>
-                    <p>
-                        Password<br>
-                        <input type="password" id="pg_input_password" />
-                    </p>
-                    <p>
-                        <button class="btn btn-outline-dark"  type="button" id="submit_button">Submit</button> <span class="loading-spinner"></span>
-                    </p>
-                </form>`
-        )
-        jQuery('#submit_button').on('click', function(){
-            send_login()
-        })
-    }
-
     function write_main (data) {
-        jQuery('#pg_content').html(`
+        const pgContentHTML = `
 
-            <div class="flow">
-                <section class="user__summary flow-small mt-5">
+        <div class="flow">
+            <section class="user__summary flow-small mt-5">
 
-                    <div class="user__avatar">
-                        ${ data.stats
-                            ? LocationBadge(data.stats.total_locations)
-                            : `
-                            <span class="user__badge loading">
-                                <span class="loading-spinner active"></span>
-                            </span>` }
-                    </div>
+                <div class="user__avatar">
+                    ${ data.stats
+                        ? LocationBadge(data.stats.total_locations)
+                        : `
+                        <span class="user__badge loading">
+                            <span class="loading-spinner active"></span>
+                        </span>` }
+                </div>
 
-                    <div class="user__info">
-                        <h2 class="user__full-name">${data.display_name}</h2>
-                        <p class="user__location small">
-                            <span class="user__location-label">${data.location && data.location.label || LoadingSpinner()}</span>
-                            ${LocationChangeButton()}
-                            <span class="iplocation-message small d-block text-secondary">
-                                ${data.location && data.location.source === 'ip' ? '(This is your estimated location)' : ''}
-                            </span>
-                        </p>
-                    </div>
-                </section>
-                <section class="profile-menu px-2 mt-5">
-                    <div class="navbar-nav">
-                        <button class="user-profile-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
-                            <span class="two-em">Profile</span>
-                            <i class="ion-chevron-right three-em"></i>
-                        </button>
-                        <button class="user-prayers-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
-                            <span class="two-em">Prayers</span>
-                            <i class="ion-chevron-right three-em"></i>
-                        </button>
-                        <button class="user-challenges-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
-                            <span class="two-em">Challenges</span>
-                            <i class="ion-chevron-right three-em"></i>
-                        </button>
-                    </div>
-                </section>
-            </div>
-`
-        );
+                <div class="user__info">
+                    <h2 class="user__full-name">${data.display_name}</h2>
+                    <p class="user__location small">
+                        <span class="user__location-label">${data.location && data.location.label || LoadingSpinner()}</span>
+                        ${LocationChangeButton()}
+                        <span class="iplocation-message small d-block text-secondary">
+                            ${data.location && data.location.source === 'ip' ? '(This is your estimated location)' : ''}
+                        </span>
+                    </p>
+                </div>
+            </section>
+            <section class="profile-menu px-2 mt-5">
+                <div class="navbar-nav">
+                    <button class="user-profile-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
+                        <span class="two-em">Profile</span>
+                        <i class="ion-chevron-right three-em"></i>
+                    </button>
+                    <button class="user-prayers-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
+                        <span class="two-em">Prayers</span>
+                        <i class="ion-chevron-right three-em"></i>
+                    </button>
+                    <button class="user-challenges-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
+                        <span class="two-em">Challenges</span>
+                        <i class="ion-chevron-right three-em"></i>
+                    </button>
+                </div>
+            </section>
+        </div>`
+        jQuery('#pg_content').html(pgContentHTML);
 
         if ( !data.stats ) {
             get_user_app('stats')
-                .done((stats) => {
+                .then((stats) => {
                     if (!stats || stats.length === 0) {
                         return
                     }
@@ -245,7 +209,7 @@ jQuery(document).ready(function(){
         }
 
         get_user_app('activity')
-            .done((activity) => {
+            .then((activity) => {
                 if (!activity || activity.length === 0) {
                     return
                 }
@@ -260,7 +224,7 @@ jQuery(document).ready(function(){
             const pg_user_hash = localStorage.getItem('pg_user_hash')
 
             get_user_app('ip_location', { hash: pg_user_hash })
-                .done((data) => {
+                .then((data) => {
                     if (!data || !data.location ) {
                         jQuery('.user__location-label').html('Please select your location')
                         return
@@ -294,63 +258,62 @@ jQuery(document).ready(function(){
         send_lap_emails = false,
         send_general_emails = false,
     }) {
-        jQuery('#user-details-content').html(`
-            <h2 class="header-border-bottom">Profile</h2>
-            <table class="table">
-                <tbody>
-                    <tr>
-                        <td>Name:</td>
-                        <td>${name}</td>
-                    </tr>
-                    <tr>
-                        <td>Email:</td>
-                        <td>${email}</td>
-                    </tr>
-                    <tr>
-                        <td>Location:</td>
-                        <td>
-                            <span class="user__location-label">${location && location.label || 'Please set your location'}</span>
-                            ${LocationChangeButton()}
-                            <span class="iplocation-message small d-block text-secondary">
-                                ${location && location.source === 'ip' ? '(This is your estimated location)' : ''}
-                            </span>
-                        </td>
-                    </tr>
-                </tbody>
-            </table>
-            <section class="communication-preferences flow-small">
-                <h2 class="header-border-bottom">Communication Preferences</h2>
+        const userDetailsContentHTML = `
+        <h2 class="header-border-bottom">Profile</h2>
+        <table class="table">
+            <tbody>
+                <tr>
+                    <td>Name:</td>
+                    <td>${name}</td>
+                </tr>
+                <tr>
+                    <td>Email:</td>
+                    <td>${email}</td>
+                </tr>
+                <tr>
+                    <td>Location:</td>
+                    <td>
+                        <span class="user__location-label">${location && location.label || 'Please set your location'}</span>
+                        ${LocationChangeButton()}
+                        <span class="iplocation-message small d-block text-secondary">
+                            ${location && location.source === 'ip' ? '(This is your estimated location)' : ''}
+                        </span>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <section class="communication-preferences flow-small">
+            <h2 class="header-border-bottom">Communication Preferences</h2>
 
-                <div>
-                    <div class="form-check small">
-                        <input class="form-check-input user-check-preferences" type="checkbox" id="send_lap_emails" ${send_lap_emails && 'checked'}>
-                        <label class="form-check-label" for="send_lap_emails">
-                            Send me lap challenges via email
-                        </label>
-                    </div>
-                    <div class="form-check small">
-                        <input class="form-check-input user-check-preferences" type="checkbox" id="send_general_emails" ${send_general_emails && 'checked'}>
-                        <label class="form-check-label" for="send_general_emails">
-                            Send information about Prayer.Global, Zume, Pray4Movement and other Gospel Ambition projects via email
-                        </label>
-                    </div>
+            <div>
+                <div class="form-check small">
+                    <input class="form-check-input user-check-preferences" type="checkbox" id="send_lap_emails" ${send_lap_emails && 'checked'}>
+                    <label class="form-check-label" for="send_lap_emails">
+                        Send me lap challenges via email
+                    </label>
                 </div>
-            </section>
-            <section class="user-actions">
-                <hr />
-                ${ModalButton({
-                    text: "Data report for my account",
-                    modalId: "user-data-report",
-                    classes: 'btn-outline-dark small d-block',
-                })}
-                ${ModalButton({
-                    text: "Erase my account",
-                    modalId: "erase-user-account-modal",
-                    classes: "small btn-outline-danger d-block mt-3",
-                })}
-            </section>
-`
-        )
+                <div class="form-check small">
+                    <input class="form-check-input user-check-preferences" type="checkbox" id="send_general_emails" ${send_general_emails && 'checked'}>
+                    <label class="form-check-label" for="send_general_emails">
+                        Send information about Prayer.Global, Zume, Pray4Movement and other Gospel Ambition projects via email
+                    </label>
+                </div>
+            </div>
+        </section>
+        <section class="user-actions">
+            <hr />
+            <!--${ModalButton({
+                text: "Data report for my account",
+                modalId: "user-data-report",
+                classes: 'btn-outline-dark small d-block',
+            })}-->
+            ${ModalButton({
+                text: "Erase my account",
+                modalId: "erase-user-account-modal",
+                classes: "small btn-outline-danger d-block mt-3",
+            })}
+        </section>`
+        jQuery('#user-details-content').html(userDetailsContentHTML)
 
         jQuery('.user-check-preferences').on('change', (e) => {
             get_user_app('update_user', {
@@ -362,38 +325,37 @@ jQuery(document).ready(function(){
     }
 
     function write_prayers() {
-        userProfileDetails.html(`
-            <h2 class="header-border-bottom">Prayers</h2>
-            <section class="user-stats flow">
+        const prayersHTML = `
+        <h2 class="header-border-bottom">Prayers</h2>
+        <section class="user-stats flow">
 
+            <div class="center">
+
+                <div class="user__avatar">
+                    <span class="user__badge loading">
+                        <span class="loading-spinner active"></span>
+                    </span>
+                </div>
+
+            </div>
+            <div class="d-flex justify-content-around">
                 <div class="center">
-
-                    <div class="user__avatar">
-                        <span class="user__badge loading">
-                            <span class="loading-spinner active"></span>
-                        </span>
-                    </div>
-
+                    <h4>Locations</h4>
+                    <span class="three-em user-total-locations">0</span>
                 </div>
-                <div class="d-flex justify-content-around">
-                    <div class="center">
-                        <h4>Locations</h4>
-                        <span class="three-em user-total-locations">0</span>
-                    </div>
-                    <div class="center">
-                        <h4>Minutes</h4>
-                        <span class="three-em user-total-minutes">0</span>
-                    </div>
+                <div class="center">
+                    <h4>Minutes</h4>
+                    <span class="three-em user-total-minutes">0</span>
                 </div>
+            </div>
 
-                <section class="user-activity">
-                    <div class="user-activity__list"></div>
-                    <button class="btn btn-outline-dark mt-5 mx-auto d-block" id="load-more-user-activity" style="display: none">Load more</button>
-                </section>
-
+            <section class="user-activity">
+                <div class="user-activity__list"></div>
+                <button class="btn btn-outline-dark mt-5 mx-auto d-block" id="load-more-user-activity" style="display: none">Load more</button>
             </section>
-`
-        )
+
+        </section>`
+        userProfileDetails.html(prayersHTML)
 
         if (jsObject.user.activity && jsObject.user.stats) {
             const { offset, limit, logs } = jsObject.user.activity
@@ -415,7 +377,7 @@ jQuery(document).ready(function(){
                 const getMoreActivity = () => {
                     const { offset, limit } = jsObject.user.activity
                     get_user_app('activity', { offset: offset + limit, limit })
-                        .done((newActivity) => {
+                        .then((newActivity) => {
                             const activity = {
                                 offset: newActivity.offset,
                                 limit: newActivity.limit,
@@ -446,28 +408,26 @@ jQuery(document).ready(function(){
     }
 
     function write_challenges() {
+        const challengesHTML = `
+        <section class="private-challenges flow-small">
+            <h3 class="header-border-bottom">Private Challenges</h3>
 
-        userProfileDetails.html(`
-            <section class="private-challenges flow-small">
-                <h3 class="header-border-bottom">Private Challenges</h3>
+            ${CreateChallengeButton( 'Private', 'private-challenge-button' )}
 
-                ${CreateChallengeButton( 'Private', 'private-challenge-button' )}
+            <div class="d-flex justify-content-center private-challenges__list">
+                <span class="loading-spinner active"></span>
+            </div>
+        </section>
+        <section class="public-challenges flow-small">
+            <h3 class="header-border-bottom">Public Challenges</h3>
 
-                <div class="d-flex justify-content-center private-challenges__list">
-                    <span class="loading-spinner active"></span>
-                </div>
-            </section>
-            <section class="public-challenges flow-small">
-                <h3 class="header-border-bottom">Public Challenges</h3>
+            ${CreateChallengeButton( 'Public', 'public-challenge-button' )}
 
-                ${CreateChallengeButton( 'Public', 'public-challenge-button' )}
-
-                <div class="d-flex justify-content-center public-challenges__list">
-                    <span class="loading-spinner active"></span>
-                </div>
-            </section>
-`
-        )
+            <div class="d-flex justify-content-center public-challenges__list">
+                <span class="loading-spinner active"></span>
+            </div>
+        </section>`
+        userProfileDetails.html(challengesHTML)
 
         buildChallengeList( 'public' )
         buildChallengeList( 'private' )
@@ -553,7 +513,7 @@ jQuery(document).ready(function(){
             }
 
             get_user_app( actions[modalAction], data)
-                .done((challenge) => {
+                .then((challenge) => {
                     challengeModal.modal('hide')
 
                     getChallenges(visibility, () => {
@@ -641,7 +601,7 @@ jQuery(document).ready(function(){
 
     function getChallenges( visibility, callback ) {
         get_user_app( 'get_challenges', { visibility } )
-            .done((challenges) => {
+            .then((challenges) => {
                 jsObject.user[visibility + '_challenges'] = challenges
 
                 if ( callback ) {
@@ -662,10 +622,11 @@ jQuery(document).ready(function(){
 
         const challenges = jsObject.user[visibility + '_challenges']
 
-        if (challenges && challenges.length === 0) {
-            container.html('No' + visibility + 'challenges found')
+        if (!challenges || !Array.isArray(challenges) || challenges.length === 0) {
+            container.html('No ' + visibility + ' challenges found')
+        } else {
+            container.html( buildChallengeListHTML( challenges ) )
         }
-        container.html( buildChallengeListHTML( challenges ) )
 
         jQuery( containerSelector + ' .edit-challenge-button').on('click', function() {
             const challengeId = Number(this.dataset.challengeId)

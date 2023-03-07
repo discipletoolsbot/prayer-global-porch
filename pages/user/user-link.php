@@ -82,6 +82,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         if ( is_user_logged_in() ) {
             $userdata['stats'] = $this->get_user_stats();
         }
+
         ?>
         <script>
             let jsObject = [<?php echo json_encode([
@@ -94,10 +95,11 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     'add' => __( 'Add Magic', 'disciple-tools-porch-template' ),
                 ],
                 'is_logged_in' => is_user_logged_in() ? 1 : 0,
-                'logout_url' => esc_url( wp_logout_url( '/' ) )
+                'logout_url' => esc_url( '/user_app/logout' )
             ]) ?>][0]
         </script>
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/components.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/components.js' ) ) ?>"></script>
+        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/global-functions.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/global-functions.js' ) ) ?>"></script>
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>user-link.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'user-link.js' ) ) ?>"></script>
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js?ver=3"></script>
         <style>
@@ -123,7 +125,9 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         <section class="page-section flow" data-section="login" id="section-login">
             <div class="container">
                 <div class="row justify-content-md-center text-center">
-                    <div class="col-lg-7 flow" id="pg_content"></div>
+                    <div class="col-lg-7 flow" id="pg_content">
+                        <span class="loading-spinner active"></span>
+                    </div>
                 </div>
             </div>
 

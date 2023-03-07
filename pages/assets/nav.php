@@ -1,15 +1,12 @@
 <?php
 $url = dt_get_url_path();
-$is_logged_in = is_user_logged_in();
-
-$hide_if_logged_in = $is_logged_in ? 'display: none' : '';
-$hide_if_logged_out = $is_logged_in ? '' : 'display: none';
 
 /**
  * Nav for Home Page
  */
 $dark_nav_class = '' === $url || str_contains( $url, 'stats' ) || str_contains( $url, 'completed' ) ? 'navbar-dark' : '';
 $hide_cta_class = str_contains( $url, 'challenges' ) || str_contains( $url, 'user_app' ) ? 'd-none' : '';
+
 ?>
 <nav class="navbar <?php echo esc_attr( $dark_nav_class ) ?> pg-navbar bg-none scrolled-light" id="pg-navbar">
     <div class="container align-items-center">
@@ -32,9 +29,9 @@ $hide_cta_class = str_contains( $url, 'challenges' ) || str_contains( $url, 'use
                 <a class="nav-link" href="/newest/map/">Map</a>
                 <a class="nav-link" href="/challenges/active/">Groups</a>
                 <a class="nav-link" href="/content_app/give_page">Give</a>
-                <!-- <a href="/user_app/profile" class="nav-link" id="login-register-link" style="<?php echo esc_attr( $hide_if_logged_in ) ?>">Login / Register</a> -->
-                <a href="/user_app/profile" class="nav-link" id="user-profile-link" style="<?php echo esc_attr( $hide_if_logged_out ) ?>">User Profile</a>
-                <a href="<?php echo esc_url( wp_logout_url( '/' ) )?>" class="nav-link" id="logout-link" style="<?php echo esc_attr( $hide_if_logged_out ) ?>">Logout</a>
+                <!-- <a href="/user_app/login" class="nav-link" id="login-register-link" data-pg-is-logged-out>Login</a> -->
+                <a href="/user_app/profile" class="nav-link" id="user-profile-link" style="display: none" data-pg-is-logged-in>User Profile</a>
+                <a href="<?php echo esc_url( '/user_app/logout' )?>" class="nav-link" id="logout-link" style="display: none" data-pg-is-logged-in>Logout</a>
             </div>
             <div class="nav-buttons">
                 <button class="icon-button share-button" data-toggle="modal" data-target="#exampleModal">

@@ -25,6 +25,8 @@ if ( ! defined( 'ABSPATH' ) ) {
 define( 'PG_TOTAL_STATES', 4770 );
 define( 'PG_NAMESPACE', 'pg_' );
 
+
+
 /**
  * Gets the instance of the `Prayer_Global_Porch` class.
  *
@@ -125,6 +127,8 @@ class Prayer_Global_Porch {
 
         // user
         require_once( 'pages/user/user-link.php' );
+        require_once( 'pages/user/user-login.php' );
+        require_once( 'pages/user/user-logout.php' );
 
         // Global API
         require_once( 'api/loader.php' );
@@ -135,9 +139,13 @@ class Prayer_Global_Porch {
         require_once( 'pages/about/about.php' );
         require_once( 'pages/give/give.php' );
 
-
         // 404
         require_once( 'pages/404/404.php' ); // MUST BE LAST LOADED
+
+        /* We want to login via the JWT token route so that the user isn't logged into the WP admin */
+        add_filter( 'dt_login_method', function () {
+            return DT_Login_Methods::MOBILE;
+        } );
 
         $this->i18n();
     }
