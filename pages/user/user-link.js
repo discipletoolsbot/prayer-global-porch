@@ -93,7 +93,7 @@ jQuery(document).ready(function(){
                     jQuery('.user__location-label').html(location.label)
                     jQuery('.iplocation-message').empty()
                 })
-                .always(() => {
+                .finally(() => {
                     isSavingLocation = false
                 })
         } else {
@@ -520,10 +520,10 @@ jQuery(document).ready(function(){
                         buildChallengeList(visibility)
                     })
                 })
-                .fail(() => {
+                .catch(() => {
                     isSavingChallenge = false
                 })
-                .always(() => {
+                .finally(() => {
                     challengeLoadingSpinner.removeClass('active')
                 })
         })
