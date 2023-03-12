@@ -580,7 +580,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Lord, the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' will disappear on day, but your Word will never disappear. Call all who claim Christianity to anchor their lives on your Word.',
+                'prayer' => 'Lord, the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' will disappear one day, but your Word will never disappear. Call all who claim Christianity to anchor their lives on your Word.',
                 'reference' => 'Matthew 24:35',
                 'verse' => 'Heaven and earth will disappear, but my words will never disappear.',
             ],
