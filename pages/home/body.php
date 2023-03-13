@@ -35,7 +35,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-ios-body-outline"></i></div>
+                    <div class="icon-circle display-4"><i class="text-primary mdi mdi-run"></i></div>
                     <div class="">
                         <h3 class="stats-info__title" id="current_participants"><span class="loading-spinner active"></span></h3>
                         <h3 class="stats-info__subtitle">Prayer Warriors</h3>
@@ -44,7 +44,7 @@
             </div>
             <div class="col-md">
                 <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
+                    <div class="icon-circle display-4"><i class="text-primary mdi mdi-map"></i></i></div>
                     <div class="">
                         <h3 class="stats-info__title" id="current_remaining"><span class="loading-spinner active"></span></h3>
                         <h3 class="stats-info__subtitle">Remaining</h3>
@@ -79,7 +79,7 @@
         <div class="row">
             <div class="col-md">
                 <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-ios-body-outline"></i></div>
+                    <div class="icon-circle display-4"><i class="text-primary mdi mdi-run"></i></div>
                     <div class="">
                         <h3 class="stats-info__title" id="global_participants"><span class="loading-spinner active"></span></h3>
                         <h3 class="stats-info__subtitle">Prayer Warriors</h3>
