@@ -9,16 +9,18 @@ $(document).ready(function($) {
     const isGoNativeApp = navigator.userAgent.indexOf('gonative') > -1
     const isWebAPIShareAvailable = Object.prototype.hasOwnProperty.call(navigator, 'share')
 
-    const pageToShare = document.URL.includes('localhost') ? 'https://prayer.global' :  encodeURIComponent(document.URL)
-    const textToShare = encodeURIComponent("Join us in covering the world in prayer")
+    const pageToShare = document.URL
+    const encodedPageToShare = encodeURIComponent(pageToShare)
+    const textToShare = "Join us in covering the world in prayer"
+    const encodedTextToShare = encodeURIComponent(textToShare)
 
     // stop button opening modal
     shareButtons.forEach((shareButton) => shareButton.addEventListener('click', () => {
         if ( isGoNativeApp ) {
-            window.location.href = 'gonative://share/sharePage?url=' + pageToShare
+            window.location.href = 'gonative://share/sharePage?url=' + encodedPageToShare
         } else if ( isWebAPIShareAvailable ) {
             const data = {
-                url: pageToShare
+                url: encodedPageToShare
             }
             navigator.share(data)
         } else {
@@ -34,18 +36,18 @@ $(document).ready(function($) {
     }))
 
     shareFacebook.addEventListener('click', () => {
-        const url = `https://www.facebook.com/sharer.php?u=${pageToShare}`
+        const url = `https://www.facebook.com/sharer.php?u=${encodedPageToShare}`
         openURL(url)
     })
     shareTwitter.addEventListener('click', () => {
-        const url = `https://twitter.com/intent/tweet?url=${pageToShare}&text=${textToShare}&hashtags=prayerGlobal`
+        const url = `https://twitter.com/intent/tweet?url=${encodedPageToShare}&text=${encodedTextToShare}&hashtags=prayerGlobal`
         openURL(url)
     })
     shareEmail.addEventListener('click', () => {
         const subject = 'Prayer Global'
         const body = `
             ${textToShare}
-            ${document.URL}
+            ${pageToShare}
         `
         const url = `mailto:?subject=${subject}&body=${body}`
         openURL(url, { openTab: false })

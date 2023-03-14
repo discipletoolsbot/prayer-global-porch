@@ -1,6 +1,6 @@
 <?php
 global $wp;
-$current_url = add_query_arg( $wp->query_vars, home_url( $wp->request ) );
+$current_url = dt_get_url_path( false, true );
 pg_google_analytics();
 ?>
 <meta name="apple-mobile-web-app-title" content="Prayer.Global">

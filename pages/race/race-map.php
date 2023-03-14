@@ -92,9 +92,16 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
     }
 
     public function header_javascript(){
+        pg_google_analytics();
+        $details = [];
+        $url = dt_get_url_path( false, true );
+        if ( $url ) {
+            $details['url'] = $url;
+        }
+        $details['title'] = 'Prayer.Global Race Map';
+        pg_og_tags( $details );
+
         ?>
-        <?php pg_google_analytics() ?>
-        <?php pg_og_tags() ?>
         <script>
             let jsObject = [<?php echo json_encode([
                 'map_key' => DT_Mapbox_API::get_key(),
