@@ -40,7 +40,7 @@ pg_google_analytics();
 
 <script>
 $(document).ready(function($) {
-    window.onGetAuthUser(
+    window.getAuthUser(
         () => {
             showElements('[data-pg-is-logged-in]', true)
             showElements('[data-pg-is-logged-out]', false)

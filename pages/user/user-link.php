@@ -10,13 +10,6 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public $root = 'user_app';
     public $type = 'profile';
     public $post_type = 'user';
-    public $allowed_user_meta = [
-        'location',
-        'location_hash',
-        'send_lap_emails',
-        'send_general_emails',
-    ];
-
     private static $_instance = null;
     public static function instance() {
         if ( is_null( self::$_instance ) ) {
@@ -76,13 +69,6 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public function header_javascript(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
 
-        $user_id = get_current_user_id();
-        $userdata = pg_get_user( $user_id, $this->allowed_user_meta );
-
-        if ( is_user_logged_in() ) {
-            $userdata['stats'] = $this->get_user_stats();
-        }
-
         ?>
         <script>
             let jsObject = [<?php echo json_encode([
@@ -90,7 +76,6 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 'root' => esc_url_raw( rest_url() ),
                 'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
-                'user' => $userdata,
                 'translations' => [
                     'add' => __( 'Add Magic', 'disciple-tools-porch-template' ),
                 ],
@@ -306,7 +291,9 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     public function add_endpoints() {
         $namespace = $this->root . '/v1';
         register_rest_route(
-            $namespace, '/'.$this->type, [
+            $namespace,
+            '/'.$this->type,
+            [
                 [
                     'methods'  => "POST",
                     'callback' => [ $this, 'endpoint' ],
@@ -327,31 +314,12 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         $params = dt_recursive_sanitize_array( $params );
 
         switch ( $params['action'] ) {
-            case 'login':
-                $user = get_user_by( 'email', $params['data']['email'] );
-
-                if ( $user ) {
-                    if ( wp_check_password( $params['data']['pass'], $user->data->user_pass ) ) {
-                        // password match
-                        $logged_in = $this->programmatic_login( $user->data->user_login );
-                        if ( $logged_in ) {
-                            $response = [
-                                "user" => pg_get_user( $user->ID, $this->allowed_user_meta ),
-                            ];
-
-                            return $response;
-                        }
-                    }
-                }
-                return false;
             case 'update_user':
                 return $this->update_user( $params['data'] );
             case 'delete_user':
                 return $this->delete_user( $params['data'] );
             case 'activity':
                 return $this->get_user_activity( $params['data'] );
-            case 'stats':
-                return $this->get_user_stats();
             case 'ip_location':
                 return $this->get_ip_location( $params['data'] );
             case 'save_location':
@@ -425,7 +393,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         }
 
         foreach ($data as $meta_key => $meta_value) {
-            if ( !in_array( $meta_key, $this->allowed_user_meta, true ) ) {
+            if ( !in_array( $meta_key, PG_User_API::$allowed_user_meta, true ) ) {
                 continue;
             }
 
@@ -494,29 +462,6 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         $activity = PG_Stacker::build_user_location_stats( null, $offset, $limit );
         return $activity;
     }
-
-    public function get_user_stats() {
-        global $wpdb;
-
-        $user_id = get_current_user_id();
-
-        if ( !$user_id ) {
-            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
-        }
-
-        $user_stats = $wpdb->get_row( $wpdb->prepare( "
-            SELECT COUNT(r.id) as total_locations, SUM(r.value) as total_minutes
-            FROM $wpdb->dt_reports r
-            WHERE r.user_id = %d
-            AND r.type = 'prayer_app'
-            ORDER BY r.timestamp DESC
-            ", $user_id ), ARRAY_A );
-
-        $user_stats['total_locations'] = (int) $user_stats['total_locations'];
-        $user_stats['total_minutes'] = (int) $user_stats['total_minutes'];
-        return $user_stats;
-    }
-
     public function get_ip_location( $data ) {
         $user_id = get_current_user_id();
 

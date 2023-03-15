@@ -8,10 +8,10 @@ jQuery(document).ready(function(){
       body: JSON.stringify({ action: action, parts: jsObject.parts, data: data }),
     })
   }
-  window.api_post_global = ( type, action, data ) => {
-    return window.api_fetch( jsObject.root + 'pg-api/v1/' + type, {
+  window.api_post_global = ( type, action, data = null ) => {
+    return window.api_fetch( `${jsObject.root}pg-api/v1/${type}/${action}`, {
       method: "POST",
-      body: JSON.stringify({ action: action, parts: jsObject.parts, data: data }),
+      body: data !== null ? JSON.stringify(data) : null,
     })
   }
   function load_next_content() {
@@ -31,7 +31,7 @@ jQuery(document).ready(function(){
     load_location()
   }
   function ip_location() {
-    window.api_post_global( 'user', 'ip_location', [] )
+    window.api_post_global( 'user', 'ip_location' )
       .then(function(location) {
         window.user_location = []
         if ( location ) {

@@ -9,6 +9,12 @@ class PG_User_API {
     public $root = 'pg-api';
 
     public $type = 'user';
+    public static $allowed_user_meta = [
+        'location',
+        'location_hash',
+        'send_lap_emails',
+        'send_general_emails',
+    ];
 
     private static $_instance = null;
     public static function instance() {
@@ -31,18 +37,9 @@ class PG_User_API {
      * @link https://github.com/DiscipleTools/disciple-tools-theme/wiki/Site-to-Site-Link for outside of wordpress authentication
      */
     public function add_endpoints() {
-        $namespace = $this->root . '/v1';
-        register_rest_route(
-            $namespace,
-            '/'.$this->type,
-            [
-                [
-                    'methods'  => WP_REST_Server::CREATABLE,
-                    'callback' => [ $this, 'endpoint' ],
-                    'permission_callback' => '__return_true'
-                ],
-            ]
-        );
+        $namespace = $this->root . '/v1/' . $this->type . '/';
+        DT_Route::post( $namespace, 'ip_location', [ $this, 'get_ip_location' ] );
+        DT_Route::post( $namespace, 'details', [ $this, 'get_user' ] );
     }
 
     public function authorize_url( $authorized ){
@@ -84,6 +81,40 @@ class PG_User_API {
             }
             return $response;
         }
+    }
+
+    /**
+     * Get the user data and stats for the currently logged in user
+     */
+    public function get_user() {
+        $user_id = get_current_user_id();
+        $userdata = pg_get_user( $user_id, self::$allowed_user_meta );
+
+        $userdata['stats'] = $this->get_user_stats();
+
+        return $userdata;
+    }
+
+    public function get_user_stats() {
+        global $wpdb;
+
+        $user_id = get_current_user_id();
+
+        if ( !$user_id ) {
+            return new WP_Error( __METHOD__, 'Unauthorised', [ 'status' => 401 ] );
+        }
+
+        $user_stats = $wpdb->get_row( $wpdb->prepare( "
+            SELECT COUNT(r.id) as total_locations, SUM(r.value) as total_minutes
+            FROM $wpdb->dt_reports r
+            WHERE r.user_id = %d
+            AND r.type = 'prayer_app'
+            ORDER BY r.timestamp DESC
+            ", $user_id ), ARRAY_A );
+
+        $user_stats['total_locations'] = (int) $user_stats['total_locations'];
+        $user_stats['total_minutes'] = (int) $user_stats['total_minutes'];
+        return $user_stats;
     }
 
 }

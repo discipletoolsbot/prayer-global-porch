@@ -125,7 +125,7 @@ $(document).ready(function ($) {
     window.location.href = `/user_app/login?redirect_to=${redirect_to}`;
   };
 
-  window.onGetAuthUser = function (successCallback, failureCallback) {
+  window.getAuthUser = function (successCallback, failureCallback) {
     return window
       .api_fetch("/wp-json/dt/v1/session/check_auth", {
         method: "POST",
@@ -143,8 +143,8 @@ $(document).ready(function ($) {
         }
       })
       .then(() =>
-        window.api_fetch("/wp-json/dt/v1/session/user", {
-          method: "GET",
+        window.api_fetch("/wp-json/pg-api/v1/user/details", {
+          method: "POST",
         })
       )
       .then((user) => {

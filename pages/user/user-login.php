@@ -106,7 +106,7 @@ class PG_User_Login_Registration extends DT_Magic_Url_Base {
         <script>
 
             $(document).ready(function($) {
-                window.onGetAuthUser(
+                window.getAuthUser(
                     () => {
                         const url = new URL(location.href)
                         const redirectTo = url.searchParams.get('redirect_to') || encodeURIComponent('/user_app/profile')
