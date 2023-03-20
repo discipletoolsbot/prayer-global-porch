@@ -138,6 +138,9 @@ class PG_User_Login_Registration extends DT_Magic_Url_Base {
                     </div>
                 </div>
             </div>
+        </section>
+
+        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>user-mobile-login.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'user-mobile-login.js' ) ) ?>" defer></script>
 
         <?php
 
