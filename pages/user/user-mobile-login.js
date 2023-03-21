@@ -64,7 +64,7 @@ jQuery(document).ready(function(){
 
           console.log('signInWithCredential response', authResult)
 
-          return signInSuccessWithAuthResult(credential)
+          return signInSuccessWithAuthResult(authResult)
         })
         .catch((error) => {
           // Handle Errors here.
