@@ -1,24 +1,42 @@
 jQuery(document).ready(function(){
     /* We can access all of the top level constants and functions declared in login-shortcodes.php for the login shortcode */
+    const googleButtonSelector = '.firebaseui-idp-google';
+    const facebookButtonSelector = '.firebaseui-idp-facebook';
 
     console.log(auth)
+
     // TODO: remove || true from this line
-    const isGoNative = navigator.userAgent.indexOf("gonative") >= 0;
+    const isGoNative = navigator.userAgent.indexOf("gonative") >= 0
 
     if (isGoNative) {
-        function initialiseMobileGoogleButton() {
+        function initialiseMobileButton(selector, socialProvider, callback) {
           console.log('initialising google mobile button')
-            const googleButton = document.querySelector('.firebaseui-idp-google')
+          const buttonElement = document.querySelector(selector)
 
-            const buttonClone = googleButton.cloneNode(true)
-            const parentNode = googleButton.parentNode
+          const buttonClone = buttonElement.cloneNode(true)
+          const parentNode = buttonElement.parentNode
 
-            googleButton.remove()
-            buttonClone.onclick = () => gonative.socialLogin.google.login({ 'callback' : googleLoginCallback })
+          buttonElement.remove()
 
-            parentNode.appendChild(buttonClone)
+          if ( socialProvider === 'google' ) {
+            buttonClone.onclick = () => gonative.socialLogin.google.login({ 'callback' : callback })
+          } else if ( socialProvider === 'facebook') {
+            buttonClone.onclick = () => gonative.socialLogin.facebook.login({ 'callback' : callback })
+          }
+
+          parentNode.appendChild(buttonClone)
         }
-        waitForElement('.firebaseui-idp-google', initialiseMobileGoogleButton)
+
+        waitForElement(googleButtonSelector, () => initialiseMobileButton(
+          googleButtonSelector,
+          'google',
+          providerLoginCallback
+        ))
+        waitForElement(facebookButtonSelector, () => initialiseMobileButton(
+          facebookButtonSelector,
+          'facebook',
+          providerLoginCallback
+        ))
     }
 
     function waitForElement(selector, callback) {
@@ -36,26 +54,33 @@ jQuery(document).ready(function(){
         }, timeIncrement)
     }
 
-    function googleLoginCallback(response) {
+    function providerLoginCallback(response) {
       console.log("Google Login Callback response", response);
 
-      let idToken;
-      if (response.credential) {
-        // browser-only
-        idToken = response.credential;
-      } else {
-        // native-only
-        idToken = response.idToken;
+      let token
+
+      const provider = response.type
+      if ( provider === 'google' ) {
+        token = response.idToken;
+      }
+      if ( provider === 'facebook' ) {
+        token = response.accessToken
       }
 
-      if (idToken) {
-        console.log('we have an idToken', idToken)
-        const { GoogleAuthProvider } = firebase.auth
+      if (token) {
+        console.log('we have an idToken', token)
+        const { GoogleAuthProvider, FacebookAuthProvider } = firebase.auth
 
-        /* Send token to Firebase to exchange for a Firebase token there */
-        const credential = GoogleAuthProvider.credential(idToken);
+        let credential
 
-        console.log('attempting signIn with credential 2', credential)
+        if ( provider === 'google' ) {
+          credential = GoogleAuthProvider.credential(token);
+        }
+        if ( provider === 'facebook' ) {
+          credential = FacebookAuthProvider.credential(token);
+        }
+
+        console.log('attempting signIn with credential', credential)
 
         // Sign in with credential from the Google user.
         auth.signInWithCredential(credential)
@@ -72,10 +97,8 @@ jQuery(document).ready(function(){
           const errorMessage = error.message;
           // The email of the user's account used.
           const email = error.email;
-          // The credential that was used.
-          const credential = GoogleAuthProvider.credentialFromError(error);
 
-          console.log('signInWithCredential errors', errorCode, errorMessage, email, credential)
+          console.log('signInWithCredential errors', errorCode, errorMessage, email)
         });
 
       } else {
