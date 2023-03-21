@@ -51,7 +51,6 @@ jQuery(document).ready(function(){
       if (idToken) {
         console.log('we have an idToken', idToken)
         const { GoogleAuthProvider } = firebase.auth
-        const { signInWithCredential } = firebase.auth()
 
         /* Send token to Firebase to exchange for a Firebase token there */
         const credential = GoogleAuthProvider.credential(idToken);
@@ -59,7 +58,7 @@ jQuery(document).ready(function(){
         console.log('attempting signIn with credential and auth', credential, auth)
 
         // Sign in with credential from the Google user.
-        signInWithCredential(credential)
+        auth.signInWithCredential(credential)
         .then((authResult) => {
           /* Then we will send *that* token to WP to exchange for a token :O) */
 
