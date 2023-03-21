@@ -55,7 +55,7 @@ jQuery(document).ready(function(){
         /* Send token to Firebase to exchange for a Firebase token there */
         const credential = GoogleAuthProvider.credential(idToken);
 
-        console.log('attempting signIn with credential and auth', credential, auth)
+        console.log('attempting signIn with credential 2', credential)
 
         // Sign in with credential from the Google user.
         auth.signInWithCredential(credential)
