@@ -59,7 +59,7 @@ jQuery(document).ready(function(){
         console.log('attempting signIn with credential and auth', credential, auth)
 
         // Sign in with credential from the Google user.
-        return signInWithCredential(credential)
+        signInWithCredential(credential)
         .then((authResult) => {
           /* Then we will send *that* token to WP to exchange for a token :O) */
 
