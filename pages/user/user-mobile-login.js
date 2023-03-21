@@ -37,7 +37,7 @@ jQuery(document).ready(function(){
     }
 
     function googleLoginCallback(response) {
-      console.log("Google Login Callback");
+      console.log("Google Login Callback response", response);
 
       let idToken;
       if (response.credential) {
@@ -49,11 +49,14 @@ jQuery(document).ready(function(){
       }
 
       if (idToken) {
+        console.log('we have an idToken', idToken)
         const { GoogleAuthProvider } = firebase.auth
         const { signInWithCredential } = firebase.auth()
 
         /* Send token to Firebase to exchange for a Firebase token there */
         const credential = GoogleAuthProvider.credential(idToken);
+
+        console.log('attempting signIn with credential and auth', credential, auth)
 
         // Sign in with credential from the Google user.
         signInWithCredential(auth, credential)
