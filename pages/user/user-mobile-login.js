@@ -2,10 +2,8 @@ jQuery(document).ready(function () {
   /* We can access all of the top level constants and functions declared in login-shortcodes.php for the login shortcode */
   const googleButtonSelector = ".firebaseui-idp-google";
   const facebookButtonSelector = ".firebaseui-idp-facebook";
+  const linkAccountButtonSelector = ".firebaseui-id-submit"
 
-  console.log(auth);
-
-  // TODO: remove || true from this line
   const isGoNative = navigator.userAgent.indexOf("gonative") >= 0;
 
   if (isGoNative) {
@@ -36,6 +34,13 @@ jQuery(document).ready(function () {
         providerLoginCallback
       )
     );
+    waitForElementContainingText(linkAccountButtonSelector, 'google', () => {
+      initialiseMobileButton(
+        linkAccountButtonSelector,
+        'google',
+        providerLoginCallback
+      )
+    })
     waitForElement(facebookButtonSelector, () =>
       initialiseMobileButton(
         facebookButtonSelector,
@@ -43,7 +48,14 @@ jQuery(document).ready(function () {
         providerLoginCallback
       )
     );
-  }
+    waitForElementContainingText(linkAccountButtonSelector, 'facebook', () => {
+      initialiseMobileButton(
+        linkAccountButtonSelector,
+        'facebook',
+        providerLoginCallback
+      )
+    })
+   }
 
   function waitForElement(selector, callback) {
     console.log("waiting for element", selector);
@@ -58,6 +70,24 @@ jQuery(document).ready(function () {
 
       callback();
     }, timeIncrement);
+  }
+
+  function waitForElementContainingText(selector, text, callback) {
+    console.log('waiting for element containing text', selector, text)
+    const timeIncrement = 200
+
+    const ticker = setInterval(() => {
+      const element = document.querySelector(selector)
+
+      if (!element) return
+
+      const elementText = element.innerHTML
+      if (!elementText.toLowerCase().includes(text)) return
+
+      clearInterval(ticker)
+
+      callback()
+    }, timeIncrement)
   }
 
   function providerLoginCallback(response) {
