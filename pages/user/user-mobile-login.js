@@ -8,7 +8,7 @@ jQuery(document).ready(function () {
 
   if (isGoNative) {
     function initialiseMobileButton(selector, socialProvider, callback) {
-      console.log("initialising google mobile button");
+      console.log(`initialising ${socialProvider} mobile button`);
       const buttonElement = document.querySelector(selector);
 
       const buttonClone = buttonElement.cloneNode(true);
@@ -55,7 +55,7 @@ jQuery(document).ready(function () {
         providerLoginCallback
       )
     })
-   }
+  }
 
   function waitForElement(selector, callback) {
     console.log("waiting for element", selector);
@@ -91,7 +91,7 @@ jQuery(document).ready(function () {
   }
 
   function providerLoginCallback(response) {
-    console.log("Google Login Callback response", response);
+    console.log(`${response.type} Login Callback response`, response);
 
     let token;
 
