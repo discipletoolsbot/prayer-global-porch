@@ -102,7 +102,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                     'translations' => [
                         'add' => __( 'Add Magic', 'prayer-global' ),
                     ],
-                    'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/nope.jpg',
+                    'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/anon.jpeg',
                     'images_url' => pg_grid_image_url(),
                     'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
                     'current_url' => $current_url,

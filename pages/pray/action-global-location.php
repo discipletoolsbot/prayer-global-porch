@@ -147,7 +147,7 @@ class PG_Global_Prayer_App_Location extends PG_Global_Prayer_App {
                 if ( $grid_id ) {
                     return $this->get_location_by_grid_id( $grid_id );
                 }
-                return $this->get_new_location();
+                return $this->get_new_location( $params['parts'] );
             case 'log':
                 return $this->save_log( $params['parts'], $params['data'] );
             case 'increment_log':
