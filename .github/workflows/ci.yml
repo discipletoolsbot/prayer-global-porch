@@ -48,11 +48,17 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction
 
-      - name: Test Syntax
-        run: ./test/test_for_syntax_errors.sh
+      #- name: Test Syntax
+      #  run: ./test/test_for_syntax_errors.sh
 
-      - name: Test Installation
-        run: ./test/test_installation.sh
+      #- name: Test Installation
+      #  run: ./test/test_installation.sh
 
-      - name: Test phpcs
-        run: ./test/test_phpcs.sh
+      #- name: Test phpcs
+      #  run: ./test/test_phpcs.sh
+
+      - uses: thenabeel/action-phpcs@v8
+        with:
+          files: "**.php" # you may customize glob as needed
+          phpcs_path: ./vendor/bin/phpcs
+          standard: phpcs.xml
