@@ -148,7 +148,9 @@ $(document).ready(function ($) {
         })
       )
       .then((user) => {
-        jsObject.user = user;
+        if (typeof jsObject !== 'undefined') {
+          jsObject.user = user;
+        }
 
         if (successCallback) {
           successCallback(user);

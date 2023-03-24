@@ -706,3 +706,32 @@ function pg_generate_new_global_prayer_lap() {
 
     return pg_query_4770_locations();
 }
+
+function pg_toggle_user_elements() {
+
+    ?>
+
+    <script>
+        $(document).ready(function($) {
+            window.getAuthUser(
+                () => {
+                    showElements('[data-pg-is-logged-in]', true)
+                    showElements('[data-pg-is-logged-out]', false)
+                },
+                () => {
+                    showElements('[data-pg-is-logged-in]', false)
+                    showElements('[data-pg-is-logged-out]', true)
+                }
+            )
+
+            function showElements(selector, show) {
+                document
+                    .querySelectorAll(selector)
+                    .forEach((element) => element.style.display = show ? 'block' : 'none')
+            }
+        })
+    </script>
+
+    <?php
+
+}

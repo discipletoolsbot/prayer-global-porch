@@ -49,23 +49,6 @@ class PG_User_API {
         return $authorized;
     }
 
-    public function endpoint( WP_REST_Request $request ) {
-        $params = $request->get_params();
-
-        if ( ! isset( $params['parts'], $params['action'], $params['data'] ) ) {
-            return new WP_Error( __METHOD__, "Missing parameters", [ 'status' => 400 ] );
-        }
-
-        $params = dt_recursive_sanitize_array( $params );
-
-        switch ( $params['action'] ) {
-            case 'ip_location':
-                return $this->get_ip_location();
-            default:
-                return new WP_Error( __METHOD__, "Incorrect action", [ 'status' => 400 ] );
-        }
-    }
-
     public function get_ip_location() {
         if ( is_user_logged_in() ) {
             $user_id = get_current_user_id();

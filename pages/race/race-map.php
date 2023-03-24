@@ -121,6 +121,7 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                 'details_type' => $this->details_type,
             ]) ?>][0]
         </script>
+        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/global-functions.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/global-functions.js' ) ) ?>"></script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/bootstrap/bootstrap5.2.2.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
@@ -130,6 +131,14 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
     }
 
     public function footer_javascript(){
+
+        ?>
+
+        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+        <?php
+
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/footer.php' );
     }
 
@@ -153,7 +162,7 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
             <div id="map-wrapper">
                 <div id="head_block">
                     <?php require( __DIR__ . '/nav-race-map.php' ) ?>
-                    <?php require( __DIR__ . '/map-settings.php' ) ?>
+                    <?php require( __DIR__ . '/../pray/map-settings.php' ) ?>
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
@@ -252,6 +261,11 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                     'participants' => $this->get_participants( $params['parts'] ),
                 ];
             case 'get_grid_stats':
+                if ( isset( $params['data']['grid_id'] ) ) {
+                    return PG_Stacker::build_location_stats( $params['data']['grid_id'] );
+                }
+                return false;
+
             case 'get_grid_details':
                 if ( isset( $params['data']['grid_id'] ) ) {
                     return PG_Stacker::build_location_stack( $params['data']['grid_id'] );

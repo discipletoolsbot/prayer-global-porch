@@ -38,23 +38,4 @@ pg_google_analytics();
 
 <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/global-functions.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/global-functions.js' ) ) ?>"></script>
 
-<script>
-$(document).ready(function($) {
-    window.getAuthUser(
-        () => {
-            showElements('[data-pg-is-logged-in]', true)
-            showElements('[data-pg-is-logged-out]', false)
-        },
-        () => {
-            showElements('[data-pg-is-logged-in]', false)
-            showElements('[data-pg-is-logged-out]', true)
-        }
-    )
-
-    function showElements(selector, show) {
-        document
-            .querySelectorAll(selector)
-            .forEach((element) => element.style.display = show ? 'block' : 'none')
-    }
-})
-</script>
+<?php pg_toggle_user_elements() ?>

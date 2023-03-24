@@ -71,6 +71,9 @@ strong {
 .two-em {
     font-size: 2em;
 }
+.two-rem {
+    font-size: 2rem;
+}
 .one-em {
     font-size: 1.5em;
 }
@@ -582,10 +585,11 @@ button {
     --nav-link-primary-color: white;
     --nav-link-secondary-color: black;
     border-bottom: 1px solid var(--nav-link-secondary-color);
+    margin-bottom: 3em;
 }
 .nav-link {
     --bs-nav-link-font-size: 16px;
-    --bs-nav-link-padding-y: 1.5em;
+    --bs-nav-link-padding-y: 1.2em;
     border-top: 1px solid var(--nav-link-secondary-color);
     padding-left: 2em;
 }
@@ -610,24 +614,28 @@ button {
     background: lightgrey;
 }
 
-.share-button {
-    width: 40px;
-}
-.share-button img {
-    width: 100%;
-}
-.navbar-dark .share-button {
-    filter: invert(90%) sepia(100%) saturate(0%) hue-rotate(9deg) brightness(103%) contrast(102%);
-}
-
 .icon-button {
     cursor: pointer;
 }
+
 .nav-buttons {
     height: 30px;
-    padding-top: 1.5em;
-    padding-bottom: 1.5em;
-    padding-left: 2em;
+    display: flex;
+    justify-content: space-between;
+    padding: 2.5em 0em;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+    left: 2em;
+    right: 2em;
+}
+
+.nav-buttons * {
+    color: black;
+}
+
+.navbar-dark .nav-buttons * {
+    color: white;
 }
 
 .modal-footer {

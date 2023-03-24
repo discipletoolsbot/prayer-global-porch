@@ -18,27 +18,7 @@ $hide_if_logged_out = $is_logged_in ? '' : 'display: none';
             </button>
         </div>
     </div>
-    <div class="offcanvas offcanvas-end pg-navmenu" data-bs-backdrop="true" data-bs-scroll="true" id="probootstrap-navbar">
-        <div class="offcanvas-header">
-          <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">Prayer.Global</h5>
-          <button type="button" class="btn-close pe-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="navbar-nav justify-content-end me-3" id="nav-links">
-                <a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="/newest/lap/">Start Praying</a>
-                <a class="nav-link" href="/">Home</a>
-                <a class="nav-link" href="<?php echo ( $url !== '' ) ? esc_url( trailingslashit( site_url() ) ) : '' ?>#section-lap">Status</a>
-                <a class="nav-link" href="/newest/map/">Map</a>
-                <a class="nav-link" href="/challenges/active/">Groups</a>
-                <!-- <a href="/user_app/profile" class="nav-link" id="login-register-link" style="<?php echo esc_attr( $hide_if_logged_in ) ?>">Login / Register</a> -->
-                <a href="/user_app/profile" class="nav-link" id="user-profile-link" style="<?php echo esc_attr( $hide_if_logged_out ) ?>">User Profile</a>
-                <a href="<?php echo esc_url( '/user_app/logout' )?>" class="nav-link" id="logout-link" style="<?php echo esc_attr( $hide_if_logged_out ) ?>">Logout</a>
-            </div>
-            <div class="nav-buttons">
-                <button class="icon-button share-button" data-toggle="modal" data-target="#exampleModal">
-                    <img src="<?php echo esc_html( plugin_dir_url( __DIR__ ) ) ?>assets/images/share.svg" alt="Share">
-                </button>
-            </div>
-        </div>
-    </div>
+
+    <?php pg_menu() ?>
+
 </nav>
