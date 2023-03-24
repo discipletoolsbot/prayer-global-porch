@@ -32,6 +32,8 @@ jobs:
     name: PHP ${{ matrix.php }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # important!
 
       - uses: actions/setup-node@v2
         with:
