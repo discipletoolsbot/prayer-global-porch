@@ -56,6 +56,8 @@ jQuery(document).ready(function(){
   let decision_panel = jQuery('#decision-panel')
   let question_panel = jQuery('#question-panel')
   let celebrate_panel = jQuery('#celebrate-panel')
+  let location_name = jQuery('#location-name')
+  let footer = jQuery('.pg-footer')
 
   let praying_button = jQuery('#praying_button')
   let button_progress = jQuery('.praying__progress')
@@ -104,6 +106,8 @@ jQuery(document).ready(function(){
   }
   window.report_content = []
 
+  footer.hide()
+
   /**
    * INITIALIZE
    */
@@ -140,6 +144,7 @@ jQuery(document).ready(function(){
             })
           }, 5000);
         }
+
       })
 
     // load ip tracking
@@ -157,6 +162,7 @@ jQuery(document).ready(function(){
     })
   }
   initialize_location() // initialize prayer framework
+
   function test_for_redundant_grid( content ) {
     if ( typeof content === 'undefined' || typeof content.location === 'undefined' || typeof content.location.grid_id === 'undefined' ){
       return content
@@ -225,9 +231,8 @@ jQuery(document).ready(function(){
       window.celebrationFireworks(celebrationDuration)
       update_odometer({ location_count: window.odometer.location_count + 1})
       setTimeout(
-        function()
-        {
-          window.location = jsObject.map_url
+        function() {
+          window.location = jsObject.map_url + '?show_cta'
         }, celebrationDuration);
     })
     question_yes_next.off('click')
@@ -361,7 +366,7 @@ jQuery(document).ready(function(){
     question_panel.hide()
     celebrate_panel.hide()
 
-    jQuery('#location-name').html( content.location.admin_level_name_cap + ' of ' + content.location.full_name)
+    location_name.html( content.location.admin_level_name_cap + ' of ' + content.location.full_name)
     div.empty()
 
     location_map_wrapper.show()
@@ -458,8 +463,22 @@ jQuery(document).ready(function(){
     more_prayer_fuel.show()
 
     let rint = Math.floor(Math.random() * 4 ) + 1
-    celebrate_panel.html(`<p style="padding-top:2em;"><h1>Great Job!<br>Prayer Added!</h1></p>
-    <p><img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="img-fluid celebrate-image" alt="photo" /></p>`).show()
+
+    const celebrateHTML = `
+      <p style="padding-top:2em;">
+        <div>
+          <h1>
+            Great Job!
+            <br />
+            Prayer Added!
+          </h1>
+
+          <img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="img-fluid celebrate-image" alt="photo" />
+
+        </div>
+      </p>
+        `
+    celebrate_panel.html(celebrateHTML).show()
   }
 
   /**

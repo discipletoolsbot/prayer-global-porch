@@ -59,17 +59,17 @@ $(document).ready(function ($) {
       useWorker: true,
     };
 
-    let numberOfFireworks = 12;
+    let numberOfFireworksPerSecond = 4;
 
     if (isSmallDevice()) {
       defaults.particleCount = 200;
       defaults.scalar = 0.8;
       defaults.ticks = 30;
       defaults.startVelocity = 20;
-      numberOfFireworks = 6;
+      numberOfFireworksPerSecond = 2;
     }
 
-    const timeout = celebrationDuration / numberOfFireworks;
+    const timeout = 1000 / numberOfFireworksPerSecond;
 
     const colours = [
       ["#5492f7", "#202AF9", "#4556D9"],
@@ -77,6 +77,8 @@ $(document).ready(function ($) {
       ["#DD344D", "#FFB1BA", "#F05264"],
       ["#fef355", "#fab945", "#f4d9bd"],
     ];
+
+    const staggerTimeouts = [ 0, 50, 100 ]
 
     function randomInRange(min, max) {
       return Math.random() * (max - min) + min;
@@ -97,13 +99,14 @@ $(document).ready(function ($) {
         return clearInterval(interval);
       }
 
-      colours.forEach((colour) => {
-        confetti(
-          Object.assign({}, defaults, {
-            origin: originInBoundingBox(),
-            colors: colour,
-          })
-        );
+      colours.forEach((colour, i) => {
+        setTimeout( () =>
+          confetti(
+            Object.assign({}, defaults, {
+              origin: originInBoundingBox(),
+              colors: colour,
+            })
+        ), staggerTimeouts[i%staggerTimeouts.length]);
       });
     }, timeout);
   };

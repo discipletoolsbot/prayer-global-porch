@@ -40,6 +40,8 @@ Prayer_Global_Laps_Post_Type::instance();
 require_once 'feedback.php';
 Prayer_Global_Feedback_Post_Type::instance();
 
+require_once 'ctas.php';
+new Prayer_Global_CTA_Post_Type();
 
 function prayer_global_list_languages(){
     $available_language_codes = get_available_languages( plugin_dir_path( __DIR__ ) .'/support/languages' );

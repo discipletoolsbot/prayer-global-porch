@@ -68,13 +68,14 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
     public function _footer(){
         $this->footer_javascript();
         wp_footer();
-        require_once( __DIR__ . '/../assets/share-modal.php' );
+        require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/share-modal.php' );
+        require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/cta-modal.php' );
     }
 
     public function header_javascript(){
         pg_google_analytics();
         $details = [];
-        $url = dt_get_url_path( false, true );
+        $url = dt_get_url_path( true, true );
         if ( $url ) {
             $details['url'] = $url;
         }

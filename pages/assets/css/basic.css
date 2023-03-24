@@ -441,6 +441,9 @@ strong {
 .pg-footer {
     padding: 5em 0;
 }
+.footer__copyright {
+    padding-top: 5rem;
+}
 
 @media (max-width: 767px) {
     .stats-header__title {
@@ -612,6 +615,22 @@ button {
 }
 .navbar-dark .nav-link:active {
     background: lightgrey;
+}
+
+.pg-footer .share-button {
+    width: 30px;
+}
+.share-button {
+    width: 40px;
+}
+.share-button img {
+    width: 100%;
+}
+.filter-white,
+.btn-outline-dark:hover.share-button img,
+.btn-outline-dark:focus.share-button img,
+.navbar-dark .share-button {
+    filter: invert(90%) sepia(100%) saturate(0%) hue-rotate(9deg) brightness(103%) contrast(102%);
 }
 
 .icon-button {

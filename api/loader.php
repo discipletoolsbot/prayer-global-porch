@@ -5,3 +5,4 @@ if ( ! defined( 'ABSPATH' ) ) {
 }
 
 require_once 'user-api.php';
+require_once 'ctas-api.php';
