@@ -38,7 +38,8 @@ trait PG_Lap_Trait {
                     'current_url' => $current_url,
                     'stats_url' => $current_url . 'stats',
                     'map_url' => $current_url . 'map',
-                    'is_custom' => ( 'custom' === $this->parts['type'] )
+                    'is_custom' => ( 'custom' === $this->parts['type'] ),
+                    'is_cta_feature_on' => ( new PG_Feature_Flag( 'cta_feature' ) )->is_on(),
                 ]) ?>][0]
             </script>
             <script type="text/javascript" src="<?php echo esc_url( DT_Mapbox_API::$mapbox_gl_js ) ?>"></script>

@@ -232,7 +232,11 @@ jQuery(document).ready(function(){
       update_odometer({ location_count: window.odometer.location_count + 1})
       setTimeout(
         function() {
-          window.location = jsObject.map_url + '?show_cta'
+          if ( jsObject.is_cta_feature_on ) {
+            window.location = jsObject.map_url + '?show_cta'
+          } else {
+            window.location = jsObject.map_url
+          }
         }, celebrationDuration);
     })
     question_yes_next.off('click')
