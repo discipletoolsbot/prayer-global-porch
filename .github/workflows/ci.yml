@@ -74,30 +74,17 @@ jobs:
 
       - name: Get changed files
         id: changed-files
-        uses: tj-actions/changed-files@v14.6
+        uses: tj-actions/changed-files@v35
         with:
           files: |
             **/*.php
 
-      - id: file_changes
-        uses: gdcorp-action-public-forks/file-changes-action@v1.2.4
-        with:
-          prNumber: ${{ env.pull_request.number }}
-          githubToken: ${{ secrets.GITHUB_TOKEN }}
-          output: ' '
-
       - name: List all changed files
         run: |
-          for file in ${{ steps.file_changes.outputs.files_modified }}; do
-            echo "$file was modified"
-          done
-
-      - name: List all added files
-        run: |
-          for file in ${{ steps.file_changes.outputs.files_added }}; do
-            echo "$file was added"
+          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
+            echo "$file was changed"
           done
 
       - name: Run PHPCS on changed files
         run: |
-          ./test/test_phpcs.sh ${{ steps.file_changes.outputs.files_added }} ${{ steps.file_changes.outputs.files_modified }}
+          ./test/test_phpcs.sh ${{ steps.changed-files.outputs.all_changed_files }}
