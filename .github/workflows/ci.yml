@@ -65,6 +65,9 @@ jobs:
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v14.6
+        with:
+          files: |
+            **/*.php
 
       - name: List all changed files
         run: |
