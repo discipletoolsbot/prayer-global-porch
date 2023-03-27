@@ -68,16 +68,22 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
+
+      - name: Echo Pull Request number
+        run: echo ${{ env.pull_request_number }}
+
       - name: Get changed files
         id: changed-files
         uses: tj-actions/changed-files@v14.6
         with:
           files: |
             **/*.php
+
       - id: file_changes
         uses: gdcorp-action-public-forks/file-changes-action@v1.2.4
         with:
           prNumber: ${{ env.pull_request.number }}
+          githubToken: ${{ secrets.GITHUB_TOKEN }}
           output: ' '
 
       - name: List all changed files
@@ -94,4 +100,4 @@ jobs:
 
       - name: Run PHPCS on changed files
         run: |
-          ./test/test_phpcs.sh ${{ steps.changed-files.outputs.all_changed_files }} ${{ steps.file_changes.outputs.files_added }}
+          ./test/test_phpcs.sh ${{ steps.file_changes.outputs.files_added }} ${{ steps.file_changes.outputs.files_modified }}
