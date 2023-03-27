@@ -12,6 +12,8 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
         $map_href = '/newest/map';
     }
 
+    $login_module_feature = new PG_Feature_Flag( 'login_feature' );
+
     ?>
 
     <div class="offcanvas offcanvas-end pg-navmenu" data-bs-backdrop="true" data-bs-scroll="true" id="probootstrap-navbar">
@@ -36,7 +38,6 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
 
                 <a class="nav-link" href="/content_app/about_page">About</a>
 
-                <!-- <a href="/user_app/profile" class="nav-link" id="login-register-link" style="display: none" data-pg-is-logged-out>Login / Register</a> -->
             </div>
             <div class="nav-buttons">
                 <div class="row" style="--bs-gutter-x: 1.5rem">
@@ -56,6 +57,14 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
                     </button>
 
                 </div>
+
+                <?php if ( $login_module_feature->is_on() ) : ?>
+
+                    <a href="/user_app/login" class="icon-button two-rem" id="login-register-link" style="display: none" data-pg-is-logged-out>
+                        <i class="ion-log-in"></i>
+                    </a>
+
+                <?php endif; ?>
 
                 <a href="<?php echo esc_url( '/user_app/logout' )?>" class="icon-button two-rem" id="logout-link" style="display: none" data-pg-is-logged-in>
                     <i class="ion-log-out"></i>
