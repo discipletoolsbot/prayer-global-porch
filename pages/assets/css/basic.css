@@ -626,10 +626,7 @@ button {
 .share-button img {
     width: 100%;
 }
-.filter-white,
-.btn-outline-dark:hover.share-button img,
-.btn-outline-dark:focus.share-button img,
-.navbar-dark .share-button {
+.filter-white {
     filter: invert(90%) sepia(100%) saturate(0%) hue-rotate(9deg) brightness(103%) contrast(102%);
 }
 
