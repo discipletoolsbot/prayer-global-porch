@@ -17,7 +17,7 @@ class PG_CTAs_API {
     } // End instance()
 
     public function __construct() {
-        add_filter( 'dt_allow_rest_access', [ $this, 'authorize_url' ], 10,1);
+        add_filter( 'dt_allow_rest_access', [ $this, 'authorize_url' ],10,1);
         if ( dt_is_rest() ) {
             add_action( 'rest_api_init', [ $this, 'add_endpoints' ] );
         }
