@@ -68,13 +68,25 @@ jobs:
         with:
           files: |
             **/*.php
+      - id: file_changes
+        uses: gdcorp-action-public-forks/file-changes-action@v1.2.4
+        with:
+          githubToken: ${{ env.BOT_USER_TOKEN }}
+          prNumber: ${{ steps.pr.outputs.results }}
+          output: ' '
 
       - name: List all changed files
         run: |
-          for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
-            echo "$file was changed"
+          for file in ${{ steps.file_changes.outputs.files_modified }}; do
+            echo "$file was modified"
+          done
+
+      - name: List all added files
+        run: |
+          for file in ${{ steps.file_changes.outputs.files_added }}; do
+            echo "$file was added"
           done
 
       - name: Run PHPCS on changed files
         run: |
-          ./test/test_phpcs.sh ${{  steps.changed-files.outputs.all_changed_files }}
+          ./test/test_phpcs.sh ${{ steps.changed-files.outputs.all_changed_files }} ${{ steps.file_changes.outputs.files_added }}
