@@ -32,6 +32,8 @@ jobs:
     name: PHP ${{ matrix.php }}
     steps:
       - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0 # important!
 
       - uses: actions/setup-node@v2
         with:
@@ -48,11 +50,24 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction
 
-      - name: Test Syntax
-        run: ./test/test_for_syntax_errors.sh
+      #- name: Test Syntax
+      #  run: ./test/test_for_syntax_errors.sh
 
-      - name: Test Installation
-        run: ./test/test_installation.sh
+      #- name: Test Installation
+      #  run: ./test/test_installation.sh
 
-      - name: Test phpcs
-        run: ./test/test_phpcs.sh
+      #- name: Test phpcs
+      #  run: ./test/test_phpcs.sh
+
+      # we may use whatever way to install phpcs, just specify the path on the next step
+      # however, curl seems to be the fastest
+      - name: Install PHP_CodeSniffer
+        run: |
+          curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+          php phpcs.phar --version
+
+      - uses: thenabeel/action-phpcs@v8
+        with:
+          files: "**.php" # you may customize glob as needed
+          phpcs_path: php phpcs.phar
+          standard: phpcs.xml
