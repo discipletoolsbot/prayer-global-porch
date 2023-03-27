@@ -77,4 +77,4 @@ jobs:
 
       - name: Run PHPCS on changed files
         run: |
-          ./test/test_phpcs ${{  steps.changed-files.outputs.all_changed_files }}
+          ./test/test_phpcs.sh ${{  steps.changed-files.outputs.all_changed_files }}
