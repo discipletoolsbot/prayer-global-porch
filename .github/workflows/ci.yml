@@ -50,27 +50,11 @@ jobs:
       - name: Install dependencies
         run: composer install --no-interaction
 
-      #- name: Test Syntax
-      #  run: ./test/test_for_syntax_errors.sh
+      - name: Test Syntax
+        run: ./test/test_for_syntax_errors.sh
 
-      #- name: Test Installation
-      #  run: ./test/test_installation.sh
-
-      #- name: Test phpcs
-      #  run: ./test/test_phpcs.sh
-
-      # we may use whatever way to install phpcs, just specify the path on the next step
-      # however, curl seems to be the fastest
-
-      - name: Get Pull Request Number
-        id: pr
-        run: echo "pull_request_number=$(gh pr view --json number -q .number || echo "")" >> $GITHUB_ENV
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-
-      - name: Echo Pull Request number
-        run: echo ${{ env.pull_request_number }}
+      - name: Test Installation
+        run: ./test/test_installation.sh
 
       - name: Get changed files
         id: changed-files
