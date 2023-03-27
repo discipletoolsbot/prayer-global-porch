@@ -282,8 +282,9 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 </div>
             </div>
         </section>
-<?php
-}
+
+        <?php
+    }
 
 
     /**
