@@ -74,3 +74,7 @@ jobs:
           for file in ${{ steps.changed-files.outputs.all_changed_files }}; do
             echo "$file was changed"
           done
+
+      - name: Run PHPCS on changed files
+        run: |
+          ./test/test_phpcs ${{  steps.changed-files.outputs.all_changed_files }}

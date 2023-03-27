@@ -96,7 +96,7 @@ class Prayer_Global_Porch {
         $wpdb->location_grid_names = 'location_grid_names';
 
         require_once( 'global-utilities.php' );
-        require_once( 'pages/assets/menu.php' );
+        require_once( 'pages/assets/menu.php');
         require_once( 'pages/pray/stacker-text.php' );
         require_once( 'pages/pray/stacker-positions.php' );
         require_once( 'pages/pray/stacker.php' );
