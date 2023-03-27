@@ -71,8 +71,7 @@ jobs:
       - id: file_changes
         uses: gdcorp-action-public-forks/file-changes-action@v1.2.4
         with:
-          githubToken: ${{ env.BOT_USER_TOKEN }}
-          prNumber: ${{ steps.pr.outputs.results }}
+          prNumber: ${{ github.event.pull_request.number }}
           output: ' '
 
       - name: List all changed files
