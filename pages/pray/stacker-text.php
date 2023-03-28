@@ -2356,7 +2356,7 @@ class PG_Stacker_Text {
 
             [
                 'section_label' => 'Faith',
-                'prayer' => 'Spirit, please defend the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' against self-centered spirituality. Open their eyes to the fields white for harvest around them.',
+                'prayer' => 'Spirit, please defend the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' against self-centered spirituality. Open their eyes to the fields ripe for harvest around them.',
                 'reference' => '',
                 'verse' => '',
             ],
