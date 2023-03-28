@@ -2030,7 +2030,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, please teachers of your Word in '.$stack['location']['name'].' who can speak your gospel boldly and clearly.',
+                'prayer' => 'Father, please send teachers of your Word in '.$stack['location']['name'].' who can speak your gospel boldly and clearly.',
                 'reference' => '',
                 'verse' => '',
             ],
