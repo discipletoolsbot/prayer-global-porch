@@ -11,6 +11,7 @@ jQuery(document).ready(function(){
     const challengeTitle = jQuery('#challenge-title')
     const challengeStartDate = jQuery('#challenge-start-date')
     const challengeStartTime = jQuery('#challenge-start-time')
+    const challengeSingleLap = jQuery('#challenge-single-lap')
     const challengeEndDate = jQuery('#challenge-end-date')
     const challengeEndTime = jQuery('#challenge-end-time')
     const challengeVisibility = jQuery('#challenge-visibility')
@@ -160,6 +161,17 @@ jQuery(document).ready(function(){
             </section>
         </div>`
         jQuery('#pg_content').html(pgContentHTML);
+
+        if ( !data.stats ) {
+            get_user_app('stats')
+                .done((stats) => {
+                    if (!stats || stats.length === 0) {
+                        return
+                    }
+                    jsObject.user.stats = stats
+                    jQuery('.user__avatar').html(LocationBadge(stats.total_locations || 0))
+                })
+        }
 
         get_user_app('activity')
             .then((activity) => {
@@ -428,6 +440,7 @@ jQuery(document).ready(function(){
             const title = challengeTitle.val()
             const startDate = challengeStartDate.val()
             const startTime = challengeStartTime.val()
+            const singleLap = challengeSingleLap.is(':checked')
             const endDate = challengeEndDate.val()
             const endTime = challengeEndTime.val()
             const visibility = challengeVisibility.val()
@@ -437,6 +450,7 @@ jQuery(document).ready(function(){
                 title,
                 visibility,
                 challenge_type: challengeType,
+                single_lap: singleLap,
             }
 
             if ( modalAction === 'edit' ) {
@@ -498,13 +512,14 @@ jQuery(document).ready(function(){
         challengeEndTime.val('')
         challengeEndDate.attr('required', false)
         challengeEndTime.attr('required', false)
+        challengeSingleLap.removeAttr('checked')
         createNewChallengeButton.show()
         editChallengeButton.hide()
         challengeModalAction.val('create')
         challengePostId.val('')
     }
 
-    function setChallengeForm({ visibility, challenge_type, post_title, start_time, end_time, post_id }) {
+    function setChallengeForm({ visibility, challenge_type, post_title, start_time, end_time, post_id, single_lap }) {
         jQuery('input[name="challenge-type"]#' + challenge_type).prop('checked', true)
         jQuery('#createChallengeLabel').data('visibility', visibility)
         challengeModalAction.val('edit')
@@ -525,6 +540,7 @@ jQuery(document).ready(function(){
             challengeEndDate.attr('required', true)
             challengeEndTime.attr('required', true)
         }
+        challengeSingleLap.attr('checked', single_lap)
         createNewChallengeButton.hide()
         editChallengeButton.show()
     }
@@ -605,7 +621,7 @@ jQuery(document).ready(function(){
                     <th></th>
                 </tr>
             </thead>
-`
+        `
 
         let tableBody = ''
         challenges.forEach((challenge) => {
@@ -626,8 +642,7 @@ jQuery(document).ready(function(){
                         </div>
                     </td>
                 </tr>
-`
-        })
+        `})
 
         const html = `
         <table class="table">
@@ -776,7 +791,7 @@ jQuery(document).ready(function(){
                     </div>
                 </div>
             </div>
-`
+        `
     }
 
     function LoadingSpinner(active = true) {
@@ -830,9 +845,10 @@ jQuery(document).ready(function(){
         const dataAttributesHTML = attributes.join(' ')
 
         return `
-        <button id="${id}" class="btn btn-${buttonType} ${classes}" data-bs-toggle="modal" data-bs-target="#${modalId}" ${dataAttributesHTML}>
-            ${text}
-        </button>`
+            <button id="${id}" class="btn btn-${buttonType} ${classes}" data-bs-toggle="modal" data-bs-target="#${modalId}" ${dataAttributesHTML}>
+                ${text}
+            </button>
+        `
     }
 })
 

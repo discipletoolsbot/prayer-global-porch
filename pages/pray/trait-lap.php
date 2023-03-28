@@ -409,7 +409,8 @@ trait PG_Lap_Trait {
          */
         if ( empty( $remaining_global ) ) {
             dt_write_log( __METHOD__ . ' : generated a new prayer lap' );
-            $remaining_global = pg_generate_new_global_prayer_lap();
+            $post_id = $parts['post_id'];
+            $remaining_global = pg_generate_new_global_prayer_lap( $post_id );
         }
 
         /**

@@ -97,6 +97,7 @@ class Prayer_Global_Porch {
 
         require_once( 'global-utilities.php' );
         require_once( 'classes/pg-feature-flag.php' );
+        require_once( 'classes/pg-flags.php' );
         require_once( 'pages/assets/menu.php' );
         require_once( 'pages/pray/stacker-text.php' );
         require_once( 'pages/pray/stacker-positions.php' );

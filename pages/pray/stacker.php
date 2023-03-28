@@ -411,7 +411,6 @@ class PG_Stacker {
                 ORDER BY lgpg.LeastReached DESC
                 LIMIT 20
         ", $grid_record['east_longitude'], $grid_record['west_longitude'], $grid_record['north_latitude'], $grid_record['south_latitude'], $grid_record['admin0_grid_id'] ), ARRAY_A );
-        dt_write_log( $wpdb->last_query );
         if ( empty( $people_groups ) ) {
             $people_groups = $wpdb->get_results($wpdb->prepare( "
                 SELECT DISTINCT lgpg.*, FORMAT(lgpg.population, 0) as population, 'parent' as query_level

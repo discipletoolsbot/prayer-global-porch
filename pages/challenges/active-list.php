@@ -85,6 +85,7 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
                 'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/nope.jpg',
                 'images_url' => pg_grid_image_url(),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
+                'is_rolling_laps_feature_on' => ( new PG_Feature_Flag( PG_Flags::ROLLING_LAPS ) )->is_on(),
             ]) ?>][0]
         </script>
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
@@ -188,14 +189,22 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
          $data = [];
 
         $results = $wpdb->get_results(
-            "
-                SELECT pm.post_id, p.post_title, pm3.meta_value as lap_key, pm4.meta_value as start_time, pm2.meta_value as status
+            "   SELECT
+                    p.post_title,
+                    pm.post_id,
+                    pm2.meta_value as status,
+                    pm3.meta_value as lap_key,
+                    pm4.meta_value as start_time,
+                    pm6.meta_value as lap_number,
+                    pm7.meta_value as single_lap
                 FROM $wpdb->posts p
                 JOIN $wpdb->postmeta pm ON pm.post_id=p.ID AND pm.meta_key = 'type' AND pm.meta_value = 'custom'
                 LEFT JOIN $wpdb->postmeta pm2 ON pm2.post_id=p.ID AND pm2.meta_key = 'status'
                 LEFT JOIN $wpdb->postmeta pm3 ON pm3.post_id=p.ID AND pm3.meta_key = 'prayer_app_custom_magic_key'
                 LEFT JOIN $wpdb->postmeta pm4 ON pm4.post_id=p.ID AND pm4.meta_key = 'start_time'
                 LEFT JOIN $wpdb->postmeta pm5 ON pm5.post_id=p.ID AND pm5.meta_key = 'visibility'
+                LEFT JOIN $wpdb->postmeta pm6 ON pm6.post_id=p.ID AND pm6.meta_key = 'global_lap_number'
+                LEFT JOIN $wpdb->postmeta pm7 ON pm7.post_id=p.ID AND pm7.meta_key = 'single_lap'
                 WHERE p.post_type = 'laps'
                 AND pm5.meta_value = 'public' OR pm5.meta_value IS NULL OR pm5.meta_value = 'none'
                 ORDER BY p.post_title

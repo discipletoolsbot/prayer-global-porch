@@ -101,6 +101,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
         if ( isset( $expected_roles["administrator"] ) ){
             $expected_roles["administrator"]["permissions"]['view_any_'.$this->post_type ] = true;
             $expected_roles["administrator"]["permissions"]['update_any_'.$this->post_type ] = true;
+            $expected_roles["administrator"]["permissions"]['dt_all_admin_'.$this->post_type] = true;
         }
         if ( isset( $expected_roles["dt_admin"] ) ){
             $expected_roles["dt_admin"]["permissions"]['view_any_'.$this->post_type ] = true;
@@ -111,7 +112,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
     }
 
     public function dt_custom_fields_settings( $fields, $post_type ){
-        if ( $post_type === $this->post_type ){
+        if ( $post_type === $this->post_type ) {
 
 
             $fields['type'] = [
@@ -212,7 +213,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 'name'        => __( 'Global Lap Number', 'prayer-global' ),
                 'description' => '',
                 'type'        => 'text',
-                'default'     => '',
+                'default'     => '1',
                 'tile' => 'details',
                 "hidden" => false,
             ];
@@ -264,6 +265,15 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 'select_cannot_be_empty' => true,
                 'font-icon' => 'mdi mdi-arm-flex-outline',
             ];
+            $fields['single_lap'] = [
+                'name' => __( 'Single lap', 'prayer-global' ),
+                'description' => __( 'Is this lap only to run once and then stop', 'prayer-global' ),
+                'type' => 'boolean',
+                'tile' => 'details',
+                'default' => false,
+                'in_create_form' => true,
+                'hidden' => false,
+            ];
 
             $fields['contacts'] = [
                 "name" => __( 'Contacts', 'prayer-global' ),
@@ -276,6 +286,28 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 'icon' => get_template_directory_uri() . "/dt-assets/images/group-type.svg",
                 'create-icon' => get_template_directory_uri() . "/dt-assets/images/add-contact.svg",
                 "show_in_table" => 35
+            ];
+            $fields['parent_lap'] = [
+                "name" => __( 'Parent Lap', 'prayer-global' ),
+                "description" => 'Which lap came before this one',
+                "type" => "connection",
+                "post_type" => $this->post_type,
+                "p2p_direction" => "to",
+                "p2p_key" => "parent-lap_to_child-lap",
+                "tile" => "other",
+                'icon' => get_template_directory_uri() . "/dt-assets/images/group-type.svg",
+                'create-icon' => get_template_directory_uri() . "/dt-assets/images/add-contact.svg",
+            ];
+            $fields['child_lap'] = [
+                "name" => __( 'Child Lap', 'prayer-global' ),
+                "description" => 'Which lap came after this one',
+                "type" => "connection",
+                "post_type" => $this->post_type,
+                "p2p_direction" => "from",
+                "p2p_key" => "parent-lap_to_child-lap",
+                "tile" => "other",
+                'icon' => get_template_directory_uri() . "/dt-assets/images/group-type.svg",
+                'create-icon' => get_template_directory_uri() . "/dt-assets/images/add-contact.svg",
             ];
         }
 
@@ -308,7 +340,6 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
         if ( $post_type === $this->post_type && $section === "other" ) {
             // hide opposite key app
             $post = DT_Posts::get_post( $this->post_type, get_the_ID() );
-                dt_write_log( $post );
             if ( isset( $post['type']['key'] ) && $post['type']['key'] === 'global' ) {
                 ?>
                 <script>
@@ -362,8 +393,10 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 if ( isset( $fields["start_date"] ) ){
                     $fields["start_time"] = $fields["start_date"];
                 }
-                if ( isset( $fields["end_date"] ) ){
-                    $fields["end_time"] = $fields["end_date"];
+                if ( isset( $fields['status'] ) && $fields['status'] !== 'complete' ) {
+                    if ( isset( $fields["end_date"] ) ){
+                        $fields["end_time"] = $fields["end_date"];
+                    }
                 }
             }
         }

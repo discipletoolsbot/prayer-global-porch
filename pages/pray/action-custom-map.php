@@ -130,6 +130,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         $now = time();
         $has_challenge_started = $lap_stats['start_time'] < $now;
         DT_Mapbox_API::geocoder_scripts();
+        $rolling_laps_feature = new PG_Feature_Flag( PG_Flags::ROLLING_LAPS );
         ?>
         <style id="custom-style"></style>
         <div id="map-content">
@@ -148,8 +149,15 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                     <div class="d-flex align-items-center justify-content-between">
                         <div class="d-flex align-items-center me-5">
                             <span class="two-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
-                            <button class="icon-button share-button ms-3" data-toggle="modal" data-target="#exampleModal">
-                                <img src="<?php echo esc_html( plugin_dir_url( __DIR__ ) ) ?>assets/images/share.svg" alt="Share">
+
+                            <?php if ( $rolling_laps_feature->is_on() ) : ?>
+
+                                <span class="two-em ms-3">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?></span>
+
+                            <?php endif; ?>
+
+                            <button class="icon-button share-button two-em ms-3" data-toggle="modal" data-target="#exampleModal">
+                                <i class="ion-android-share-alt"></i>
                             </button>
                         </div>
                         <a class="btn btn-outline-dark py-2" <?php echo esc_attr( $has_challenge_started ) ? '' : "style='display: none'" ?> href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a>
