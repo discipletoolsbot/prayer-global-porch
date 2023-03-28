@@ -12,7 +12,7 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
         $map_href = '/newest/map';
     }
 
-    $login_module_feature = new PG_Feature_Flag( 'login_feature' );
+    $login_module_feature = new PG_Feature_Flag( PG_Flags::LOGIN_FEATURE );
 
     ?>
 

@@ -109,7 +109,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                     'stats_url' => $current_url . 'stats',
                     'map_url' => $current_url . 'map',
                     'is_custom' => ( 'custom' === $this->parts['type'] ),
-                    'is_cta_feature_on' => ( new PG_Feature_Flag( 'cta_feature' ) )->is_on(),
+                    'is_cta_feature_on' => ( new PG_Feature_Flag( PG_Flags::CTA_FEATURE ) )->is_on(),
                 ]) ?>][0]
             </script>
             <script type="text/javascript" src="<?php echo esc_url( DT_Mapbox_API::$mapbox_gl_js ) ?>"></script>
