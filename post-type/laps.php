@@ -80,6 +80,15 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
             ];
         }
 
+        if ( !isset( $expected_roles["prayer_warrior"] ) ){
+            $expected_roles["prayer_warrior"] = [
+
+                "label" => __( 'Prayer Warrior', 'prayer-global' ),
+                "description" => "Interacts with Laps and Feedback",
+                "permissions" => []
+            ];
+        }
+
         // if the user can access contact they also can access this post type
         foreach ( $expected_roles as $role => $role_value ){
             if ( isset( $expected_roles[$role]["permissions"]['access_contacts'] ) && $expected_roles[$role]["permissions"]['access_contacts'] ){
