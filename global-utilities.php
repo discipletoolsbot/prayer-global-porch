@@ -162,7 +162,7 @@ function pg_get_custom_lap_by_post_id( $post_id ) {
             'post_id' => (int) $post_id,
             'key' => $result['prayer_app_custom_magic_key'],
             'start_time' => (int) $result['start_time'],
-            'end_time' => (int) isset( $result['end_time'] ),
+            'end_time' => (int) isset( $result['end_time'] ) ? $result['end_time'] : time(),
             'on_going' => $ongoing,
             'visibility' => isset( $result['visibility'] ) ? $result['visibility']['key'] : 'public',
             'challenge_type' => isset( $result['challenge_type'] ) ? $result['challenge_type']['key'] : 'ongoing',
