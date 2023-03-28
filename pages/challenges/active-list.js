@@ -3,23 +3,17 @@ jQuery(document).ready(function() {
    * API HANDLERS
    */
   window.api_post = (action, data) => {
-    return jQuery.ajax({
-      type: "POST",
-      data: JSON.stringify({action: action, parts: jsObject.parts, data: data}),
-      contentType: "application/json; charset=utf-8",
-      dataType: "json",
-      url: jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type,
-      beforeSend: function (xhr) {
-        xhr.setRequestHeader('X-WP-Nonce', jsObject.nonce)
-      }
+    return window.api_fetch( jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type, {
+      method: "POST",
+      body: JSON.stringify({action: action, parts: jsObject.parts, data: data}),
     })
-      .fail(function (e) {
+      .catch(function (e) {
         console.log(e)
       })
   }
 
   window.api_post( 'get_global_list', {} )
-    .done(function(data) {
+    .then(function(data) {
 
             console.log(data)
 

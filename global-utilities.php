@@ -139,7 +139,7 @@ function pg_get_custom_lap_by_post_id( $post_id ) {
 //        return wp_cache_get( __METHOD__. $post_id );
 //    }
 
-    $result = DT_Posts::get_post( 'laps', $post_id );
+    $result = DT_Posts::get_post( 'laps', $post_id, true, false );
 
     if ( empty( $result ) ) {
         $lap = false;
