@@ -479,7 +479,6 @@ button {
     text-transform: uppercase;
 }
 .btn-outline-dark[data-reverse-color] {
-    text-transform: uppercase;
     outline: none;
     color: #fff;
     border: 1px solid black;
