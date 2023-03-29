@@ -1849,7 +1849,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, help every believers in '.$stack['location']['full_name'].' be prepared to give and answer to everyone who asks them fro the reason for their hope.',
+                'prayer' => 'Spirit, help every believers in '.$stack['location']['full_name'].' be prepared to give an answer to everyone who asks them for the reason for their hope.',
                 'reference' => '1 Peter 3:15',
                 'verse' => 'But in your hearts revere Christ as Lord. Always be prepared to give an answer to everyone who asks you to give the reason for the hope that you have. But do this with gentleness and respect,',
             ],
