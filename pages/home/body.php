@@ -66,7 +66,7 @@
         </div>
         <div class="row">
             <div class="col-md text-center">
-                <a href="/newest/map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl" data-reverse-color>Current Map</a>
+                <a href="/newest/map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Current Map</a>
             </div>
         </div>
         <div class="row">
@@ -110,8 +110,8 @@
         </div>
         <div class="row">
             <div class="col-md text-center">
-                <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl" data-reverse-color>Race Map</a>
-                <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-outline-dark btn-xl" data-reverse-color>Race List</a>
+                <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Race Map</a>
+                <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Race List</a>
             </div>
         </div>
     </div>

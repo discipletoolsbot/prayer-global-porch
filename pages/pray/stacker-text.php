@@ -1849,7 +1849,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, help every believers in '.$stack['location']['full_name'].' be prepared to give and answer to everyone who asks them fro the reason for their hope.',
+                'prayer' => 'Spirit, help every believers in '.$stack['location']['full_name'].' be prepared to give an answer to everyone who asks them for the reason for their hope.',
                 'reference' => '1 Peter 3:15',
                 'verse' => 'But in your hearts revere Christ as Lord. Always be prepared to give an answer to everyone who asks you to give the reason for the hope that you have. But do this with gentleness and respect,',
             ],
@@ -2030,7 +2030,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, please teachers of your Word in '.$stack['location']['name'].' who can speak your gospel boldly and clearly.',
+                'prayer' => 'Father, please send teachers of your Word in '.$stack['location']['name'].' who can speak your gospel boldly and clearly.',
                 'reference' => '',
                 'verse' => '',
             ],
@@ -2356,7 +2356,7 @@ class PG_Stacker_Text {
 
             [
                 'section_label' => 'Faith',
-                'prayer' => 'Spirit, please defend the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' against self-centered spirituality. Open their eyes to the fields white for harvest around them.',
+                'prayer' => 'Spirit, please defend the '.$stack['location']['believers'].' believers in '.$stack['location']['name'].' against self-centered spirituality. Open their eyes to the fields ripe for harvest around them.',
                 'reference' => '',
                 'verse' => '',
             ],
