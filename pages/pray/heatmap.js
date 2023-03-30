@@ -708,11 +708,12 @@ jQuery(document).ready(function($){
     jQuery('.completed').html( jsObject.stats.completed )
     jQuery('.completed_percent').html( jsObject.stats.completed_percent )
     jQuery('.remaining').html( jsObject.stats.remaining )
-    jQuery('.remaining_percent').html( jsObject.stats.remaining_percent )
     jQuery('.warriors').html( jsObject.stats.participants )
     jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
-    // jQuery('.minutes_prayed').html( jsObject.stats.minutes_prayed )
     jQuery('.start_time').html( jsObject.stats.start_time_formatted )
+
+    update_stats()
+
     if ( jsObject.stats.remaining_int < 1 ) {
       jQuery('.on-going').show()
       jQuery('.locations_per_hour').html( jsObject.stats.locations_per_hour )

@@ -312,8 +312,8 @@ trait PG_Lap_Trait {
         $new_value = (int) $report['value'] + 1;
         /* update the report */
         Disciple_Tools_Reports::update( [
-            "id" => $data['report_id'],
-            "value" => $new_value,
+            'id' => $data['report_id'],
+            'value' => $new_value,
         ] );
 
         return $new_value;
@@ -327,7 +327,7 @@ trait PG_Lap_Trait {
     public function save_correction( $parts, $data ) {
 
         if ( !isset( $parts['post_id'], $parts['root'], $parts['type'], $data['grid_id'] ) ) {
-            return new WP_Error( __METHOD__, "Missing parameters", [ 'status' => 400 ] );
+            return new WP_Error( __METHOD__, 'Missing parameters', [ 'status' => 400 ] );
         }
 
         if ( empty( $data['section_label'] ) ) {
@@ -514,7 +514,7 @@ trait PG_Lap_Trait {
         // build different ranges of arrays
         foreach ( $raw_list as $item ) {
             $list['all'][] = $item['grid_id'];
-            if ( 'global' === $item['type']) {
+            if ( 'global' === $item['type'] ) {
                 $list['minus_custom'][] = $item['grid_id'];
             }
         }
