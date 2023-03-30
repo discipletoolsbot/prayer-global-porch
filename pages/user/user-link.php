@@ -116,20 +116,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 </div>
             </div>
 
-            <div class="container">
-                <div class="row justify-content-md-center text-center">
-                    <div class="col-lg-7">
-                        <p>Are you enjoying this app?</p>
-                        <p>Would you like to partner with us in helping others pray for the world?</p>
-                        <p>Consider giving to help us increase prayer for the world.</p>
-                        <a class="btn btn-outline-dark" data-reverse-color href="/content_app/give_page">Give</a>
-                        <br>
-                        <a class="btn btn-outline-dark mt-3" href="/user_app/logout">Logout</a><br>
-                    </div>
-                </div>
-            </div>
-
-            <div class="offcanvas offcanvas-end" id="user-profile-details" data-bs-backdrop="true" data-bs-scroll="false">
+                                <div class="offcanvas offcanvas-end" id="user-profile-details" data-bs-backdrop="true" data-bs-scroll="false">
                 <div class="offcanvas__header">
                     <button type="button" data-bs-dismiss="offcanvas" style="text-align: start">
                         <i class="ion-chevron-right three-em"></i>

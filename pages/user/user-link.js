@@ -159,6 +159,16 @@ jQuery(document).ready(function(){
                     </button>
                 </div>
             </section>
+            <section>
+                <p>Are you enjoying this app?</p>
+                <p>Would you like to partner with us in helping others pray for the world?</p>
+                <p>Consider giving to help us increase prayer for the world.</p>
+                <a class="btn btn-outline-dark" data-reverse-color href="/content_app/give_page">Give</a>
+                <br>
+                <a class="btn btn-outline-dark mt-3" href="/user_app/logout">Logout</a><br>
+            </section>
+
+
         </div>`
         jQuery('#pg_content').html(pgContentHTML);
 
