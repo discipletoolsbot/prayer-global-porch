@@ -753,6 +753,14 @@ button {
     font-weight: bold;
 }
 
+/* Remove striping when table is running responsively */
+@media ( max-width: 1024px ) {
+    table.dataTable.stripe>tbody>tr.even>*,
+    table.dataTable.display>tbody>tr.even>* {
+        box-shadow: inset 0 0 0 9999px rgba(0, 0, 0, 0.023);
+    }
+}
+
 /* User Profile styles */
 
 #user-profile-details {
