@@ -23,7 +23,7 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
         </div>
         <div class="offcanvas-body">
             <div class="navbar-nav justify-content-end" id="nav-links">
-                <a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="<?php esc_url( $start_praying_href ) ?>">Start Praying</a>
+                <a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="<?php echo esc_url( $start_praying_href ) ?>">Start Praying</a>
 
                 <a class="nav-link" href="<?php echo ( $url !== '' ) ? esc_url( trailingslashit( site_url() ) ) : '' ?>#section-lap">Status</a>
                 <a class="nav-link" href="<?php echo esc_url( $map_href ) ?>">Map</a>
