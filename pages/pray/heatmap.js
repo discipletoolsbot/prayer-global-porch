@@ -299,7 +299,7 @@ jQuery(document).ready(function($){
       minZoom: 0,
       maxZoom: 12,
       zoom: 2,
-      maxBounds: [ [-170, -75], [180, 85] ]
+      maxBounds: [ [-170, -75], [180, 85] ],
     }
     if ( isMobile ) {
       options = {
@@ -308,7 +308,7 @@ jQuery(document).ready(function($){
         center: [-90, 30],
         minZoom: 0,
         maxZoom: 12,
-        zoom: 1
+        zoom: 1,
       }
     }
 
@@ -485,6 +485,7 @@ jQuery(document).ready(function($){
         )
       })
 
+      console.debug('adding source participants')
       map.addSource('participants', {
         'type': 'geojson',
         'data': {
@@ -498,6 +499,7 @@ jQuery(document).ready(function($){
 
       Promise.all(
         allImages.map(({src, id}) => new Promise((resolve) => {
+          console.debug('loading image', src, id)
           map.loadImage(
             src,
             (error, image) => {
@@ -508,6 +510,7 @@ jQuery(document).ready(function($){
         }))
       )
       .then(() => {
+          console.debug('adding participants layer')
           map.addLayer({
             'id': participantsClusterLayerId,
             'type': 'circle',
@@ -537,6 +540,7 @@ jQuery(document).ready(function($){
               ]
             },
           })
+          console.debug('adding participants cluster count')
           map.addLayer({
             id: 'participants-cluster-count',
             type: 'symbol',
@@ -549,6 +553,7 @@ jQuery(document).ready(function($){
               'text-size': 12
             }
           });
+          console.debug('adding participants cluster points')
           map.addLayer({
             'id': participantsLayerId,
             'type': 'symbol',
@@ -591,15 +596,18 @@ jQuery(document).ready(function($){
         "type": "FeatureCollection",
         "features": features
       }
+      console.debug('adding user locations source', geojson)
       map.addSource('user_locations', {
         'type': 'geojson',
         'data': geojson
       });
+      console.debug('adding prayed for place tick image')
       map.loadImage(
         jsObject.image_folder + 'black-check-50.png',
         (error, image) => {
           if (error) throw error;
           map.addImage('custom-marker-user', image);
+          console.debug('adding user location layer')
           map.addLayer({
             'id': userLocationsLayerId,
             'type': 'symbol',
@@ -622,6 +630,8 @@ jQuery(document).ready(function($){
     })
 
     map.on('idle', () => {
+      console.debug('adding toggle for map layers', map, participantsLayerId, userLocationsLayerId)
+
       if (!map.getLayer(participantsLayerId) || !map.getLayer(userLocationsLayerId)) {
         return
       }
@@ -1132,6 +1142,7 @@ jQuery(document).ready(function($){
       })
         .done(function (geojson) {
           /* load prayer grid layer */
+          console.debug('flat_states geojson loaded', file, geojson)
           jQuery.each(geojson.features, function (i, v) {
             if (typeof jsObject.grid_data.data[v.id] !== 'undefined') {
               geojson.features[i].properties.value = jsObject.grid_data.data[v.id]
