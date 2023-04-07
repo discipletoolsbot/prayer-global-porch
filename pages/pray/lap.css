@@ -220,6 +220,9 @@ section {
 .one-em {
     font-size: 1.5em;
 }
+.half-em {
+    font-size: 1em;
+}
 @media (max-width: 768px) {
     .six-em {
         font-size: 3em ;
@@ -233,6 +236,9 @@ section {
     }
     .one-em {
         font-size: 1em ;
+    }
+    .half-em {
+        font-size: 0.7em;
     }
 }
 nav {

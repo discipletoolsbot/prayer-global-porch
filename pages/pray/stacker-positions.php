@@ -389,6 +389,7 @@ class PG_Stacker_Positions {
                     'image_url' => pg_jp_image( 'pid3', $stack['least_reached']['PeopleID3'] ), // ion icons from /pages/fonts/ionicons/
                     'section_summary' => $text['section_summary'],
                     'prayer' => $text['prayer'],
+                    'diaspora_label' => $stack['least_reached']['diaspora_label'],
                 ]
             ];
         }

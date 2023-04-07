@@ -1111,8 +1111,9 @@ jQuery(document).ready(function(){
       `<div class="container block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
-             <p class="mt-3 mb-3 font-weight-bold two-em">${data.focus_label}</p>
+            <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+            <p class="mt-3 mb-0 font-weight-bold two-em">${data.focus_label}</p>
+            ${data.diaspora_label !== '' ? `<p class="half-em mb-3 font-weight-normal">(${data.diaspora_label})</p>` : ''}
             ${image}
           </div>
       </div>
