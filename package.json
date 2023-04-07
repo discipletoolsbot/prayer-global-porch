@@ -1,12 +1,14 @@
 {
   "name": "prayer-global-porch",
-  "version": "1.8",
+  "version": "1.8.3",
   "description": "Prayer Global Porch",
   "main": "prayer-global-porch.php",
   "directories": {
     "test": "test"
   },
   "scripts": {
+    "release": "./release.sh",
+    "postrelease": "git push --tags origin master",
     "test": "npx jest -c ./jest.config.js",
     "test:update": "npx jest -c ./jest.config.js -u"
   },

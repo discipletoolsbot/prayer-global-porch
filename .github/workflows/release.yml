@@ -20,16 +20,6 @@ jobs:
       #   run: composer run-script test
       # cp -r prayer-global-porch.php includes languages spinner.svg version-control.json LICENSE SECURITY.md prayer-global-porch/
       # Below borrowed from https://github.com/actions/upload-release-asset
-      #
-      - name: Update package.json
-        run: |
-          sed -i 's/"version": ".*"/"version": "${{ github.ref }}"/' package.json
-
-      - name: Update version-control.json
-        run: |
-          sed -i 's/"version": ".*"/"version": "${{ github.ref }}"/' version-control.json
-          date=$(git log --tags --simplify-by-decoration --pretty="format:%ci %d" | grep -P '${{ github.ref }}[^.]' | awk '{ print $1, $2 }')
-          sed -i "s/\"last_updated\": \".*\"/\"last_updated\": \"$date\"/" version-control.json
 
       - name: Build project
         run: |
