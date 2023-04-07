@@ -107,9 +107,7 @@ class PG_Custom_Prayer_App_Completed extends PG_Custom_Prayer_App {
                     <div class="col-md-6 justify-content-end">
                         <h2 class="heading mb-3">Prayer</h2>
                         <div class="sub-heading ps-4">
-                            <p class="mb-0"><?php echo esc_attr( $lap_stats['minutes_prayed'] ) ?> Minutes of Prayer</p>
                             <p class="mb-0"><?php echo esc_attr( $lap_stats['completed_percent'] ) ?>% of the World Covered in Prayer</p>
-
                         </div>
                     </div>
                     <div class="col-md-6 justify-content-end">
