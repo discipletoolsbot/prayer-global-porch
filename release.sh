@@ -16,7 +16,7 @@ sed -i "s/\"version\": \".*\"/\"version\": \"${version}\"/" version-control.json
 sed -i "s/\"last_updated\": \".*\"/\"last_updated\": \"$date\"/" version-control.json
 
 echo "Updating prayer-global-porch.php to version ${version}"
-sed -i "s/Version:.*/Version ${version}/" prayer-global-porch.php
+sed -i "s/Version:.*/Version: ${version}/" prayer-global-porch.php
 
 echo 'Pushing new tag to master'
 git add .
