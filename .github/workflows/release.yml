@@ -20,10 +20,21 @@ jobs:
       #   run: composer run-script test
       # cp -r prayer-global-porch.php includes languages spinner.svg version-control.json LICENSE SECURITY.md prayer-global-porch/
       # Below borrowed from https://github.com/actions/upload-release-asset
+      #
+      - name: Update package.json
+        run: |
+          sed -i 's/"version": ".*"/"version": "${{ github.ref }}"/' package.json
+
+      - name: Update version-control.json
+        run: |
+          sed -i 's/"version": ".*"/"version": "${{ github.ref }}"/' version-control.json
+          date=$(git log --tags --simplify-by-decoration --pretty="format:%ci %d" | grep -P '${{ github.ref }}[^.]' | awk '{ print $1, $2 }')
+          sed -i "s/\"last_updated\": \".*\"/\"last_updated\": \"$date\"/" version-control.json
+
       - name: Build project
         run: |
           mkdir prayer-global-porch
-          cp -r prayer-global-porch.php charts pages post-type redirects support version-control.json LICENSE SECURITY.md prayer-global-porch/
+          cp -r prayer-global-porch.php api charts classes pages post-type redirects support version-control.json LICENSE SECURITY.md prayer-global-porch/
           zip -r prayer-global-porch.zip prayer-global-porch
       - name: Create Release
         id: create_release
@@ -45,3 +56,9 @@ jobs:
           asset_path: ./prayer-global-porch.zip
           asset_name: prayer-global-porch.zip
           asset_content_type: application/zip
+
+      - uses: EndBug/add-and-commit@v9
+        with:
+          default_author: github_actions
+          message: "chore: Release v${{ github.ref }}"
+

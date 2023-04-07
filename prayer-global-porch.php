@@ -95,7 +95,7 @@ class Prayer_Global_Porch {
         $wpdb->location_grid_people_groups = 'location_grid_people_groups';
         $wpdb->location_grid_names = 'location_grid_names';
 
-        require_once( 'global-utilities.php' );
+        require_once( 'utilities/global-utilities.php' );
         require_once( 'classes/pg-feature-flag.php' );
         require_once( 'classes/pg-flags.php' );
         require_once( 'pages/assets/menu.php' );
