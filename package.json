@@ -1,6 +1,6 @@
 {
   "name": "prayer-global-porch",
-  "version": "1.8.3",
+  "version": "1.8.4",
   "description": "Prayer Global Porch",
   "main": "prayer-global-porch.php",
   "directories": {
@@ -8,7 +8,7 @@
   },
   "scripts": {
     "release": "./release.sh",
-    "postrelease": "git push --tags origin master",
+    "postrelease": "echo 'Pushing new tag to master' && git add . && git commit -m \"chore: Release ${PG_VERSION}\" && git tag ${PG_VERSION} && git push --tags origin master",
     "test": "npx jest -c ./jest.config.js",
     "test:update": "npx jest -c ./jest.config.js -u"
   },
