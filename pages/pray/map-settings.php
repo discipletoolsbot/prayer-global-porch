@@ -28,4 +28,18 @@
             </div>
         </div>
     </div>
+
+    <?php $is_dark_map_on = ( new PG_Feature_Flag( PG_Flags::DARK_MAP_FEATURE ) )->is_on(); ?>
+    <?php if ( $is_dark_map_on ) : ?>
+
+        <input type="text" class="no-map-colour mt-5" placeholder="Red style">
+        <input type="text" class="yes-map-colour" placeholder="Green style">
+        <input type="text" class="line-colour" placeholder="Line colour">
+        <input type="text" class="fill-opacity" placeholder="Fill opacity e.g. 0.8">
+        <button class="apply-new-map-styles btn btn-dark">
+            Apply Styles
+        </button>
+
+    <?php endif; ?>
+
 </div>

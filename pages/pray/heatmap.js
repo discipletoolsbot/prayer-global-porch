@@ -312,6 +312,10 @@ jQuery(document).ready(function($){
       }
     }
 
+    if (jsObject.is_dark_map_on) {
+      options.style = 'mapbox://styles/discipletools/clgnj6vkv00e801pj9xnw49i6'
+    }
+
     mapboxgl.accessToken = jsObject.map_key;
     map = new mapboxgl.Map(options);
     map.dragRotate.disable();
@@ -379,6 +383,10 @@ jQuery(document).ready(function($){
     window.lineColor = 'white'
     if ( jsObject.map_type === 'heatmap' ) {
       window.lineColor = 'black'
+    }
+
+    if ( jsObject.is_dark_map_on ) {
+      window.lineColor = '#6986B2'
     }
 
     jQuery.each(asset_list, function(i,file){
@@ -701,6 +709,37 @@ jQuery(document).ready(function($){
         }
 
         map.setStyle(style)
+      }
+
+      const applyStylesButton = document.querySelector('.apply-new-map-styles')
+      applyStylesButton.onclick = function(e) {
+        e.preventDefault()
+        e.stopPropagation()
+
+        const style = map.getStyle()
+
+        const yesStyle = $('.yes-map-colour').val() || 'green'
+        const noStyle = $('.no-map-colour').val() || 'red'
+        const lineColour = $('.line-colour').val() || 'white'
+        const fillOpacity = $('.fill-opacity').val() || '0.75'
+
+        console.log(style, yesStyle, noStyle)
+        const stops = [
+          [0, noStyle],
+          [1, yesStyle],
+        ]
+
+        for (let i = 0; i < 10; i++) {
+          const layerId = style.layers.findIndex(({id}) => id === `${i}fills_heat`)
+          const lineLayerId = style.layers.findIndex(({id}) => id === `${i}line`)
+
+          style.layers[layerId].paint['fill-color'].stops = stops
+          style.layers[layerId].paint['fill-opacity'] = Number(fillOpacity)
+          style.layers[lineLayerId].paint['line-color'] = lineColour
+        }
+
+        map.setStyle(style)
+
       }
     })
 
@@ -1034,13 +1073,24 @@ jQuery(document).ready(function($){
       'fill-outline-color': 'black'
     }
 
-    const binaryFill = {
+    let binaryFill = {
       'fill-color': {
         property: 'value',
         stops: [[0, red], [1, green]]
       },
       'fill-opacity': 0.75,
       'fill-outline-color': 'black'
+    }
+
+    if ( jsObject.is_dark_map_on ) {
+      binaryFill = {
+        'fill-color': {
+          property: 'value',
+          stops: [[0, '#11224E'], [1, '#fff']]
+        },
+        'fill-opacity': 1,
+        'fill-outline-color': 'black'
+      }
     }
 
     const fillColorDictionary = {
