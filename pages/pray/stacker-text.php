@@ -267,7 +267,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => 'Person of Peace',
-                'prayer' => 'Jesus, like with the centurion who came to you for his sick servant, please call into you house those who have great faith but are not yet yours in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'] . '.',
+                'prayer' => 'Jesus, like with the centurion who came to you for his sick servant, please call into your house those who have great faith but are not yet yours in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'] . '.',
                 'reference' => 'Luke 7:1–10',
                 'verse' => 'When Jesus heard these things, he marveled at (the centurion), and turning to the crowd that followed him, said, “I tell you, not even in Israel have I found such faith.” And when those who had been sent returned to the house, they found the servant well.',
             ],
@@ -339,7 +339,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Jesus, your are the great high priest, please make the '.$stack['location']['believers'].' believers in '.$stack['location']['full_name'].' a worthy priesthood under you.',
+                'prayer' => 'Jesus, you are the great high priest, please make the '.$stack['location']['believers'].' believers in '.$stack['location']['full_name'].' a worthy priesthood under you.',
                 'reference' => 'Hebrews 4:14-16',
                 'verse' => 'Since then we have a great high priest who has passed through the heavens, Jesus, the Son of God, let us hold fast our confession.',
             ],
@@ -586,7 +586,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, your word can be a lamp to the feet of the '.$stack['location']['christian_adherents'].' people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' who claim to know you, if they open it an read it today.',
+                'prayer' => 'Father, your word can be a lamp to the feet of the '.$stack['location']['christian_adherents'].' people in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].' who claim to know you, if they open it and read it today.',
                 'reference' => 'Psalm 119:105',
                 'verse' => 'your word is a lamp to my feet and a light to my path.',
             ],
@@ -704,7 +704,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, please help good, online teachers get the gospel on Youtube and into '.$stack['location']['admin_level_name'].' of '. $stack['location']['admin_level_name'].'.',
+                'prayer' => 'Father, please help good, online teachers get the gospel on Youtube and into '.$stack['location']['admin_level_name'].' of '. $stack['location']['name'].'.',
                 'reference' => 'Matthew 24:14',
                 'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
             ],
@@ -818,7 +818,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, let the threatened of '.$stack['location']['full_name'].' know that is better to trust in you than to trust in humans.',
+                'prayer' => 'Father, let the threatened of '.$stack['location']['full_name'].' know that it is better to trust in you than to trust in humans.',
                 'reference' => 'Psalm 118:8',
                 'verse' => 'It is better to take refuge in the Lord than to trust in humans.',
             ],
@@ -1046,7 +1046,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, you desire to blot out the sins of the people of '.$stack['location']['full_name'].'. you said, if they turn to you, you will dissolve their sins like mist.',
+                'prayer' => 'Father, you desire to blot out the sins of the people of '.$stack['location']['full_name'].'. You said, if they turn to you, you will dissolve their sins like mist.',
                 'reference' => 'Isaiah 44:22',
                 'verse' => 'I have blotted out, as a thick cloud, your transgressions, and, as a cloud, your sins. Return to me, for I have redeemed you.',
             ],
@@ -1964,7 +1964,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Lord, please provide elders whose heart is completely yours in every town in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'prayer' => 'Lord, please provide elders whose hearts are completely yours in every town in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
                 'reference' => 'Titus 1:5',
                 'verse' => 'The reason I left you in Crete was that you might put in order what was left unfinished and appoint elders in every town, as I directed you.',
             ],
