@@ -458,7 +458,7 @@ jQuery(document).ready(function($){
 
     }) /* for each loop */
 
-    const images = [
+    let images = [
       { src: jsObject.image_folder + 'avatar-d1.png', id: 'avatar1' },
       { src: jsObject.image_folder + 'avatar-d2.png', id: 'avatar2' },
       { src: jsObject.image_folder + 'avatar-d3.png', id: 'avatar3' },
@@ -470,6 +470,13 @@ jQuery(document).ready(function($){
       { src: jsObject.image_folder + 'avatar-d9.png', id: 'avatar9' },
       { src: jsObject.image_folder + 'avatar-d10.png', id: 'avatar0' },
     ]
+
+    if ( jsObject.is_dark_map_on ) {
+      images = [
+        { src: jsObject.image_folder + 'l-orange-shadow32.png', id: 'avatar1' },
+        { src: jsObject.image_folder + 'd-orange-shadow32.png', id: 'avatar2' },
+      ]
+    }
 
     const allImages = images
 
@@ -516,6 +523,28 @@ jQuery(document).ready(function($){
         }))
       )
       .then(() => {
+
+          let circleColor = [
+                'step',
+                ['get', 'point_count'],
+                '#51bbd6',
+                100,
+                '#f1f075',
+                750,
+                '#f28cb1'
+              ]
+
+          if ( jsObject.is_dark_map_on ) {
+            circleColor = [
+              'step',
+              ['get', 'point_count'],
+              '#F48224',
+              100,
+              '#FAAF1B',
+              750,
+              '#fcc639'
+            ]
+          }
           map.addLayer({
             'id': participantsClusterLayerId,
             'type': 'circle',
@@ -525,15 +554,7 @@ jQuery(document).ready(function($){
               'visibility': mapSettings.toggle_participants ? 'visible' : 'none',
             },
             paint: {
-              'circle-color': [
-                'step',
-                ['get', 'point_count'],
-                '#51bbd6',
-                100,
-                '#f1f075',
-                750,
-                '#f28cb1'
-              ],
+              'circle-color': circleColor,
               'circle-radius': [
                 'step',
                 ['get', 'point_count'],
@@ -569,8 +590,8 @@ jQuery(document).ready(function($){
                 'interpolate',
                 ['linear', 1],
                 ['zoom'],
-                1, 0.15,
-                18, 1
+                1, 1,
+                18, 2
               ],
               'icon-padding': 0,
               "icon-allow-overlap": true,
@@ -603,8 +624,13 @@ jQuery(document).ready(function($){
         'type': 'geojson',
         'data': geojson
       });
+      let tickImage = jsObject.image_folder + 'black-check-50.png'
+
+      if ( jsObject.is_dark_map_on ) {
+        tickImage = jsObject.image_folder + 'recent-prayers-lightblue32.png'
+      }
       map.loadImage(
-        jsObject.image_folder + 'black-check-50.png',
+        tickImage,
         (error, image) => {
           if (error) throw error;
           map.addImage('custom-marker-user', image);
@@ -615,7 +641,7 @@ jQuery(document).ready(function($){
             'layout': {
               'visibility': mapSettings.toggle_user_locations ? 'visible' : 'none',
               'icon-image': 'custom-marker-user',
-              "icon-size": .5,
+              "icon-size": 1,
               'icon-padding': 0,
               "icon-allow-overlap": true,
               'text-font': [
