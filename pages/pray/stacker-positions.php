@@ -197,7 +197,7 @@ class PG_Stacker_Positions {
                         'group' => 'christian_adherents',
                         'type' => 'births',
                         'size' => ( $stack['location']['births_christian_adherents_last_hour'] > 400 ) ? 2 : 3,
-                        'section_summary' => 'On average, ' . $stack['location']['births_christian_adherents_last_hour'] . ' babies will be born in the next hour to families who might now about God culturally, but likely have no relationship with Jesus in ' . $stack['location']['full_name'] . '.',
+                        'section_summary' => 'On average, ' . $stack['location']['births_christian_adherents_last_hour'] . ' babies will be born in the next hour to families who might know about God culturally, but likely have no relationship with Jesus in ' . $stack['location']['full_name'] . '.',
                         'prayer' => $name . ', make yourself real to these new families.'
                     ]
                 ];
@@ -211,7 +211,7 @@ class PG_Stacker_Positions {
                         'group' => 'christian_adherents',
                         'type' => 'births',
                         'size' => ( $stack['location']['births_christian_adherents_last_100'] > 400 ) ? 2 : 3,
-                        'section_summary' => 'On average, ' . $stack['location']['births_christian_adherents_last_100'] . ' babies will be born in the next 100 hours to families who might now about God culturally, but likely have no relationship with Jesus in ' . $stack['location']['full_name'] . '.',
+                        'section_summary' => 'On average, ' . $stack['location']['births_christian_adherents_last_100'] . ' babies will be born in the next 100 hours to families who might know about God culturally, but likely have no relationship with Jesus in ' . $stack['location']['full_name'] . '.',
                         'prayer' => $name . ', reveal yourself to these new families.'
                     ]
                 ];
@@ -225,7 +225,7 @@ class PG_Stacker_Positions {
                         'group' => 'christian_adherents',
                         'type' => 'births',
                         'size' => ( $stack['location']['births_christian_adherents_last_week'] > 400 ) ? 2 : 3,
-                        'section_summary' => 'On average, ' . $stack['location']['births_christian_adherents_last_week'] . ' babies will be born in the next week to families who might now about God culturally, but likely have no relationship with Jesus in ' . $stack['location']['full_name'] . '.',
+                        'section_summary' => 'On average, ' . $stack['location']['births_christian_adherents_last_week'] . ' babies will be born in the next week to families who might know about God culturally, but likely have no relationship with Jesus in ' . $stack['location']['full_name'] . '.',
                         'prayer' => $name . ', reveal yourself to these new families.'
                     ]
                 ];
@@ -239,7 +239,7 @@ class PG_Stacker_Positions {
                         'group' => 'christian_adherents',
                         'type' => 'births',
                         'size' => ( $stack['location']['births_christian_adherents_last_month'] > 400 ) ? 2 : 3,
-                        'section_summary' => 'On average, ' . $stack['location']['births_christian_adherents_last_month'] . ' babies will be born in the next month to families who might now about God culturally, but likely have no relationship with Jesus in ' . $stack['location']['full_name'] . '.',
+                        'section_summary' => 'On average, ' . $stack['location']['births_christian_adherents_last_month'] . ' babies will be born in the next month to families who might know about God culturally, but likely have no relationship with Jesus in ' . $stack['location']['full_name'] . '.',
                         'prayer' => $name . ', reveal yourself to these new families.'
                     ]
                 ];
