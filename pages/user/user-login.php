@@ -126,7 +126,7 @@ class PG_User_Login_Registration extends DT_Magic_Url_Base {
             <div class="container">
                 <div class="row justify-content-md-center text-center">
                     <div class="col-lg-7" id="pg_content">
-                        <h2 class="header-border-top">Login</h2>
+                        <h2 class="header-border-top"><?php echo esc_html__( 'Login', 'prayer-global-porch' ) ?></h2>
 
                         <div id="login-ui" style="display: none;">
                             <?php echo do_shortcode( '[dt_firebase_login_ui]' ) ?>
