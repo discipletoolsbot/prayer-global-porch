@@ -40,6 +40,7 @@ class PG_User_API {
         $namespace = $this->root . '/v1/' . $this->type . '/';
         DT_Route::post( $namespace, 'ip_location', [ $this, 'get_ip_location' ] );
         DT_Route::post( $namespace, 'details', [ $this, 'get_user' ] );
+        DT_Route::post( $namespace, 'stats', [ $this, 'get_user_stats' ] );
     }
 
     public function authorize_url( $authorized ){
