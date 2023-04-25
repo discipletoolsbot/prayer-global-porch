@@ -533,6 +533,10 @@ jQuery(document).ready(function($){
                 750,
                 '#f28cb1'
               ]
+          let iconSizes = [
+            1, 0.15,
+            18, 1
+          ]
 
           if ( jsObject.is_dark_map_on ) {
             circleColor = [
@@ -543,6 +547,10 @@ jQuery(document).ready(function($){
               '#FAAF1B',
               750,
               '#fcc639'
+            ]
+            iconSizes = [
+              1, 1,
+              18, 2
             ]
           }
           map.addLayer({
@@ -590,8 +598,7 @@ jQuery(document).ready(function($){
                 'interpolate',
                 ['linear', 1],
                 ['zoom'],
-                1, 1,
-                18, 2
+                ...iconSizes,
               ],
               'icon-padding': 0,
               "icon-allow-overlap": true,
@@ -625,9 +632,10 @@ jQuery(document).ready(function($){
         'data': geojson
       });
       let tickImage = jsObject.image_folder + 'black-check-50.png'
-
+      let iconSize = 0.5
       if ( jsObject.is_dark_map_on ) {
         tickImage = jsObject.image_folder + 'recent-prayers-lightblue32.png'
+        iconSize = 1
       }
       map.loadImage(
         tickImage,
@@ -641,7 +649,7 @@ jQuery(document).ready(function($){
             'layout': {
               'visibility': mapSettings.toggle_user_locations ? 'visible' : 'none',
               'icon-image': 'custom-marker-user',
-              "icon-size": 1,
+              "icon-size": iconSize,
               'icon-padding': 0,
               "icon-allow-overlap": true,
               'text-font': [
