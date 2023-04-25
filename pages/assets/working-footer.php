@@ -3,28 +3,28 @@
         <div class="row" >
             <div class="col-md-3">
                 <p class="small">
-                    Made with <a href="/user_app/login">&#10084;&#65039;</a> by <a href="https://gospelambition.org" style="color:black;">Gospel Ambition</a>.<br>
-                    Powered by <a href="https://disciple.tools" style="color:black;">Disciple.Tools</a>.<br>
-                    Part of the <a href="https://pray4movement.org" style="color:black;">Pray4Movement network</a>.
+                    <?php echo wp_kses( sprintf( _x( 'Made with %1$s by %2$s.', 'prayer-global' ), '<a href="/user_app/login">&#10084;&#65039;</a>', '<a href="https://gospelambition.org" style="color:black;">Gospel Ambition</a>' ), 'post' ) ?><br>
+                    <?php echo wp_kses( sprintf( _x( 'Powered by %s.', 'Powered by Disciple.Tools.', 'prayer-global' ), '<a href="https://disciple.tools" style="color:black;">Disciple.Tools</a>' ), 'post' ) ?><br>
+                    <?php echo wp_kses( sprintf( _x( 'Part of the %s network.', 'Part of the Pray4Movement network.', 'prayer-global' ), '<a href="https://pray4movement.org" style="color:black;">Pray4Movement</a>' ), 'post' ) ?><br>
                 </p>
             </div>
             <div class="col-md-3">
                 <ul style="list-style: none;">
-                    <li><a class="white" href="https://apps.apple.com/us/app/prayer-global/id1636889534?uo=4"><i class="ion-social-apple"></i> iPhone/iPad App</a></li>
-                    <li><a class="white" href="https://play.google.com/store/apps/details?id=app.global.prayer"><i class="ion-social-android"></i> Android App</a></li>
+                    <li><a class="white" href="https://apps.apple.com/us/app/prayer-global/id1636889534?uo=4"><i class="ion-social-apple"></i> <?php echo esc_html( __( 'iPhone/iPad App' ) ) ?></a></li>
+                    <li><a class="white" href="https://play.google.com/store/apps/details?id=app.global.prayer"><i class="ion-social-android"></i> <?php echo esc_html( __( 'Android App' ) ) ?></a></li>
                 </ul>
             </div>
             <div class="col-md-3">
                 <ul style="list-style: none;">
-                    <li><a class="white" href="/prayer_app/contact_us/">Contact Us</a></li>
-                    <li><a class="white fw-bold" href="/content_app/give_page">Give</a></li>
+                    <li><a class="white" href="/prayer_app/contact_us/"><?php echo esc_html( __( 'Contact Us', 'prayer-global' ) ) ?></a></li>
+                    <li><a class="white fw-bold" href="/content_app/give_page"><?php echo esc_html( __( 'Give', 'prayer-global' ) ) ?></a></li>
                 </ul>
             </div>
             <div class="col-md-3">
                 <ul style="list-style: none;">
-                    <li><a class="white" href="/content_app/about_page/">About</a></li>
-                    <li><a class="white" href="/content_app/data_sources/">Data Sources</a></li>
-                    <li><a class="white" href="/download_app/media/">Media & Promotion</a></li>
+                    <li><a class="white" href="/content_app/about_page/"><?php echo esc_html( __( 'About', 'prayer-global' ) ) ?></a></li>
+                    <li><a class="white" href="/content_app/data_sources/"><?php echo esc_html( __( 'Data Sources', 'prayer-global' ) ) ?></a></li>
+                    <li><a class="white" href="/download_app/media/"><?php echo esc_html( __( 'Media & Promotion', 'prayer-global' ) ) ?></a></li>
                 </ul>
             </div>
         </div>
