@@ -104,18 +104,18 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
         <section class="page-section mt-5" data-section="give" id="section-give">
             <div class="container flow">
                 <div class="row justify-content-md-center text-center mb-5 flow-small">
-                    <h2 class="header-border-top">Giving to Prayer.Global</h2>
+                    <h2 class="header-border-top"><?php echo esc_html__( 'Giving to Prayer.Global', 'prayer-global-porch' ) ?></h2>
 
                     <p>
-                        Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements.
+                        <?php echo wp_kses( __( 'Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements.
                         Your gift ensures that we can continue to freely give away all of the tools and resources we develop.
-                        Your tax deductible donation will go to the development and maintenance of Prayer.Global which is part of the <a href="https://pray4movement.org" target="_blank">Pray4Movement</a> network.
+                        Your tax deductible donation will go to the development and maintenance of Prayer.Global which is part of the <a href="https://pray4movement.org" target="_blank">Pray4Movement</a> network.', 'prayer-global-porch' ), 'post' ) ?>
                     </p>
                 </div>
                 <div class="row justify-content-md-center text-center flow-small">
-                    <h3>Check</h3>
+                    <h3><?php echo esc_html__( 'Check', 'prayer-global-porch' ) ?></h3>
 
-                    <p class="bg-warning p-2" style="--bs-bg-opacity: 0.3"><strong>Note:</strong> If you’d like to avoid the 3% fee that credit card companies charge everyone, you can send tax deductible donations via check to:</p>
+                    <p class="bg-warning p-2" style="--bs-bg-opacity: 0.3"><?php echo wp_kses( __( '<strong>Note:</strong> If you’d like to avoid the 3% fee that credit card companies charge everyone, you can send tax deductible donations via check to:', 'prayer-global-porch' ), 'data' ) ?></p>
 
                     <p>
                         Pray4Movement <br>
@@ -126,12 +126,12 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
                 </div>
 
                 <div class="row justify-content-md-center text-center flow-small">
-                    <h3>Credit/Debit Card</h3>
+                    <h3><?php echo esc_html__( 'Credit/Debit Card', 'prayer-global-porch' ) ?></h3>
 
                     <?php echo do_shortcode( '[stripe]' ) ?>
 
                     <p class="bg-warning p-2" style="--bs-bg-opacity: 0.3">
-                        <strong>Note:</strong> Prayer.Global and by extension Pray4Movement.org is part of <a href="https://gospelambition.org" target="_blank" rel="noopener">Gospel Ambition</a>. You may see Gospel Ambition on your invoice or receipt.
+                        <?php echo wp_kses( __( '<strong>Note:</strong> Prayer.Global and by extension Pray4Movement.org is part of <a href="https://gospelambition.org" target="_blank" rel="noopener">Gospel Ambition</a>. You may see Gospel Ambition on your invoice or receipt.', 'prayer-global' ), 'post' ) ?>
                     </p>
 
                 </div>
