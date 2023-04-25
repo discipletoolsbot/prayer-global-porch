@@ -79,12 +79,12 @@ class Prayer_Global_Porch_Contact_Us extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 pb-3 header-border-top font-weight-normal">Contact Us</h2>
+                        <h2 class="mt-0 pb-3 header-border-top font-weight-normal"><?php echo esc_html__( 'Contact Us', 'prayer-global-porch' ) ?></h2>
                         <p>
-                            First, thank you for reaching out.
+                            <?php echo esc_html( __( 'First, thank you for reaching out.', 'prayer-global' ) ) ?>
                         </p>
                         <p>
-                            Second, we're a group of volunteers striving to see the Great Commission fulfilled in this generation ... and we also have other jobs ... so be patient as we get back to you!
+                            <?php echo esc_html( __( "Second, we're a group of volunteers striving to see the Great Commission fulfilled in this generation ... and we also have other jobs ... so be patient as we get back to you!", 'prayer-global' ) ) ?>
                         </p>
                     </div>
                 </div>
