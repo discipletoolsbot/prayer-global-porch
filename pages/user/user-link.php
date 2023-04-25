@@ -97,7 +97,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     'erase_account' => __( 'Erase my account', 'prayer-global-porch' ),
                     'minutes' => __( 'Minutes', 'prayer-global-porch' ),
                     'load_more' => __( 'Load more', 'prayer-global-porch' ),
-                    'time_prayed_text' => _x( '%1$s for %2$s', '1 min for Paris, France', 'prayer-global-porch' ),
+                    'time_prayed_for' => _x( '%1$s for %2$s', '1 min for Paris, France', 'prayer-global-porch' ),
                     'in_group_text' => _x( 'in %s', 'in Global Lap', 'prayer-global-porch' ),
                 ],
                 'is_logged_in' => is_user_logged_in() ? 1 : 0,
@@ -157,7 +157,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="locationModalLabel"><?php echo esc_html__( 'Change Your Location', 'prayer-global-porch' ) ?></h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<?php esc_attr( __( 'Close', 'prayer-global-porch' ) ) ?>"></button>
                         </div>
                         <div class="modal-body">
                             <div id="mapbox-wrapper">
