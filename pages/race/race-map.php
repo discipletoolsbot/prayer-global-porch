@@ -152,11 +152,11 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
             <div id="initialize-screen">
                 <div id="initialize-spinner-wrapper" class="center">
                     <progress class="success initialize-progress" max="46" value="0"></progress><br>
-                    Loading the planet ...<br>
-                    <span id="initialize-people" style="display:none;">Locating world population...</span><br>
-                    <span id="initialize-activity" style="display:none;">Calculating movement activity...</span><br>
-                    <span id="initialize-coffee" style="display:none;">Shamelessly brewing coffee...</span><br>
-                    <span id="initialize-dothis" style="display:none;">Let's do this...</span><br>
+                    <?php echo esc_html__( 'Loading the planet ...', 'prayer-global-porch' ) ?><br>
+                    <span id="initialize-people" style="display:none;"><?php echo esc_html__( 'Locating world population...', 'prayer-global-porch' ) ?></span><br>
+                    <span id="initialize-activity" style="display:none;"><?php echo esc_html__( 'Calculating movement activity...', 'prayer-global-porch' ) ?></span><br>
+                    <span id="initialize-coffee" style="display:none;"><?php echo esc_html__( 'Shamelessly brewing coffee...', 'prayer-global-porch' ) ?></span><br>
+                    <span id="initialize-dothis" style="display:none;"><?php echo esc_html__( "Let's do this...", 'prayer-global-porch' ) ?></span><br>
                 </div>
             </div>
             <div id="map-wrapper">
@@ -171,14 +171,14 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                     <div class="row">
                         <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
                         <div class="col col-6 col-sm-4 center">
-                            <strong>Warriors</strong>
+                            <strong><?php echo esc_html__( 'Warriors', 'prayer-global-porch' ) ?></strong>
                             <br>
                             <div class="d-flex align-items-center justify-content-center">
                                 <span class="one-em"><?php echo esc_html( $lap_stats['participants'] ) ?></span>
                             </div>
                         </div>
-                        <div class="col col-6 col-sm-4 center"><strong>World Prayer Coverage</strong><br><span class="one-em"><?php echo esc_html( $finished_laps ) ?> times</span></div>
-                        <div class="col col-6 col-sm-4 center"><strong>Time Elapsed</strong><br><span class="one-em time_elapsed" id="time_elapsed"></span></div>
+                        <div class="col col-6 col-sm-4 center"><strong><?php echo esc_html__( 'World Prayer Coverage', 'prayer-global-porch' ) ?></strong><br><span class="one-em"><?php echo esc_html( $finished_laps ) ?> times</span></div>
+                        <div class="col col-6 col-sm-4 center"><strong><?php echo esc_html__( 'Time Elapsed', 'prayer-global-porch' ) ?></strong><br><span class="one-em time_elapsed" id="time_elapsed"></span></div>
                     </div>
                 </div>
             </div>
@@ -192,19 +192,19 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
             <div class="row center offcanvas__content">
                 <hr>
                 <div class="col col-12">
-                    <span class="three-em lap-title">Race Map</span>
+                    <span class="three-em lap-title"><?php echo esc_html__( 'Race Map', 'prayer-global-porch' ) ?></span>
                     <hr>
                 </div>
                 <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Warriors</p>
+                    <p class="stats-title"><?php echo esc_html__( 'Warriors', 'prayer-global-porch' ) ?></p>
                     <p class="stats-figure"><?php echo esc_html( $lap_stats['participants'] ) ?></p>
                 </div>
                 <div class="col col-6 col-sm-3">
-                    <p class="stats-title">World Prayer Coverage</p>
-                    <p class="stats-figure"><?php echo esc_html( $finished_laps ) ?> times</p>
+                    <p class="stats-title"><?php echo esc_html__( 'World Prayer Coverage', 'prayer-global-porch' ) ?></p>
+                    <p class="stats-figure"><?php echo esc_html( sprintf( __( '%s times', 'prayer-global-porch' ), $finished_laps ) ) ?></p>
                 </div>
                 <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Pace</p>
+                    <p class="stats-title"><?php echo esc_html__( 'Pace', 'prayer-global-porch' ) ?></p>
                     <p class="stats-figure"><?php echo esc_html( $lap_stats['time_elapsed'] ) ?></p>
                 </div>
             </div>
