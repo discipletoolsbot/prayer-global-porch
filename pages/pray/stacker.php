@@ -289,14 +289,14 @@ class PG_Stacker {
 
         // build the description
         if ( 'admin1' === $grid_record['level_name'] ) {
-            $admin_level_name = 'state';
-            $admin_level_name_plural = 'states';
+            $admin_level_name = __( 'state', 'prayer-global-porch' );
+            $admin_level_name_plural = __( 'states', 'prayer-global-porch' );
         } else if ( 'admin0' === $grid_record['level_name'] ) {
-            $admin_level_name = 'country';
-            $admin_level_name_plural = 'countries';
+            $admin_level_name = __( 'country', 'prayer-global-porch' );
+            $admin_level_name_plural = __( 'countries', 'prayer-global-porch' );
         } else {
-            $admin_level_name = 'county';
-            $admin_level_name_plural = 'counties';
+            $admin_level_name = __( 'county', 'prayer-global-porch' );
+            $admin_level_name_plural = __( 'counties', 'prayer-global-porch' );
         }
         $grid_record = array_merge( $grid_record, [ 'admin_level_name' => $admin_level_name, 'admin_level_name_cap' => ucwords( $admin_level_name ), 'admin_level_name_plural' => $admin_level_name_plural ] );
 
@@ -598,19 +598,19 @@ class PG_Stacker {
 
             case 'population_growth_status':
                 if ( $grid_record['growth_rate'] >= 1.3 ) {
-                    $return_value = 'Fastest Growing in the World';
+                    $return_value = __( 'Fastest Growing in the World', 'prayer-global-porch' );
                 } else if ( $grid_record['growth_rate'] >= 1.2 ) {
-                    $return_value = 'Extreme Growth';
+                    $return_value = __( 'Extreme Growth', 'prayer-global-porch' );
                 } else if ( $grid_record['growth_rate'] >= 1.1 ) {
-                    $return_value = 'Significant Growth';
+                    $return_value = __( 'Significant Growth', 'prayer-global-porch' );
                 } else if ( $grid_record['growth_rate'] >= 1.0 ) {
-                    $return_value = 'Stable, but with slight growth';
+                    $return_value = __( 'Stable, but with slight growth', 'prayer-global-porch' );
                 } else if ( $grid_record['growth_rate'] >= .99 ) {
-                    $return_value = 'Stable, but in slight decline';
+                    $return_value = __( 'Stable, but in slight decline', 'prayer-global-porch' );
                 } else if ( $grid_record['growth_rate'] >= .96 ) {
-                    $return_value = 'Extreme Decline';
+                    $return_value = __( 'Extreme Decline', 'prayer-global-porch' );
                 } else {
-                    $return_value = 'Fastest Declining in the World';
+                    $return_value = __( 'Fastest Declining in the World', 'prayer-global-porch' );
                 }
                 return $return_value;
 
