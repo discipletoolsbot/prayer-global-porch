@@ -134,7 +134,7 @@ class PG_Stacker {
             $community_activity[$key] = pg_soft_time_format( $activity, 'timestamp', 'when_text', 'when_time_formatted' );
 
             $minutes_prayed = (int) $activity['minutes'];
-            $community_activity[$key]['time_prayed_text'] = ( $minutes_prayed === 1 ) ? "1 min" : "$minutes_prayed mins";
+            $community_activity[$key]['time_prayed_text'] = ( $minutes_prayed === 1 ) ? _x( '1 min', 'abbreviation of 1 minute', 'prayer-global-porch' ) : sprintf( _x( '%d mins', '3 mins [abbreviation of e.g. 3 minutes]', 'prayer-global-porch' ), $minutes_prayed );
             $community_activity[$key]['is_mine'] = (int) $activity['is_mine'];
 
             if ( $activity['is_mine'] ) {
