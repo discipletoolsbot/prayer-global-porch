@@ -108,7 +108,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                                         <?php echo esc_html( __( 'We know three things about our moment in history:', 'prayer-global-porch' ) ) ?>
                                     </p>
                                     <p>
-                                        <?php echo wp_kses( __( '(1) Never before in history have we been able to coordinate global prayer for the kingdom <u>IN REALTIME</u>!', 'prayer-global-porch' ), 'data' ) ?>
+                                        <?php echo wp_kses( __( '(1) Never before in history have we been able to coordinate global prayer for the kingdom IN REALTIME!', 'prayer-global-porch' ), 'data' ) ?>
                                     </p>
                                     <p>
                                         <?php echo esc_html( __( '(2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.),
@@ -118,8 +118,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                                         <?php echo esc_html( __( '(3) "Extraordinary prayer" is a foundational mark of all modern disciple multiplying movements.', 'prayer-global-porch' ) ) ?>
                                     </p>
                                     <p>
-                                        <?php echo wp_kses( __( 'So, <strong>Prayer.Global</strong> exists to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global-porch' ), 'data' ) ?>
-                                    </p>
+                                        <?php echo wp_kses( sprintf( __( 'So, %s exists to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global-porch' ), '<strong>Prayer.Global</strong>' ), 'data' ) ?>
                                     <p>
                                         <br><hr>
                                     </p>
@@ -149,19 +148,15 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                                 <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_3" aria-expanded="false" aria-controls="prayer_accordion_3">Moravian Prayer Challenge</a>
                                 <div id="prayer_accordion_3" class="collapse" role="tabpanel">
                                     <p>
-                                        <?php echo wp_kses( __( 'Inspired by the <a href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">Moravians</a>, who prayed non-stop for 100 years,
-                                        we have crafted this website to help the church pray for the entire world in measurable units, as a community, and to know at the end when we have finished ... and are ready to start
-                                        another lap.', 'prayer-global-porch' ), 'data' ) ?>
-                                    </p>
+                                        <?php echo wp_kses( sprintf( __( 'Inspired by the %s, who prayed non-stop for 100 years, we have crafted this website to help the church pray for the entire world in measurable units, as a community, and to know at the end when we have finished ... and are ready to start another lap.', 'prayer-global-porch' ), '<a href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">'.__( 'Moravians', 'prayer-global-porch' ).'</a>' ), 'data' ) ?>
                                     <p>
-                                        <?php echo esc_html( __( 'Once every location in the world has been prayed for (we finish a lap), then the prayer map resets, and we try to pray over the world again
-                                        ... maybe faster.', 'prayer-global-porch' ) ) ?>
+                                        <?php echo esc_html( __( 'Once every location in the world has been prayed for (we finish a lap), then the prayer map resets, and we try to pray over the world again ... maybe faster.', 'prayer-global-porch' ) ) ?>
                                     </p>
                                     <p>
                                         <?php echo esc_html( __( 'The Moravians had one person praying every hour of every day for 100 years. This was roughly 876,000 hours of prayer, or 52,560,000 minutes of prayer for the world. We are humbled by this extraordinary commitment to praying for the world.', 'prayer-global-porch' ) ) ?>
                                     </p>
                                     <p>
-                                        <?php echo wp_kses( __( '<a href="/content_app/about_page/#section-challenge">Learn more</a> about the Moravian Prayer Challenge.', 'prayer-global-porch' ), 'data' ) ?>
+                                        <?php echo wp_kses( sprintf( __( '%s about the Moravian Prayer Challenge.', 'prayer-global-porch' ), '<a href="/content_app/about_page/#section-challenge">'.__( 'Learn more', 'prayer-global-porch' ).'</a>' ), 'data' ) ?>
                                     </p>
                                     <p>
                                         <br><hr>
@@ -210,8 +205,24 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                 <div class="row align-items-center">
                     <div class="col-md-12">
                         <h2 class="heading mb-5"><?php echo esc_html__( 'Moravian Prayer Challenge', 'prayer-global-porch' ) ?></h2>
-                        <p class="sub-heading mb-5" style="border: 1px solid white;"><?php echo wp_kses( __( 'Prayer for the World<br> x <br> 24 hours a day / 7 days a week / 365 days a year <br>x<br> 100 years <br>=<br>52.56 million minutes of prayer', 'prayer-global-porch' ), 'post' ) ?></p>
-                        <p class="sub-heading mb-5"><?php echo wp_kses( __( 'Who are the Moravians? <br>What is the Moravian Prayer Challenge?<br> How are we going to accept the challenge? <br> Watch this video.', 'prayer-global-porch' ), 'post' ) ?></p>
+                        <p class="sub-heading mb-5" style="border: 1px solid white;"></p>
+                            <?php echo esc_html( __( 'Prayer for the World', 'prayer-global-porch' ) ) ?>
+                            <br> x <br>
+                            <?php echo esc_html( __( '24 hours a day / 7 days a week / 365 days a year', 'prayer-global' ) ) ?>
+                            <br> x <br>
+                            <?php echo esc_html( __( '100 years', 'prayer-global' ) ) ?>
+                            <br> = <br>
+                            <?php echo esc_html( __( '52.56 million minutes of prayer', 'prayer-global' ) ) ?>
+                        </p>
+                        <p class="sub-heading mb-5">
+                            <?php echo esc_html( __( 'Who are the Moravians?', 'prayer-global' ) ) ?>
+                            <br>
+                            <?php echo esc_html( __( 'What is the Moravian Prayer Challenge?', 'prayer-global' ) ) ?>
+                            <br>
+                            <?php echo esc_html( __( 'How are we going to accept the challenge?', 'prayer-global' ) ) ?>
+                            <br>
+                            <?php echo esc_html( __( 'Watch this video.', 'prayer-global' ) ) ?>
+                        </p>
                         <div class="text-center">
                             <img class="img-fluid video-image-link" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/moravian-video.jpg" id="video-image-link" />
                         </div>

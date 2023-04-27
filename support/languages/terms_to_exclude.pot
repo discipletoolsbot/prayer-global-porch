@@ -1,0 +1,15 @@
+#. Plugin Name of the plugin
+msgid "Prayer.Global Porch"
+msgstr ""
+
+#. Description of the plugin
+msgid "Prayer.Global front porch app for Disciple.Tools"
+msgstr ""
+
+# Author URI of the plugin
+msgid "https://github.com/DiscipleTools"
+msgstr ""
+
+#. Plugin URI of the plugin
+msgid "https://github.com/Pray4Movement/prayer-global-porch"
+msgstr ""
