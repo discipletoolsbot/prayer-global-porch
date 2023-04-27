@@ -120,7 +120,7 @@ jQuery(document).ready(function($){
   const pray_for_area_content = pray_for_area_modal && pray_for_area_modal.querySelector('.modal-content')
   const pray_for_area_button = jQuery('#pray-for-area-button')
   const cta_modal = document.getElementById('cta_modal')
-  const cta_modal_body = cta_modal.querySelector('.modal-body')
+  const cta_modal_body = cta_modal ? cta_modal.querySelector('.modal-body') : null
 
   pray_for_area_button && pray_for_area_button.on('click', () => {
     if ( !window.selected_grid_id ) {
@@ -335,7 +335,9 @@ jQuery(document).ready(function($){
     }
     window.map = map
 
-    show_cta()
+    if (cta_modal) {
+      show_cta()
+    }
 
     if ( isMobile ) {
       pan_to_user_location()
