@@ -168,7 +168,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                             </li>
                             <li>
                                 <u><?php echo esc_html__( 'Extrapolation', 'prayer-global-porch' ) ?></u><br>
-                                <?php echo esc_html__( 'Prayer.Global has used the population data at the county and state levels from the Location Grid project and divided percentages by the location population to arrive at the faith status population estimates.', 'prayer-global-porch' ) ?>
+                                <?php echo esc_html( sprintf( __( '%s has used the population data at the county and state levels from the Location Grid project and divided percentages by the location population to arrive at the faith status population estimates.', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?>
                             </li>
                             <li>
                                 <u><?php echo esc_html__( 'Acknowledged Weakness', 'prayer-global-porch' ) ?></u><br>

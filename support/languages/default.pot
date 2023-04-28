@@ -2,19 +2,28 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 1.8.13\n"
+"Project-Id-Version: Prayer.Global Porch 1.8.15\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-04-28T10:27:15+01:00\n"
+"POT-Creation-Date: 2023-04-28T14:00:45+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: prayer-global-porch\n"
 
 #: pages/404/404.php:98
+#: pages/home/magic-home.php:93
+#: pages/pray/action-custom-lap.php:103
+#: pages/pray/action-custom-map-display.php:88
+#: pages/pray/action-custom-map.php:100
+#: pages/pray/action-global-map.php:100
+#: pages/pray/action-global-stats.php:138
+#: pages/pray/trait-lap.php:33
+#: pages/race/race-list.php:92
+#: pages/race/race-map.php:118
 msgid "Add Magic"
 msgstr ""
 
@@ -27,7 +36,7 @@ msgstr ""
 
 #: pages/about/about.php:91
 #: pages/home/body.php:171
-msgid "Prayer.Global seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology."
+msgid "%s seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology."
 msgstr ""
 
 #: pages/about/about.php:105
@@ -149,8 +158,36 @@ msgstr ""
 msgid "Prayer for the World"
 msgstr ""
 
+#: pages/about/about.php:211
+msgid "24 hours a day / 7 days a week / 365 days a year"
+msgstr ""
+
+#: pages/about/about.php:213
+msgid "100 years"
+msgstr ""
+
+#: pages/about/about.php:215
+msgid "52.56 million minutes of prayer"
+msgstr ""
+
+#: pages/about/about.php:218
+msgid "Who are the Moravians?"
+msgstr ""
+
+#: pages/about/about.php:220
+msgid "What is the Moravian Prayer Challenge?"
+msgstr ""
+
+#: pages/about/about.php:222
+msgid "How are we going to accept the challenge?"
+msgstr ""
+
+#: pages/about/about.php:224
+msgid "Watch this video."
+msgstr ""
+
 #: pages/about/about.php:238
-msgid "Prayer.Global Intro"
+msgid "%s Intro"
 msgstr ""
 
 #: pages/about/about.php:243
@@ -176,6 +213,7 @@ msgstr ""
 #: pages/assets/menu.php:29
 #: pages/challenges/active-list.php:84
 #: pages/pray/action-custom-lap.php:162
+#: pages/pray/action-custom-map.php:83
 #: pages/pray/trait-lap.php:233
 msgid "Map"
 msgstr ""
@@ -216,7 +254,20 @@ msgid "Logout"
 msgstr ""
 
 #: pages/assets/share-modal.php:6
-msgid "Share Prayer.Global"
+msgid "Share %s"
+msgstr ""
+
+#: pages/assets/share-modal.php:18
+#: pages/user/user-link.php:91
+msgid "Email"
+msgstr ""
+
+#: pages/assets/share-modal.php:22
+msgid "Link %s"
+msgstr ""
+
+#: pages/assets/share-modal.php:22
+msgid "Copied"
 msgstr ""
 
 #: pages/assets/working-footer.php:7
@@ -306,6 +357,14 @@ msgstr ""
 msgid "Request a Group Challenge"
 msgstr ""
 
+#: pages/contact/magic-contact-us.php:84
+msgid "First, thank you for reaching out."
+msgstr ""
+
+#: pages/contact/magic-contact-us.php:87
+msgid "Second, we're a group of volunteers striving to see the Great Commission fulfilled in this generation ... and we also have other jobs ... so be patient as we get back to you!"
+msgstr ""
+
 #: pages/data-sources/magic-data-sources.php:96
 msgid "We acknowledge that there is no way to possess 100% accurate knowledge of the faith status or location status of every person in the world."
 msgstr ""
@@ -323,7 +382,7 @@ msgid "Recommended Resource:"
 msgstr ""
 
 #: pages/data-sources/magic-data-sources.php:109
-msgid "Prayer.Global is build on Disciple.Tools open source software, and Disciple.Tools mapping and geolocation system is an open source project called Location Grid Project. The Location Grid Project is a geographic framework of world locations and polygons for disciple making movement saturation efforts."
+msgid "%1$s is build on %2$s open source software, and %2$s mapping and geolocation system is an open source project called %3$s. The %3$s is a geographic framework of world locations and polygons for disciple making movement saturation efforts."
 msgstr ""
 
 #: pages/data-sources/magic-data-sources.php:115
@@ -446,7 +505,7 @@ msgid "Extrapolation"
 msgstr ""
 
 #: pages/data-sources/magic-data-sources.php:171
-msgid "Prayer.Global has used the population data at the county and state levels from the Location Grid project and divided percentages by the location population to arrive at the faith status population estimates."
+msgid "%s has used the population data at the county and state levels from the Location Grid project and divided percentages by the location population to arrive at the faith status population estimates."
 msgstr ""
 
 #: pages/data-sources/magic-data-sources.php:174
@@ -638,11 +697,11 @@ msgid "The free encyclopedia provides many facts about countries and cities, how
 msgstr ""
 
 #: pages/give/give.php:107
-msgid "Giving to Prayer.Global"
+msgid "Giving to %s"
 msgstr ""
 
 #: pages/give/give.php:110
-msgid "Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements. Your gift ensures that we can continue to freely give away all of the tools and resources we develop. Your tax deductible donation will go to the development and maintenance of Prayer.Global which is part of the %s network."
+msgid "Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements. Your gift ensures that we can continue to freely give away all of the tools and resources we develop. Your tax deductible donation will go to the development and maintenance of %1$s which is part of the %2$s network."
 msgstr ""
 
 #: pages/give/give.php:114
@@ -650,6 +709,7 @@ msgid "Check"
 msgstr ""
 
 #: pages/give/give.php:116
+#: pages/give/give.php:132
 msgid "Note:"
 msgstr ""
 
@@ -659,6 +719,10 @@ msgstr ""
 
 #: pages/give/give.php:127
 msgid "Credit/Debit Card"
+msgstr ""
+
+#: pages/give/give.php:132
+msgid "%1$s and by extension %2$s is part of %3$s. You may see %4$s on your invoice or receipt."
 msgstr ""
 
 #: pages/home/body.php:15
@@ -703,6 +767,14 @@ msgstr ""
 msgid "Moravian Challenge Video"
 msgstr ""
 
+#: pages/media/magic-media.php:100
+msgid "Video"
+msgstr ""
+
+#: pages/media/magic-media.php:105
+msgid "Download Video"
+msgstr ""
+
 #: pages/media/magic-media.php:106
 msgid "Low Quality (360p - 10mg)"
 msgstr ""
@@ -713,6 +785,10 @@ msgstr ""
 
 #: pages/media/magic-media.php:108
 msgid "4k Download (2160p - 74mg)"
+msgstr ""
+
+#: pages/media/magic-media.php:113
+msgid "Embed Code"
 msgstr ""
 
 #: pages/media/magic-media.php:123
@@ -782,7 +858,7 @@ msgstr ""
 
 #: pages/pray/action-custom-lap.php:205
 #: pages/pray/trait-lap.php:136
-msgid "How Prayer.Global works"
+msgid "How %s works"
 msgstr ""
 
 #: pages/pray/action-custom-lap.php:206
@@ -790,14 +866,29 @@ msgstr ""
 msgid "Step 1"
 msgstr ""
 
+#: pages/pray/action-custom-lap.php:208
+#: pages/pray/trait-lap.php:139
+msgid "Pray over the location provided using the maps, photos, prayers, people group info, and facts."
+msgstr ""
+
 #: pages/pray/action-custom-lap.php:211
 #: pages/pray/trait-lap.php:142
 msgid "Step 2"
 msgstr ""
 
+#: pages/pray/action-custom-lap.php:213
+#: pages/pray/trait-lap.php:144
+msgid "Pray for one minute (or longer) as the Spirit leads."
+msgstr ""
+
 #: pages/pray/action-custom-lap.php:218
 #: pages/pray/trait-lap.php:149
 msgid "Step 3"
+msgstr ""
+
+#: pages/pray/action-custom-lap.php:220
+#: pages/pray/trait-lap.php:151
+msgid "Once the timer transforms, select either \"Done\" and see your impact, or select \"Next\" and cover another location in prayer."
 msgstr ""
 
 #: pages/pray/action-custom-lap.php:227
@@ -810,6 +901,20 @@ msgstr ""
 #: pages/pray/action-global-map.php:192
 #: pages/pray/trait-lap.php:192
 msgid "Thank you! Leave us a correction below."
+msgstr ""
+
+#: pages/pray/action-custom-lap.php:242
+#: pages/pray/action-custom-map.php:219
+#: pages/pray/action-global-map.php:198
+#: pages/pray/trait-lap.php:198
+msgid "Section:"
+msgstr ""
+
+#: pages/pray/action-custom-lap.php:246
+#: pages/pray/action-custom-map.php:223
+#: pages/pray/action-global-map.php:202
+#: pages/pray/trait-lap.php:202
+msgid "Correction Requested:"
 msgstr ""
 
 #: pages/pray/action-custom-lap.php:250
@@ -915,16 +1020,6 @@ msgstr ""
 msgid "Starts on %s"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:219
-#: pages/pray/action-global-map.php:198
-msgid "Section:"
-msgstr ""
-
-#: pages/pray/action-custom-map.php:223
-#: pages/pray/action-global-map.php:202
-msgid "Correction Requested:"
-msgstr ""
-
 #: pages/pray/action-custom-map.php:267
 #: pages/pray/action-global-map.php:245
 #: pages/user/user-link.php:218
@@ -957,6 +1052,38 @@ msgstr ""
 
 #: pages/pray/action-custom-map.php:295
 msgid "Exit %s"
+msgstr ""
+
+#: pages/pray/action-custom-tools.php:76
+msgid "%s Challenge Tools"
+msgstr ""
+
+#: pages/pray/action-custom-tools.php:89
+msgid "%s Challenge Map"
+msgstr ""
+
+#: pages/pray/action-custom-tools.php:102
+#: pages/pray/action-custom-tools.php:123
+#: pages/pray/action-custom-tools.php:147
+msgid "Copy to Clipboard"
+msgstr ""
+
+#: pages/pray/action-custom-tools.php:103
+#: pages/pray/action-custom-tools.php:124
+#: pages/pray/action-custom-tools.php:148
+msgid "Copy"
+msgstr ""
+
+#: pages/pray/action-custom-tools.php:115
+msgid "Display Map (60 Second Refresh)"
+msgstr ""
+
+#: pages/pray/action-custom-tools.php:136
+msgid "App Stores: %s App"
+msgstr ""
+
+#: pages/pray/action-global-map.php:82
+msgid "%s Map"
 msgstr ""
 
 #: pages/pray/action-global-map.php:177
@@ -3836,67 +3963,75 @@ msgstr ""
 msgid "This is %8$s believer for every %9$s neighbors who need Jesus."
 msgstr ""
 
-#: pages/pray/stacker.php:137
-#: pages/pray/stacker.php:207
+#: pages/pray/stacker.php:141
+#: pages/pray/stacker.php:211
 msgctxt "abbreviation of 1 minute"
 msgid "1 min"
 msgstr ""
 
-#: pages/pray/stacker.php:137
-#: pages/pray/stacker.php:208
+#: pages/pray/stacker.php:141
+#: pages/pray/stacker.php:212
 msgctxt "3 mins [abbreviation of e.g. 3 minutes]"
 msgid "%d mins"
 msgstr ""
 
-#: pages/pray/stacker.php:292
+#: pages/pray/stacker.php:296
 msgid "state"
 msgstr ""
 
-#: pages/pray/stacker.php:293
+#: pages/pray/stacker.php:297
 msgid "states"
 msgstr ""
 
-#: pages/pray/stacker.php:295
+#: pages/pray/stacker.php:299
 msgid "country"
 msgstr ""
 
-#: pages/pray/stacker.php:296
+#: pages/pray/stacker.php:300
 msgid "countries"
 msgstr ""
 
-#: pages/pray/stacker.php:298
+#: pages/pray/stacker.php:302
 msgid "county"
 msgstr ""
 
-#: pages/pray/stacker.php:299
+#: pages/pray/stacker.php:303
 msgid "counties"
 msgstr ""
 
-#: pages/pray/stacker.php:601
-msgid "Fastest Growing in the World"
+#: pages/pray/stacker.php:447
+msgid "Diaspora"
 msgstr ""
 
-#: pages/pray/stacker.php:603
-msgid "Extreme Growth"
+#: pages/pray/stacker.php:449
+msgid "Possibly Diaspora"
 msgstr ""
 
 #: pages/pray/stacker.php:605
-msgid "Significant Growth"
+msgid "Fastest Growing in the World"
 msgstr ""
 
 #: pages/pray/stacker.php:607
-msgid "Stable, but with slight growth"
+msgid "Extreme Growth"
 msgstr ""
 
 #: pages/pray/stacker.php:609
-msgid "Stable, but in slight decline"
+msgid "Significant Growth"
 msgstr ""
 
 #: pages/pray/stacker.php:611
-msgid "Extreme Decline"
+msgid "Stable, but with slight growth"
 msgstr ""
 
 #: pages/pray/stacker.php:613
+msgid "Stable, but in slight decline"
+msgstr ""
+
+#: pages/pray/stacker.php:615
+msgid "Extreme Decline"
+msgstr ""
+
+#: pages/pray/stacker.php:617
 msgid "Fastest Declining in the World"
 msgstr ""
 
@@ -3907,6 +4042,14 @@ msgstr ""
 
 #: pages/pray/trait-lap.php:91
 msgid "Decision Button"
+msgstr ""
+
+#: pages/race/nav-race-map.php:16
+msgid "Toggle navigation"
+msgstr ""
+
+#: pages/race/race-map.php:101
+msgid "%s Race Map"
 msgstr ""
 
 #: pages/race/race-map.php:180
@@ -3950,10 +4093,6 @@ msgstr ""
 msgid "Consider giving to help us increase prayer for the world."
 msgstr ""
 
-#: pages/user/user-link.php:91
-msgid "Email"
-msgstr ""
-
 #: pages/user/user-link.php:92
 msgid "Location"
 msgstr ""
@@ -3971,7 +4110,7 @@ msgid "Send me lap challenges via email"
 msgstr ""
 
 #: pages/user/user-link.php:96
-msgid "Send information about Prayer.Global, Zume, Pray4Movement and other Gospel Ambition projects via email"
+msgid "Send information about %1$s, %2$s, %3$s and other %4$s projects via email"
 msgstr ""
 
 #: pages/user/user-link.php:97
@@ -4072,6 +4211,18 @@ msgstr ""
 
 #: pages/user/user-link.php:268
 msgid "Erase Account"
+msgstr ""
+
+#: pages/user/user-link.php:273
+msgid "This will delete your account from Prayer.Global."
+msgstr ""
+
+#: pages/user/user-link.php:276
+msgid "You will lose all progress and data assosciated with your account"
+msgstr ""
+
+#: pages/user/user-link.php:279
+msgid "If you are sure you want to proceed please type \"delete\" into the box below and click \"I am sure\" button"
 msgstr ""
 
 #: pages/user/user-link.php:282

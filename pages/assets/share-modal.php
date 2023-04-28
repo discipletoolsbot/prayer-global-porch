@@ -19,7 +19,7 @@
             </li>
             <li class="list-group-item list-group-item-action list-group-item-secondary link-action">
                 <img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/link.svg" alt="Share">
-                <?php echo wp_kses( __( 'Link <span class="copy-notice">Copied</span>', 'prayer-global-porch' ), 'post' ) ?>
+                <?php echo esc_html( sprintf( __( 'Link %s', 'prayer-global-porch' ), '<span class="copy-notice">'.__( 'Copied', 'prayer-global-porch' ).'</span>' ) ) ?>
             </li>
         </ul>
       </div>

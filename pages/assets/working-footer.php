@@ -3,9 +3,9 @@
         <div class="row" >
             <div class="col-md-3">
                 <p class="small">
-                    <?php echo wp_kses( sprintf( _x( 'Made with %1$s by %2$s.', 'prayer-global-porch' ), '<a href="/user_app/login">&#10084;&#65039;</a>', '<a href="https://gospelambition.org" style="color:black;">Gospel Ambition</a>' ), 'post' ) ?><br>
-                    <?php echo wp_kses( sprintf( _x( 'Powered by %s.', 'Powered by Disciple.Tools.', 'prayer-global-porch' ), '<a href="https://disciple.tools" style="color:black;">Disciple.Tools</a>' ), 'post' ) ?><br>
-                    <?php echo wp_kses( sprintf( _x( 'Part of the %s network.', 'Part of the Pray4Movement network.', 'prayer-global-porch' ), '<a href="https://pray4movement.org" style="color:black;">Pray4Movement</a>' ), 'post' ) ?><br>
+                    <?php echo esc_html( sprintf( _x( 'Made with %1$s by %2$s.', 'prayer-global-porch' ), '<a href="/user_app/login">&#10084;&#65039;</a>', '<a href="https://gospelambition.org" style="color:black;">Gospel Ambition</a>' ) ) ?><br>
+                    <?php echo esc_html( sprintf( _x( 'Powered by %s.', 'Powered by Disciple.Tools.', 'prayer-global-porch' ), '<a href="https://disciple.tools" style="color:black;">Disciple.Tools</a>' ) ) ?><br>
+                    <?php echo esc_html( sprintf( _x( 'Part of the %s network.', 'Part of the Pray4Movement network.', 'prayer-global-porch' ), '<a href="https://pray4movement.org" style="color:black;">Pray4Movement</a>' ) ) ?><br>
                 </p>
             </div>
             <div class="col-md-3">

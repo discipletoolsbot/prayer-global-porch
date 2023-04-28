@@ -205,12 +205,12 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                         <p class="center"><?php echo esc_html( sprintf( __( 'How %s works', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?></p>
                         <h2 class="center"><?php echo esc_html( __( 'Step 1', 'prayer-global-porch' ) ) ?></h2>
                         <p>
-                            <?php echo wp_kses( __( '<strong>Pray over the location</strong> provided using the maps, photos, prayers, people group info, and facts.', 'prayer-global-porch' ), 'data' ) ?>
+                            <?php echo esc_html( __( 'Pray over the location provided using the maps, photos, prayers, people group info, and facts.', 'prayer-global-porch' ) ) ?>
                         </p>
 
                         <h2 class="center"><?php echo esc_html( __( 'Step 2', 'prayer-global-porch' ) ) ?></h2>
                         <p>
-                            <?php echo wp_kses( __( '<strong>Pray for one minute</strong> (or longer) as the Spirit leads.', 'prayer-global-porch' ), 'data' ) ?>
+                            <?php echo esc_html( __( 'Pray for one minute (or longer) as the Spirit leads.', 'prayer-global-porch' ) ) ?>
                         </p>
                         <p>
                             <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/welcome-keep.png" style="opacity:0.5;" class="img-fluid" />
