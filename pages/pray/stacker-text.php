@@ -2864,7 +2864,11 @@ class PG_Stacker_Text {
              */
             'believers' => [
                 [
-                    'section_summary' => wp_kses( sprintf( __( 'The %1$s of <strong>%2$s</strong> has a population of <strong>%3$s</strong>.<br><br> We estimate %4$s has <strong>%5$s</strong> people who might know Jesus, <strong>%6$s</strong> people who might know about Jesus culturally, and <strong>%7$s</strong> people who do not know Jesus.<br><br>This is <strong>1</strong> believer for every <strong>%8$s</strong> neighbors who need Jesus.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['full_name'], $stack['location']['population'], $stack['location']['name'], $stack['location']['believers'], $stack['location']['christian_adherents'], $stack['location']['non_christians'], $stack['location']['lost_per_believer'] ), 'post' ),
+                    'section_summary' => sprintf( __( 'The %1$s of %2$s has a population of %3$s.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], '<strong>'.$stack['location']['full_name'].'</strong>', '<strong>'.$stack['location']['population'].'</strong>' ).
+                        '<br><br>'.
+                        sprintf( __( 'We estimate %1$s has %2$s people who might know Jesus, %3$s people who might know about Jesus culturally, and %4$s people who do not know Jesus.', 'prayer-global-porch' ), $stack['location']['name'], '<strong>'.$stack['location']['believers'].'</strong>', '<strong>'.$stack['location']['christian_adherents'].'</strong>', '<strong>'.$stack['location']['non_christians'].'</strong>' ).
+                        '<br><br>'.
+                        sprintf( __( 'This is %8$s believer for every %9$s neighbors who need Jesus.', 'prayer-global-porch' ), '<strong>1</strong>', '<strong>'.$stack['location']['lost_per_believer'].'</strong>' ) ,
                 ],
             ],
             /**
@@ -2872,7 +2876,11 @@ class PG_Stacker_Text {
              */
             'christian_adherents' => [
                 [
-                    'section_summary' => wp_kses( sprintf( __( 'The %1$s of <strong>%2$s</strong> has a population of <strong>%3$s</strong>.<br><br> We estimate %4$s has <strong>%5$s</strong> people who might know Jesus, <strong>%6$s</strong> people who might know about Jesus culturally, and <strong>%7$s</strong> people who do not know Jesus.<br><br>This is <strong>1</strong> believer for every <strong>%8$s</strong> neighbors who need Jesus.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['full_name'], $stack['location']['population'], $stack['location']['name'], $stack['location']['believers'], $stack['location']['christian_adherents'], $stack['location']['non_christians'], $stack['location']['lost_per_believer'] ), 'post' ),
+                    'section_summary' => sprintf( __( 'The %1$s of %2$s has a population of %3$s.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], '<strong>'.$stack['location']['full_name'].'</strong>', '<strong>'.$stack['location']['population'].'</strong>' ).
+                        '<br><br>'.
+                        sprintf( __( 'We estimate %1$s has %2$s people who might know Jesus, %3$s people who might know about Jesus culturally, and %4$s people who do not know Jesus.', 'prayer-global-porch' ), $stack['location']['name'], '<strong>'.$stack['location']['believers'].'</strong>', '<strong>'.$stack['location']['christian_adherents'].'</strong>', '<strong>'.$stack['location']['non_christians'].'</strong>' ).
+                        '<br><br>'.
+                        sprintf( __( 'This is %8$s believer for every %9$s neighbors who need Jesus.', 'prayer-global-porch' ), '<strong>1</strong>', '<strong>'.$stack['location']['lost_per_believer'].'</strong>' ) ,
                 ],
             ],
             /**
@@ -2880,7 +2888,11 @@ class PG_Stacker_Text {
              */
             'non_christians' => [
                 [
-                    'section_summary' => wp_kses( sprintf( __( 'The %1$s of <strong>%2$s</strong> has a population of <strong>%3$s</strong>.<br><br> We estimate %4$s has <strong>%5$s</strong> people who might know Jesus, <strong>%6$s</strong> people who might know about Jesus culturally, and <strong>%7$s</strong> people who do not know Jesus.<br><br>This is <strong>1</strong> believer for every <strong>%8$s</strong> neighbors who need Jesus.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['full_name'], $stack['location']['population'], $stack['location']['name'], $stack['location']['believers'], $stack['location']['christian_adherents'], $stack['location']['non_christians'], $stack['location']['lost_per_believer'] ), 'post' ),
+                    'section_summary' => sprintf( __( 'The %1$s of %2$s has a population of %3$s.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], '<strong>'.$stack['location']['full_name'].'</strong>', '<strong>'.$stack['location']['population'].'</strong>' ).
+                        '<br><br>'.
+                        sprintf( __( 'We estimate %1$s has %2$s people who might know Jesus, %3$s people who might know about Jesus culturally, and %4$s people who do not know Jesus.', 'prayer-global-porch' ), $stack['location']['name'], '<strong>'.$stack['location']['believers'].'</strong>', '<strong>'.$stack['location']['christian_adherents'].'</strong>', '<strong>'.$stack['location']['non_christians'].'</strong>' ).
+                        '<br><br>'.
+                        sprintf( __( 'This is %8$s believer for every %9$s neighbors who need Jesus.', 'prayer-global-porch' ), '<strong>1</strong>', '<strong>'.$stack['location']['lost_per_believer'].'</strong>' ) ,
                 ],
             ]
         ];

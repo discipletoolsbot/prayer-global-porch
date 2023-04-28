@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-04-27T16:48:57+01:00\n"
+"POT-Creation-Date: 2023-04-28T10:27:15+01:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.6.0\n"
 "X-Domain: prayer-global-porch\n"
@@ -3819,9 +3819,21 @@ msgid "Pray that new churches are planted in these cities."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2867
-#: pages/pray/stacker-text.php:2875
+#: pages/pray/stacker-text.php:2879
+#: pages/pray/stacker-text.php:2891
+msgid "The %1$s of %2$s has a population of %3$s."
+msgstr ""
+
+#: pages/pray/stacker-text.php:2869
+#: pages/pray/stacker-text.php:2881
+#: pages/pray/stacker-text.php:2893
+msgid "We estimate %1$s has %2$s people who might know Jesus, %3$s people who might know about Jesus culturally, and %4$s people who do not know Jesus."
+msgstr ""
+
+#: pages/pray/stacker-text.php:2871
 #: pages/pray/stacker-text.php:2883
-msgid "The %1$s of <strong>%2$s</strong> has a population of <strong>%3$s</strong>.<br><br> We estimate %4$s has <strong>%5$s</strong> people who might know Jesus, <strong>%6$s</strong> people who might know about Jesus culturally, and <strong>%7$s</strong> people who do not know Jesus.<br><br>This is <strong>1</strong> believer for every <strong>%8$s</strong> neighbors who need Jesus."
+#: pages/pray/stacker-text.php:2895
+msgid "This is %8$s believer for every %9$s neighbors who need Jesus."
 msgstr ""
 
 #: pages/pray/stacker.php:137
