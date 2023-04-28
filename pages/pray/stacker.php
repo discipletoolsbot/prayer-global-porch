@@ -60,6 +60,10 @@ class PG_Stacker {
 //        PG_Stacker_Text::_cities( $lists, $stack );
 
         foreach ( $lists as $content ) { // kill duplication
+            $content['section_label'] = esc_html( $content['section_label'] );
+            $content['prayer'] = esc_html( $content['prayer'] );
+            $content['reference'] = esc_html( $content['reference'] );
+            $content['verse'] = esc_html( $content['verse'] );
             $content['id'] = hash( 'sha256', serialize( $content ) . microtime() );
             $stack['list'][$content['id']] = [
                 'type' => 'basic_block',
@@ -289,14 +293,14 @@ class PG_Stacker {
 
         // build the description
         if ( 'admin1' === $grid_record['level_name'] ) {
-            $admin_level_name = __( 'state', 'prayer-global-porch' );
-            $admin_level_name_plural = __( 'states', 'prayer-global-porch' );
+            $admin_level_name = esc_html( __( 'state', 'prayer-global-porch' ) );
+            $admin_level_name_plural = esc_html( __( 'states', 'prayer-global-porch' ) );
         } else if ( 'admin0' === $grid_record['level_name'] ) {
-            $admin_level_name = __( 'country', 'prayer-global-porch' );
-            $admin_level_name_plural = __( 'countries', 'prayer-global-porch' );
+            $admin_level_name = esc_html( __( 'country', 'prayer-global-porch' ) );
+            $admin_level_name_plural = esc_html( __( 'countries', 'prayer-global-porch' ) );
         } else {
-            $admin_level_name = __( 'county', 'prayer-global-porch' );
-            $admin_level_name_plural = __( 'counties', 'prayer-global-porch' );
+            $admin_level_name = esc_html( __( 'county', 'prayer-global-porch' ) );
+            $admin_level_name_plural = esc_html( __( 'counties', 'prayer-global-porch' ) );
         }
         $grid_record = array_merge( $grid_record, [ 'admin_level_name' => $admin_level_name, 'admin_level_name_cap' => ucwords( $admin_level_name ), 'admin_level_name_plural' => $admin_level_name_plural ] );
 
@@ -440,9 +444,9 @@ class PG_Stacker {
                 if ( 'Y' === $pg['LeastReached'] ) {
                     $pg['diaspora_label'] = '';
                     if ( isset( $pg['IndigenousCode'] ) && 'N' === $pg['IndigenousCode'] ) {
-                        $pg['diaspora_label'] = __( 'Diaspora', 'prayer-global-porch' );
+                        $pg['diaspora_label'] = esc_html( __( 'Diaspora', 'prayer-global-porch' ) );
                     } else if ( isset( $pg['IndigenousCode'] ) && '?' === $pg['IndigenousCode'] ) {
-                        $pg['diaspora_label'] = __( 'Possibly Diaspora', 'prayer-global-porch' );
+                        $pg['diaspora_label'] = esc_html( __( 'Possibly Diaspora', 'prayer-global-porch' ) );
                     }
                     $least_reached = $pg; // get first least reached group
                     unset( $people_groups[$i] );
@@ -598,19 +602,19 @@ class PG_Stacker {
 
             case 'population_growth_status':
                 if ( $grid_record['growth_rate'] >= 1.3 ) {
-                    $return_value = __( 'Fastest Growing in the World', 'prayer-global-porch' );
+                    $return_value = esc_html( esc_html( __( 'Fastest Growing in the World', 'prayer-global-porch' ) ) );
                 } else if ( $grid_record['growth_rate'] >= 1.2 ) {
-                    $return_value = __( 'Extreme Growth', 'prayer-global-porch' );
+                    $return_value = esc_html( __( 'Extreme Growth', 'prayer-global-porch' ) );
                 } else if ( $grid_record['growth_rate'] >= 1.1 ) {
-                    $return_value = __( 'Significant Growth', 'prayer-global-porch' );
+                    $return_value = esc_html( __( 'Significant Growth', 'prayer-global-porch' ) );
                 } else if ( $grid_record['growth_rate'] >= 1.0 ) {
-                    $return_value = __( 'Stable, but with slight growth', 'prayer-global-porch' );
+                    $return_value = esc_html( __( 'Stable, but with slight growth', 'prayer-global-porch' ) );
                 } else if ( $grid_record['growth_rate'] >= .99 ) {
-                    $return_value = __( 'Stable, but in slight decline', 'prayer-global-porch' );
+                    $return_value = esc_html( __( 'Stable, but in slight decline', 'prayer-global-porch' ) );
                 } else if ( $grid_record['growth_rate'] >= .96 ) {
-                    $return_value = __( 'Extreme Decline', 'prayer-global-porch' );
+                    $return_value = esc_html( __( 'Extreme Decline', 'prayer-global-porch' ) );
                 } else {
-                    $return_value = __( 'Fastest Declining in the World', 'prayer-global-porch' );
+                    $return_value = esc_html( __( 'Fastest Declining in the World', 'prayer-global-porch' ) );
                 }
                 return $return_value;
 
