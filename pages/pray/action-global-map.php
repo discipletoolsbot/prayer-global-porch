@@ -79,7 +79,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         if ( $url ) {
              $details['url'] = $url;
         }
-        $details['title'] = 'Prayer.Global Map';
+        $details['title'] = esc_html( sprintf( __( '%s Map', 'prayer-global-porch' ), 'Prayer.Global' ) );
         pg_og_tags( $details );
 
         ?>
@@ -97,7 +97,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 'stats' => pg_global_stats_by_key( $this->parts['public_key'] ),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
                 'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global' ),
+                    'add' => __( 'Add Magic', 'prayer-global-porch' ),
                 ],
                 'map_type' => 'binary',
                 'is_dark_map_on' => ( new PG_Feature_Flag( PG_Flags::DARK_MAP_FEATURE ) )->is_on(),

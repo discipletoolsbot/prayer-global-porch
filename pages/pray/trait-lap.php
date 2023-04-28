@@ -30,7 +30,7 @@ trait PG_Lap_Trait {
                     'parts' => $this->parts,
                     'current_lap' => pg_current_global_lap(),
                     'translations' => [
-                        'add' => __( 'Add Magic', 'prayer-global' ),
+                        'add' => __( 'Add Magic', 'prayer-global-porch' ),
                     ],
                     'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/anon.jpeg',
                     'images_url' => pg_grid_image_url(),
@@ -133,22 +133,22 @@ trait PG_Lap_Trait {
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-body">
-                        <p class="center"><?php echo esc_html( __( 'How Prayer.Global works', 'prayer-global-porch' ) ) ?></p>
+                        <p class="center"><?php echo esc_html( sprintf( __( 'How %s works', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?></p>
                         <h2 class="center"><?php echo esc_html( __( 'Step 1', 'prayer-global-porch' ) ) ?></h2>
                         <p>
-                            <?php echo wp_kses( __( '<strong>Pray over the location</strong> provided using the maps, photos, prayers, people group info, and facts.', 'prayer-global' ), 'data' ) ?>
+                            <?php echo esc_html( __( 'Pray over the location provided using the maps, photos, prayers, people group info, and facts.', 'prayer-global-porch' ) ) ?>
                         </p>
 
                         <h2 class="center"><?php echo esc_html( __( 'Step 2', 'prayer-global-porch' ) ) ?></h2>
                         <p>
-                            <?php echo wp_kses( __( '<strong>Pray for one minute</strong> (or longer) as the Spirit leads.', 'prayer-global' ), 'data' ) ?>
+                            <?php echo esc_html( __( 'Pray for one minute (or longer) as the Spirit leads.', 'prayer-global-porch' ) ) ?>
                         </p>
                         <p>
                             <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/welcome-keep.png" style="opacity:0.5;" class="img-fluid" />
                         </p>
                         <h2 class="center"><?php echo esc_html( __( 'Step 3', 'prayer-global-porch' ) ) ?></h2>
                         <p>
-                            <?php echo esc_html( __( 'Once the timer transforms, select either "Done" and see your impact, or select "Next" and cover another location in prayer.', 'prayer-global' ) ) ?>
+                            <?php echo esc_html( __( 'Once the timer transforms, select either "Done" and see your impact, or select "Next" and cover another location in prayer.', 'prayer-global-porch' ) ) ?>
                         </p>
                         <p>
                             <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/welcome-next.png" style="opacity:0.5;" class="img-fluid" />
@@ -195,11 +195,11 @@ trait PG_Lap_Trait {
                                 <div class="modal-body">
                                     <p><span id="correction_title" class="correction_field"></span></p>
                                     <p>
-                                        <?php echo esc_html( __( 'Section:', 'prayer-global' ) ) ?><br>
+                                        <?php echo esc_html( __( 'Section:', 'prayer-global-porch' ) ) ?><br>
                                         <select class="form-control form-select correction_field" id="correction_select"></select>
                                     </p>
                                     <p>
-                                        <?php echo esc_html( __( 'Correction Requested:', 'prayer-global' ) ) ?><br>
+                                        <?php echo esc_html( __( 'Correction Requested:', 'prayer-global-porch' ) ) ?><br>
                                         <textarea class="form-control correction_field" id="correction_response" rows="3"></textarea>
                                     </p>
                                     <p>

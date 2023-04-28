@@ -80,7 +80,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             $details['url'] = $url;
         }
         $lap = pg_get_custom_lap_by_post_id( $this->parts['post_id'] );
-        $details['title'] = 'Prayer.Global '.$lap['title'].' Map';
+        $details['title'] = 'Prayer.Global '.$lap['title'].' '. esc_html( __( 'Map', 'prayer-global-porch' ) );
         pg_og_tags( $details );
 
         ?>
@@ -97,7 +97,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 'stats' => pg_custom_lap_stats_by_post_id( $this->parts['post_id'] ),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
                 'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global' ),
+                    'add' => __( 'Add Magic', 'prayer-global-porch' ),
                 ],
                 'map_type' => 'binary',
             ]) ?>][0]

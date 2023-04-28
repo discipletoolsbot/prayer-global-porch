@@ -98,7 +98,7 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
         if ( $url ) {
             $details['url'] = $url;
         }
-        $details['title'] = 'Prayer.Global Race Map';
+        $details['title'] = esc_html( sprintf( __( '%s Race Map', 'prayer-global-porch' ), 'Prayer.Global' ) );
         pg_og_tags( $details );
 
         ?>
@@ -115,7 +115,7 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                 'stats' => pg_global_race_stats(),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
                 'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global' ),
+                    'add' => __( 'Add Magic', 'prayer-global-porch' ),
                 ],
                 'map_type' => $this->map_type,
                 'details_type' => $this->details_type,

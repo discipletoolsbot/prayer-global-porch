@@ -77,28 +77,28 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
                 'translations' => [
-                    'select_a_location' => __( 'Please select a location', 'prayer-global-porch' ),
-                    'estimated_location' => __( '(This is your estimated location)', 'prayer-global-porch' ),
-                    'profile' => __( 'Profile', 'prayer-global-porch' ),
-                    'prayers' => __( 'Prayers', 'prayer-global-porch' ),
-                    'challenges' => __( 'Challenges', 'prayer-global-porch' ),
-                    'are_you_enjoying_the_app' => __( 'Are you enjoying this app?', 'prayer-global-porch' ),
-                    'would_you_like_to_partner' => __( 'Would you like to partner with us in helping others pray for the world?', 'prayer-global-porch' ),
-                    'consider_giving' => __( 'Consider giving to help us increase prayer for the world.', 'prayer-global-porch' ),
-                    'give' => __( 'Give', 'prayer-global-porch' ),
-                    'logout' => __( 'Logout', 'prayer-global-porch' ),
-                    'name_text' => __( 'Name', 'prayer-global-porch' ),
-                    'email_text' => __( 'Email', 'prayer-global-porch' ),
-                    'location_text' => __( 'Location', 'prayer-global-porch' ),
-                    'locations_text' => __( 'Locations', 'prayer-global-porch' ),
-                    'communication_preferences' => __( 'Communication Preferences', 'prayer-global-porch' ),
-                    'send_lap_emails_text' => __( 'Send me lap challenges via email', 'prayer-global-porch' ),
-                    'send_general_emails_text' => __( 'Send information about Prayer.Global, Zume, Pray4Movement and other Gospel Ambition projects via email', 'prayer-global-porch' ),
-                    'erase_account' => __( 'Erase my account', 'prayer-global-porch' ),
-                    'minutes' => __( 'Minutes', 'prayer-global-porch' ),
-                    'load_more' => __( 'Load more', 'prayer-global-porch' ),
-                    'time_prayed_for' => _x( '%1$s for %2$s', '1 min for Paris, France', 'prayer-global-porch' ),
-                    'in_group_text' => _x( 'in %s', 'in Global Lap', 'prayer-global-porch' ),
+                    'select_a_location' => esc_html( __( 'Please select a location', 'prayer-global-porch' ) ),
+                    'estimated_location' => esc_html( __( '(This is your estimated location)', 'prayer-global-porch' ) ),
+                    'profile' => esc_html( __( 'Profile', 'prayer-global-porch' ) ),
+                    'prayers' => esc_html( __( 'Prayers', 'prayer-global-porch' ) ),
+                    'challenges' => esc_html( __( 'Challenges', 'prayer-global-porch' ) ),
+                    'are_you_enjoying_the_app' => esc_html( __( 'Are you enjoying this app?', 'prayer-global-porch' ) ),
+                    'would_you_like_to_partner' => esc_html( __( 'Would you like to partner with us in helping others pray for the world?', 'prayer-global-porch' ) ),
+                    'consider_giving' => esc_html( __( 'Consider giving to help us increase prayer for the world.', 'prayer-global-porch' ) ),
+                    'give' => esc_html( __( 'Give', 'prayer-global-porch' ) ),
+                    'logout' => esc_html( __( 'Logout', 'prayer-global-porch' ) ),
+                    'name_text' => esc_html( __( 'Name', 'prayer-global-porch' ) ),
+                    'email_text' => esc_html( __( 'Email', 'prayer-global-porch' ) ),
+                    'location_text' => esc_html( __( 'Location', 'prayer-global-porch' ) ),
+                    'locations_text' => esc_html( __( 'Locations', 'prayer-global-porch' ) ),
+                    'communication_preferences' => esc_html( __( 'Communication Preferences', 'prayer-global-porch' ) ),
+                    'send_lap_emails_text' => esc_html( __( 'Send me lap challenges via email', 'prayer-global-porch' ) ),
+                    'send_general_emails_text' => esc_html( sprintf( __( 'Send information about %1$s, %2$s, %3$s and other %4$s projects via email', 'prayer-global-porch' ), 'Prayer.Global', 'Zume', 'Pray4Movement', 'Gospel Ambition' ) ),
+                    'erase_account' => esc_html( __( 'Erase my account', 'prayer-global-porch' ) ),
+                    'minutes' => esc_html( __( 'Minutes', 'prayer-global-porch' ) ),
+                    'load_more' => esc_html( __( 'Load more', 'prayer-global-porch' ) ),
+                    'time_prayed_for' => esc_html( _x( '%1$s for %2$s', '1 min for Paris, France', 'prayer-global-porch' ) ),
+                    'in_group_text' => esc_html( _x( 'in %s', 'in Global Lap', 'prayer-global-porch' ) ),
                 ],
                 'is_logged_in' => is_user_logged_in() ? 1 : 0,
                 'logout_url' => esc_url( '/user_app/logout' )
@@ -270,13 +270,13 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                         </div>
                         <div class="modal-body">
                             <p>
-                                <?php echo esc_html( __( 'This will delete your account from Prayer.Global.', 'prayer-global' ) ) ?>
+                                <?php echo esc_html( __( 'This will delete your account from Prayer.Global.', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                <?php echo esc_html( __( 'You will lose all progress and data assosciated with your account', 'prayer-global' ) ) ?>
+                                <?php echo esc_html( __( 'You will lose all progress and data assosciated with your account', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                <?php echo esc_html( __( 'If you are sure you want to proceed please type "delete" into the box below and click "I am sure" button', 'prayer-global' ) ) ?>
+                                <?php echo esc_html( __( 'If you are sure you want to proceed please type "delete" into the box below and click "I am sure" button', 'prayer-global-porch' ) ) ?>
                             </p>
                             <div class="mb-3">
                                 <label for="delete-confirmation" class="form-label"><?php echo esc_html__( 'Confirm delete', 'prayer-global-porch' ) ?></label>

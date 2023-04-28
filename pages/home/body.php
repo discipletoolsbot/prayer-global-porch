@@ -168,7 +168,7 @@
             <div class="col-lg-7">
                 <h2 class="mt-0 header-border-top font-weight-normal"><?php echo esc_html( __( 'About', 'prayer-global-porch' ) ) ?></h2>
                 <p>
-                    <?php echo esc_html( __( 'Prayer.Global seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global-porch' ) ) ?>
+                    <?php echo esc_html( sprintf( __( '%s seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?>
                 </p>
             </div>
         </div>
@@ -198,7 +198,7 @@
                                 <?php echo esc_html( __( '(3) "Extraordinary prayer" is a foundational mark of all modern disciple multiplying movements.', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                <?php echo wp_kses( sprintf( __( 'So, %s exists to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global-porch' ), '<strong>Prayer.Global</strong>' ), 'data' ) ?>
+                                <?php echo esc_html( sprintf( __( 'So, %s exists to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global-porch' ), '<strong>Prayer.Global</strong>' ) ) ?>
                             </p>
                             <p>
                                 <br><hr>

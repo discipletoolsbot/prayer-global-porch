@@ -440,9 +440,9 @@ class PG_Stacker {
                 if ( 'Y' === $pg['LeastReached'] ) {
                     $pg['diaspora_label'] = '';
                     if ( isset( $pg['IndigenousCode'] ) && 'N' === $pg['IndigenousCode'] ) {
-                        $pg['diaspora_label'] = __( 'Diaspora', 'prayer-global' );
+                        $pg['diaspora_label'] = __( 'Diaspora', 'prayer-global-porch' );
                     } else if ( isset( $pg['IndigenousCode'] ) && '?' === $pg['IndigenousCode'] ) {
-                        $pg['diaspora_label'] = __( 'Possibly Diaspora', 'prayer-global' );
+                        $pg['diaspora_label'] = __( 'Possibly Diaspora', 'prayer-global-porch' );
                     }
                     $least_reached = $pg; // get first least reached group
                     unset( $people_groups[$i] );

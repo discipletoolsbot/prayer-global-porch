@@ -104,10 +104,10 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
         <section class="page-section mt-5" data-section="give" id="section-give">
             <div class="container flow">
                 <div class="row justify-content-md-center text-center mb-5 flow-small">
-                    <h2 class="header-border-top"><?php echo esc_html__( 'Giving to Prayer.Global', 'prayer-global-porch' ) ?></h2>
+                    <h2 class="header-border-top"><?php echo esc_html( sprintf( __( 'Giving to %s', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?></h2>
 
                     <p>
-                        <?php echo esc_html( sprintf( __( 'Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements. Your gift ensures that we can continue to freely give away all of the tools and resources we develop. Your tax deductible donation will go to the development and maintenance of Prayer.Global which is part of the %s network.', 'prayer-global-porch' ), "<a href='https://pray4movement.org' target='_blank'>Pray4Movement</a>" ) ) ?>
+                        <?php echo esc_html( sprintf( __( 'Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements. Your gift ensures that we can continue to freely give away all of the tools and resources we develop. Your tax deductible donation will go to the development and maintenance of %1$s which is part of the %2$s network.', 'prayer-global-porch' ), "<a href='https://pray4movement.org' target='_blank'>Pray4Movement</a>", 'Prayer.Global' ) ) ?>
                     </p>
                 </div>
                 <div class="row justify-content-md-center text-center flow-small">
@@ -129,7 +129,7 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
                     <?php echo do_shortcode( '[stripe]' ) ?>
 
                     <p class="bg-warning p-2" style="--bs-bg-opacity: 0.3">
-                        <strong><?php echo esc_html( __( 'Note:', 'prayer-global' ) ) ?></strong><?php echo esc_html( __( 'Prayer.Global and by extension Pray4Movement.org is part of <a href="https://gospelambition.org" target="_blank" rel="noopener">Gospel Ambition</a>. You may see Gospel Ambition on your invoice or receipt.', 'prayer-global' ) ) ?>
+                        <strong><?php echo esc_html( __( 'Note:', 'prayer-global-porch' ) ) ?></strong><?php echo esc_html( sprintf( __( '%1$s and by extension %2$s is part of %3$s. You may see %4$s on your invoice or receipt.', 'prayer-global-porch' ), 'Prayer.Global', 'Pray4Movement.org', '<a href="https://gospelambition.org" target="_blank" rel="noopener">Gospel Ambition</a>', 'Gospel Ambition' ) ) ?>
                     </p>
 
                 </div>

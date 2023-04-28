@@ -88,7 +88,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                     <div class="col-lg-7">
                         <h2 class="mt-0 header-border-top font-weight-normal"><?php echo esc_html( __( 'About', 'prayer-global-porch' ) ) ?></h2>
                         <p>
-                            <?php echo esc_html( __( 'Prayer.Global seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global-porch' ) ) ?>
+                            <?php echo esc_html( sprintf( __( '%s seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?>
                         </p>
                     </div>
                 </div>
@@ -208,20 +208,20 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                         <p class="sub-heading mb-5" style="border: 1px solid white;"></p>
                             <?php echo esc_html( __( 'Prayer for the World', 'prayer-global-porch' ) ) ?>
                             <br> x <br>
-                            <?php echo esc_html( __( '24 hours a day / 7 days a week / 365 days a year', 'prayer-global' ) ) ?>
+                            <?php echo esc_html( __( '24 hours a day / 7 days a week / 365 days a year', 'prayer-global-porch' ) ) ?>
                             <br> x <br>
-                            <?php echo esc_html( __( '100 years', 'prayer-global' ) ) ?>
+                            <?php echo esc_html( __( '100 years', 'prayer-global-porch' ) ) ?>
                             <br> = <br>
-                            <?php echo esc_html( __( '52.56 million minutes of prayer', 'prayer-global' ) ) ?>
+                            <?php echo esc_html( __( '52.56 million minutes of prayer', 'prayer-global-porch' ) ) ?>
                         </p>
                         <p class="sub-heading mb-5">
-                            <?php echo esc_html( __( 'Who are the Moravians?', 'prayer-global' ) ) ?>
+                            <?php echo esc_html( __( 'Who are the Moravians?', 'prayer-global-porch' ) ) ?>
                             <br>
-                            <?php echo esc_html( __( 'What is the Moravian Prayer Challenge?', 'prayer-global' ) ) ?>
+                            <?php echo esc_html( __( 'What is the Moravian Prayer Challenge?', 'prayer-global-porch' ) ) ?>
                             <br>
-                            <?php echo esc_html( __( 'How are we going to accept the challenge?', 'prayer-global' ) ) ?>
+                            <?php echo esc_html( __( 'How are we going to accept the challenge?', 'prayer-global-porch' ) ) ?>
                             <br>
-                            <?php echo esc_html( __( 'Watch this video.', 'prayer-global' ) ) ?>
+                            <?php echo esc_html( __( 'Watch this video.', 'prayer-global-porch' ) ) ?>
                         </p>
                         <div class="text-center">
                             <img class="img-fluid video-image-link" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/moravian-video.jpg" id="video-image-link" />
@@ -235,7 +235,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel"><?php echo esc_html__( 'Prayer.Global Intro', 'prayer-global-porch' ) ?></h5>
+                        <h5 class="modal-title" id="exampleModalLabel"><?php echo esc_html( sprintf( __( '%s Intro', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?></h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body"></div>
