@@ -2,6 +2,24 @@
 
 Prayer Global Porch is the core prayer app for the prayer.global website.
 
+## Creating a release
+
+Run
+
+`npm run release x.y.z`
+
+Where x.y.z is the release number based on the previous one made.
+
+This will create a new tag of this number on the current commit, change the version number in
+
+* package.json
+* version-control.json
+* prayer-global-porch.php
+
+This will trigger the github release action to create a new zip of the plugin with the correct release number.
+
+Anywhere that is using the plugin, will then get an upgrade notice in WP.
+
 ## Content Attributions
 
 <a href="https://www.freepik.com/free-vector/find-person-job-opportunity_8063764.htm#query=avatar&position=0&from_view=search&track=sph">Image by studiogstock</a> on Freepik
