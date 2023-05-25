@@ -2,7 +2,7 @@
 
 <div class="" id="map-settings">
     <div class="dropdown">
-        <button type="button" class="btn btn-light dropdown-toggle icon-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,10">
+        <button type="button" class="btn btn-light blue-border dropdown-toggle icon-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,10">
             <i class="icon pg-settings" name="settings" style="font-size: 2em"></i>
         </button>
         <div class="dropdown-menu center p-2">
