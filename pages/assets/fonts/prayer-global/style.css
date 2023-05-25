@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'PrayerGlobal';
-  src:  url('fonts/PrayerGlobal.eot?epf2az');
-  src:  url('fonts/PrayerGlobal.eot?epf2az#iefix') format('embedded-opentype'),
-    url('fonts/PrayerGlobal.ttf?epf2az') format('truetype'),
-    url('fonts/PrayerGlobal.woff?epf2az') format('woff'),
-    url('fonts/PrayerGlobal.svg?epf2az#PrayerGlobal') format('svg');
+  src:  url('fonts/PrayerGlobal.eot?toiqar');
+  src:  url('fonts/PrayerGlobal.eot?toiqar#iefix') format('embedded-opentype'),
+    url('fonts/PrayerGlobal.ttf?toiqar') format('truetype'),
+    url('fonts/PrayerGlobal.woff?toiqar') format('woff'),
+    url('fonts/PrayerGlobal.svg?toiqar#PrayerGlobal') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -25,6 +25,21 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+.pg-chevron-down:before {
+  content: "\e91b";
+}
+.pg-chevron-left:before {
+  content: "\e91c";
+}
+.pg-chevron-right:before {
+  content: "\e91d";
+}
+.pg-chevron-up:before {
+  content: "\e91e";
+}
+.pg-menu:before {
+  content: "\e91f";
+}
 .pg-check:before {
   content: "\e900";
 }

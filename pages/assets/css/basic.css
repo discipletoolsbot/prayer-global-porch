@@ -192,6 +192,9 @@ strong {
 .orange-light-bg {
     background-color: hsl(39, 100%, 74%);
 }
+.blue-border {
+    border: 2px solid var(--pg-brand-color);
+}
 @media (max-width: 991px) {
     .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
         padding-right: 0;

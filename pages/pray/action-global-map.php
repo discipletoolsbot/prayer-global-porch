@@ -97,7 +97,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 'stats' => pg_global_stats_by_key( $this->parts['public_key'] ),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
                 'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global' ),
+                    'add' => __( 'Add Magic', 'prayer-glob</script>al' ),
                 ],
                 'map_type' => 'binary',
                 'is_dark_map_on' => ( new PG_Feature_Flag( PG_Flags::DARK_MAP_FEATURE ) )->is_on(),
@@ -106,7 +106,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/bootstrap/bootstrap5.2.2.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
-        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/prayer-global/style.css">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/prayer-global/style.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/fonts/prayer-global/style.css' ) ) ?>">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>heatmap.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'heatmap.css' ) ) ?>" type="text/css" media="all">
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
@@ -150,16 +150,33 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 <div id="foot_block">
                     <div class="map-overlay" id="map-legend"></div>
                     <div class="row">
-                        <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
-                        <div class="col col-sm-6 col-md-3 center "><strong>Places Remaining</strong><br><strong><span class="one-em red-bg stats-figure remaining"></span></strong></div>
-                        <div class="col col-sm-6 col-md-3 center"><strong>Places Covered</strong><br><strong><span class="one-em green-bg stats-figure completed"></span></strong></div>
-                        <div class="col col-sm-6 col-md-3 center d-none d-md-block">
-                            <strong>Warriors</strong><br>
-                            <strong><span class="stats-figure warriors"></span></strong>
+                        <div class="col col-12 center">
+                            <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats">
+                                <i class="icon pg-chevron-up three-em blue"></i>
+                            </button>
+                            <div class="one-em uppercase">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?> Stats</div>
+                        </div>
+                        <div class="col col-sm-6 col-md-3 center ">
+                            <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
+                                <i class="icon pg-world-light three-em"></i>
+                                <div class="two-em white stats-figure remaining"></div>
+                            </div>
+                            <span class="font-weight-bold uppercase small">Places Remaining</span><br>
+                        </div>
+                        <div class="col col-sm-6 col-md-3 center">
+                            <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
+                                <i class="icon pg-world-light three-em"></i>
+                                <div class="two-em stats-figure completed"></div>
+                            </div>
+                            <span class="font-weight-bold uppercase small">Places Covered</span><br>
                         </div>
                         <div class="col col-sm-6 col-md-3 center d-none d-md-block">
+                            <strong><span class="stats-figure warriors"></span></strong>
+                            <strong>Warriors</strong><br>
+                        </div>
+                        <div class="col col-sm-6 col-md-3 center d-none d-md-block">
+                            <strong class="stats-figure"><span class="completed_percent">0</span>%</strong>
                             <strong>World Coverage</strong><br>
-                            <strong class="stats-figure"><span class=" completed_percent">0</span>%</strong>
                         </div>
                     </div>
                 </div>
