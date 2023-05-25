@@ -117,12 +117,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         <?php
     }
 
-    public function footer_javascript() {
-        ?>
-        <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-        <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-        <?php
-    }
+    public function footer_javascript() {}
 
     public function body(){
         $parts = $this->parts;

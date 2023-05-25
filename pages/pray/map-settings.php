@@ -2,8 +2,8 @@
 
 <div class="" id="map-settings">
     <div class="dropdown">
-        <button type="button" class="btn btn-secondary dropdown-toggle icon-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,10">
-            <ion-icon name="settings" style="font-size: 1.5em"></ion-icon>
+        <button type="button" class="btn btn-light dropdown-toggle icon-toggle" data-bs-auto-close="outside" data-bs-toggle="dropdown" aria-expanded="false" data-bs-offset="0,10">
+            <i class="icon pg-settings" name="settings" style="font-size: 2em"></i>
         </button>
         <div class="dropdown-menu center p-2">
             <div class="d-flex align-items-center justify-content-between mb-2">
@@ -57,20 +57,22 @@
 
                 </button>
             </div>
-        </div>
+
+            <?php $is_dark_map_on = ( new PG_Feature_Flag( PG_Flags::DARK_MAP_FEATURE ) )->is_on(); ?>
+            <?php if ( $is_dark_map_on ) : ?>
+
+                <input type="text" class="no-map-colour mt-5" placeholder="Red style">
+                <input type="text" class="yes-map-colour" placeholder="Green style">
+                <input type="text" class="line-colour" placeholder="Line colour">
+                <input type="text" class="fill-opacity" placeholder="Fill opacity e.g. 0.8">
+                <button class="apply-new-map-styles btn btn-dark">
+                    Apply Styles
+                </button>
+
+            <?php endif; ?>
+
+       </div>
+
     </div>
-
-    <?php $is_dark_map_on = ( new PG_Feature_Flag( PG_Flags::DARK_MAP_FEATURE ) )->is_on(); ?>
-    <?php if ( $is_dark_map_on ) : ?>
-
-        <input type="text" class="no-map-colour mt-5" placeholder="Red style">
-        <input type="text" class="yes-map-colour" placeholder="Green style">
-        <input type="text" class="line-colour" placeholder="Line colour">
-        <input type="text" class="fill-opacity" placeholder="Fill opacity e.g. 0.8">
-        <button class="apply-new-map-styles btn btn-dark">
-            Apply Styles
-        </button>
-
-    <?php endif; ?>
 
 </div>
