@@ -17,9 +17,12 @@
 
 :root {
     --pg-font-family-base: "Montserrat", Arial, sans-serif;
-    --pg-brand-color: #1d82ff;
-    --pg-brand-color-dark: #0c4183;
-    --pg-brand-color-light: #b5d6ff;
+    --pg-brand-color-dark: #11224e;
+    --pg-brand-color: #11224e;
+    --pg-brand-color-light: #1a3b70;
+    --pg-brand-color-lighter: #2c599d;
+    --pg-brand-color-lightest: #5c83c4;
+    --pg-secondary-color: #f2944a;
     --font-weight-default: 300;
     --bs-body-font-weight: 300;
     --bs-body-line-height: 1.8;
@@ -133,6 +136,12 @@ strong {
 .orange {
     color: orange;
 }
+.brand {
+    color: var(--pg-brand-color);
+}
+.brand-light {
+    color: var(--pg-brand-color-light);
+}
 .blue {
     color: var(--pg-brand-color);
 }
@@ -154,6 +163,17 @@ strong {
 .red-bg {
     background-color: red;
 }
+.brand-bg {
+    background-color: var(--pg-brand-color);
+}
+.brand-light-bg {
+    background-color: var(--pg-brand-color-light);
+}
+.secondary-bg {
+    background-color: var(--pg-secondary-color);
+}
+
+/* Old colours */
 .blue-dark-bg {
     background-color: var(--pg-brand-color-dark);
 }
@@ -471,6 +491,10 @@ button {
 .btn-outline-dark {
     --bs-btn-border-color: black;
 }
+.btn-outline-light {
+    --bs-btn-border-radius: 20px;
+    text-transform: uppercase;
+}
 .btn-xl {
     font-size: 13px;
     padding: 1.5rem;
@@ -488,6 +512,16 @@ button {
     border: 1px solid rgba(0, 0, 0, 0.2);
     background: none !important;
     color: black;
+}
+.btn-cta {
+    --bs-btn-border-color: white;
+    --bs-btn-border-width:  2px;
+    --bs-btn-border-radius: 20px;
+    --bs-btn-color: white;
+    --bs-btn-bg: var(--pg-secondary-color);
+    text-transform: uppercase;
+    --bs-btn-font-weight: 600;
+    --bs-btn-padding-x: 1.5em;
 }
 
 .cta_button {

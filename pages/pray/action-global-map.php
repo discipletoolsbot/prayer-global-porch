@@ -142,7 +142,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 </div>
             </div>
             <div id="map-wrapper">
-                <div id="head_block">
+                <div id="head_block" class="brand-bg white">
 
                     <?php require( __DIR__ . '/nav-global-map.php' ) ?>
 
