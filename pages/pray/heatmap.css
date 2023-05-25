@@ -87,7 +87,7 @@ progress {
 
 @media (max-width: 576px) {
     #head_block {
-        padding: 1em 0.7em;
+        padding: 0.7em;
     }
 
     #foot_block {
