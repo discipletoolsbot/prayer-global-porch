@@ -15,8 +15,47 @@
   font-style: normal;
 }
 
+@font-face {
+    font-family: 'Bebas Kai';
+    src: url('../fonts/BebasKai/BebasKai.eot');
+    src: url('../fonts/BebasKai/BebasKai.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/BebasKai/BebasKai.woff2') format('woff2'),
+        url('../fonts/BebasKai/BebasKai.woff') format('woff'),
+        url('../fonts/BebasKai/BebasKai.ttf') format('truetype'),
+        url('../fonts/BebasKai/BebasKai.svg#BebasKai') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Europa';
+    src: url('../fonts/Europa/Europa-Regular.eot');
+    src: url('../fonts/Europa/Europa-Regular.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Europa/Europa-Regular.woff2') format('woff2'),
+        url('../fonts/Europa/Europa-Regular.woff') format('woff'),
+        url('../fonts/Europa/Europa-Regular.ttf') format('truetype'),
+        url('../fonts/Europa/Europa-Regular.svg#Europa-Regular') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Europa';
+    src: url('../fonts/Europa/Europa-Bold.eot');
+    src: url('../fonts/Europa/Europa-Bold.eot?#iefix') format('embedded-opentype'),
+        url('../fonts/Europa/Europa-Bold.woff2') format('woff2'),
+        url('../fonts/Europa/Europa-Bold.woff') format('woff'),
+        url('../fonts/Europa/Europa-Bold.ttf') format('truetype'),
+        url('../fonts/Europa/Europa-Bold.svg#Europa-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
-    --pg-font-family-base: "Montserrat", Arial, sans-serif;
+    --pg-font-family-base: "Europa", Arial, sans-serif;
     --pg-brand-color-dark: #11224e;
     --pg-brand-color: #11224e;
     --pg-brand-color-light: #1a3b70;

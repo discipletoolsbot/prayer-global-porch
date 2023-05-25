@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'Europa';
+    src: url('Europa-Bold.eot');
+    src: url('Europa-Bold.eot?#iefix') format('embedded-opentype'),
+        url('Europa-Bold.woff2') format('woff2'),
+        url('Europa-Bold.woff') format('woff'),
+        url('Europa-Bold.ttf') format('truetype'),
+        url('Europa-Bold.svg#Europa-Bold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+
