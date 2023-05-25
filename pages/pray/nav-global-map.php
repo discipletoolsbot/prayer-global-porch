@@ -9,8 +9,8 @@
             <a href="/user_app/profile" class="icon-button mx-2 two-rem d-flex align-items-center" title="Profile" id="user-profile-link">
                 <i class="icon pg-profile"></i>
             </a>
-            <button class="navbar-toggler mx-2 two-rem" type="button" data-bs-toggle="offcanvas" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span><i class="icon pg-menu"></i></span>
+            <button class="navbar-toggler mx-2 two-rem d-flex align-items-center" type="button" data-bs-toggle="offcanvas" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="icon pg-menu"></i>
             </button>
         </div>
     </div>
