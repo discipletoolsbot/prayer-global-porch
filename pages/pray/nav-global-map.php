@@ -10,7 +10,7 @@
                 <i class="icon pg-profile"></i>
             </a>
             <button class="navbar-toggler mx-2 two-rem" type="button" data-bs-toggle="offcanvas" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
-                <span><i class="ion-navicon"></i></span>
+                <span><i class="icon pg-menu"></i></span>
             </button>
         </div>
     </div>

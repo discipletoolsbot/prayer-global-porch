@@ -154,7 +154,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                             <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats">
                                 <i class="icon pg-chevron-up three-em blue"></i>
                             </button>
-                            <div class="one-em uppercase">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?> Stats</div>
+                            <div class="one-em uppercase font-weight-bold">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?> Stats</div>
                         </div>
                         <div class="col col-sm-6 col-md-3 center ">
                             <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
