@@ -118,6 +118,9 @@ progress {
 .two-em {
     font-size: 2rem;
 }
+.two-half-em {
+    font-size: 2.5rem;
+}
 .three-em {
     font-size: 3rem;
 }

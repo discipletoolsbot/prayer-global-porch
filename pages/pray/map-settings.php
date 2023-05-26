@@ -12,7 +12,7 @@
 
                     <?php if ( $is_dark_map_on ) : ?>
 
-                        <img class="foot__icon h-100" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/participants-blue.png' ) ?>" />
+                        <i class="icon pg-prayer blue two-half-em"></i>
 
                     <?php else : ?>
 
@@ -31,7 +31,7 @@
 
                     <?php if ( $is_dark_map_on ) : ?>
 
-                        <img class="foot__icon h-100" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/clusters-blue.png' ) ?>" />
+                        <i class="icon pg-cluster blue two-half-em"></i>
 
                     <?php else : ?>
 
@@ -47,7 +47,7 @@
 
                     <?php if ( $is_dark_map_on ) : ?>
 
-                        <img class="foot__icon h-100" src="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/recent-prayers-blue.png' ) ?>" />
+                        <i class="icon pg-check blue two-half-em"></i>
 
                     <?php else : ?>
 
