@@ -1,4 +1,4 @@
-<nav class="navbar-dark bg-none p-0" id="pg-navbar">
+<nav class="navbar bg-none p-0" id="pg-navbar">
     <div class="d-flex align-items-center justify-content-between mx-0 px-0 mw-100 flex-nowrap">
         <a href="/" class="icon-button two-rem d-flex align-items-center mx-2" title="Home">
             <i class="icon pg-home"></i>

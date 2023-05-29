@@ -784,7 +784,7 @@ jQuery(document).ready(function($){
     jQuery('.completed_percent').html( jsObject.stats.completed_percent )
     jQuery('.remaining').html( jsObject.stats.remaining )
     jQuery('.warriors').html( jsObject.stats.participants )
-    jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
+    jQuery('.time_elapsed').html( PG.DisplayTime( jsObject.stats.time_elapsed_data ) )
     jQuery('.start_time').html( jsObject.stats.start_time_formatted )
 
     update_stats()
@@ -1186,7 +1186,7 @@ jQuery(document).ready(function($){
         jQuery('.completed').html( jsObject.stats.completed )
         jQuery('.completed_percent').html( jsObject.stats.completed_percent )
         jQuery('.remaining').html( jsObject.stats.remaining )
-        jQuery('.time_elapsed').html( jsObject.stats.time_elapsed_small )
+        jQuery('.time_elapsed').html( PG.DisplayTime( jsObject.stats.time_elapsed_data ) )
         jQuery('.prayer_warriors').html( jsObject.stats.participants )
         jQuery('.lap_pace').html( jsObject.stats.lap_pace_small )
       })

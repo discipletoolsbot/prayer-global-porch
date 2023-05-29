@@ -49,6 +49,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         $allowed_js[] = 'mapbox-cookie';
         $allowed_js[] = 'heatmap-js';
         $allowed_js[] = 'bootstrap-js';
+        $allowed_js[] = 'components-js';
         return $allowed_js;
     }
 
@@ -161,14 +162,14 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                                 <i class="icon pg-world-light three-em"></i>
                                 <div class="two-em white stats-figure remaining"></div>
                             </div>
-                            <span class="font-weight-bold uppercase small">Places Remaining</span><br>
+                            <span class="uppercase small">Places Remaining</span><br>
                         </div>
                         <div class="col col-sm-6 col-md-3 center">
                             <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
                                 <i class="icon pg-world-light three-em"></i>
                                 <div class="two-em stats-figure completed"></div>
                             </div>
-                            <span class="font-weight-bold uppercase small">Places Covered</span><br>
+                            <span class="uppercase small">Places Covered</span><br>
                         </div>
                         <div class="col col-sm-6 col-md-3 center d-none d-md-block">
                             <strong><span class="stats-figure warriors"></span></strong>
@@ -231,39 +232,41 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                     <i class="icon pg-chevron-down blue three-em"></i>
                 </button>
             </div>
-            <div class="row center offcanvas__content">
+            <div class="row center uppercase offcanvas__content">
                 <div class="col col-12">
-                    <div class="two-em uppercase font-weight-bold">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?> Stats</div>
+                    <div class="two-em font-weight-bold">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?> Stats</div>
                 </div>
                 <div class="col col-6 col-sm-3">
                     <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
                         <i class="icon pg-world-light three-em"></i>
                         <div class="two-em white stats-figure remaining"></div>
                     </div>
-                    <span class="font-weight-bold uppercase small">Places Remaining</span><br>
+                    <span class="small">Places Remaining</span><br>
                 </div>
                 <div class="col col-6 col-sm-3">
                     <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
                         <i class="icon pg-world-light three-em"></i>
                         <div class="two-em stats-figure completed"></div>
                     </div>
-                    <span class="font-weight-bold uppercase small">Places Covered</span><br>
+                    <span class="small">Places Covered</span><br>
                 </div>
+                <div class="align-items-center col-sm-3 d-flex flex-dir-column mt-3">
+                    <i class="icon pg-world-arrow blue four-em"></i>
+                    <span class="stats-title">World Coverage</span>
+                    <div class="blue-bg rounded stats-figure-lg w-50 white"><span class="completed_percent">0</span>%</div>
+                </div>
+                <div class="align-items-center col-sm-3 d-flex flex-dir-column mt-3">
+                    <i class="icon pg-prayer blue four-em"></i>
+                    <span class="stats-title">Intercessors</span>
+                    <div class="orange-bg rounded stats-figure-lg w-50 warriors white">0</div>
+                </div>
+                <hr class="mt-3">
                 <div class="col-sm-3">
-                    <i class="icon pg-world-arrow blue"></i>
-                    <p class="stats-title">World Coverage</p>
-                    <p class="stats-figure"><span class="completed_percent">0</span>%</p>
-                </div>
-                <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Warriors</p>
-                    <p class="stats-figure warriors">0</p>
-                </div>
-                <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Time Elapsed</p>
+                    <p class="two-em mb-0">Time Elapsed</p>
                     <p class="stats-figure time_elapsed">0</p>
                 </div>
 
-                <div class="col col-6 col-sm-3">
+                <div class="col col-6 col-sm-3" style="display:none">
                     <p class="stats-title">Start Time</p>
                     <p class="stats-figure start_time">0</p>
                 </div>
@@ -278,7 +281,10 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
 
     public static function _wp_enqueue_scripts(){
         DT_Mapbox_API::load_mapbox_header_scripts();
-
+        wp_enqueue_script( 'components-js', trailingslashit( plugin_dir_url( __DIR__ ) ) . 'assets/js/components.js', [
+            'jquery',
+            'mapbox-gl'
+        ], filemtime( plugin_dir_path( __DIR__ ) .'assets/js/components.js' ), true );
         wp_enqueue_script( 'heatmap-js', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'heatmap.js', [
             'jquery',
             'mapbox-gl'

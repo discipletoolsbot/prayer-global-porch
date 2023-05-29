@@ -16,30 +16,72 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
 
     ?>
 
-    <div class="offcanvas offcanvas-end pg-navmenu" data-bs-backdrop="true" data-bs-scroll="true" id="probootstrap-navbar">
-        <div class="offcanvas-header">
-            <h5 class="offcanvas-title" id="offcanvasNavbarDarkLabel">Prayer.Global</h5>
-            <button type="button" class="btn-close pe-4" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-        </div>
-        <div class="offcanvas-body">
-            <div class="navbar-nav justify-content-end" id="nav-links">
-                <a class="btn btn-outline-dark py-2 me-3 w-100 mb-4" href="<?php echo esc_url( $start_praying_href ) ?>">Start Praying</a>
+    <div class="offcanvas offcanvas-end pg-navmenu show" data-bs-backdrop="true" data-bs-scroll="true" id="probootstrap-navbar">
+        <div class="offcanvas-header blue-bg p-3">
+            <a href="/" class="icon-button two-rem d-flex align-items-center mx-2 white" title="Home">
+                <i class="icon pg-home"></i>
+            </a>
+            <h5 class="border border-light border-white offcanvas-title px-3 rounded" id="offcanvasNavbarDarkLabel">Prayer.Global</h5>
+            <div class="d-flex">
 
-                <a class="nav-link" href="<?php echo ( $url !== '' ) ? esc_url( trailingslashit( site_url() ) ) : '' ?>#section-lap">Status</a>
-                <a class="nav-link" href="<?php echo esc_url( $map_href ) ?>">Map</a>
+                <?php if ( $login_module_feature->is_on() ) : ?>
 
-                <?php if ( ! $is_custom_lap ) : ?>
-
-                    <a class="nav-link" href="/challenges/active/">Relay Teams</a>
+                    <a href="/user_app/profile" class="icon-button mx-2 two-rem d-flex align-items-center white" title="Profile" id="user-profile-link">
+                        <i class="icon pg-profile"></i>
+                    </a>
 
                 <?php endif; ?>
 
-                <a class="nav-link" href="/content_app/give_page">Give</a>
+                <button type="button" class="white two-rem d-flex ms-1" data-bs-dismiss="offcanvas" aria-label="Close">
+                    <i class="icon pg-close"></i>
+                </button>
+            </div>
+        </div>
+        <div class="offcanvas-body">
+            <div class="navbar-nav justify-content-end center uppercase blue" id="nav-links">
 
-                <a class="nav-link" href="/content_app/about_page">About</a>
+                <a class="nav-link" href="<?php echo ( $url !== '' ) ? esc_url( trailingslashit( site_url() ) ) : '' ?>#section-lap">
+                    <div class="nav-link__inner">
+                        <i class="icon pg-status"></i>
+                        <span>Status</span>
+                    </div>
+                </a>
+                <a class="nav-link" href="<?php echo esc_url( $map_href ) ?>">
+                    <div class="nav-link__inner">
+                        <i class="icon pg-world-light"></i>
+                        <span>Map</span>
+                    </div>
+                </a>
+
+                <?php if ( ! $is_custom_lap ) : ?>
+
+                    <a class="nav-link" href="/challenges/active/">
+                        <div class="nav-link__inner">
+                            <i class="icon pg-relay"></i>
+                            <span>Prayer Relays</span>
+                        </div>
+                    </a>
+
+                <?php endif; ?>
+
+                <a class="nav-link" href="/content_app/give_page">
+                    <div class="nav-link__inner">
+                        <i class="icon pg-give"></i>
+                        <span>Give</span>
+                    </div>
+                </a>
+
+                <a class="nav-link" href="/content_app/about_page">
+                    <div class="nav-link__inner">
+                        <i class="icon pg-question-dark"></i>
+                        <span>About</span>
+                    </div>
+                </a>
+
+                <div><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
 
             </div>
-            <div class="nav-buttons">
+            <div class="nav-buttons" style="display: none">
                 <div class="row" style="--bs-gutter-x: 1.5rem">
 
                     <?php if ( ! $is_custom_lap ) : ?>

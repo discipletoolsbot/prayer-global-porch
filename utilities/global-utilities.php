@@ -377,7 +377,11 @@ function _pg_stats_builder( $data ) : array {
     return $data;
 }
 
-function _pg_format_duration( &$data, $time, $key_long, $key_short ) {
+function _pg_format_duration( &$data, $time, $key_long, $key_short, $key_data = '' ) {
+
+    if ( empty( $key_data ) ) {
+        $key_data = $key_long . '_data';
+    }
 
     if ( $time === 0 ) {
         $data[$key_long] = "--";
@@ -390,19 +394,37 @@ function _pg_format_duration( &$data, $time, $key_long, $key_short ) {
     if ( empty( $days ) && empty( $hours ) ){
         $data[$key_long] = "$minutes minutes";
         $data[$key_short] = $minutes." min";
+        $data[$key_data] = [
+            'minutes' => $minutes,
+        ];
     }
     else if ( empty( $days ) ) {
         $data[$key_long] = "$hours hours, $minutes minutes";
         $data[$key_short] = $hours."h, ".$minutes."m";
+        $data[$key_data] = [
+            'minutes' => $minutes,
+            'hours' => $hours,
+        ];
     }
     else if ( $days > 365 ) {
         $years = floor( $time / 60 / 60 / 24 / 365 );
         $data[$key_long] = "$years years, $days days, $hours hours, $minutes minutes";
         $data[$key_short] = $years."y, ".$days."d, ".$hours."h, ".$minutes."m";
+        $data[$key_data] = [
+            'minutes' => $minutes,
+            'hours' => $hours,
+            'days' => $days,
+            'years' => $years,
+        ];
     }
     else {
         $data[$key_long] = "$days days, $hours hours, $minutes minutes";
         $data[$key_short] = $days."d, ".$hours."h, ".$minutes."m";
+        $data[$key_data] = [
+            'minutes' => $minutes,
+            'hours' => $hours,
+            'days' => $days,
+        ];
     }
 }
 

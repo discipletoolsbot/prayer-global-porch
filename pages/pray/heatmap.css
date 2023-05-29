@@ -124,6 +124,9 @@ progress {
 .three-em {
     font-size: 3rem;
 }
+.four-em {
+    font-size: 4rem;
+}
 .bold {
     font-weight: bold;
 }
@@ -133,6 +136,21 @@ progress {
 }
 .stats-figure {
     font-size: 2rem;
+}
+.stats-figure-lg {
+    font-size: 3rem;
+}
+.time_elapsed {
+    display: flex;
+    justify-content: center;
+}
+.time-value {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+}
+.time-label {
+    font-size: 0.9rem;
 }
 .green-bg {
     background-color: green;
@@ -154,6 +172,9 @@ progress {
     .three-em {
         font-size: 2rem;
     }
+    .four-em {
+        font-size: 3rem;
+    }
     .stats-title {
         font-size: 1rem;
         padding-bottom: 0;
@@ -161,6 +182,12 @@ progress {
     .stats-figure {
         font-size: 1.8rem;
         font-weight: bold;
+        padding-top: 0;
+    }
+    .stats-figure-lg {
+        font-size: 3rem;
+        font-weight: bold;
+        line-height: 1.3;
         padding-top: 0;
     }
 }

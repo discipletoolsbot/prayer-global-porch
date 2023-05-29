@@ -85,7 +85,33 @@ function PGIconInfographic(stats) {
   return html;
 }
 
+function PGDisplayTime(time) {
+  console.log(time)
+
+  const timeList = []
+  const padNumber = (n) => window.padNumber(n, 2)
+
+  if ( time.hasOwnProperty('years') ) {
+    timeList.push(`<span class="time-value">${time.years} <span class="time-label">Years</span></span>`)
+  }
+  if ( time.hasOwnProperty('days') ) {
+    timeList.push(`<span class="time-value">${time.days} <span class="time-label">Days</span></span>`)
+  }
+  if ( time.hasOwnProperty('hours') ) {
+    timeList.push(`<span class="time-value">${padNumber(time.hours)} <span class="time-label">Hours</span></span>`)
+  }
+  if ( time.hasOwnProperty('minutes') ) {
+    timeList.push(`<span class="time-value">${padNumber(time.minutes)} <span class="time-label">Minutes</span></span>`)
+  }
+  if ( time.hasOwnProperty('seconds') ) {
+    timeList.push(`<span class="time-value">${padNumber(time.seconds)} <span class="time-label">Seconds</span></span>`)
+  }
+
+  return timeList.join(`<span>:</span>`)
+}
+
 const PG = {
   ActivityList: PGActivityList,
   IconInfographic: PGIconInfographic,
+  DisplayTime: PGDisplayTime,
 }
