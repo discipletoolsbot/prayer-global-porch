@@ -78,7 +78,7 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
                     </div>
                 </a>
 
-                <div><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
+                <div class="mt-2"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
 
             </div>
             <div class="nav-buttons" style="display: none">
