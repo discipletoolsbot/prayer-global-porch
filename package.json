@@ -1,6 +1,6 @@
 {
   "name": "prayer-global-porch",
-  "version": "1.8.18",
+  "version": "2.0-alpha",
   "description": "Prayer Global Porch",
   "main": "prayer-global-porch.php",
   "directories": {
