@@ -39,7 +39,6 @@ progress {
     width:100%;
     z-index: 5;
     padding: 1em 2em;
-    opacity: .9;
     display:none;
     line-height: 1.5;
 }
