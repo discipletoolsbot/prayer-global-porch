@@ -670,13 +670,13 @@ button {
 
 #nav-links {
     --nav-link-primary-color: var(--pg-brand-color);
-    --nav-link-secondary-color: var(--pg-brand-color);
+    --nav-link-secondary-color: white;
     margin-bottom: 3em;
 }
 .nav-link {
     --bs-nav-link-font-size: 1.5rem;
     --bs-nav-link-padding-y: 1em;
-    border-top: 1px solid var(--nav-link-secondary-color);
+    border-top: 1px solid var(--nav-link-primary-color);
     color: var(--nav-link-primary-color);
 }
 .nav-link:first-child {
@@ -698,8 +698,8 @@ button {
     font-size: 1.3rem;
 }
 .nav-link:hover, .nav-link:focus {
-    background: var(--nav-link-secondary-color);
-    color: var(--nav-link-primary-color);
+    background: var(--nav-link-primary-color);
+    color: var(--nav-link-secondary-color);
 }
 .nav-link:active {
     background: darkgrey;
