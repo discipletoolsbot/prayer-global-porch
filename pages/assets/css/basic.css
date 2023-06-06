@@ -241,6 +241,9 @@ hr {
 .blue-border {
     border: 2px solid var(--pg-brand-color);
 }
+.white-border {
+    border-color: white;
+}
 @media (max-width: 991px) {
     .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
         padding-right: 0;
@@ -597,6 +600,7 @@ button {
     right: 0;
     z-index: 100;
     padding: 1em 1em;
+    color: white;
 }
 
 .pg-navbar.scrolled {
@@ -619,6 +623,10 @@ button {
 }
 .pg-navbar.scrolled {
     background-color: var(--bs-white);
+    color: var(--pg-brand-color-light);
+}
+.pg-navbar.scrolled .white-border {
+    border-color: var(--pg-brand-color-light) !important;
 }
 .pg-navbar.scrolled {
     -webkit-box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.15);
@@ -733,6 +741,7 @@ button {
 
 .icon-button {
     cursor: pointer;
+    color: inherit;
 }
 
 .nav-buttons {

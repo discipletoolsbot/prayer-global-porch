@@ -17,22 +17,22 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
     ?>
 
     <div class="offcanvas offcanvas-end pg-navmenu" data-bs-backdrop="true" data-bs-scroll="true" id="probootstrap-navbar">
-        <div class="offcanvas-header blue-bg p-3">
-            <a href="/" class="icon-button two-rem d-flex align-items-center mx-2 white" title="Home">
+        <div class="offcanvas-header blue-bg white p-3">
+            <a href="/" class="icon-button two-rem d-flex align-items-center mx-2" title="Home">
                 <i class="icon pg-home"></i>
             </a>
-            <h5 class="border border-light border-white white offcanvas-title px-3 rounded" id="offcanvasNavbarDarkLabel">Prayer.Global</h5>
+            <h5 class="border border-light border-white offcanvas-title px-3 rounded" id="offcanvasNavbarDarkLabel">Prayer.Global</h5>
             <div class="d-flex">
 
                 <?php if ( $login_module_feature->is_on() ) : ?>
 
-                    <a href="/user_app/profile" class="icon-button mx-2 two-rem d-flex align-items-center white" title="Profile" id="user-profile-link">
+                    <a href="/user_app/profile" class="icon-button mx-2 two-rem d-flex align-items-center" title="Profile" id="user-profile-link">
                         <i class="icon pg-profile"></i>
                     </a>
 
                 <?php endif; ?>
 
-                <button type="button" class="white two-rem d-flex ms-1" data-bs-dismiss="offcanvas" aria-label="Close">
+                <button type="button" class="icon-button two-rem d-flex ms-1" data-bs-dismiss="offcanvas" aria-label="Close">
                     <i class="icon pg-close"></i>
                 </button>
             </div>
