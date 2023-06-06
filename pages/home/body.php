@@ -12,11 +12,15 @@
     <div class="container">
         <div class="row align-items-center justify-content-end">
             <div class="col-md-6  order-md-1">
-                <h2 class="heading mb-3">Cover the World in Prayer</h2>
-                <div class="sub-heading">
-                    <p class="mb-5">Community driven, movement-focused, saturation prayer.</p>
-                    <p><a href="/newest/lap/" role="button" class="btn cta_button smoothscroll btn-outline-dark">Start Praying</a></p>
-                </div>
+                <h1 class="heading">Prayer.Global</h1>
+                <h2 class="sub-heading mb-3 brand-highlight">Cover the World in Prayer</h2>
+                <i class="icon pg-logo-prayer white heading__logo"></i>
+                <div class="mt-2"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
+                <button class="btn btn-success uppercase">
+                    Learn more
+                </button>
+                <br>
+                <i class="icon pg-chevron-down white"></i>
             </div>
         </div>
     </div>

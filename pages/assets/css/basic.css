@@ -61,6 +61,7 @@
     --pg-brand-color-light: #1a3b70;
     --pg-brand-color-lighter: #2c599d;
     --pg-brand-color-lightest: #5c83c4;
+    --pg-brand-color-highlight: #aec5eb;
     --pg-secondary-color: #f2944a;
     --font-weight-default: 300;
     --bs-body-font-weight: 300;
@@ -184,6 +185,15 @@ hr {
 }
 .brand-light {
     color: var(--pg-brand-color-light);
+}
+.brand-lighter {
+    color: var(--pg-brand-color-lighter);
+}
+.brand-lightest {
+    color: var(--pg-brand-color-lightest);
+}
+.brand-highlight {
+    color: var(--pg-brand-color-highlight);
 }
 .blue {
     color: var(--pg-brand-color);
@@ -318,12 +328,19 @@ hr {
     font-size: 62px;
     color: white;
     margin-top: 20px;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-family: 'Bebas Kai';
 }
 .cover .sub-heading {
     font-size: 20px;
-    color: white;
     max-width: 600px;
     margin: 0 auto;
+    text-transform: uppercase;
+    font-family: 'Bebas Kai';
+}
+.heading__logo {
+    font-size: 200px;
 }
 .cover-small {
     padding: 3em 0;
@@ -357,7 +374,6 @@ hr {
         height: inherit;
     }
     .cover > .container > .row {
-        padding: 6em 0;
         height: inherit;
     }
     .cover-small > .container > .row {
@@ -365,7 +381,10 @@ hr {
         height: inherit;
     }
     .cover .heading {
-        font-size: 42px;
+        font-size: 62px;
+    }
+    .cover .sub-heading {
+        font-size: 32px;
     }
 }
 .images {
