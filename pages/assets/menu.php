@@ -21,7 +21,7 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
             <a href="/" class="icon-button two-rem d-flex align-items-center mx-2 white" title="Home">
                 <i class="icon pg-home"></i>
             </a>
-            <h5 class="border border-light border-white offcanvas-title px-3 rounded" id="offcanvasNavbarDarkLabel">Prayer.Global</h5>
+            <h5 class="border border-light border-white white offcanvas-title px-3 rounded" id="offcanvasNavbarDarkLabel">Prayer.Global</h5>
             <div class="d-flex">
 
                 <?php if ( $login_module_feature->is_on() ) : ?>

@@ -8,15 +8,24 @@ $dark_nav_class = '' === $url || str_contains( $url, 'stats' ) || str_contains( 
 $hide_cta_class = str_contains( $url, 'challenges' ) || str_contains( $url, 'user_app' ) ? 'd-none' : '';
 
 ?>
-<nav class="navbar <?php echo esc_attr( $dark_nav_class ) ?> pg-navbar bg-none scrolled-light" id="pg-navbar">
-    <div class="container align-items-center">
-        <a class="navbar-brand me-auto" href="/">Prayer.Global</a>
-        <a class="navbar__cta btn btn-outline-dark py-2 py-lg-4 me-3 <?php echo esc_attr( $hide_cta_class ) ?>" href="/newest/lap/">Start Praying</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
-            <span><i class="ion-navicon"></i></span>
+<nav class="pg-navbar navbar bg-none p-0 d-block" id="pg-navbar">
+    <div class="d-flex align-items-center justify-content-between container py-3 mw-100 flex-nowrap">
+        <button class="share-button two-rem white d-flex" data-toggle="modal" data-target="#exampleModal">
+            <i class="icon pg-share"></i>
         </button>
+
+        <h5 class="border border-light border-white white offcanvas-title px-3 rounded">Prayer.Global</h5>
+
+        <div class="d-flex justify-content-end align-items-center">
+            <a href="/user_app/profile" class="icon-button mx-2 two-rem d-flex align-items-center white" title="Profile" id="user-profile-link">
+                <i class="icon pg-profile"></i>
+            </a>
+            <button class="navbar-toggler mx-2 two-rem d-flex align-items-center white" type="button" data-bs-toggle="offcanvas" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
+                <i class="icon pg-menu"></i>
+            </button>
+        </div>
     </div>
 
-    <?php pg_menu() ?>
+    <?php pg_menu(); ?>
 
 </nav>
