@@ -295,9 +295,15 @@ hr {
     min-height: calc(100vh - 6em);
     padding-top: 6em;
 }
+.full-height {
+    min-height: calc(100vh - 4em);
+}
 .hero.full-height > .container,
 .hero.full-height > .container > .row {
     min-height: calc(100vh - 6em);
+}
+.full-height > .container > .row {
+    min-height: calc(100vh - 4em);
 }
 @media (max-width: 767px) {
     .full-height > .container > .row {

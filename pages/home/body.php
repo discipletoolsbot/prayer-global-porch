@@ -29,7 +29,7 @@
 </section>
 <!-- END section -->
 
-<section class="page-section" id="section-goal">
+<section class="page-section full-height" id="section-goal">
     <div class="container">
         <div class="row text-center">
             <div id="carouselExample" class="carousel slide">
@@ -418,6 +418,8 @@
 </section>
 <!-- END section -->
 
+<script>
+</script>
 
 
 <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/working-footer.php' ) ?>
