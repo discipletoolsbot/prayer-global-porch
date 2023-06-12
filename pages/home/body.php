@@ -8,24 +8,155 @@
     }
 </style>
 
-<section class="cover cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg); height: 100vh;" id="section-home">
+<section class="hero full-height contain bg-top dark-bg" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/world-map-dark-background-new.png); min-height: 100vh;" id="section-home">
     <div class="container">
-        <div class="row align-items-center justify-content-end">
-            <div class="col-md-6  order-md-1">
+        <div class="row flex-column justify-content-between">
+            <div>
                 <h1 class="heading">Prayer.Global</h1>
-                <h2 class="sub-heading mb-3 brand-highlight">Cover the World in Prayer</h2>
+                <h2 class="sub-heading brand-highlight">Cover the World in Prayer</h2>
                 <i class="icon pg-logo-prayer white heading__logo"></i>
-                <div class="mt-2"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
-                <button class="btn btn-success uppercase">
+            </div>
+            <div class="mb-3">
+                <div class="mb-3"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
+                <a href="#section-goal" class="btn brand-lightest-bg white uppercase mt-2">
                     Learn more
-                </button>
+                </a>
                 <br>
-                <i class="icon pg-chevron-down white"></i>
+                <i class="icon pg-chevron-down white two-em"></i>
             </div>
         </div>
     </div>
 </section>
 <!-- END section -->
+
+<section class="page-section" id="section-goal">
+    <div class="container">
+        <div class="row text-center">
+            <div id="carouselExample" class="carousel slide">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="full-height contain">
+                            <div class="container">
+                                <div class="row">
+                                    <i class="icon pg-logo-prayer two-rem"></i>
+                                    <h2>The Goal</h2>
+                                    <p>The clock is ticking. Prayer.Global seeks
+                                    to encourage extraordinary prayer for
+                                    the fulﬁllment of the Great Commission
+                                    in our generation. <br>
+                                    But how?</p>
+                                    <div>
+                                        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/world-1.png" alt="dark world">
+                                        <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/relay-runners.png" alt="dark world">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="full-height contain">
+                            <div class="container">
+                                <div class="row">
+                                    <i class="icon pg-relay two-rem"></i>
+                                    <h2>The Race</h2>
+                                    <p>
+                                        Like a “race”, we pray with urgency and
+                                        focus as we seek to complete “laps” by
+                                        covering the entire world in prayer. An
+                                        interactive map gives us “real time”
+                                        updates on who we’ve prayed for and
+                                        stats on our collective prayer lap status.
+                                    </p>
+                                    <div>
+                                        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/world-2.png" alt="dark world">
+                                        <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/relay-runners.png" alt="dark world">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="full-height contain">
+                            <div class="container">
+                                <div class="row">
+                                    <i class="icon pg-world-arrow two-rem"></i>
+                                    <h2>Our Strategy</h2>
+                                    <p>
+                                        Prayer.Global has broken the world down
+                                        into 4,770 “states” based on geographical
+                                        and governmental boundaries. With
+                                        location speciﬁc “prayer fuel”, we can
+                                        pray with purpose for every people group
+                                        and watch on the map as our united
+                                        prayer “lights up” the darkness.
+                                    </p>
+                                    <div>
+                                        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/world-3.png" alt="dark world">
+                                        <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/relay-runners.png" alt="dark world">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="full-height contain">
+                            <div class="container">
+                                <div class="row">
+                                    <h2>Current Status</h2>
+                                    <p>
+                                        Our ﬁrst global race started 305 days
+                                        ago and we’ve completed 6 laps
+                                        together so far.
+                                    </p>
+                                    <div class="brand-lighter-bg white rounded">
+                                        <h3>Laps Completed</h3>
+                                        <span class="laps-completed">0</span>
+                                    </div>
+                                    <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/relay-runners.png" alt="dark world">
+                                    <div class="">
+                                        <h3>Lap <span class="current-lap">0</span> Time Elapsed</h3>
+                                        <div class="white brand-bg rounded">
+                                            <span class="time_elapsed">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="full-height contain">
+                            <div class="container">
+                                <div class="row">
+                                    <i class="icon pg-crown two-rem"></i>
+                                    <h2>The Finish Line</h2>
+                                    <p>
+                                        With each lap we complete, we are that
+                                        much closer to ushering in God’s
+                                        Kingdom and the return of Jesus Christ!
+                                        Step up and join the worldwide
+                                        Prayer.Global prayer team!
+                                    </p>
+                                    <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/relay-runners.png" alt="dark world">
+                                    <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/finish-line.png" alt="dark world">
+
+                                    <div class="mb-3"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev four-em" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                    <i class="icon pg-chevron-left two-em brand" aria-hidden="true"></i>
+                    <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next four-em" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                    <i class="icon pg-chevron-right two-em brand" aria-hidden="true"></i>
+                    <span class="visually-hidden">Next</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
 
 <section class="page-section" data-section="lap" id="section-lap">
     <div class="container">

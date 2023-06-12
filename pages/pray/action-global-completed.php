@@ -89,7 +89,7 @@ class PG_Global_Prayer_App_Completed extends PG_Global_Prayer_App {
         </style>
         <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/nav.php' );  ?>
 
-        <section class="cover completed-lap cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
+        <section class="hero full-height cover bg-center completed-lap cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
             <div class="container">
                 <div class="row ">
                     <div class="col text-center">
