@@ -38,7 +38,7 @@
                         <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-0.png);">
                             <div class="container">
                                 <div class="row d-block">
-                                    <i class="icon pg-logo-prayer icon-medium my-3"></i>
+                                    <i class="icon pg-logo-prayer icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">The Goal</h2>
                                     <p>The clock is ticking. Prayer.Global seeks
                                     to encourage extraordinary prayer for
@@ -53,7 +53,7 @@
                         <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-1.png);">
                             <div class="container">
                                 <div class="row d-block">
-                                    <i class="icon pg-relay icon-medium my-3"></i>
+                                    <i class="icon pg-relay icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">The Race</h2>
                                     <p>
                                         Like a “race”, we pray with urgency and
@@ -71,7 +71,7 @@
                         <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-2.png);">
                             <div class="container">
                                 <div class="row d-block">
-                                    <i class="icon pg-world-arrow icon-medium my-3"></i>
+                                    <i class="icon pg-world-arrow icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">Our Strategy</h2>
                                     <p>
                                         Prayer.Global has broken the world down
@@ -90,15 +90,15 @@
                         <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-3.png);">
                             <div class="container">
                                 <div class="row d-block">
-                                    <i class="icon pg-logo-prayer icon-medium my-3"></i>
+                                    <i class="icon pg-logo-prayer icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">Current Status</h2>
                                     <p>
                                         Our ﬁrst global race started <span class="global-days-elapsed">0</span> days
                                         ago and we’ve completed <span class="global-laps-completed">0</span> laps
                                         together so far.
                                     </p>
-                                    <div class="brand-lighter-bg white rounded m-auto w-fit p-2 pb-0">
-                                        <h3>Laps Completed</h3>
+                                    <div class="brand-lighter-bg white rounded m-auto my-5 w-fit py-2 px-4 pb-0">
+                                        <h3 style="line-height: 0.7">Laps <br> <span class="one-rem">Completed</span></h3>
                                         <h3 class="global-laps-completed six-em">0</h3>
                                     </div>
                                     <div class="">
@@ -115,7 +115,7 @@
                         <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-4.png);">
                             <div class="container">
                                 <div class="row d-block">
-                                    <i class="icon pg-crown icon-medium my-3"></i>
+                                    <i class="icon pg-crown icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">The Finish Line</h2>
                                     <p>
                                         With each lap we complete, we are that
@@ -126,7 +126,7 @@
                                     </p>
                                     <img class="w-100 p-0 finish-line" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/finish-line-cropped.png" alt="dark world">
 
-                                    <div class="mb-4 position-absolute bottom-0"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
+                                    <div class="mb-4 pb-3 position-absolute bottom-0"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
                                 </div>
                             </div>
                         </div>
