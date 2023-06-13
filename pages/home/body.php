@@ -32,33 +32,29 @@
 <section class="page-section full-height" id="section-goal">
     <div class="container">
         <div class="row text-center">
-            <div id="carouselExample" class="carousel slide">
+            <div id="carouselExample" class="carousel slide px-0">
                 <div class="carousel-inner">
-                    <div class="carousel-item active">
-                        <div class="full-height contain">
+                    <div class="carousel-item">
+                        <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-0.png);">
                             <div class="container">
-                                <div class="row">
-                                    <i class="icon pg-logo-prayer two-rem"></i>
-                                    <h2>The Goal</h2>
+                                <div class="row d-block">
+                                    <i class="icon pg-logo-prayer icon-medium my-3"></i>
+                                    <h2 class="font-title mb-3">The Goal</h2>
                                     <p>The clock is ticking. Prayer.Global seeks
                                     to encourage extraordinary prayer for
                                     the fulﬁllment of the Great Commission
                                     in our generation. <br>
                                     But how?</p>
-                                    <div>
-                                        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/world-1.png" alt="dark world">
-                                        <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/relay-runners.png" alt="dark world">
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="full-height contain">
+                        <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-1.png);">
                             <div class="container">
-                                <div class="row">
-                                    <i class="icon pg-relay two-rem"></i>
-                                    <h2>The Race</h2>
+                                <div class="row d-block">
+                                    <i class="icon pg-relay icon-medium my-3"></i>
+                                    <h2 class="font-title mb-3">The Race</h2>
                                     <p>
                                         Like a “race”, we pray with urgency and
                                         focus as we seek to complete “laps” by
@@ -67,20 +63,16 @@
                                         updates on who we’ve prayed for and
                                         stats on our collective prayer lap status.
                                     </p>
-                                    <div>
-                                        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/world-2.png" alt="dark world">
-                                        <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/relay-runners.png" alt="dark world">
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="full-height contain">
+                        <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-2.png);">
                             <div class="container">
-                                <div class="row">
-                                    <i class="icon pg-world-arrow two-rem"></i>
-                                    <h2>Our Strategy</h2>
+                                <div class="row d-block">
+                                    <i class="icon pg-world-arrow icon-medium my-3"></i>
+                                    <h2 class="font-title mb-3">Our Strategy</h2>
                                     <p>
                                         Prayer.Global has broken the world down
                                         into 4,770 “states” based on geographical
@@ -90,32 +82,29 @@
                                         and watch on the map as our united
                                         prayer “lights up” the darkness.
                                     </p>
-                                    <div>
-                                        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/world-3.png" alt="dark world">
-                                        <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/relay-runners.png" alt="dark world">
-                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="carousel-item">
-                        <div class="full-height contain">
+                    <div class="active carousel-item">
+                        <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-3.png);">
                             <div class="container">
-                                <div class="row">
-                                    <h2>Current Status</h2>
+                                <div class="row d-block">
+                                    <i class="icon pg-logo-prayer icon-medium my-3"></i>
+                                    <h2 class="font-title mb-3">Current Status</h2>
                                     <p>
                                         Our ﬁrst global race started 305 days
                                         ago and we’ve completed 6 laps
                                         together so far.
                                     </p>
-                                    <div class="brand-lighter-bg white rounded">
+                                    <div class="brand-lighter-bg white rounded m-auto w-fit">
                                         <h3>Laps Completed</h3>
-                                        <span class="laps-completed">0</span>
+                                        <h3 class="laps-completed six-em">0</h3>
                                     </div>
                                     <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/relay-runners.png" alt="dark world">
                                     <div class="">
                                         <h3>Lap <span class="current-lap">0</span> Time Elapsed</h3>
-                                        <div class="white brand-bg rounded">
+                                        <div class="white brand-bg rounded m-auto w-fit">
                                             <span class="time_elapsed">0</span>
                                         </div>
                                     </div>
@@ -124,11 +113,11 @@
                         </div>
                     </div>
                     <div class="carousel-item">
-                        <div class="full-height contain">
+                        <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-4.png);">
                             <div class="container">
-                                <div class="row">
-                                    <i class="icon pg-crown two-rem"></i>
-                                    <h2>The Finish Line</h2>
+                                <div class="row d-block">
+                                    <i class="icon pg-crown icon-medium my-3"></i>
+                                    <h2 class="font-title mb-3">The Finish Line</h2>
                                     <p>
                                         With each lap we complete, we are that
                                         much closer to ushering in God’s
@@ -136,10 +125,9 @@
                                         Step up and join the worldwide
                                         Prayer.Global prayer team!
                                     </p>
-                                    <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/relay-runners.png" alt="dark world">
-                                    <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/finish-line.png" alt="dark world">
+                                    <img class="w-100 p-0 finish-line" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/finish-line-cropped.png" alt="dark world">
 
-                                    <div class="mb-3"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
+                                    <div class="mb-4 position-absolute bottom-0"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
                                 </div>
                             </div>
                         </div>
@@ -418,8 +406,6 @@
 </section>
 <!-- END section -->
 
-<script>
-</script>
 
 
 <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/working-footer.php' ) ?>

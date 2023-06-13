@@ -56,6 +56,7 @@
 
 :root {
     --pg-font-family-base: "Europa", Arial, sans-serif;
+    --pg-font-family-title: "Bebas Kai", Arial, sans-serif;
     --pg-brand-color-dark: #11224e;
     --pg-brand-color: #11224e;
     --pg-brand-color-light: #1a3b70;
@@ -79,7 +80,13 @@ h1, h2, h3, h4, h5, h6 {
     font-weight: 300;
 }
 h2 {
+    font-family: var(--pg-font-family-title);
+    font-size: 3rem;
     line-height: 1.1;
+}
+h3 {
+    font-family: var(--pg-font-family-title);
+    font-size: 2rem;
 }
 ul {
     margin-left: 0;
@@ -127,6 +134,15 @@ hr {
 .one-em {
     font-size: 1.5em;
 }
+.icon-small {
+    font-size: 2rem;
+}
+.icon-medium {
+    font-size: 4rem;
+}
+.icon-large {
+    font-size: 6rem;
+}
 .small {
     font-size: 14px;
 }
@@ -141,6 +157,12 @@ hr {
 }
 .uppercase {
     text-transform: uppercase;
+}
+.w-fit {
+    width: fit-content;
+}
+.font-title {
+    font-family: var(--pg-font-family-title);
 }
 @media (max-width: 768px) {
     .six-em {
@@ -290,20 +312,21 @@ hr {
 }
 .full-height > .container {
     position: relative;
+    height: inherit;
 }
 .hero.full-height {
     min-height: calc(100vh - 6em);
     padding-top: 6em;
 }
 .full-height {
-    min-height: calc(100vh - 4em);
+    height: calc(100vh - 4em);
 }
 .hero.full-height > .container,
 .hero.full-height > .container > .row {
     min-height: calc(100vh - 6em);
 }
 .full-height > .container > .row {
-    min-height: calc(100vh - 4em);
+    height: calc(100vh - 4em);
 }
 @media (max-width: 767px) {
     .full-height > .container > .row {
@@ -362,6 +385,9 @@ hr {
 }
 .bg-top {
     background-position: top;
+}
+.bg-bottom {
+    background-position: bottom;
 }
 .hero .heading {
     font-size: 62px;
@@ -424,10 +450,20 @@ hr {
         font-size: 32px;
     }
 }
+
+/* Carousel */
+
 .carousel-control-prev,
 .carousel-control-next {
     opacity: 1;
 }
+.finish-line {
+    position: absolute;
+    bottom: 10vw;
+    left: 0;
+    right: 0;
+}
+
 .images {
   position: relative;
 }
