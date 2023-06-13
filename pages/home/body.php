@@ -93,19 +93,18 @@
                                     <i class="icon pg-logo-prayer icon-medium my-3"></i>
                                     <h2 class="font-title mb-3">Current Status</h2>
                                     <p>
-                                        Our ﬁrst global race started 305 days
-                                        ago and we’ve completed 6 laps
+                                        Our ﬁrst global race started <span class="global-days-elapsed">0</span> days
+                                        ago and we’ve completed <span class="global-laps-completed">0</span> laps
                                         together so far.
                                     </p>
-                                    <div class="brand-lighter-bg white rounded m-auto w-fit">
+                                    <div class="brand-lighter-bg white rounded m-auto w-fit p-2 pb-0">
                                         <h3>Laps Completed</h3>
-                                        <h3 class="laps-completed six-em">0</h3>
+                                        <h3 class="global-laps-completed six-em">0</h3>
                                     </div>
-                                    <img class="w-25" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/relay-runners.png" alt="dark world">
                                     <div class="">
-                                        <h3>Lap <span class="current-lap">0</span> Time Elapsed</h3>
-                                        <div class="white brand-bg rounded m-auto w-fit">
-                                            <span class="time_elapsed">0</span>
+                                        <h3>Lap <span class="global-lap-number">0</span> Time Elapsed</h3>
+                                        <div class="white brand-bg rounded m-auto w-fit px-3 py-1 three-em font-weight-bold uppercase | global-time-elapsed time_elapsed">
+                                            0
                                         </div>
                                     </div>
                                 </div>

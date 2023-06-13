@@ -451,6 +451,21 @@ hr {
     }
 }
 
+/* Time Elapsed */
+
+.time_elapsed {
+    display: flex;
+    justify-content: center;
+}
+.time-value {
+    display: flex;
+    flex-direction: column;
+    padding: 0 1rem;
+}
+.time-label {
+    font-size: 0.9rem;
+}
+
 /* Carousel */
 
 .carousel-control-prev,

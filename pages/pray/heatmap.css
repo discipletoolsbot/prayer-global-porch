@@ -140,18 +140,7 @@ progress {
 .stats-figure-lg {
     font-size: 3rem;
 }
-.time_elapsed {
-    display: flex;
-    justify-content: center;
-}
-.time-value {
-    display: flex;
-    flex-direction: column;
-    width: 20%;
-}
-.time-label {
-    font-size: 0.9rem;
-}
+
 .green-bg {
     background-color: green;
 }
