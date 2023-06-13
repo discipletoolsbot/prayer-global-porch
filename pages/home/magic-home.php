@@ -148,7 +148,7 @@ class Prayer_Global_Porch_Home extends DT_Magic_Url_Base
                 window.api_post( 'get_stats', {} )
                     .done(function(stats) {
                         console.log(stats)
-                        jQuery('#current_time_elapsed').html(stats.current_time_elapsed )
+                        jQuery('.current-time-elapsed').html(PG.DisplayTime(stats.current_time_elapsed_data) )
                         jQuery('#current_participants').html(stats.current_participants )
                         jQuery('#current_completed').html(stats.current_completed )
                         jQuery('#current_remaining').html(stats.current_remaining )
@@ -203,6 +203,7 @@ class Prayer_Global_Porch_Home extends DT_Magic_Url_Base
 
         return [
             'current_time_elapsed' => $current_global_stats['time_elapsed'],
+            'current_time_elapsed_data' => $current_global_stats['time_elapsed_data'],
             'current_participants' => $current_global_stats['participants'],
             'current_completed' => $current_global_stats['completed'],
             'current_remaining' => $current_global_stats['remaining'],

@@ -34,7 +34,7 @@
         <div class="row text-center">
             <div id="carouselExample" class="carousel slide px-0">
                 <div class="carousel-inner">
-                    <div class="carousel-item">
+                    <div class="carousel-item active">
                         <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-0.png);">
                             <div class="container">
                                 <div class="row d-block">
@@ -86,25 +86,25 @@
                             </div>
                         </div>
                     </div>
-                    <div class="active carousel-item">
+                    <div class="carousel-item">
                         <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-3.png);">
                             <div class="container">
                                 <div class="row d-block">
                                     <i class="icon pg-logo-prayer icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">Current Status</h2>
                                     <p>
-                                        Our ﬁrst global race started <span class="global-days-elapsed">0</span> days
-                                        ago and we’ve completed <span class="global-laps-completed">0</span> laps
+                                        Our ﬁrst global race started <span class="global-days-elapsed"><span class="loading-spinner active"></span></span> days
+                                        ago and we’ve completed <span class="global-laps-completed"><span class="loading-spinner active"></span></span> laps
                                         together so far.
                                     </p>
                                     <div class="brand-lighter-bg white rounded m-auto my-5 w-fit py-2 px-4 pb-0">
                                         <h3 style="line-height: 0.7">Laps <br> <span class="one-rem">Completed</span></h3>
-                                        <h3 class="global-laps-completed six-em">0</h3>
+                                        <h3 class="global-laps-completed six-em"><span class="loading-spinner active"></span></h3>
                                     </div>
                                     <div class="">
-                                        <h3>Lap <span class="global-lap-number">0</span> Time Elapsed</h3>
-                                        <div class="white brand-bg rounded m-auto w-fit px-3 py-1 three-em font-weight-bold uppercase | global-time-elapsed time_elapsed">
-                                            0
+                                        <h3>Lap <span class="global-lap-number"><span class="loading-spinner active"></span></span> Time Elapsed</h3>
+                                        <div class="white brand-bg rounded m-auto w-fit px-3 py-1 three-em font-weight-bold uppercase | current-time-elapsed time_elapsed">
+                                            <span class="loading-spinner active"></span>
                                         </div>
                                     </div>
                                 </div>
