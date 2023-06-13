@@ -326,7 +326,7 @@ hr {
 }
 .hero.full-height > .container,
 .hero.full-height > .container > .row {
-    min-height: calc(100vh - 6em);
+    height: calc(100vh - 6em);
 }
 .full-height > .container > .row {
     height: calc(100vh - 4em);
