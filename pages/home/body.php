@@ -200,7 +200,10 @@
 
             <span class="four-em font-weight-bold lh-1"><span class="current-completed"><span class="loading-spinner active"></span></span> of <span><?php echo esc_html( PG_TOTAL_STATES ) ?></span></span>
 
-            <a href="/newest/map/" role="button" class="btn smoothscroll btn-primary uppercase mb-3 w-100" data-reverse-color>Current Map</a>
+            <a href="/newest/map/" role="button" class="btn smoothscroll btn-primary uppercase mb-3 w-100 has-icon" data-reverse-color>
+                <span>Current Map</span>
+                <i class="icon pg-chevron-right icon-end me-3 two-rem end-0"></i>
+            </a>
         </div>
 
     </div>

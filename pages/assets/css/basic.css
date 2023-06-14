@@ -339,6 +339,14 @@ hr {
 .full-height > .container > .row {
     height: calc(100vh - 4em);
 }
+.has-icon {
+    position: relative;
+}
+.icon-end {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
 @media (max-width: 767px) {
     .full-height > .container > .row {
         height: inherit;
