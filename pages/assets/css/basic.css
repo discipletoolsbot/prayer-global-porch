@@ -67,6 +67,7 @@
     --font-weight-default: 300;
     --bs-body-font-weight: 300;
     --bs-body-line-height: 1.8;
+    --bs-primary-rgb: var(--pg-brand-color);
 }
 html {
     font-size: 1em;
@@ -483,6 +484,15 @@ hr {
     right: 0;
 }
 
+/* Card */
+
+.pg-card {
+    --pg-flow-size: 1.3rem;
+    box-shadow: rgba(0,0,0,0.25) 0px 3px 7px 0px;
+    border-radius: 20px;
+    padding: 10px;
+}
+
 .images {
   position: relative;
 }
@@ -560,10 +570,10 @@ hr {
 }
 
 .flow > * + * {
-    margin-top: 4rem;
+    margin-top: var(--pg-flow-size, 4rem);
 }
 .flow-small > * + * {
-    margin-top: 2rem;
+    margin-top: var(--pg-flow-size, 2rem);
 }
 
 /* Page styles */

@@ -146,27 +146,27 @@
 </section>
 
 <section class="page-section" data-section="lap" id="section-lap">
-    <div class="container"></div>
+    <div class="container">
 
-        <div class="rounded brand-lighter center uppercase">
-            <i class="icon pg-race icon-large d-block"></i>
-            <h2>Global Race Stats</h2>
+        <div class="flow pg-card brand-lighter center uppercase mb-5">
+            <i class="icon pg-race icon-large d-block pt-4"></i>
+            <h2 class="mb-0">Global Race Stats</h2>
 
             <div>
                 <span class="">Total Elapsed Time</span>
                 <div class="four-em font-weight-bold global-time-elapsed time_elapsed"></div>
+            </div>
 
-                <div class="row">
-                    <div class="col-6">
-                        <i class="icon pg-world-light d-block icon-small"></i>
-                        <p class="">Laps Completed</p>
-                        <h3 class="global-laps-completed six-em"><span class="loading-spinner active"></span></h3>
-                    </div>
-                    <div class="col-6">
-                        <i class="icon pg-prayer d-block icon-small"></i>
-                        <p class="">Total Intercessors</p>
-                        <h3 class="global-participants six-em"><span class="loading-spinner active"></span></h3>
-                    </div>
+            <div class="row border-top border-2 border-primary" style="--bs-gutter-x: 0">
+                <div class="col-6 p-2 pt-4 border-end border-primary border-1">
+                    <i class="icon pg-world-light d-block icon-small"></i>
+                    <span class="">Laps Completed</span>
+                    <h3 class="global-laps-completed six-em lh-1"><span class="loading-spinner active"></span></h3>
+                </div>
+                <div class="col-6 p-2 pt-4 border-start border-primary border-1">
+                    <i class="icon pg-prayer d-block icon-small"></i>
+                    <span class="">Total Intercessors</span>
+                    <h3 class="global-participants six-em lh-1"><span class="loading-spinner active"></span></h3>
                 </div>
             </div>
 
