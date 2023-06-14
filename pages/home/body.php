@@ -146,96 +146,36 @@
 </section>
 
 <section class="page-section" data-section="lap" id="section-lap">
-    <div class="container">
-        <div class="row">
-            <div class="col-md text-center stats-header">
-                <h2 class="stats-header__title" style="">Current Lap</h2>
-                <h3 class="stats-header__subtitle header-border-top" id="current_time_elapsed"><span class="loading-spinner active"></span></h3>
-                <br>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md">
-                <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-ios-body-outline"></i></div>
-                    <div class="">
-                        <h3 class="stats-info__title" id="current_participants"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Prayer Warriors</h3>
+    <div class="container"></div>
+
+        <div class="rounded brand-lighter center uppercase">
+            <i class="icon pg-race icon-large d-block"></i>
+            <h2>Global Race Stats</h2>
+
+            <div>
+                <span class="">Total Elapsed Time</span>
+                <div class="four-em font-weight-bold global-time-elapsed time_elapsed"></div>
+
+                <div class="row">
+                    <div class="col-6">
+                        <i class="icon pg-world-light d-block icon-small"></i>
+                        <p class="">Laps Completed</p>
+                        <h3 class="global-laps-completed six-em"><span class="loading-spinner active"></span></h3>
+                    </div>
+                    <div class="col-6">
+                        <i class="icon pg-prayer d-block icon-small"></i>
+                        <p class="">Total Intercessors</p>
+                        <h3 class="global-participants six-em"><span class="loading-spinner active"></span></h3>
                     </div>
                 </div>
             </div>
-            <div class="col-md">
-                <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
-                    <div class="">
-                        <h3 class="stats-info__title" id="current_remaining"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Remaining</h3>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-earth"></i></div>
-                    <div class="">
-                        <h3 class="stats-info__title" id="current_completed"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Covered</h3>
-                    </div>
-                </div>
-            </div>
+
         </div>
-        <div class="row">
-            <br><br>
-        </div>
-        <div class="row">
-            <div class="col-md text-center">
-                <a href="/newest/map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Current Map</a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md text-center stats-header">
-                <h2 class="stats-header__title">Global Race</h2>
-                <h3 class="stats-header__subtitle header-border-top" id="global_time_elapsed"><span class="loading-spinner active"></span></h3>
-                <br>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md">
-                <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-ios-body-outline"></i></div>
-                    <div class="">
-                        <h3 class="stats-info__title" id="global_participants"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Prayer Warriors</h3>
-                    </div>
-                </div>
-            </div>
-<!--            <div class="col-md">-->
-<!--                <div class="stats-info">-->
-<!--                    <div class="icon-circle display-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>-->
-<!--                    <div class="">-->
-<!--                        <h3 class="stats-info__title" id="global_minutes_prayed"><span class="loading-spinner active"></span></h3>-->
-<!--                        <h3 class="stats-info__subtitle">Minutes Prayed</h3>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-            <div class="col-md">
-                <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-earth"></i></div>
-                    <div class="">
-                        <h3 class="stats-info__title" id="global_lap_number"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Laps</h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <br><br>
-        </div>
-        <div class="row">
-            <div class="col-md text-center">
-                <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Race Map</a>
-                <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Race List</a>
-            </div>
-        </div>
+
+        <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Race Map</a>
+        <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Race List</a>
+
+        <a href="/newest/map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Current Map</a>
     </div>
 </section>
 <!-- END section -->

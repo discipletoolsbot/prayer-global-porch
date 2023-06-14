@@ -152,7 +152,7 @@ class Prayer_Global_Porch_Home extends DT_Magic_Url_Base
                         jQuery('#current_participants').html(stats.current_participants )
                         jQuery('#current_completed').html(stats.current_completed )
                         jQuery('#current_remaining').html(stats.current_remaining )
-                        jQuery('#global_participants').html(stats.global_participants )
+                        jQuery('.global-participants').html(stats.global_participants )
                         jQuery('#global_minutes_prayed').html(stats.global_minutes_prayed )
                         jQuery('.global-time-elapsed').html(PG.DisplayTime(stats.global_time_elapsed_data) )
                         jQuery('.global-days-elapsed').html(stats.global_time_elapsed_data.days )
