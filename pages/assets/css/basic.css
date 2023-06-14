@@ -80,6 +80,10 @@ h1, h2, h3, h4, h5, h6 {
     font-family: var(--pg-font-family-base);
     font-weight: 300;
 }
+h1 {
+    font-family: var(--pg-font-family-title);
+    font-size: 6rem;
+}
 h2 {
     font-family: var(--pg-font-family-title);
     font-size: 3rem;
@@ -161,6 +165,9 @@ hr {
 }
 .uppercase {
     text-transform: uppercase;
+}
+.lh-xsm {
+    line-height: 0.8;
 }
 .w-fit {
     width: fit-content;

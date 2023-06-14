@@ -175,6 +175,32 @@
         <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Race Map</a>
         <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Race List</a>
 
+        <div class="flow pg-card brand-bg white center uppercase mb-5">
+            <i class="icon pg-world-arrow icon-large pt-4 d-block"></i>
+            <h1 class="mb-0 lh-xsm">Lap <span class="global-lap-number"><span class="loading-spinner active"></span></span></h1>
+
+            <hr class="border-white border">
+
+            <h6 class="mb-0">Current Lap Elapsed Time</h6>
+            <div class="current-time-elapsed time_elapsed four-em font-weight-bold"><span class="loading-spinner active"></span></div>
+
+            <hr class="border-white border">
+            <div class="flow" style="--pg-flow-size: 0.1rem">
+                <i class="icon pg-prayer d-block icon-small"></i>
+                <h6 class="mb-0">Intercessors</h6>
+                <div class="current-participants four-em font-weight-bold lh-1"><span class="loading-spinner active"></span></div>
+            </div>
+
+            <hr class="border-white border">
+
+            <i class="icon pg-world-light icon-small d-block"></i>
+            <h6 class="mb-0 mt-1">Places Covered</h6>
+            <div>progress bar</div>
+
+            <span class="four-em font-weight-bold lh-1"><span class="current-completed"><span class="loading-spinner active"></span></span> of <span><?php echo esc_html( PG_TOTAL_STATES ) ?></span></span>
+
+        </div>
+
         <a href="/newest/map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Current Map</a>
     </div>
 </section>
