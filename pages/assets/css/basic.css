@@ -671,6 +671,8 @@ button {
 }
 .btn {
     --bs-btn-font-weight: var(--font-weight-default);
+    --bs-btn-padding-y: 1rem;
+    --bs-btn-font-weight: bold;
 }
 .btn-outline-dark {
     --bs-btn-border-color: black;
@@ -678,6 +680,13 @@ button {
 .btn-outline-light {
     --bs-btn-border-radius: 20px;
     text-transform: uppercase;
+}
+.btn-primary {
+    --bs-btn-bg: var(--pg-brand-color-lighter);
+    --bs-btn-active-bg: var(--pg-brand-color-light);
+    --bs-btn-hover-bg: var(--pg-brand-color-lighter);
+    --bs-btn-hover-color: var(--pg-brand-color-highlight);
+    border: none;
 }
 .btn-xl {
     font-size: 13px;

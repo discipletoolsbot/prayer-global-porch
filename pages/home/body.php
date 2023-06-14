@@ -148,7 +148,7 @@
 <section class="page-section" data-section="lap" id="section-lap">
     <div class="container">
 
-        <div class="flow pg-card brand-lighter center uppercase mb-5">
+        <div class="flow pg-card brand-lighter center uppercase mb-3">
             <i class="icon pg-race icon-large d-block pt-4"></i>
             <h2 class="mb-0">Global Race Stats</h2>
 
@@ -171,9 +171,10 @@
             </div>
 
         </div>
-
-        <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Race Map</a>
-        <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Race List</a>
+        <div class="d-flex my-4 gap-2">
+            <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-primary uppercase flex-grow-1">Race Map</a>
+            <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-primary uppercase flex-grow-1">Race List</a>
+        </div>
 
         <div class="flow pg-card brand-bg white center uppercase mb-5">
             <i class="icon pg-world-arrow icon-large pt-4 d-block"></i>
@@ -199,9 +200,9 @@
 
             <span class="four-em font-weight-bold lh-1"><span class="current-completed"><span class="loading-spinner active"></span></span> of <span><?php echo esc_html( PG_TOTAL_STATES ) ?></span></span>
 
+            <a href="/newest/map/" role="button" class="btn smoothscroll btn-primary uppercase mb-3 w-100" data-reverse-color>Current Map</a>
         </div>
 
-        <a href="/newest/map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Current Map</a>
     </div>
 </section>
 <!-- END section -->
