@@ -679,8 +679,12 @@ hr {
     font-size: 20px;
 }
 
-.pg-footer {
-    padding: 5em 0;
+.pg-heart {
+    width: 1.5rem;
+    fill: white;
+}
+.pg-footer a {
+    color: var(--pg-brand-color-highlight);
 }
 .footer__copyright {
     padding-top: 5rem;
