@@ -196,7 +196,9 @@
 
             <i class="icon pg-world-light icon-small d-block"></i>
             <h6 class="mb-0 mt-1">Places Covered</h6>
-            <div>progress bar</div>
+            <div>
+
+            </div>
 
             <span class="four-em font-weight-bold lh-1"><span class="current-completed"><span class="loading-spinner active"></span></span> of <span><?php echo esc_html( PG_TOTAL_STATES ) ?></span></span>
 

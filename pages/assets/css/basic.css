@@ -483,7 +483,7 @@ hr {
     padding: 0 1rem;
 }
 .time-label {
-    font-size: 0.9rem;
+    font-size: 1rem;
 }
 
 /* Carousel */
@@ -491,6 +491,10 @@ hr {
 .carousel-control-prev,
 .carousel-control-next {
     opacity: 1;
+}
+.carousel-item {
+    width: 102%;
+    margin-right: -104%;
 }
 .finish-line {
     position: absolute;
@@ -724,6 +728,7 @@ button {
     --bs-btn-font-weight: 600;
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.161);
     --bs-btn-padding-x: 1.5em;
+    --bs-btn-padding-y: 0.4em;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.161);
 }
 
