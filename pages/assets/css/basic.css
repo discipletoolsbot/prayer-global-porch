@@ -68,6 +68,7 @@
     --bs-body-font-weight: 300;
     --bs-body-line-height: 1.8;
     --bs-primary-rgb: var(--pg-brand-color);
+    --orange-gradient: linear-gradient(#ffb858, #ea7519);
 }
 html {
     font-size: 1em;
@@ -293,6 +294,9 @@ hr {
 .orange-light-bg {
     background-color: hsl(39, 100%, 74%);
 }
+.orange-gradient {
+    background-image: var(--orange-gradient);
+}
 .white-bg {
     background-color: white;
 }
@@ -501,6 +505,28 @@ hr {
     bottom: 15vw;
     left: 0;
     right: 0;
+}
+
+/* Progress Bar */
+
+.progress-bar {
+    height: 3rem;
+    box-shadow: white 0 0 0 8px;
+    border-radius: 100px;
+    background: white;
+    border: 4px solid var(--pg-brand-color);
+
+    width: 80%;
+    padding-top: 8%;
+}
+.progress-bar__slider {
+    width: 0;
+    transition: width 1s ease-out;
+}
+.progress-bar__marker {
+    height: 100%;
+    width: 3px;
+    background-color: var(--pg-brand-color);
 }
 
 /* Card */
@@ -723,7 +749,7 @@ button {
     --bs-btn-border-width:  2px;
     --bs-btn-border-radius: 100px;
     --bs-btn-color: white;
-    background-image: linear-gradient(#ffb858, #ea7519);
+    background-image: var(--orange-gradient);
     text-transform: uppercase;
     --bs-btn-font-weight: 600;
     text-shadow: 0 2px 2px rgba(0, 0, 0, 0.161);
