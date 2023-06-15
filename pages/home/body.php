@@ -216,6 +216,8 @@
             </a>
         </div>
 
+        <div class="mb-3 mx-auto center"><a class="btn btn-cta three-em" href="/newest/lap/">Start Praying</a></div>
+
     </div>
 </section>
 <!-- END section -->

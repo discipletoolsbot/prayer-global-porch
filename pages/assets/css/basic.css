@@ -510,7 +510,6 @@ hr {
 /* Progress Bar */
 
 .progress-bar {
-    height: 3rem;
     box-shadow: white 0 0 0 8px;
     border-radius: 100px;
     background: white;
