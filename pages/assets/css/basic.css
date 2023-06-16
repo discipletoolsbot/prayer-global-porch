@@ -1058,6 +1058,7 @@ button {
 }
 .data-table .dataTables_wrapper .dataTables_filter label {
     color: #acabab;
+    background-color: white;
     text-transform: uppercase;
     display: flex;
     padding: 0 1rem 2rem;

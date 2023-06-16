@@ -15,8 +15,6 @@ jQuery(document).ready(function() {
   window.api_post( 'get_global_list', {} )
     .then(function(data) {
 
-            console.log(data)
-
             let html_content_active = ''
             let html_content_completed = ''
 
@@ -62,26 +60,7 @@ jQuery(document).ready(function() {
             jQuery('#list-table-active').DataTable({
               lengthChange: false,
               pageLength: 3,
-              responsive: {
-                details: {
-                    //display: $.fn.dataTable.Responsive.display.childRowImmediate,
-                    type: '',
-                    renderer: function ( api, rowIdx, columns ) {
-                      var data = $.map( columns, function ( col, i ) {
-                          return col.hidden ?
-                              '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
-                                  '<td class="dtr-title">'+col.title+':'+'</td> '+
-                                  '<td class="dtr-data">'+col.data+'</td>'+
-                              '</tr>' :
-                              '';
-                      } ).join('');
-
-                      return data ?
-                          $('<table/>').append( data ) :
-                          false;
-                  },
-                },
-              },
+              responsive: true,
               order: [[0, 'desc']],
               columnDefs: [
                 {
@@ -109,26 +88,7 @@ jQuery(document).ready(function() {
           jQuery('#list-table-completed').DataTable({
             lengthChange: false,
             pageLength: 3,
-            responsive: {
-              details: {
-                display: $.fn.dataTable.Responsive.display.childRowImmediate,
-                type: '',
-                renderer: function ( api, rowIdx, columns ) {
-                  var data = $.map( columns, function ( col, i ) {
-                    return col.hidden ?
-                      '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
-                      '<td class="dtr-title">'+col.title+':'+'</td> '+
-                      '<td class="dtr-data">'+col.data+'</td>'+
-                      '</tr>' :
-                      '';
-                  } ).join('');
-
-                  return data ?
-                    $('<table/>').append( data ) :
-                    false;
-                },
-              },
-            },
+            responsive: true,
             order: [[0, 'desc']],
             columnDefs: [
               {
