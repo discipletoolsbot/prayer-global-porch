@@ -1072,6 +1072,25 @@ button {
     width: 100%;
     box-shadow: rgba(0,0,0,0.1) 0 3px 4px 1px;
 }
+.data-table .sorting {
+    border: none;
+}
+.data-table .dataTable {
+    border-spacing: 2px;
+    border-bottom: none !important;
+}
+.data-table .dataTable .dtr-control {
+    border-radius: 6px;
+}
+#active_content .dtr-control {
+    background: var(--pg-brand-color-light);
+}
+#complete_content .dtr-control {
+    background: var(--pg-brand-color-lighter);
+}
+.data-table .dataTable .dtr-control a {
+    color: white;
+}
 
 /* Remove striping when table is running responsively */
 @media ( max-width: 1024px ) {
