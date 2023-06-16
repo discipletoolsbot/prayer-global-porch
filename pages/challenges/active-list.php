@@ -138,12 +138,12 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
             <section class="flow-small">
                 <i class="icon pg-relay icon-medium d-block"></i>
                 <h4 class="uppercase">Active Relays</h4>
-                <div class="container" id="active_content"><span class="loading-spinner active"></span></div>
+                <div class="container data-table" id="active_content"><span class="loading-spinner active"></span></div>
             </section>
             <section class="brand-lighter flow-small">
                 <i class="icon pg-crown icon-medium d-block"></i>
                 <h3 class="uppercase">Completed Relays</h3>
-                <div class="container" id="complete_content"><span class="loading-spinner active"></span></div>
+                <div class="container data-table" id="complete_content"><span class="loading-spinner active"></span></div>
                 <div class="container" ><hr style="margin: 1em auto;"></div>
             </section>
 

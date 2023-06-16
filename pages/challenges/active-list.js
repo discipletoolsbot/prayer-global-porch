@@ -61,10 +61,10 @@ jQuery(document).ready(function() {
             )
             jQuery('#list-table-active').DataTable({
               lengthChange: false,
-              pageLength: 10,
+              pageLength: 3,
               responsive: {
                 details: {
-                    display: $.fn.dataTable.Responsive.display.childRowImmediate,
+                    //display: $.fn.dataTable.Responsive.display.childRowImmediate,
                     type: '',
                     renderer: function ( api, rowIdx, columns ) {
                       var data = $.map( columns, function ( col, i ) {
@@ -108,7 +108,7 @@ jQuery(document).ready(function() {
           )
           jQuery('#list-table-completed').DataTable({
             lengthChange: false,
-            pageLength: 10,
+            pageLength: 3,
             responsive: {
               details: {
                 display: $.fn.dataTable.Responsive.display.childRowImmediate,

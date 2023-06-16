@@ -1056,6 +1056,21 @@ button {
 .dtr-title {
     font-weight: bold;
 }
+.data-table .dataTables_wrapper .dataTables_filter label {
+    color: #acabab;
+    text-transform: uppercase;
+    display: flex;
+    padding: 0 1rem 2rem;
+    border-bottom: 1px solid var(--pg-secondary-color);
+}
+.data-table .dataTables_wrapper .dataTables_filter input {
+    border: 1px solid #aaa;
+    border-radius: 10px;
+    margin-left: 10px;
+    padding: 0 10px;
+    width: 100%;
+    box-shadow: rgba(0,0,0,0.1) 0 3px 4px 1px;
+}
 
 /* Remove striping when table is running responsively */
 @media ( max-width: 1024px ) {
