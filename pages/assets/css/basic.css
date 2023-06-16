@@ -1079,8 +1079,23 @@ button {
     border-spacing: 2px;
     border-bottom: none !important;
 }
-.data-table .dataTable .dtr-control {
+.data-table table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control{
     border-radius: 6px;
+    padding: 10px 39px 10px 10px;
+}
+.data-table table.dataTable.dtr-inline.collapsed>tbody>tr>th.dtr-control:before {
+    content: "\e91b";
+    font-family: PrayerGlobal;
+    background-color: transparent;
+    border: none;
+    font-size: 1.6rem;
+    left: unset;
+    right: 10px;
+}
+.data-table table.dataTable.dtr-inline.collapsed>tbody>tr.parent>th.dtr-control:before{
+    content: "\e91e";
+    font-family: PrayerGlobal;
+    background-color: transparent;
 }
 #active_content .dtr-control {
     background: var(--pg-brand-color-light);
