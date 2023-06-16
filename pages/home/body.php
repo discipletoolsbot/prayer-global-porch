@@ -40,7 +40,7 @@
                                 <div class="row d-block">
                                     <i class="icon pg-logo-prayer icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">The Goal</h2>
-                                    <p>The clock is ticking. Prayer.Global seeks
+                                    <p class="white-gradient pb-3">The clock is ticking. Prayer.Global seeks
                                     to encourage extraordinary prayer for
                                     the fulﬁllment of the Great Commission
                                     in our generation. <br>
@@ -55,7 +55,7 @@
                                 <div class="row d-block">
                                     <i class="icon pg-relay icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">The Race</h2>
-                                    <p>
+                                    <p class="white-gradient pb-3">
                                         Like a “race”, we pray with urgency and
                                         focus as we seek to complete “laps” by
                                         covering the entire world in prayer. An
@@ -73,7 +73,7 @@
                                 <div class="row d-block">
                                     <i class="icon pg-world-arrow icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">Our Strategy</h2>
-                                    <p>
+                                    <p class="white-gradient pb-3">
                                         Prayer.Global has broken the world down
                                         into 4,770 “states” based on geographical
                                         and governmental boundaries. With
@@ -92,7 +92,7 @@
                                 <div class="row d-block">
                                     <i class="icon pg-logo-prayer icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">Current Status</h2>
-                                    <p>
+                                    <p class="white-gradient pb-3">
                                         Our ﬁrst global race started <span class="global-days-elapsed"><span class="loading-spinner active"></span></span> days
                                         ago and we’ve completed <span class="global-laps-completed"><span class="loading-spinner active"></span></span> laps
                                         together so far.
@@ -117,7 +117,7 @@
                                 <div class="row d-block">
                                     <i class="icon pg-crown icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">The Finish Line</h2>
-                                    <p>
+                                    <p class="white-gradient pb-3">
                                         With each lap we complete, we are that
                                         much closer to ushering in God’s
                                         Kingdom and the return of Jesus Christ!

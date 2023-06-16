@@ -69,6 +69,7 @@
     --bs-body-line-height: 1.8;
     --bs-primary-rgb: var(--pg-brand-color);
     --orange-gradient: linear-gradient(#ffb858, #ea7519);
+    --white-gradient: linear-gradient(white, 90%, transparent);
 }
 html {
     font-size: 1em;
@@ -296,6 +297,9 @@ hr {
 }
 .orange-gradient {
     background-image: var(--orange-gradient);
+}
+.white-gradient {
+    background-image: var(--white-gradient);
 }
 .white-bg {
     background-color: white;
@@ -783,7 +787,10 @@ button {
     right: 0;
     z-index: 100;
     padding: 1em 1em;
-    color: white;
+}
+.pg-navbar * {
+    border-color: var(--pg-brand-color);
+    --bs-border-color: var(--pg-brand-color);
 }
 
 .pg-navbar.scrolled {
@@ -816,10 +823,15 @@ button {
     -moz-box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.15);
     box-shadow: 0px 1px 10px -2px rgba(0, 0, 0, 0.15);
 }
-
 .navbar-dark {
-    --bs-link-color: white;
-    --bs-navbar-color: white;
+    color: white;
+}
+.navbar-dark .navbar__title {
+    color: white;
+}
+.navbar-dark * {
+    border-color: white;
+    --bs-border-color: white;
 }
 .navbar-dark .navbar-brand {
     --bs-navbar-brand-color: white;
@@ -844,13 +856,6 @@ button {
 }
 .pg-navmenu {
     --bs-bg-opacity: 1;
-}
-.navbar-dark .pg-navmenu {
-    background: black;
-    --bs-offcanvas-color: white;
-}
-.navbar-dark .btn-close {
-    filter: invert(1) grayscale(100%) brightness(200%);
 }
 @media ( max-width: 576px ) {
     .navbar__cta {
