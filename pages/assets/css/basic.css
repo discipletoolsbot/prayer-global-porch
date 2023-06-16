@@ -1106,6 +1106,19 @@ button {
 .data-table .dataTable .dtr-control a {
     color: white;
 }
+.data-table .dataTables_wrapper .dataTables_info {
+    float: left;
+    font-size: 12px;
+    text-transform: none;
+    padding-left: 10px;
+}
+.data-table .dataTables_wrapper .dataTables_paginate {
+    margin-top: 0;
+}
+.data-table .dataTables_wrapper .dataTables_paginate .paginate_button {
+    font-size: 1rem;
+    padding: 0 0.5rem;
+}
 
 /* Remove striping when table is running responsively */
 @media ( max-width: 1024px ) {
