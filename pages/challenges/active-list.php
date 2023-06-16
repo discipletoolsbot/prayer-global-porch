@@ -110,39 +110,44 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
             .challenge-row:hover{
                 background-color: #f9f9f9;
             }
-            section {
-                margin-top: 130px;
-            }
             .dataTables_wrapper {
                 margin: 2em 0;
             }
         </style>
-        <section>
-            <div class="container pb-4">
+        <section class="brand-light text-center page flow-medium">
+            <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center">
-                        <span class="two-em lap-title">Group Challenges</span><br>
+                    <div class="col-12">
+                        <h2 class="">Prayer Relays</h2>
+                        <i class="icon pg-relay icon-large"></i>
                     </div>
-                    <div class="col-md-3 text-center"></div>
-                    <div class="col-md-6 text-center">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 mt-4">
                         <p>Group challenges are communities of prayer warriors who have picked up the challenge of praying for the entire world as a group. All prayers prayed in the group challenges contribute to the global laps.</p>
                     </div>
-                    <div class="col-md-3 text-center"></div>
+                    <div class="col-md-3"></div>
                 </div>
             </div>
-            <div class="center two-em lap-title">Active Challenges</div>
-            <div class="container" id="active_content"><span class="loading-spinner active"></span></div>
-            <div class="center two-em lap-title">Completed Challenges</div>
-            <div class="container" id="complete_content"><span class="loading-spinner active"></span></div>
-            <div class="container" ><hr style="margin: 1em auto;"></div>
-
-            <div class="container pb-4">
+            <div class="container">
                 <div class="row">
                     <div class="col-md text-center">
-                        <a class="button" href="/prayer_app/group_challenge_request">Request a Group Challenge</a>
+                        <a class="btn btn-cta two-em has-icon cta-blue px-5" href="/prayer_app/group_challenge_request">Start a Prayer Relay <i class="icon pg-chevron-right icon-end two-em end-0 me-2"></i></a>
                     </div>
                 </div>
             </div>
+            <section class="flow-small">
+                <i class="icon pg-relay icon-medium d-block"></i>
+                <h4 class="uppercase">Active Relays</h4>
+                <div class="container" id="active_content"><span class="loading-spinner active"></span></div>
+            </section>
+            <section class="brand-lighter flow-small">
+                <i class="icon pg-crown icon-medium d-block"></i>
+                <h3 class="uppercase">Completed Relays</h3>
+                <div class="container" id="complete_content"><span class="loading-spinner active"></span></div>
+                <div class="container" ><hr style="margin: 1em auto;"></div>
+            </section>
+
+
         </section>
         <div style="height:300px;"></div>
 

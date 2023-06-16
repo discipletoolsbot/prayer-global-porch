@@ -66,10 +66,12 @@
     --pg-secondary-color: #f2944a;
     --font-weight-default: 300;
     --bs-body-font-weight: 300;
+    --bs-body-font-size: 1.125rem;
     --bs-body-line-height: 1.8;
     --bs-primary-rgb: var(--pg-brand-color);
     --orange-gradient: linear-gradient(#ffb858, #ea7519);
     --white-gradient: linear-gradient(white, 90%, transparent);
+    --blue-gradient: linear-gradient(#5a81c0, #3f5b88);
 }
 html {
     font-size: 1em;
@@ -301,6 +303,9 @@ hr {
 .white-gradient {
     background-image: var(--white-gradient);
 }
+.blue-gradient {
+    background-image: var(--blue-gradient);
+}
 .white-bg {
     background-color: white;
 }
@@ -319,6 +324,9 @@ hr {
 
 /* Composition */
 
+.page {
+    margin-top: 6rem;
+}
 .page-section {
     margin-top: 3rem;
     padding: 9em 0;
@@ -620,8 +628,11 @@ hr {
 .flow > * + * {
     margin-top: var(--pg-flow-size, 4rem);
 }
-.flow-small > * + * {
+.flow-medium > * + * {
     margin-top: var(--pg-flow-size, 2rem);
+}
+.flow-small > * + * {
+    margin-top: var(--pg-flow-size, 1rem);
 }
 
 /* Page styles */
@@ -764,19 +775,13 @@ button {
     --bs-btn-padding-y: 0.4em;
     box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.161);
 }
-
-.cta_button {
-    background-color:rgba(255,255,255,.7);
-    font-size: 25px;
-    padding: 1.5rem;
-    border-radius: 0;
-    letter-spacing: 0.2em;
-    --bs-btn-border-color: unset;
-    --bs-btn-color: #1d82ff;
-    --bs-btn-hover-bg: #1d82ff;
+.cta-blue {
+    background-image: var(--blue-gradient);
+    --bs-btn-active-color: white;
+    --bs-btn-active-border-color: var(--pg-brand-color-lightest);
+    --bs-btn-hover-color: var(--pg-brand-color-highlight);
+    --bs-btn-hover-border-color: var(--pg-brand-color-highlight);
 }
-
-
 
 /* Navbar styles */
 
