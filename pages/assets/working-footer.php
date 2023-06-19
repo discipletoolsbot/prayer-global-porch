@@ -9,8 +9,8 @@
             Part of the <a href="https://pray4movement.org">Pray4Movement network</a>.
         </p>
         <ul style="list-style: none;">
-            <li><a class="white" href="https://apps.apple.com/us/app/prayer-global/id1636889534?uo=4"><i class="ion-social-apple"></i> iPhone/iPad App</a></li>
-            <li><a class="white" href="https://play.google.com/store/apps/details?id=app.global.prayer"><i class="ion-social-android"></i> Android App</a></li>
+            <li><a class="white" href="https://apps.apple.com/us/app/prayer-global/id1636889534?uo=4"><i class="ion-social-apple white"></i> iPhone/iPad App</a></li>
+            <li><a class="white" href="https://play.google.com/store/apps/details?id=app.global.prayer"><i class="ion-social-android white"></i> Android App</a></li>
         </ul>
         <ul style="list-style: none;">
             <li><a class="white" href="/prayer_app/contact_us/">Contact Us</a></li>

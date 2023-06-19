@@ -137,12 +137,12 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
             </div>
             <section class="flow-small contain bg-top" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map-lightblue-transparent.png);">
                 <i class="icon pg-relay icon-medium d-block"></i>
-                <h4 class="uppercase">Active Relays</h4>
+                <h4 class="uppercase font-base">Active Relays</h4>
                 <div class="container data-table uppercase" id="active_content"><span class="loading-spinner active"></span></div>
             </section>
             <section class="brand-lighter flow-small contain bg-top" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map-lightblue-transparent.png);">
                 <i class="icon pg-crown icon-medium d-block"></i>
-                <h3 class="uppercase">Completed Relays</h3>
+                <h4 class="uppercase font-base">Completed Relays</h4>
                 <div class="container data-table uppercase" id="complete_content"><span class="loading-spinner active"></span></div>
             </section>
         </section>
