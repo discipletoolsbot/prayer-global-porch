@@ -144,12 +144,8 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
                 <i class="icon pg-crown icon-medium d-block"></i>
                 <h3 class="uppercase">Completed Relays</h3>
                 <div class="container data-table uppercase" id="complete_content"><span class="loading-spinner active"></span></div>
-                <div class="container" ><hr style="margin: 1em auto;"></div>
             </section>
-
-
         </section>
-        <div style="height:300px;"></div>
 
         <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/working-footer.php' ) ?>
         <?php
