@@ -793,7 +793,7 @@ button {
     z-index: 100;
     padding: 1em 1em;
 }
-.pg-navbar * {
+.pg-navbar .border {
     border-color: var(--pg-brand-color);
     --bs-border-color: var(--pg-brand-color);
 }
