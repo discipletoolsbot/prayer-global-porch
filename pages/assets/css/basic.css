@@ -767,6 +767,7 @@ button {
     --bs-btn-font-weight: var(--font-weight-default);
     --bs-btn-padding-y: 1rem;
     --bs-btn-font-weight: bold;
+    box-shadow: rgba(0,0,0,0.1) 0 3px 4px 1px;
 }
 .btn-outline-dark {
     --bs-btn-border-color: black;
@@ -779,6 +780,14 @@ button {
     --bs-btn-bg: var(--pg-brand-color-lighter);
     --bs-btn-active-bg: var(--pg-brand-color-light);
     --bs-btn-hover-bg: var(--pg-brand-color-lighter);
+    --bs-btn-hover-color: var(--pg-brand-color-highlight);
+    border: none;
+}
+.btn-primary-dark {
+    --bs-btn-color: white;
+    --bs-btn-bg: var(--pg-brand-color);
+    --bs-btn-active-border: var(--pg-brand-color-highlight);
+    --bs-btn-hover-bg: var(--pg-brand-color-light);
     --bs-btn-hover-color: var(--pg-brand-color-highlight);
     border: none;
 }
@@ -1099,13 +1108,20 @@ button {
     padding: 0 1rem 2rem;
     border-bottom: 1px solid var(--pg-secondary-color);
 }
+input[type="number"],
+input[type="text"],
+#section-give #payment-form .payment-form,
 .data-table .dataTables_wrapper .dataTables_filter input {
-    border: 1px solid #aaa;
+    border: 2px solid var(--pg-grey);
     border-radius: 10px;
-    margin-left: 10px;
     padding: 0 10px;
     width: 100%;
     box-shadow: rgba(0,0,0,0.1) 0 3px 4px 1px;
+    color: var(--pg-grey);
+    font-weight: bold;
+}
+.data-table .dataTables_wrapper .dataTables_filter input {
+    margin-left: 10px;
 }
 .data-table .sorting {
     border: none;
@@ -1140,6 +1156,7 @@ button {
 }
 .data-table .dataTable .dtr-control a {
     color: white;
+    text-decoration: none;
 }
 .data-table .dataTables_wrapper .dataTables_info {
     float: left;
@@ -1164,7 +1181,7 @@ button {
     padding-top: 0;
     font-weight: 700;
 }
-#section-give .payment-form {
+#section-give #payment-form .payment-form {
     margin: 1rem 0;
 }
 #section-give #payment-form .payment-checkbox {

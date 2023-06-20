@@ -67,15 +67,21 @@ trait PG_Lap_Trait {
 
         <!-- navigation & widget -->
         <nav class="navbar prayer_navbar fixed-top" id="pb-pray-navbar">
-            <div class="container praying" id="praying-panel">
-                <div class="btn-group praying_button_group" role="group" aria-label="Praying Button">
-                    <button type="button" class="btn praying" id="praying_button" data-percent="0" data-seconds="0">
+            <div class="container" id="praying-panel">
+                <div class="d-flex w-100 gap-2 praying_button_group" role="group" aria-label="Praying Button">
+                    <button type="button" class="btn" id="praying_button" data-percent="0" data-seconds="0">
                         <div class="praying__progress"></div>
-                        <span class="praying__text"></span>
+                        <span class="praying__text uppercase font-weight-normal"></span>
                     </button>
-                    <button type="button" class="btn btn-secondary praying" id="praying__close_button"><i class="ion-close-circled"></i></button>
-                    <button type="button" class="btn btn-secondary praying" id="praying__continue_button"><i class="ion-android-arrow-dropright-circle"></i></button>
-                    <button type="button" class="btn btn-secondary settings" id="praying__open_options" data-bs-toggle="modal" data-bs-target="#option_filter"><i class="ion-android-options"></i></button>
+                    <button type="button" class="btn btn-primary-dark btn-praying" id="praying__close_button">
+                        <i class="icon pg-pause"></i>
+                    </button>
+                    <button type="button" class="btn btn-primary-dark btn-praying" id="praying__continue_button">
+                        <i class="icon pg-start"></i>
+                    </button>
+                    <button type="button" class="btn btn-primary-dark btn-praying" id="praying__open_options" data-bs-toggle="modal" data-bs-target="#option_filter">
+                        <i class="icon pg-time"></i>
+                    </button>
                 </div>
             </div>
 

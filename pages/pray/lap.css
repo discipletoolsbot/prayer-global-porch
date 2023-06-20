@@ -35,24 +35,20 @@ section {
 #praying_button {
     width:100%;
     border: none;
-    background: darkgrey;
+    background: var(--pg-grey);
     color: #ffffff;
     padding: 10px 16px;
     position: relative;
     cursor: pointer;
-    font-family: "Fira Sans", sans-serif;
     overflow: hidden;
-    border-radius: 5px 0 0 5px;
 }
-#praying__close_button {
-    font-size:2em;
+.btn-praying {
+    padding: 0.4rem 0.5rem;
+    font-size: 2rem;
+    line-height: 1;
 }
 #praying__continue_button {
-    font-size:2em;
     display:none;
-}
-#praying__open_options {
-    font-size:2em;
 }
 .praying__progress {
     position: absolute;
@@ -60,12 +56,13 @@ section {
     width: 0%;
     top: 0;
     left: 0;
-    background: green;
+    background: var(--pg-secondary-color);
     transition: width 0.3s;
     box-shadow: 0 10px 0 -2px rgb(0 0 0 / 15%);
 }
 .praying__text {
     position: relative;
+    line-height: 1;
 }
 .container {
     margin-bottom: .5em;
@@ -114,14 +111,7 @@ section {
 .pace-wrapper {
     width: 100%;
 }
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:visited,
-.btn-primary:focus {
-    background-color: green;
-    border-color: white;
-}
+
 .progress-bar {
     height:4em;
     line-height: 4em;
