@@ -86,7 +86,7 @@ trait PG_Lap_Trait {
             </div>
 
             <div class="container question" id="question-panel">
-                <div class="btn-group question_button_group" role="group" aria-label="Praying Button">
+                <div class="d-flex w-100 gap-2 question_button_group" role="group" aria-label="Praying Button">
 
                     <?php $this->question_buttons() ?>
 
@@ -94,7 +94,7 @@ trait PG_Lap_Trait {
             </div>
             <div class="w-100" ></div>
             <div class="container decision" id="decision-panel">
-                <div class="btn-group decision_button_group" role="group" aria-label="Decision Button">
+                <div class="d-flex w-100 gap-2 decision_button_group" role="group" aria-label="Decision Button">
 
                     <?php $this->decision_buttons() ?>
 
@@ -226,8 +226,8 @@ trait PG_Lap_Trait {
     public function question_buttons() {
         ?>
 
-        <button type="button" class="btn btn-secondary question" id="question__yes_done">Done</button>
-        <button type="button" class="btn btn-secondary question question__yes" id="question__yes_next">Next</button>
+        <button type="button" class="btn btn-primary-dark btn-praying uppercase font-weight-normal two-em py-3" id="question__yes_done">Done</button>
+        <button type="button" class="btn btn-secondary btn-praying question__yes uppercase font-weight-normal two-em py-3" id="question__yes_next">Next</button>
 
         <?php
     }
@@ -235,9 +235,11 @@ trait PG_Lap_Trait {
     public function decision_buttons() {
         ?>
 
-        <button type="button" class="btn btn-secondary decision" id="decision__home">Home</button>
-        <button type="button" class="btn btn-secondary decision" id="decision__map">Map</button>
-        <button type="button" class="btn btn-secondary decision" id="decision__next">Next</button>
+        <button type="button" class="btn btn-primary-dark btn-praying flex-1" id="decision__home">
+            <i class="icon pg-home"></i>
+        </button>
+        <button type="button" class="btn btn-primary-dark btn-praying uppercase flex-2 two-em font-weight-normal" id="decision__map">Map</button>
+        <button type="button" class="btn btn-primary-light btn-praying uppercase flex-1 two-em font-weight-normal" id="decision__next">Next</button>
 
         <?php
     }

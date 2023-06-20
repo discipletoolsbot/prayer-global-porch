@@ -65,6 +65,8 @@
     --pg-brand-color-highlight: #aec5eb;
     --pg-grey: #acabab;
     --pg-secondary-color: #f2944a;
+    --pg-secondary-color-lighter: #edab77;
+    --pg-secondary-color-darker: #d28041;
     --font-weight-default: 300;
     --bs-body-font-weight: 300;
     --bs-body-font-size: 1.125rem;
@@ -350,6 +352,12 @@ input[type="radio"]:checked {
 .border-brand-light {
     border-color: var(--pg-brand-color-light);
     --bs-border-color: var(--pg-brand-color-light);
+}
+.flex-1 {
+    flex: 1;
+}
+.flex-2 {
+    flex: 2;
 }
 @media (max-width: 991px) {
     .navbar-expand-lg > .container, .navbar-expand-lg > .container-fluid {
@@ -783,11 +791,26 @@ button {
     --bs-btn-hover-color: var(--pg-brand-color-highlight);
     border: none;
 }
+.btn-secondary {
+    --bs-btn-bg: var(--pg-secondary-color);
+    --bs-btn-active-bg: var(--pg-secondary-color-darker);
+    --bs-btn-hover-bg: var(--pg-secondary-color-darker);
+    --bs-btn-hover-color: white;
+    border: none;
+}
 .btn-primary-dark {
     --bs-btn-color: white;
     --bs-btn-bg: var(--pg-brand-color);
     --bs-btn-active-border: var(--pg-brand-color-highlight);
     --bs-btn-hover-bg: var(--pg-brand-color-light);
+    --bs-btn-hover-color: var(--pg-brand-color-highlight);
+    border: none;
+}
+.btn-primary-light {
+    --bs-btn-color: white;
+    --bs-btn-bg: var(--pg-brand-color-lightest);
+    --bs-btn-active-border: var(--pg-brand-color-highlight);
+    --bs-btn-hover-bg: var(--pg-brand-color-lighter);
     --bs-btn-hover-color: var(--pg-brand-color-highlight);
     border: none;
 }
