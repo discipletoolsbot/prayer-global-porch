@@ -102,9 +102,9 @@ trait PG_Lap_Trait {
             </div>
             <div class="container celebrate text-center" id="celebrate-panel"></div>
             <div class="w-100" ></div>
-            <div class="container justify-content-center mt-3">
-                <h3 class="mt-0 font-weight-normal text-center tutorial" id="tutorial-location">Start praying for</h3>
-                <h3 class="mt-0 font-weight-normal text-center" id="location-name"></h3>
+            <div class="container flex-column justify-content-center">
+                <p class="my-0 font-weight-normal text-center tutorial uppercase one-em lh-1" id="tutorial-location">Pray for</p>
+                <p class="my-0 font-weight-bold text-center w-75" id="location-name"></p>
             </div>
         </nav>
 
