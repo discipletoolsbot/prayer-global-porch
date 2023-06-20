@@ -105,7 +105,7 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
             <div class="container flow">
                 <div class="row justify-content-md-center text-center mb-5 flow-small">
                     <h2 class="">Give</h2>
-                    <i class="icon pg-give icon-large"></i>
+                    <i class="icon pg-give icon-large brand-light"></i>
                     <h4>To Prayer.Global</h4>
                     <p>
                         Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements.
@@ -127,7 +127,7 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
                 </div>
 
                 <div class="row justify-content-md-center text-center flow-small">
-                    <h3>Credit/Debit Card</h3>
+                    <h4>Credit/Debit Card</h4>
 
                     <?php echo do_shortcode( '[stripe]' ) ?>
 
