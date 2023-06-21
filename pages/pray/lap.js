@@ -494,7 +494,16 @@ jQuery(document).ready(function(){
     console.log(grid_row)
 
     content.empty().html(`
-        <div id="map-wrapper"><div id='mapbox-map'></div></div><div class="text-center p-3">${BodyIcon('red')} ${grid_row.non_christians} | ${BodyIcon('orange')} ${grid_row.christian_adherents} | ${BodyIcon('green')} ${grid_row.believers}</div>`)
+        <div id="map-wrapper">
+          <div id='mapbox-map'></div>
+        </div>
+        <div class="text-center py-3 m-auto d-flex justify-content-center align-items-center gap-3">
+          <span class="d-flex align-items-center gap-1">${BodyIcon('red', 'large')} ${grid_row.non_christians}</span>
+          <span class="d-flex align-items-center gap-1">${BodyIcon('orange', 'large')} ${grid_row.christian_adherents}</span>
+          <span class="d-flex align-items-center gap-1">${BodyIcon('green', 'large')} ${grid_row.believers}</span>
+        </div>
+        `
+      )
 
     window.load_map_with_style = ( ) => {
       let center = [grid_row.p_longitude, grid_row.p_latitude]
