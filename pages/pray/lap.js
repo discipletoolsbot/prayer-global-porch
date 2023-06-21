@@ -1341,9 +1341,9 @@ jQuery(document).ready(function(){
 
   function BodyIcon( color, size = '' ) {
     const iconColors = {
-      red: 'red',
-      orange: 'orange',
-      green: 'green',
+      red: 'brand',
+      orange: 'brand-lighter',
+      green: 'secondary',
     }
     const defaultColor = iconColors.orange
 
@@ -1355,7 +1355,7 @@ jQuery(document).ready(function(){
     const iconColor = color && iconColors.hasOwnProperty(color) ? iconColors[color] : defaultColor
     const iconSize = size && sizes.hasOwnProperty(size) ? sizes[size] : ''
 
-    return `<i class="ion-ios-body ${iconColor} ${iconSize}" tabindex="0" data-bs-custom-class="${iconColor}-popover"></i>`
+  return `<i class="ion-ios-body ${iconColor} ${iconSize}" tabindex="0" data-bs-custom-class="${iconColor}-popover"></i>`
   }
 
 })

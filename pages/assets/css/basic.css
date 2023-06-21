@@ -75,6 +75,7 @@
     --orange-gradient: linear-gradient(#ffb858, #ea7519);
     --white-gradient: linear-gradient(white, 90%, transparent);
     --blue-gradient: linear-gradient(#5a81c0, #3f5b88);
+    --small-box-shadow: rgba(0,0,0,0.1) 0 3px 4px 1px;
 }
 html {
     font-size: 1em;
@@ -277,6 +278,9 @@ input[type="radio"]:checked {
 }
 .blue {
     color: var(--pg-brand-color);
+}
+.secondary {
+    color: var(--pg-secondary-color);
 }
 .white {
     color: white;
@@ -775,7 +779,7 @@ button {
     --bs-btn-font-weight: var(--font-weight-default);
     --bs-btn-padding-y: 1rem;
     --bs-btn-font-weight: bold;
-    box-shadow: rgba(0,0,0,0.1) 0 3px 4px 1px;
+    box-shadow: var(--small-box-shadow);
 }
 .btn-outline-dark {
     --bs-btn-border-color: black;

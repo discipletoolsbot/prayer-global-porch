@@ -11,7 +11,7 @@
     /*height:100px;*/
 }
 section {
-    margin-top:175px;
+    margin-top:150px;
 }
 .btn-group {
     width: 100%;
@@ -239,7 +239,8 @@ nav {
 
 #map-wrapper, #map-content, #mapbox-map {
     height:300px;
-    padding-top:10px;
+    border-radius: 10px;
+    box-shadow: var(--small-box-shadow);
 }
 @media (min-width: 768px) {
     #map-wrapper, #map-content, #mapbox-map {
