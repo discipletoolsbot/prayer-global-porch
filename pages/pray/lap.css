@@ -1,3 +1,6 @@
+body {
+    color: var(--pg-brand-color-light);
+}
 .bold {
     font-weight:900;
 }
@@ -215,7 +218,7 @@ section {
         font-size: 1.7em ;
     }
     .two-em {
-        font-size: 1.2em ;
+        font-size: 1.5em ;
     }
     .one-em {
         font-size: 1em ;
@@ -257,8 +260,8 @@ nav {
     text-transform: uppercase;
 }
 hr {
-    margin-top:2em;
-    margin-bottom:2em;
+    margin-top:3em;
+    margin-bottom:3em;
     color: var(--pg-secondary-color);
 }
 .mapboxgl-ctrl-top-right {
