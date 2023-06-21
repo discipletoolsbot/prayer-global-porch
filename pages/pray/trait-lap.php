@@ -104,7 +104,7 @@ trait PG_Lap_Trait {
             <div class="w-100" ></div>
             <div class="container flex-column justify-content-center">
                 <p class="my-0 font-weight-normal text-center tutorial uppercase one-em lh-1" id="tutorial-location">Pray for</p>
-                <p class="my-0 font-weight-bold text-center w-75" id="location-name"></p>
+                <h5 class="my-0 font-weight-bold text-center w-75" id="location-name"></h5>
             </div>
         </nav>
 
@@ -226,8 +226,8 @@ trait PG_Lap_Trait {
     public function question_buttons() {
         ?>
 
-        <button type="button" class="btn btn-primary-dark btn-praying uppercase font-weight-normal two-em py-3" id="question__yes_done">Done</button>
-        <button type="button" class="btn btn-secondary btn-praying question__yes uppercase font-weight-normal two-em py-3" id="question__yes_next">Next</button>
+        <button type="button" class="btn btn-primary-dark btn-praying uppercase font-weight-normal two-em lh-base" id="question__yes_done">Done</button>
+        <button type="button" class="btn btn-secondary btn-praying question__yes uppercase font-weight-normal two-em lh-base" id="question__yes_next">Next</button>
 
         <?php
     }
