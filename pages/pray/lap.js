@@ -510,7 +510,7 @@ jQuery(document).ready(function(){
       mapboxgl.accessToken = jsObject.map_key;
       let map = new mapboxgl.Map({
         container: 'mapbox-map',
-        style: 'mapbox://styles/discipletools/cl1qp8vuf002l15ngm5a7up59',
+        style: 'mapbox://styles/discipletools/clgnj6vkv00e801pj9xnw49i6',
         center: center,
         minZoom: 0,
         zoom: 1
@@ -550,8 +550,8 @@ jQuery(document).ready(function(){
               'type': 'line',
               'source': 'parent_collection',
               'paint': {
-                'line-color': '#0080ff',
-                'line-width': 1
+                'line-color': '#6e6f70',
+                'line-width': 2
               }
             });
             map.addLayer({
@@ -560,19 +560,10 @@ jQuery(document).ready(function(){
               'source': 'parent_collection',
               'filter': [ '==', ['get', 'grid_id'], grid_row.grid_id ],
               'paint': {
-                'fill-color': 'red',
-                'fill-opacity': 0.75
+                'fill-color': '#fff',
+                'fill-opacity': 1
               }
             });
-            map.setPaintProperty('parent_collection_fill', 'fill-opacity', [
-              'interpolate',
-              ['exponential', 0.5],
-              ['zoom'],
-              12,
-              0.75,
-              17,
-              .05
-            ]);
             map.addLayer({
               'id': 'parent_collection_fill_click',
               'type': 'fill',
@@ -664,8 +655,8 @@ jQuery(document).ready(function(){
                 'type': 'line',
                 'source': 'country_outline',
                 'paint': {
-                  'line-color': '#0080ff',
-                  'line-width': 2
+                  'line-color': '#6e6f70',
+                  'line-width': 4
                 }
               });
             })

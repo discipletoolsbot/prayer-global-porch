@@ -179,11 +179,11 @@ trait PG_Lap_Trait {
             <div class="container" id="map">
                 <div class="row">
                     <div class="col">
-                        <p class="text-md-center" id="location-map"><span class="loading-spinner active"></span></p>
+                        <div class="text-md-center" id="location-map"><span class="loading-spinner active"></span></div>
                     </div>
                 </div>
             </div>
-            <div class="w-100"><hr></div>
+            <hr class="mx-3">
             <div id="content"></div>
             <div class="container">
                 <div class="row text-center pb-4"><div class="col"><button type="button" class="btn btn-outline-primary" id="more_prayer_fuel">Show More Prayer Fuel</button></div></div>

@@ -240,7 +240,7 @@ nav {
 #map-wrapper, #map-content, #mapbox-map {
     height:300px;
     border-radius: 10px;
-    box-shadow: var(--small-box-shadow);
+    box-shadow: rgba(0,0,0,0.05) 0 3px 4px 1px;
 }
 @media (min-width: 768px) {
     #map-wrapper, #map-content, #mapbox-map {
@@ -256,10 +256,10 @@ nav {
 .uc {
     text-transform: uppercase;
 }
-.w-100 hr {
-    margin-top:4em;
-    margin-bottom:4em;
-    border-bottom: 1px solid darkgray;
+hr {
+    margin-top:2em;
+    margin-bottom:2em;
+    color: var(--pg-secondary-color);
 }
 .mapboxgl-ctrl-top-right {
     top: 10px;
