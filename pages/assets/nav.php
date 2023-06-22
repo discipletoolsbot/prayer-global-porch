@@ -4,11 +4,16 @@ $url = dt_get_url_path();
 /**
  * Nav for Home Page
  */
-$dark_nav_class = '' === $url || str_contains( $url, 'stats' ) || str_contains( $url, 'completed' ) ? 'navbar-dark' : '';
+$nav_class = 'white-bg brand';
+if ( '' === $url ) {
+    $nav_class = 'bg-none white navbar-dark';
+} else if ( str_contains( $url, 'stats' ) || str_contains( $url, 'completed' ) || str_contains( $url, 'about' ) || str_contains( $url, 'stats' ) ) {
+    $nav_class = 'brand-bg white navbar-dark';
+}
 $hide_cta_class = str_contains( $url, 'challenges' ) || str_contains( $url, 'user_app' ) ? 'd-none' : '';
 
 ?>
-<nav class="pg-navbar navbar <?php echo esc_html( $dark_nav_class ) ?> bg-none p-0 d-block brand-light" id="pg-navbar">
+<nav class="pg-navbar navbar p-0 d-block <?php echo esc_html( $nav_class ) ?>" id="pg-navbar">
     <div class="d-flex align-items-center justify-content-between container py-3 mw-100 flex-nowrap">
         <button class="icon-button share-button two-rem d-flex" data-toggle="modal" data-target="#exampleModal">
             <i class="icon pg-share"></i>

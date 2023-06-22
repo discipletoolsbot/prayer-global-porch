@@ -86,7 +86,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 header-border-top font-weight-normal">About</h2>
+                        <h2 class="mt-0 font-weight-normal">About</h2>
                         <p>
                             Prayer.Global seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.
                         </p>

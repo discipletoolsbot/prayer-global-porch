@@ -73,7 +73,7 @@ html {
     font-size: 1em;
 }
 body {
-    color: var(--pg-brand-color);
+    color: var(--pg-brand-color-light);
     font-family: var(--pg-font-family-base);
 }
 h1, h2, h3, h4, h5, h6 {
