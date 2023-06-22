@@ -471,11 +471,11 @@ jQuery(document).ready(function(){
     const celebrateHTML = `
       <p style="padding-top:2em;">
         <div>
-          <h1>
+          <h2>
             Great Job!
             <br />
             Prayer Added!
-          </h1>
+          </h2>
 
           <img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="rounded-3 img-fluid celebrate-image" alt="photo" />
 
