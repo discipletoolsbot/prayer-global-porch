@@ -477,7 +477,7 @@ jQuery(document).ready(function(){
             Prayer Added!
           </h1>
 
-          <img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="img-fluid celebrate-image" alt="photo" />
+          <img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="rounded-3 img-fluid celebrate-image" alt="photo" />
 
         </div>
       </p>
@@ -730,7 +730,7 @@ jQuery(document).ready(function(){
       `<div class="container block percent-3-circles-block">
           <div class="row">
               <div class="col text-center ">
-                <p class="mb-0 uc">${data.section_label}</p>
+                <h5 class="mb-0 uc">${data.section_label}</h5>
               </div>
           </div>
           <div class="row text-center justify-content-center">
@@ -769,7 +769,7 @@ jQuery(document).ready(function(){
       `<div class="container block percent-3-bar-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mb-0 uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</h5>
           </div>
       </div>
       <div class="row text-center">
@@ -825,7 +825,7 @@ jQuery(document).ready(function(){
       `<div class="container block 100-bodies-chart-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mb-0 uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</p>
           </div>
       </div>
       <div class="row text-center justify-content-center">
@@ -872,7 +872,7 @@ jQuery(document).ready(function(){
       `<div class="container block 100-bodies-3-chart-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mb-0 uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</h5>
           </div>
       </div>
       <div class="row text-center justify-content-center">
@@ -959,7 +959,7 @@ jQuery(document).ready(function(){
       `<div class="container block population-change-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mb-0 uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</h5>
           </div>
       </div>
       <div class="row text-center justify-content-center">
@@ -989,7 +989,7 @@ jQuery(document).ready(function(){
       `<div class="container block four-facts-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mb-0 uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</h5>
              <p class="mt-3 mb-3 two-em">${data.focus_label}</p>
           </div>
       </div>
@@ -1044,7 +1044,7 @@ jQuery(document).ready(function(){
         `<div class="container block bullet-list-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mb-0 uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</h5>
           </div>
         </div>
         <div class="row text-center">
@@ -1071,7 +1071,7 @@ jQuery(document).ready(function(){
     let image = ''
     jQuery.each(data.values, function(i,v) {
       if ( v.image_url ) {
-        image = '<div style="background-image:url('+v.image_url+'); width:200px; height:200px;background-size: cover;background-repeat: no-repeat;" class="img-fluid"></div>'
+        image = '<div style="background-image:url('+v.image_url+'); width:200px; height:200px;background-size: cover;background-repeat: no-repeat;" class="img-fluid rounded-3"></div>'
       } else {
         image = '<div style=" height:200px;"><img class="img-fluid" src="'+jsObject.nope+'" alt="" /></div>'
       }
@@ -1081,7 +1081,7 @@ jQuery(document).ready(function(){
       `<div class="container block people-groups-list-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mb-0 uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</h5>
           </div>
         </div>
         <div class="row text-center justify-content-center">
@@ -1103,7 +1103,7 @@ jQuery(document).ready(function(){
   function _template_least_reached_block( data ) {
     let image
     if ( data.image_url ) {
-      image = '<p class="mt-3 mb-3"><img src="'+data.image_url+'" class="img-fluid" alt="" /></p>'
+      image = '<p class="mt-3 mb-3"><img src="'+data.image_url+'" class="img-fluid rounded-3" alt="" /></p>'
     } else {
       image = '<p class="mt-3 mb-3"><img class="img-fluid" src="'+jsObject.nope+'" alt="" /></p>'
     }
@@ -1111,7 +1111,7 @@ jQuery(document).ready(function(){
       `<div class="container block least-reached-block">
           <div class="row">
           <div class="col text-center ">
-            <p class="mb-0 uc">${data.section_label}</p>
+            <h5 class="mb-0 uc">${data.section_label}</h5>
             <p class="mt-3 mb-0 two-em">${data.focus_label}</p>
             ${data.diaspora_label !== '' ? `<p class="half-em mb-3 font-weight-normal">(${data.diaspora_label})</p>` : ''}
             ${image}
@@ -1142,7 +1142,7 @@ jQuery(document).ready(function(){
       `<div class="container block fact-block">
           <div class="row">
             <div class="col text-center ">
-               <p class="mb-0 uc">${data.section_label}</p>
+               <h5 class="mb-0 uc">${data.section_label}</h5>
                <p class="mt-3 mb-3 two-em">${data.focus_label}</p>
               ${icon}
             </div>
@@ -1178,7 +1178,7 @@ jQuery(document).ready(function(){
       `<div class="container block content-block">
           <div class="row">
           <div class="col text-center ">
-            <p class="mb-0 uc">${data.section_label}</p>
+            <h5 class="mb-0 uc">${data.section_label}</h5>
              <p class="mt-3 mb-3 two-em">${data.focus_label}</p>
             ${icon}
           </div>
@@ -1201,7 +1201,7 @@ jQuery(document).ready(function(){
       `<div class="container block prayer-block">
           <div class="row">
           <div class="col text-center ">
-            <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+            <h5 class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</h5>
             <p class="mt-3 mb-3"><i class="ion-android-people ${data.icon_color} six-em" /> <i class="ion-android-people ${data.icon_color} six-em" /> <i class="ion-android-people ${data.icon_color} six-em" /></p>
           </div>
       </div>
@@ -1220,7 +1220,7 @@ jQuery(document).ready(function(){
       `<div class="container block verse-block">
           <div class="row">
           <div class="col text-center ">
-            <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+            <h5 class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</h5>
             <p class="mt-3 mb-3"><img src="${jsObject.image_folder}bible-${data.icon_color}.svg" alt="icon" /></p>
           </div>
       </div>
@@ -1255,7 +1255,7 @@ jQuery(document).ready(function(){
         `<div class="container block lost-per-believer-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+             <h5 class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</h5>
           </div>
       </div>
       <div class="row text-center justify-content-center">
@@ -1283,17 +1283,17 @@ jQuery(document).ready(function(){
       `<div class="container block photo-block">
           <div class="row">
           <div class="col text-center ">
-            <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+            <h5 class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</h5>
           </div>
       </div>
       <div class="row text-center">
         <div class="col">
-           <p><img src="${data.url}" class="img-fluid" alt="prayer photo" style="max-height:700px" /></p>
+           <p><img src="${data.url}" class="img-fluid rounded-3" alt="prayer photo" style="max-height:700px" /></p>
         </div>
       </div>
       <div class="row text-center justify-content-center">
         <div class="col-md-8">
-           <p class="mt-0 mb-3 font-weight-normal">${data.section_summary}</p>
+           <p class="mt-0 mb-3 font-weight-normal small">${data.section_summary}</p>
            <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
         </div>
     </div>
@@ -1314,7 +1314,7 @@ jQuery(document).ready(function(){
       `<div class="container block basic-block">
           <div class="row">
           <div class="col text-center">
-            <p class="mb-0 uc">${data.section_label}</p>
+            <h5 class="mb-0 uc">${data.section_label}</h5>
             <p class="mt-3 mb-3" style="display: ${icon};"><i class="${data.icon} six-em" /></p>
           </div>
       </div>

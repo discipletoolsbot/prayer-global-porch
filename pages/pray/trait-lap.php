@@ -186,10 +186,15 @@ trait PG_Lap_Trait {
             <hr class="mx-3">
             <div id="content"></div>
             <div class="container">
-                <div class="row text-center pb-4"><div class="col"><button type="button" class="btn btn-outline-primary" id="more_prayer_fuel">Show More Prayer Fuel</button></div></div>
+                <div class="row text-center mb-3">
+                    <div class="col">
+                        <i class="icon pg-pray-hands-dark d-block icon-small mb-3" style="margin-top: -2rem"></i>
+                        <button type="button" class="btn btn-outline-primary px-4" id="more_prayer_fuel">Pray More</button>
+                    </div>
+                </div>
                 <div class="row">
                     <div class="col text-center" style="padding-bottom:2em;">
-                        <button class="btn btn-link" id="correction_button">Correction Needed?</button>
+                        <button class="brand-lighter" id="correction_button">Correction Needed?</button>
                     </div>
                     <div class="modal fade" id="correction_modal"  role="dialog" aria-labelledby="correction_modal_label" aria-hidden="true">
                         <div class="modal-dialog" role="document">
