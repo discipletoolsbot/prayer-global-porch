@@ -391,18 +391,18 @@ jQuery(document).ready(function(){
     window.load_report_modal()
   }
   function attatch_popper_listeners() {
-    const redBodyIcons = document.querySelectorAll('.ion-ios-body.red')
+    const redBodyIcons = document.querySelectorAll('.ion-ios-body.brand')
     const config = {
       trigger: 'focus',
     }
     redBodyIcons.forEach((element) => {
       new bootstrap.Popover(element, { ...config, content: "Don't know Jesus"})
     })
-    const orangeBodyIcons = document.querySelectorAll('.ion-ios-body.orange')
+    const orangeBodyIcons = document.querySelectorAll('.ion-ios-body.brand-lighter')
     orangeBodyIcons.forEach((element) => {
       new bootstrap.Popover(element, { ...config, content: "Know about Jesus"})
     })
-    const greenBodyIcons = document.querySelectorAll('.ion-ios-body.green')
+    const greenBodyIcons = document.querySelectorAll('.ion-ios-body.secondary')
     greenBodyIcons.forEach((element) => {
       new bootstrap.Popover(element, { ...config, content: "Know Jesus"})
     })
@@ -1326,7 +1326,7 @@ jQuery(document).ready(function(){
 
       <div class="row text-center justify-content-center ${data.id}" style="display:${display}">
         <div class="col mt-3 mb-3 font-weight-bold text-center">
-           <button type="button" class="btn btn-outline-dark btn-sm" onclick="jQuery('#${data.id}').show();jQuery('.${data.id}').hide();" >${data.reference}</button>
+           <button type="button" class="btn btn-outline-primary btn-sm px-4" onclick="jQuery('#${data.id}').show();jQuery('.${data.id}').hide();" >${data.reference}</button>
         </div>
       </div>
        <div class="row text-center justify-content-center" style="display:none;" id="${data.id}" >

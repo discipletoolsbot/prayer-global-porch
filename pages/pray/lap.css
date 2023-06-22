@@ -29,6 +29,11 @@ section {
     --bs-btn-padding-y: 0.25rem;
     --bs-btn-padding-x: 0.5rem;
 }
+.btn-outline-primary {
+    font-weight: normal;
+    color: var(--pg-brand-color-light);
+    border-color: var(--pg-brand-color-light);
+}
 .btn-link {
     text-decoration: none;
 }
@@ -61,6 +66,7 @@ section {
     background: var(--pg-secondary-color);
     transition: width 0.3s;
     box-shadow: 0 10px 0 -2px rgb(0 0 0 / 15%);
+    border-radius: 6px;
 }
 .praying__text {
     position: relative;
@@ -298,21 +304,21 @@ hr {
     font-size: 14px;
 }
 
-.red-popover {
-    --bs-popover-bg: red;
-    --bs-popover-border-color: red;
+.brand-popover {
+    --bs-popover-bg: var(--pg-brand-color);
+    --bs-popover-border-color: var(--pg-brand-color);
     --bs-popover-body-color: white;
     font-weight: bold;
 }
-.orange-popover {
-    --bs-popover-bg: orange;
-    --bs-popover-border-color: orange;
+.brand-lighter-popover {
+    --bs-popover-bg: var(--pg-brand-color-lighter);
+    --bs-popover-border-color: var(--pg-brand-color-lighter);
     --bs-popover-body-color: white;
     font-weight: bold;
 }
-.green-popover {
-    --bs-popover-bg: green;
-    --bs-popover-border-color: green;
+.secondary-popover {
+    --bs-popover-bg: var(--pg-secondary-color);
+    --bs-popover-border-color: var(--pg-secondary-color);
     --bs-popover-body-color: white;
     font-weight: bold;
 }
