@@ -16,6 +16,9 @@ body {
 section {
     margin-top:150px;
 }
+section[data-custom-lap] {
+    margin-top: 175px;
+}
 .btn-group {
     width: 100%;
 }
@@ -42,7 +45,6 @@ section {
     border: none;
     background: var(--pg-grey);
     color: #ffffff;
-    padding: 10px 16px;
     position: relative;
     cursor: pointer;
     overflow: hidden;
@@ -281,27 +283,13 @@ hr {
 }
 
 .prayer-odometer {
-    position: fixed;
-    z-index: 10000;
-    bottom: 0;
-    left: 0;
-    margin-left: 20px;
-    margin-bottom: 30px;
     font-size: 2em;
-    background-color: #6c757dbb;
     border-radius: 10px;
-    padding: 10px;
+    padding: 0px;
     line-height: 1;
     opacity: 1;
     color: #f7fbff;
-}
-
-.prayer-odometer span {
-    margin-left: 10px;
-}
-
-.prayer-odometer p {
-    font-size: 14px;
+    box-shadow: var(--small-box-shadow);
 }
 
 .brand-popover {

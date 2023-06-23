@@ -8,6 +8,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
 
     public $lap_title;
+    public $lap_title_initials;
     private static $_instance = null;
     public static function instance() {
         if ( is_null( self::$_instance ) ) {
@@ -50,6 +51,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         $lap = pg_get_custom_lap_by_post_id( $this->parts['post_id'] );
         $title_words = preg_split( "/[\s\-_]+/", $lap['title'] );
 
+        $this->lap_title = $lap['title'];
         if ( strlen( $lap['title'] ) < 6 ) {
             $this->lap_title = $lap['title'];
         } else if ( $title_words !== false ) {
@@ -69,7 +71,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 return ucfirst( substr( $word, 0, 1 ) );
             }, $filtered_title_words ) );
 
-            $this->lap_title = $title_initials;
+            $this->lap_title_initials = $title_initials;
         }
     }
 
@@ -140,7 +142,10 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         <nav class="navbar prayer_navbar fixed-top" id="pb-pray-navbar">
             <div class="container" id="praying-panel">
                 <div class="d-flex w-100 gap-2 praying_button_group" role="group" aria-label="Praying Button">
-                    <button type="button" class="btn" id="praying_button" data-percent="0" data-seconds="0">
+                    <div class="align-items-center brand-lighter-bg btn-praying d-flex gap-2 prayer-odometer px-2">
+                        <i class="icon pg-prayer"></i><span class="two-rem location-count">0</span>
+                    </div>
+                    <button type="button" class="btn p-2" id="praying_button" data-percent="0" data-seconds="0">
                         <div class="praying__progress"></div>
                         <span class="praying__text uppercase font-weight-normal"></span>
                     </button>
@@ -176,6 +181,9 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             <div class="container flex-column justify-content-center">
                 <p class="my-0 font-weight-normal text-center tutorial uppercase one-em lh-1" id="tutorial-location">Pray for</p>
                 <h5 class="my-0 font-weight-bold text-center w-75" id="location-name"></h5>
+                <p class="mt-1 mb-0 text-center">
+                    In Prayer Relay <?php echo esc_html( $this->lap_title ) ?>
+                </p>
             </div>
         </nav>
 
@@ -262,17 +270,10 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         </div>
 
         <!-- Location counter -->
-        <div class="prayer-odometer">
-            <div>
-                <i class="ion-location"></i><span class="location-count">0</span>
-                <p class="mt-1 mb-0 text-center">
-                    <?php echo esc_html( $this->lap_title ) ?>
-                </p>
-            </div>
-        </div>
+
 
         <!-- content section -->
-        <section>
+        <section data-custom-lap>
             <div class="container" id="map">
                 <div class="row">
                     <div class="col">

@@ -69,7 +69,10 @@ trait PG_Lap_Trait {
         <nav class="navbar prayer_navbar fixed-top" id="pb-pray-navbar">
             <div class="container" id="praying-panel">
                 <div class="d-flex w-100 gap-2 praying_button_group" role="group" aria-label="Praying Button">
-                    <button type="button" class="btn" id="praying_button" data-percent="0" data-seconds="0">
+                    <div class="align-items-center brand-lighter-bg btn-praying d-flex gap-2 prayer-odometer px-2">
+                        <i class="icon pg-prayer"></i><span class="two-rem location-count">0</span>
+                    </div>
+                    <button type="button" class="btn p-2" id="praying_button" data-percent="0" data-seconds="0">
                         <div class="praying__progress"></div>
                         <span class="praying__text uppercase font-weight-normal"></span>
                     </button>
