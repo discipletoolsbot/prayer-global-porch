@@ -114,7 +114,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
 
             </div>
         </section>
-        <section class="page-section center mt-0" id="historic-moment">
+        <section class="page-section center mt-0 pb-4" id="historic-moment">
             <div class="container px-4 flow-medium">
                 <i class="icon pg-time icon-medium"></i>
                 <h2 style="--pg-flow-size: 0">Historic Moment</h2>
@@ -131,9 +131,10 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                 <p>
                     (3) "Extraordinary prayer" is a foundational mark of all modern disciple multiplying movements.
                 </p>
+                <a class="d-block text-decoration-none" href="#how-it-works"><i class="icon pg-chevron-down icon-small"></i></a>
             </div>
         </section>
-        <section class="page-section center white brand-bg mt-0" id="how-it-works">
+        <section class="page-section center white brand-bg mt-0 pb-4" id="how-it-works">
             <div class="container px-4 flow-medium font-weight-bold">
                 <i class="icon pg-question-dark icon-medium"></i>
                 <h2 style="--pg-flow-size: 0">How It Works</h2>
@@ -149,9 +150,10 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                 <p class="left-align">
                     4. Pray for another location or end your prayer session.
                 </p>
+                <a class="d-block text-decoration-none white" href="#global-race"><i class="icon pg-chevron-down icon-small"></i></a>
             </div>
         </section>
-        <section class="page-section center mt-0" id="global-race">
+        <section class="page-section center mt-0 pb-4" id="global-race">
             <div class="container px-4 flow-medium">
                 <i class="icon pg-race icon-medium"></i>
                 <h2 style="--pg-flow-size: 0">Global Race</h2>
@@ -208,6 +210,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                         <p>Don't Know Jesus</p>
                     </div>
                 </div>
+                <a class="d-block text-decoration-none" href="#prayer-challenge"><i class="icon pg-chevron-down icon-small"></i></a>
             </div>
         </section>
         <section class="page-section center white brand-bg mb-5 mt-0" id="prayer-challenge">
@@ -227,6 +230,10 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                 <p class="left-align">
                     The Moravians had one person praying every hour of every day for 100 years. This was roughly 876,000 hours of prayer, or 52,560,000 minutes of prayer for the world. We are humbled by this extraordinary commitment to praying for the world.
                 </p>
+                <a class="d-block text-decoration-none white" href="#">
+                    <i class="icon pg-chevron-up icon-small"></i>
+                    <h5 class="uppercase">Top</h5>
+                </a>
             </div>
         </section>
 
