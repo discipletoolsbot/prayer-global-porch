@@ -114,8 +114,8 @@ a:hover {
 a:active {
     color: var(--pg-brand-color-lightest);
 }
-.brand-bg a {
-    color: var(--pg-brand-color-highlight);
+.link-light {
+    color: var(--pg-brand-color-highlight) !important;
 }
 a.white {
     color: white;
@@ -838,6 +838,10 @@ button {
     --bs-btn-border-width:  2px;
     --bs-btn-border-radius: 100px;
     --bs-btn-color: white;
+    --bs-btn-active-border-color: var(--pg-secondary-color-darker);
+    --bs-btn-active-color: white;
+    --bs-btn-hover-border-color: var(--pg-secondary-color-darker);
+    --bs-btn-hover-color: white;
     background-image: var(--orange-gradient);
     text-transform: uppercase;
     --bs-btn-font-weight: 600;

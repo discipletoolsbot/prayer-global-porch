@@ -162,7 +162,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 <div class="holding-page flow-small">
                     <span class="six-em center">Starts on <span class="starts-on-date"></span></span>
                     <span class="six-em center time-remaining text-secondary"></span>
-                    <button class="btn btn-outline-dark btn-lg pray-button"></button>
+                    <button class="btn cta-btn btn-lg pray-button"></button>
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>

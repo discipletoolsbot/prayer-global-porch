@@ -132,7 +132,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                 <p>
                     (3) "Extraordinary prayer" is a foundational mark of all modern disciple multiplying movements.
                 </p>
-                <a class="d-block text-decoration-none" href="#how-it-works"><i class="icon pg-chevron-down icon-small"></i></a>
+                <a class="d-block text-decoration-none brand-light" href="#how-it-works"><i class="icon pg-chevron-down icon-small"></i></a>
             </div>
         </section>
         <section class="page-section center white brand-bg mt-0 pb-4" id="how-it-works">
@@ -211,7 +211,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                         <p>Don't Know Jesus</p>
                     </div>
                 </div>
-                <a class="d-block text-decoration-none" href="#prayer-challenge"><i class="icon pg-chevron-down icon-small"></i></a>
+                <a class="d-block text-decoration-none brand-light" href="#prayer-challenge"><i class="icon pg-chevron-down icon-small"></i></a>
             </div>
         </section>
         <section class="page-section center white brand-bg mb-5 mt-0" id="prayer-challenge">
@@ -220,7 +220,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                 <h1 class="lh-1 mb-0" style="--pg-flow-size: 0">Moravian</h1>
                 <h2 style="--pg-flow-size: 0">Prayer Challenge</h2>
                 <p class="left-align">
-                    Inspired by the <a href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">Moravians</a>, who prayed non-stop for 100 years,
+                    Inspired by the <a class="link-light" href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">Moravians</a>, who prayed non-stop for 100 years,
                     we have crafted this website to help the church pray for the entire world in measurable units, as a community, and to know at the end when we have finished ... and are ready to start
                     another lap.
                 </p>
