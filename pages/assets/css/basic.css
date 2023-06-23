@@ -1498,7 +1498,7 @@ input[type="text"],
 /* Login page */
 
 #firebaseui-auth-container {
-    margin-top: 4rem;
+    margin-top: 2rem;
 }
 
 #firebaseui-auth-container .mdl-textfield__input,
@@ -1506,6 +1506,12 @@ input[type="text"],
 #firebaseui-auth-container .mdl-button,
 #firebaseui-auth-container .firebaseui-container {
     font-family: var(--pg-font-family-base);
+}
+#firebaseui-auth-container [data-provider-id="facebook.com"] {
+    background-color: var(--pg-brand-color-lighter) !important;
+}
+#firebaseui-auth-container [data-provider-id="password"] {
+    background-color: #e37f1d !important;
 }
 
 .firebaseui-card-header {

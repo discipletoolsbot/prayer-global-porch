@@ -7,7 +7,13 @@ $url = dt_get_url_path();
 $nav_class = 'white-bg brand';
 if ( '' === $url ) {
     $nav_class = 'bg-none white navbar-dark';
-} else if ( str_contains( $url, 'stats' ) || str_contains( $url, 'completed' ) || str_contains( $url, 'about' ) || str_contains( $url, 'stats' ) ) {
+} else if ( str_contains( $url, 'stats' ) ||
+            str_contains( $url, 'completed' ) ||
+            str_contains( $url, 'about' ) ||
+            str_contains( $url, 'stats' ) ||
+            str_contains( $url, 'login' ) ||
+            str_contains( $url, 'profile' )
+) {
     $nav_class = 'brand-bg white navbar-dark';
 }
 $hide_cta_class = str_contains( $url, 'challenges' ) || str_contains( $url, 'user_app' ) ? 'd-none' : '';

@@ -122,11 +122,11 @@ class PG_User_Login_Registration extends DT_Magic_Url_Base {
 
         </script>
 
-        <section class="page-section" data-section="login" id="section-login">
+        <section class="page-section pt-4" data-section="login" id="section-login">
             <div class="container">
                 <div class="row justify-content-md-center text-center">
                     <div class="col-lg-7" id="pg_content">
-                        <h2 class="header-border-top">Login</h2>
+                        <h2 class="">Login</h2>
 
                         <div id="login-ui" style="display: none;">
                             <?php echo do_shortcode( '[dt_firebase_login_ui]' ) ?>
