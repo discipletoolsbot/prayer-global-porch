@@ -138,36 +138,44 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
 
         <!-- navigation & widget -->
         <nav class="navbar prayer_navbar fixed-top" id="pb-pray-navbar">
-            <div class="container praying" id="praying-panel">
-                <div class="btn-group praying_button_group" role="group" aria-label="Praying Button">
-                    <button type="button" class="btn praying" id="praying_button" data-percent="0" data-seconds="0">
+            <div class="container" id="praying-panel">
+                <div class="d-flex w-100 gap-2 praying_button_group" role="group" aria-label="Praying Button">
+                    <button type="button" class="btn" id="praying_button" data-percent="0" data-seconds="0">
                         <div class="praying__progress"></div>
-                        <span class="praying__text"></span>
+                        <span class="praying__text uppercase font-weight-normal"></span>
                     </button>
-                    <button type="button" class="btn btn-secondary praying" id="praying__close_button"><i class="ion-close-circled"></i></button>
-                    <button type="button" class="btn btn-secondary praying" id="praying__continue_button"><i class="ion-android-arrow-dropright-circle"></i></button>
-                    <button type="button" class="btn btn-secondary settings" id="praying__open_options" data-bs-toggle="modal" data-bs-target="#option_filter"><i class="ion-android-options"></i></button>
+                    <button type="button" class="btn btn-primary-dark btn-praying" id="praying__close_button">
+                        <i class="icon pg-pause"></i>
+                    </button>
+                    <button type="button" class="btn btn-primary-dark btn-praying" id="praying__continue_button">
+                        <i class="icon pg-start"></i>
+                    </button>
+                    <button type="button" class="btn btn-primary-dark btn-praying" id="praying__open_options" data-bs-toggle="modal" data-bs-target="#option_filter">
+                        <i class="icon pg-time"></i>
+                    </button>
                 </div>
             </div>
             <div class="container question" id="question-panel">
-                <div class="btn-group question_button_group" role="group" aria-label="Praying Button">
-                    <button type="button" class="btn btn-secondary question" id="question__yes_done">Done</button>
-                    <button type="button" class="btn btn-secondary question question__yes" id="question__yes_next">Next</button>
+                <div class="d-flex w-100 gap-2 question_button_group" role="group" aria-label="Praying Button">
+                    <button type="button" class="btn btn-primary-dark btn-praying uppercase font-weight-normal two-em lh-sm" id="question__yes_done">Done</button>
+                    <button type="button" class="btn btn-secondary btn-praying question__yes uppercase font-weight-normal two-em lh-sm" id="question__yes_next">Next</button>
                 </div>
             </div>
             <div class="w-100" ></div>
             <div class="container decision" id="decision-panel">
-                <div class="btn-group decision_button_group" role="group" aria-label="Decision Button">
-                    <button type="button" class="btn btn-secondary decision" id="decision__home">Home</button>
-                    <button type="button" class="btn btn-secondary decision" id="decision__map">Map</button>
-                    <button type="button" class="btn btn-secondary decision" id="decision__next">Next</button>
+                <div class="d-flex w-100 gap-2 decision_button_group" role="group" aria-label="Decision Button">
+                    <button type="button" class="btn btn-primary-dark btn-praying flex-1" id="decision__home">
+                        <i class="icon pg-home"></i>
+                    </button>
+                    <button type="button" class="btn btn-primary-dark btn-praying uppercase flex-2 two-em font-weight-normal" id="decision__map">Map</button>
+                    <button type="button" class="btn btn-primary-light btn-praying uppercase flex-1 two-em font-weight-normal" id="decision__next">Next</button>
                 </div>
             </div>
             <div class="container celebrate text-center" id="celebrate-panel"></div>
             <div class="w-100" ></div>
-            <div class="container justify-content-center mt-3">
-                <h3 class="mt-0 font-weight-normal text-center tutorial" id="tutorial-location">Start praying for</h3>
-                <h3 class="mt-0 font-weight-normal text-center" id="location-name"></h3>
+            <div class="container flex-column justify-content-center">
+                <p class="my-0 font-weight-normal text-center tutorial uppercase one-em lh-1" id="tutorial-location">Pray for</p>
+                <h5 class="my-0 font-weight-bold text-center w-75" id="location-name"></h5>
             </div>
         </nav>
 
@@ -275,10 +283,15 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             <div class="w-100"><hr></div>
             <div id="content"></div>
             <div class="container">
-                <div class="row text-center pb-4"><div class="col"><button type="button" class="btn btn-outline-primary" id="more_prayer_fuel">Show More Prayer Fuel</button></div></div>
-                <div class="row text-center">
-                    <div class="col" style="padding-bottom:2em;">
-                        <button class="btn btn-link" id="correction_button">Correction Needed?</button>
+                <div class="row text-center mb-3">
+                    <div class="col">
+                        <i class="icon pg-pray-hands-dark d-block icon-small mb-3" style="margin-top: -2rem"></i>
+                        <button type="button" class="btn btn-outline-primary px-4" id="more_prayer_fuel">Pray More</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center" style="padding-bottom:2em;">
+                        <button class="brand-lighter" id="correction_button">Correction Needed?</button>
                     </div>
                 </div>
             </div>

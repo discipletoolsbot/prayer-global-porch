@@ -166,6 +166,31 @@ trait PG_Lap_Trait {
                 </div>
             </div>
         </div>
+        <div class="modal fade" id="correction_modal"  role="dialog" aria-labelledby="correction_modal_label" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title">Thank you! Leave us a correction below.</h5>
+                                    <button type="button" id="correction_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <p><span id="correction_title" class="correction_field"></span></p>
+                                    <p>
+                                        Section:<br>
+                                        <select class="form-control form-select correction_field" id="correction_select"></select>
+                                    </p>
+                                    <p>
+                                        Correction Requested:<br>
+                                        <textarea class="form-control correction_field" id="correction_response" rows="3"></textarea>
+                                    </p>
+                                    <p>
+                                        <button type="button" class="btn btn-primary" id="correction_submit_button">Submit</button> <span class="loading-spinner correction_modal_spinner"></span>
+                                    </p>
+                                    <p id="correction_error" class="correction_field"></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
         <!-- Location counter -->
         <div class="prayer-odometer">
@@ -196,31 +221,6 @@ trait PG_Lap_Trait {
                     <div class="col text-center" style="padding-bottom:2em;">
                         <button class="brand-lighter" id="correction_button">Correction Needed?</button>
                     </div>
-                    <div class="modal fade" id="correction_modal"  role="dialog" aria-labelledby="correction_modal_label" aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 class="modal-title">Thank you! Leave us a correction below.</h5>
-                                    <button type="button" id="correction_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                </div>
-                                <div class="modal-body">
-                                    <p><span id="correction_title" class="correction_field"></span></p>
-                                    <p>
-                                        Section:<br>
-                                        <select class="form-control form-select correction_field" id="correction_select"></select>
-                                    </p>
-                                    <p>
-                                        Correction Requested:<br>
-                                        <textarea class="form-control correction_field" id="correction_response" rows="3"></textarea>
-                                    </p>
-                                    <p>
-                                        <button type="button" class="btn btn-primary" id="correction_submit_button">Submit</button> <span class="loading-spinner correction_modal_spinner"></span>
-                                    </p>
-                                    <p id="correction_error" class="correction_field"></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
@@ -231,8 +231,8 @@ trait PG_Lap_Trait {
     public function question_buttons() {
         ?>
 
-        <button type="button" class="btn btn-primary-dark btn-praying uppercase font-weight-normal two-em lh-base" id="question__yes_done">Done</button>
-        <button type="button" class="btn btn-secondary btn-praying question__yes uppercase font-weight-normal two-em lh-base" id="question__yes_next">Next</button>
+        <button type="button" class="btn btn-primary-dark btn-praying uppercase font-weight-normal two-em lh-sm" id="question__yes_done">Done</button>
+        <button type="button" class="btn btn-secondary btn-praying question__yes uppercase font-weight-normal two-em lh-sm" id="question__yes_next">Next</button>
 
         <?php
     }
