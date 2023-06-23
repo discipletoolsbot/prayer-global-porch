@@ -266,7 +266,7 @@
 <!-- END section -->
 
 
-<section class="page-section d-none d-md-block" data-section="about" id="section-about">
+<section class="page-section d-none" data-section="about" id="section-about">
     <div class="container">
         <div class="row justify-content-md-center text-center mb-5">
             <div class="col-lg-7">

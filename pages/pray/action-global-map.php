@@ -265,6 +265,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                     <p class="two-em mb-0">Time Elapsed</p>
                     <p class="stats-figure time_elapsed">0</p>
                 </div>
+                <hr class="mt-3">
 
                 <div class="col col-6 col-sm-3" style="display:none">
                     <p class="stats-title">Start Time</p>

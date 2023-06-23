@@ -101,6 +101,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                     'add' => __( 'Add Magic', 'prayer-global' ),
                 ],
                 'map_type' => 'binary',
+                'is_dark_map_on' => ( new PG_Feature_Flag( PG_Flags::DARK_MAP_FEATURE ) )->is_on(),
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
@@ -109,6 +110,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/bootstrap/bootstrap5.2.2.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/prayer-global/style.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>heatmap.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'heatmap.css' ) ) ?>" type="text/css" media="all">
         <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
@@ -141,22 +143,17 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 </div>
             </div>
             <div id="map-wrapper">
-                <div id="head_block">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center me-5">
-                            <span class="two-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
+                <div class="brand-bg white" id="head_block">
+                    <div class="d-flex align-items-center justify-content-between gap-2">
 
-                            <?php if ( $rolling_laps_feature->is_on() ) : ?>
-
-                                <span class="two-em ms-3">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?></span>
-
-                            <?php endif; ?>
-
-                            <button class="icon-button share-button two-em ms-3" data-toggle="modal" data-target="#exampleModal">
-                                <i class="ion-android-share-alt"></i>
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="font-weight-bold uppercase"><?php echo esc_html( $lap_stats['title'] ) ?></span>
+                            <button class="icon-button share-button two-rem d-flex align-items-center white" data-toggle="modal" data-target="#exampleModal">
+                                <i class="icon pg-share"></i>
                             </button>
                         </div>
-                        <a class="btn btn-outline-dark py-2" <?php echo esc_attr( $has_challenge_started ) ? '' : "style='display: none'" ?> href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a>
+                        <a class="btn btn-cta" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Pray</a>
+
                     </div>
 
                     <?php require( __DIR__ . '/map-settings.php' ) ?>
@@ -169,20 +166,46 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
+
+
+
+
                 <div id="foot_block">
                     <div class="map-overlay" id="map-legend"></div>
-
                     <div class="row">
-                        <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats" aria-controls="offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
-                        <div class="col col-sm-6 col-md-3 center "><strong>Places Remaining</strong><br><strong><span class="one-em red-bg stats-figure remaining"></span></strong></div>
-                        <div class="col col-sm-6 col-md-3 center"><strong>Places Covered</strong><br><strong><span class="one-em green-bg stats-figure completed"></span></strong></div>
-                        <div class="col col-sm-6 col-md-3 center d-none d-md-block">
-                            <strong>Warriors</strong><br>
-                            <strong><span class="stats-figure warriors"></span></strong>
+                        <div class="col col-12 center">
+                            <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats">
+                                <i class="icon pg-chevron-up three-em blue"></i>
+                            </button>
+
+                            <?php if ( $rolling_laps_feature->is_on() ) : ?>
+
+                                <h4 class="uppercase font-weight-bold two-em">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?> Stats</h4>
+
+                            <?php endif; ?>
+
+                        </div>
+                        <div class="col col-sm-6 col-md-3 center ">
+                            <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
+                                <i class="icon pg-world-light three-em"></i>
+                                <div class="two-em white stats-figure remaining"></div>
+                            </div>
+                            <span class="uppercase small">Places Remaining</span><br>
+                        </div>
+                        <div class="col col-sm-6 col-md-3 center">
+                            <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
+                                <i class="icon pg-world-light three-em"></i>
+                                <div class="two-em stats-figure completed"></div>
+                            </div>
+                            <span class="uppercase small">Places Covered</span><br>
                         </div>
                         <div class="col col-sm-6 col-md-3 center d-none d-md-block">
+                            <strong><span class="stats-figure warriors"></span></strong>
+                            <strong>Warriors</strong><br>
+                        </div>
+                        <div class="col col-sm-6 col-md-3 center d-none d-md-block">
+                            <strong class="stats-figure"><span class="completed_percent">0</span>%</strong>
                             <strong>World Coverage</strong><br>
-                            <strong class="stats-figure"><span class=" completed_percent">0</span>%</strong>
                         </div>
                     </div>
                 </div>
@@ -230,43 +253,57 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             </button>
         </div>
         <div class="offcanvas offcanvas-bottom" id="offcanvas_stats">
-            <div class="center offcanvas__header"><button type="button" data-bs-dismiss="offcanvas"><i class="ion-chevron-down three-em"></i></button></div>
-            <div class="row center offcanvas__content">
-                <hr>
-                <div class="col-12">
-                    <span class="three-em"><?php echo esc_html( $lap_stats['title'] ) ?></span>
-                    <hr>
-                </div>
-                <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Places Remaining</p>
-                    <p class="stats-figure red-bg remaining">0</p>
-                </div>
-                <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Places Covered</p>
-                    <p class="stats-figure green-bg completed">0</p>
-                </div>
+            <div class="center offcanvas__header d-flex justify-content-center align-items-center">
+                <button type="button" data-bs-dismiss="offcanvas">
+                    <i class="icon pg-chevron-down blue three-em"></i>
+                </button>
+            </div>
+            <div class="row center uppercase offcanvas__content">
+                <div class="col col-12">
 
-                <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Warriors</p>
-                    <p class="stats-figure warriors">0</p>
+                    <?php if ( $rolling_laps_feature->is_on() ) : ?>
+
+                        <h4 class="uppercase font-weight-bold two-em">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?> Stats</h4>
+
+                    <?php endif; ?>
+
                 </div>
                 <div class="col col-6 col-sm-3">
-                    <p class="stats-title">World Coverage</p>
-                    <p class="stats-figure"><span class="completed_percent">0</span>%</p>
+                    <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
+                        <i class="icon pg-world-light three-em"></i>
+                        <div class="two-em white stats-figure remaining"></div>
+                    </div>
+                    <span class="small">Places Remaining</span><br>
                 </div>
                 <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Time Elapsed</p>
+                    <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
+                        <i class="icon pg-world-light three-em"></i>
+                        <div class="two-em stats-figure completed"></div>
+                    </div>
+                    <span class="small">Places Covered</span><br>
+                </div>
+                <div class="align-items-center col-sm-3 d-flex flex-dir-column mt-3">
+                    <i class="icon pg-world-arrow blue four-em"></i>
+                    <span class="stats-title">World Coverage</span>
+                    <div class="blue-bg rounded stats-figure-lg w-50 white"><span class="completed_percent">0</span>%</div>
+                </div>
+                <div class="align-items-center col-sm-3 d-flex flex-dir-column mt-3">
+                    <i class="icon pg-prayer blue four-em"></i>
+                    <span class="stats-title">Intercessors</span>
+                    <div class="orange-bg rounded stats-figure-lg w-50 warriors white">0</div>
+                </div>
+                <hr class="mt-3">
+                <div class="col-sm-3">
+                    <p class="two-em mb-0">Time Elapsed</p>
                     <p class="stats-figure time_elapsed">0</p>
                 </div>
-
-                <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Start Time</p>
+                <hr class="mb-3">
+                <div class="col col-sm-3">
+                    <p class="mb-0">Start Time</p>
                     <p class="stats-figure start_time">0</p>
                 </div>
-
-                <!-- Elements to support targeted end dates -->
-                <div class="col col-6 col-sm-3 on-going" style="display:none;">
-                    <p class="stats-title">End Time</p>
+                <div class="col col-sm-3 on-going" style="display:none;">
+                    <p class="mb-0">End Time</p>
                     <p class="stats-figure end_time">0</p>
                 </div>
                 <div class="col col-6 col-sm-3 on-going" style="display:none;">
@@ -288,8 +325,8 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                     <p class="stats-figure time_remaining">0</p>
                 </div>
             </div>
-            <div class="text-center"><a href="/" class="navbar-brand text-center">Exit <?php echo esc_html( $lap_stats['title'] ) ?></a></div>
         </div>
+
         <?php
     }
 

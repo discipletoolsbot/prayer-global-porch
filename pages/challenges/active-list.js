@@ -23,7 +23,7 @@ jQuery(document).ready(function() {
               if ( v.status === 'active' ){
                 html_content_active += `<tr>
                                 <td>${v.start_time}</td>
-                                <th><a href="/prayer_app/custom/${v.lap_key}">${v.post_title} ${!jsObject.is_rolling_laps_feature_on || v.single_lap === '1' ? '' : `- Lap ${lapNumber}`}</a></th>
+                                <th class="white">${v.post_title} ${!jsObject.is_rolling_laps_feature_on || v.single_lap === '1' ? '' : `- Lap ${lapNumber}`}</th>
                                 <td style="text-align:right;">
                                   <a href="/prayer_app/custom/${v.lap_key}">Pray</a> |
                                   <a href="/prayer_app/custom/${v.lap_key}/map">Map</a> |
