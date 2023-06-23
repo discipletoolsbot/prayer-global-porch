@@ -55,11 +55,7 @@ progress {
 }
 #head_block_display {
     position: relative;
-    background: white;
-    width: -moz-fit-content;
-    width: fit-content;
     padding: 1em;
-    opacity: .9;
     margin: 0 auto 1em;
 }
 #foot_block {

@@ -93,6 +93,7 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/bootstrap/bootstrap5.2.2.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/prayer-global/style.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>heatmap.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'heatmap.css' ) ) ?>" type="text/css" media="all">
         <?php
@@ -116,27 +117,49 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
             </div>
             <div id="map-wrapper">
                 <div id="head_block_wrapper">
-                    <div id="head_block_display" class="center">
-                        <span class="two-em uppercase"><?php echo esc_html( $lap_stats['title'] ) ?> Prayer Challenge</span><br>
-                        <span>COVER THE WORLD IN PRAYER</span>
+                    <div id="head_block_display" class="center brand-bg white">
+                        <h2 class="uppercase"><?php echo esc_html( $lap_stats['title'] ) ?> Prayer Challenge</h2>
+                        <h4 class="uppercase">Cover The World In Prayer</h4>
                     </div>
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
                 <div id="foot_block">
-                    <div class="row">
-                        <div class="col col-sm-2" id="qr-cell"></div>
-                        <div class="col col-sm-1"></div>
-                        <div class="col col-sm-2 center"><strong>Places Remaining</strong><br><strong><span class="three-em red-bg remaining"></span></strong></div>
-                        <div class="col col-sm-2 center"><strong>Places Covered</strong><br><strong><span class="three-em green-bg completed"></span></strong></div>
-                        <div class="col col-sm-2 center"><strong>Prayer Warriors</strong><br><strong><span class="three-em prayer_warriors"></span></strong></div>
-                        <div class="col col-sm-2 center d-none d-sm-block"><strong>World Coverage</strong><br><strong><span class="three-em  completed_percent"></span><span class="three-em">%</span></strong></div>
-                        <div class="col col-sm-1"></div>
+                    <div class="row d-flex justify-content-between center gap-5 flex-nowrap">
+                        <div class="col col-sm-3" id="qr-cell"></div>
+                        <div class="w-auto flex-1">
+                            <div class="blue-bg white blue-border rounded d-flex align-items-center justify-content-around font-weight-bold">
+                                <i class="icon pg-world-light three-em"></i>
+                                <div class="three-em white remaining"></div>
+                            </div>
+                            <span class="uppercase one-rem">Places Remaining</span>
+                        </div>
+                        <div class="w-auto flex-1">
+                            <div class="white-bg blue blue-border rounded d-flex align-items-center justify-content-around font-weight-bold">
+                                <i class="icon pg-world-light three-em"></i>
+                                <div class="three-em completed"></div>
+                            </div>
+                            <span class="uppercase one-rem">Places Covered</span>
+                        </div>
+                        <div class="w-auto flex-1">
+                            <div class="brand-bg white blue-border rounded d-flex align-items-center justify-content-around font-weight-bold">
+                                <i class="icon pg-world-arrow three-em"></i>
+                                <div><span class="three-em  completed_percent"></span><span class="three-em">%</span></div>
+                            </div>
+                            <span class="uppercase one-rem">World Coverage</span>
+                        </div>
+                        <div class="w-auto flex-1">
+                            <div class="secondary-bg white secondary-border rounded d-flex align-items-center justify-content-around font-weight-bold">
+                                <i class="icon pg-prayer three-em"></i>
+                                <div class="three-em prayer_warriors"></div>
+                            </div>
+                            <span class="uppercase one-rem">Intercessors</span>
+                        <div class=""></div>
                     </div>
                     <div id="qr-code-block">
-                        <div class="two-em center">PRAY WITH US</div>
+                        <div class="two-em center uppercase">Pray with us</div>
                         <img class="qr-code-image" src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&amp;data=<?php echo esc_url( get_site_url() ) ?>/prayer_app/custom/<?php echo esc_html( $lap_stats['key'] ) ?>">
-                        <div class="center uppercase">TURN THE MAP FROM RED TO GREEN</div>
+                        <div class="center uppercase">Turn the map from dark to light</div>
                     </div>
                 </div>
             </div>

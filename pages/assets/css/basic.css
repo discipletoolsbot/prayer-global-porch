@@ -346,11 +346,14 @@ input[type="radio"]:checked {
     border: 2px solid var(--pg-brand-color);
 }
 .white-border {
-    border-color: white;
+    border: 2px solid white;
 }
 .border-brand-light {
     border-color: var(--pg-brand-color-light);
     --bs-border-color: var(--pg-brand-color-light);
+}
+.secondary-border {
+    border: 2px solid var(--pg-secondary-color);
 }
 .flex-1 {
     flex: 1;
