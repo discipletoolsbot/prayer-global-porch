@@ -860,6 +860,30 @@ button {
     --bs-btn-hover-color: var(--pg-brand-color-highlight);
     --bs-btn-hover-border-color: var(--pg-brand-color-highlight);
 }
+.btn-top {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 1rem;
+    font-size: 2rem;
+    background-color: var(--pg-brand-color-lightest);
+    z-index: 1000;
+    border-radius: 50%;
+    padding: 10px;
+    line-height: 0.5;
+    color: white;
+    transition: all 500ms;
+}
+.btn-top:hover,
+.btn-top:active {
+    color: white;
+}
+.show {
+    opacity: 1;
+}
+.hide {
+    opacity: 0;
+}
 
 /* Navbar styles */
 

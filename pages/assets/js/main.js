@@ -62,6 +62,29 @@ $(document).ready(function($) {
 	};
 	scrollWindow();
 
+	const scrollElement = function(selector) {
+		console.log('checking scroll of ', selector)
+		const element = $(selector)
+		toggleElement()
+		$(window).scroll(function() {
+			toggleElement();
+		})
+		function toggleElement() {
+			const scrollTop = $(window).scrollTop();
+
+			if (scrollTop > 350) {
+				element.addClass('show');
+				element.removeClass('hide');
+			}
+			if (scrollTop < 350) {
+				element.removeClass('show');
+				element.addClass('hide');
+			}
+		}
+
+	}
+	scrollElement('.btn-top')
+
 	// slick sliders
 	var slickSliders = function() {
 		$('.single-item').slick({

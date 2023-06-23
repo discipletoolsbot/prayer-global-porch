@@ -83,6 +83,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
 
 
         <section class="page-section center mt-0" data-section="about" id="section-about">
+            <a href="#" class="text-decoration-none btn-top hide"><i class="icon pg-chevron-up"></i></a>
             <div class="container px-4">
                 <div class="row justify-content-md-center text-center">
                     <div class="col-lg-7 flow-medium">
