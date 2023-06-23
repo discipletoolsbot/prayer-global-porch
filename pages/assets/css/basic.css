@@ -785,11 +785,18 @@ button {
     --bs-btn-border-radius: 20px;
     text-transform: uppercase;
 }
+.btn-outline-primary {
+    --bs-btn-border-color: var(--pg-brand-color-light);
+    --bs-btn-active-bg: var(--pg-brand-color-light);
+    --bs-btn-hover-bg: var(--pg-brand-color-light);
+    --bs-btn-hover-border-color: var(--pg-brand-color-light);
+    --bs-btn-active-border-color: var(--pg-brand-color-light);
+}
 .btn-primary {
     --bs-btn-bg: var(--pg-brand-color-lighter);
     --bs-btn-active-bg: var(--pg-brand-color-light);
-    --bs-btn-hover-bg: var(--pg-brand-color-lighter);
-    --bs-btn-hover-color: var(--pg-brand-color-highlight);
+    --bs-btn-hover-bg: var(--pg-brand-color-light);
+    --bs-btn-hover-color: white;
     border: none;
 }
 .btn-secondary {
@@ -804,7 +811,9 @@ button {
     --bs-btn-bg: var(--pg-brand-color);
     --bs-btn-active-border: var(--pg-brand-color-highlight);
     --bs-btn-hover-bg: var(--pg-brand-color-light);
-    --bs-btn-hover-color: var(--pg-brand-color-highlight);
+    --bs-btn-active-bg: var(--pg-brand-color-light);
+    --bs-btn-hover-color: white;
+    --bs-btn-active-color: white;
     border: none;
 }
 .btn-primary-light {
@@ -812,7 +821,9 @@ button {
     --bs-btn-bg: var(--pg-brand-color-lightest);
     --bs-btn-active-border: var(--pg-brand-color-highlight);
     --bs-btn-hover-bg: var(--pg-brand-color-lighter);
-    --bs-btn-hover-color: var(--pg-brand-color-highlight);
+    --bs-btn-active-bg: var(--pg-brand-color-lighter);
+    --bs-btn-hover-color: white;
+    --bs-btn-active-color: white;
     border: none;
 }
 .btn-xl {
