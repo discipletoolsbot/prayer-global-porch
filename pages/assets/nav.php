@@ -14,7 +14,7 @@ if ( '' === $url ) {
             str_contains( $url, 'login' ) ||
             str_contains( $url, 'profile' )
 ) {
-    $nav_class = 'brand-bg white navbar-dark';
+    $nav_class = 'navbar-dark';
 }
 $hide_cta_class = str_contains( $url, 'challenges' ) || str_contains( $url, 'user_app' ) ? 'd-none' : '';
 
