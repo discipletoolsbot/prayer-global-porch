@@ -180,7 +180,7 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 header-border-top font-weight-normal">Show All</h2>
+                        <h2 class="mt-0 font-weight-normal">Show All</h2>
                         <p>
                             <select id="country_change">
                                 <option></option>

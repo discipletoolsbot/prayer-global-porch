@@ -84,14 +84,13 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-4">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 header-border-top font-weight-normal">Data Sources</h2>
+                        <h2 class="mt-0 font-weight-normal">Data Sources</h2>
                     </div>
                 </div>
                 <div class="row g-0">
 
                     <!-- Item -->
-                    <div class="col-12">
-                        <hr>
+                    <div class="col-12 center">
                         <p>
                             We acknowledge that there is no way to possess 100% accurate knowledge of the faith status or location status of
                             every person in the world.
@@ -106,7 +105,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                         </p>
                     </div>
 
-                    <div style="padding:1em;border:2px solid gray;">
+                    <div class="center" style="padding:1em;border:2px solid gray;">
                         <h4>Recommended Resource: <a href="https://locationgrid.app">Location Grid Project</a></h4>
                         <p>
                             Prayer.Global is build on Disciple.Tools open source software, and Disciple.Tools mapping and

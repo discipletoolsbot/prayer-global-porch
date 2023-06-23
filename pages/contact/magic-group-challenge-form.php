@@ -79,7 +79,7 @@ class Prayer_Global_Porch_Group_Challenge extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 pb-3 header-border-top font-weight-normal">Request a Group Challenge</h2>
+                        <h2 class="mt-0 pb-3 font-weight-normal">Request a Group Challenge</h2>
                         <p>
                             First, thank you for reaching out.
                         </p>

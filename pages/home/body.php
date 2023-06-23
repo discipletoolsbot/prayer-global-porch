@@ -266,11 +266,11 @@
 <!-- END section -->
 
 
-<section class="page-section d-sm-none d-md-block" data-section="about" id="section-about">
+<section class="page-section d-none d-md-block" data-section="about" id="section-about">
     <div class="container">
         <div class="row justify-content-md-center text-center mb-5">
             <div class="col-lg-7">
-                <h2 class="mt-0 header-border-top font-weight-normal">About</h2>
+                <h2 class="mt-0 font-weight-normal">About</h2>
                 <p>
                     Prayer.Global seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.
                 </p>

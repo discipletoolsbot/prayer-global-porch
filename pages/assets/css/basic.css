@@ -421,21 +421,6 @@ input[type="radio"]:checked {
 
 /* Utilities */
 
-.header-border-top {
-    position: relative;
-    padding-top: 30px;
-    text-align: center;
-}
-.header-border-top::before {
-    position: absolute;
-    top: 0;
-    height: 2px;
-    width: 50px;
-    content: "";
-    background: #1d82ff;
-    left: 50%;
-    transform: translateX(-50%);
-}
 .header-border-bottom {
     position: relative;
     padding-bottom: 30px;
