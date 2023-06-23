@@ -32,7 +32,7 @@
 <section class="page-section full-height" id="section-goal">
     <div class="container">
         <div class="row text-center">
-            <div id="carouselExample" class="carousel slide px-0">
+            <div id="storyCarousel" class="carousel slide px-0">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
                         <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-0.png);">
@@ -55,7 +55,7 @@
                                 <div class="row d-block">
                                     <i class="icon pg-relay icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">The Race</h2>
-                                    <p class="white-gradient pb-3">
+                                    <p class="white-gradient pb-3 px-5">
                                         Like a “race”, we pray with urgency and
                                         focus as we seek to complete “laps” by
                                         covering the entire world in prayer. An
@@ -73,7 +73,7 @@
                                 <div class="row d-block">
                                     <i class="icon pg-world-arrow icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3">Our Strategy</h2>
-                                    <p class="white-gradient pb-3">
+                                    <p class="white-gradient pb-3 px-5">
                                         Prayer.Global has broken the world down
                                         into 4,770 “states” based on geographical
                                         and governmental boundaries. With
@@ -132,11 +132,11 @@
                         </div>
                     </div>
                 </div>
-                <button class="carousel-control-prev four-em" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+                <button class="carousel-control-prev four-em mt-5" type="button" data-bs-target="#storyCarousel" data-bs-slide="prev">
                     <i class="icon pg-chevron-left two-em brand" aria-hidden="true"></i>
                     <span class="visually-hidden">Previous</span>
                 </button>
-                <button class="carousel-control-next four-em" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+                <button class="carousel-control-next four-em mt-5" type="button" data-bs-target="#storyCarousel" data-bs-slide="next">
                     <i class="icon pg-chevron-right two-em brand" aria-hidden="true"></i>
                     <span class="visually-hidden">Next</span>
                 </button>

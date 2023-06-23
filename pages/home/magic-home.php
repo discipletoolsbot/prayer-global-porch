@@ -106,7 +106,7 @@ class Prayer_Global_Porch_Home extends DT_Magic_Url_Base
 
             jQuery(document).ready(function($){
 
-                const myCarouselElement = document.querySelector('#carouselExample')
+                const myCarouselElement = document.querySelector('#storyCarousel')
 
                 const carousel = new bootstrap.Carousel(myCarouselElement, {
                   wrap: false,

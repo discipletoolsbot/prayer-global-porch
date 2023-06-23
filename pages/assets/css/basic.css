@@ -541,8 +541,8 @@ input[type="radio"]:checked {
     opacity: 1;
 }
 .carousel-item {
-    width: 102%;
-    margin-right: -104%;
+    width: 100%;
+    margin-right: -102%;
 }
 .finish-line {
     position: absolute;
