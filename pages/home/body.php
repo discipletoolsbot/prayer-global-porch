@@ -10,7 +10,7 @@
             </div>
             <div class="mb-3">
                 <div class="mb-3"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
-                <a href="#section-goal" class="btn brand-lightest-bg white uppercase mt-2">
+                <a href="#section-goal" class="btn btn-primary-light white uppercase mt-2">
                     Learn more
                 </a>
                 <br>
