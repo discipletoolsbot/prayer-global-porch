@@ -132,7 +132,7 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
                     <?php echo do_shortcode( '[stripe]' ) ?>
 
                     <p class="brand-light-bg white p-3">
-                        <strong>Note:</strong> Prayer.Global and by extension Pray4Movement.org is part of <a href="https://gospelambition.org" target="_blank" rel="noopener">Gospel Ambition</a>. You may see Gospel Ambition on your invoice or receipt.
+                        <strong>Note:</strong> Prayer.Global and by extension Pray4Movement.org is part of <a class="link-light" href="https://gospelambition.org" target="_blank" rel="noopener">Gospel Ambition</a>. You may see Gospel Ambition on your invoice or receipt.
                     </p>
 
                 </div>
