@@ -156,7 +156,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-dark cancel-user-location" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary cancel-user-location" data-bs-dismiss="modal">Cancel</button>
                             <button type="button" class="btn btn-primary save-user-location">Save</button>
                         </div>
                    </div>
@@ -211,7 +211,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             </div>
                             <div class="modal-footer">
                                 <span class="loading-spinner challenge-loading"></span>
-                                <button class="btn btn-outline-dark cancel-new-challenge-button" data-bs-dismiss="modal" type="button">Cancel</button>
+                                <button class="btn btn-primary cancel-new-challenge-button" data-bs-dismiss="modal" type="button">Cancel</button>
                                 <button class="btn btn-primary create-new-challenge-button">Create</button>
                                 <button class="btn btn-primary edit-challenge-button">Edit</button>
                             </div>
@@ -262,7 +262,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-outline-dark" data-bs-dismiss="modal" type="button">Cancel</button>
+                            <button class="btn btn-primary" data-bs-dismiss="modal" type="button">Cancel</button>
                             <button class="btn btn-danger" id="confirm-user-account-delete" disabled>I am sure</button>
                         </div>
                     </div>

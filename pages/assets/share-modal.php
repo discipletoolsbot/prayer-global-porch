@@ -22,7 +22,7 @@
         </ul>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn pb_outline-dark highlight" data-bs-dismiss="modal">Done</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Done</button>
       </div>
     </div>
   </div>

@@ -170,9 +170,9 @@ jQuery(document).ready(function(){
                 <p>Are you enjoying this app?</p>
                 <p>Would you like to partner with us in helping others pray for the world?</p>
                 <p>Consider giving to help us increase prayer for the world.</p>
-                <a class="btn btn-outline-dark" data-reverse-color href="/content_app/give_page">Give</a>
+                <a class="btn btn-primary" data-reverse-color href="/content_app/give_page">Give</a>
                 <br>
-                <a class="btn btn-outline-dark mt-3" href="/user_app/logout">Logout</a><br>
+                <a class="btn btn-primary mt-3" href="/user_app/logout">Logout</a><br>
             </section>
 
 
@@ -285,7 +285,7 @@ jQuery(document).ready(function(){
             <!--${ModalButton({
                 text: "Data report for my account",
                 modalId: "user-data-report",
-                classes: 'btn-outline-dark small d-block',
+                classes: 'btn-primary small d-block',
             })}-->
             ${ModalButton({
                 text: "Erase my account",
@@ -331,7 +331,7 @@ jQuery(document).ready(function(){
 
             <section class="user-activity">
                 <div class="user-activity__list"></div>
-                <button class="btn btn-outline-dark mt-5 mx-auto d-block" id="load-more-user-activity" style="display: none">Load more</button>
+                <button class="btn btn-primary mt-5 mx-auto d-block" id="load-more-user-activity" style="display: none">Load more</button>
             </section>
 
         </section>`

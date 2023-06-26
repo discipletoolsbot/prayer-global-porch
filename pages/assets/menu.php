@@ -81,37 +81,6 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
                 <div class="mt-2"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
 
             </div>
-            <div class="nav-buttons" style="display: none">
-                <div class="row" style="--bs-gutter-x: 1.5rem">
-
-                    <?php if ( ! $is_custom_lap ) : ?>
-
-                        <a href="/" class="col icon-button two-rem" title="Home"><i class="ion-home"></i></a>
-
-                    <?php endif; ?>
-
-                    <a href="/user_app/profile" class="col icon-button two-rem" title="Profile" id="user-profile-link" style="display: none" data-pg-is-logged-in>
-                        <i class="ion-person"></i>
-                    </a>
-
-                    <button class="col icon-button share-button two-rem" title="Share" data-toggle="modal" data-target="#exampleModal">
-                        <i class="ion-android-share-alt"></i>
-                    </button>
-
-                </div>
-
-                <?php if ( $login_module_feature->is_on() ) : ?>
-
-                    <a href="/user_app/login" class="icon-button two-rem" title="Login" id="login-register-link" style="display: none" data-pg-is-logged-out>
-                        <i class="ion-log-in"></i>
-                    </a>
-
-                <?php endif; ?>
-
-                <a href="<?php echo esc_url( '/user_app/logout' )?>" class="icon-button two-rem" title="Logout" id="logout-link" style="display: none" data-pg-is-logged-in>
-                    <i class="ion-log-out"></i>
-                </a>
-            </div>
         </div>
     </div>
 

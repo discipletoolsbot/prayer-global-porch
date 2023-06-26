@@ -188,7 +188,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 <button type="button" data-bs-dismiss="offcanvas" style="text-align: start">
                     <i class="ion-chevron-right three-em"></i>
                 </button>
-                <a class="btn btn-outline-dark py-2" id="pray-for-area-button" href="#">Pray for this area</a>
+                <a class="btn btn-primary py-2" id="pray-for-area-button" href="#">Pray for this area</a>
             </div>
             <div class="row offcanvas__content" id="grid_details_content"></div>
         </div>

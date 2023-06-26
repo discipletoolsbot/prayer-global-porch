@@ -210,7 +210,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
 
                     </div>
                     <div class="modal-footer center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Let's Go!</button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Let's Go!</button>
                     </div>
                 </div>
             </div>

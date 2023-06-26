@@ -12,7 +12,7 @@ $hide_if_logged_out = $is_logged_in ? '' : 'display: none';
         <span class="two-em center col col-md-4 d-none d-lg-block">Race Map</span>
         <a href="/" class="brand-color two-em col col-4 d-lg-none">Race Map</a>
         <div class="col-8 col-md-4 d-flex justify-content-end">
-            <a class="btn btn-outline-dark py-2 me-3" href="/newest/lap/">Start Praying</a>
+            <a class="btn btn-cta py-2 me-3" href="/newest/lap/">Start Praying</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#probootstrap-navbar" aria-controls="probootstrap-navbar" aria-expanded="false" aria-label="Toggle navigation">
                 <span><i class="ion-navicon"></i></span>
             </button>

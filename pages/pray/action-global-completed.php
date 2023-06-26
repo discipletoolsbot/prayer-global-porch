@@ -94,8 +94,8 @@ class PG_Global_Prayer_App_Completed extends PG_Global_Prayer_App {
                 <div class="row ">
                     <div class="col text-center">
                         <h2 class="heading mb-5">Lap <?php echo esc_attr( $lap_stats['lap_number'] ) ?> Completed!</h2>
-                        <a href="<?php echo esc_url( '/'. $this->parts['root'] . '/' . $this->parts['type'] . '/' . $this->parts['public_key'] . '/map' ) ?>" role="button" class="btn smoothscroll cta_button btn-outline-dark uppercase">View Map</a>
-                        <a href="/newest/lap/" role="button" class="btn smoothscroll cta_button btn-outline-dark uppercase">Go To The Current Lap</a> <br>
+                        <a href="<?php echo esc_url( '/'. $this->parts['root'] . '/' . $this->parts['type'] . '/' . $this->parts['public_key'] . '/map' ) ?>" role="button" class="btn smoothscroll cta_button btn-primary uppercase">View Map</a>
+                        <a href="/newest/lap/" role="button" class="btn smoothscroll cta_button btn-primary uppercase">Go To The Current Lap</a> <br>
                         <hr style="border:1px solid white;margin-top:5vh;">
                     </div>
                     <div class="w-100"></div>

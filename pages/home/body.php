@@ -1,12 +1,4 @@
 <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' ) ?>
-<style>
-    @media screen and ( max-width: 767px ) {
-        /* hides 'start praying' only on the home and non-off canvas location */
-        .navbar.navbar-dark .btn-outline-dark.py-lg-4 {
-            display:none;
-        }
-    }
-</style>
 
 <section class="hero full-height contain bg-top dark-bg" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/world-map-dark-background-new.png); min-height: 100vh;" id="section-home">
     <div class="container">

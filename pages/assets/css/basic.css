@@ -778,13 +778,6 @@ button {
     --bs-btn-font-weight: bold;
     box-shadow: var(--small-box-shadow);
 }
-.btn-outline-dark {
-    --bs-btn-border-color: black;
-}
-.btn-outline-light {
-    --bs-btn-border-radius: 20px;
-    text-transform: uppercase;
-}
 .btn-outline-primary {
     --bs-btn-border-color: var(--pg-brand-color-light);
     --bs-btn-active-bg: var(--pg-brand-color-light);
@@ -798,6 +791,7 @@ button {
     --bs-btn-hover-bg: var(--pg-brand-color-light);
     --bs-btn-hover-color: white;
     border: none;
+    text-transform: uppercase;
 }
 .btn-secondary {
     --bs-btn-bg: var(--pg-secondary-color);
@@ -832,17 +826,6 @@ button {
     border-radius: 0;
     letter-spacing: 0.2em;
     text-transform: uppercase;
-}
-.btn-outline-dark[data-reverse-color] {
-    outline: none;
-    color: #fff;
-    border: 1px solid black;
-    background: #000;
-}
-.btn-outline-dark[data-reverse-color]:hover, .btn-outline-dark[data-reverse-color]:active, .btn-outline-dark[data-reverse-color]:focus {
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    background: none !important;
-    color: black;
 }
 .btn-cta {
     --bs-btn-border-color: white;
@@ -950,15 +933,6 @@ button {
     --bs-navbar-brand-color: white;
     --bs-navbar-brand-hover-color: #b2dcff;
 }
-
-.navbar-dark .btn-outline-dark {
-    --bs-btn-color: white;
-    --bs-btn-border-color: white;
-    --bs-btn-hover-bg: white;
-    --bs-btn-hover-color: black;
-    --bs-btn-hover-border-color: white;
-}
-
 .navbar-toggler {
     --bs-navbar-toggler-font-size: 30px;
     padding: 0;
