@@ -119,12 +119,14 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                 ],
                 'map_type' => $this->map_type,
                 'details_type' => $this->details_type,
+                'is_dark_map_on' => ( new PG_Feature_Flag( PG_Flags::DARK_MAP_FEATURE ) )->is_on(),
             ]) ?>][0]
         </script>
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/global-functions.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/global-functions.js' ) ) ?>"></script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/bootstrap/bootstrap5.2.2.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
+        <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/prayer-global/style.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/fonts/prayer-global/style.css' ) ) ?>">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>pray/heatmap.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'pray/heatmap.css' ) ) ?>" type="text/css" media="all">
         <?php
@@ -152,8 +154,8 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                 </div>
             </div>
             <div id="map-wrapper">
-                <div id="head_block">
-                    <?php require( __DIR__ . '/nav-race-map.php' ) ?>
+                <div class="brand-bg white" id="head_block">
+                    <?php require( __DIR__ . '/../pray/nav-global-map.php' ) ?>
                     <?php require( __DIR__ . '/../pray/map-settings.php' ) ?>
                 </div>
                 <span class="loading-spinner active"></span>
@@ -161,16 +163,39 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                 <div id="foot_block">
                     <div class="map-overlay" id="map-legend" data-map-type="<?php echo esc_attr( $this->map_type ) ?>"></div>
                     <div class="row">
-                        <div class="col col-12 center"><button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats"><i class="ion-chevron-up two-em"></i></button></div>
-                        <div class="col col-6 col-sm-4 center">
-                            <strong>Warriors</strong>
-                            <br>
-                            <div class="d-flex align-items-center justify-content-center">
-                                <span class="one-em"><?php echo esc_html( $lap_stats['participants'] ) ?></span>
-                            </div>
+                        <div class="col col-12 center">
+                            <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats">
+                                <i class="icon pg-chevron-up three-em blue"></i>
+                            </button>
+                            <div class="one-em uppercase font-weight-bold">Race Map Stats</div>
                         </div>
-                        <div class="col col-6 col-sm-4 center"><strong>World Prayer Coverage</strong><br><span class="one-em"><?php echo esc_html( $finished_laps ) ?> times</span></div>
-                        <div class="col col-6 col-sm-4 center"><strong>Time Elapsed</strong><br><span class="one-em time_elapsed" id="time_elapsed"></span></div>
+                        <div class="col col-6 col-sm-4 center ">
+                            <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
+                                <i class="icon pg-prayer three-em"></i>
+                                <div class="two-em stats-figure">
+                                    <?php echo esc_html( $lap_stats['participants'] ) ?>
+                                </div>
+                            </div>
+                            <span class="uppercase small">Intercessors</span><br>
+                        </div>
+                        <div class="col col-6 col-sm-4 center ">
+                            <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
+                                <i class="icon pg-world-arrow three-em"></i>
+                                <div class="two-em stats-figure">
+                                    <?php echo esc_html( $finished_laps ) ?> times
+                                </div>
+                            </div>
+                            <span class="uppercase small">World Prayer Coverage</span><br>
+                        </div>
+                        <div class="col d-none d-md-block col-sm-4 center ">
+                            <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
+                                <i class="icon pg-time three-em"></i>
+                                <div class="two-em stats-figure time_elapsed">
+                                    0
+                                </div>
+                            </div>
+                            <span class="uppercase small">Time Elapsed</span><br>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -181,24 +206,26 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
         </div>
         <div class="offcanvas offcanvas-bottom" id="offcanvas_stats">
             <div class="center offcanvas__header"><button type="button" data-bs-toggle="offcanvas"><i class="ion-chevron-down three-em"></i></button></div>
-            <div class="row center offcanvas__content">
-                <hr>
+            <div class="row center uppercase offcanvas__content">
                 <div class="col col-12">
-                    <span class="three-em lap-title">Race Map</span>
-                    <hr>
+                    <div class="two-em font-weight-bold">Race Map Stats</div>
                 </div>
-                <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Warriors</p>
-                    <p class="stats-figure"><?php echo esc_html( $lap_stats['participants'] ) ?></p>
+                <div class="align-items-center col-sm-3 d-flex flex-dir-column mt-3">
+                    <i class="icon pg-world-arrow blue four-em"></i>
+                    <span class="stats-title">World Coverage</span>
+                    <div class="blue-bg rounded stats-figure-lg px-3 white"><?php echo esc_html( $finished_laps ) ?> times</div>
                 </div>
-                <div class="col col-6 col-sm-3">
-                    <p class="stats-title">World Prayer Coverage</p>
-                    <p class="stats-figure"><?php echo esc_html( $finished_laps ) ?> times</p>
+                <div class="align-items-center col-sm-3 d-flex flex-dir-column mt-3">
+                    <i class="icon pg-prayer blue four-em"></i>
+                    <span class="stats-title">Intercessors</span>
+                    <div class="orange-bg rounded stats-figure-lg px-3 warriors white"><?php echo esc_html( $lap_stats['participants'] ) ?></div>
                 </div>
-                <div class="col col-6 col-sm-3">
-                    <p class="stats-title">Pace</p>
-                    <p class="stats-figure"><?php echo esc_html( $lap_stats['time_elapsed'] ) ?></p>
+                <hr class="mt-3">
+                <div class="col-sm-3">
+                    <p class="two-em mb-0">Time Elapsed</p>
+                    <p class="stats-figure time_elapsed">0</p>
                 </div>
+                <hr class="mt-3">
             </div>
         </div>
         <?php
