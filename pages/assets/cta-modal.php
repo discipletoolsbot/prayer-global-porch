@@ -3,7 +3,9 @@
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header border-bottom-0">
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
+                    <i class="icon pg-close two-em"></i>
+                </button>
             </div>
             <div class="modal-body flow-small text-center pb-5">
                 <h3 class="modal-title">Prayer Idea</h3>

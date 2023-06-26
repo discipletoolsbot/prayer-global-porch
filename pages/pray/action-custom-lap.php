@@ -193,7 +193,9 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel">Set Your Prayer Experience</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="icon pg-close two-em"></i>
+                        </button>
                     </div>
                     <div class="modal-body">
                         <div>
@@ -251,7 +253,9 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title">Thank you! Leave us a correction below.</h5>
-                        <button type="button" id="correction_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button type="button" id="correction_close" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="icon pg-close two-em"></i>
+                        </button>
                     </div>
                     <div class="modal-body">
                         <p><span id="correction_title" class="correction_field"></span></p>

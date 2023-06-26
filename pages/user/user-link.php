@@ -136,7 +136,9 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="locationModalLabel">Change Your Location</h1>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="icon pg-close two-em"></i>
+                            </button>
                         </div>
                         <div class="modal-body">
                             <div id="mapbox-wrapper">
@@ -168,7 +170,9 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="createChallengeLabel" data-visibility="">Create Challenge</h1>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="icon pg-close two-em"></i>
+                            </button>
                         </div>
                         <form action="" id="challenge-form">
                             <div class="modal-body">
@@ -224,7 +228,9 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="userDataReportModalLabel">Data Report</h1>
-                            <button class="btn-close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="icon pg-close two-em"></i>
+                            </button>
                         </div>
                         <div class="modal-body">
                             Data Reporty stuff
@@ -244,7 +250,9 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h1 class="modal-title fs-5" id="eraseUserModalLabel">Erase Account</h1>
-                            <button class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
+                                <i class="icon pg-close two-em"></i>
+                            </button>
                         </div>
                         <div class="modal-body">
                             <p>

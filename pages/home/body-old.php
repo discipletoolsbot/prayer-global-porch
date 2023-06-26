@@ -162,7 +162,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Prayer.Global Intro</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="icon pg-close two-em"></i>
+                        </button>
             </div>
             <div class="modal-body"></div>
             <div class="modal-footer">
