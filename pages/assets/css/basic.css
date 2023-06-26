@@ -1212,8 +1212,10 @@ input[type="text"],
     font-family: PrayerGlobal;
     background-color: transparent;
 }
+#content .dtr-control,
 #active_content .dtr-control {
     background: var(--pg-brand-color-light);
+    text-align: center;
 }
 #complete_content .dtr-control {
     background: var(--pg-brand-color-lighter);

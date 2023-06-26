@@ -120,11 +120,12 @@ class Prayer_Global_Porch_Stats_Race_List extends DT_Magic_Url_Base
             <div class="container pb-4">
                 <div class="row">
                     <div class="col-md text-center">
-                        <span class="two-em lap-title">Race List</span>
+                        <h2 class="">Race List</h2>
+                        <i class="icon pg-check icon-large"></i>
                     </div>
                 </div>
             </div>
-            <div class="container" id="content"><span class="loading-spinner active"></span></div>
+            <div class="container data-table uppercase" id="content"><span class="loading-spinner active"></span></div>
             <div class="container center">
                 <div class="row">
                     <div class="col center">
@@ -137,7 +138,7 @@ class Prayer_Global_Porch_Stats_Race_List extends DT_Magic_Url_Base
             <div class="container center">
                 <div class="row">
                     <div class="col center">
-                        <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-xl btn-outline-dark">Race Map</a>
+                        <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-xl btn-primary rounded">Race Map</a>
                     </div>
                 </div>
             </div>
