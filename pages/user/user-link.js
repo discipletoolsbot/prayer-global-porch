@@ -154,15 +154,15 @@ jQuery(document).ready(function(){
                 <div class="navbar-nav">
                     <button class="user-profile-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
                         <span class="two-em">Profile</span>
-                        <i class="ion-chevron-right three-em"></i>
+                        <i class="icon pg-chevron-right three-em"></i>
                     </button>
                     <button class="user-prayers-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
                         <span class="two-em">Prayers</span>
-                        <i class="ion-chevron-right three-em"></i>
+                        <i class="icon pg-chevron-right three-em"></i>
                     </button>
                     <button class="user-challenges-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
                         <span class="two-em">Challenges</span>
-                        <i class="ion-chevron-right three-em"></i>
+                        <i class="icon pg-chevron-right three-em"></i>
                     </button>
                 </div>
             </section>

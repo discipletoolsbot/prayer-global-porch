@@ -771,6 +771,7 @@ button {
     border: 0;
     background-color: unset;
     line-height: initial;
+    color: var(--pg-brand-color-light);
 }
 .btn {
     --bs-btn-font-weight: var(--font-weight-default);

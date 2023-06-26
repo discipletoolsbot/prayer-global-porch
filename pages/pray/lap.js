@@ -498,9 +498,9 @@ jQuery(document).ready(function(){
           <div id='mapbox-map'></div>
         </div>
         <div class="text-center pt-3 m-auto d-flex justify-content-center align-items-center gap-3">
-          <span class="d-flex align-items-center gap-1">${BodyIcon('red', 'large')} ${grid_row.non_christians}</span>
-          <span class="d-flex align-items-center gap-1">${BodyIcon('orange', 'large')} ${grid_row.christian_adherents}</span>
-          <span class="d-flex align-items-center gap-1">${BodyIcon('green', 'large')} ${grid_row.believers}</span>
+          <span class="d-flex align-items-center gap-1">${BodyIcon('bad', 'large')} ${grid_row.non_christians}</span>
+          <span class="d-flex align-items-center gap-1">${BodyIcon('neutral', 'large')} ${grid_row.christian_adherents}</span>
+          <span class="d-flex align-items-center gap-1">${BodyIcon('good', 'large')} ${grid_row.believers}</span>
         </div>
         `
       )
@@ -736,17 +736,17 @@ jQuery(document).ready(function(){
           <div class="row text-center justify-content-center">
               <div class="col-md-3 col-lg-2">
                 <p class="mt-3 mb-0 font-weight-bold">${data.label_1}</p>
-                <div class="pie" style="--p:${data.percent_1};--b:10px;--c:red;">${data.percent_1}%</div>
+                <div class="pie" style="--p:${data.percent_1};--b:10px;--c:var(--pg-brand-color);">${data.percent_1}%</div>
                 <p class="mt-3 mb-0 font-weight-normal one-em">${data.population_1}</p>
               </div>
               <div class="col-md-3 col-lg-2">
                 <p class="mt-3 mb-0 font-weight-bold">${data.label_2}</p>
-                <div class="pie" style="--p:${data.percent_2};--b:10px;--c:orange;">${data.percent_2}%</div>
+                <div class="pie" style="--p:${data.percent_2};--b:10px;--c:var(--pg-brand-color-lighter);">${data.percent_2}%</div>
                 <p class="mt-3 mb-0 font-weight-normal one-em">${data.population_2}</p>
               </div>
               <div class="col-md-3 col-lg-2">
                 <p class="mt-3 mb-0 font-weight-bold">${data.label_3}</p>
-                <div class="pie" style="--p:${data.percent_3};--b:10px;--c:green;">${data.percent_3}%</div>
+                <div class="pie" style="--p:${data.percent_3};--b:10px;--c:var(--pg-secondary-color);">${data.percent_3}%</div>
                 <p class="mt-3 mb-0 font-weight-normal one-em">${data.population_3}</p>
               </div>
           </div>
@@ -808,17 +808,17 @@ jQuery(document).ready(function(){
     let i = 0
     i = 0
     while ( i < data.percent_1 ) {
-      bodies += BodyIcon('red', 'medium');
+      bodies += BodyIcon('bad', 'medium');
       i++;
     }
     i = 0
     while ( i < data.percent_2 ) {
-      bodies += BodyIcon('orange', 'medium');
+      bodies += BodyIcon('neutral', 'medium');
       i++;
     }
     i = 0
     while ( i < data.percent_3 ) {
-      bodies += BodyIcon('green', 'medium');
+      bodies += BodyIcon('good', 'medium');
       i++;
     }
     div.append(
@@ -855,17 +855,17 @@ jQuery(document).ready(function(){
     let bodies_3 = ''
     i = 0
     while ( i < data.percent_1 ) {
-      bodies_1 += BodyIcon('red', 'medium');
+      bodies_1 += BodyIcon('bad', 'medium');
       i++;
     }
     i = 0
     while ( i < data.percent_2 ) {
-      bodies_2 += BodyIcon('orange', 'medium');
+      bodies_2 += BodyIcon('neutral', 'medium');
       i++;
     }
     i = 0
     while ( i < data.percent_3 ) {
-      bodies_3 += BodyIcon('green', 'medium');
+      bodies_3 += BodyIcon('good', 'medium');
       i++;
     }
     div.append(
@@ -927,12 +927,12 @@ jQuery(document).ready(function(){
     let icon = icons[Math.floor(Math.random() * icons.length)]
 
     // icon color
-    let icon_color = 'red'
+    let icon_color = 'bad'
     if ( 'christian_adherents' === data.group ) {
-      icon_color = 'orange'
+      icon_color = 'neutral'
     }
     if ( 'believers' === data.group ) {
-      icon_color = 'orange'
+      icon_color = 'good'
     }
 
     // icon size
@@ -1132,7 +1132,7 @@ jQuery(document).ready(function(){
       if ( data.icon ) {
         iclass = data.icon
       }
-      let icolor = 'red'
+      let icolor = 'brand'
       if ( data.color ) {
         icolor = data.color
       }
@@ -1168,7 +1168,7 @@ jQuery(document).ready(function(){
       if ( data.icon ) {
         iclass = data.icon
       }
-      let icolor = 'red'
+      let icolor = 'brand'
       if ( data.color ) {
         icolor = data.color
       }
@@ -1242,7 +1242,7 @@ jQuery(document).ready(function(){
       let bodies_1 = ''
       i = 0
       while ( i < data.lost_per_believer ) {
-        bodies_1 += BodyIcon('red');
+        bodies_1 += BodyIcon('bad');
         i++;
       }
       let font_size = '2em'
@@ -1262,7 +1262,7 @@ jQuery(document).ready(function(){
           <div class="col-md-9 col-sm">
             <p class="mt-3 mb-3 font-weight-bold two-em">${data.label_1}</p>
             <p class="mt-0 mb-0 font-weight-normal">
-             ${BodyIcon('green', 'large')}
+             ${BodyIcon('good', 'large')}
             </p>
             <p class="mt-0 mb-3 font-weight-normal" style="font-size: ${font_size};">
               ${bodies_1}
@@ -1341,9 +1341,9 @@ jQuery(document).ready(function(){
 
   function BodyIcon( color, size = '' ) {
     const iconColors = {
-      red: 'brand',
-      orange: 'brand-lighter',
-      green: 'secondary',
+      bad: 'brand',
+      neutral: 'brand-lighter',
+      good: 'secondary',
     }
     const defaultColor = iconColors.orange
 

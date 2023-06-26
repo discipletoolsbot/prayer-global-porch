@@ -922,17 +922,17 @@ jQuery(document).ready(function($){
         let bodies_3 = ''
         i = 0
         while ( i < response.location.percent_non_christians ) {
-          bodies_1 += '<i class="ion-ios-body red two-em"></i>';
+          bodies_1 += '<i class="ion-ios-body brand two-em"></i>';
           i++;
         }
         i = 0
         while ( i < response.location.percent_christian_adherents ) {
-          bodies_2 += '<i class="ion-ios-body orange two-em"></i>';
+          bodies_2 += '<i class="ion-ios-body brand-lighter two-em"></i>';
           i++;
         }
         i = 0
         while ( i < response.location.percent_believers ) {
-          bodies_3 += '<i class="ion-ios-body green two-em"></i>';
+          bodies_3 += '<i class="ion-ios-body secondary two-em"></i>';
           i++;
         }
         div.html(

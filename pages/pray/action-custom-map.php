@@ -212,7 +212,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             </div>
         </div>
         <div class="offcanvas offcanvas-end" id="offcanvas_menu">
-            <button type="button" data-bs-dismiss="offcanvas"><i class="ion-chevron-right three-em"></i></button>
+            <button type="button" data-bs-dismiss="offcanvas"><i class="icon pg-chevron-right three-em"></i></button>
             <hr>
             <ul class="navbar-nav two-em">
                 <li class="nav-item"><a class="nav-link btn smoothscroll btn-primary" style="text-transform: capitalize;" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>">Start Praying</a></li>
@@ -222,7 +222,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             </div>
         </div>
         <div class="offcanvas offcanvas-end" id="offcanvas_location_details" data-bs-backdrop="false" data-bs-scroll="true">
-            <div class="offcanvas__header"><button type="button" data-bs-dismiss="offcanvas" style="text-align: start"><i class="ion-chevron-right three-em"></i></button></div>
+            <div class="offcanvas__header"><button type="button" data-bs-dismiss="offcanvas" style="text-align: start"><i class="icon pg-chevron-right three-em"></i></button></div>
             <div class="row offcanvas__content" id="grid_details_content"></div>
         </div>
         <!-- report modal -->

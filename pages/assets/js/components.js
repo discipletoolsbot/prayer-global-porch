@@ -50,9 +50,9 @@ function PGIconInfographic(stats) {
   const defaultIcon = iconOptions.body
 
   const iconColors = {
-    red: 'red',
-    orange: 'orange',
-    green: 'green',
+    red: 'brand',
+    orange: 'brand-lighter',
+    green: 'secondary',
     blue: 'blue',
   }
   const defaultColor = iconColors.blue
