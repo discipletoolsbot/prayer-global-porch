@@ -86,155 +86,173 @@ class Prayer_Global_About extends DT_Magic_Url_Base
             <a href="#" class="text-decoration-none btn-top hide"><i class="icon pg-chevron-up"></i></a>
             <div class="container px-4">
                 <div class="row justify-content-md-center text-center">
-                    <div class="col-lg-7 flow-medium">
+                    <div class="col-lg-8 flow-medium">
                         <h2 class="mt-0 font-weight-normal">About</h2>
-                        <p class="border-bottom border-brand-light pb-5 mb-0">
+                        <p class="pb-5 mb-0">
                             Prayer.Global seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.
                         </p>
+
+                        <div class="border-top border-brand-light">
+                            <a class="pg-accordion__toggle" href="#historic-moment">
+                                <i class="icon pg-time icon-small position-absolute start-0 top-0 bottom-0"></i>
+                                Historic Moment
+                            </a>
+                            <a class="pg-accordion__toggle" href="#how-it-works">
+                                <i class="icon pg-question-dark icon-small position-absolute start-0 top-0 bottom-0"></i>
+                                How it works
+                            </a>
+                            <a class="pg-accordion__toggle" href="#global-race">
+                                <i class="icon pg-race icon-small position-absolute start-0 top-0 bottom-0"></i>
+                                Global Race
+                            </a>
+                            <a class="pg-accordion__toggle" href="#prayer-challenge" data-smaller>
+                                <i class="icon pg-prayer icon-small position-absolute start-0 top-0 bottom-0"></i>
+                                Moravian Prayer Challenge
+                            </a>
+                        </div>
+
                     </div>
                 </div>
-
-                <a class="pg-accordion__toggle" href="#historic-moment">
-                    <i class="icon pg-time icon-small position-absolute start-0 top-0 bottom-0"></i>
-                    Historic Moment
-                </a>
-                <a class="pg-accordion__toggle" href="#how-it-works">
-                    <i class="icon pg-question-dark icon-small position-absolute start-0 top-0 bottom-0"></i>
-                    How it works
-                </a>
-                <a class="pg-accordion__toggle" href="#global-race">
-                    <i class="icon pg-race icon-small position-absolute start-0 top-0 bottom-0"></i>
-                    Global Race
-                </a>
-                <a class="pg-accordion__toggle" href="#prayer-challenge" data-smaller>
-                    <i class="icon pg-prayer icon-small position-absolute start-0 top-0 bottom-0"></i>
-                    Moravian Prayer Challenge
-                </a>
-
                 <div class="mt-5"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
 
             </div>
         </section>
         <section class="page-section center mt-0 pb-4" id="historic-moment">
-            <div class="container px-4 flow-medium">
-                <i class="icon pg-time icon-medium"></i>
-                <h2 style="--pg-flow-size: 0">Historic Moment</h2>
-                <p>
-                    We know three things about our moment in history:
-                </p>
-                <p>
-                    (1) Never before in history have we been able to coordinate global prayer for the kingdom IN REALTIME!
-                </p>
-                <p>
-                    (2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.),
-                        and is now using the internet.
-                </p>
-                <p>
-                    (3) "Extraordinary prayer" is a foundational mark of all modern disciple multiplying movements.
-                </p>
-                <a class="d-block text-decoration-none brand-light" href="#how-it-works"><i class="icon pg-chevron-down icon-small"></i></a>
+            <div class="container px-4">
+                <div class="row justify-content-md-center text-center">
+                    <div class="col-lg-8 flow-medium">
+                        <i class="icon pg-time icon-medium"></i>
+                        <h2 style="--pg-flow-size: 0">Historic Moment</h2>
+                        <p>
+                            We know three things about our moment in history:
+                        </p>
+                        <p>
+                            (1) Never before in history have we been able to coordinate global prayer for the kingdom IN REALTIME!
+                        </p>
+                        <p>
+                            (2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.),
+                                and is now using the internet.
+                        </p>
+                        <p>
+                            (3) "Extraordinary prayer" is a foundational mark of all modern disciple multiplying movements.
+                        </p>
+                        <a class="d-block text-decoration-none brand-light" href="#how-it-works"><i class="icon pg-chevron-down icon-small"></i></a>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="page-section center white brand-bg mt-0 pb-4" id="how-it-works">
-            <div class="container px-4 flow-medium font-weight-bold">
-                <i class="icon pg-question-dark icon-medium"></i>
-                <h2 style="--pg-flow-size: 0">How It Works</h2>
-                <p class="left-align">
-                    1. Click on "Start Praying". <a href="/newest/lap/"><i class="ion-android-open"></i></a>
-                </p>
-                <p class="left-align">
-                    2. Use the demographics, guided prayers, faith status, images, and maps to pray for the location for one minute.
-                </p>
-                <p class="left-align">
-                    3. Once the one-minute timer has ended, you will be asked if you prayed for this location, if you click "Yes", then your prayer will be added to the community prayer coverage for the world.
-                </p>
-                <p class="left-align">
-                    4. Pray for another location or end your prayer session.
-                </p>
-                <a class="d-block text-decoration-none white" href="#global-race"><i class="icon pg-chevron-down icon-small"></i></a>
+            <div class="container px-4 font-weight-bold">
+                <div class="row justify-content-md-center text-center">
+                    <div class="col-lg-8 flow-medium">
+                        <i class="icon pg-question-dark icon-medium"></i>
+                        <h2 style="--pg-flow-size: 0">How It Works</h2>
+                        <p class="left-align">
+                            1. Click on "Start Praying". <a href="/newest/lap/"><i class="ion-android-open"></i></a>
+                        </p>
+                        <p class="left-align">
+                            2. Use the demographics, guided prayers, faith status, images, and maps to pray for the location for one minute.
+                        </p>
+                        <p class="left-align">
+                            3. Once the one-minute timer has ended, you will be asked if you prayed for this location, if you click "Yes", then your prayer will be added to the community prayer coverage for the world.
+                        </p>
+                        <p class="left-align">
+                            4. Pray for another location or end your prayer session.
+                        </p>
+                        <a class="d-block text-decoration-none white" href="#global-race"><i class="icon pg-chevron-down icon-small"></i></a>
+                    </div>
+                </div>
             </div>
         </section>
         <section class="page-section center mt-0 pb-4" id="global-race">
-            <div class="container px-4 flow-medium">
-                <i class="icon pg-race icon-medium"></i>
-                <h2 style="--pg-flow-size: 0">Global Race</h2>
-                <h4 class="uppercase white brand-light-bg rounded d-inline-block px-3 py-1 two-em" style="--pg-flow-size: 0">Keys To The Race</h4>
+            <div class="container px-4">
+                <div class="row justify-content-md-center text-center">
+                    <div class="col-lg-8 flow-medium">
+                        <i class="icon pg-race icon-medium"></i>
+                        <h2 style="--pg-flow-size: 0">Global Race</h2>
+                        <h4 class="uppercase white brand-light-bg rounded d-inline-block px-3 py-1 two-em" style="--pg-flow-size: 0">Keys To The Race</h4>
 
-                <div class="border-bottom border-brand-light flow-small">
-                    <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-logo-prayer icon-small"></i> Prayer Lap</h4>
-                    <p>
-                        A Prayer Lap consists of covering all 4770 geographical "states" of the world in prayer.
-                    </p>
-                </div>
-                <div class="border-bottom border-brand-light flow-small">
-                    <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-world-dark icon-small"></i>Race Map <a href="/race_app/race_map/"><i class="ion-android-open"></i></a></h4>
-                    <p>
-                        The Race map shows the number of laps, number of minutes, and number of prayer warriors for the entire challenge.
-                    </p>
-                </div>
-                <div class="border-bottom border-brand-light flow-small">
-                    <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-check icon-small"></i> Race List <a href="/race_app/race_list/"><i class="ion-android-open"></i></a></h4>
-                    <p>
-                        The Race List shows each of the laps accomplished so far and some of the statistics for those individual laps.
-                    </p>
-                </div>
-                <div class="border-bottom border-brand-light flow-small">
-                    <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-world-arrow icon-small"></i> Current Lap</h4>
-                    <p>
-                        The Current Lap in the "real time" prayer coverage of the 4770 "states" of the world.
-                    </p>
-                </div>
-                <div class="border-bottom border-brand-light flow-small">
-                    <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-world-light icon-small"></i> Current Map <a href="/newest/map"><i class="ion-android-open"></i></a></h4>
-                    <p>
-                        The current map shows what has been covered so far in the active prayer map.
-                    </p>
-                </div>
-                <div class="border-bottom border-brand-light flow-small">
-                    <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-prayerfuel icon-small"></i> Prayer Fuel</h4>
-                    <p>
-                        Demographics, scripture, faith status, images and maps to help guide your prayer time.
-                    </p>
-                </div>
-                <div class="border-bottom border-brand-light flow-small">
-                    <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-give icon-small"></i> Faith Status</h4>
-                    <div>
-                        <i class="ion-ios-body secondary icon-medium d-block lh-1"></i>
-                        <p>Know Jesus</p>
+                        <div class="border-bottom border-brand-light flow-small">
+                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-logo-prayer icon-small"></i> Prayer Lap</h4>
+                            <p>
+                                A Prayer Lap consists of covering all 4770 geographical "states" of the world in prayer.
+                            </p>
+                        </div>
+                        <div class="border-bottom border-brand-light flow-small">
+                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-world-dark icon-small"></i>Race Map <a href="/race_app/race_map/"><i class="ion-android-open"></i></a></h4>
+                            <p>
+                                The Race map shows the number of laps, number of minutes, and number of prayer warriors for the entire challenge.
+                            </p>
+                        </div>
+                        <div class="border-bottom border-brand-light flow-small">
+                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-check icon-small"></i> Race List <a href="/race_app/race_list/"><i class="ion-android-open"></i></a></h4>
+                            <p>
+                                The Race List shows each of the laps accomplished so far and some of the statistics for those individual laps.
+                            </p>
+                        </div>
+                        <div class="border-bottom border-brand-light flow-small">
+                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-world-arrow icon-small"></i> Current Lap</h4>
+                            <p>
+                                The Current Lap in the "real time" prayer coverage of the 4770 "states" of the world.
+                            </p>
+                        </div>
+                        <div class="border-bottom border-brand-light flow-small">
+                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-world-light icon-small"></i> Current Map <a href="/newest/map"><i class="ion-android-open"></i></a></h4>
+                            <p>
+                                The current map shows what has been covered so far in the active prayer map.
+                            </p>
+                        </div>
+                        <div class="border-bottom border-brand-light flow-small">
+                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-prayerfuel icon-small"></i> Prayer Fuel</h4>
+                            <p>
+                                Demographics, scripture, faith status, images and maps to help guide your prayer time.
+                            </p>
+                        </div>
+                        <div class="border-bottom border-brand-light flow-small">
+                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-give icon-small"></i> Faith Status</h4>
+                            <div>
+                                <i class="ion-ios-body secondary icon-medium d-block lh-1"></i>
+                                <p>Know Jesus</p>
+                            </div>
+                            <div>
+                                <i class="ion-ios-body brand-lighter icon-medium d-block lh-1"></i>
+                                <p>Know About Jesus</p>
+                            </div>
+                            <div>
+                                <i class="ion-ios-body brand icon-medium d-block lh-1"></i>
+                                <p>Don't Know Jesus</p>
+                            </div>
+                        </div>
+                        <a class="d-block text-decoration-none brand-light" href="#prayer-challenge"><i class="icon pg-chevron-down icon-small"></i></a>
                     </div>
-                    <div>
-                        <i class="ion-ios-body brand-lighter icon-medium d-block lh-1"></i>
-                        <p>Know About Jesus</p>
-                    </div>
-                    <div>
-                        <i class="ion-ios-body brand icon-medium d-block lh-1"></i>
-                        <p>Don't Know Jesus</p>
-                    </div>
                 </div>
-                <a class="d-block text-decoration-none brand-light" href="#prayer-challenge"><i class="icon pg-chevron-down icon-small"></i></a>
             </div>
         </section>
         <section class="page-section center white brand-bg mb-5 mt-0" id="prayer-challenge">
-            <div class="container px-4 flow-medium font-weight-bold">
-                <i class="icon pg-prayer icon-medium"></i>
-                <h1 class="lh-1 mb-0" style="--pg-flow-size: 0">Moravian</h1>
-                <h2 style="--pg-flow-size: 0">Prayer Challenge</h2>
-                <p class="left-align">
-                    Inspired by the <a class="link-light" href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">Moravians</a>, who prayed non-stop for 100 years,
-                    we have crafted this website to help the church pray for the entire world in measurable units, as a community, and to know at the end when we have finished ... and are ready to start
-                    another lap.
-                </p>
-                <p class="left-align">
-                    Once every location in the world has been prayed for (we finish a lap), then the prayer map resets, and we try to pray over the world again
-                    ... maybe faster.
-                </p>
-                <p class="left-align">
-                    The Moravians had one person praying every hour of every day for 100 years. This was roughly 876,000 hours of prayer, or 52,560,000 minutes of prayer for the world. We are humbled by this extraordinary commitment to praying for the world.
-                </p>
-                <a class="d-block text-decoration-none white" href="#">
-                    <i class="icon pg-chevron-up icon-small"></i>
-                    <h5 class="uppercase">Top</h5>
-                </a>
+            <div class="container px-4 font-weight-bold">
+                <div class="row justify-content-md-center text-center">
+                    <div class="col-lg-8 flow-medium">
+                        <i class="icon pg-prayer icon-medium"></i>
+                        <h1 class="lh-1 mb-0" style="--pg-flow-size: 0">Moravian</h1>
+                        <h2 style="--pg-flow-size: 0">Prayer Challenge</h2>
+                        <p class="left-align">
+                            Inspired by the <a class="link-light" href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">Moravians</a>, who prayed non-stop for 100 years,
+                            we have crafted this website to help the church pray for the entire world in measurable units, as a community, and to know at the end when we have finished ... and are ready to start
+                            another lap.
+                        </p>
+                        <p class="left-align">
+                            Once every location in the world has been prayed for (we finish a lap), then the prayer map resets, and we try to pray over the world again
+                            ... maybe faster.
+                        </p>
+                        <p class="left-align">
+                            The Moravians had one person praying every hour of every day for 100 years. This was roughly 876,000 hours of prayer, or 52,560,000 minutes of prayer for the world. We are humbled by this extraordinary commitment to praying for the world.
+                        </p>
+                        <a class="d-block text-decoration-none white" href="#">
+                            <i class="icon pg-chevron-up icon-small"></i>
+                            <h5 class="uppercase">Top</h5>
+                        </a>
+                    </div>
+                </div>
             </div>
         </section>
 
