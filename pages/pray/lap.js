@@ -376,6 +376,7 @@ jQuery(document).ready(function(){
     location_map_wrapper.show()
     mapbox_border_map()
 
+    div.append('<div class="container"><hr></div>')
     // LOOP STACK
     jQuery.each(content.list, function(i,block) {
       get_template( block )

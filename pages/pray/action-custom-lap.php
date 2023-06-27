@@ -285,7 +285,6 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                     </div>
                 </div>
             </div>
-            <div class="w-100"><hr></div>
             <div id="content"></div>
             <div class="container">
                 <div class="row text-center mb-3">

@@ -215,7 +215,6 @@ trait PG_Lap_Trait {
                     </div>
                 </div>
             </div>
-            <hr class="mx-3">
             <div id="content"></div>
             <div class="container">
                 <div class="row text-center mb-3">
