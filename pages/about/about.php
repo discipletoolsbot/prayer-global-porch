@@ -113,7 +113,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
 
                     </div>
                 </div>
-                <div class="mt-5"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
+                <div class="mt-5"><a class="btn btn-cta mx-2 two-rem" href="/newest/lap/">Start Praying</a></div>
 
             </div>
         </section>

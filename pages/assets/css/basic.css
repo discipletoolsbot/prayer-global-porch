@@ -884,6 +884,7 @@ button {
     line-height: 0.5;
     color: white;
     transition: all 500ms;
+    z-index: 50;
 }
 .btn-top:hover,
 .btn-top:active {
