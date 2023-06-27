@@ -235,6 +235,14 @@ input[type="radio"]:checked {
         font-size: 1em ;
     }
 }
+@media (min-width: 768px) {
+    h2 {
+        font-size: 4rem;
+    }
+    .icon-large {
+        font-size: 7rem;
+    }
+}
 @keyframes spin {
     0% {
         transform: rotate(0deg);
@@ -1169,7 +1177,7 @@ input[type="text"],
     padding: 0 10px;
     width: 100%;
     box-shadow: rgba(0,0,0,0.1) 0 3px 4px 1px;
-    color: var(--pg-grey);
+    color: var(--bs-gray-600);
     font-weight: bold;
 }
 .data-table .dataTables_wrapper .dataTables_filter input {
