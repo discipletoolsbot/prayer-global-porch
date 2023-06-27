@@ -150,34 +150,41 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 <div id='map'></div>
                 <div id="foot_block">
                     <div class="map-overlay" id="map-legend"></div>
-                    <div class="row">
+                    <div class="row g-0 justify-content-center">
                         <div class="col col-12 center">
                             <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats">
                                 <i class="icon pg-chevron-up three-em blue"></i>
                             </button>
                             <div class="one-em uppercase font-weight-bold">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?> Stats</div>
                         </div>
-                        <div class="col col-sm-6 col-md-3 center ">
-                            <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
+                        <div class="col col-sm-6 col-lg-2 center">
+                            <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around py-1">
                                 <i class="icon pg-world-light three-em"></i>
                                 <div class="two-em white stats-figure remaining"></div>
                             </div>
                             <span class="uppercase small">Places Remaining</span><br>
                         </div>
-                        <div class="col col-sm-6 col-md-3 center">
-                            <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
+                        <div class="col col-sm-6 col-lg-2 center">
+                            <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around py-1">
                                 <i class="icon pg-world-light three-em"></i>
                                 <div class="two-em stats-figure completed"></div>
                             </div>
                             <span class="uppercase small">Places Covered</span><br>
                         </div>
-                        <div class="col col-sm-6 col-md-3 center d-none d-md-block">
-                            <strong><span class="stats-figure warriors"></span></strong>
-                            <strong>Warriors</strong><br>
+                        <div class="col col-lg-1 d-none d-lg-block"></div>
+                        <div class="col col-sm-6 col-lg-2 center d-none d-lg-block">
+                            <div class="secondary-bg white secondary-border rounded-start d-flex align-items-center justify-content-around py-1">
+                                <i class="icon pg-prayer three-em"></i>
+                                <div class="two-em stats-figure warriors"></div>
+                            </div>
+                            <span class="uppercase small">Intercessors</span><br>
                         </div>
-                        <div class="col col-sm-6 col-md-3 center d-none d-md-block">
-                            <strong class="stats-figure"><span class="completed_percent">0</span>%</strong>
-                            <strong>World Coverage</strong><br>
+                        <div class="col col-sm-6 col-lg-2 center d-none d-lg-block">
+                            <div class="blue-bg white blue-border rounded-end d-flex align-items-center justify-content-around py-1">
+                                <i class="icon pg-world-arrow three-em"></i>
+                                <div class="two-em stats-figure"><span class="completed_percent">0</span></div>
+                            </div>
+                            <span class="uppercase small">World Coverage</span><br>
                         </div>
                     </div>
                 </div>
@@ -232,48 +239,56 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                     <i class="icon pg-chevron-down blue three-em"></i>
                 </button>
             </div>
-            <div class="row center uppercase offcanvas__content">
-                <div class="col col-12">
-                    <div class="two-em font-weight-bold">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?> Stats</div>
-                </div>
-                <div class="col col-6 col-sm-3">
-                    <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
-                        <i class="icon pg-world-light three-em"></i>
-                        <div class="two-em white stats-figure remaining"></div>
+            <div class="container center uppercase">
+                <div class="row g-0 justify-content-center">
+                    <div class="col col-12">
+                        <div class="two-em font-weight-bold">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?> Stats</div>
                     </div>
-                    <span class="small">Places Remaining</span><br>
-                </div>
-                <div class="col col-6 col-sm-3">
-                    <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
-                        <i class="icon pg-world-light three-em"></i>
-                        <div class="two-em stats-figure completed"></div>
+                    <div class="col col-6 col-sm-4">
+                        <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
+                            <i class="icon pg-world-light three-em"></i>
+                            <div class="two-em white stats-figure remaining"></div>
+                        </div>
+                        <span class="small">Places Remaining</span><br>
                     </div>
-                    <span class="small">Places Covered</span><br>
+                    <div class="col col-6 col-sm-4">
+                        <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
+                            <i class="icon pg-world-light three-em"></i>
+                            <div class="two-em stats-figure completed"></div>
+                        </div>
+                        <span class="small">Places Covered</span><br>
+                    </div>
                 </div>
-                <div class="align-items-center col-sm-3 d-flex flex-dir-column mt-3">
-                    <i class="icon pg-world-arrow blue four-em"></i>
-                    <span class="stats-title">World Coverage</span>
-                    <div class="blue-bg rounded stats-figure-lg w-50 white"><span class="completed_percent">0</span>%</div>
+                <div class="row">
+                    <div class="align-items-center d-flex flex-dir-column mt-3">
+                        <i class="icon pg-world-arrow blue four-em"></i>
+                        <span class="stats-title">World Coverage</span>
+                        <div class="blue-bg rounded stats-figure-lg w-50 white"><span class="completed_percent">0</span>%</div>
+                    </div>
                 </div>
-                <div class="align-items-center col-sm-3 d-flex flex-dir-column mt-3">
-                    <i class="icon pg-prayer blue four-em"></i>
-                    <span class="stats-title">Intercessors</span>
-                    <div class="orange-bg rounded stats-figure-lg w-50 warriors white">0</div>
+                <div class="row">
+                    <div class="align-items-center d-flex flex-dir-column mt-3">
+                        <i class="icon pg-prayer blue four-em"></i>
+                        <span class="stats-title">Intercessors</span>
+                        <div class="secondary-bg rounded stats-figure-lg w-50 warriors white">0</div>
+                    </div>
                 </div>
-                <hr class="mt-3">
-                <div class="col-sm-3">
-                    <p class="two-em mb-0">Time Elapsed</p>
-                    <p class="stats-figure time_elapsed">0</p>
-                </div>
-                <hr class="mt-3">
+                <div class="row">
+                    <hr class="mt-3">
+                    <div class="col">
+                        <p class="two-em mb-0">Time Elapsed</p>
+                        <p class="stats-figure time_elapsed">0</p>
+                    </div>
+                    <hr class="mt-3">
 
-                <div class="col col-6 col-sm-3" style="display:none">
-                    <p class="stats-title">Start Time</p>
-                    <p class="stats-figure start_time">0</p>
-                </div>
-                <div class="col col-6 col-sm-3 on-going" style="display:none;">
-                    <p class="stats-title">End Time</p>
-                    <p class="stats-figure end_time">0</p>
+                    <div class="col col-6 col-sm-3" style="display:none">
+                        <p class="stats-title">Start Time</p>
+                        <p class="stats-figure start_time">0</p>
+                    </div>
+                    <div class="col col-6 col-sm-3 on-going" style="display:none;">
+                        <p class="stats-title">End Time</p>
+                        <p class="stats-figure end_time">0</p>
+                    </div>
                 </div>
             </div>
         </div>

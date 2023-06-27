@@ -62,6 +62,7 @@ jQuery(document).ready(function() {
       jQuery('#list-table').DataTable({
         lengthChange: false,
         pageLength: 30,
+        pagingType: 'simple',
         responsive: true,
         order: [[0, 'desc']],
         columnDefs: [
