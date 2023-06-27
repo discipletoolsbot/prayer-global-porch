@@ -162,15 +162,15 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                 <div id='map'></div>
                 <div id="foot_block">
                     <div class="map-overlay" id="map-legend" data-map-type="<?php echo esc_attr( $this->map_type ) ?>"></div>
-                    <div class="row">
+                    <div class="row g-0 justify-content-center">
                         <div class="col col-12 center">
                             <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats">
                                 <i class="icon pg-chevron-up three-em blue"></i>
                             </button>
                             <div class="one-em uppercase font-weight-bold">Race Map Stats</div>
                         </div>
-                        <div class="col col-6 col-sm-4 center ">
-                            <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
+                        <div class="col col-6 col-md-3 center ">
+                            <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around py-1">
                                 <i class="icon pg-prayer three-em"></i>
                                 <div class="two-em stats-figure">
                                     <?php echo esc_html( $lap_stats['participants'] ) ?>
@@ -178,8 +178,8 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                             </div>
                             <span class="uppercase small">Intercessors</span><br>
                         </div>
-                        <div class="col col-6 col-sm-4 center ">
-                            <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
+                        <div class="col col-6 col-md-3 center ">
+                            <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around py-1">
                                 <i class="icon pg-world-arrow three-em"></i>
                                 <div class="two-em stats-figure">
                                     <?php echo esc_html( $finished_laps ) ?> times
@@ -187,9 +187,9 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                             </div>
                             <span class="uppercase small">World Prayer Coverage</span><br>
                         </div>
-                        <div class="col d-none d-md-block col-sm-4 center ">
-                            <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
-                                <i class="icon pg-time three-em"></i>
+                        <div class="col d-none d-md-block col-md-1"></div>
+                        <div class="col d-none d-md-block col-md-3 center ">
+                            <div class="white-bg blue d-flex align-items-center justify-content-around">
                                 <div class="two-em stats-figure time_elapsed">
                                     0
                                 </div>
@@ -210,18 +210,18 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                 <div class="col col-12">
                     <div class="two-em font-weight-bold">Race Map Stats</div>
                 </div>
-                <div class="align-items-center col-sm-3 d-flex flex-dir-column mt-3">
+                <div class="align-items-center d-flex flex-dir-column mt-3">
                     <i class="icon pg-world-arrow blue four-em"></i>
                     <span class="stats-title">World Coverage</span>
                     <div class="blue-bg rounded stats-figure-lg px-3 white"><?php echo esc_html( $finished_laps ) ?> times</div>
                 </div>
-                <div class="align-items-center col-sm-3 d-flex flex-dir-column mt-3">
+                <div class="align-items-center d-flex flex-dir-column mt-3">
                     <i class="icon pg-prayer blue four-em"></i>
                     <span class="stats-title">Intercessors</span>
                     <div class="orange-bg rounded stats-figure-lg px-3 warriors white"><?php echo esc_html( $lap_stats['participants'] ) ?></div>
                 </div>
                 <hr class="mt-3">
-                <div class="col-sm-3">
+                <div class="">
                     <p class="two-em mb-0">Time Elapsed</p>
                     <p class="stats-figure time_elapsed">0</p>
                 </div>
