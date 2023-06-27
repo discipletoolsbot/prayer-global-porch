@@ -395,15 +395,15 @@ input[type="radio"]:checked {
     height: inherit;
 }
 .hero.full-height {
-    min-height: calc(100vh - 6em);
-    padding-top: 6em;
+    min-height: calc(100vh - 15vh);
+    padding-top: 15vh;
 }
 .full-height {
     height: calc(100vh - 4em);
 }
 .hero.full-height > .container,
 .hero.full-height > .container > .row {
-    height: calc(100vh - 6em);
+    height: calc(100vh - 15vh);
 }
 .full-height > .container > .row {
     height: calc(100vh - 4em);
@@ -463,23 +463,30 @@ input[type="radio"]:checked {
     background-position: bottom;
 }
 .hero .heading {
-    font-size: 62px;
+    font-size: 12vh;
     color: white;
-    margin-top: 20px;
+    margin-top: 4vh;
     margin-bottom: 0;
     text-transform: uppercase;
     font-family: 'Bebas Kai';
 }
 .hero .sub-heading {
-    font-size: 20px;
+    font-size: 6vh;
     max-width: 600px;
     margin: 0 auto;
-    margin-bottom: 50px;
+    margin-bottom: 6vh;
     text-transform: uppercase;
     font-family: 'Bebas Kai';
 }
 .heading__logo {
-    font-size: 170px;
+    font-size: 24vh;
+}
+.hero .btn-cta {
+    font-size: 4vh;
+}
+.hero .btn-learn-more {
+    font-size: max(2vh, 14px);
+    padding: 2vh 4vh;
 }
 .cover-small {
     padding: 3em 0;

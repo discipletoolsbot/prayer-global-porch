@@ -2,19 +2,21 @@
 
 <section class="hero full-height contain bg-top dark-bg" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/world-map-dark-background-new.png); min-height: 100vh;" id="section-home">
     <div class="container">
-        <div class="row flex-column justify-content-between">
+        <div class="row flex-column justify-content-between flex-nowrap">
             <div>
                 <h1 class="heading">Prayer.Global</h1>
                 <h2 class="sub-heading brand-highlight">Cover the World in Prayer</h2>
                 <i class="icon pg-logo-prayer white heading__logo"></i>
             </div>
-            <div class="mb-3">
-                <div class="mb-3"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
-                <a href="#section-goal" class="btn btn-primary-light white uppercase mt-2">
-                    Learn more
-                </a>
-                <br>
-                <i class="icon pg-chevron-down white two-em"></i>
+            <div class="my-4 d-flex flex-column align-items-center">
+                <a class="btn btn-cta mx-2 d-inline-block" href="/newest/lap/">Start Praying</a>
+                <div class="btn-learn-more">
+                    <a href="#section-goal" class="btn btn-learn-more btn-primary-light white uppercase mt-2">
+                        Learn more
+                    </a>
+                    <br>
+                    <i class="icon pg-chevron-down white"></i>
+                </div>
             </div>
         </div>
     </div>
