@@ -77,7 +77,7 @@ jQuery(document).ready(function() {
                                     <thead>
                                         <th></th>
                                         <th>Name</th>
-                                        <th class="desktop">Warriors</th>
+                                        <th class="desktop">Intercessors</th>
                                         <th class="desktop">Time Elapsed</th>
                                         <th class="desktop">Links</th>
                                       </thead>
