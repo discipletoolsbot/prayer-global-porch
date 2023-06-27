@@ -361,7 +361,7 @@
                                 <strong class="black">Race Map</strong> <a href="/race_app/race_map/"><i class="ion-android-open"></i></a>
                             </p>
                             <p>
-                                The Race map shows the number of laps, number of minutes, and number of prayer warriors for the entire challenge.
+                                The Race map shows the number of laps, number of minutes, and number of prayer intercessors for the entire challenge.
                             </p>
                             <p>
                                 <strong class="black">Race List</strong> <a href="/race_app/race_list/"><i class="ion-android-open"></i></a>

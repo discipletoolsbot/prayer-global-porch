@@ -125,13 +125,13 @@ class PG_Custom_Prayer_App_Stats extends PG_Custom_Prayer_App {
 
                     <div class="col-md-6">
                         <div class="sub-heading ps-4">
-                            <p class="mb-0"><?php echo esc_attr( $lap_stats['participants'] ) ?> Prayer Warriors Participated</p>
+                            <p class="mb-0"><?php echo esc_attr( $lap_stats['participants'] ) ?> Prayer Intercessors Participated</p>
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="sub-heading ps-4">
-                            <p class="mb-2"><u>Top Warrior Locations</u></p>
+                            <p class="mb-2"><u>Top Intercessor Locations</u></p>
                             <ol>
                                 <?php
                                 if ( ! empty( $participant_locations ) ) {

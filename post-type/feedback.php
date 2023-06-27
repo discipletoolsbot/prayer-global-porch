@@ -73,7 +73,7 @@ class Prayer_Global_Feedback_Post_Type extends DT_Module_Base {
         if ( !isset( $expected_roles["prayer_warrior"] ) ){
             $expected_roles["prayer_warrior"] = [
 
-                "label" => __( 'Prayer Warrior', 'prayer-global' ),
+                "label" => __( 'Prayer Intercessor', 'prayer-global' ),
                 "description" => "Interacts with Laps and Feedback",
                 "permissions" => []
             ];

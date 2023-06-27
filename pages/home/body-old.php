@@ -119,7 +119,7 @@
                                 <strong class="black">Race Map</strong> <a href="/race_app/race_map/"><i class="ion-android-open"></i></a>
                             </p>
                             <p>
-                                The Race map shows the number of laps, number of minutes, and number of prayer warriors for the entire challenge.
+                                The Race map shows the number of laps, number of minutes, and number of prayer intercessors for the entire challenge.
                             </p>
                             <p>
                                 <strong class="black">Race List</strong> <a href="/race_app/race_list/"><i class="ion-android-open"></i></a>
@@ -191,7 +191,7 @@
                     <div class="icon-circle display-4"><i class="text-primary ion-ios-body-outline"></i></div>
                     <div class="">
                         <h3 class="stats-info__title" id="current_participants"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Prayer Warriors</h3>
+                        <h3 class="stats-info__subtitle">Prayer Intercessors</h3>
                     </div>
                 </div>
             </div>
@@ -235,7 +235,7 @@
                     <div class="icon-circle display-4"><i class="text-primary ion-ios-body-outline"></i></div>
                     <div class="">
                         <h3 class="stats-info__title" id="global_participants"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Prayer Warriors</h3>
+                        <h3 class="stats-info__subtitle">Prayer Intercessors</h3>
                     </div>
                 </div>
             </div>
@@ -373,7 +373,7 @@
                     <div class="icon-circle display-4 text-primary"><i class="ion-ios-bookmarks"></i></div>
                     <div class="">
                         <h3 class="faq__title">Word-Centric</h3>
-                        <p class="small">Prayer.Global seeks to guide prayer warriors to the bible as the source for knowing God's heart and modeling for how to pray.</p>
+                        <p class="small">Prayer.Global seeks to guide prayer intercessors to the bible as the source for knowing God's heart and modeling for how to pray.</p>
                     </div>
                 </div>
             </div>

@@ -49,7 +49,7 @@ jQuery(document).ready(function() {
                     <th></th>
                     <th>Lap Number</th>
                     <th class="desktop">Completed</th>
-                    <th class="desktop">Warriors</th>
+                    <th class="desktop">Intercessors</th>
                     <th class="desktop">Time Elapsed</th>
                     <th class="desktop">Map</th>
                   </thead>
@@ -74,7 +74,7 @@ jQuery(document).ready(function() {
       });
     })
 
-  jQuery('#totals_block').html(`Totals across all Laps: Total Warriors: ${jsObject.global_race.participants}
+  jQuery('#totals_block').html(`Totals across all Laps: Total Intercessors: ${jsObject.global_race.participants}
                         | Total Time Elapsed: ${jsObject.global_race.time_elapsed_small}`)
 
 

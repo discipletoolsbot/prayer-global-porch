@@ -5,10 +5,10 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
 {
     public $magic = false;
     public $parts = false;
-    public $page_title = 'Active Challenges';
+    public $page_title = 'Active Relays';
     public $root = 'challenges';
     public $type = 'active';
-    public $type_name = 'Active Challenges';
+    public $type_name = 'Active Relays';
     public static $token = 'custom_app_lists';
     public $post_type = 'laps';
 
@@ -123,7 +123,7 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
                     </div>
                     <div class="col-md-3"></div>
                     <div class="col-md-6 mt-4">
-                        <p>Group challenges are communities of prayer warriors who have picked up the challenge of praying for the entire world as a group. All prayers prayed in the group challenges contribute to the global laps.</p>
+                        <p>Prayer Relays are communities of prayer intercessors who have picked up the challenge of praying for the entire world as a group. All prayers prayed in the prayer relays contribute to the global laps.</p>
                     </div>
                     <div class="col-md-3"></div>
                 </div>

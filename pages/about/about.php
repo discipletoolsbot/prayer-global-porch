@@ -181,7 +181,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                         <div class="border-bottom border-brand-light flow-small">
                             <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-world-dark icon-small"></i>Race Map <a href="/race_app/race_map/"><i class="ion-android-open"></i></a></h4>
                             <p>
-                                The Race map shows the number of laps, number of minutes, and number of prayer warriors for the entire challenge.
+                                The Race map shows the number of laps, number of minutes, and number of prayer intercessors for the entire challenge.
                             </p>
                         </div>
                         <div class="border-bottom border-brand-light flow-small">
@@ -317,7 +317,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                                         <strong class="black">Race Map</strong> <a href="/race_app/race_map/"><i class="ion-android-open"></i></a>
                                     </p>
                                     <p>
-                                        The Race map shows the number of laps, number of minutes, and number of prayer warriors for the entire challenge.
+                                        The Race map shows the number of laps, number of minutes, and number of prayer intercessors for the entire challenge.
                                     </p>
                                     <p>
                                         <strong class="black">Race List</strong> <a href="/race_app/race_list/"><i class="ion-android-open"></i></a>

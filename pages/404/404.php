@@ -142,7 +142,7 @@ class PG_Porch_404 extends DT_Magic_Url_Base
                             <li><a href="/newest/lap">Start Praying</a></li>
                             <li><a href="/newest/map">The map</a></li>
                             <li><a href="/newest/stats">More stats</a></li>
-                            <li><a href="/challenges/active">Group Challenges</a></li>
+                            <li><a href="/challenges/active">Prayer Relays</a></li>
                         </ul>
                     </div>
                 </div>

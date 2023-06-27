@@ -5,10 +5,10 @@ class Prayer_Global_Porch_Group_Challenge extends DT_Magic_Url_Base
 {
     public $magic = false;
     public $parts = false;
-    public $page_title = 'Global Prayer - Group Challenge Request';
+    public $page_title = 'Global Prayer - Prayer Relay Request';
     public $root = 'prayer_app';
     public $type = 'group_challenge_request';
-    public $type_name = 'Global Prayer - Group Challenge';
+    public $type_name = 'Global Prayer - Prayer Relay';
     public static $token = 'prayer_app';
     public $post_type = 'contacts';
 
@@ -79,12 +79,12 @@ class Prayer_Global_Porch_Group_Challenge extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 pb-3 font-weight-normal">Request a Group Challenge</h2>
+                        <h2 class="mt-0 pb-3 font-weight-normal">Request a Prayer Relay</h2>
                         <p>
                             First, thank you for reaching out.
                         </p>
                         <p>
-                            Second, we are willing to create free "group challenge maps" for communities that want to rally and measure a world prayer lap effort. This map allows your community a dedicated prayer app and map. All your prayers as a group contribute to the global lap as well.
+                            Second, we are willing to create free "Prayer Relay maps" for communities that want to rally and measure a world prayer lap effort. This map allows your community a dedicated prayer app and map. All your prayers as a team contribute to the global lap as well.
                         </p>
                     </div>
                 </div>

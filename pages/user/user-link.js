@@ -161,7 +161,7 @@ jQuery(document).ready(function(){
                         <i class="icon pg-chevron-right three-em"></i>
                     </button>
                     <button class="user-challenges-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
-                        <span class="two-em">Challenges</span>
+                        <span class="two-em">Prayer Relays</span>
                         <i class="icon pg-chevron-right three-em"></i>
                     </button>
                 </div>
@@ -390,7 +390,7 @@ jQuery(document).ready(function(){
     function write_challenges() {
         const challengesHTML = `
         <section class="private-challenges flow-small">
-            <h3 class="header-border-bottom">Private Challenges</h3>
+            <h3 class="header-border-bottom">Private Relays</h3>
 
             ${CreateChallengeButton( 'Private', 'private-challenge-button' )}
 
@@ -399,7 +399,7 @@ jQuery(document).ready(function(){
             </div>
         </section>
         <section class="public-challenges flow-small">
-            <h3 class="header-border-bottom">Public Challenges</h3>
+            <h3 class="header-border-bottom">Public Relays</h3>
 
             ${CreateChallengeButton( 'Public', 'public-challenge-button' )}
 
@@ -414,12 +414,12 @@ jQuery(document).ready(function(){
 
         jQuery('#private-challenge-button').on('click', () => {
             challengeVisibility.val('private')
-            challengeModalTitle.html('Create Private Challenge')
+            challengeModalTitle.html('Create Private Relay')
             challengeModalTitle[0].dataset.visibility = 'private'
         })
         jQuery('#public-challenge-button').on('click', () => {
             challengeVisibility.val('public')
-            challengeModalTitle.html('Create Public Challenge')
+            challengeModalTitle.html('Create Public Relay')
             challengeModalTitle[0].dataset.visibility = 'public'
         })
 

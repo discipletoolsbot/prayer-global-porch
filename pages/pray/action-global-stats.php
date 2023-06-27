@@ -112,10 +112,10 @@ class PG_Global_Prayer_App_Stats extends PG_Global_Prayer_App {
 
                     <div class="col-md-6">
                         <div class="sub-heading ps-4">
-                            <p class="mb-0">Prayer Warriors</p>
+                            <p class="mb-0">Prayer Intercessors</p>
                             <p class="mb-0 ps-3"><span class="prayer_warriors"></span></p>
                             <p></p>
-                            <p class="mb-2">Top Warrior Locations</p>
+                            <p class="mb-2">Top Intercessor Locations</p>
                             <ol class="top_locations"></ol>
                         </div>
                     </div>

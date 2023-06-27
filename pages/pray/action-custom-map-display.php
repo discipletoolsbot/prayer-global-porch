@@ -118,7 +118,7 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
             <div id="map-wrapper">
                 <div id="head_block_wrapper">
                     <div id="head_block_display" class="center brand-bg white">
-                        <h2 class="uppercase"><?php echo esc_html( $lap_stats['title'] ) ?> Prayer Challenge</h2>
+                        <h2 class="uppercase"><?php echo esc_html( $lap_stats['title'] ) ?> Prayer Relay</h2>
                         <h4 class="uppercase">Cover The World In Prayer</h4>
                     </div>
                 </div>
