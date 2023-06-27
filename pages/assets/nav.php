@@ -20,7 +20,7 @@ $hide_cta_class = str_contains( $url, 'challenges' ) || str_contains( $url, 'use
 
 ?>
 <nav class="pg-navbar navbar p-0 d-block <?php echo esc_html( $nav_class ) ?>" id="pg-navbar">
-    <div class="d-flex align-items-center justify-content-between container py-3 mw-100 flex-nowrap">
+    <div class="container d-flex align-items-center justify-content-between container py-3 flex-nowrap">
         <button class="icon-button share-button two-rem d-flex" data-toggle="modal" data-target="#exampleModal">
             <i class="icon pg-share"></i>
         </button>
