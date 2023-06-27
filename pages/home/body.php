@@ -120,7 +120,7 @@
                                     </p>
                                     <img class="w-100 p-0 finish-line" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/finish-line-cropped.png" alt="dark world">
 
-                                    <div class="mb-4 pb-3 position-absolute bottom-0"><a class="btn btn-cta mx-2 two-em" href="/newest/lap/">Start Praying</a></div>
+                                    <div class="mb-4 pb-3 position-absolute bottom-0"><a class="btn btn-cta mx-2 two-rem" href="/newest/lap/">Start Praying</a></div>
                                 </div>
                             </div>
                         </div>
