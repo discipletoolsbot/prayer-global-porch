@@ -790,7 +790,7 @@ jQuery(document).ready(function($){
     update_stats()
 
     if ( jsObject.stats.remaining_int < 1 ) {
-      jQuery('.on-going').show()
+      jQuery('.on-going.reveal-me').show()
       jQuery('.locations_per_hour').html( jsObject.stats.locations_per_hour )
       jQuery('.locations_per_day').html( jsObject.stats.locations_per_day )
       jQuery('.needed_locations_per_hour').html( jsObject.stats.needed_locations_per_hour )

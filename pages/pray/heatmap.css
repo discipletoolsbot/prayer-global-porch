@@ -131,9 +131,11 @@ progress {
     font-weight: 400;
 }
 .stats-figure {
+    font-weight: bold;
     font-size: 2rem;
 }
 .stats-figure-lg {
+    font-weight: bold;
     font-size: 3rem;
 }
 
