@@ -131,7 +131,7 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row">
                     <div class="col-md text-center">
-                        <a class="btn btn-cta two-em has-icon cta-blue px-5" href="/prayer_app/group_challenge_request">Start a Prayer Relay <i class="icon pg-chevron-right icon-end two-em end-0 me-2"></i></a>
+                        <a class="btn btn-cta two-rem has-icon cta-blue px-5" href="/prayer_app/group_challenge_request">Start a Prayer Relay <i class="icon pg-chevron-right icon-end two-rem end-0 me-2"></i></a>
                     </div>
                 </div>
             </div>

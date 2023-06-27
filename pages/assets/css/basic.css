@@ -234,6 +234,9 @@ input[type="radio"]:checked {
     .one-em {
         font-size: 1em ;
     }
+    .two-rem {
+        font-size: 1.4rem;
+    }
 }
 @media (min-width: 768px) {
     h2 {
@@ -241,6 +244,9 @@ input[type="radio"]:checked {
     }
     .icon-large {
         font-size: 7rem;
+    }
+    .icon-medium {
+        font-size: 5rem;
     }
 }
 @keyframes spin {
@@ -1161,9 +1167,12 @@ nav.navbar-home {
 .dtr-title {
     font-weight: bold;
 }
+.data-table .dataTables_wrapper .dataTables_filter {
+    float: none;
+    width: 100%;
+}
 .data-table .dataTables_wrapper .dataTables_filter label {
     color: #acabab;
-    background-color: white;
     text-transform: uppercase;
     display: flex;
     padding: 0 1rem 2rem;
@@ -1176,10 +1185,15 @@ input[type="text"],
     border: 2px solid var(--pg-grey);
     border-radius: 10px;
     padding: 0 10px;
-    width: 100%;
+    width: 50%;
     box-shadow: rgba(0,0,0,0.1) 0 3px 4px 1px;
     color: var(--bs-gray-600);
     font-weight: bold;
+}
+@media (max-width: 768px) {
+    .data-table .dataTables_wrapper .dataTables_filter input {
+        width: 100%;
+    }
 }
 .data-table .dataTables_wrapper .dataTables_filter input {
     margin-left: 10px;
