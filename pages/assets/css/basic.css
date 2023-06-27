@@ -382,7 +382,7 @@ input[type="radio"]:checked {
 }
 .page-section {
     margin-top: 3em;
-    padding: 9em 0;
+    padding: 6em 0;
     position: relative;
     display: block;
 }
@@ -399,7 +399,7 @@ input[type="radio"]:checked {
     padding-top: 15vh;
 }
 .full-height {
-    height: calc(100vh - 4em);
+    height: calc(100vh - 6em);
 }
 .hero.full-height > .container,
 .hero.full-height > .container > .row {
@@ -549,6 +549,9 @@ input[type="radio"]:checked {
 
 /* Carousel */
 
+#storyCarousel {
+    max-width: 400px;
+}
 .carousel-control-prev,
 .carousel-control-next {
     opacity: 1;

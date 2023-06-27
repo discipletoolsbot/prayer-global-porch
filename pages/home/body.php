@@ -25,7 +25,7 @@
 
 <section class="page-section full-height" id="section-goal">
     <div class="container">
-        <div class="row text-center">
+        <div class="row text-center justify-content-center">
             <div id="storyCarousel" class="carousel slide px-0">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
@@ -127,11 +127,11 @@
                     </div>
                 </div>
                 <button class="carousel-control-prev four-em mt-5" type="button" data-bs-target="#storyCarousel" data-bs-slide="prev">
-                    <i class="icon pg-chevron-left two-em brand" aria-hidden="true"></i>
+                    <i class="icon pg-chevron-left brand" aria-hidden="true"></i>
                     <span class="visually-hidden">Previous</span>
                 </button>
                 <button class="carousel-control-next four-em mt-5" type="button" data-bs-target="#storyCarousel" data-bs-slide="next">
-                    <i class="icon pg-chevron-right two-em brand" aria-hidden="true"></i>
+                    <i class="icon pg-chevron-right brand" aria-hidden="true"></i>
                     <span class="visually-hidden">Next</span>
                 </button>
             </div>
@@ -141,77 +141,79 @@
 
 <section class="page-section" data-section="lap" id="section-lap">
     <div class="container">
+        <div class="row justify-content-center">
+            <div class="col col-md-9 col-lg-8 col-xl-6">
+                <div class="flow pg-card brand-lighter center uppercase mb-3">
+                    <i class="icon pg-race icon-large d-block pt-4"></i>
+                    <h2 class="mb-0">Global Race Stats</h2>
 
-        <div class="flow pg-card brand-lighter center uppercase mb-3">
-            <i class="icon pg-race icon-large d-block pt-4"></i>
-            <h2 class="mb-0">Global Race Stats</h2>
+                    <div>
+                        <span class="">Total Elapsed Time</span>
+                        <div class="four-em font-weight-bold global-time-elapsed time_elapsed"></div>
+                    </div>
 
-            <div>
-                <span class="">Total Elapsed Time</span>
-                <div class="four-em font-weight-bold global-time-elapsed time_elapsed"></div>
-            </div>
+                    <div class="row border-top border-2 border-primary" style="--bs-gutter-x: 0">
+                        <div class="col-6 p-2 pt-4 border-end border-primary border-1">
+                            <i class="icon pg-world-light d-block icon-small"></i>
+                            <span class="">Laps Completed</span>
+                            <h3 class="global-laps-completed six-em lh-1"><span class="loading-spinner active"></span></h3>
+                        </div>
+                        <div class="col-6 p-2 pt-4 border-start border-primary border-1">
+                            <i class="icon pg-prayer d-block icon-small"></i>
+                            <span class="">Total Intercessors</span>
+                            <h3 class="global-participants six-em lh-1"><span class="loading-spinner active"></span></h3>
+                        </div>
+                    </div>
 
-            <div class="row border-top border-2 border-primary" style="--bs-gutter-x: 0">
-                <div class="col-6 p-2 pt-4 border-end border-primary border-1">
-                    <i class="icon pg-world-light d-block icon-small"></i>
-                    <span class="">Laps Completed</span>
-                    <h3 class="global-laps-completed six-em lh-1"><span class="loading-spinner active"></span></h3>
                 </div>
-                <div class="col-6 p-2 pt-4 border-start border-primary border-1">
-                    <i class="icon pg-prayer d-block icon-small"></i>
-                    <span class="">Total Intercessors</span>
-                    <h3 class="global-participants six-em lh-1"><span class="loading-spinner active"></span></h3>
-                </div>
-            </div>
-
-        </div>
-        <div class="d-flex my-4 gap-2">
-            <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-primary uppercase flex-grow-1">Race Map</a>
-            <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-primary uppercase flex-grow-1">Race List</a>
-        </div>
-
-        <div class="flow pg-card brand-bg white center uppercase mb-5">
-            <i class="icon pg-world-arrow icon-large pt-4 d-block"></i>
-            <h1 class="mb-0 lh-xsm">Lap <span class="global-lap-number"><span class="loading-spinner active"></span></span></h1>
-
-            <hr class="border-white border">
-
-            <h6 class="mb-0">Current Lap Elapsed Time</h6>
-            <div class="current-time-elapsed time_elapsed four-em font-weight-bold"><span class="loading-spinner active"></span></div>
-
-            <hr class="border-white border">
-            <div class="flow" style="--pg-flow-size: 0.1rem">
-                <i class="icon pg-prayer d-block icon-small"></i>
-                <h6 class="mb-0">Intercessors</h6>
-                <div class="current-participants four-em font-weight-bold lh-1"><span class="loading-spinner active"></span></div>
-            </div>
-
-            <hr class="border-white border">
-
-            <i class="icon pg-world-light icon-small d-block"></i>
-            <h6 class="mb-0 mt-1">Places Covered</h6>
-            <div class="my-4 mx-auto position-relative | progress-bar">
-                <div class="orange-gradient position-absolute top-0 h-100 | progress-bar__slider"></div>
-                <div class="position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-between">
-                    <div class="bg-transparent | progress-bar__marker"></div>
-                    <div class="progress-bar__marker"></div>
-                    <div class="progress-bar__marker"></div>
-                    <div class="progress-bar__marker"></div>
-                    <div class="bg-transparent | progress-bar__marker"></div>
+                <div class="d-flex my-4 gap-2">
+                    <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-primary uppercase flex-grow-1">Race Map</a>
+                    <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-primary uppercase flex-grow-1">Race List</a>
                 </div>
 
+                <div class="flow pg-card brand-bg white center uppercase mb-5">
+                    <i class="icon pg-world-arrow icon-large pt-4 d-block"></i>
+                    <h1 class="mb-0 lh-xsm">Lap <span class="global-lap-number"><span class="loading-spinner active"></span></span></h1>
+
+                    <hr class="border-white border">
+
+                    <h6 class="mb-0">Current Lap Elapsed Time</h6>
+                    <div class="current-time-elapsed time_elapsed four-em font-weight-bold"><span class="loading-spinner active"></span></div>
+
+                    <hr class="border-white border">
+                    <div class="flow" style="--pg-flow-size: 0.1rem">
+                        <i class="icon pg-prayer d-block icon-small"></i>
+                        <h6 class="mb-0">Intercessors</h6>
+                        <div class="current-participants four-em font-weight-bold lh-1"><span class="loading-spinner active"></span></div>
+                    </div>
+
+                    <hr class="border-white border">
+
+                    <i class="icon pg-world-light icon-small d-block"></i>
+                    <h6 class="mb-0 mt-1">Places Covered</h6>
+                    <div class="my-4 mx-auto position-relative | progress-bar">
+                        <div class="orange-gradient position-absolute top-0 h-100 | progress-bar__slider"></div>
+                        <div class="position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-between">
+                            <div class="bg-transparent | progress-bar__marker"></div>
+                            <div class="progress-bar__marker"></div>
+                            <div class="progress-bar__marker"></div>
+                            <div class="progress-bar__marker"></div>
+                            <div class="bg-transparent | progress-bar__marker"></div>
+                        </div>
+
+                    </div>
+
+                    <span class="four-em font-weight-bold lh-1"><span class="current-completed"><span class="loading-spinner active"></span></span> of <span><?php echo esc_html( PG_TOTAL_STATES ) ?></span></span>
+
+                    <a href="/newest/map/" role="button" class="btn smoothscroll btn-primary uppercase mb-3 w-100 has-icon" data-reverse-color>
+                        <span>Current Map</span>
+                        <i class="icon pg-chevron-right icon-end me-3 two-rem end-0"></i>
+                    </a>
+                </div>
+
+                <div class="mb-3 mx-auto center"><a class="btn btn-cta two-em" href="/newest/lap/">Start Praying</a></div>
             </div>
-
-            <span class="four-em font-weight-bold lh-1"><span class="current-completed"><span class="loading-spinner active"></span></span> of <span><?php echo esc_html( PG_TOTAL_STATES ) ?></span></span>
-
-            <a href="/newest/map/" role="button" class="btn smoothscroll btn-primary uppercase mb-3 w-100 has-icon" data-reverse-color>
-                <span>Current Map</span>
-                <i class="icon pg-chevron-right icon-end me-3 two-rem end-0"></i>
-            </a>
         </div>
-
-        <div class="mb-3 mx-auto center"><a class="btn btn-cta three-em" href="/newest/lap/">Start Praying</a></div>
-
     </div>
 </section>
 <!-- END section -->
@@ -228,13 +230,13 @@
     }
     .hover-box:hover {
         background-color: white;
-        color: black !important;
+        color: var(--pg-brand-color) !important;
     }
     .hover-box:hover a {
-        color: black !important;
+        color: var(--pg-brand-color) !important;
     }
 </style>
-<section id="section-mobile" class="cover cover-small text-center cover-black d-sm-none d-md-block" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( dirname( __FILE__ ) ) ) ) ?>assets/images/1900x1200_img_3.jpg)">
+<section id="section-mobile" class="page-section text-center d-sm-none d-md-block brand-bg mb-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-12">
