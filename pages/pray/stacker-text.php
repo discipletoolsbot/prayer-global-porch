@@ -87,7 +87,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Jesus, you taught Paul to train Timothy to train faithful men who would train others. Please, teach the church of '.$stack['location']['full_name'].' to do that same.',
+                'prayer' => 'Jesus, you taught Paul to train Timothy to train faithful men who would train others. Please, teach the church of '.$stack['location']['full_name'].' to do the same.',
                 'reference' => '2 Timothy 2:2',
                 'verse' => 'And the things you have heard me say in the presence of many witnesses entrust to reliable people who will also be qualified to teach others.',
             ],
@@ -704,13 +704,13 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => 'Father, please help good, online teachers get the gospel on Youtube and into '.$stack['location']['admin_level_name'].' of '. $stack['location']['name'].'.',
+                'prayer' => 'Father, please help good, online teachers get the gospel on YouTube and into '.$stack['location']['admin_level_name'].' of '. $stack['location']['name'].'.',
                 'reference' => 'Matthew 24:14',
                 'verse' => 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.',
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, guide seekers in '.$stack['location']['full_name'].' to the gospel through searching Youtube or Tiktok today.',
+                'prayer' => 'Spirit, guide seekers in '.$stack['location']['full_name'].' to the gospel through searching YouTube or TikTok today.',
                 'reference' => 'Proverbs 8:17',
                 'verse' => 'I love those who love me, and those who diligently seek me will find me.',
             ],
@@ -1040,7 +1040,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Lord, please make the same Spirit that raised Jesus from the dead give life to those are called by his name in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
+                'prayer' => 'Lord, please make the same Spirit that raised Jesus from the dead give life to those who are called by his name in the '.$stack['location']['admin_level_name'].' of '.$stack['location']['name'].'.',
                 'reference' => 'Romans 8:11',
                 'verse' => 'But if the Spirit of him who raised up Jesus from the dead dwells in you, he who raised up Christ Jesus from the dead will also give life to your mortal bodies through his Spirit who dwells in you.',
             ],
@@ -1849,7 +1849,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => 'Spirit, help every believers in '.$stack['location']['full_name'].' be prepared to give an answer to everyone who asks them for the reason for their hope.',
+                'prayer' => 'Spirit, help every believer in '.$stack['location']['full_name'].' be prepared to give an answer to everyone who asks them for the reason for their hope.',
                 'reference' => '1 Peter 3:15',
                 'verse' => 'But in your hearts revere Christ as Lord. Always be prepared to give an answer to everyone who asks you to give the reason for the hope that you have. But do this with gentleness and respect,',
             ],
