@@ -136,7 +136,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h1 class="modal-title fs-5" id="locationModalLabel">Change Your Location</h1>
+                            <h5 class="modal-title fs-5" id="locationModalLabel">Change Your Location</h5>
                             <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
                                 <i class="icon pg-close two-em"></i>
                             </button>
@@ -146,8 +146,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                                 <div id="mapbox-autocomplete" class="mapbox-autocomplete" data-autosubmit="false" data-add-address="true">
                                     <div class="input-group mb-2">
                                         <input required id="mapbox-search" type="text" name="mapbox_search" class="form-control" autocomplete="off" placeholder="Select Location" />
-                                        <button id="mapbox-clear-autocomplete" class="btn btn-danger" type="button" title="Delete Location" style="">
-                                            <i class="ion-close"></i>
+                                        <button id="mapbox-clear-autocomplete" class="btn btn-small btn-danger" type="button" title="Delete Location" style="">
+                                            <i class="icon pg-close one-rem lh-small"></i>
                                         </button>
                                     </div>
                                     <div class="mapbox-error-message text-danger small"></div>
@@ -159,8 +159,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-primary cancel-user-location" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary save-user-location">Save</button>
+                            <button type="button" class="btn btn-small btn-outline-primary cancel-user-location" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-small btn-primary save-user-location">Save</button>
                         </div>
                    </div>
                 </div>
