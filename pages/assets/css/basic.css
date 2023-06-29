@@ -144,6 +144,10 @@ input[type="radio"] {
 input[type="radio"]:checked {
     border: 8px solid var(--pg-brand-color-lighter);
 }
+.form-check-input:checked {
+    background-color: var(--pg-brand-color-lighter);
+    border-color: var(--pg-brand-color-lighter);
+}
 .navbar {
     --bs-navbar-brand-color: var(--pg-brand-color);
 }
@@ -153,6 +157,10 @@ input[type="radio"]:checked {
 .form-control {
     font-weight: 300;
     color: #495057;
+}
+.form-control:focus {
+    border-color: var(--pg-brand-color-highlight);
+    box-shadow: 0 0 0 0.25rem rgba(92, 131, 196, 0.25);
 }
 .center {
     text-align:center;
@@ -809,6 +817,10 @@ button {
 .btn-small {
     --bs-btn-padding-y: 0.5rem;
 }
+.btn-xsmall {
+    --bs-btn-padding-y: 0.2rem;
+}
+
 .btn-outline-primary {
     --bs-btn-color: var(--pg-brand-color-light);
     --bs-btn-border-color: var(--pg-brand-color-light);
@@ -908,6 +920,11 @@ button {
 }
 .hide {
     opacity: 0;
+}
+.dropdown-menu {
+    --bs-dropdown-link-hover-bg: var(--pg-brand-color-lighter);
+    --bs-dropdown-link-active-bg: var(--pg-brand-color-lighter);
+    --bs-dropdown-link-hover-color: white;
 }
 
 /* Navbar styles */
@@ -1189,17 +1206,21 @@ nav.navbar-home {
     padding: 0 1rem 2rem;
     border-bottom: 1px solid var(--pg-secondary-color);
 }
+input[type="date"],
+input[type="time"],
 input[type="number"],
 input[type="text"],
 #section-give #payment-form .payment-form,
 .data-table .dataTables_wrapper .dataTables_filter input {
     border: 2px solid var(--pg-grey);
     border-radius: 10px;
-    padding: 0 10px;
-    width: 50%;
+    padding: 5px 10px;
     box-shadow: rgba(0,0,0,0.1) 0 3px 4px 1px;
     color: var(--bs-gray-600);
-    font-weight: bold;
+}
+#section-give #payment-form .payment-form,
+.data-table .dataTables_wrapper .dataTables_filter input {
+    width: 50%;
 }
 @media (max-width: 768px) {
     .data-table .dataTables_wrapper .dataTables_filter input {

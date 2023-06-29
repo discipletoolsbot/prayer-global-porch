@@ -128,7 +128,7 @@ jQuery(document).ready(function(){
         const pgContentHTML = `
 
         <div class="flow-medium">
-            <section class="user__summary flow-small mt-5">
+            <section class="user__summary flow-small">
 
                 <div class="user__avatar">
                     ${ data.stats
@@ -152,17 +152,17 @@ jQuery(document).ready(function(){
             </section>
             <section class="profile-menu px-2 mt-5">
                 <div class="navbar-nav">
-                    <button class="user-profile-link nav-link px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-top border-1 border-dark">
+                    <button class="user-profile-link nav-link uppercase px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-top border-1 border-dark">
                         <i class="icon pg-profile three-em"></i>
                         <span class="two-em">Profile</span>
                         <i class="icon pg-chevron-right three-em"></i>
                     </button>
-                    <button class="user-prayers-link nav-link px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
+                    <button class="user-prayers-link nav-link uppercase px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
                         <i class="icon pg-prayer three-em"></i>
                         <span class="two-em">Prayers</span>
                         <i class="icon pg-chevron-right three-em"></i>
                     </button>
-                    <button class="user-challenges-link nav-link px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
+                    <button class="user-challenges-link nav-link uppercase px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
                         <i class="icon pg-relay three-em"></i>
                         <span class="two-em">Prayer Relays</span>
                         <i class="icon pg-chevron-right three-em"></i>
@@ -242,7 +242,7 @@ jQuery(document).ready(function(){
         send_general_emails = false,
     }) {
         const userDetailsContentHTML = `
-        <h2 class="">Profile</h2>
+        <h2 class="center">Profile</h2>
         <table class="table">
             <tbody>
                 <tr>
@@ -266,7 +266,7 @@ jQuery(document).ready(function(){
             </tbody>
         </table>
         <section class="communication-preferences flow-small">
-            <h2 class="">Communication Preferences</h2>
+            <h2 class="center">Communication Preferences</h2>
 
             <div>
                 <div class="form-check small">
@@ -293,7 +293,7 @@ jQuery(document).ready(function(){
             ${ModalButton({
                 text: "Erase my account",
                 modalId: "erase-user-account-modal",
-                classes: "small btn-outline-danger d-block mt-3",
+                classes: "small uppercase btn btn-small btn-outline-danger d-block mt-3",
             })}
         </section>`
         jQuery('#user-details-content').html(userDetailsContentHTML)
@@ -309,8 +309,8 @@ jQuery(document).ready(function(){
 
     function write_prayers() {
         const prayersHTML = `
-        <h2 class="">Prayers</h2>
-        <section class="user-stats flow">
+        <h2 class="center">Prayers</h2>
+        <section class="user-stats flow-medium">
 
             <div class="center">
 
@@ -334,7 +334,7 @@ jQuery(document).ready(function(){
 
             <section class="user-activity">
                 <div class="user-activity__list"></div>
-                <button class="btn btn-primary mt-5 mx-auto d-block" id="load-more-user-activity" style="display: none">Load more</button>
+                <button class="btn btn-small btn-outline-primary mt-5 mx-auto d-block" id="load-more-user-activity" style="display: none">Load more</button>
             </section>
 
         </section>`
@@ -393,7 +393,7 @@ jQuery(document).ready(function(){
     function write_challenges() {
         const challengesHTML = `
         <section class="private-challenges flow-small">
-            <h3 class="">Private Relays</h3>
+            <h2 class="center">Private Relays</h2>
 
             ${CreateChallengeButton( 'Private', 'private-challenge-button' )}
 
@@ -402,7 +402,7 @@ jQuery(document).ready(function(){
             </div>
         </section>
         <section class="public-challenges flow-small">
-            <h3 class="">Public Relays</h3>
+            <h2 class="center">Public Relays</h2>
 
             ${CreateChallengeButton( 'Public', 'public-challenge-button' )}
 
@@ -670,7 +670,7 @@ jQuery(document).ready(function(){
                     <td><a href="${urlRoot}/map">${challenge.post_title}</a></td>
                     <td style="width: 5%">
                         <div class="btn-group">
-                            <button class="btn btn-outline-secondary dropdown-toggle rounded-circle border-0 d-flex align-items-center justify-content-center" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                            <button class="btn btn-small btn-outline-secondary dropdown-toggle rounded-circle border-0 d-flex align-items-center justify-content-center" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
                                 <i class="icon ion-android-more-vertical fs-3"></i>
                             </button>
                             <ul class="dropdown-menu">
@@ -860,7 +860,7 @@ jQuery(document).ready(function(){
             text,
             modalId: 'create-challenge-modal',
             buttonType: 'outline-dark',
-            classes: 'd-block mx-auto',
+            classes: 'd-block mx-auto btn btn-outline-primary',
             id,
         })
     }

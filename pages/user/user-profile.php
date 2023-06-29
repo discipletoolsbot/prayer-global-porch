@@ -195,7 +195,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                                     <input class="form-control" type="text" id="challenge-title" placeholder="Give your challenge a unique name" required>
                                 </div>
                                 <div class="mb-3 challenge-start-date-group">
-                                    <label for="challenge-start-date" class="form-label">Challenge Start Date</label><button type="button" class="btn btn-outline-secondary btn-sm ms-3" id="set-challenge-start-to-now">Now</button>
+                                    <label for="challenge-start-date" class="form-label">Challenge Start Date</label><button type="button" class="btn btn-xsmall btn-outline-secondary ms-3" id="set-challenge-start-to-now">Now</button>
                                     <div class="d-flex">
                                         <input class="form-control" type="date" id="challenge-start-date" placeholder="Start Date" required>
                                         <input class="form-control" type="time" id="challenge-start-time" placeholder="Start Time" required>
@@ -216,9 +216,9 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             </div>
                             <div class="modal-footer">
                                 <span class="loading-spinner challenge-loading"></span>
-                                <button class="btn btn-primary cancel-new-challenge-button" data-bs-dismiss="modal" type="button">Cancel</button>
-                                <button class="btn btn-primary create-new-challenge-button">Create</button>
-                                <button class="btn btn-primary edit-challenge-button">Edit</button>
+                                <button class="btn btn-small btn-outline-primary cancel-new-challenge-button" data-bs-dismiss="modal" type="button">Cancel</button>
+                                <button class="btn btn-small btn-primary create-new-challenge-button">Create</button>
+                                <button class="btn btn-small btn-primary edit-challenge-button">Edit</button>
                             </div>
                         </form>
                     </div>
