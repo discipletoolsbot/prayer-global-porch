@@ -127,7 +127,7 @@ jQuery(document).ready(function(){
         console.log(data)
         const pgContentHTML = `
 
-        <div class="flow">
+        <div class="flow-medium">
             <section class="user__summary flow-small mt-5">
 
                 <div class="user__avatar">
@@ -140,8 +140,8 @@ jQuery(document).ready(function(){
                 </div>
 
                 <div class="user__info">
-                    <h2 class="user__full-name">${data.display_name}</h2>
-                    <p class="user__location small">
+                    <h2 class="user__full-name font-base uppercase">${data.display_name}</h2>
+                    <p class="user__location">
                         <span class="user__location-label">${data.location && data.location.label || LoadingSpinner()}</span>
                         ${LocationChangeButton()}
                         <span class="iplocation-message small d-block text-secondary">
@@ -152,15 +152,18 @@ jQuery(document).ready(function(){
             </section>
             <section class="profile-menu px-2 mt-5">
                 <div class="navbar-nav">
-                    <button class="user-profile-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
+                    <button class="user-profile-link nav-link px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-top border-1 border-dark">
+                        <i class="icon pg-profile three-em"></i>
                         <span class="two-em">Profile</span>
                         <i class="icon pg-chevron-right three-em"></i>
                     </button>
-                    <button class="user-prayers-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
+                    <button class="user-prayers-link nav-link px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
+                        <i class="icon pg-prayer three-em"></i>
                         <span class="two-em">Prayers</span>
                         <i class="icon pg-chevron-right three-em"></i>
                     </button>
-                    <button class="user-challenges-link nav-link px-1 py-2 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
+                    <button class="user-challenges-link nav-link px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
+                        <i class="icon pg-relay three-em"></i>
                         <span class="two-em">Prayer Relays</span>
                         <i class="icon pg-chevron-right three-em"></i>
                     </button>
@@ -169,10 +172,10 @@ jQuery(document).ready(function(){
             <section>
                 <p>Are you enjoying this app?</p>
                 <p>Would you like to partner with us in helping others pray for the world?</p>
-                <p>Consider giving to help us increase prayer for the world.</p>
-                <a class="btn btn-primary" data-reverse-color href="/content_app/give_page">Give</a>
-                <br>
-                <a class="btn btn-primary mt-3" href="/user_app/logout">Logout</a><br>
+                <div class="d-flex flex-column m-auto w-fit">
+                    <a class="btn btn-small btn-primary-light uppercase" data-reverse-color href="/content_app/give_page">Give</a>
+                    <a class="btn btn-small btn-outline-primary mt-3 uppercase" href="/user_app/logout">Logout</a><br>
+                </div>
             </section>
 
 
@@ -840,8 +843,7 @@ jQuery(document).ready(function(){
         return ModalButton({
             text: 'Change',
             modalId: 'location-modal',
-            buttonType: 'outline-primary',
-            classes: 'small border-0',
+            classes: 'brand-lightest',
             id: 'change-location',
         })
     }
@@ -872,7 +874,7 @@ jQuery(document).ready(function(){
      * @param string classes Optional extra classes
      * @param string id Optional id to give the button
      */
-    function ModalButton({ text, modalId, buttonType = '', classes = '', id = '', dataAttributes = [] } ) {
+    function ModalButton({ text, modalId, classes = '', id = '', dataAttributes = [] } ) {
 
         const attributes = []
         dataAttributes.forEach(({name, value}) => {
@@ -881,7 +883,7 @@ jQuery(document).ready(function(){
         const dataAttributesHTML = attributes.join(' ')
 
         return `
-            <button id="${id}" class="btn btn-${buttonType} ${classes}" data-bs-toggle="modal" data-bs-target="#${modalId}" ${dataAttributesHTML}>
+            <button id="${id}" class="${classes}" data-bs-toggle="modal" data-bs-target="#${modalId}" ${dataAttributesHTML}>
                 ${text}
             </button>
         `

@@ -63,7 +63,6 @@ $(document).ready(function($) {
 	scrollWindow();
 
 	const scrollElement = function(selector) {
-		console.log('checking scroll of ', selector)
 		const element = $(selector)
 		toggleElement()
 		$(window).scroll(function() {

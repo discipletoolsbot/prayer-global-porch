@@ -803,7 +803,11 @@ button {
     --bs-btn-font-weight: bold;
     box-shadow: var(--small-box-shadow);
 }
+.btn-small {
+    --bs-btn-padding-y: 0.5rem;
+}
 .btn-outline-primary {
+    --bs-btn-color: var(--pg-brand-color-light);
     --bs-btn-border-color: var(--pg-brand-color-light);
     --bs-btn-active-bg: var(--pg-brand-color-light);
     --bs-btn-hover-bg: var(--pg-brand-color-light);
