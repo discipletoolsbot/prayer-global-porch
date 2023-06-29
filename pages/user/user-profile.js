@@ -242,7 +242,7 @@ jQuery(document).ready(function(){
         send_general_emails = false,
     }) {
         const userDetailsContentHTML = `
-        <h2 class="header-border-bottom">Profile</h2>
+        <h2 class="">Profile</h2>
         <table class="table">
             <tbody>
                 <tr>
@@ -266,7 +266,7 @@ jQuery(document).ready(function(){
             </tbody>
         </table>
         <section class="communication-preferences flow-small">
-            <h2 class="header-border-bottom">Communication Preferences</h2>
+            <h2 class="">Communication Preferences</h2>
 
             <div>
                 <div class="form-check small">
@@ -309,7 +309,7 @@ jQuery(document).ready(function(){
 
     function write_prayers() {
         const prayersHTML = `
-        <h2 class="header-border-bottom">Prayers</h2>
+        <h2 class="">Prayers</h2>
         <section class="user-stats flow">
 
             <div class="center">
@@ -393,7 +393,7 @@ jQuery(document).ready(function(){
     function write_challenges() {
         const challengesHTML = `
         <section class="private-challenges flow-small">
-            <h3 class="header-border-bottom">Private Relays</h3>
+            <h3 class="">Private Relays</h3>
 
             ${CreateChallengeButton( 'Private', 'private-challenge-button' )}
 
@@ -402,7 +402,7 @@ jQuery(document).ready(function(){
             </div>
         </section>
         <section class="public-challenges flow-small">
-            <h3 class="header-border-bottom">Public Relays</h3>
+            <h3 class="">Public Relays</h3>
 
             ${CreateChallengeButton( 'Public', 'public-challenge-button' )}
 

@@ -237,6 +237,9 @@ input[type="radio"]:checked {
     .two-rem {
         font-size: 1.4rem;
     }
+    .pg-navbar .two-rem {
+        font-size: 2rem;
+    }
 }
 @media (min-width: 768px) {
     h2 {
@@ -1139,6 +1142,7 @@ nav.navbar-home {
 
 .offcanvas__header {
     position: sticky;
+    display: flex;
     top: 0;
     left: 0;
     right: 0;
@@ -1146,6 +1150,9 @@ nav.navbar-home {
     background: white;
     z-index: 100;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.offcanvas__header button {
+    display: flex;
 }
 .offcanvas__content {
     padding: 1em;
