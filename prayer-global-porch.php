@@ -129,7 +129,7 @@ class Prayer_Global_Porch {
         require_once( 'pages/challenges/active-list.php' );
 
         // user
-        require_once( 'pages/user/user-link.php' );
+        require_once( 'pages/user/user-profile.php' );
         require_once( 'pages/user/user-login.php' );
         require_once( 'pages/user/user-logout.php' );
 
