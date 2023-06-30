@@ -12,10 +12,10 @@
     <div class="container">
         <div class="row align-items-center justify-content-end">
             <div class="col-md-6  order-md-1">
-                <h2 class="heading mb-3">Cover the World in Prayer</h2>
+            <h2 class="heading mb-3"><?php echo esc_html( __( 'Cover the World in Prayer', 'prayer-global-porch' ) ) ?></h2>
                 <div class="sub-heading">
-                    <p class="mb-5">Community driven, movement-focused, saturation prayer.</p>
-                    <p><a href="/newest/lap/" role="button" class="btn cta_button smoothscroll btn-outline-dark">Start Praying</a></p>
+                    <p class="mb-5"><?php echo esc_html( __( 'Community driven, movement-focused, saturation prayer.', 'prayer-global-porch' ) ) ?></p>
+                    <p><a href="/newest/lap/" role="button" class="btn cta_button smoothscroll btn-outline-dark"><?php echo esc_html( __( 'Start Praying', 'prayer-global-porch' ) ) ?></a></p>
                 </div>
             </div>
         </div>
@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row">
             <div class="col-md text-center stats-header">
-                <h2 class="stats-header__title" style="">Current Lap</h2>
+                <h2 class="stats-header__title" style=""><?php echo esc_html( __( 'Current Lap', 'prayer-global-porch' ) ) ?></h2>
                 <h3 class="stats-header__subtitle header-border-top" id="current_time_elapsed"><span class="loading-spinner active"></span></h3>
                 <br>
             </div>
@@ -38,7 +38,7 @@
                     <div class="icon-circle display-4"><i class="text-primary ion-ios-body-outline"></i></div>
                     <div class="">
                         <h3 class="stats-info__title" id="current_participants"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Prayer Warriors</h3>
+                        <h3 class="stats-info__subtitle"><?php echo esc_html( __( 'Prayer Warriors', 'prayer-global-porch' ) ) ?></h3>
                     </div>
                 </div>
             </div>
@@ -47,7 +47,7 @@
                     <div class="icon-circle display-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
                     <div class="">
                         <h3 class="stats-info__title" id="current_remaining"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Remaining</h3>
+                        <h3 class="stats-info__subtitle"><?php echo esc_html( __( 'Remaining', 'prayer-global-porch' ) ) ?></h3>
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
                     <div class="icon-circle display-4"><i class="text-primary ion-earth"></i></div>
                     <div class="">
                         <h3 class="stats-info__title" id="current_completed"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Covered</h3>
+                        <h3 class="stats-info__subtitle"><?php echo esc_html( __( 'Covered', 'prayer-global-porch' ) ) ?></h3>
                     </div>
                 </div>
             </div>
@@ -66,12 +66,12 @@
         </div>
         <div class="row">
             <div class="col-md text-center">
-                <a href="/newest/map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Current Map</a>
+            <a href="/newest/map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color><?php echo esc_html( __( 'Current Map', 'prayer-global-porch' ) ) ?></a>
             </div>
         </div>
         <div class="row">
             <div class="col-md text-center stats-header">
-                <h2 class="stats-header__title">Global Race</h2>
+                <h2 class="stats-header__title"><?php echo esc_html( __( 'Global Race', 'prayer-global-porch' ) ) ?></h2>
                 <h3 class="stats-header__subtitle header-border-top" id="global_time_elapsed"><span class="loading-spinner active"></span></h3>
                 <br>
             </div>
@@ -82,7 +82,7 @@
                     <div class="icon-circle display-4"><i class="text-primary ion-ios-body-outline"></i></div>
                     <div class="">
                         <h3 class="stats-info__title" id="global_participants"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Prayer Warriors</h3>
+                        <h3 class="stats-info__subtitle"><?php echo esc_html( __( 'Prayer Warriors', 'prayer-global-porch' ) ) ?></h3>
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
                     <div class="icon-circle display-4"><i class="text-primary ion-earth"></i></div>
                     <div class="">
                         <h3 class="stats-info__title" id="global_lap_number"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Laps</h3>
+                        <h3 class="stats-info__subtitle"><?php echo esc_html( __( 'Laps', 'prayer-global-porch' ) ) ?></h3>
                     </div>
                 </div>
             </div>
@@ -110,8 +110,8 @@
         </div>
         <div class="row">
             <div class="col-md text-center">
-                <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Race Map</a>
-                <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color>Race List</a>
+            <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color><?php echo esc_html( __( 'Race Map', 'prayer-global-porch' ) ) ?></a>
+            <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color><?php echo esc_html( __( 'Race List', 'prayer-global-porch' ) ) ?></a>
             </div>
         </div>
     </div>
@@ -140,7 +140,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-12">
-                <h2 class="heading mb-3"><a href="/qr/app/" style="color:white;">Get the Mobile App</a></h2>
+            <h2 class="heading mb-3"><a href="/qr/app/" style="color:white;"><?php echo esc_html( __( 'Get the Mobile App', 'prayer-global-porch' ) ) ?></a></h2>
                 <a class="white" href="https://apps.apple.com/us/app/prayer-global/id1636889534?uo=4" style="font-size:2em;">
                     <div class="hover-box">
                         <i class="ion-social-apple" ></i>
@@ -166,9 +166,9 @@
     <div class="container">
         <div class="row justify-content-md-center text-center mb-5">
             <div class="col-lg-7">
-                <h2 class="mt-0 header-border-top font-weight-normal">About</h2>
+                <h2 class="mt-0 header-border-top font-weight-normal"><?php echo esc_html( __( 'About', 'prayer-global-porch' ) ) ?></h2>
                 <p>
-                    Prayer.Global seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.
+                    <?php echo esc_html( sprintf( __( '%s seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?>
                 </p>
             </div>
         </div>
@@ -182,23 +182,23 @@
             <div class="col-lg-5 ps-md-5 ps-sm-0">
                 <div id="prayer_accordion_" class="pg-accordion" data-children=".item">
                     <div class="item">
-                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" href="#prayer_accordion_1" aria-expanded="true" aria-controls="prayer_accordion_1" >Historic Moment</a>
+                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" href="#prayer_accordion_1" aria-expanded="true" aria-controls="prayer_accordion_1" ><?php echo esc_html( __( 'Historic Moment', 'prayer-global-porch' ) ) ?></a>
                         <div id="prayer_accordion_1" class="accordian-collapse collapse show" role="tabpanel">
                             <p>
-                                We know three things about our moment in history:
+                                <?php echo esc_html( __( 'We know three things about our moment in history:', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                (1) Never before in history have we been able to coordinate global prayer for the kingdom <u>IN REALTIME</u>!
+                                <?php echo esc_html( __( '(1) Never before in history have we been able to coordinate global prayer for the kingdom IN REALTIME!', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                (2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.),
-                                and is now using the internet.
+                                <?php echo esc_html( __( '(2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.),
+                                and is now using the internet.' ) ) ?>
                             </p>
                             <p>
-                                (3) "Extraordinary prayer" is a foundational mark of all modern disciple multiplying movements.
+                                <?php echo esc_html( __( '(3) "Extraordinary prayer" is a foundational mark of all modern disciple multiplying movements.', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                So, <strong>Prayer.Global</strong> exists to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.
+                                <?php echo esc_html( sprintf( __( 'So, %s exists to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global-porch' ), '<strong>Prayer.Global</strong>' ) ) ?>
                             </p>
                             <p>
                                 <br><hr>
@@ -209,16 +209,16 @@
                         <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_2" aria-expanded="false" aria-controls="prayer_accordion_2">How it works</a>
                         <div id="prayer_accordion_2" class="collapse" role="tabpanel">
                             <p>
-                                <span class="black">&#9312;</span> Click on "Start Praying". <a href="/newest/lap/"><i class="ion-android-open"></i></a>
+                                <span class="black">&#9312;</span> <?php echo esc_html( __( 'Click on "Start Praying".', 'prayer-global-porch' ) ) ?> <a href="/newest/lap/"><i class="ion-android-open"></i></a>
                             </p>
                             <p>
-                                <strong class="black">&#9313;</strong> Use the demographics, guided prayers, faith status, images, and maps to pray for the location for one minute.
+                                <strong class="black">&#9313;</strong> <?php echo esc_html( __( 'Use the demographics, guided prayers, faith status, images, and maps to pray for the location for one minute.', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                <strong class="black">&#9314;</strong> Once the one-minute timer has ended, you will be asked if you prayed for this location, if you click "Yes", then your prayer will be added to the community prayer coverage for the world.
+                                <strong class="black">&#9314;</strong> <?php echo esc_html( __( 'Once the one-minute timer has ended, you will be asked if you prayed for this location, if you click "Yes", then your prayer will be added to the community prayer coverage for the world.', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                <strong class="black">&#9315;</strong> Pray for another location or end your prayer session.
+                                <strong class="black">&#9315;</strong> <?php echo esc_html( __( 'Pray for another location or end your prayer session.', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
                                 <br><hr>
@@ -229,20 +229,16 @@
                         <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_3" aria-expanded="false" aria-controls="prayer_accordion_3">Moravian Prayer Challenge</a>
                         <div id="prayer_accordion_3" class="collapse" role="tabpanel">
                             <p>
-                                Inspired by the <a href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">Moravians</a>, who prayed non-stop for 100 years,
-                                we have crafted this website to help the church pray for the entire world in measurable units, as a community, and to know at the end when we have finished ... and are ready to start
-                                another lap.
+                                <?php echo esc_html( sprintf( __( 'Inspired by the %s, who prayed non-stop for 100 years, we have crafted this website to help the church pray for the entire world in measurable units, as a community, and to know at the end when we have finished ... and are ready to start another lap.', 'prayer-global-porch' ), '<a href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">'.__( 'Moravians', 'prayer-global-porch' ).'</a>' ) ) ?>
                             </p>
                             <p>
-                                Once every location in the world has been prayed for (we finish a lap), then the prayer map resets, and we try to pray over the world again
-                                ... maybe faster.
+                                <?php echo esc_html( __( 'Once every location in the world has been prayed for (we finish a lap), then the prayer map resets, and we try to pray over the world again ... maybe faster.', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                The Moravians had one person praying every hour of every day for 100 years. This was roughly 876,000 hours of prayer, or 52,560,000 minutes of prayer for the world. We are humbled by this extraordinary commitment to praying for the world.
+                                <?php echo esc_html( __( 'The Moravians had one person praying every hour of every day for 100 years. This was roughly 876,000 hours of prayer, or 52,560,000 minutes of prayer for the world. We are humbled by this extraordinary commitment to praying for the world.', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                <a href="/content_app/about_page/#section-challenge">Learn more</a> about the Moravian Prayer Challenge.
-                            </p>
+                                <?php echo esc_html( sprintf( __( '%s about the Moravian Prayer Challenge.', 'prayer-global-porch' ), '<a href="/content_app/about_page/#section-challenge">'.__( 'Learn more', 'prayer-global-porch' ).'</a>' ) ) ?>
                             <p>
                                 <br><hr>
                             </p>
@@ -252,22 +248,22 @@
                         <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_4" aria-expanded="false" aria-controls="prayer_accordion_4">Maps & Lists</a>
                         <div id="prayer_accordion_4" class="collapse" role="tabpanel">
                             <p>
-                                <strong class="black">Current Map</strong> <a href="/newest/map"><i class="ion-android-open"></i></a>
+                                <strong class="black"><?php echo esc_html( __( 'Current Map', 'prayer-global-porch' ) ) ?></strong> <a href="/newest/map"><i class="ion-android-open"></i></a>
                             </p>
                             <p>
-                                The current map shows what has been covered so far in the active prayer map.
+                                <?php echo esc_html( __( 'The current map shows what has been covered so far in the active prayer map.', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                <strong class="black">Race Map</strong> <a href="/race_app/race_map/"><i class="ion-android-open"></i></a>
+                                <strong class="black"><?php echo esc_html( __( 'Race Map', 'prayer-global-porch' ) ) ?></strong> <a href="/race_app/race_map/"><i class="ion-android-open"></i></a>
                             </p>
                             <p>
-                                The Race map shows the number of laps, number of minutes, and number of prayer warriors for the entire challenge.
+                                <?php echo esc_html( __( 'The Race map shows the number of laps, number of minutes, and number of prayer warriors for the entire challenge.', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                <strong class="black">Race List</strong> <a href="/race_app/race_list/"><i class="ion-android-open"></i></a>
+                                <strong class="black"><?php echo esc_html( __( 'Race List', 'prayer-global-porch' ) ) ?></strong> <a href="/race_app/race_list/"><i class="ion-android-open"></i></a>
                             </p>
                             <p>
-                                The Race List shows each of the laps accomplished so far and some of the statistics for those individual laps.
+                                <?php echo esc_html( __( 'The Race List shows each of the laps accomplished so far and some of the statistics for those individual laps.', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
                                 <br><hr>

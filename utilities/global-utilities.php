@@ -636,25 +636,25 @@ function pg_soft_time_format( $object, $timestamp_key, $when_key, $timestamp_for
     $seconds = $time;
 
     if ( empty( $days ) && empty( $hours ) && empty( $minutes ) ) {
-        $seconds_word = $seconds > 1 ? 'seconds' : 'second';
-        $object[$when_key] = "$seconds $seconds_word ago";
+        $seconds_word = $seconds > 1 ? __( 'seconds', 'prayer-global-porch' ) : __( 'second', 'prayer-global-porch' );
+        $object[$when_key] = sprintf( _x( '%1$d %2$s ago', '23 seconds ago', 'prayer-global-porch' ), $seconds, $seconds_word );
     } else if ( empty( $days ) && empty( $hours ) ) {
-        $minutes_word = $minutes > 1 ? 'minutes' : 'minute';
-        $object[$when_key] = "$minutes $minutes_word ago";
+        $minutes_word = $minutes > 1 ? __( 'minutes', 'prayer-global-porch' ) : __( 'minute', 'prayer-global-porch' );
+        $object[$when_key] = sprintf( _x( '%1$d %2$s ago', '23 seconds ago', 'prayer-global-porch' ), $minutes, $minutes_word );
     } else if ( empty( $days ) ) {
-        $hours_word = $hours > 1 ? 'hours' : 'hour';
-        $object[$when_key] = "$hours $hours_word ago";
+        $hours_word = $hours > 1 ? __( 'hours', 'prayer-global-porch' ) : __( 'hour', 'prayer-global-porch' );
+        $object[$when_key] = sprintf( _x( '%1$d %2$s ago', '23 seconds ago', 'prayer-global-porch' ), $hours, $hours_word );
     } else if ( $days < 7 ) {
-        $days_word = $days > 1 ? 'days' : 'day';
-        $object[$when_key] = "$days $days_word ago";
+        $days_word = $days > 1 ? __( 'days', 'prayer-global-porch' ) : __( 'day', 'prayer-global-porch' );
+        $object[$when_key] = sprintf( _x( '%1$d %2$s ago', '23 seconds ago', 'prayer-global-porch' ), $days, $days_word );
     } else if ( $days < 30 ) {
         $weeks = floor( $days / 7 );
-        $weeks_word = $weeks > 1 ? 'weeks' : 'week';
-        $object[$when_key] = "$weeks $weeks_word ago";
+        $weeks_word = $weeks > 1 ? __( 'weeks', 'prayer-global-porch' ) : __( 'week', 'prayer-global-porch' );
+        $object[$when_key] = sprintf( _x( '%1$d %2$s ago', '23 seconds ago', 'prayer-global-porch' ), $weeks, $weeks_word );
     } else if ( $days > 30 ) {
         $months = floor( $days / 30 );
-        $months_word = $months > 1 ? 'months' : 'month';
-        $object[$when_key] = "$months $months_word ago";
+        $months_word = $months > 1 ? __( 'months', 'prayer-global-porch' ) : __( 'month', 'prayer-global-porch' );
+        $object[$when_key] = sprintf( _x( '%1$d %2$s ago', '23 seconds ago', 'prayer-global-porch' ), $months, $months_word );
     } else {
         $object[$when_key] = "";
     }

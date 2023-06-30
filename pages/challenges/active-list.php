@@ -80,7 +80,15 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
                 'parts' => $this->parts,
                 'site_url' => site_url(),
                 'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global' ),
+                    'pray' => esc_html( __( 'Pray', 'prayer-global-porch' ) ),
+                    'map' => esc_html( __( 'Map', 'prayer-global-porch' ) ),
+                    'sharing' => esc_html( __( 'Sharing', 'prayer-global-porch' ) ),
+                    'display' => esc_html( __( 'Display', 'prayer-global-porch' ) ),
+                    'name' => esc_html( __( 'Name', 'prayer-global-porch' ) ),
+                    'warriors' => esc_html( __( 'Warriors', 'prayer-global-porch' ) ),
+                    'time_elapsed' => esc_html( __( 'Time Elapsed', 'prayer-global-porch' ) ),
+                    'links' => esc_html( __( 'Links', 'prayer-global-porch' ) ),
+                    'lap' => esc_html( __( '- Lap %d', 'prayer-global-porch' ) ),
                 ],
                 'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/nope.jpg',
                 'images_url' => pg_grid_image_url(),
@@ -121,25 +129,25 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
             <div class="container pb-4">
                 <div class="row">
                     <div class="col-12 text-center">
-                        <span class="two-em lap-title">Group Challenges</span><br>
+                        <span class="two-em lap-title"><?php echo esc_html__( 'Group Challenges', 'prayer-global-porch' ) ?></span><br>
                     </div>
                     <div class="col-md-3 text-center"></div>
                     <div class="col-md-6 text-center">
-                        <p>Group challenges are communities of prayer warriors who have picked up the challenge of praying for the entire world as a group. All prayers prayed in the group challenges contribute to the global laps.</p>
+                        <p><?php echo esc_html__( 'Group challenges are communities of prayer warriors who have picked up the challenge of praying for the entire world as a group. All prayers prayed in the group challenges contribute to the global laps.', 'prayer-global-porch' ) ?></p>
                     </div>
                     <div class="col-md-3 text-center"></div>
                 </div>
             </div>
-            <div class="center two-em lap-title">Active Challenges</div>
+            <div class="center two-em lap-title"><?php echo esc_html__( 'Active Challenges', 'prayer-global-porch' ) ?></div>
             <div class="container" id="active_content"><span class="loading-spinner active"></span></div>
-            <div class="center two-em lap-title">Completed Challenges</div>
+            <div class="center two-em lap-title"><?php echo esc_html__( 'Completed Challenges', 'prayer-global-porch' ) ?></div>
             <div class="container" id="complete_content"><span class="loading-spinner active"></span></div>
             <div class="container" ><hr style="margin: 1em auto;"></div>
 
             <div class="container pb-4">
                 <div class="row">
                     <div class="col-md text-center">
-                        <a class="button" href="/prayer_app/group_challenge_request">Request a Group Challenge</a>
+                        <a class="button" href="/prayer_app/group_challenge_request"><?php echo esc_html__( 'Request a Group Challenge', 'prayer-global-porch' ) ?></a>
                     </div>
                 </div>
             </div>

@@ -85,7 +85,7 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
                 'stats' => $this->stats,
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
                 'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global' ),
+                    'add' => __( 'Add Magic', 'prayer-global-porch' ),
                 ],
                 'map_type' => 'binary',
             ]) ?>][0]
@@ -107,18 +107,18 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
             <div id="initialize-screen">
                 <div id="initialize-spinner-wrapper" class="center">
                     <progress class="success initialize-progress" max="46" value="0"></progress><br>
-                    Loading the planet ...<br>
-                    <span id="initialize-people" style="display:none;">Locating world population...</span><br>
-                    <span id="initialize-activity" style="display:none;">Calculating movement activity...</span><br>
-                    <span id="initialize-coffee" style="display:none;">Shamelessly brewing coffee...</span><br>
-                    <span id="initialize-dothis" style="display:none;">Let's do this...</span><br>
+                    <?php echo esc_html__( 'Loading the planet ...', 'prayer-global-porch' ) ?><br>
+                    <span id="initialize-people" style="display:none;"><?php echo esc_html__( 'Locating world population...', 'prayer-global-porch' ) ?></span><br>
+                    <span id="initialize-activity" style="display:none;"><?php echo esc_html__( 'Calculating movement activity...', 'prayer-global-porch' ) ?></span><br>
+                    <span id="initialize-coffee" style="display:none;"><?php echo esc_html__( 'Shamelessly brewing coffee...', 'prayer-global-porch' ) ?></span><br>
+                    <span id="initialize-dothis" style="display:none;"><?php echo esc_html__( "Let's do this...", 'prayer-global-porch' ) ?></span><br>
                 </div>
             </div>
             <div id="map-wrapper">
                 <div id="head_block_wrapper">
                     <div id="head_block_display" class="center">
-                        <span class="two-em uppercase"><?php echo esc_html( $lap_stats['title'] ) ?> Prayer Challenge</span><br>
-                        <span>COVER THE WORLD IN PRAYER</span>
+                        <span class="two-em uppercase"><?php echo esc_html( sprintf( __( '%s Prayer Challenge', 'prayer-global-porch' ), $lap_stats['title'] ) ) ?></span><br>
+                        <span><?php echo esc_html__( 'COVER THE WORLD IN PRAYER', 'prayer-global-porch' ) ?></span>
                     </div>
                 </div>
                 <span class="loading-spinner active"></span>
@@ -127,16 +127,16 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
                     <div class="row">
                         <div class="col col-sm-2" id="qr-cell"></div>
                         <div class="col col-sm-1"></div>
-                        <div class="col col-sm-2 center"><strong>Places Remaining</strong><br><strong><span class="three-em red-bg remaining"></span></strong></div>
-                        <div class="col col-sm-2 center"><strong>Places Covered</strong><br><strong><span class="three-em green-bg completed"></span></strong></div>
-                        <div class="col col-sm-2 center"><strong>Prayer Warriors</strong><br><strong><span class="three-em prayer_warriors"></span></strong></div>
-                        <div class="col col-sm-2 center d-none d-sm-block"><strong>World Coverage</strong><br><strong><span class="three-em  completed_percent"></span><span class="three-em">%</span></strong></div>
+                        <div class="col col-sm-2 center"><strong><?php echo esc_html__( 'Places Remaining', 'prayer-global-porch' ) ?></strong><br><strong><span class="three-em red-bg remaining"></span></strong></div>
+                        <div class="col col-sm-2 center"><strong><?php echo esc_html__( 'Places Covered', 'prayer-global-porch' ) ?></strong><br><strong><span class="three-em green-bg completed"></span></strong></div>
+                        <div class="col col-sm-2 center"><strong><?php echo esc_html__( 'Prayer Warriors', 'prayer-global-porch' ) ?></strong><br><strong><span class="three-em prayer_warriors"></span></strong></div>
+                        <div class="col col-sm-2 center d-none d-sm-block"><strong><?php echo esc_html__( 'World Coverage', 'prayer-global-porch' ) ?></strong><br><strong><span class="three-em  completed_percent"></span><span class="three-em">%</span></strong></div>
                         <div class="col col-sm-1"></div>
                     </div>
                     <div id="qr-code-block">
-                        <div class="two-em center">PRAY WITH US</div>
+                        <div class="two-em center"><?php echo esc_html__( 'PRAY WITH US', 'prayer-global-porch' ) ?></div>
                         <img class="qr-code-image" src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&amp;data=<?php echo esc_url( get_site_url() ) ?>/prayer_app/custom/<?php echo esc_html( $lap_stats['key'] ) ?>">
-                        <div class="center uppercase">TURN THE MAP FROM RED TO GREEN</div>
+                        <div class="center uppercase"><?php echo esc_html__( 'TURN THE MAP FROM RED TO GREEN', 'prayer-global-porch' ) ?></div>
                     </div>
                 </div>
             </div>

@@ -135,7 +135,7 @@ class PG_Global_Prayer_App_Stats extends PG_Global_Prayer_App {
                 'parts' => $this->parts,
                 'current_lap' => pg_current_global_lap(),
                 'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global' ),
+                    'add' => __( 'Add Magic', 'prayer-global-porch' ),
                 ],
                 'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/nope.jpg',
                 'images_url' => pg_grid_image_url(),

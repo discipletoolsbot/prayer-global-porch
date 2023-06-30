@@ -3,7 +3,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="share-modal-label">Share Prayer.Global</h5>
+        <h5 class="modal-title" id="share-modal-label"><?php echo esc_html( sprintf( __( 'Share %s', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?></h5>
       </div>
       <div class="modal-body ">
         <ul class="list-group list-group-flush share-modal__items">
@@ -14,10 +14,12 @@
                 <img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/twitter.svg" alt="Share">Twitter
             </li>
             <li class="list-group-item list-group-item-action list-group-item-secondary email-action">
-                <img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/email.svg" alt="Share">Email
+                <img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/email.svg" alt="Share">
+                <?php echo esc_html( __( 'Email', 'prayer-global-porch' ) ) ?>
             </li>
             <li class="list-group-item list-group-item-action list-group-item-secondary link-action">
-                <img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/link.svg" alt="Share">Link <span class="copy-notice">Copied</span>
+                <img class="share__icon" src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>/images/link.svg" alt="Share">
+                <?php echo esc_html( sprintf( __( 'Link %s', 'prayer-global-porch' ), '<span class="copy-notice">'.__( 'Copied', 'prayer-global-porch' ).'</span>' ) ) ?>
             </li>
         </ul>
       </div>
