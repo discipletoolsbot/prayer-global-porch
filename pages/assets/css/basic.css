@@ -1339,6 +1339,11 @@ input[type="text"],
     display: none;
 }
 
+#mapbox-autocomplete .mapbox-autocomplete-items div:hover {
+    background-color: var(--pg-brand-color-lightest);
+    color: white;
+}
+
 #createChallengeLabel[data-visibility="private"]:before {
     content: '\f200';
     font-family: 'Ionicons';

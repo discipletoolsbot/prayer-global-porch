@@ -146,7 +146,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                                 <div id="mapbox-autocomplete" class="mapbox-autocomplete" data-autosubmit="false" data-add-address="true">
                                     <div class="input-group mb-2">
                                         <input required id="mapbox-search" type="text" name="mapbox_search" class="form-control" autocomplete="off" placeholder="Select Location" />
-                                        <button id="mapbox-clear-autocomplete" class="btn btn-small btn-danger" type="button" title="Delete Location" style="">
+                                        <button id="mapbox-clear-autocomplete" class="btn btn-small btn-secondary d-flex align-items-center" type="button" title="Delete Location" style="">
                                             <i class="icon pg-close one-rem lh-small"></i>
                                         </button>
                                     </div>
