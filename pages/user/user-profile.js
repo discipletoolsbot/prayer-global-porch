@@ -102,6 +102,13 @@ jQuery(document).ready(function(){
         }
     })
 
+    const challenge_type_buttons = $('.challenge-type')
+    challenge_type_buttons.on('click', function(e) {
+        challenge_type_buttons.removeClass('btn-secondary').addClass('btn-outline-secondary')
+        e.currentTarget.classList.add('btn-secondary')
+        e.currentTarget.classList.remove('.btn-outline-secondary')
+    })
+
     setChallengStartNowButton.on('click', () => {
         const now = Date.now() / 1000
 
@@ -419,12 +426,17 @@ jQuery(document).ready(function(){
             challengeVisibility.val('private')
             challengeModalTitle.html('Create Private Relay')
             challengeModalTitle[0].dataset.visibility = 'private'
+            resetChallengTypeButtons()
         })
         jQuery('#public-challenge-button').on('click', () => {
             challengeVisibility.val('public')
             challengeModalTitle.html('Create Public Relay')
             challengeModalTitle[0].dataset.visibility = 'public'
+            resetChallengTypeButtons()
         })
+        function resetChallengTypeButtons() {
+            challenge_type_buttons.removeClass('btn-secondary').addClass('btn-outline-secondary')
+        }
 
         jQuery('.ongoing-challenge-button').on('click', () => {
             challengeTitleGroup.show()

@@ -176,13 +176,13 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             </button>
                         </div>
                         <form action="" id="challenge-form">
-                            <div class="modal-body">
+                            <div class="modal-body pb-0">
                                 <!-- Buttons group for choosing which type of challenge to start -->
                                 <div class="btn-group-vertical mb-3 w-100" role="group" aria-label="Choose type of challenge">
                                     <input type="radio" class="btn-check ongoing-challenge-button" name="challenge-type" id="ongoing_challenge" autocomplete="off" required>
-                                    <label class="btn btn-secondary" for="ongoing_challenge" role="button">Pray for the whole world</label>
+                                    <label class="btn btn-small btn-outline-secondary challenge-type" for="ongoing_challenge" role="button">Pray for the whole world</label>
                                     <input type="radio" class="btn-check timed-challenge-button" name="challenge-type" id="timed_challenge" autocomplete="off" required/>
-                                    <label class="btn btn-secondary" for="timed_challenge" role="button">Timed Challenge</label>
+                                    <label class="btn btn-small btn-outline-secondary challenge-type" for="timed_challenge" role="button">Timed Challenge</label>
                                 </div>
 
                                 <input type="hidden" id="challenge-visibility">
@@ -209,7 +209,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                                     </div>
                                     <div class="text-danger form-text" id="challenge-help-text"></div>
                                 </div>
-                                <div class="mb-3 challenge-single-lap-group">
+                                <div class="challenge-single-lap-group">
                                     <label for="challenge-single-lap" class="form-check-label">Single Lap</label>
                                     <input type="checkbox" value="" class="form-check-input" id="challenge-single-lap">
                                 </div>
