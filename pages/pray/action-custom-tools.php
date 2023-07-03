@@ -73,7 +73,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
             <div class="container pb-4">
                 <div class="row">
                     <div class="col-md text-center">
-                        <span class="two-em lap-title"><?php echo esc_html( sprintf( __( '%s Relay Tools', 'prayer-global-porch' ), $lap_stats['title'] ) ) ?></span>
+                        <h2><?php echo esc_html( sprintf( __( '%s Relay Tools', 'prayer-global-porch' ), $lap_stats['title'] ) ) ?></h2>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                 </div>
                 <div class="row ">
                     <div class="col center p-3">
-                        <h2><?php echo esc_html( sprintf( __( '%s Relay Map', 'prayer-global-porch' ), $lap_stats['title'] ) ) ?></h2>
+                        <h3><?php echo esc_html( sprintf( __( '%s Relay Map', 'prayer-global-porch' ), $lap_stats['title'] ) ) ?></h3>
                     </div>
                 </div>
                 <div class="row">
@@ -112,7 +112,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                 </div>
                 <div class="row ">
                     <div class="col center p-3">
-                        <h2><?php echo esc_html__( 'Display Map (60 Second Refresh)', 'prayer-global-porch' ) ?></h2>
+                        <h3><?php echo esc_html__( 'Display Map (60 Second Refresh)', 'prayer-global-porch' ) ?></h3>
                     </div>
                 </div>
                 <div class="input-group">
@@ -133,7 +133,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                 </div>
                 <div class="row ">
                     <div class="col center p-3">
-                        <h2><?php echo esc_html( sprintf( __( 'App Stores: %s App', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?></h2>
+                        <h3><?php echo esc_html( sprintf( __( 'App Stores: %s App', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?></h3>
                     </div>
                 </div>
                 <div class="row">

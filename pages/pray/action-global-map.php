@@ -233,13 +233,13 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
-        <div class="offcanvas offcanvas-bottom pt-3" id="offcanvas_stats">
+        <div class="offcanvas offcanvas-bottom" id="offcanvas_stats">
             <div class="center offcanvas__header d-flex justify-content-center align-items-center">
                 <button type="button" data-bs-dismiss="offcanvas">
                     <i class="icon pg-chevron-down blue three-em"></i>
                 </button>
             </div>
-            <div class="container center uppercase">
+            <div class="container center uppercase pt-3">
                 <div class="row g-0 justify-content-center">
                     <div class="col col-12">
                         <div class="two-em font-weight-bold"><?php echo sprintf( esc_html__( 'Lap %s Stats', 'prayer-global-porch' ), esc_html( $lap_stats['lap_number'] ) ) ?></div>

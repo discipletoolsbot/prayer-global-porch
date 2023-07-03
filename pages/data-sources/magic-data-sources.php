@@ -244,7 +244,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                         <hr>
                         <h3 class="secondary"><?php echo esc_html__( 'Bible Citations', 'prayer-global-porch' ) ?></h3>
                         <ul>
-                            <li><?php echo esc_html( sprintf( __( 'English - The %s is the primary translation used in the prayers. ESV used occasionally.', 'prayer-global-porch' ), '<a href="https://www.zondervan.com/about-us/permissions/">NIV</a>' ) ) ?></li>
+                            <li><?php echo sprintf( esc_html__( 'English - The %s is the primary translation used in the prayers. ESV used occasionally.', 'prayer-global-porch' ), '<a href="https://www.zondervan.com/about-us/permissions/">NIV</a>' ) ?></li>
                         </ul>
                     </div>
 

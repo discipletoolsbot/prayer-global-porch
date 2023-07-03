@@ -148,7 +148,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                         <i class="icon pg-question-dark icon-medium"></i>
                         <h2 style="--pg-flow-size: 0"><?php echo esc_html( __( 'How It Works', 'prayer-global-porch' ) ) ?></h2>
                         <p class="left-align">
-                            1. <?php echo esc_html( __( 'Click on "Start Praying".', 'prayer-global-porch' ) ) ?> <a href="/newest/lap/"><i class="ion-android-open"></i></a>
+                            1. <?php echo esc_html( __( 'Click on "Start Praying".', 'prayer-global-porch' ) ) ?> <a class="link-light" href="/newest/lap/"><i class="ion-android-open"></i></a>
                         </p>
                         <p class="left-align">
                             2. <?php echo esc_html( __( 'Use the demographics, guided prayers, faith status, images, and maps to pray for the location for one minute.', 'prayer-global-porch' ) ) ?>

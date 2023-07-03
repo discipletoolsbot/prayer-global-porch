@@ -139,7 +139,7 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
                 <div class="row justify-content-md-center text-center flow-small brand-light-bg white">
                     <div class="col col-md-8">
                         <p class="m-5">
-                            <strong><?php echo esc_html( __( 'Note:', 'prayer-global-porch' ) ) ?></strong><?php echo esc_html( sprintf( __( '%1$s and by extension %2$s is part of %3$s. You may see %4$s on your invoice or receipt.', 'prayer-global-porch' ), 'Prayer.Global', 'Pray4Movement.org', '<a href="https://gospelambition.org" target="_blank" rel="noopener">Gospel Ambition</a>', 'Gospel Ambition' ) ) ?>
+                            <strong><?php echo esc_html( __( 'Note:', 'prayer-global-porch' ) ) ?></strong> <?php echo sprintf( esc_html__( '%1$s and by extension %2$s is part of %3$s. You may see %4$s on your invoice or receipt.', 'prayer-global-porch' ), 'Prayer.Global', 'Pray4Movement.org', '<a class="link-light" href="https://gospelambition.org" target="_blank" rel="noopener">Gospel Ambition</a>', 'Gospel Ambition' ) ?>
                         </p>
                     </div>
                 </div>
