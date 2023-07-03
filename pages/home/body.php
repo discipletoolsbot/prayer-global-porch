@@ -33,12 +33,12 @@
                             <div class="container">
                                 <div class="row d-block">
                                     <i class="icon pg-logo-prayer icon-medium my-3 d-block"></i>
-                                    <h2 class="font-title mb-3">The Goal</h2>
-                                    <p class="white-gradient pb-3">The clock is ticking. Prayer.Global seeks
-                                    to encourage extraordinary prayer for
-                                    the fulﬁllment of the Great Commission
-                                    in our generation. <br>
-                                    But how?</p>
+                                    <h2 class="font-title mb-3"><?php echo esc_html__( 'The Goal', 'prayer-global' ) ?></h2>
+                                    <p class="white-gradient pb-3">
+                                        <?php echo esc_html__( 'The clock is ticking. Prayer.Global seeks to encourage extraordinary prayer for the fulﬁllment of the Great Commission in our generation.', 'prayer-global-porch' ) ?>
+                                        <br>
+                                        <?php echo esc_html__( 'But how?', 'prayer-global-porch' ) ?>
+                                    </p>
                                 </div>
                             </div>
                         </div>
@@ -48,14 +48,9 @@
                             <div class="container">
                                 <div class="row d-block">
                                     <i class="icon pg-relay icon-medium my-3 d-block"></i>
-                                    <h2 class="font-title mb-3">The Race</h2>
+                                    <h2 class="font-title mb-3"><?php echo esc_html__( 'The Race', 'prayer-global' ) ?></h2>
                                     <p class="white-gradient pb-3 px-5">
-                                        Like a “race”, we pray with urgency and
-                                        focus as we seek to complete “laps” by
-                                        covering the entire world in prayer. An
-                                        interactive map gives us “real time”
-                                        updates on who we’ve prayed for and
-                                        stats on our collective prayer lap status.
+                                        <?php echo esc_html__( 'Like a “race”, we pray with urgency and focus as we seek to complete “laps” by covering the entire world in prayer. An interactive map gives us “real time” updates on who we’ve prayed for and stats on our collective prayer lap status.', 'prayer-global-porch' ) ?>
                                     </p>
                                 </div>
                             </div>
@@ -66,15 +61,9 @@
                             <div class="container">
                                 <div class="row d-block">
                                     <i class="icon pg-world-arrow icon-medium my-3 d-block"></i>
-                                    <h2 class="font-title mb-3">Our Strategy</h2>
+                                    <h2 class="font-title mb-3"><?php echo esc_html__( 'Our Strategy', 'prayer-global' ) ?></h2>
                                     <p class="white-gradient pb-3 px-5">
-                                        Prayer.Global has broken the world down
-                                        into 4,770 “states” based on geographical
-                                        and governmental boundaries. With
-                                        location speciﬁc “prayer fuel”, we can
-                                        pray with purpose for every people group
-                                        and watch on the map as our united
-                                        prayer “lights up” the darkness.
+                                        <?php echo esc_html__( 'Prayer.Global has broken the world down into 4,770 “states” based on geographical and governmental boundaries. With location speciﬁc “prayer fuel”, we can pray with purpose for every people group and watch on the map as our united prayer “lights up” the darkness.', 'prayer-global-porch' ) ?>
                                     </p>
                                 </div>
                             </div>
@@ -85,18 +74,16 @@
                             <div class="container">
                                 <div class="row d-block">
                                     <i class="icon pg-logo-prayer icon-medium my-3 d-block"></i>
-                                    <h2 class="font-title mb-3">Current Status</h2>
+                                    <h2 class="font-title mb-3"><?php echo esc_html__( 'Current Status', 'prayer-global' ) ?></h2>
                                     <p class="white-gradient pb-3">
-                                        Our ﬁrst global race started <span class="global-days-elapsed"><span class="loading-spinner active"></span></span> days
-                                        ago and we’ve completed <span class="global-laps-completed"><span class="loading-spinner active"></span></span> laps
-                                        together so far.
+                                        <?php echo sprintf( esc_html__( 'Our ﬁrst global race started %1$s days ago and we’ve completed %2$s laps together so far.', 'prayer-global-porch' ), '<span class="global-days-elapsed"><span class="loading-spinner active"></span></span>', '<span class="global-laps-completed"><span class="loading-spinner active"></span></span>' ) ?>
                                     </p>
                                     <div class="brand-lighter-bg white rounded m-auto my-5 w-fit py-2 px-4 pb-0">
-                                        <h3 style="line-height: 0.7">Laps <br> <span class="one-rem">Completed</span></h3>
+                                        <h3 style="line-height: 0.7"><?php echo sprintf( esc_html_x( 'Laps %s', 'Laps Completed', 'prayer-global' ), sprintf( '<br> <span class="one-rem">%s</span>', esc_html_x( 'Completed', 'Laps Completed', 'prayer-global-porch' ) ) ) ?></h3>
                                         <h3 class="global-laps-completed six-em"><span class="loading-spinner active"></span></h3>
                                     </div>
                                     <div class="">
-                                        <h3>Lap <span class="global-lap-number"><span class="loading-spinner active"></span></span> Time Elapsed</h3>
+                                        <h3><?php echo sprintf( esc_html__( 'Lap %s Time Elapsed', 'prayer-global' ), '<span class="global-lap-number"><span class="loading-spinner active"></span></span>' ) ?></h3>
                                         <div class="white brand-bg rounded m-auto w-fit px-3 py-1 three-em font-weight-bold uppercase | current-time-elapsed time_elapsed">
                                             <span class="loading-spinner active"></span>
                                         </div>
@@ -110,17 +97,13 @@
                             <div class="container">
                                 <div class="row d-block">
                                     <i class="icon pg-crown icon-medium my-3 d-block"></i>
-                                    <h2 class="font-title mb-3">The Finish Line</h2>
+                                    <h2 class="font-title mb-3"><?php echo esc_html__( 'The Finish Line', 'prayer-global' ) ?></h2>
                                     <p class="white-gradient pb-3">
-                                        With each lap we complete, we are that
-                                        much closer to ushering in God’s
-                                        Kingdom and the return of Jesus Christ!
-                                        Step up and join the worldwide
-                                        Prayer.Global prayer team!
+                                        <?php echo esc_html__( 'With each lap we complete, we are that much closer to ushering in God’s Kingdom and the return of Jesus Christ! Step up and join the worldwide Prayer.Global prayer team!', 'prayer-global-porch' ) ?>
                                     </p>
                                     <img class="w-100 p-0 finish-line" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/finish-line-cropped.png" alt="dark world">
 
-                                    <div class="mb-4 pb-3 position-absolute bottom-0"><a class="btn btn-cta mx-2 two-rem" href="/newest/lap/">Start Praying</a></div>
+                                    <div class="mb-4 pb-3 position-absolute bottom-0"><a class="btn btn-cta mx-2 two-rem" href="/newest/lap/"><?php echo esc_html__( 'Start Praying', 'prayer-global' ) ?></a></div>
                                 </div>
                             </div>
                         </div>
@@ -128,11 +111,11 @@
                 </div>
                 <button class="carousel-control-prev four-em mt-5" type="button" data-bs-target="#storyCarousel" data-bs-slide="prev">
                     <i class="icon pg-chevron-left brand" aria-hidden="true"></i>
-                    <span class="visually-hidden">Previous</span>
+                    <span class="visually-hidden"><?php echo esc_html__( 'Previous', 'prayer-global' ) ?></span>
                 </button>
                 <button class="carousel-control-next four-em mt-5" type="button" data-bs-target="#storyCarousel" data-bs-slide="next">
                     <i class="icon pg-chevron-right brand" aria-hidden="true"></i>
-                    <span class="visually-hidden">Next</span>
+                    <span class="visually-hidden"><?php echo esc_html__( 'Next', 'prayer-global' ) ?></span>
                 </button>
             </div>
         </div>
@@ -173,7 +156,7 @@
 
                 <div class="flow pg-card brand-bg white center uppercase mb-5">
                     <i class="icon pg-world-arrow icon-large pt-4 d-block"></i>
-                    <h1 class="mb-0 lh-xsm"><?php echo esc_html( sprintf( __( 'Lap %s', 'prayer-global-porch' ), '<span class="global-lap-number">' ) ) ?><span class="loading-spinner active"></span></span></h1>
+                    <h1 class="mb-0 lh-xsm"><?php echo sprintf( esc_html__( 'Lap %s', 'prayer-global-porch' ), '<span class="global-lap-number">' ) ?><span class="loading-spinner active"></span></span></h1>
 
                     <hr class="border-white border">
 
@@ -203,7 +186,7 @@
 
                     </div>
 
-                    <span class="four-em font-weight-bold lh-1"><span class="current-completed"><span class="loading-spinner active"></span></span> of <span><?php echo esc_html( PG_TOTAL_STATES ) ?></span></span>
+                    <span class="four-em font-weight-bold lh-1"><?php echo sprintf( esc_html_x( '%1$s of %2$s', '10 of 4770', 'prayer-global' ), '<span class="current-completed"><span class="loading-spinner active"></span></span>', '<span>' . esc_html( PG_TOTAL_STATES ) . '</span>' ) ?></span>
 
                     <a href="/newest/map/" role="button" class="btn smoothscroll btn-primary uppercase mb-3 w-100 has-icon" data-reverse-color>
                         <span><?php echo esc_html( __( 'Current Map', 'prayer-global-porch' ) ) ?></span>
@@ -244,13 +227,13 @@
                 <a class="white" href="https://apps.apple.com/us/app/prayer-global/id1636889534?uo=4" style="font-size:2em;">
                     <div class="hover-box">
                         <i class="ion-social-apple" ></i>
-                        iPhone/iPad App
+                        <?php echo sprintf( esc_html__( '%s App', 'prayer-global-porch' ), 'iPhone/iPad' ) ?>
                     </div>
                 </a>
                 <a class="white" href="https://play.google.com/store/apps/details?id=app.global.prayer" style="font-size:2em;">
                     <div class="hover-box">
                         <i class="ion-social-android"></i>
-                        Android App
+                        <?php echo sprintf( esc_html__( '%s App', 'prayer-global-porch' ), 'Android' )?>
                     </div>
                 </a>
 
