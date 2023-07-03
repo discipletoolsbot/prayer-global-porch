@@ -208,39 +208,22 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
             <div class="center offcanvas__header"><button type="button" data-bs-toggle="offcanvas"><i class="icon pg-chevron-down three-em"></i></button></div>
             <div class="row center uppercase offcanvas__content">
                 <div class="col col-12">
-<<<<<<< HEAD
-                    <div class="two-em font-weight-bold">Race Map Stats</div>
+                    <div class="two-em font-weight-bold"><?php echo esc_html__( 'Race Map Stats', 'prayer-global' ) ?></div>
                 </div>
                 <div class="align-items-center d-flex flex-dir-column mt-3">
                     <i class="icon pg-world-arrow blue four-em"></i>
-                    <span class="stats-title">World Coverage</span>
-                    <div class="blue-bg rounded stats-figure-lg px-3 white"><?php echo esc_html( $finished_laps ) ?> times</div>
+                    <span class="stats-title"><?php echo esc_html__( 'World Coverage', 'prayer-global' ) ?></span>
+                    <div class="blue-bg rounded stats-figure-lg px-3 white"><?php echo esc_html( sprintf( __( '%s times', 'prayer-global-porch' ), $finished_laps ) ) ?></div>
                 </div>
                 <div class="align-items-center d-flex flex-dir-column mt-3">
                     <i class="icon pg-prayer blue four-em"></i>
-                    <span class="stats-title">Intercessors</span>
+                    <span class="stats-title"><?php echo esc_html__( 'Intercessors', 'prayer-global' ) ?></span>
                     <div class="orange-bg rounded stats-figure-lg px-3 warriors white"><?php echo esc_html( $lap_stats['participants'] ) ?></div>
                 </div>
                 <hr class="mt-3">
                 <div class="">
-                    <p class="two-em mb-0">Time Elapsed</p>
+                    <p class="two-em mb-0"><?php echo esc_html__( 'Time Elapsed', 'prayer-global' ) ?></p>
                     <p class="stats-figure time_elapsed">0</p>
-=======
-                    <span class="three-em lap-title"><?php echo esc_html__( 'Race Map', 'prayer-global-porch' ) ?></span>
-                    <hr>
-                </div>
-                <div class="col col-6 col-sm-3">
-                    <p class="stats-title"><?php echo esc_html__( 'Warriors', 'prayer-global-porch' ) ?></p>
-                    <p class="stats-figure"><?php echo esc_html( $lap_stats['participants'] ) ?></p>
-                </div>
-                <div class="col col-6 col-sm-3">
-                    <p class="stats-title"><?php echo esc_html__( 'World Prayer Coverage', 'prayer-global-porch' ) ?></p>
-                    <p class="stats-figure"><?php echo esc_html( sprintf( __( '%s times', 'prayer-global-porch' ), $finished_laps ) ) ?></p>
-                </div>
-                <div class="col col-6 col-sm-3">
-                    <p class="stats-title"><?php echo esc_html__( 'Pace', 'prayer-global-porch' ) ?></p>
-                    <p class="stats-figure"><?php echo esc_html( $lap_stats['time_elapsed'] ) ?></p>
->>>>>>> master
                 </div>
                 <hr class="mt-3">
             </div>
