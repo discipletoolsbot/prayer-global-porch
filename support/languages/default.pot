@@ -2,16 +2,16 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 1.8.15\n"
+"Project-Id-Version: Prayer.Global Porch 1.8.19\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-04-28T14:00:45+01:00\n"
+"POT-Creation-Date: 2023-07-03T12:23:17+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.6.0\n"
+"X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: prayer-global-porch\n"
 
 #: pages/404/404.php:98
@@ -1431,7 +1431,7 @@ msgid "Intentional Multiplicative Strategies"
 msgstr ""
 
 #: pages/pray/stacker-text.php:90
-msgid "Jesus, you taught Paul to train Timothy to train faithful men who would train others. Please, teach the church of %1$s to do that same."
+msgid "Jesus, you taught Paul to train Timothy to train faithful men who would train others. Please, teach the church of %1$s to do the same."
 msgstr ""
 
 #: pages/pray/stacker-text.php:91
@@ -2089,11 +2089,11 @@ msgid "Media"
 msgstr ""
 
 #: pages/pray/stacker-text.php:709
-msgid "Father, please help good, online teachers get the gospel on Youtube and into %1$s of %2$s."
+msgid "Father, please help good, online teachers get the gospel on YouTube and into %1$s of %2$s."
 msgstr ""
 
 #: pages/pray/stacker-text.php:715
-msgid "Spirit, guide seekers in %1$s to the gospel through searching Youtube or Tiktok today."
+msgid "Spirit, guide seekers in %1$s to the gospel through searching YouTube or TikTok today."
 msgstr ""
 
 #: pages/pray/stacker-text.php:716
@@ -2419,7 +2419,7 @@ msgid "But you are a chosen race, a royal priesthood, a holy nation, a people fo
 msgstr ""
 
 #: pages/pray/stacker-text.php:1045
-msgid "Lord, please make the same Spirit that raised Jesus from the dead give life to those are called by his name in the %1$s of %2$s."
+msgid "Lord, please make the same Spirit that raised Jesus from the dead give life to those who are called by his name in the %1$s of %2$s."
 msgstr ""
 
 #: pages/pray/stacker-text.php:1046
@@ -2778,7 +2778,7 @@ msgid "But you, keep your head in all situations, endure hardship, do the work o
 msgstr ""
 
 #: pages/pray/stacker-text.php:1854
-msgid "Spirit, help every believers in %1$s be prepared to give an answer to everyone who asks them for the reason for their hope."
+msgid "Spirit, help every believer in %1$s be prepared to give an answer to everyone who asks them for the reason for their hope."
 msgstr ""
 
 #: pages/pray/stacker-text.php:1855
