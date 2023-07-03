@@ -109,7 +109,7 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
                         <i class="icon pg-give icon-large brand-light"></i>
                         <h4><?php echo esc_html( __( 'To Prayer.Global', 'prayer-global-porch' ) ) ?></h4>
                         <p>
-                            <?php echo esc_html( sprintf( __( 'Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements. Your gift ensures that we can continue to freely give away all of the tools and resources we develop. Your tax deductible donation will go to the development and maintenance of %1$s which is part of the %2$s network.', 'prayer-global-porch' ), "<a href='https://pray4movement.org' target='_blank'>Pray4Movement</a>", 'Prayer.Global' ) ) ?>
+                            <?php echo sprintf( esc_html__( 'Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements. Your gift ensures that we can continue to freely give away all of the tools and resources we develop. Your tax deductible donation will go to the development and maintenance of %1$s which is part of the %2$s network.', 'prayer-global-porch' ), "<a href='https://pray4movement.org' target='_blank'>Pray4Movement</a>", 'Prayer.Global' ) ?>
                         </p>
                     </div>
                 </div>
