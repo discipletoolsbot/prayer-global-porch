@@ -99,6 +99,11 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     'load_more' => esc_html( __( 'Load more', 'prayer-global-porch' ) ),
                     'time_prayed_for' => esc_html( _x( '%1$s for %2$s', '1 min for Paris, France', 'prayer-global-porch' ) ),
                     'in_group_text' => esc_html( _x( 'in %s', 'in Global Lap', 'prayer-global-porch' ) ),
+                    'new_challenge' => esc_html( _x( 'New %s Relay', 'New public Relay', 'prayer-global-porch' ) ),
+                    'public' => esc_html( __( 'Public', 'prayer-global-porch' ) ),
+                    'private' => esc_html( __( 'Private', 'prayer-global-porch' ) ),
+                    'public_relays' => esc_html( __( 'Public Relays', 'prayer-global-porch' ) ),
+                    'private_relays' => esc_html( __( 'Private Relays', 'prayer-global-porch' ) ),
                 ],
                 'is_logged_in' => is_user_logged_in() ? 1 : 0,
                 'logout_url' => esc_url( '/user_app/logout' )

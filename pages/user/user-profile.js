@@ -50,6 +50,11 @@ jQuery(document).ready(function(){
         load_more,
         time_prayed_for,
         in_group_text,
+        new_challenge,
+        public,
+        private,
+        public_relays,
+        private_relays,
     } = jsObject.translations
 
 
@@ -428,18 +433,18 @@ jQuery(document).ready(function(){
     function write_challenges() {
         const challengesHTML = `
         <section class="private-challenges flow-small">
-            <h2 class="center">Private Relays</h2>
+            <h2 class="center">${private_relays}</h2>
 
-            ${CreateChallengeButton( 'Private', 'private-challenge-button' )}
+            ${CreateChallengeButton( private, 'private-challenge-button' )}
 
             <div class="d-flex justify-content-center private-challenges__list">
                 <span class="loading-spinner active"></span>
             </div>
         </section>
         <section class="public-challenges flow-small">
-            <h2 class="center">Public Relays</h2>
+            <h2 class="center">${public_relays}</h2>
 
-            ${CreateChallengeButton( 'Public', 'public-challenge-button' )}
+            ${CreateChallengeButton( public, 'public-challenge-button' )}
 
             <div class="d-flex justify-content-center public-challenges__list">
                 <span class="loading-spinner active"></span>
@@ -894,7 +899,7 @@ jQuery(document).ready(function(){
 
         let text = '<i class="icon ion-' + icon + ' me-2"></i>'
 
-        text += 'New ' + type + ' Challenge'
+        text += new_challenge.replace('%s', type)
 
         return ModalButton({
             text,
