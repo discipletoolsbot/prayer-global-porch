@@ -85,7 +85,7 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
                 'stats' => $this->stats,
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
                 'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global' ),
+                    'add' => __( 'Add Magic', 'prayer-global-porch' ),
                 ],
                 'map_type' => 'binary',
             ]) ?>][0]
@@ -108,18 +108,18 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
             <div id="initialize-screen">
                 <div id="initialize-spinner-wrapper" class="center">
                     <progress class="success initialize-progress" max="46" value="0"></progress><br>
-                    Loading the planet ...<br>
-                    <span id="initialize-people" style="display:none;">Locating world population...</span><br>
-                    <span id="initialize-activity" style="display:none;">Calculating movement activity...</span><br>
-                    <span id="initialize-coffee" style="display:none;">Shamelessly brewing coffee...</span><br>
-                    <span id="initialize-dothis" style="display:none;">Let's do this...</span><br>
+                    <?php echo esc_html__( 'Loading the planet ...', 'prayer-global-porch' ) ?><br>
+                    <span id="initialize-people" style="display:none;"><?php echo esc_html__( 'Locating world population...', 'prayer-global-porch' ) ?></span><br>
+                    <span id="initialize-activity" style="display:none;"><?php echo esc_html__( 'Calculating movement activity...', 'prayer-global-porch' ) ?></span><br>
+                    <span id="initialize-coffee" style="display:none;"><?php echo esc_html__( 'Shamelessly brewing coffee...', 'prayer-global-porch' ) ?></span><br>
+                    <span id="initialize-dothis" style="display:none;"><?php echo esc_html__( "Let's do this...", 'prayer-global-porch' ) ?></span><br>
                 </div>
             </div>
             <div id="map-wrapper">
                 <div id="head_block_wrapper">
                     <div id="head_block_display" class="center brand-bg white">
-                        <h2 class="uppercase"><?php echo esc_html( $lap_stats['title'] ) ?> Prayer Relay</h2>
-                        <h4 class="uppercase">Cover The World In Prayer</h4>
+                        <h2 class="uppercase"><?php echo esc_html( sprintf( __( '%s Prayer Relay', 'prayer-global-porch' ), $lap_stats['title'] ) ) ?></h2>
+                        <h4 class="uppercase"><?php echo esc_html__( 'Cover The World In Prayer', 'prayer-global-porch' ) ?></h4>
                     </div>
                 </div>
                 <span class="loading-spinner active"></span>
@@ -132,34 +132,34 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
                                 <i class="icon pg-world-light three-em"></i>
                                 <div class="three-em white remaining"></div>
                             </div>
-                            <span class="uppercase one-rem">Places Remaining</span>
+                            <span class="uppercase one-rem"><?php echo esc_html__( 'Places Remaining', 'prayer-global-porch' ) ?></span>
                         </div>
                         <div class="w-auto flex-1">
                             <div class="white-bg blue blue-border rounded d-flex align-items-center justify-content-around font-weight-bold">
                                 <i class="icon pg-world-light three-em"></i>
                                 <div class="three-em completed"></div>
                             </div>
-                            <span class="uppercase one-rem">Places Covered</span>
+                            <span class="uppercase one-rem"><?php echo esc_html__( 'Places Covered', 'prayer-global-porch' ) ?></span>
                         </div>
                         <div class="w-auto flex-1">
                             <div class="brand-bg white blue-border rounded d-flex align-items-center justify-content-around font-weight-bold">
                                 <i class="icon pg-world-arrow three-em"></i>
                                 <div><span class="three-em  completed_percent"></span><span class="three-em">%</span></div>
                             </div>
-                            <span class="uppercase one-rem">World Coverage</span>
+                            <span class="uppercase one-rem"><?php echo esc_html__( 'World Coverage', 'prayer-global-porch' ) ?></span>
                         </div>
                         <div class="w-auto flex-1">
                             <div class="secondary-bg white secondary-border rounded d-flex align-items-center justify-content-around font-weight-bold">
                                 <i class="icon pg-prayer three-em"></i>
                                 <div class="three-em prayer_warriors"></div>
                             </div>
-                            <span class="uppercase one-rem">Intercessors</span>
+                            <span class="uppercase one-rem"><?php echo esc_html__( 'Intercessors', 'prayer-global-porch' ) ?></span>
                         <div class=""></div>
                     </div>
                     <div id="qr-code-block">
-                        <div class="two-em center uppercase">Pray with us</div>
+                        <div class="two-em center uppercase"><?php echo esc_html__( 'Pray with us', 'prayer-global-porch' ) ?></div>
                         <img class="qr-code-image" src="https://api.qrserver.com/v1/create-qr-code/?size=500x500&amp;data=<?php echo esc_url( get_site_url() ) ?>/prayer_app/custom/<?php echo esc_html( $lap_stats['key'] ) ?>">
-                        <div class="center uppercase">Turn the map from dark to light</div>
+                        <div class="center uppercase"><?php echo esc_html__( 'Turn the map from dark to light', 'prayer-global-porch' ) ?></div>
                     </div>
                 </div>
             </div>

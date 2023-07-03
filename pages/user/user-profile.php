@@ -77,7 +77,28 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
                 'translations' => [
-                    'add' => __( 'Add Magic', 'disciple-tools-porch-template' ),
+                    'select_a_location' => esc_html( __( 'Please select a location', 'prayer-global-porch' ) ),
+                    'estimated_location' => esc_html( __( '(This is your estimated location)', 'prayer-global-porch' ) ),
+                    'profile' => esc_html( __( 'Profile', 'prayer-global-porch' ) ),
+                    'prayers' => esc_html( __( 'Prayers', 'prayer-global-porch' ) ),
+                    'challenges' => esc_html( __( 'Prayer Relays', 'prayer-global-porch' ) ),
+                    'are_you_enjoying_the_app' => esc_html( __( 'Are you enjoying this app?', 'prayer-global-porch' ) ),
+                    'would_you_like_to_partner' => esc_html( __( 'Would you like to partner with us in helping others pray for the world?', 'prayer-global-porch' ) ),
+                    'consider_giving' => esc_html( __( 'Consider giving to help us increase prayer for the world.', 'prayer-global-porch' ) ),
+                    'give' => esc_html( __( 'Give', 'prayer-global-porch' ) ),
+                    'logout' => esc_html( __( 'Logout', 'prayer-global-porch' ) ),
+                    'name_text' => esc_html( __( 'Name', 'prayer-global-porch' ) ),
+                    'email_text' => esc_html( __( 'Email', 'prayer-global-porch' ) ),
+                    'location_text' => esc_html( __( 'Location', 'prayer-global-porch' ) ),
+                    'locations_text' => esc_html( __( 'Locations', 'prayer-global-porch' ) ),
+                    'communication_preferences' => esc_html( __( 'Communication Preferences', 'prayer-global-porch' ) ),
+                    'send_lap_emails_text' => esc_html( __( 'Send me lap challenges via email', 'prayer-global-porch' ) ),
+                    'send_general_emails_text' => esc_html( sprintf( __( 'Send information about %1$s, %2$s, %3$s and other %4$s projects via email', 'prayer-global-porch' ), 'Prayer.Global', 'Zume', 'Pray4Movement', 'Gospel Ambition' ) ),
+                    'erase_account' => esc_html( __( 'Erase my account', 'prayer-global-porch' ) ),
+                    'minutes' => esc_html( __( 'Minutes', 'prayer-global-porch' ) ),
+                    'load_more' => esc_html( __( 'Load more', 'prayer-global-porch' ) ),
+                    'time_prayed_for' => esc_html( _x( '%1$s for %2$s', '1 min for Paris, France', 'prayer-global-porch' ) ),
+                    'in_group_text' => esc_html( _x( 'in %s', 'in Global Lap', 'prayer-global-porch' ) ),
                 ],
                 'is_logged_in' => is_user_logged_in() ? 1 : 0,
                 'logout_url' => esc_url( '/user_app/logout' )
@@ -136,7 +157,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title fs-5" id="locationModalLabel">Change Your Location</h5>
+                            <h5 class="modal-title fs-5" id="locationModalLabel"><?php echo esc_html__( 'Change Your Location', 'prayer-global-porch' ) ?></h5>
                             <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
                                 <i class="icon pg-close two-em"></i>
                             </button>
@@ -145,8 +166,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             <div id="mapbox-wrapper">
                                 <div id="mapbox-autocomplete" class="mapbox-autocomplete" data-autosubmit="false" data-add-address="true">
                                     <div class="input-group mb-2">
-                                        <input required id="mapbox-search" type="text" name="mapbox_search" class="form-control" autocomplete="off" placeholder="Select Location" />
-                                        <button id="mapbox-clear-autocomplete" class="btn btn-small btn-secondary d-flex align-items-center" type="button" title="Delete Location" style="">
+                                            <input required id="mapbox-search" type="text" name="mapbox_search" class="form-control" autocomplete="off" placeholder="<?php esc_attr__( 'Select Location', 'prayer-global-porch' ) ?>" />
+                                            <button id="mapbox-clear-autocomplete" class="btn btn-small btn-secondary d-flex align-items-center" type="button" title="<?php esc_attr__( 'Delete Location', 'prayer-global-porch' ) ?>" style="">
                                             <i class="icon pg-close one-rem lh-small"></i>
                                         </button>
                                     </div>
@@ -159,8 +180,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-small btn-outline-primary cancel-user-location" data-bs-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-small btn-primary save-user-location">Save</button>
+                            <button type="button" class="btn btn-small btn-outline-primary cancel-user-location" data-bs-dismiss="modal"><?php echo esc_html__( 'Cancel', 'prayer-global-porch' ) ?></button>
+                            <button type="button" class="btn btn-small btn-primary save-user-location"><?php echo esc_html__( 'Save', 'prayer-global-porch' ) ?></button>
                         </div>
                    </div>
                 </div>
@@ -170,19 +191,19 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title fs-5" id="createChallengeLabel" data-visibility="">Create Challenge</h5>
-                            <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
+                            <h5 class="modal-title fs-5" id="createChallengeLabel" data-visibility=""><?php echo esc_html__( 'Create Challenge', 'prayer-global-porch' ) ?></h5>
+                            <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php esc_attr__( 'Close', 'prayer-global-porch' ) ?>">
                                 <i class="icon pg-close two-em"></i>
                             </button>
                         </div>
                         <form action="" id="challenge-form">
                             <div class="modal-body pb-0">
                                 <!-- Buttons group for choosing which type of challenge to start -->
-                                <div class="btn-group-vertical mb-3 w-100" role="group" aria-label="Choose type of challenge">
+                                <div class="btn-group-vertical mb-3 w-100" role="group" aria-label="<?php esc_attr( __( 'Choose type of challenge', 'prayer-global-porch' ) ) ?>">
                                     <input type="radio" class="btn-check ongoing-challenge-button" name="challenge-type" id="ongoing_challenge" autocomplete="off" required>
-                                    <label class="btn btn-small btn-outline-secondary challenge-type" for="ongoing_challenge" role="button">Pray for the whole world</label>
+                                    <label class="btn btn-small btn-outline-secondary challenge-type" for="ongoing_challenge" role="button"><?php echo esc_html__( 'Pray for the whole world', 'prayer-global-porch' ) ?></label>
                                     <input type="radio" class="btn-check timed-challenge-button" name="challenge-type" id="timed_challenge" autocomplete="off" required/>
-                                    <label class="btn btn-small btn-outline-secondary challenge-type" for="timed_challenge" role="button">Timed Challenge</label>
+                                    <label class="btn btn-small btn-outline-secondary challenge-type" for="timed_challenge" role="button"><?php echo esc_html__( 'Timed Challenge', 'prayer-global-porch' ) ?></label>
                                 </div>
 
                                 <input type="hidden" id="challenge-visibility">
@@ -191,34 +212,34 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
                                 <!-- Form for inputs to go into -->
                                 <div class="mb-3 challenge-title-group">
-                                    <label for="challenge-title" class="form-label">Challenge Title</label>
-                                    <input class="form-control" type="text" id="challenge-title" placeholder="Give your challenge a unique name" required>
+                                    <label for="challenge-title" class="form-label"><?php echo esc_html__( 'Challenge Title', 'prayer-global-porch' ) ?></label>
+                                    <input class="form-control" type="text" id="challenge-title" placeholder="<?php esc_attr( __( 'Give your challenge a unique name', 'prayer-global-porch' ) ) ?>" required>
                                 </div>
                                 <div class="mb-3 challenge-start-date-group">
-                                    <label for="challenge-start-date" class="form-label">Challenge Start Date</label><button type="button" class="btn btn-xsmall btn-outline-secondary ms-3" id="set-challenge-start-to-now">Now</button>
+                                    <label for="challenge-start-date" class="form-label"><?php echo esc_html__( 'Challenge Start Date', 'prayer-global-porch' ) ?></label><button type="button" class="btn btn-xsmall btn-outline-secondary ms-3" id="set-challenge-start-to-now"><?php echo esc_html__( 'Now', 'prayer-global-porch' ) ?></button>
                                     <div class="d-flex">
-                                        <input class="form-control" type="date" id="challenge-start-date" placeholder="Start Date" required>
-                                        <input class="form-control" type="time" id="challenge-start-time" placeholder="Start Time" required>
+                                        <input class="form-control" type="date" id="challenge-start-date" placeholder="<?php esc_attr( __( 'Start Date', 'prayer-global-porch' ) ) ?>" required>
+                                        <input class="form-control" type="time" id="challenge-start-time" placeholder="<?php esc_attr( __( 'Start Time', 'prayer-global-porch' ) ) ?>" required>
                                     </div>
                                 </div>
                                 <div class="mb-3 challenge-end-date-group">
-                                    <label for="challenge-end-date" class="form-label">Challenge End Date</label>
+                                    <label for="challenge-end-date" class="form-label"><?php echo esc_html__( 'Challenge End Date', 'prayer-global-porch' ) ?></label>
                                     <div class="d-flex">
-                                        <input class="form-control" type="date" id="challenge-end-date" placeholder="End Date">
-                                        <input class="form-control" type="time" id="challenge-end-time" placeholder="End Time">
+                                        <input class="form-control" type="date" id="challenge-end-date" placeholder="<?php esc_attr( __( 'End Date', 'prayer-global-porch' ) ) ?>">
+                                        <input class="form-control" type="time" id="challenge-end-time" placeholder="<?php esc_attr( __( 'End Time', 'prayer-global-porch' ) ) ?>">
                                     </div>
                                     <div class="text-danger form-text" id="challenge-help-text"></div>
                                 </div>
                                 <div class="challenge-single-lap-group">
-                                    <label for="challenge-single-lap" class="form-check-label">Single Lap</label>
+                                    <label for="challenge-single-lap" class="form-check-label"><?php echo esc_html__( 'Single Lap', 'prayer-global-porch' ) ?></label>
                                     <input type="checkbox" value="" class="form-check-input" id="challenge-single-lap">
                                 </div>
                             </div>
                             <div class="modal-footer">
                                 <span class="loading-spinner challenge-loading"></span>
-                                <button class="btn btn-small btn-outline-primary cancel-new-challenge-button" data-bs-dismiss="modal" type="button">Cancel</button>
-                                <button class="btn btn-small btn-primary create-new-challenge-button">Create</button>
-                                <button class="btn btn-small btn-primary edit-challenge-button">Edit</button>
+                                <button class="btn btn-small btn-outline-primary cancel-new-challenge-button" data-bs-dismiss="modal" type="button"><?php echo esc_html__( 'Cancel', 'prayer-global-porch' ) ?></button>
+                                <button class="btn btn-small btn-primary create-new-challenge-button"><?php echo esc_html__( 'Create', 'prayer-global-porch' ) ?></button>
+                                <button class="btn btn-small btn-primary edit-challenge-button"><?php echo esc_html__( 'Edit', 'prayer-global-porch' ) ?></button>
                             </div>
                         </form>
                     </div>
@@ -228,19 +249,12 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title fs-5" id="userDataReportModalLabel">Data Report</h5>
+                        <h5 class="modal-title fs-5" id="userDataReportModalLabel"><?php echo esc_html__( 'Data Report', 'prayer-global-porch' ) ?></h5>
                             <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
                                 <i class="icon pg-close two-em"></i>
                             </button>
                         </div>
                         <div class="modal-body">
-                            Data Reporty stuff
-                            <br>
-                            The contents of their user/contact record?
-                            <br>
-                            Linked groups?
-                            <br>
-                            Prayer data?
                         </div>
                     </div>
                 </div>
@@ -250,29 +264,29 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title fs-5" id="eraseUserModalLabel">Erase Account</h5>
-                            <button class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
+                            <h5 class="modal-title fs-5" id="eraseUserModalLabel"><?php echo esc_html__( 'Erase Account', 'prayer-global-porch' ) ?></h5>
+                            <button class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php esc_attr__( 'Close', 'prayer-global-porch' ) ?>">
                                 <i class="icon pg-close two-em"></i>
                             </button>
                         </div>
                         <div class="modal-body">
                             <p>
-                                This will delete your account from Prayer.Global.
+                                <?php echo esc_html( __( 'This will delete your account from Prayer.Global.', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                You will lose all progress and data assosciated with your account
+                                <?php echo esc_html( __( 'You will lose all progress and data assosciated with your account', 'prayer-global-porch' ) ) ?>
                             </p>
                             <p>
-                                If you are sure you want to proceed please type "delete" into the box below and click "I am sure" button
+                                <?php echo esc_html( __( 'If you are sure you want to proceed please type "delete" into the box below and click "I am sure" button', 'prayer-global-porch' ) ) ?>
                             </p>
                             <div class="mb-3">
-                                <label for="delete-confirmation" class="form-label">Confirm delete</label>
-                                <input type="text" class="form-control text-danger" id="delete-confirmation" placeholder="delete">
+                                <label for="delete-confirmation" class="form-label"><?php echo esc_html__( 'Confirm delete', 'prayer-global-porch' ) ?></label>
+                                <input type="text" class="form-control text-danger" id="delete-confirmation" placeholder="<?php esc_attr( __( 'Delete', 'prayer-global-porch' ) ) ?>">
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button class="btn btn-primary" data-bs-dismiss="modal" type="button">Cancel</button>
-                            <button class="btn btn-danger" id="confirm-user-account-delete" disabled>I am sure</button>
+                            <button class="btn btn-primary" data-bs-dismiss="modal" type="button"><?php echo esc_html__( 'Cancel', 'prayer-global-porch' ) ?></button>
+                            <button class="btn btn-danger" id="confirm-user-account-delete" disabled><?php echo esc_html__( 'I am sure', 'prayer-global-porch' ) ?></button>
                         </div>
                     </div>
                 </div>

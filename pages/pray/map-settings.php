@@ -7,7 +7,7 @@
         </button>
         <div class="dropdown-menu center p-2">
             <div class="d-flex align-items-center justify-content-between mb-2">
-                <strong>Participants</strong>
+                <strong><?php echo esc_html__( 'Participants', 'prayer-global-porch' ) ?></strong>
                 <button class="map-toggle mx-0 ms-2" data-source-id="participants" id="toggle_participants">
 
                     <?php if ( $is_dark_map_on ) : ?>
@@ -23,7 +23,7 @@
                 </button>
             </div>
             <div class="d-flex align-items-center justify-content-between mb-2">
-                <strong>Cluster&nbsp;Participants</strong>
+                <strong><?php echo esc_html__( 'Cluster&nbsp;Participants', 'prayer-global-porch' ) ?></strong>
                 <button
                     class="map-toggle mx-0 ms-2 d-flex align-items-center justify-content-center"
                     id="cluster_participants"
@@ -42,7 +42,7 @@
                 </button>
             </div>
             <div class="d-flex align-items-center justify-content-between">
-                <strong>Your&nbsp;Recent&nbsp;Prayers</strong>
+                <strong><?php echo esc_html__( 'Your&nbsp;Recent&nbsp;Prayers', 'prayer-global-porch' ) ?></strong>
                 <button class="map-toggle mx-0 ms-2" data-layer-id="user_locations" id="toggle_user_locations">
 
                     <?php if ( $is_dark_map_on ) : ?>
@@ -57,19 +57,6 @@
 
                 </button>
             </div>
-
-            <?php $is_dark_map_on = ( new PG_Feature_Flag( PG_Flags::DARK_MAP_FEATURE ) )->is_on(); ?>
-            <?php if ( $is_dark_map_on ) : ?>
-
-                <input type="text" class="no-map-colour mt-5" placeholder="Red style">
-                <input type="text" class="yes-map-colour" placeholder="Green style">
-                <input type="text" class="line-colour" placeholder="Line colour">
-                <input type="text" class="fill-opacity" placeholder="Fill opacity e.g. 0.8">
-                <button class="apply-new-map-styles btn btn-dark">
-                    Apply Styles
-                </button>
-
-            <?php endif; ?>
 
        </div>
 

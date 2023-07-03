@@ -73,7 +73,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
             <div class="container pb-4">
                 <div class="row">
                     <div class="col-md text-center">
-                        <span class="two-em lap-title"><?php echo esc_html( $lap_stats['title'] ) ?> Relay Tools</span>
+                        <span class="two-em lap-title"><?php echo esc_html( sprintf( __( '%s Relay Tools', 'prayer-global-porch' ), $lap_stats['title'] ) ) ?></span>
                     </div>
                 </div>
             </div>
@@ -86,7 +86,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                 </div>
                 <div class="row ">
                     <div class="col center p-3">
-                        <h2><?php echo esc_html( $lap_stats['title'] ) ?> Relay Map</h2>
+                        <h2><?php echo esc_html( sprintf( __( '%s Relay Map', 'prayer-global-porch' ), $lap_stats['title'] ) ) ?></h2>
                     </div>
                 </div>
                 <div class="row">
@@ -97,11 +97,11 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                 <div class="input-group">
                     <input type="text" class="form-control copy-input"
                            value="<?php echo esc_url( get_site_url() ) ?>/prayer_app/custom/<?php echo esc_html( $lap_stats['key'] ) ?>/map" placeholder="Some path" id="copy-input">
-                      <button class="btn btn-secondary copy-button input-group-btn" type="button" id="copy-button"
+                    <button class="btn btn-secondary copy-button input-group-btn" type="button" id="copy-button"
                               data-bs-toggle="tooltip" data-placement="button"
-                              title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-input">
-                        Copy
-                      </button>
+                              title="<?php esc_attr( __( 'Copy to Clipboard', 'prayer-global-porch' ) ) ?>" data-clipboard-action="copy" data-clipboard-target="#copy-input">
+                        <?php echo esc_html( __( 'Copy', 'prayer-global-porch' ) ) ?>
+                    </button>
                 </div>
 
 
@@ -112,7 +112,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                 </div>
                 <div class="row ">
                     <div class="col center p-3">
-                        <h2>Display Map (60 Second Refresh)</h2>
+                        <h2><?php echo esc_html__( 'Display Map (60 Second Refresh)', 'prayer-global-porch' ) ?></h2>
                     </div>
                 </div>
                 <div class="input-group">
@@ -120,8 +120,8 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                            value="<?php echo esc_url( get_site_url() ) ?>/prayer_app/custom/<?php echo esc_html( $lap_stats['key'] ) ?>/display" placeholder="Some path" id="copy-display-input">
                       <button class="btn btn-secondary copy-button input-group-btn" type="button" id="copy-button-display"
                               data-bs-toggle="tooltip" data-placement="button"
-                              title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-display-input">
-                        Copy
+                              title="<?php esc_attr( __( 'Copy to Clipboard', 'prayer-global-porch' ) ) ?>" data-clipboard-action="copy" data-clipboard-target="#copy-display-input">
+                        <?php echo esc_html( __( 'Copy', 'prayer-global-porch' ) ) ?>
                       </button>
                 </div>
 
@@ -133,7 +133,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                 </div>
                 <div class="row ">
                     <div class="col center p-3">
-                        <h2>App Stores: Prayer.Global App</h2>
+                        <h2><?php echo esc_html( sprintf( __( 'App Stores: %s App', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?></h2>
                     </div>
                 </div>
                 <div class="row">
@@ -144,8 +144,8 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                                    value="<?php echo esc_url( get_site_url() ) ?>/qr/app" placeholder="Some path" id="copy-input-qrapp">
                           <button class="btn btn-secondary copy-button input-group-btn" type="button" id="copy-button-qrapp"
                                   data-bs-toggle="tooltip" data-placement="button"
-                                  title="Copy to Clipboard" data-clipboard-action="copy" data-clipboard-target="#copy-input-qrapp">
-                            Copy
+                                  title="<?php esc_attr( __( 'Copy to Clipboard', 'prayer-global-porch' ) ) ?>" data-clipboard-action="copy" data-clipboard-target="#copy-input-qrapp">
+                            <?php echo esc_html( __( 'Copy', 'prayer-global-porch' ) ) ?>
                           </button>
                         </div>
                     </div>

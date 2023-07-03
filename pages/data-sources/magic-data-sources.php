@@ -84,7 +84,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-4">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 font-weight-normal">Data Sources</h2>
+                        <h2 class="mt-0 font-weight-normal"><?php echo esc_html( __( 'Data Sources', 'prayer-global-porch' ) ) ?></h2>
                     </div>
                 </div>
                 <div class="row g-0">
@@ -92,110 +92,96 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                     <!-- Item -->
                     <div class="col-12 center">
                         <p>
-                            We acknowledge that there is no way to possess 100% accurate knowledge of the faith status or location status of
-                            every person in the world.
+                            <?php echo esc_html( __( "We acknowledge that there is no way to possess 100% accurate knowledge of the faith status or location status of every person in the world.", 'prayer-global-porch' ) ) ?>
                         </p>
                         <p>
-                            No government has this exact number, no business, ... nobody but God has the facts of a person's true faith or whereabouts. Therefore, every demographic fact
-                            is a mathematical deduction or extrapolation. (Sorry friends who like exact numbers.)
+                            <?php echo esc_html( __( "No government has this exact number, no business, ... nobody but God has the facts of a person's true faith or whereabouts. Therefore, every demographic fact is a mathematical deduction or extrapolation. (Sorry friends who like exact numbers.)", 'prayer-global-porch' ) ) ?>
                         </p>
                         <p>
-                            But leveraging the best data sources we can access, we have created a prayer tool to offer
-                            informative prayer guidance featuring a unique, close-up location breakdown of the world.
+                            <?php echo esc_html( __( "But leveraging the best data sources we can access, we have created a prayer tool to offer informative prayer guidance featuring a unique, close-up location breakdown of the world.", 'prayer-global-porch' ) ) ?>
                         </p>
                     </div>
 
                     <div class="center" style="padding:1em;border:2px solid gray;">
-                        <h4>Recommended Resource: <a href="https://locationgrid.app">Location Grid Project</a></h4>
+                        <h4><?php echo esc_html__( 'Recommended Resource:', 'prayer-global-porch' ) ?> <a href="https://locationgrid.app">Location Grid Project</a></h4>
                         <p>
-                            Prayer.Global is build on Disciple.Tools open source software, and Disciple.Tools mapping and
-                            geolocation system is an open source project called Location Grid Project. The Location Grid Project
-                            is a geographic framework of world locations and polygons for disciple making movement saturation efforts.
+                            <?php echo esc_html( sprintf( __( '%1$s is build on %2$s open source software, and %2$s mapping and geolocation system is an open source project called %3$s. The %3$s is a geographic framework of world locations and polygons for disciple making movement saturation efforts.', 'prayer-global-porch' ), 'Prayer.Global', 'Disciple.Tools', 'Location Grid Project' ) ) ?>
                         </p>
                     </div>
 
                     <div class="row justify-content-md-center text-center mb-5">
                         <div class="col-lg-7">
-                            <h2 class="mt-0 pt-5 font-weight-normal">Data and Methodology</h2>
+                            <h2 class="mt-0 pt-5 font-weight-normal"><?php echo esc_html__( 'Data and Methodology', 'prayer-global-porch' ) ?></h2>
                         </div>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">Population Data</h3>
-                        <p>The population data was acquired and cross-checked through multiple sources; country level data
-                            is easy to find; most state level data is relatively easy to find; but county level data for non-western countries
-                            often required significant research to compile recent census data.
+                        <h3 class="secondary"><?php echo esc_html( __( 'Population Data', 'prayer-global-porch' ) ) ?></h3>
+                        <p>
+                            <?php echo esc_html( __( "The population data was acquired and cross-checked through multiple sources; country level data is easy to find; most state level data is relatively easy to find; but county level data for non-western countries often required significant research to compile recent census data.", 'prayer-global-porch' ) ) ?>
                         </p>
 
-                        <u>Country Level Population</u>
+                        <u><?php echo esc_html__( 'Country Level Population', 'prayer-global-porch' ) ?></u>
                         <ul>
-                            <li><a href="https://data.un.org/">UN Data</a> - United Nations is a recognized source of
-                                reliable population data and provided highest level country population.</li>
+                        <li><a href="https://data.un.org/"><?php echo esc_html__( 'UN Data', 'prayer-global-porch' ) ?></a> - <?php echo esc_html__( 'United Nations is a recognized source of reliable population data and provided highest level country population.', 'prayer-global-porch' ) ?></li>
                         </ul>
-                        <u>State Level Population</u><br>
+                        <u><?php echo esc_html__( 'State Level Population', 'prayer-global-porch' ) ?></u><br>
                         <ul>
-                            <li><a href="http://www.citypopulation.de/">City Population</a></li>
-                            <li><a href="https://worldpopulationreview.com/">World Population Review</a></li>
-                            <li>Various census reports published by governments.</li>
+                            <li><a href="http://www.citypopulation.de/"><?php echo esc_html__( 'City Population', 'prayer-global-porch' ) ?></a></li>
+                            <li><a href="https://worldpopulationreview.com/"><?php echo esc_html__( 'World Population Review', 'prayer-global-porch' ) ?></a></li>
+                            <li><?php echo esc_html__( 'Various census reports published by governments.', 'prayer-global-porch' ) ?></li>
                         </ul>
-                        <u>County Level Population</u><br>
-                        Many western countries have organized, open census websites and population for county (administrative level 2) locations
-                        are readily available. There are a number of governments that either deliberately do not easily publish their population data
-                        or are not organized to distribute it easily. These countries required significant research to get population data.
+                        <u><?php echo esc_html__( 'County Level Population', 'prayer-global-porch' ) ?></u><br>
+                        <?php echo esc_html__( 'Many western countries have organized, open census websites and population for county (administrative level 2) locations are readily available. There are a number of governments that either deliberately do not easily publish their population data or are not organized to distribute it easily. These countries required significant research to get population data.', 'prayer-global-porch' ) ?>
                         <ul>
-                            <li><a href="http://www.citypopulation.de/">City Population</a></li>
-                            <li><a href="https://geonames.org">GeoNames</a></li>
-                            <li>Various census reports published by governments</li>
-                            <li>Various population reports published by humanitarian agencies</li>
-                            <li>Wikipedia</li>
-                            <li>State websites</li>
+                            <li><a href="http://www.citypopulation.de/"><?php echo esc_html__( 'City Population', 'prayer-global-porch' ) ?></a></li>
+                            <li><a href="https://geonames.org"><?php echo esc_html__( 'GeoNames', 'prayer-global-porch' ) ?></a></li>
+                            <li><?php echo esc_html__( 'Various census reports published by governments', 'prayer-global-porch' ) ?></li>
+                            <li><?php echo esc_html__( 'Various population reports published by humanitarian agencies', 'prayer-global-porch' ) ?></li>
+                            <li><?php echo esc_html__( 'Wikipedia', 'prayer-global-porch' ) ?></li>
+                            <li><?php echo esc_html__( 'State websites', 'prayer-global-porch' ) ?></li>
                         </ul>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">Faith Status Data</h3>
+                        <h3 class="secondary"><?php echo esc_html__( 'Faith Status Data', 'prayer-global-porch' ) ?></h3>
                         <p>
-                            <u>Categories</u><br>
+                        <u><?php echo esc_html__( 'Categories', 'prayer-global-porch' ) ?></u><br>
                         </p>
                         <ul>
-                            <li>Non-Christian<br><i>Someone who is far from a true knowledge Jesus Christ and far from a commitment to Jesus Christ.</i></li>
-                            <li>Cultural Christian <br><i>(aka. Christian Adherent) Someone who has access to the knowledge of Jesus Christ through a cultural presence of the Church, but may or may not have been encouraged to seek Jesus in a personal, intimate way.</i></li>
-                            <li>Believer<br><i>(aka. Disciple, Christian) Someone who has accepted in faith the knowledge of Jesus Christ and who has surrendered their life to Jesus as a personal savior.</i></li>
+                            <li><?php echo esc_html( __( 'Non-Christian', 'prayer-global-porch' ) )?><br><i><?php echo esc_html( __( 'Someone who is far from a true knowledge Jesus Christ and far from a commitment to Jesus Christ.', 'prayer-global-porch' ) ) ?></i></li>
+                            <li><?php echo esc_html( __( 'Cultural Christian', 'prayer-global-porch' ) ) ?><br><i><?php echo esc_html( __( '(aka. Christian Adherent) Someone who has access to the knowledge of Jesus Christ through a cultural presence of the Church, but may or may not have been encouraged to seek Jesus in a personal, intimate way.', 'prayer-global-porch' ) ) ?></i></li>
+                            <li><?php echo esc_html( __( 'Believer', 'prayer-global-porch' ) ) ?><br><i><?php echo esc_html( __( '(aka. Disciple, Christian) Someone who has accepted in faith the knowledge of Jesus Christ and who has surrendered their life to Jesus as a personal savior.', 'prayer-global-porch' ) ) ?></i></li>
                         </ul>
                         <p>
-                            <u><strong>Source and Method of Calculation</strong></u><br>
+                            <u><strong><?php echo esc_html__( 'Source and Method of Calculation', 'prayer-global-porch' ) ?></strong></u><br>
                         </p>
                         <ul>
                             <li>
-                                <u>Source</u><br>
-                                <a href="https://joshuaproject.net/">Joshua Project</a> - Values for "Christian Adherent" and "Evangelical"
-                                (which determine unreached status) are often informed estimates, some more accurate than others at the country level.
+                                <u><?php echo esc_html__( 'Source', 'prayer-global-porch' ) ?></u><br>
+                                <a href="https://joshuaproject.net/"><?php echo esc_html__( 'Joshua Project', 'prayer-global-porch' ) ?></a> - <?php echo esc_html__( 'Values for "Christian Adherent" and "Evangelical" (which determine unreached status) are often informed estimates, some more accurate than others at the country level.', 'prayer-global-porch' ) ?>
                             </li>
                             <li>
-                                <u>Extrapolation</u><br>
-                                Prayer.Global has used the population data at the county and state levels from the Location Grid project and
-                                divided percentages by the location population to arrive at the faith status population estimates.
+                                <u><?php echo esc_html__( 'Extrapolation', 'prayer-global-porch' ) ?></u><br>
+                                <?php echo esc_html( sprintf( __( '%s has used the population data at the county and state levels from the Location Grid project and divided percentages by the location population to arrive at the faith status population estimates.', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?>
                             </li>
                             <li>
-                                <u>Acknowledged Weakness</u><br>
+                                <u><?php echo esc_html__( 'Acknowledged Weakness', 'prayer-global-porch' ) ?></u><br>
                                 <p>
-                                    At best, this methodology can offer a general, estimated target for the faith status of various locations. Actual faith status for each location
-                                    could vary enormously above or below our estimates.
+                                    <?php echo esc_html( __( "At best, this methodology can offer a general, estimated target for the faith status of various locations. Actual faith status for each location could vary enormously above or below our estimates.", 'prayer-global-porch' ) ) ?>
                                 </p>
                                 <p>
-                                    All calculations of faith status data anywhere suffer the same limitations ... no matter the source ... they are all generalizations.
+                                    <?php echo esc_html( __( "All calculations of faith status data anywhere suffer the same limitations ... no matter the source ... they are all generalizations.", 'prayer-global-porch' ) ) ?>
                                 </p>
                                 <p>
-                                    Our belief is that the estimated numbers for non-christian, cultural christian, and disciple help the person praying to better understand the challenge facing the church
-                                    in that location. It helps answer questions like: Is this a weak and small church surrounded by a dominant religion? Is this church holding out against an atheist culture?
-                                    Is this a church trying to be faithful while surrounded by a lukewarm historic cultural church?
+                                    <?php echo esc_html( __( "Our belief is that the estimated numbers for non-christian, cultural christian, and disciple help the person praying to better understand the challenge facing the church in that location. It helps answer questions like: Is this a weak and small church surrounded by a dominant religion? Is this church holding out against an atheist culture? Is this a church trying to be faithful while surrounded by a lukewarm historic cultural church?", 'prayer-global-porch' ) ) ?>
                                 </p>
                                 <p>
-                                    More than the exact number, it is the distribution of knowledge of Jesus that is informative to the praying person.
+                                    <?php echo esc_html( __( "More than the exact number, it is the distribution of knowledge of Jesus that is informative to the praying person.", 'prayer-global-porch' ) ) ?>
                                 </p>
                             </li>
                         </ul>
@@ -204,19 +190,19 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">People Group Data</h3>
+                        <h3 class="secondary"><?php echo esc_html__( 'People Group Data', 'prayer-global-porch' ) ?></h3>
                         <ul>
-                            <li><a href="https://joshuaproject.net/">Joshua Project</a> - </li>
-                            <li><a href="https://grd.imb.org/">International Mission Board - Global Research</a></li>
+                            <li><a href="https://joshuaproject.net/"><?php echo esc_html__( 'Joshua Project', 'prayer-global-porch' ) ?></a> - </li>
+                            <li><a href="https://grd.imb.org/"><?php echo esc_html__( 'International Mission Board - Global Research', 'prayer-global-porch' ) ?></a></li>
                         </ul>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">Language and Religion Data</h3>
+                        <h3 class="secondary"><?php echo esc_html__( 'Language and Religion Data', 'prayer-global-porch' ) ?></h3>
                         <ul>
-                            <li><a href="https://joshuaproject.net/resources/datasets">Joshua Project</a> - Two columns from Joshua Project resources were used to identify Primary Language and Primary Religion. These were identified at the country level, and future versions of Prayer Global intend to push deeper and more accurately into the spoken languages per location.</li>
+                            <li><a href="https://joshuaproject.net/resources/datasets"><?php echo esc_html__( 'Joshua Project', 'prayer-global-porch' ) ?></a> - <?php echo esc_html__( 'Two columns from Joshua Project resources were used to identify Primary Language and Primary Religion. These were identified at the country level, and future versions of Prayer Global intend to push deeper and more accurately into the spoken languages per location.', 'prayer-global-porch' ) ?></li>
                         </ul>
                     </div>
 
@@ -224,47 +210,48 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">Administrative Divisions and Polygon Resources</h3>
+                        <h3 class="secondary"><?php echo esc_html__( 'Administrative Divisions and Polygon Resources', 'prayer-global-porch' ) ?></h3>
                         <p>
-                            <u>Location Grid Project</u><br>
-                            The Location Grid Project is an open source project born out of the <a href="https://disciple.tools">Disciple Tools</a> open source project. It was built to support a standardized geolocation grid for disciple making movements activity.  (<a href="https://locationgrid.app">Location Grid Project Website</a>) (<a href="https://github.com/DiscipleTools/location-grid-project">Github Project</a>)
+                            <u><?php echo esc_html__( 'Location Grid Project', 'prayer-global-porch' ) ?></u><br>
+                        <p>
+                            <?php echo esc_html( sprintf( __( 'The Location Grid Project is an open source project born out of the %1$s open source project. It was built to support a standardized geolocation grid for disciple making movements activity.  (%2$s) (%3$s)', 'prayer-global-porch' ), "<a href='https://disciple.tools'>Disciple Tools</a>", "<a href='https://locationgrid.app'>Location Grid Project Website</a>", "<a href='https://github.com/DiscipleTools/location-grid-project'>Github Project</a>" ) ) ?>
                         </p>
                         <p>
-                            <u>Location Grid - Data Sources</u><br>
-                            The Location Grid database and polygon set are derived these data sources, although significant processing of original polygon files were implemented for lightweight web distribution:
+                            <u><?php echo esc_html__( 'Location Grid - Data Sources', 'prayer-global-porch' ) ?></u><br>
+                            <?php echo esc_html__( 'The Location Grid database and polygon set are derived these data sources, although significant processing of original polygon files were implemented for lightweight web distribution:', 'prayer-global-porch' ) ?>
                         </p>
                         <ul>
-                            <li><a href="https://gadm.org/">GADM</a> - GADM is an academic project that provides administrative polygon boundaries. These boundaries provided the seed for the grid system.</li>
-                            <li><a href="https://geonames.org">GeoNames</a> - GeoNames is an open source location database of over 11 million places. It has a redistributable polygon set and associated location name database that also served as a seed for the location grid system.</li>
-                            <li><a href="https://www.openstreetmap.org/">Open Street maps</a> - Open Street Maps is the best open alternative to closed mapping systems like Google Maps or Apple Maps. Intentional coordination and polygon preparation was designed for use with this tiling system.</li>
-                            <li><a href="https://www.mapbox.com/">Mapbox</a> - Mapbox is a service that uses Open Street Maps system but adds a developer friendly programming and hosting layer to mapping source.</li>
-                            <li><a href="https://locationgrid.app/">Location Grid - Database and Public Mirror</a> - An enormous amount of custom processing, configuration, and web hosting is provided as a result of the Location Grid Project.</li>
+                            <li><a href="https://gadm.org/">GADM</a> - <?php echo esc_html__( 'GADM is an academic project that provides administrative polygon boundaries. These boundaries provided the seed for the grid system.', 'prayer-global-porch' ) ?></li>
+                            <li><a href="https://geonames.org">GeoNames</a> - <?php echo esc_html__( 'GeoNames is an open source location database of over 11 million places. It has a redistributable polygon set and associated location name database that also served as a seed for the location grid system.', 'prayer-global-porch' ) ?></li>
+                            <li><a href="https://www.openstreetmap.org/"><?php echo esc_html__( 'Open Street maps', 'prayer-global-porch' ) ?></a> - <?php echo esc_html__( 'Open Street Maps is the best open alternative to closed mapping systems like Google Maps or Apple Maps. Intentional coordination and polygon preparation was designed for use with this tiling system.', 'prayer-global-porch' ) ?></li>
+                            <li><a href="https://www.mapbox.com/">Mapbox</a> - <?php echo esc_html__( 'Mapbox is a service that uses Open Street Maps system but adds a developer friendly programming and hosting layer to mapping source.', 'prayer-global-porch' ) ?></li>
+                            <li><a href="https://locationgrid.app/"><?php echo esc_html__( 'Location Grid - Database and Public Mirror', 'prayer-global-porch' ) ?></a> - <?php echo esc_html__( 'An enormous amount of custom processing, configuration, and web hosting is provided as a result of the Location Grid Project.', 'prayer-global-porch' ) ?></li>
                         </ul>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">City Data</h3>
+                        <h3 class="secondary"><?php echo esc_html__( 'City Data', 'prayer-global-porch' ) ?></h3>
                         <ul>
-                            <li><a href="https://geonames.org">GeoNames</a> - Geonames provided the original 200k city names, population, longitude, and latitude.</li>
-                            <li><a href="https://locationgrid.app">Location Grid - Geocoding</a> - Populated cities from geonames were coded against the Location Grid using the longitude, latitude. Then they were crafted into a new resource table.</li>
+                        <li><a href="https://geonames.org">GeoNames</a> - <?php echo esc_html__( 'Geonames provided the original 200k city names, population, longitude, and latitude.', 'prayer-global-porch' ) ?></li>
+                        <li><a href="https://locationgrid.app"><?php echo esc_html__( 'Location Grid - Geocoding', 'prayer-global-porch' ) ?></a> - <?php echo esc_html__( 'Populated cities from geonames were coded against the Location Grid using the longitude, latitude. Then they were crafted into a new resource table.', 'prayer-global-porch' ) ?></li>
                         </ul>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">Bible Citations</h3>
+                        <h3 class="secondary"><?php echo esc_html__( 'Bible Citations', 'prayer-global-porch' ) ?></h3>
                         <ul>
-                            <li>English - The <a href="https://www.zondervan.com/about-us/permissions/">NIV</a> is the primary translation used in the prayers. ESV used occasionally.</li>
+                            <li><?php echo esc_html( sprintf( __( 'English - The %s is the primary translation used in the prayers. ESV used occasionally.', 'prayer-global-porch' ), '<a href="https://www.zondervan.com/about-us/permissions/">NIV</a>' ) ) ?></li>
                         </ul>
                     </div>
 
                     <hr>
                     <div class="row justify-content-md-center text-center mb-5">
                         <div class="col-lg-7">
-                            <h2 class="mt-0 pt-5 font-weight-normal">Statistical Resources</h2>
+                            <h2 class="mt-0 pt-5 font-weight-normal"><?php echo esc_html__( 'Statistical Resources', 'prayer-global-porch' ) ?></h2>
                         </div>
                     </div>
 
@@ -272,7 +259,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                     <div class="col-12">
                         <hr>
                         <div style="padding-left:1em;">
-                            <u>National Statistical Offices</u>
+                            <u><?php echo esc_html__( 'National Statistical Offices', 'prayer-global-porch' ) ?></u>
                             <table class="overview">
                                 <tbody><tr data-value="('ref1')"><td class="short">ABW</td><td><a id="ref1" target="_blank" href="http://cbs.aw">Central Bureau of Statistics Aruba</a></td></tr>
                                 <tr data-value="('ref2')"><td class="short">AFG</td><td><a id="ref2" target="_blank" href="http://www.cso.gov.af/">Central Statistics Office, Afghanistan</a></td></tr>
@@ -521,18 +508,18 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                                 </tbody></table>
                         </div>
                         <div style="padding-left:1em;">
-                            <u>International Web Resources</u>
+                            <u><?php echo esc_html__( 'International Web Resources', 'prayer-global-porch' ) ?></u>
                             <table class="overview">
-                                <tr data-value="('ref245')"><td class="short"><a id="ref245" target="_blank" href="https://www.cia.gov/library/publications/the-world-factbook/">CIA World Fact Book</a></td><td>Country profiles and small static maps.</td></tr>
-                                <tr data-value="('ref246')"><td class="short"><a id="ref246" target="_blank" href="https://data.humdata.org/">Humanitarian Data Exchange</a></td><td>For almost all countries of the world statistical and geospatial data.</td></tr>
-                                <tr data-value="('ref247')"><td class="short"><a id="ref247" target="_blank" href="http://www.openstreetmap.org/">OpenStreetMap</a></td><td>Project that creates and provides free geographic data especially about streets and other points of interest; contains partly also administrative boundaries.</td></tr>
-                                <tr data-value="('ref248')"><td class="short"><a id="ref248" target="_blank" href="http://pop-stat.mashke.org/">Population Statistics of Eastern Europe (pop-stat.mashke.org)</a></td><td>Detailed population statistics for Eastern and Middle Europe.</td></tr>
-                                <tr data-value="('ref249')"><td class="short"><a id="ref249" target="_blank" href="https://sdd.spc.int/">SPC Statistics for Development Division (PRISM)</a></td><td>Statistics of the pacific island countries and territories by the Secretariat of the Pacific Community.</td></tr>
-                                <tr data-value="('ref250')"><td class="short"><a id="ref250" target="_blank" href="http://www.statoids.com/">Statoids</a></td><td>Information about the administrative divisions of countries (update stopped in 2018).</td></tr>
-                                <tr data-value="('ref251')"><td class="short"><a id="ref251" target="_blank" href="https://unstats.un.org/unsd/demographic/products/dyb/dyb2.htm">UN Statistics Division: Demographic Yearbook</a></td><td>Population of countries, capital cities and cities of 100,000 and more inhabitants</td></tr>
-                                <tr data-value="('ref252')"><td class="short"><a id="ref252" target="_blank" href="https://unstats.un.org/unsd/demographic/sources/census/censusdates.htm">UN Statistics Division: Census Dates</a></td><td>Overview over census dates and some links.</td></tr>
-                                <tr data-value="('ref253')"><td class="short"><a id="ref253" target="_blank" href="https://www.wikidata.org">Wikidata</a></td><td>Wikidata is a free and open knowledge base representing a subset of Wikipedia data in a structured way.</td></tr>
-                                <tr data-value="('ref254')"><td class="short"><a id="ref254" target="_blank" href="https://en.wikipedia.org">Wikipedia, the free encyclodia</a></td><td>The free encyclopedia provides many facts about countries and cities, however, of varying quality.</td></tr>
+                                <tr data-value="('ref245')"><td class="short"><a id="ref245" target="_blank" href="https://www.cia.gov/library/publications/the-world-factbook/"><?php echo esc_html__( 'CIA World Fact Book', 'prayer-global-porch' ) ?></a></td><td><?php echo esc_html__( 'Country profiles and small static maps.', 'prayer-global-porch' ) ?></td></tr>
+                                <tr data-value="('ref246')"><td class="short"><a id="ref246" target="_blank" href="https://data.humdata.org/"><?php echo esc_html__( 'Humanitarian Data Exchange', 'prayer-global-porch' ) ?></a></td><td><?php echo esc_html__( 'For almost all countries of the world statistical and geospatial data.', 'prayer-global-porch' ) ?></td></tr>
+                                <tr data-value="('ref247')"><td class="short"><a id="ref247" target="_blank" href="http://www.openstreetmap.org/">OpenStreetMap</a></td><td><?php echo esc_html__( 'Project that creates and provides free geographic data especially about streets and other points of interest; contains partly also administrative boundaries.', 'prayer-global-porch' ) ?></td></tr>
+                                <tr data-value="('ref248')"><td class="short"><a id="ref248" target="_blank" href="http://pop-stat.mashke.org/"><?php echo esc_html__( 'Population Statistics of Eastern Europe (pop-stat.mashke.org)', 'prayer-global-porch' ) ?></a></td><td><?php echo esc_html__( 'Detailed population statistics for Eastern and Middle Europe.', 'prayer-global-porch' ) ?></td></tr>
+                                <tr data-value="('ref249')"><td class="short"><a id="ref249" target="_blank" href="https://sdd.spc.int/"><?php echo esc_html__( 'SPC Statistics for Development Division (PRISM)', 'prayer-global-porch' ) ?></a></td><td><?php echo esc_html__( 'Statistics of the pacific island countries and territories by the Secretariat of the Pacific Community.', 'prayer-global-porch' ) ?></td></tr>
+                                <tr data-value="('ref250')"><td class="short"><a id="ref250" target="_blank" href="http://www.statoids.com/">Statoids</a></td><td><?php echo esc_html__( 'Information about the administrative divisions of countries (update stopped in 2018).', 'prayer-global-porch' ) ?></td></tr>
+                                <tr data-value="('ref251')"><td class="short"><a id="ref251" target="_blank" href="https://unstats.un.org/unsd/demographic/products/dyb/dyb2.htm"><?php echo esc_html__( 'UN Statistics Division: Demographic Yearbook', 'prayer-global-porch' ) ?></a></td><td><?php echo esc_html__( 'Population of countries, capital cities and cities of 100,000 and more inhabitants', 'prayer-global-porch' ) ?></td></tr>
+                                <tr data-value="('ref252')"><td class="short"><a id="ref252" target="_blank" href="https://unstats.un.org/unsd/demographic/sources/census/censusdates.htm"><?php echo esc_html__( 'UN Statistics Division: Census Dates', 'prayer-global-porch' ) ?></a></td><td><?php echo esc_html__( 'Overview over census dates and some links.', 'prayer-global-porch' ) ?></td></tr>
+                                <tr data-value="('ref253')"><td class="short"><a id="ref253" target="_blank" href="https://www.wikidata.org">Wikidata</a></td><td><?php echo esc_html__( 'Wikidata is a free and open knowledge base representing a subset of Wikipedia data in a structured way.', 'prayer-global-porch' ) ?></td></tr>
+                                <tr data-value="('ref254')"><td class="short"><a id="ref254" target="_blank" href="https://en.wikipedia.org"><?php echo esc_html__( 'Wikipedia, the free encyclodia', 'prayer-global-porch' ) ?></a></td><td><?php echo esc_html__( 'The free encyclopedia provides many facts about countries and cities, however, of varying quality.', 'prayer-global-porch' ) ?></td></tr>
                             </table>
                         </div>
 

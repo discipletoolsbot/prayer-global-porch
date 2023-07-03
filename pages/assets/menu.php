@@ -43,13 +43,13 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
                 <a class="nav-link" href="<?php echo ( $url !== '' ) ? esc_url( trailingslashit( site_url() ) ) : '' ?>#section-lap">
                     <div class="nav-link__inner">
                         <i class="icon pg-status"></i>
-                        <span>Status</span>
+                        <span><?php echo esc_html( __( 'Status', 'prayer-global-porch' ) ) ?></span>
                     </div>
                 </a>
                 <a class="nav-link" href="<?php echo esc_url( $map_href ) ?>">
                     <div class="nav-link__inner">
                         <i class="icon pg-world-light"></i>
-                        <span>Map</span>
+                        <span><?php echo esc_html( __( 'Map', 'prayer-global-porch' ) ) ?></span>
                     </div>
                 </a>
 
@@ -58,7 +58,7 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
                     <a class="nav-link" href="/challenges/active/">
                         <div class="nav-link__inner">
                             <i class="icon pg-relay"></i>
-                            <span>Prayer Relays</span>
+                            <span><?php echo esc_html( __( 'Prayer Relays', 'prayer-global-porch' ) ) ?></span>
                         </div>
                     </a>
 
@@ -67,18 +67,18 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
                 <a class="nav-link" href="/content_app/give_page">
                     <div class="nav-link__inner">
                         <i class="icon pg-give"></i>
-                        <span>Give</span>
+                        <span><?php echo esc_html( __( 'Give', 'prayer-global-porch' ) ) ?></span>
                     </div>
                 </a>
 
                 <a class="nav-link" href="/content_app/about_page">
                     <div class="nav-link__inner">
                         <i class="icon pg-question-dark"></i>
-                        <span>About</span>
+                        <span><?php echo esc_html( __( 'About', 'prayer-global-porch' ) ) ?></span>
                     </div>
                 </a>
 
-                <div class="mt-2"><a class="btn btn-cta mx-2 two-rem" href="/newest/lap/">Start Praying</a></div>
+                <div class="mt-2"><a class="btn btn-cta mx-2 two-rem" href="/newest/lap/"><?php echo esc_html( __( 'Start Praying', 'prayer-global-porch' ) ) ?></a></div>
 
             </div>
         </div>

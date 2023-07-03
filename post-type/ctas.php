@@ -379,7 +379,7 @@ class Prayer_Global_CTA_Post_Type {
         if ( !isset( $expected_roles["multiplier"] ) ){
             $expected_roles["multiplier"] = [
 
-                "label" => __( 'Multiplier', 'prayer-global' ),
+                "label" => __( 'Multiplier', 'prayer-global-porch' ),
                 "description" => "Interacts with Contacts and Groups",
                 "permissions" => []
             ];

@@ -74,7 +74,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
         if ( !isset( $expected_roles["multiplier"] ) ){
             $expected_roles["multiplier"] = [
 
-                "label" => __( 'Multiplier', 'prayer-global' ),
+                "label" => __( 'Multiplier', 'prayer-global-porch' ),
                 "description" => "Interacts with Contacts and Groups",
                 "permissions" => []
             ];
@@ -83,7 +83,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
         if ( !isset( $expected_roles["prayer_warrior"] ) ){
             $expected_roles["prayer_warrior"] = [
 
-                "label" => __( 'Prayer Intercessor', 'prayer-global' ),
+                "label" => __( 'Prayer Intercessor', 'prayer-global-porch' ),
                 "description" => "Interacts with Laps and Feedback",
                 "permissions" => []
             ];
@@ -116,17 +116,17 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
 
 
             $fields['type'] = [
-                'name'        => __( 'Type', 'prayer-global' ),
-                'description' => __( 'Type of Lap', 'prayer-global' ),
+                'name'        => __( 'Type', 'prayer-global-porch' ),
+                'description' => __( 'Type of Lap', 'prayer-global-porch' ),
                 'type'        => 'key_select',
                 'default'     => [
                     'custom' => [
-                        'label' => __( 'Custom', 'prayer-global' ),
-                        'description' => __( 'Custom laps', 'prayer-global' ),
+                        'label' => __( 'Custom', 'prayer-global-porch' ),
+                        'description' => __( 'Custom laps', 'prayer-global-porch' ),
                     ],
                     'global'   => [
-                        'label' => __( 'Global (Auto)', 'prayer-global' ),
-                        'description' => __( 'Do not manually create! System creates new laps when ready.', 'prayer-global' ),
+                        'label' => __( 'Global (Auto)', 'prayer-global-porch' ),
+                        'description' => __( 'Do not manually create! System creates new laps when ready.', 'prayer-global-porch' ),
                     ]
                 ],
                 'tile'     => 'status',
@@ -135,23 +135,23 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 "show_in_table" => 1,
             ];
             $fields['status'] = [
-                'name'        => __( 'Status', 'prayer-global' ),
-                'description' => __( 'Set the current status.', 'prayer-global' ),
+                'name'        => __( 'Status', 'prayer-global-porch' ),
+                'description' => __( 'Set the current status.', 'prayer-global-porch' ),
                 'type'        => 'key_select',
                 'default'     => [
                     'active'   => [
-                        'label' => __( 'Active', 'prayer-global' ),
-                        'description' => __( 'Is active.', 'prayer-global' ),
+                        'label' => __( 'Active', 'prayer-global-porch' ),
+                        'description' => __( 'Is active.', 'prayer-global-porch' ),
                         'color' => "#FFA500"
                     ],
                     'complete' => [
-                        'label' => __( 'Complete', 'prayer-global' ),
-                        'description' => __( 'No longer active.', 'prayer-global' ),
+                        'label' => __( 'Complete', 'prayer-global-porch' ),
+                        'description' => __( 'No longer active.', 'prayer-global-porch' ),
                         'color' => "#4CAF50"
                     ],
                     'inactive' => [
-                        'label' => __( 'Inactive', 'prayer-global' ),
-                        'description' => __( 'No longer active.', 'prayer-global' ),
+                        'label' => __( 'Inactive', 'prayer-global-porch' ),
+                        'description' => __( 'No longer active.', 'prayer-global-porch' ),
                         'color' => "#F43636"
                     ],
                 ],
@@ -162,8 +162,8 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 "in_create_form" => true,
             ];
             $fields['assigned_to'] = [
-                'name'        => __( 'Assigned To', 'prayer-global' ),
-                'description' => __( "Select the main person who is responsible for reporting on this record.", 'prayer-global' ),
+                'name'        => __( 'Assigned To', 'prayer-global-porch' ),
+                'description' => __( "Select the main person who is responsible for reporting on this record.", 'prayer-global-porch' ),
                 'type'        => 'user_select',
                 'default'     => '',
                 'tile' => 'status',
@@ -177,7 +177,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
              * Common and recommended fields
              */
             $fields['start_date'] = [
-                'name'        => __( 'Start Date', 'prayer-global' ),
+                'name'        => __( 'Start Date', 'prayer-global-porch' ),
                 'description' => '',
                 'type'        => 'date',
                 'default'     => time(),
@@ -185,7 +185,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 'icon' => get_template_directory_uri() . '/dt-assets/images/date-start.svg',
             ];
             $fields['end_date'] = [
-                'name'        => __( 'End Date', 'prayer-global' ),
+                'name'        => __( 'End Date', 'prayer-global-porch' ),
                 'description' => '',
                 'type'        => 'date',
                 'default'     => '',
@@ -193,7 +193,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 'icon' => get_template_directory_uri() . '/dt-assets/images/date-end.svg',
             ];
             $fields['start_time'] = [
-                'name'        => __( 'Start time', 'prayer-global' ),
+                'name'        => __( 'Start time', 'prayer-global-porch' ),
                 'description' => '',
                 'type'        => 'number',
                 'default'     => '',
@@ -201,7 +201,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 "hidden" => false,
             ];
             $fields['end_time'] = [
-                'name'        => __( 'End Time', 'prayer-global' ),
+                'name'        => __( 'End Time', 'prayer-global-porch' ),
                 'description' => '',
                 'type'        => 'number',
                 'default'     => '',
@@ -210,7 +210,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
             ];
 
             $fields['global_lap_number'] = [
-                'name'        => __( 'Global Lap Number', 'prayer-global' ),
+                'name'        => __( 'Global Lap Number', 'prayer-global-porch' ),
                 'description' => '',
                 'type'        => 'text',
                 'default'     => '1',
@@ -218,56 +218,56 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 "hidden" => false,
             ];
             $fields['prayer_app_global_magic_key'] = [
-                'name'        => __( 'Global Key', 'prayer-global' ),
+                'name'        => __( 'Global Key', 'prayer-global-porch' ),
                 'description' => '',
                 'type'        => 'text',
                 'default'     => substr( md5( rand( 10000, 100000 ) ), 0, 3 ) . substr( md5( rand( 10000, 100000 ) ), 0, 3 ),
                 'tile' => 'details',
             ];
             $fields['prayer_app_custom_magic_key'] = [
-                'name'        => __( 'Custom Key', 'prayer-global' ),
+                'name'        => __( 'Custom Key', 'prayer-global-porch' ),
                 'description' => '',
                 'type'        => 'text',
                 'default'     => substr( md5( rand( 10000, 100000 ) ), 0, 3 ) . substr( md5( rand( 10000, 100000 ) ), 0, 3 ),
                 'tile' => 'details',
             ];
             $fields['visibility'] = [
-                'name' => __( "Status", 'prayer-global' ),
+                'name' => __( "Status", 'prayer-global-porch' ),
                 'type' => 'key_select',
                 'tile' => 'details',
                 'default' => [
                     'public'   => [
-                        'label' => __( 'Public', 'prayer-global' ),
-                        'description' => __( "This lap is public and will show up on the public list of challenges", 'prayer-global' ),
+                        'label' => __( 'Public', 'prayer-global-porch' ),
+                        'description' => __( "This lap is public and will show up on the public list of challenges", 'prayer-global-porch' ),
                     ],
                     'private'   => [
-                        'label' => __( 'Private', 'prayer-global' ),
-                        'description' => __( "This lap is private and won't show up on the public list of challenges", 'prayer-global' ),
+                        'label' => __( 'Private', 'prayer-global-porch' ),
+                        'description' => __( "This lap is private and won't show up on the public list of challenges", 'prayer-global-porch' ),
                     ],
                 ],
                 'select_cannot_be_empty' => true,
                 'font-icon' => 'mdi mdi-lock-plus-outline',
             ];
             $fields['challenge_type'] = [
-                'name' => __( "Challenge Type", 'prayer-global' ),
+                'name' => __( "Challenge Type", 'prayer-global-porch' ),
                 'type' => 'key_select',
                 'tile' => 'details',
                 'default' => [
                     'ongoing_challenge'   => [
-                        'label' => __( 'Ongoing Challenge', 'prayer-global' ),
-                        'description' => __( "This challenge has no end date/time", 'prayer-global' ),
+                        'label' => __( 'Ongoing Challenge', 'prayer-global-porch' ),
+                        'description' => __( "This challenge has no end date/time", 'prayer-global-porch' ),
                     ],
                     'timed_challenge'   => [
-                        'label' => __( 'Timed Challenge', 'prayer-global' ),
-                        'description' => __( "This challenge is a race to pray for the world by a certain time", 'prayer-global' ),
+                        'label' => __( 'Timed Challenge', 'prayer-global-porch' ),
+                        'description' => __( "This challenge is a race to pray for the world by a certain time", 'prayer-global-porch' ),
                     ],
                 ],
                 'select_cannot_be_empty' => true,
                 'font-icon' => 'mdi mdi-arm-flex-outline',
             ];
             $fields['single_lap'] = [
-                'name' => __( 'Single lap', 'prayer-global' ),
-                'description' => __( 'Is this lap only to run once and then stop', 'prayer-global' ),
+                'name' => __( 'Single lap', 'prayer-global-porch' ),
+                'description' => __( 'Is this lap only to run once and then stop', 'prayer-global-porch' ),
                 'type' => 'boolean',
                 'tile' => 'details',
                 'default' => false,
@@ -276,7 +276,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
             ];
 
             $fields['contacts'] = [
-                "name" => __( 'Contacts', 'prayer-global' ),
+                "name" => __( 'Contacts', 'prayer-global-porch' ),
                 "description" => '',
                 "type" => "connection",
                 "post_type" => "contacts",
@@ -288,7 +288,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 "show_in_table" => 35
             ];
             $fields['parent_lap'] = [
-                "name" => __( 'Parent Lap', 'prayer-global' ),
+                "name" => __( 'Parent Lap', 'prayer-global-porch' ),
                 "description" => 'Which lap came before this one',
                 "type" => "connection",
                 "post_type" => $this->post_type,
@@ -299,7 +299,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 'create-icon' => get_template_directory_uri() . "/dt-assets/images/add-contact.svg",
             ];
             $fields['child_lap'] = [
-                "name" => __( 'Child Lap', 'prayer-global' ),
+                "name" => __( 'Child Lap', 'prayer-global-porch' ),
                 "description" => 'Which lap came after this one',
                 "type" => "connection",
                 "post_type" => $this->post_type,
@@ -331,7 +331,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
 
     public function dt_details_additional_tiles( $tiles, $post_type = "" ){
         if ( $post_type === $this->post_type ){
-            $tiles["other"] = [ "label" => __( "Other", 'prayer-global' ) ];
+            $tiles["other"] = [ "label" => __( "Other", 'prayer-global-porch' ) ];
         }
         return $tiles;
     }
@@ -540,7 +540,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
 
             $filters["tabs"][] = [
                 "key" => "assigned_to_me",
-                "label" => __( "Assigned to me", 'prayer-global' ),
+                "label" => __( "Assigned to me", 'prayer-global-porch' ),
                 "count" => $total_my,
                 "order" => 20
             ];
@@ -548,7 +548,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
             $filters["filters"][] = [
                 'ID' => 'my_all',
                 'tab' => 'assigned_to_me',
-                'name' => __( "All", 'prayer-global' ),
+                'name' => __( "All", 'prayer-global-porch' ),
                 'query' => [
                     'assigned_to' => [ 'me' ],
                     'sort' => 'status'
@@ -605,7 +605,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 }
                 $filters["tabs"][] = [
                     "key" => "all",
-                    "label" => __( "All", 'prayer-global' ),
+                    "label" => __( "All", 'prayer-global-porch' ),
                     "count" => $total_all,
                     "order" => 10
                 ];
@@ -613,7 +613,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 $filters["filters"][] = [
                     'ID' => 'all',
                     'tab' => 'all',
-                    'name' => __( "All", 'prayer-global' ),
+                    'name' => __( "All", 'prayer-global-porch' ),
                     'query' => [
                         'sort' => '-post_date'
                     ],

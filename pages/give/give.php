@@ -105,21 +105,19 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
             <div class="container flow">
                 <div class="row justify-content-md-center text-center mb-5 flow-small">
                     <div class="col col-md-8">
-                        <h2 class="">Give</h2>
+                        <h2 class=""><?php echo esc_html( __( 'Give', 'prayer-global-porch' ) ) ?></h2>
                         <i class="icon pg-give icon-large brand-light"></i>
-                        <h4>To Prayer.Global</h4>
+                        <h4><?php echo esc_html( __( 'To Prayer.Global', 'prayer-global-porch' ) ) ?></h4>
                         <p>
-                            Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements.
-                            Your gift ensures that we can continue to freely give away all of the tools and resources we develop.
-                            Your tax deductible donation will go to the development and maintenance of Prayer.Global which is part of the <a href="https://pray4movement.org" target="_blank">Pray4Movement</a> network.
+                            <?php echo esc_html( sprintf( __( 'Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements. Your gift ensures that we can continue to freely give away all of the tools and resources we develop. Your tax deductible donation will go to the development and maintenance of %1$s which is part of the %2$s network.', 'prayer-global-porch' ), "<a href='https://pray4movement.org' target='_blank'>Pray4Movement</a>", 'Prayer.Global' ) ) ?>
                         </p>
                     </div>
                 </div>
                 <div class="row justify-content-md-center text-center brand-light-bg white p-4">
                     <div class="col col-md-8">
-                        <h4 class="white">Check</h4>
+                        <h4 class="white"><?php echo esc_html( __( 'Check', 'prayer-global-porch' ) ) ?></h4>
                         <p>
-                            <strong>Note:</strong> If you’d like to avoid the 3% fee that credit card companies charge everyone, you can send tax deductible donations via check to:
+                            <strong><?php echo esc_html( __( 'Note:', 'prayer-global-porch' ) ) ?></strong><?php echo esc_html( __( "If you'd like to avoid the 3% fee that credit card companies charge everyone, you can send tax deductible donations via check to:", 'prayer-global-porch' ) ) ?>
                         </p>
                         <p class="font-weight-bold">
                             Pray4Movement <br>
@@ -132,7 +130,7 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
 
                 <div class="row justify-content-md-center text-center flow-small">
                     <div class="col col-md-8">
-                        <h4>Credit/Debit Card</h4>
+                    <h4><?php echo esc_html( __( 'Credit/Debit Card', 'prayer-global-porch' ) ) ?></h4>
 
                         <?php echo do_shortcode( '[stripe]' ) ?>
 
@@ -141,7 +139,7 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
                 <div class="row justify-content-md-center text-center flow-small brand-light-bg white">
                     <div class="col col-md-8">
                         <p class="m-5">
-                            <strong>Note:</strong> Prayer.Global and by extension Pray4Movement.org is part of <a class="link-light" href="https://gospelambition.org" target="_blank" rel="noopener">Gospel Ambition</a>. You may see Gospel Ambition on your invoice or receipt.
+                            <strong><?php echo esc_html( __( 'Note:', 'prayer-global-porch' ) ) ?></strong><?php echo esc_html( sprintf( __( '%1$s and by extension %2$s is part of %3$s. You may see %4$s on your invoice or receipt.', 'prayer-global-porch' ), 'Prayer.Global', 'Pray4Movement.org', '<a href="https://gospelambition.org" target="_blank" rel="noopener">Gospel Ambition</a>', 'Gospel Ambition' ) ) ?>
                         </p>
                     </div>
                 </div>

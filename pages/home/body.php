@@ -5,14 +5,14 @@
         <div class="row flex-column justify-content-between flex-nowrap">
             <div>
                 <h1 class="heading">Prayer.Global</h1>
-                <h2 class="sub-heading brand-highlight">Cover the World in Prayer</h2>
+                <h2 class="sub-heading brand-highlight"><?php echo esc_html( __( 'Cover the World in Prayer', 'prayer-global-porch' ) ) ?></h2>
                 <i class="icon pg-logo-prayer white heading__logo"></i>
             </div>
             <div class="my-4 d-flex flex-column align-items-center">
-                <a class="btn btn-cta mx-2 d-inline-block" href="/newest/lap/">Start Praying</a>
+            <a class="btn btn-cta mx-2 d-inline-block" href="/newest/lap/"><?php echo esc_html( __( 'Start Praying', 'prayer-global-porch' ) ) ?></a>
                 <div class="btn-learn-more">
                     <a href="#section-goal" class="btn btn-learn-more btn-primary-light white uppercase mt-2">
-                        Learn more
+                        <?php echo esc_html( __( 'Learn more', 'prayer-global-porch' ) ) ?>
                     </a>
                     <br>
                     <i class="icon pg-chevron-down white"></i>
@@ -145,52 +145,52 @@
             <div class="col col-md-9 col-lg-8 col-xl-6">
                 <div class="flow pg-card brand-lighter center uppercase mb-3">
                     <i class="icon pg-race icon-large d-block pt-4"></i>
-                    <h2 class="mb-0">Global Race Stats</h2>
+                    <h2 class="mb-0"><?php echo esc_html( __( 'Global Race Stats', 'prayer-global-porch' ) ) ?></h2>
 
                     <div>
-                        <span class="">Total Elapsed Time</span>
+                    <span class=""><?php echo esc_html( __( 'Total Elapsed Time', 'prayer-global-porch' ) ) ?></span>
                         <div class="four-em font-weight-bold global-time-elapsed time_elapsed"></div>
                     </div>
 
                     <div class="row border-top border-2 border-primary" style="--bs-gutter-x: 0">
                         <div class="col-6 p-2 pt-4 border-end border-primary border-1">
                             <i class="icon pg-world-light d-block icon-small"></i>
-                            <span class="">Laps Completed</span>
+                            <span class=""><?php echo esc_html( __( 'Laps Completed', 'prayer-global-porch' ) ) ?></span>
                             <h3 class="global-laps-completed six-em lh-1"><span class="loading-spinner active"></span></h3>
                         </div>
                         <div class="col-6 p-2 pt-4 border-start border-primary border-1">
                             <i class="icon pg-prayer d-block icon-small"></i>
-                            <span class="">Total Intercessors</span>
+                            <span class=""><?php echo esc_html( __( 'Total Intercessors', 'prayer-global-porch' ) ) ?></span>
                             <h3 class="global-participants six-em lh-1"><span class="loading-spinner active"></span></h3>
                         </div>
                     </div>
 
                 </div>
                 <div class="d-flex my-4 gap-2">
-                    <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-primary uppercase flex-grow-1">Race Map</a>
-                    <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-primary uppercase flex-grow-1">Race List</a>
+                <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-primary uppercase flex-grow-1"><?php echo esc_html( __( 'Race Map', 'prayer-global-porch' ) ) ?></a>
+                <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-primary uppercase flex-grow-1"><?php echo esc_html( __( 'Race List', 'prayer-global-porch' ) ) ?></a>
                 </div>
 
                 <div class="flow pg-card brand-bg white center uppercase mb-5">
                     <i class="icon pg-world-arrow icon-large pt-4 d-block"></i>
-                    <h1 class="mb-0 lh-xsm">Lap <span class="global-lap-number"><span class="loading-spinner active"></span></span></h1>
+                    <h1 class="mb-0 lh-xsm"><?php echo esc_html( sprintf( __( 'Lap %s', 'prayer-global-porch' ), '<span class="global-lap-number">' ) ) ?><span class="loading-spinner active"></span></span></h1>
 
                     <hr class="border-white border">
 
-                    <h6 class="mb-0">Current Lap Elapsed Time</h6>
+                    <h6 class="mb-0"><?php echo esc_html( __( 'Current Lap Elapsed Time', 'prayer-global-porch' ) ) ?></h6>
                     <div class="current-time-elapsed time_elapsed four-em font-weight-bold"><span class="loading-spinner active"></span></div>
 
                     <hr class="border-white border">
                     <div class="flow" style="--pg-flow-size: 0.1rem">
                         <i class="icon pg-prayer d-block icon-small"></i>
-                        <h6 class="mb-0">Intercessors</h6>
+                        <h6 class="mb-0"><?php echo esc_html( __( 'Intercessors', 'prayer-global-porch' ) ) ?></h6>
                         <div class="current-participants four-em font-weight-bold lh-1"><span class="loading-spinner active"></span></div>
                     </div>
 
                     <hr class="border-white border">
 
                     <i class="icon pg-world-light icon-small d-block"></i>
-                    <h6 class="mb-0 mt-1">Places Covered</h6>
+                    <h6 class="mb-0 mt-1"><?php echo esc_html( __( 'Places Covered', 'prayer-global-porch' ) ) ?></h6>
                     <div class="my-4 mx-auto position-relative | progress-bar">
                         <div class="orange-gradient position-absolute top-0 h-100 | progress-bar__slider"></div>
                         <div class="position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-between">
@@ -206,12 +206,12 @@
                     <span class="four-em font-weight-bold lh-1"><span class="current-completed"><span class="loading-spinner active"></span></span> of <span><?php echo esc_html( PG_TOTAL_STATES ) ?></span></span>
 
                     <a href="/newest/map/" role="button" class="btn smoothscroll btn-primary uppercase mb-3 w-100 has-icon" data-reverse-color>
-                        <span>Current Map</span>
+                        <span><?php echo esc_html( __( 'Current Map', 'prayer-global-porch' ) ) ?></span>
                         <i class="icon pg-chevron-right icon-end me-3 two-rem end-0"></i>
                     </a>
                 </div>
 
-                <div class="mb-3 mx-auto center"><a class="btn btn-cta two-em" href="/newest/lap/">Start Praying</a></div>
+                <div class="mb-3 mx-auto center"><a class="btn btn-cta two-em" href="/newest/lap/"><?php echo esc_html( __( 'Start Praying', 'prayer-global-porch' ) ) ?></a></div>
             </div>
         </div>
     </div>
@@ -240,7 +240,7 @@
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-12">
-                <h2 class="heading mb-3"><a href="/qr/app/" style="color:white;">Get the Mobile App</a></h2>
+            <h2 class="heading mb-3"><a href="/qr/app/" style="color:white;"><?php echo esc_html( __( 'Get the Mobile App', 'prayer-global-porch' ) ) ?></a></h2>
                 <a class="white" href="https://apps.apple.com/us/app/prayer-global/id1636889534?uo=4" style="font-size:2em;">
                     <div class="hover-box">
                         <i class="ion-social-apple" ></i>
@@ -260,129 +260,5 @@
     </div>
 </section>
 <!-- END section -->
-
-
-<section class="page-section d-none" data-section="about" id="section-about">
-    <div class="container">
-        <div class="row justify-content-md-center text-center mb-5">
-            <div class="col-lg-7">
-                <h2 class="mt-0 font-weight-normal">About</h2>
-                <p>
-                    Prayer.Global seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="images right">
-                    <img class="img1 img-fluid" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/pray-4770.jpg" alt="image">
-                    <img class="img2" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/dark-map.jpg" alt="image">
-                </div>
-            </div>
-            <div class="col-lg-5 ps-md-5 ps-sm-0">
-                <div id="prayer_accordion_" class="pg-accordion" data-children=".item">
-                    <div class="item">
-                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" href="#prayer_accordion_1" aria-expanded="true" aria-controls="prayer_accordion_1" >Historic Moment</a>
-                        <div id="prayer_accordion_1" class="accordian-collapse collapse show" role="tabpanel">
-                            <p>
-                                We know three things about our moment in history:
-                            </p>
-                            <p>
-                                (1) Never before in history have we been able to coordinate global prayer for the kingdom <u>IN REALTIME</u>!
-                            </p>
-                            <p>
-                                (2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.),
-                                and is now using the internet.
-                            </p>
-                            <p>
-                                (3) "Extraordinary prayer" is a foundational mark of all modern disciple multiplying movements.
-                            </p>
-                            <p>
-                                So, <strong>Prayer.Global</strong> exists to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.
-                            </p>
-                            <p>
-                                <br><hr>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_2" aria-expanded="false" aria-controls="prayer_accordion_2">How it works</a>
-                        <div id="prayer_accordion_2" class="collapse" role="tabpanel">
-                            <p>
-                                <span class="black">&#9312;</span> Click on "Start Praying". <a href="/newest/lap/"><i class="ion-android-open"></i></a>
-                            </p>
-                            <p>
-                                <strong class="black">&#9313;</strong> Use the demographics, guided prayers, faith status, images, and maps to pray for the location for one minute.
-                            </p>
-                            <p>
-                                <strong class="black">&#9314;</strong> Once the one-minute timer has ended, you will be asked if you prayed for this location, if you click "Yes", then your prayer will be added to the community prayer coverage for the world.
-                            </p>
-                            <p>
-                                <strong class="black">&#9315;</strong> Pray for another location or end your prayer session.
-                            </p>
-                            <p>
-                                <br><hr>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_3" aria-expanded="false" aria-controls="prayer_accordion_3">Moravian Prayer Challenge</a>
-                        <div id="prayer_accordion_3" class="collapse" role="tabpanel">
-                            <p>
-                                Inspired by the <a href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">Moravians</a>, who prayed non-stop for 100 years,
-                                we have crafted this website to help the church pray for the entire world in measurable units, as a community, and to know at the end when we have finished ... and are ready to start
-                                another lap.
-                            </p>
-                            <p>
-                                Once every location in the world has been prayed for (we finish a lap), then the prayer map resets, and we try to pray over the world again
-                                ... maybe faster.
-                            </p>
-                            <p>
-                                The Moravians had one person praying every hour of every day for 100 years. This was roughly 876,000 hours of prayer, or 52,560,000 minutes of prayer for the world. We are humbled by this extraordinary commitment to praying for the world.
-                            </p>
-                            <p>
-                                <a href="/content_app/about_page/#section-challenge">Learn more</a> about the Moravian Prayer Challenge.
-                            </p>
-                            <p>
-                                <br><hr>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_4" aria-expanded="false" aria-controls="prayer_accordion_4">Maps & Lists</a>
-                        <div id="prayer_accordion_4" class="collapse" role="tabpanel">
-                            <p>
-                                <strong class="black">Current Map</strong> <a href="/newest/map"><i class="ion-android-open"></i></a>
-                            </p>
-                            <p>
-                                The current map shows what has been covered so far in the active prayer map.
-                            </p>
-                            <p>
-                                <strong class="black">Race Map</strong> <a href="/race_app/race_map/"><i class="ion-android-open"></i></a>
-                            </p>
-                            <p>
-                                The Race map shows the number of laps, number of minutes, and number of prayer intercessors for the entire challenge.
-                            </p>
-                            <p>
-                                <strong class="black">Race List</strong> <a href="/race_app/race_list/"><i class="ion-android-open"></i></a>
-                            </p>
-                            <p>
-                                The Race List shows each of the laps accomplished so far and some of the statistics for those individual laps.
-                            </p>
-                            <p>
-                                <br><hr>
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- END section -->
-
-
 
 <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/working-footer.php' ) ?>

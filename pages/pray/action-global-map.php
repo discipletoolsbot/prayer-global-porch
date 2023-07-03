@@ -80,7 +80,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         if ( $url ) {
              $details['url'] = $url;
         }
-        $details['title'] = 'Prayer.Global Map';
+        $details['title'] = esc_html( sprintf( __( '%s Map', 'prayer-global-porch' ), 'Prayer.Global' ) );
         pg_og_tags( $details );
 
         ?>
@@ -98,7 +98,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 'stats' => pg_global_stats_by_key( $this->parts['public_key'] ),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
                 'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-glob</script>al' ),
+                    'add' => __( 'Add Magic', 'prayer-global-porch' ),
                 ],
                 'map_type' => 'binary',
                 'is_dark_map_on' => ( new PG_Feature_Flag( PG_Flags::DARK_MAP_FEATURE ) )->is_on(),
@@ -131,11 +131,11 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
             <div id="initialize-screen">
                 <div id="initialize-spinner-wrapper" class="center">
                     <progress class="success initialize-progress" max="46" value="0"></progress><br>
-                    Loading the planet ...<br>
-                    <span id="initialize-people" style="display:none;">Locating world population...</span><br>
-                    <span id="initialize-activity" style="display:none;">Calculating movement activity...</span><br>
-                    <span id="initialize-coffee" style="display:none;">Shamelessly brewing coffee...</span><br>
-                    <span id="initialize-dothis" style="display:none;">Let's do this...</span><br>
+                    <?php echo esc_html__( 'Loading the planet ...', 'prayer-global-porch' ) ?><br>
+                    <span id="initialize-people" style="display:none;"><?php echo esc_html__( 'Locating world population...', 'prayer-global-porch' ) ?></span><br>
+                    <span id="initialize-activity" style="display:none;"><?php echo esc_html__( 'Calculating movement activity...', 'prayer-global-porch' ) ?></span><br>
+                    <span id="initialize-coffee" style="display:none;"><?php echo esc_html__( 'Shamelessly brewing coffee...', 'prayer-global-porch' ) ?></span><br>
+                    <span id="initialize-dothis" style="display:none;"><?php echo esc_html__( "Let's do this...", 'prayer-global-porch' ) ?></span><br>
                 </div>
             </div>
             <div id="map-wrapper">
@@ -155,21 +155,21 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                             <button type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvas_stats">
                                 <i class="icon pg-chevron-up three-em blue"></i>
                             </button>
-                            <div class="one-em uppercase font-weight-bold">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?> Stats</div>
+                            <div class="one-em uppercase font-weight-bold"><?php echo sprintf( esc_html__( 'Lap %s Stats', 'prayer-global-porch' ), esc_html( $lap_stats['lap_number'] ) ) ?></div>
                         </div>
                         <div class="col col-sm-6 col-lg-2 center">
                             <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around py-1">
                                 <i class="icon pg-world-light three-em"></i>
                                 <div class="two-em white stats-figure remaining"></div>
                             </div>
-                            <span class="uppercase small">Places Remaining</span><br>
+                            <span class="uppercase small"><?php echo esc_html__( 'Places Remaining', 'prayer-global-porch' ) ?></span><br>
                         </div>
                         <div class="col col-sm-6 col-lg-2 center">
                             <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around py-1">
                                 <i class="icon pg-world-light three-em"></i>
                                 <div class="two-em stats-figure completed"></div>
                             </div>
-                            <span class="uppercase small">Places Covered</span><br>
+                            <span class="uppercase small"><?php echo esc_html__( 'Places Covered', 'prayer-global-porch' ) ?></span><br>
                         </div>
                         <div class="col col-lg-1 d-none d-lg-block"></div>
                         <div class="col col-sm-6 col-lg-2 center d-none d-lg-block">
@@ -177,14 +177,14 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                                 <i class="icon pg-prayer three-em"></i>
                                 <div class="two-em stats-figure warriors"></div>
                             </div>
-                            <span class="uppercase small">Intercessors</span><br>
+                            <span class="uppercase small"><?php echo esc_html__( 'Intercessors', 'prayer-global-porch' ) ?></span><br>
                         </div>
                         <div class="col col-sm-6 col-lg-2 center d-none d-lg-block">
                             <div class="blue-bg white blue-border rounded-end d-flex align-items-center justify-content-around py-1">
                                 <i class="icon pg-world-arrow three-em"></i>
                                 <div class="two-em stats-figure"><span class="completed_percent">0</span></div>
                             </div>
-                            <span class="uppercase small">World Coverage</span><br>
+                            <span class="uppercase small"><?php echo esc_html__( 'World Coverage', 'prayer-global-porch' ) ?></span><br>
                         </div>
                     </div>
                 </div>
@@ -195,7 +195,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                 <button type="button" data-bs-dismiss="offcanvas" style="text-align: start">
                     <i class="icon pg-chevron-right three-em"></i>
                 </button>
-                <a class="btn btn-primary py-2" id="pray-for-area-button" href="#">Pray for this area</a>
+                <a class="btn btn-primary py-2" id="pray-for-area-button" href="#"><?php echo esc_html__( 'Pray for this area', 'prayer-global-porch' ) ?></a>
             </div>
             <div class="row offcanvas__content" id="grid_details_content"></div>
         </div>
@@ -210,21 +210,21 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         <div class="reveal " id="correction_modal" data-v-offset="10px;" data-reveal>
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title">Thank you! Leave us a correction below.</h5>
+                    <h5 class="modal-title"><?php echo esc_html__( 'Thank you! Leave us a correction below.', 'prayer-global-porch' ) ?></h5>
                     <hr>
                 </div>
                 <div class="modal-body">
                     <p><span id="correction_title" class="correction_field"></span></p>
                     <p>
-                        Section:<br>
+                        <?php echo esc_html__( 'Section:', 'prayer-global-porch' ) ?><br>
                         <select class="form-control form-select correction_field" id="correction_select"></select>
                     </p>
                     <p>
-                        Correction Requested:<br>
+                        <?php echo esc_html__( 'Correction Requested:', 'prayer-global-porch' ) ?><br>
                         <textarea class="form-control correction_field" id="correction_response" rows="3"></textarea>
                     </p>
                     <p>
-                        <button type="button" class="button button-secondary" id="correction_submit_button">Submit</button> <span class="loading-spinner correction_modal_spinner"></span>
+                    <button type="button" class="button button-secondary" id="correction_submit_button"><?php echo esc_html__( 'Submit', 'prayer-global-porch' ) ?></button> <span class="loading-spinner correction_modal_spinner"></span>
                     </p>
                     <p id="correction_error" class="correction_field"></p>
                 </div>
@@ -242,51 +242,51 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
             <div class="container center uppercase">
                 <div class="row g-0 justify-content-center">
                     <div class="col col-12">
-                        <div class="two-em font-weight-bold">Lap <?php echo esc_html( $lap_stats['lap_number'] ) ?> Stats</div>
+                        <div class="two-em font-weight-bold"><?php echo sprintf( esc_html__( 'Lap %s Stats', 'prayer-global-porch' ), esc_html( $lap_stats['lap_number'] ) ) ?></div>
                     </div>
                     <div class="col col-6 col-sm-4">
                         <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
                             <i class="icon pg-world-light three-em"></i>
                             <div class="two-em white stats-figure remaining"></div>
                         </div>
-                        <span class="small">Places Remaining</span><br>
+                        <span class="small"><?php echo esc_html__( 'Places Remaining', 'prayer-global-porch' ) ?></span><br>
                     </div>
                     <div class="col col-6 col-sm-4">
                         <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
                             <i class="icon pg-world-light three-em"></i>
                             <div class="two-em stats-figure completed"></div>
                         </div>
-                        <span class="small">Places Covered</span><br>
+                        <span class="small"><?php echo esc_html__( 'Places Covered', 'prayer-global-porch' ) ?></span><br>
                     </div>
                 </div>
                 <div class="row">
                     <div class="align-items-center d-flex flex-dir-column mt-3">
                         <i class="icon pg-world-arrow blue four-em"></i>
-                        <span class="stats-title">World Coverage</span>
+                        <span class="stats-title"><?php echo esc_html__( 'World Coverage', 'prayer-global-porch' ) ?></span>
                         <div class="blue-bg rounded stats-figure-lg w-50 white"><span class="completed_percent">0</span>%</div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="align-items-center d-flex flex-dir-column mt-3">
                         <i class="icon pg-prayer blue four-em"></i>
-                        <span class="stats-title">Intercessors</span>
+                        <span class="stats-title"><?php echo esc_html__( 'Intercessors', 'prayer-global-porch' ) ?></span>
                         <div class="secondary-bg rounded stats-figure-lg w-50 warriors white">0</div>
                     </div>
                 </div>
                 <div class="row">
                     <hr class="mt-3">
                     <div class="col">
-                        <p class="two-em mb-0">Time Elapsed</p>
+                        <p class="two-em mb-0"><?php echo esc_html__( 'Time Elapsed', 'prayer-global-porch' ) ?></p>
                         <p class="stats-figure time_elapsed">0</p>
                     </div>
                     <hr class="mt-3">
 
                     <div class="col col-6 col-sm-3" style="display:none">
-                        <p class="stats-title">Start Time</p>
+                        <p class="stats-title"><?php echo esc_html__( 'Start Time', 'prayer-global-porch' ) ?></p>
                         <p class="stats-figure start_time">0</p>
                     </div>
                     <div class="col col-6 col-sm-3 on-going" style="display:none;">
-                        <p class="stats-title">End Time</p>
+                        <p class="stats-title"><?php echo esc_html__( 'End Time', 'prayer-global-porch' ) ?></p>
                         <p class="stats-figure end_time">0</p>
                     </div>
                 </div>

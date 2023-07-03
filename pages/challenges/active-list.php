@@ -80,7 +80,15 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
                 'parts' => $this->parts,
                 'site_url' => site_url(),
                 'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global' ),
+                    'pray' => esc_html( __( 'Pray', 'prayer-global-porch' ) ),
+                    'map' => esc_html( __( 'Map', 'prayer-global-porch' ) ),
+                    'sharing' => esc_html( __( 'Sharing', 'prayer-global-porch' ) ),
+                    'display' => esc_html( __( 'Display', 'prayer-global-porch' ) ),
+                    'name' => esc_html( __( 'Name', 'prayer-global-porch' ) ),
+                    'intercessors' => esc_html( __( 'Intercessors', 'prayer-global-porch' ) ),
+                    'time_elapsed' => esc_html( __( 'Time Elapsed', 'prayer-global-porch' ) ),
+                    'links' => esc_html( __( 'Links', 'prayer-global-porch' ) ),
+                    'lap' => esc_html( __( '- Lap %d', 'prayer-global-porch' ) ),
                 ],
                 'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/nope.jpg',
                 'images_url' => pg_grid_image_url(),
@@ -118,12 +126,12 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row">
                     <div class="col-12">
-                        <h2 class="">Prayer Relays</h2>
+                        <h2 class=""><?php echo esc_html( __( 'Prayer Relays', 'prayer-global-porch' ) ) ?></h2>
                         <i class="icon pg-relay icon-large"></i>
                     </div>
                     <div class="col-md-3"></div>
                     <div class="col-md-6 mt-4">
-                        <p>Prayer Relays are communities of prayer intercessors who have picked up the challenge of praying for the entire world as a group. All prayers prayed in the prayer relays contribute to the global laps.</p>
+                    <p><?php echo esc_html( __( 'Prayer Relays are communities of prayer intercessors who have picked up the challenge of praying for the entire world as a group. All prayers prayed in the prayer relays contribute to the global laps.', 'prayer-global-porch' ) ) ?></p>
                     </div>
                     <div class="col-md-3"></div>
                 </div>
@@ -131,18 +139,18 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row">
                     <div class="col-md text-center">
-                        <a class="btn btn-cta two-rem has-icon cta-blue px-5" href="/prayer_app/group_challenge_request">Start a Prayer Relay <i class="icon pg-chevron-right icon-end two-rem end-0 me-2"></i></a>
+                    <a class="btn btn-cta two-rem has-icon cta-blue px-5" href="/prayer_app/group_challenge_request"><?php echo esc_html( __( 'Start a Prayer Relay', 'prayer-global-porch' ) ) ?><i class="icon pg-chevron-right icon-end two-rem end-0 me-2"></i></a>
                     </div>
                 </div>
             </div>
             <section class="flow-small contain bg-top" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map-lightblue-transparent.png);">
                 <i class="icon pg-relay icon-medium d-block"></i>
-                <h4 class="uppercase font-base">Active Relays</h4>
+                <h4 class="uppercase font-base"><?php echo esc_html( __( 'Active Relays', 'prayer-global-porch' ) ) ?></h4>
                 <div class="container data-table uppercase" id="active_content"><span class="loading-spinner active"></span></div>
             </section>
             <section class="brand-lighter flow-small contain bg-top" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map-lightblue-transparent.png);">
                 <i class="icon pg-crown icon-medium d-block"></i>
-                <h4 class="uppercase font-base">Completed Relays</h4>
+                <h4 class="uppercase font-base"><?php echo esc_html( __( 'Completed Relays', 'prayer-global-porch' ) ) ?></h4>
                 <div class="container data-table uppercase" id="complete_content"><span class="loading-spinner active"></span></div>
             </section>
         </section>

@@ -27,6 +27,31 @@ jQuery(document).ready(function(){
     let isSavingLocation = false
     let isSavingChallenge = false
 
+    const {
+        select_a_location,
+        estimated_location,
+        prayers,
+        profile,
+        challenges,
+        are_you_enjoying_the_app,
+        would_you_like_to_partner,
+        consider_giving,
+        give,
+        logout,
+        name_text,
+        email_text,
+        location_text,
+        locations_text,
+        communication_preferences,
+        send_lap_emails_text,
+        send_general_emails_text,
+        erase_account,
+        minutes,
+        load_more,
+        time_prayed_for,
+        in_group_text,
+    } = jsObject.translations
+
 
     window.getAuthUser(
         (user) => write_main( user ),
@@ -98,7 +123,7 @@ jQuery(document).ready(function(){
                     isSavingLocation = false
                 })
         } else {
-            jQuery('.mapbox-error-message').html('Please select a location')
+            jQuery('.mapbox-error-message').html(select_a_location)
         }
     })
 
@@ -152,41 +177,40 @@ jQuery(document).ready(function(){
                         <span class="user__location-label">${data.location && data.location.label || LoadingSpinner()}</span>
                         ${LocationChangeButton()}
                         <span class="iplocation-message small d-block text-secondary">
-                            ${data.location && data.location.source === 'ip' ? '(This is your estimated location)' : ''}
+                            ${data.location && data.location.source === 'ip' ? estimated_location : ''}
                         </span>
                     </p>
                 </div>
             </section>
-            <section class="profile-menu px-2 mt-5">
+           <section class="profile-menu px-2 mt-5">
                 <div class="navbar-nav">
                     <button class="user-profile-link nav-link uppercase px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-top border-1 border-dark">
                         <i class="icon pg-profile three-em"></i>
-                        <span class="two-em">Profile</span>
+                        <span class="two-em">${profile}</span>
                         <i class="icon pg-chevron-right three-em"></i>
                     </button>
                     <button class="user-prayers-link nav-link uppercase px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
                         <i class="icon pg-prayer three-em"></i>
-                        <span class="two-em">Prayers</span>
+                        <span class="two-em">${prayers}</span>
                         <i class="icon pg-chevron-right three-em"></i>
                     </button>
                     <button class="user-challenges-link nav-link uppercase px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
                         <i class="icon pg-relay three-em"></i>
-                        <span class="two-em">Prayer Relays</span>
+                        <span class="two-em">${challenges}</span>
                         <i class="icon pg-chevron-right three-em"></i>
                     </button>
                 </div>
             </section>
             <section>
-                <p>Are you enjoying this app?</p>
-                <p>Would you like to partner with us in helping others pray for the world?</p>
+                <p>${are_you_enjoying_the_app}</p>
+                <p>${would_you_like_to_partner}</p>
                 <div class="d-flex flex-column m-auto w-fit">
-                    <a class="btn btn-small btn-primary-light uppercase" data-reverse-color href="/content_app/give_page">Give</a>
-                    <a class="btn btn-small btn-outline-primary mt-3 uppercase" href="/user_app/logout">Logout</a><br>
+                    <a class="btn btn-small btn-primary-light uppercase" data-reverse-color href="/content_app/give_page">${give}</a>
+                    <a class="btn btn-small btn-outline-primary mt-3 uppercase" href="/user_app/logout">${logout}</a><br>
                 </div>
             </section>
-
-
         </div>`
+
         jQuery('#pg_content').html(pgContentHTML);
 
         if ( !data.stats ) {
@@ -212,14 +236,14 @@ jQuery(document).ready(function(){
                     return
                 }
                 if (!data || !data.location ) {
-                    jQuery('.user__location-label').html('Please select your location')
+                    jQuery('.user__location-label').html(select_a_location)
                     return
                 }
                 jsObject.user.location = data.location
                 jsObject.user.location_hash = data.location_hash
 
                 jQuery('.user__location-label').html(data.location.label)
-                jQuery('.iplocation-message').html('(This is your estimated location)')
+                jQuery('.iplocation-message').html(estimated_location)
             })
             .then(() => get_user_app('link_anonymous_prayers', { hash: pg_user_hash, user_id: jsObject.user.ID }))
             .then(({ has_updates }) => {
@@ -253,43 +277,43 @@ jQuery(document).ready(function(){
         send_general_emails = false,
     }) {
         const userDetailsContentHTML = `
-        <h2 class="center">Profile</h2>
+        <h2 class="center">${profile}</h2>
         <table class="table">
             <tbody>
                 <tr>
-                    <td>Name:</td>
+                    <td>${name_text}:</td>
                     <td>${name}</td>
                 </tr>
                 <tr>
-                    <td>Email:</td>
+                    <td>${email_text}:</td>
                     <td>${email}</td>
                 </tr>
                 <tr>
-                    <td>Location:</td>
+                    <td>${location_text}:</td>
                     <td>
-                        <span class="user__location-label">${location && location.label || 'Please set your location'}</span>
+                        <span class="user__location-label">${location && location.label || select_a_location}</span>
                         ${LocationChangeButton()}
                         <span class="iplocation-message small d-block text-secondary">
-                            ${location && location.source === 'ip' ? '(This is your estimated location)' : ''}
+                            ${location && location.source === 'ip' ? estimated_location : ''}
                         </span>
                     </td>
                 </tr>
             </tbody>
         </table>
         <section class="communication-preferences flow-small">
-            <h2 class="center">Communication Preferences</h2>
+            <h2 class="center">${communication_preferences}</h2>
 
             <div>
                 <div class="form-check small">
                     <input class="form-check-input user-check-preferences" type="checkbox" id="send_lap_emails" ${send_lap_emails && 'checked'}>
                     <label class="form-check-label" for="send_lap_emails">
-                        Send me lap challenges via email
+                        ${send_lap_emails_text}
                     </label>
                 </div>
                 <div class="form-check small">
                     <input class="form-check-input user-check-preferences" type="checkbox" id="send_general_emails" ${send_general_emails && 'checked'}>
                     <label class="form-check-label" for="send_general_emails">
-                        Send information about Prayer.Global, Zume, Pray4Movement and other Gospel Ambition projects via email
+                        ${send_general_emails_text}
                     </label>
                 </div>
             </div>
@@ -302,7 +326,7 @@ jQuery(document).ready(function(){
                 classes: 'btn-primary small d-block',
             })}-->
             ${ModalButton({
-                text: "Erase my account",
+                text: erase_account,
                 modalId: "erase-user-account-modal",
                 classes: "small uppercase btn btn-small btn-outline-danger d-block mt-3",
             })}
@@ -320,7 +344,7 @@ jQuery(document).ready(function(){
 
     function write_prayers() {
         const prayersHTML = `
-        <h2 class="center">Prayers</h2>
+        <h2 class="center">${prayers}</h2>
         <section class="user-stats flow-medium">
 
             <div class="center">
@@ -334,18 +358,18 @@ jQuery(document).ready(function(){
             </div>
             <div class="d-flex justify-content-around">
                 <div class="center">
-                    <h4>Locations</h4>
+                    <h4>${locations_text}</h4>
                     <span class="three-em user-total-locations">0</span>
                 </div>
                 <div class="center">
-                    <h4>Minutes</h4>
+                    <h4>${minutes}</h4>
                     <span class="three-em user-total-minutes">0</span>
                 </div>
             </div>
 
             <section class="user-activity">
                 <div class="user-activity__list"></div>
-                <button class="btn btn-small btn-outline-primary mt-5 mx-auto d-block" id="load-more-user-activity" style="display: none">Load more</button>
+                <button class="btn btn-small btn-outline-primary mt-5 mx-auto d-block" id="load-more-user-activity" style="display: none">${load_more}</button>
             </section>
 
         </section>`
@@ -355,8 +379,8 @@ jQuery(document).ready(function(){
             const { offset, limit, logs } = jsObject.user.activity
             const { total_minutes, total_locations } = jsObject.user.stats
 
-            const handlePrimaryContent = ({ location_name, time_prayed_text }) => `${time_prayed_text} for ${location_name || 'Location name goes here'}`
-            const handleSecondaryContent = ({ time_prayed_text, group_name }) => `in ${group_name}`
+            const handlePrimaryContent = ({ location_name, time_prayed_text }) =>  time_prayed_for.replace('%1$s', time_prayed_text).replace('%2$s', location_name || location_text)
+            const handleSecondaryContent = ({ time_prayed_text, group_name }) => in_group_text.replace('%s', group_name)
 
             jQuery('.user-total-locations').html(total_locations)
             jQuery('.user-total-minutes').html(total_minutes)
