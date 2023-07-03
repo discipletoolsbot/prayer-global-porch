@@ -237,7 +237,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                         <h1 class="lh-1 mb-0" style="--pg-flow-size: 0"><?php echo esc_html( __( 'Moravian', 'prayer-global-porch' ) ) ?></h1>
                         <h2 style="--pg-flow-size: 0"><?php echo esc_html( __( 'Prayer Challenge', 'prayer-global-porch' ) ) ?></h2>
                         <p class="left-align">
-                            <?php echo esc_html( sprintf( __( 'Inspired by the %1$sMoravians%2$s, who prayed non-stop for 100 years, we have crafted this website to help the church pray for the entire world in measurable units, as a community, and to know at the end when we have finished ... and are ready to start another lap.', 'prayer-global-porch' ), '<a class="link-light" href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">', '</a>' ) ) ?>
+                            <?php echo wp_kses( sprintf( __( 'Inspired by the %1$sMoravians%2$s, who prayed non-stop for 100 years, we have crafted this website to help the church pray for the entire world in measurable units, as a community, and to know at the end when we have finished ... and are ready to start another lap.', 'prayer-global-porch' ), '<a class="link-light" href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">', '</a>' ), 'post' ) ?>
                         </p>
                         <p class="left-align">
                             <?php echo esc_html( __( 'Once every location in the world has been prayed for (we finish a lap), then the prayer map resets, and we try to pray over the world again ... maybe faster.', 'prayer-global-porch' ) ) ?>
