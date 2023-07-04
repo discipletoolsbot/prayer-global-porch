@@ -148,7 +148,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                         <i class="icon pg-question-dark icon-medium"></i>
                         <h2 style="--pg-flow-size: 0"><?php echo esc_html( __( 'How It Works', 'prayer-global-porch' ) ) ?></h2>
                         <p class="left-align">
-                            1. <?php echo esc_html( __( 'Click on "Start Praying".', 'prayer-global-porch' ) ) ?> <a class="link-light" href="/newest/lap/"><i class="ion-android-open"></i></a>
+                            1. <?php echo sprintf( esc_html__( 'Click on %1$sStart Praying%2$s.', 'prayer-global-porch' ), '<a class="link-light" href="/newest/lap/">', '</a>' ) ?>
                         </p>
                         <p class="left-align">
                             2. <?php echo esc_html( __( 'Use the demographics, guided prayers, faith status, images, and maps to pray for the location for one minute.', 'prayer-global-porch' ) ) ?>
@@ -179,13 +179,13 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                             </p>
                         </div>
                         <div class="border-bottom border-brand-light flow-small">
-                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-world-dark icon-small"></i><?php echo esc_html( __( 'Race Map', 'prayer-global-porch' ) ) ?><a href="/race_app/race_map/"><i class="ion-android-open"></i></a></h4>
+                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-world-dark icon-small"></i><a href="/race_app/race_map/"><?php echo esc_html( __( 'Race Map', 'prayer-global-porch' ) ) ?></a></h4>
                             <p>
                                 <?php echo esc_html( __( 'The Race map shows the number of laps, number of minutes, and number of prayer intercessors for the entire challenge.', 'prayer-global-porch' ) ) ?>
                             </p>
                         </div>
                         <div class="border-bottom border-brand-light flow-small">
-                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-check icon-small"></i> <?php echo esc_html( __( 'Race List', 'prayer-global-porch' ) ) ?><a href="/race_app/race_list/"><i class="ion-android-open"></i></a></h4>
+                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-check icon-small"></i> <a href="/race_app/race_list/"><?php echo esc_html( __( 'Race List', 'prayer-global-porch' ) ) ?></a></h4>
                             <p>
                                 <?php echo esc_html( __( 'The Race List shows each of the laps accomplished so far and some of the statistics for those individual laps.', 'prayer-global-porch' ) ) ?>
                             </p>
@@ -197,7 +197,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                             </p>
                         </div>
                         <div class="border-bottom border-brand-light flow-small">
-                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-world-light icon-small"></i> <?php echo esc_html( __( 'Current Map', 'prayer-global-porch' ) ) ?><a href="/newest/map"><i class="ion-android-open"></i></a></h4>
+                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-world-light icon-small"></i> <a href="/newest/map"><?php echo esc_html( __( 'Current Map', 'prayer-global-porch' ) ) ?></a></h4>
                             <p>
                                 <?php echo esc_html( __( 'The current map shows what has been covered so far in the active prayer map.', 'prayer-global-porch' ) ) ?>
                             </p>
