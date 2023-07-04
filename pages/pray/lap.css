@@ -19,6 +19,9 @@ section {
 section[data-custom-lap] {
     margin-top: 175px;
 }
+#content {
+    padding-top: 4rem;
+}
 .btn-group {
     width: 100%;
 }
