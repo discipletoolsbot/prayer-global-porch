@@ -50,7 +50,7 @@
                                     <i class="icon pg-relay icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3"><?php echo esc_html__( 'The Race', 'prayer-global' ) ?></h2>
                                     <p class="white-gradient pb-3 px-5">
-                                        <?php echo esc_html__( 'Like a “race”, we pray with urgency and focus as we seek to complete “laps” by covering the entire world in prayer. An interactive map gives us “real time” updates on who we’ve prayed for and stats on our collective prayer lap status.', 'prayer-global-porch' ) ?>
+                                        <?php echo esc_html__( 'Like a race, we pray with urgency and focus as we seek to complete laps by covering the entire world in prayer. An interactive map gives us real time updates on who we’ve prayed for and stats on our collective prayer lap status.', 'prayer-global-porch' ) ?>
                                     </p>
                                 </div>
                             </div>
@@ -63,7 +63,7 @@
                                     <i class="icon pg-world-arrow icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3"><?php echo esc_html__( 'Our Strategy', 'prayer-global' ) ?></h2>
                                     <p class="white-gradient pb-3 px-5">
-                                        <?php echo esc_html__( 'Prayer.Global has broken the world down into 4,770 “states” based on geographical and governmental boundaries. With location speciﬁc “prayer fuel”, we can pray with purpose for every people group and watch on the map as our united prayer “lights up” the darkness.', 'prayer-global-porch' ) ?>
+                                        <?php echo esc_html__( 'Prayer.Global has broken the world down into 4,770 states based on geographical and governmental boundaries. With location speciﬁc prayer fuel, we can pray with purpose for every people group and watch on the map as our united prayer lights up the darkness.', 'prayer-global-porch' ) ?>
                                     </p>
                                 </div>
                             </div>

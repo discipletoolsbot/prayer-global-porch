@@ -175,7 +175,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                         <div class="border-bottom border-brand-light flow-small">
                         <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-logo-prayer icon-small"></i> <?php echo esc_html( __( 'Prayer Lap', 'prayer-global-porch' ) ) ?></h4>
                             <p>
-                                <?php echo esc_html( __( 'A Prayer Lap consists of covering all 4770 geographical "states" of the world in prayer.', 'prayer-global-porch' ) ) ?>
+                                <?php echo esc_html( __( 'A Prayer Lap consists of covering all 4770 geographical states of the world in prayer.', 'prayer-global-porch' ) ) ?>
                             </p>
                         </div>
                         <div class="border-bottom border-brand-light flow-small">
@@ -193,7 +193,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                         <div class="border-bottom border-brand-light flow-small">
                             <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-world-arrow icon-small"></i> <?php echo esc_html( __( 'Current Lap', 'prayer-global-porch' ) ) ?></h4>
                             <p>
-                                <?php echo esc_html( __( 'The Current Lap in the "real time" prayer coverage of the 4770 "states" of the world.', 'prayer-global-porch' ) ) ?>
+                                <?php echo esc_html( __( 'The Current Lap in the real time prayer coverage of the 4770 states of the world.', 'prayer-global-porch' ) ) ?>
                             </p>
                         </div>
                         <div class="border-bottom border-brand-light flow-small">
