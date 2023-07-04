@@ -32,7 +32,7 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
 
                 <?php endif; ?>
 
-                <button type="button" class="icon-button two-rem d-flex ms-1" data-bs-dismiss="offcanvas" aria-label="Close">
+                <button type="button" class="icon-button p-0 two-rem d-flex ms-2" data-bs-dismiss="offcanvas" aria-label="Close">
                     <i class="icon pg-close"></i>
                 </button>
             </div>
