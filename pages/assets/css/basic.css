@@ -338,6 +338,9 @@ input[type="radio"]:checked {
 .brand-lightest-bg {
     background-color: var(--pg-brand-color-lightest);
 }
+.brand-highlight-bg {
+    background-color: var(--pg-brand-color-highlight);
+}
 .secondary-bg {
     background-color: var(--pg-secondary-color);
 }
