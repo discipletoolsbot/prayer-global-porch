@@ -134,7 +134,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                             and is now using the internet.' ) ) ?>
                         </p>
                         <p>
-                            <?php echo esc_html( __( '(3) "Extraordinary prayer" is a foundational mark of all modern disciple multiplying movements.', 'prayer-global-porch' ) ) ?>
+                            <?php echo esc_html( __( '(3) Extraordinary prayer is a foundational mark of all modern disciple multiplying movements.', 'prayer-global-porch' ) ) ?>
                         </p>
                         <a class="d-block text-decoration-none brand-light" href="#how-it-works"><i class="icon pg-chevron-down icon-small"></i></a>
                     </div>
