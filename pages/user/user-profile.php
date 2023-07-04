@@ -143,20 +143,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 </div>
             </div>
 
-                                <div class="offcanvas offcanvas-end" id="user-profile-details" data-bs-backdrop="true" data-bs-scroll="false">
-                <div class="offcanvas__header">
-                    <button type="button" data-bs-dismiss="offcanvas" style="text-align: start">
-                        <i class="icon pg-chevron-right three-em"></i>
-                    </button>
-                </div>
-                <div class="offcanvas__content">
-                    <div class="container">
-                        <div class="row justify-content-md-center">
-                            <div class="flow" id="user-details-content"></div>
-                        </div>
-                    </div>
-                </div>
-           </div>
+
 
             <div class="modal fade" id="location-modal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
@@ -297,9 +284,22 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 </div>
             </div>
 
-
         </section>
 
+        <div class="offcanvas offcanvas-end" id="user-profile-details" data-bs-backdrop="true" data-bs-scroll="false">
+            <div class="offcanvas__header">
+                <button type="button" data-bs-dismiss="offcanvas" style="text-align: start">
+                    <i class="icon pg-chevron-right three-em"></i>
+                </button>
+            </div>
+            <div class="offcanvas__content">
+                <div class="container">
+                    <div class="row justify-content-md-center">
+                        <div class="flow" id="user-details-content"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <?php
     }
 
