@@ -245,7 +245,7 @@ input[type="radio"]:checked {
     .two-rem {
         font-size: 1.4rem;
     }
-    .pg-navbar .two-rem {
+    .navbar .two-rem {
         font-size: 2rem;
     }
 }
