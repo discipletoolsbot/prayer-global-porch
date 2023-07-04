@@ -156,7 +156,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                         <i class="icon pg-start"></i>
                     </button>
                     <button type="button" class="btn btn-primary-dark btn-praying" id="praying__open_options" data-bs-toggle="modal" data-bs-target="#option_filter">
-                        <i class="icon pg-time"></i>
+                        <i class="icon pg-settings"></i>
                     </button>
                 </div>
             </div>
@@ -181,7 +181,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
             <div class="container flex-column justify-content-center">
             <p class="my-0 font-weight-normal text-center tutorial uppercase one-em lh-1" id="tutorial-location"><?php echo esc_html__( 'Pray for', 'prayer-global-porch' ) ?></p>
                 <h5 class="my-0 font-weight-bold text-center w-75" id="location-name"></h5>
-                <p class="mt-1 mb-0 text-center">
+                <p class="mb-0 text-center small">
                     <?php echo sprintf( esc_html__( 'In Prayer Relay %s', 'prayer-global-porch' ), esc_html( $this->lap_title ) ) ?>
                 </p>
             </div>
@@ -212,6 +212,27 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                     </div>
                     <div class="modal-footer center">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><?php echo esc_html__( "Let's Go!", 'prayer-global-porch' ) ?></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="decision_leave_modal" tabindex="-1" role="dialog" aria-labelledby="option_filter_label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><?php echo esc_html__( 'Are you sure you want to leave?', 'prayer-global-porch' ) ?></h5>
+                        <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php esc_attr( __( 'Close', 'prayer-global-porch' ) ) ?>">
+                            <i class="icon pg-close two-em"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <?php echo esc_html__( "If you leave now, this place won't count as having been prayed for and will remain available for the next person to pray over." ) ?>
+                        </p>
+                    </div>
+                    <div class="modal-footer center">
+                        <button type="button" class="btn btn-outline-primary" id="decision__leave" data-bs-dismiss="modal"><?php echo esc_html__( "Leave", 'prayer-global-porch' ) ?></button>
+                        <button type="button" class="btn btn-secondary uppercase" id="decision__keep_praying" data-bs-dismiss="modal"><?php echo esc_html__( "Keep Praying", 'prayer-global-porch' ) ?></button>
                     </div>
                 </div>
             </div>

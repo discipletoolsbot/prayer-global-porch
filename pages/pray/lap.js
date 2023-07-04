@@ -69,12 +69,16 @@ jQuery(document).ready(function(){
   let decision_map = jQuery('#decision__map')
   let decision_next = jQuery('#decision__next')
 
+  let decision_leave = jQuery('#decision__leave')
+  let decision_keep_praying = jQuery('#decision__keep_praying')
+
   // let question_no = jQuery('#question__no')
   let question_yes_done = jQuery('#question__yes_done')
   let question_yes_next = jQuery('#question__yes_next')
 
   let pace_open_options = jQuery('#option_filter')
   let open_welcome = jQuery('#welcome_screen')
+  let decision_modal = jQuery('#decision_leave_modal')
   let pace_buttons = jQuery('.pace')
 
   let location_map_wrapper = jQuery('#location-map')
@@ -84,11 +88,14 @@ jQuery(document).ready(function(){
   let odometer_location_count = jQuery('.location-count')
   let i
 
+  const ONE_MINUTE = 60 // seconds
+  const CELEBRATION_DURATION = 3000 // milliseconds
+
   window.previous_grids = []
   window.interval = false
   window.percent = 0
   window.time = 0
-  window.seconds = 60
+  window.seconds = ONE_MINUTE
   window.time_finished = false
   window.pace = localStorage.getItem('pg_pace')
   if ( typeof window.pace === 'undefined' || ! window.pace ) {
@@ -202,34 +209,53 @@ jQuery(document).ready(function(){
       toggle_timer( false )
     })
     decision_home.off('click')
-    decision_home.on('click', function( e ) {
+    decision_home.on('click', () => open_decision_modal( home_callback ))
+    function home_callback( e ) {
       if ( jsObject.is_custom ) {
         window.location.href = jsObject.map_url
       } else {
         window.location.href = '/'
       }
-    })
+    }
     decision_map.off('click')
-    decision_map.on('click', function( e ) {
-      window.location = jsObject.map_url
-    })
+    decision_map.on('click', () => open_decision_modal( map_callback ) )
+    function map_callback( e ) {
+      window.location = jsObject.map_url + '?show_cta'
+    }
     decision_next.off('click')
-    decision_next.on('click', function( e ) {
+    decision_next.on('click', () => open_decision_modal( next_callback ) )
+    function next_callback( e ) {
       window.api_post( 'refresh', {} )
         .then( function(l1) {
           window.report_content = window.current_content = test_for_redundant_grid( l1 )
           load_next_content()
           advance_to_next_location()
         })
+    }
+    decision_keep_praying.off('click')
+    decision_keep_praying.on('click', function(e) {
+      toggle_timer()
     })
+
+    function open_decision_modal(callback) {
+
+      if ( window.time < ONE_MINUTE ) {
+        decision_modal.modal('show')
+      } else {
+        // We have prayed for at least a minute so let's celebrate before they move on
+        celebrate_prayer()
+        setTimeout(
+          callback,
+          CELEBRATION_DURATION,
+        )
+      }
+
+      decision_leave.on('click', callback)
+    }
+
     question_yes_done.off('click')
     question_yes_done.on('click', function( e ) {
-      const celebrationDuration = 3000
-      question_panel.hide()
-      clear_timer()
-      celebrate()
-      window.celebrationFireworks(celebrationDuration)
-      update_odometer({ location_count: window.odometer.location_count + 1})
+      celebrate_prayer()
       setTimeout(
         function() {
           if ( jsObject.is_cta_feature_on ) {
@@ -237,22 +263,26 @@ jQuery(document).ready(function(){
           } else {
             window.location = jsObject.map_url
           }
-        }, celebrationDuration);
+        }, CELEBRATION_DURATION);
     })
     question_yes_next.off('click')
     question_yes_next.on('click', function( e ) {
-      const celebrationDuration = 3000
-      question_panel.hide()
-      clear_timer()
-      celebrate()
-      window.celebrationFireworks(celebrationDuration)
-      update_odometer({ location_count: window.odometer.location_count + 1})
+      celebrate_prayer()
       setTimeout(
         function()
         {
           advance_to_next_location()
-        }, celebrationDuration);
+        }, CELEBRATION_DURATION);
     })
+    function celebrate_prayer() {
+      praying_panel.hide()
+      question_panel.hide()
+      decision_panel.hide()
+      clear_timer()
+      celebrate()
+      window.celebrationFireworks(CELEBRATION_DURATION)
+      update_odometer({ location_count: window.odometer.location_count + 1})
+    }
     pace_buttons.off('click')
     pace_buttons.on('click', function(e) {
       console.log(e.currentTarget.id)
@@ -263,7 +293,7 @@ jQuery(document).ready(function(){
       window.pace = e.currentTarget.value
       localStorage.setItem( 'pg_pace', window.pace )
 
-      window.seconds = e.currentTarget.value * 60
+      window.seconds = e.currentTarget.value * ONE_MINUTE
       window.items = parseInt( window.pace ) + 6
 
       jQuery('.container.block').show()
@@ -325,28 +355,7 @@ jQuery(document).ready(function(){
       location_count,
     }
     odometer_location_count.html(location_count)
-
-    const odometerX = 20 + prayer_odometer.innerWidth() / 2
-    const odometerY = 30 + prayer_odometer.innerHeight() / 2
-
-    const origin = {
-      x: odometerX / innerWidth,
-      y: 1 - odometerY / innerHeight,
-    }
-
-    confetti({
-      gravity: 1,
-      colors: ['#DD0'],
-      origin,
-      shapes: ['circle'],
-      spread: 30,
-      ticks: 50,
-      scalar: 0.75,
-      particleCount: 100,
-      startVelocity: 20,
-      zIndex: 100000,
-    })
-  }
+ }
 
   /**
    * FRAMEWORK LOADERS
@@ -449,7 +458,7 @@ jQuery(document).ready(function(){
         window.tick = window.tick + 0.1
       }
 
-      if (window.tick > 60) {
+      if (window.tick > ONE_MINUTE) {
         window.api_post( 'increment_log', { report_id: window.next_content['report_id'] } )
           .then(function(x) {
             console.log('incremented log', x)
