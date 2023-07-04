@@ -340,6 +340,9 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                         <p class="stats-figure time_remaining">0</p>
                     </div>
                 </div>
+                <div class="row">
+                    <a href="/" class="btn btn-small btn-outline-primary w-fit mb-2 d-block m-auto"><?php echo esc_html__( 'Leave this relay' ) ?></a>
+                </div>
             </div>
         </div>
 
