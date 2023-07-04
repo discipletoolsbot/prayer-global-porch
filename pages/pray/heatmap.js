@@ -747,36 +747,6 @@ jQuery(document).ready(function($){
         map.setStyle(style)
       }
 
-      const applyStylesButton = document.querySelector('.apply-new-map-styles')
-      applyStylesButton.onclick = function(e) {
-        e.preventDefault()
-        e.stopPropagation()
-
-        const style = map.getStyle()
-
-        const yesStyle = $('.yes-map-colour').val() || 'green'
-        const noStyle = $('.no-map-colour').val() || 'red'
-        const lineColour = $('.line-colour').val() || 'white'
-        const fillOpacity = $('.fill-opacity').val() || '0.75'
-
-        console.log(style, yesStyle, noStyle)
-        const stops = [
-          [0, noStyle],
-          [1, yesStyle],
-        ]
-
-        for (let i = 0; i < 10; i++) {
-          const layerId = style.layers.findIndex(({id}) => id === `${i}fills_heat`)
-          const lineLayerId = style.layers.findIndex(({id}) => id === `${i}line`)
-
-          style.layers[layerId].paint['fill-color'].stops = stops
-          style.layers[layerId].paint['fill-opacity'] = Number(fillOpacity)
-          style.layers[lineLayerId].paint['line-color'] = lineColour
-        }
-
-        map.setStyle(style)
-
-      }
     })
 
     // add stats
