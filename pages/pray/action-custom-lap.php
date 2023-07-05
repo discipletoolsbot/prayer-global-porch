@@ -563,6 +563,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         $remaining_custom = $this->_query_custom_prayed_list( $parts['post_id'], $list_4770 );
 
         $rolling_laps_feature = new PG_Feature_Flag( PG_Flags::ROLLING_LAPS );
+
         /**
          * HANDLE COMPLETED LAP
          */

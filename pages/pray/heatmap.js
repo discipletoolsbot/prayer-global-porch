@@ -294,7 +294,7 @@ jQuery(document).ready(function($){
 
     let options = {
       container: 'map',
-      style: 'mapbox://styles/discipletools/cl2ksnvie001i15qm1h5ahqea',
+      style: 'mapbox://styles/discipletools/clgnj6vkv00e801pj9xnw49i6',
       center: [0, 30],
       minZoom: 0,
       maxZoom: 12,
@@ -304,16 +304,12 @@ jQuery(document).ready(function($){
     if ( isMobile ) {
       options = {
         container: 'map',
-        style: 'mapbox://styles/discipletools/cl2ksnvie001i15qm1h5ahqea',
+        style: 'mapbox://styles/discipletools/clgnj6vkv00e801pj9xnw49i6',
         center: [-90, 30],
         minZoom: 0,
         maxZoom: 12,
         zoom: 1
       }
-    }
-
-    if (jsObject.is_dark_map_on) {
-      options.style = 'mapbox://styles/discipletools/clgnj6vkv00e801pj9xnw49i6'
     }
 
     mapboxgl.accessToken = jsObject.map_key;
@@ -382,13 +378,9 @@ jQuery(document).ready(function($){
     }
 
     const fillColors = getFillColors(jsObject.map_type, layers)
-    window.lineColor = 'white'
+    window.lineColor = '#6986B2'
     if ( jsObject.map_type === 'heatmap' ) {
       window.lineColor = 'black'
-    }
-
-    if ( jsObject.is_dark_map_on ) {
-      window.lineColor = '#6986B2'
     }
 
     jQuery.each(asset_list, function(i,file){
@@ -460,25 +452,10 @@ jQuery(document).ready(function($){
 
     }) /* for each loop */
 
-    let images = [
-      { src: jsObject.image_folder + 'avatar-d1.png', id: 'avatar1' },
-      { src: jsObject.image_folder + 'avatar-d2.png', id: 'avatar2' },
-      { src: jsObject.image_folder + 'avatar-d3.png', id: 'avatar3' },
-      { src: jsObject.image_folder + 'avatar-d4.png', id: 'avatar4' },
-      { src: jsObject.image_folder + 'avatar-d5.png', id: 'avatar5' },
-      { src: jsObject.image_folder + 'avatar-d6.png', id: 'avatar6' },
-      { src: jsObject.image_folder + 'avatar-d7.png', id: 'avatar7' },
-      { src: jsObject.image_folder + 'avatar-d8.png', id: 'avatar8' },
-      { src: jsObject.image_folder + 'avatar-d9.png', id: 'avatar9' },
-      { src: jsObject.image_folder + 'avatar-d10.png', id: 'avatar0' },
+    images = [
+      { src: jsObject.image_folder + 'l-orange-shadow32.png', id: 'avatar1' },
+      { src: jsObject.image_folder + 'd-orange-shadow32.png', id: 'avatar2' },
     ]
-
-    if ( jsObject.is_dark_map_on ) {
-      images = [
-        { src: jsObject.image_folder + 'l-orange-shadow32.png', id: 'avatar1' },
-        { src: jsObject.image_folder + 'd-orange-shadow32.png', id: 'avatar2' },
-      ]
-    }
 
     const allImages = images
 
@@ -526,35 +503,19 @@ jQuery(document).ready(function($){
       )
       .then(() => {
 
-          let circleColor = [
-                'step',
-                ['get', 'point_count'],
-                '#51bbd6',
-                100,
-                '#f1f075',
-                750,
-                '#f28cb1'
-              ]
-          let iconSizes = [
-            1, 0.15,
-            18, 1
+          const circleColor = [
+            'step',
+            ['get', 'point_count'],
+            '#F48224',
+            100,
+            '#FAAF1B',
+            750,
+            '#fcc639'
           ]
-
-          if ( jsObject.is_dark_map_on ) {
-            circleColor = [
-              'step',
-              ['get', 'point_count'],
-              '#F48224',
-              100,
-              '#FAAF1B',
-              750,
-              '#fcc639'
-            ]
-            iconSizes = [
-              1, 1,
-              18, 2
-            ]
-          }
+          iconSizes = [
+            1, 1,
+            18, 2
+          ]
           map.addLayer({
             'id': participantsClusterLayerId,
             'type': 'circle',
@@ -633,12 +594,8 @@ jQuery(document).ready(function($){
         'type': 'geojson',
         'data': geojson
       });
-      let tickImage = jsObject.image_folder + 'black-check-50.png'
-      let iconSize = 0.5
-      if ( jsObject.is_dark_map_on ) {
-        tickImage = jsObject.image_folder + 'recent-prayers-lightblue32.png'
-        iconSize = 1
-      }
+      let tickImage = jsObject.image_folder + 'recent-prayers-lightblue32.png'
+      let iconSize = 1
       map.loadImage(
         tickImage,
         (error, image) => {
@@ -1079,24 +1036,13 @@ jQuery(document).ready(function($){
       'fill-outline-color': 'black'
     }
 
-    let binaryFill = {
+    const binaryFill = {
       'fill-color': {
         property: 'value',
-        stops: [[0, red], [1, green]]
+        stops: [[0, '#11224E'], [1, '#fff']]
       },
-      'fill-opacity': 0.75,
+      'fill-opacity': 1,
       'fill-outline-color': 'black'
-    }
-
-    if ( jsObject.is_dark_map_on ) {
-      binaryFill = {
-        'fill-color': {
-          property: 'value',
-          stops: [[0, '#11224E'], [1, '#fff']]
-        },
-        'fill-opacity': 1,
-        'fill-outline-color': 'black'
-      }
     }
 
     const fillColorDictionary = {
