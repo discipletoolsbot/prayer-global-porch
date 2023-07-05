@@ -102,6 +102,8 @@ jQuery(document).ready(function(){
     window.pace = '1'
     localStorage.setItem('pg_pace', '1' )
   }
+  setup_seconds(window.pace)
+  setup_items(window.pace)
   window.viewed = localStorage.getItem('pg_viewed')
   if ( typeof window.viewed === 'undefined' || ! window.viewed ) {
     window.viewed = '1'
@@ -191,6 +193,12 @@ jQuery(document).ready(function(){
       window.previous_grids.push(content.location.grid_id )
       return content
     }
+  }
+  function setup_seconds(pace) {
+    window.seconds = pace * ONE_MINUTE
+  }
+  function setup_items(pace) {
+    window.items = parseInt(pace) + 6
   }
   /**
    * Widget Listeners
@@ -293,8 +301,8 @@ jQuery(document).ready(function(){
       window.pace = e.currentTarget.value
       localStorage.setItem( 'pg_pace', window.pace )
 
-      window.seconds = e.currentTarget.value * ONE_MINUTE
-      window.items = parseInt( window.pace ) + 6
+      setup_seconds(window.pace)
+      setup_items(window.pace)
 
       jQuery('.container.block').show()
       jQuery('.container.block:nth-child(+n+' + window.items + ')').hide()
