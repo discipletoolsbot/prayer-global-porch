@@ -1180,6 +1180,7 @@ jQuery(document).ready(function($){
     if ( show_cta ) {
       window.api_post_global( 'ctas', 'get_cta' )
         .then((cta) => {
+          console.log(cta)
           const content = `
             <h3 class="modal-title">${cta.post_title}</h3>
             ${cta.post_content}
