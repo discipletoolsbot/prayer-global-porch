@@ -119,7 +119,6 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                 ],
                 'map_type' => $this->map_type,
                 'details_type' => $this->details_type,
-                'is_dark_map_on' => ( new PG_Feature_Flag( PG_Flags::DARK_MAP_FEATURE ) )->is_on(),
             ]) ?>][0]
         </script>
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/global-functions.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/global-functions.js' ) ) ?>"></script>

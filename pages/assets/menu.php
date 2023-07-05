@@ -12,8 +12,6 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
         $map_href = '/newest/map';
     }
 
-    $login_module_feature = new PG_Feature_Flag( PG_Flags::LOGIN_FEATURE );
-
     ?>
 
     <div class="offcanvas offcanvas-end pg-navmenu" data-bs-backdrop="true" data-bs-scroll="true" id="probootstrap-navbar">
@@ -23,15 +21,9 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
             </a>
             <h5 class="border border-light border-white offcanvas-title px-3 rounded" id="offcanvasNavbarDarkLabel">Prayer.Global</h5>
             <div class="d-flex">
-
-                <?php if ( $login_module_feature->is_on() ) : ?>
-
-                    <a href="/user_app/profile" class="icon-button mx-2 two-rem d-flex align-items-center" title="Profile" id="user-profile-link">
-                        <i class="icon pg-profile"></i>
-                    </a>
-
-                <?php endif; ?>
-
+                <a href="/user_app/profile" class="icon-button mx-2 two-rem d-flex align-items-center" title="Profile" id="user-profile-link">
+                    <i class="icon pg-profile"></i>
+                </a>
                 <button type="button" class="icon-button p-0 two-rem d-flex ms-2" data-bs-dismiss="offcanvas" aria-label="Close">
                     <i class="icon pg-close"></i>
                 </button>

@@ -111,7 +111,7 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
                     'stats_url' => $current_url . 'stats',
                     'map_url' => $current_url . 'map',
                     'is_custom' => ( 'custom' === $this->parts['type'] ),
-                    'is_cta_feature_on' => ( new PG_Feature_Flag( PG_Flags::CTA_FEATURE ) )->is_on(),
+                    'is_cta_feature_on' => true,
                 ]) ?>][0]
             </script>
             <script type="text/javascript" src="<?php echo esc_url( DT_Mapbox_API::$mapbox_gl_js ) ?>"></script>
@@ -562,13 +562,11 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
          */
         $remaining_custom = $this->_query_custom_prayed_list( $parts['post_id'], $list_4770 );
 
-        $rolling_laps_feature = new PG_Feature_Flag( PG_Flags::ROLLING_LAPS );
-
         /**
          * HANDLE COMPLETED LAP
          */
         if ( empty( $remaining_custom ) ) {
-            if ( !$rolling_laps_feature->is_on() || $this->_is_single_lap( $parts['post_id'] ) ) {
+            if ( $this->_is_single_lap( $parts['post_id'] ) ) {
                 $time = time();
                 update_post_meta( $parts['post_id'], 'status', 'complete' );
                 update_post_meta( $parts['post_id'], 'end_time', $time );

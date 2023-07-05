@@ -93,7 +93,7 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
                 'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/nope.jpg',
                 'images_url' => pg_grid_image_url(),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
-                'is_rolling_laps_feature_on' => ( new PG_Feature_Flag( PG_Flags::ROLLING_LAPS ) )->is_on(),
+                'is_rolling_laps_feature_on' => true,
             ]) ?>][0]
         </script>
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">

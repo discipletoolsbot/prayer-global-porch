@@ -101,7 +101,6 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                     'add' => __( 'Add Magic', 'prayer-global-porch' ),
                 ],
                 'map_type' => 'binary',
-                'is_dark_map_on' => ( new PG_Feature_Flag( PG_Flags::DARK_MAP_FEATURE ) )->is_on(),
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
@@ -128,7 +127,6 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         $now = time();
         $has_challenge_started = $lap_stats['start_time'] < $now;
         DT_Mapbox_API::geocoder_scripts();
-        $rolling_laps_feature = new PG_Feature_Flag( PG_Flags::ROLLING_LAPS );
         ?>
         <style id="custom-style"></style>
         <div id="map-content">
@@ -178,11 +176,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                                 <i class="icon pg-chevron-up three-em blue"></i>
                             </button>
 
-                            <?php if ( $rolling_laps_feature->is_on() ) : ?>
-
-                                <h4 class="uppercase font-weight-bold two-em"><?php echo esc_html( sprintf( __( 'Lap %s', 'prayer-global-porch' ), $lap_stats['lap_number'] ) ) ?></h4>
-
-                            <?php endif; ?>
+                            <h4 class="uppercase font-weight-bold two-em"><?php echo esc_html( sprintf( __( 'Lap %s', 'prayer-global-porch' ), $lap_stats['lap_number'] ) ) ?></h4>
 
                         </div>
                         <div class="col col-sm-6 col-lg-2 center">
@@ -269,13 +263,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
             <div class="container center uppercase pt-3">
                 <div class="row g-0 justify-content-center">
                     <div class="col col-12">
-
-                        <?php if ( $rolling_laps_feature->is_on() ) : ?>
-
-                            <h4 class="uppercase font-weight-bold two-em"><?php echo esc_html( sprintf( __( 'Lap %s', 'prayer-global-porch' ), $lap_stats['lap_number'] ) ) ?></h4>
-
-                        <?php endif; ?>
-
+                        <h4 class="uppercase font-weight-bold two-em"><?php echo esc_html( sprintf( __( 'Lap %s', 'prayer-global-porch' ), $lap_stats['lap_number'] ) ) ?></h4>
                     </div>
                     <div class="col col-6 col-sm-4">
                         <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
