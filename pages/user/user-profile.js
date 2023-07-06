@@ -79,12 +79,14 @@ jQuery(document).ready(function(){
             })
     })
 
-    jQuery('#location-modal').on('hidden.bs.modal', (e) => {
+    jQuery('#details-modal').on('hidden.bs.modal', (e) => {
         jQuery('#mapbox-search').val('')
         jQuery('.mapbox-error-message').html('')
     })
-    jQuery('#location-modal').on('shown.bs.modal', () => {
-        jQuery('#mapbox-search').focus()
+    jQuery('#details-modal').on('shown.bs.modal', () => {
+    })
+    jQuery('#details-modal').on('shown.bs.modal', () => {
+        jQuery('#display_name').focus()
     })
     jQuery('#erase-user-account-modal').on('hidden.bs.modal', () => {
         jQuery('#delete-confirmation').val('')
@@ -94,8 +96,8 @@ jQuery(document).ready(function(){
         isSavingChallenge = false
     })
 
-    jQuery('.save-user-location').on('click', (e) => {
-        const label = jQuery('#mapbox-search').val()
+    jQuery('.save-user-details').on('click', (e) => {
+        const newLocation = jQuery('#mapbox-search').val()
 
         const location = window.location_data &&
             window.location_data.location_grid_meta &&
@@ -104,7 +106,7 @@ jQuery(document).ready(function(){
                 ? window.location_data.location_grid_meta.values[0]
                 : null
 
-        if ( label && label !== '' && location && location.label === label ) {
+        if ( newLocation && newLocation !== '' && location && location.label === newLocation ) {
 
             if (isSavingLocation) {
                 return
@@ -116,13 +118,15 @@ jQuery(document).ready(function(){
             jQuery('.mapbox-error-message').html('')
 
             get_user_app('save_location', location)
-                .then((location) => {
+                .then(({ location, name }) => {
                     jsObject.user.location = location
-                    jQuery('#location-modal').modal('hide')
+                    jsObject.user.name = name
+                    jQuery('#details-modal').modal('hide')
                     jQuery('#mapbox-spinner-button').hide()
                     jQuery('#mapbox-search').val('')
                     jQuery('.user__location-label').html(location.label)
                     jQuery('.iplocation-message').empty()
+                    setup_details_modal()
                 })
                 .finally(() => {
                     isSavingLocation = false
@@ -159,9 +163,17 @@ jQuery(document).ready(function(){
             body: JSON.stringify({ parts: jsObject.parts, data: data }),
         })
     }
+    function setup_details_modal() {
+        console.log('click')
+        const { display_name, location: { label } } = jsObject.user
+        jQuery('#display_name').val(display_name)
+        jQuery('#mapbox-search').val(label)
+    }
 
     function write_main (data) {
         console.log(data)
+
+        setup_details_modal()
         const pgContentHTML = `
 
         <div class="flow-medium">
@@ -180,7 +192,7 @@ jQuery(document).ready(function(){
                     <h2 class="user__full-name font-base uppercase">${data.display_name}</h2>
                     <p class="user__location">
                         <span class="user__location-label">${data.location && data.location.label || LoadingSpinner()}</span>
-                        ${LocationChangeButton()}
+                        ${DetailsChangeButton()}
                         <span class="iplocation-message small d-block text-secondary">
                             ${data.location && data.location.source === 'ip' ? estimated_location : ''}
                         </span>
@@ -283,28 +295,30 @@ jQuery(document).ready(function(){
     }) {
         const userDetailsContentHTML = `
         <h2 class="center">${profile}</h2>
-        <table class="table">
-            <tbody>
-                <tr>
-                    <td>${name_text}:</td>
-                    <td>${name}</td>
-                </tr>
-                <tr>
-                    <td>${email_text}:</td>
-                    <td>${email}</td>
-                </tr>
-                <tr>
-                    <td>${location_text}:</td>
-                    <td>
-                        <span class="user__location-label">${location && location.label || select_a_location}</span>
-                        ${LocationChangeButton()}
-                        <span class="iplocation-message small d-block text-secondary">
-                            ${location && location.source === 'ip' ? estimated_location : ''}
-                        </span>
-                    </td>
-                </tr>
-            </tbody>
-        </table>
+        <div>
+            <table class="table">
+                <tbody>
+                    <tr>
+                        <td>${name_text}:</td>
+                        <td>${name}</td>
+                    </tr>
+                    <tr>
+                        <td>${email_text}:</td>
+                        <td>${email}</td>
+                    </tr>
+                    <tr>
+                        <td>${location_text}:</td>
+                        <td>
+                            <span class="user__location-label">${location && location.label || select_a_location}</span>
+                            <span class="iplocation-message small d-block text-secondary">
+                                ${location && location.source === 'ip' ? estimated_location : ''}
+                            </span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            ${DetailsChangeButton()}
+        </div>
         <section class="communication-preferences flow-small">
             <h2 class="center">${communication_preferences}</h2>
 
@@ -884,12 +898,13 @@ jQuery(document).ready(function(){
         return `<span class="loading-spinner ${activeAttr}"></span>`
     }
 
-    function LocationChangeButton() {
+    function DetailsChangeButton() {
         return ModalButton({
             text: 'Change',
-            modalId: 'location-modal',
+            modalId: 'details-modal',
             classes: 'brand-lightest',
-            id: 'change-location',
+            id: 'change-details',
+            onClick,
         })
     }
 
@@ -919,7 +934,7 @@ jQuery(document).ready(function(){
      * @param string classes Optional extra classes
      * @param string id Optional id to give the button
      */
-    function ModalButton({ text, modalId, classes = '', id = '', dataAttributes = [] } ) {
+    function ModalButton({ text, modalId, classes = '', id = '', dataAttributes = [], onClick = null } ) {
 
         const attributes = []
         dataAttributes.forEach(({name, value}) => {
@@ -928,7 +943,7 @@ jQuery(document).ready(function(){
         const dataAttributesHTML = attributes.join(' ')
 
         return `
-            <button id="${id}" class="${classes}" data-bs-toggle="modal" data-bs-target="#${modalId}" ${dataAttributesHTML}>
+            <button onclick="${onClick}" id="${id}" class="${classes}" data-bs-toggle="modal" data-bs-target="#${modalId}" ${dataAttributesHTML}>
                 ${text}
             </button>
         `

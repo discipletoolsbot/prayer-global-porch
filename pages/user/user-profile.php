@@ -145,21 +145,22 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
 
 
 
-            <div class="modal fade" id="location-modal" tabindex="-1" aria-labelledby="locationModalLabel" aria-hidden="true">
+            <div class="modal fade" id="details-modal" tabindex="-1" aria-labelledby="detailsModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title fs-5" id="locationModalLabel"><?php echo esc_html__( 'Change Your Location', 'prayer-global-porch' ) ?></h5>
+                            <h5 class="modal-title fs-5" id="detailsModalLabel"><?php echo esc_html__( 'Change Your Details', 'prayer-global-porch' ) ?></h5>
                             <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
                                 <i class="icon pg-close two-em"></i>
                             </button>
                         </div>
                         <div class="modal-body">
+                            <input required type="text" name="name" id="display_name" class="mb-4 form-control" placeholder="<?php echo esc_attr__( 'Name', 'prayer-global-porch' ) ?>">
                             <div id="mapbox-wrapper">
                                 <div id="mapbox-autocomplete" class="mapbox-autocomplete" data-autosubmit="false" data-add-address="true">
                                     <div class="input-group mb-2">
-                                            <input required id="mapbox-search" type="text" name="mapbox_search" class="form-control" autocomplete="off" placeholder="<?php esc_attr__( 'Select Location', 'prayer-global-porch' ) ?>" />
-                                            <button id="mapbox-clear-autocomplete" class="btn btn-small btn-secondary d-flex align-items-center" type="button" title="<?php esc_attr__( 'Delete Location', 'prayer-global-porch' ) ?>" style="">
+                                            <input required id="mapbox-search" type="text" name="mapbox_search" class="form-control" autocomplete="off" placeholder="<?php echo esc_attr__( 'Select Location', 'prayer-global-porch' ) ?>" />
+                                            <button id="mapbox-clear-autocomplete" class="btn btn-small btn-secondary d-flex align-items-center" type="button" title="<?php echo esc_attr__( 'Delete Location', 'prayer-global-porch' ) ?>" style="">
                                             <i class="icon pg-close one-rem lh-small"></i>
                                         </button>
                                     </div>
@@ -172,8 +173,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                             </div>
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-small btn-outline-primary cancel-user-location" data-bs-dismiss="modal"><?php echo esc_html__( 'Cancel', 'prayer-global-porch' ) ?></button>
-                            <button type="button" class="btn btn-small btn-primary save-user-location"><?php echo esc_html__( 'Save', 'prayer-global-porch' ) ?></button>
+                            <button type="button" class="btn btn-small btn-outline-primary cancel-user-details" data-bs-dismiss="modal"><?php echo esc_html__( 'Cancel', 'prayer-global-porch' ) ?></button>
+                            <button type="button" class="btn btn-small btn-primary save-user-details"><?php echo esc_html__( 'Save', 'prayer-global-porch' ) ?></button>
                         </div>
                    </div>
                 </div>
@@ -184,7 +185,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title fs-5" id="createChallengeLabel" data-visibility=""><?php echo esc_html__( 'Create Challenge', 'prayer-global-porch' ) ?></h5>
-                            <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php esc_attr__( 'Close', 'prayer-global-porch' ) ?>">
+                            <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php echo esc_attr__( 'Close', 'prayer-global-porch' ) ?>">
                                 <i class="icon pg-close two-em"></i>
                             </button>
                         </div>
@@ -257,7 +258,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title fs-5" id="eraseUserModalLabel"><?php echo esc_html__( 'Erase Account', 'prayer-global-porch' ) ?></h5>
-                            <button class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php esc_attr__( 'Close', 'prayer-global-porch' ) ?>">
+                            <button class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php echo esc_attr__( 'Close', 'prayer-global-porch' ) ?>">
                                 <i class="icon pg-close two-em"></i>
                             </button>
                         </div>

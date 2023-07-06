@@ -68,7 +68,7 @@ trait PG_Lap_Trait {
         <!-- navigation & widget -->
         <nav class="navbar prayer_navbar fixed-top" id="pb-pray-navbar">
             <div class="container" id="praying-panel">
-                <div class="d-flex w-100 gap-2 praying_button_group" role="group" aria-label="<?php esc_attr__( 'Praying Button', 'prayer-global-porch' ) ?>">
+                <div class="d-flex w-100 gap-2 praying_button_group" role="group" aria-label="<?php echo esc_attr__( 'Praying Button', 'prayer-global-porch' ) ?>">
                     <div class="align-items-center brand-lighter-bg btn-praying d-flex gap-2 prayer-odometer px-2">
                         <i class="icon pg-prayer"></i><span class="two-rem location-count">0</span>
                     </div>
@@ -89,7 +89,7 @@ trait PG_Lap_Trait {
             </div>
 
             <div class="container question" id="question-panel">
-                <div class="d-flex w-100 gap-2 question_button_group" role="group" aria-label="<?php esc_attr__( 'Praying Button', 'prayer-global-porch' ) ?>">
+                <div class="d-flex w-100 gap-2 question_button_group" role="group" aria-label="<?php echo esc_attr__( 'Praying Button', 'prayer-global-porch' ) ?>">
 
                     <?php $this->question_buttons() ?>
 
@@ -97,7 +97,7 @@ trait PG_Lap_Trait {
             </div>
             <div class="w-100" ></div>
             <div class="container decision" id="decision-panel">
-                <div class="d-flex w-100 gap-2 decision_button_group" role="group" aria-label="<?php esc_attr__( 'Decision Button', 'prayer-global-porch' ) ?>">
+                <div class="d-flex w-100 gap-2 decision_button_group" role="group" aria-label="<?php echo esc_attr__( 'Decision Button', 'prayer-global-porch' ) ?>">
 
                     <?php $this->decision_buttons() ?>
 
@@ -117,7 +117,7 @@ trait PG_Lap_Trait {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><?php echo esc_html__( 'Set Your Prayer Experience', 'prayer-global-porch' ) ?></h5>
-                        <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php esc_attr__( 'Close', 'prayer-global-porch' ) ?>">
+                        <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php echo esc_attr__( 'Close', 'prayer-global-porch' ) ?>">
                             <i class="icon pg-close two-em"></i>
                         </button>
                     </div>
@@ -197,7 +197,7 @@ trait PG_Lap_Trait {
                             <div class="modal-content">
                                 <div class="modal-header">
                                 <h5 class="modal-title"><?php echo esc_html__( 'Thank you! Leave us a correction below.', 'prayer-global-porch' ) ?></h5>
-                                    <button type="button" id="correction_close" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php esc_attr__( 'Close', 'prayer-global-porch' ) ?>">
+                                    <button type="button" id="correction_close" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php echo esc_attr__( 'Close', 'prayer-global-porch' ) ?>">
                                         <i class="icon pg-close two-em"></i>
                                     </button>
                                 </div>
