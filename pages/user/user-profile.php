@@ -342,8 +342,8 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                 return $this->get_user_activity( $params['data'] );
             case 'ip_location':
                 return $this->get_ip_location( $params['data'] );
-            case 'save_location':
-                return $this->save_location( $params['data'] );
+            case 'save_details':
+                return $this->save_details( $params['data'] );
             case 'link_anonymous_prayers':
                 return $this->link_anonymous_prayers( $params['data'] );
             case 'create_challenge':
@@ -407,7 +407,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
      * @param array $data
      * @return void|WP_Error
      */
-    public function update_user( $data ) {
+    public function update_user_meta( $data ) {
         $user_id = get_current_user_id();
 
         if ( !$user_id ) {
@@ -512,13 +512,20 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
             "location_hash" => $hash,
         ];
 
-        $this->update_user( $data );
+        $this->update_user_meta( $data );
 
         return $data;
     }
 
-    public function save_location( $data ) {
-        if ( !isset( $data['lat'], $data['lng'], $data['label'], $data['level'] ) ) {
+    public function save_details( $data ) {
+        if ( !isset( $data['location'], $data['display_name'] ) ) {
+            return new WP_Error( __METHOD__, 'Missing location or display_name', [ 'status' => 400 ] );
+        }
+
+        $location = $data['location'];
+        $display_name = $data['display_name'];
+
+        if ( !isset( $location['lat'], $location['lng'], $location['label'], $location['level'] ) ) {
             return new WP_Error( __METHOD__, 'Missing lat, lng, label or level', [ 'status' => 400 ] );
         }
 
@@ -531,25 +538,37 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         /* Get the grid_id for this lat lng */
         $geocoder = new Location_Grid_Geocoder();
 
-        $lat = (float) $data['lat'];
-        $lng = (float) $data['lng'];
-        $label = sanitize_text_field( wp_unslash( $data['label'] ) );
+        $lat = (float) $location['lat'];
+        $lng = (float) $location['lng'];
+        $label = sanitize_text_field( wp_unslash( $location['label'] ) );
 
         $grid_row = $geocoder->get_grid_id_by_lnglat( $lng, $lat );
 
         $old_location = get_user_meta( get_current_user_id(), PG_NAMESPACE . 'location', true );
 
-        $data['grid_id'] = $grid_row ? $grid_row['grid_id'] : false;
-        $data['lat'] = strval( $lat );
-        $data['lng'] = strval( $lng );
-        $data['country'] = $this->_extract_country_from_label( $label );
-        $data['hash'] = $old_location ? $old_location['hash'] : '';
+        $location['grid_id'] = $grid_row ? $grid_row['grid_id'] : false;
+        $location['lat'] = strval( $lat );
+        $location['lng'] = strval( $lng );
+        $location['country'] = $this->_extract_country_from_label( $label );
+        $location['hash'] = $old_location ? $old_location['hash'] : '';
 
-        $this->update_user( [
-            'location' => $data,
+        $this->update_user_meta( [
+            'location' => $location,
         ] );
 
-        return $data;
+        $return = wp_update_user( [
+            'ID' => $user_id,
+            'display_name' => $display_name,
+        ] );
+
+        if ( is_wp_error( $return ) ) {
+            $display_name = '';
+        }
+
+        return [
+            'location' => $location,
+            'display_name' => $display_name,
+        ];
     }
 
     public function link_anonymous_prayers( $data ) {

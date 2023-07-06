@@ -59,8 +59,12 @@ jQuery(document).ready(function(){
 
 
     window.getAuthUser(
-        (user) => write_main( user ),
-        () => window.loginRedirect()
+        (user) => {
+            write_main( user )
+        },
+        () => {
+            window.loginRedirect()
+        }
     )
 
     jQuery('#delete-confirmation').on('keyup', (e) => {
@@ -98,13 +102,19 @@ jQuery(document).ready(function(){
 
     jQuery('.save-user-details').on('click', (e) => {
         const newLocation = jQuery('#mapbox-search').val()
+        const display_name = jQuery('#display_name').val()
 
-        const location = window.location_data &&
+        let location = window.location_data &&
             window.location_data.location_grid_meta &&
             window.location_data.location_grid_meta.values &&
             Array.isArray(window.location_data.location_grid_meta.values)
                 ? window.location_data.location_grid_meta.values[0]
                 : null
+
+        // If the location is null and the user has a location, then we are editing, and not choosing a new location
+        if ( location === null && jsObject.user.location ) {
+            location = jsObject.user.location
+        }
 
         if ( newLocation && newLocation !== '' && location && location.label === newLocation ) {
 
@@ -117,14 +127,15 @@ jQuery(document).ready(function(){
             jQuery('#mapbox-spinner-button').show()
             jQuery('.mapbox-error-message').html('')
 
-            get_user_app('save_location', location)
-                .then(({ location, name }) => {
+            get_user_app('save_details', { location, display_name })
+                .then(({ location, display_name }) => {
                     jsObject.user.location = location
-                    jsObject.user.name = name
+                    jsObject.user.name = display_name
                     jQuery('#details-modal').modal('hide')
                     jQuery('#mapbox-spinner-button').hide()
                     jQuery('#mapbox-search').val('')
                     jQuery('.user__location-label').html(location.label)
+                    jQuery('.user__full-name').html(display_name)
                     jQuery('.iplocation-message').empty()
                     setup_details_modal()
                 })
@@ -164,7 +175,6 @@ jQuery(document).ready(function(){
         })
     }
     function setup_details_modal() {
-        console.log('click')
         const { display_name, location: { label } } = jsObject.user
         jQuery('#display_name').val(display_name)
         jQuery('#mapbox-search').val(label)
@@ -229,6 +239,10 @@ jQuery(document).ready(function(){
         </div>`
 
         jQuery('#pg_content').html(pgContentHTML);
+
+        jQuery('#change-details').on('click', () => {
+            setup_details_modal()
+        })
 
         if ( !data.stats ) {
             getStats()
@@ -904,7 +918,6 @@ jQuery(document).ready(function(){
             modalId: 'details-modal',
             classes: 'brand-lightest',
             id: 'change-details',
-            onClick,
         })
     }
 
