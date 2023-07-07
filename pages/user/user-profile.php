@@ -300,7 +300,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
             <div class="offcanvas__content">
                 <div class="container">
                     <div class="row justify-content-md-center">
-                        <div class="flow" id="user-details-content"></div>
+                        <div class="flow-medium" id="user-details-content"></div>
                     </div>
                 </div>
             </div>

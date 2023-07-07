@@ -485,7 +485,7 @@ jQuery(document).ready(function(){
                 <span class="loading-spinner active"></span>
             </div>
         </section>
-        <a class="btn btn-primary-light d-block mx-auto" href="/challenges/active/">${view_join_other_relays}</a>
+        <a class="d-block mx-auto center" href="/challenges/active/">${view_join_other_relays}</a>
         `
         userProfileDetails.html(challengesHTML)
 
@@ -941,8 +941,8 @@ jQuery(document).ready(function(){
         return ModalButton({
             text,
             modalId: 'create-challenge-modal',
-            buttonType: 'outline-dark',
-            classes: 'd-block mx-auto btn btn-outline-primary',
+            buttonType: '',
+            classes: 'd-block mx-auto btn btn-primary',
             id,
         })
     }
