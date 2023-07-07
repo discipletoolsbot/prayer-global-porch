@@ -1357,7 +1357,9 @@ jQuery(document).ready(function(){
 
       <div class="row text-center justify-content-center ${data.id}" style="display:${display}">
         <div class="col mt-3 mb-3 font-weight-bold text-center">
-           <button type="button" class="btn btn-outline-primary btn-sm px-4" onclick="jQuery('#${data.id}').show();jQuery('.${data.id}').hide();" >${data.reference}</button>
+          <button type="button" class="px-4 d-flex mx-auto align-items-center gap-2" onclick="jQuery('#${data.id}').show();jQuery('.${data.id}').hide();" >
+            <span>${data.reference} </span> <i class="icon pg-chevron-down"></i>
+          </button>
         </div>
       </div>
        <div class="row text-center justify-content-center" style="display:none;" id="${data.id}" >
