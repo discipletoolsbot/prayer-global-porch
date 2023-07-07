@@ -181,7 +181,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                         <div class="col col-sm-6 col-lg-2 center d-none d-lg-block">
                             <div class="blue-bg white blue-border rounded-end d-flex align-items-center justify-content-around py-1">
                                 <i class="icon pg-world-arrow three-em"></i>
-                                <div class="two-em stats-figure"><span class="completed_percent">0</span></div>
+                                <div class="two-em stats-figure"><span class="completed_percent">0</span>%</div>
                             </div>
                             <span class="uppercase small"><?php echo esc_html__( 'World Coverage', 'prayer-global-porch' ) ?></span><br>
                         </div>
@@ -258,18 +258,20 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                         <span class="small"><?php echo esc_html__( 'Places Covered', 'prayer-global-porch' ) ?></span><br>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="align-items-center d-flex flex-dir-column mt-3">
-                        <i class="icon pg-world-arrow blue four-em"></i>
-                        <span class="stats-title"><?php echo esc_html__( 'World Coverage', 'prayer-global-porch' ) ?></span>
-                        <div class="blue-bg rounded stats-figure-lg w-50 white"><span class="completed_percent">0</span>%</div>
+                <div class="row g-0 justify-content-center mt-4">
+                    <div class="col col-6 col-sm-4 center">
+                        <div class="secondary-bg white secondary-border rounded-start d-flex align-items-center justify-content-around py-1">
+                            <i class="icon pg-prayer three-em"></i>
+                            <div class="two-em stats-figure warriors"></div>
+                        </div>
+                        <span class="uppercase small"><?php echo esc_html__( 'Intercessors', 'prayer-global-porch' ) ?></span><br>
                     </div>
-                </div>
-                <div class="row">
-                    <div class="align-items-center d-flex flex-dir-column mt-3">
-                        <i class="icon pg-prayer blue four-em"></i>
-                        <span class="stats-title"><?php echo esc_html__( 'Intercessors', 'prayer-global-porch' ) ?></span>
-                        <div class="secondary-bg rounded stats-figure-lg w-50 warriors white">0</div>
+                    <div class="col col-6 col-sm-4 center">
+                        <div class="blue-bg white blue-border rounded-end d-flex align-items-center justify-content-around py-1">
+                            <i class="icon pg-world-arrow three-em"></i>
+                            <div class="two-em stats-figure"><span class="completed_percent">0</span>%</div>
+                        </div>
+                        <span class="uppercase small"><?php echo esc_html__( 'World Coverage', 'prayer-global-porch' ) ?></span><br>
                     </div>
                 </div>
                 <div class="row">
