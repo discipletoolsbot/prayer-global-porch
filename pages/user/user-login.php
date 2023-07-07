@@ -127,7 +127,7 @@ class PG_User_Login_Registration extends DT_Magic_Url_Base {
                 <div class="row justify-content-md-center text-center">
                     <div class="col-lg-7" id="pg_content">
                         <h2 class=""><?php echo esc_html__( 'Login', 'prayer-global-porch' ) ?></h2>
-                        <p class="center"><?php echo esc_html__( 'Creating your own personal login with Prayer.Global will allow you to:', 'prayer-global-porch' ) ?></p>
+                        <p class="center"><?php echo esc_html__( 'Create your own free login. This will allow you to:', 'prayer-global-porch' ) ?></p>
                         <ul class="w-fit text-align-left mx-auto">
                             <li><?php echo esc_html__( 'See your prayer history', 'prayer-global-porch' ) ?></li>
                             <li><?php echo esc_html__( 'Create your own prayer relays', 'prayer-global-porch' ) ?></li>
