@@ -106,8 +106,8 @@ jQuery(document).ready(function(){
   setup_items(window.pace)
   window.viewed = localStorage.getItem('pg_viewed')
   if ( typeof window.viewed === 'undefined' || ! window.viewed ) {
-    window.viewed = '1'
-    localStorage.setItem('pg_viewed', '1' )
+    window.viewed = '0'
+    localStorage.setItem('pg_viewed', '0' )
   }
   window.items = parseInt( window.pace ) + 6
   window.odometer = {
@@ -154,8 +154,9 @@ jQuery(document).ready(function(){
         window.report_content = window.current_content = test_for_redundant_grid( l1 )
         load_location()
 
+        console.log(window.viewed)
         // modal logic
-        if ( typeof window.viewed === 'undefined' ) {
+        if ( window.viewed === '0' ) {
           toggle_timer( true )
           open_welcome.modal('show')
           localStorage.setItem('pg_viewed', '1' )

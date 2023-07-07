@@ -151,13 +151,15 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                             1. <?php echo sprintf( esc_html__( 'Click on %1$sStart Praying%2$s.', 'prayer-global-porch' ), '<a class="link-light" href="/newest/lap/">', '</a>' ) ?>
                         </p>
                         <p class="left-align">
-                            2. <?php echo esc_html( __( 'Use the demographics, guided prayers, faith status, images, and maps to pray for the location for one minute.', 'prayer-global-porch' ) ) ?>
+                            2. <?php echo esc_html( __( 'Pray over the location provided using the maps, photos, prayers, people group info, and facts.', 'prayer-global-porch' ) ) ?>
                         </p>
                         <p class="left-align">
-                            3. <?php echo esc_html( __( 'Once the one-minute timer has ended, you will be asked if you prayed for this location, if you click "Yes", then your prayer will be added to the community prayer coverage for the world.', 'prayer-global-porch' ) ) ?>
+                            3. <?php echo esc_html( __( 'Pray for one minute (or longer) as the Spirit leads.', 'prayer-global-porch' ) ) ?>
                         </p>
                         <p class="left-align">
-                            4. <?php echo esc_html( __( 'Pray for another location or end your prayer session.', 'prayer-global-porch' ) ) ?>
+                            4. <?php echo esc_html__( 'When the timer finishes' ) ?>
+                            <br>
+                            <?php echo sprintf( esc_html( __( 'Click Done to see your impact on the map or %sclick Next to pray for another location', 'prayer-global-porch' ) ), '' ) ?>
                         </p>
                         <a class="d-block text-decoration-none white" href="#global-race"><i class="icon pg-chevron-down icon-small"></i></a>
                     </div>
