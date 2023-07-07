@@ -1129,6 +1129,7 @@ nav.navbar-home {
 .share__icon {
     width: 20px;
     margin-right: 10px;
+    display: inline-block;
 }
 .copy-notice {
     display: none;
