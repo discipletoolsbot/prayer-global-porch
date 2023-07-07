@@ -1206,6 +1206,15 @@ nav.navbar-home {
     align-items: center;
     flex-direction: column;
 }
+@media (max-width: 1200px) {
+    #story5 .icon.d-block {
+        display: none !important;
+    }
+    #story5 .icon.d-none {
+        display: inline-block !important;
+        margin-left: 1rem;
+    }
+}
 @media (max-width: 991px) {
     .section-goal-desktop p {
         font-size: 20px;
@@ -1224,11 +1233,20 @@ nav.navbar-home {
     .two-col-sm p {
         width: 40%;
     }
-    .story4 .text-right-40 {
+    #story4 .text-right-40 {
         padding: 0;
     }
-    .story4 .desktop-story__container {
+    #story4 .desktop-story__container {
         align-items: flex-end;
+    }
+    #story5 .btn-cta {
+        font-size: 1.5rem;
+    }
+    #story5 p {
+        margin-bottom: 0;
+    }
+    #story5 .flow-small {
+        --pg-flow-size: 0;
     }
 }
 

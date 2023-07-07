@@ -55,7 +55,7 @@
             </p>
         </div>
     </div>
-    <div class="position-relative story4">
+    <div class="position-relative" id="story4">
         <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-04.png" alt="">
         <div class="brand-light desktop-story__container text-right-40 container center">
             <h2 class="font-title mb-3"><?php echo esc_html__( 'Current Status', 'prayer-global' ) ?><i class="icon pg-logo-prayer ms-3"></i></h2>
@@ -76,14 +76,14 @@
             </div>
         </div>
     </div>
-    <div class="position-relative">
+    <div class="position-relative" id="story5">
         <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-05.png" alt="">
-        <div class="brand-light desktop-story__container text-right-50 text-bottom container flow-small text-align-right me-4">
+        <div class="brand-light desktop-story__container text-right-40 text-bottom container text-align-right me-4">
             <p class="pb-3">
                 <?php echo esc_html__( 'With each lap we complete, we are that much closer to ushering in God’s Kingdom and the return of Jesus Christ! Step up and join the worldwide Prayer.Global prayer team!', 'prayer-global-porch' ) ?>
             </p>
             <div class="center align-self-end">
-                <h2 class="font-title"><?php echo esc_html__( 'Ready. Set.', 'prayer-global' ) ?></h2>
+                <h2 class="font-title"><?php echo esc_html__( 'Ready. Set.', 'prayer-global' ) ?><i class="icon pg-logo-prayer d-none"></i></h2>
                 <div class="mb-2"><a class="btn btn-cta mx-2 two-rem" href="/newest/lap/"><?php echo esc_html__( 'Start Praying', 'prayer-global' ) ?></a></div>
                 <i class="icon pg-logo-prayer icon-medium d-block"></i>
             </div>
