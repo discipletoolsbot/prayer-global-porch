@@ -50,9 +50,9 @@ function PGIconInfographic(stats) {
   const defaultIcon = iconOptions.body
 
   const iconColors = {
-    red: 'red',
-    orange: 'orange',
-    green: 'green',
+    red: 'brand',
+    orange: 'brand-lighter',
+    green: 'secondary',
     blue: 'blue',
   }
   const defaultColor = iconColors.blue
@@ -85,7 +85,33 @@ function PGIconInfographic(stats) {
   return html;
 }
 
+function PGDisplayTime(time) {
+  console.log(time)
+
+  const timeList = []
+  const padNumber = (n) => window.padNumber(n, 2)
+
+  if ( time.hasOwnProperty('years') ) {
+    timeList.push(`<span class="time-value"><span>${time.years}</span> <span class="time-label">Years</span></span>`)
+  }
+  if ( time.hasOwnProperty('days') ) {
+    timeList.push(`<span class="time-value"><span>${time.days}</span> <span class="time-label">Days</span></span>`)
+  }
+  if ( time.hasOwnProperty('hours') ) {
+    timeList.push(`<span class="time-value"><span>${padNumber(time.hours)}</span> <span class="time-label">Hours</span></span>`)
+  }
+  if ( time.hasOwnProperty('minutes') ) {
+    timeList.push(`<span class="time-value"><span>${padNumber(time.minutes)}</span> <span class="time-label">Minutes</span></span>`)
+  }
+  if ( time.hasOwnProperty('seconds') ) {
+    timeList.push(`<span class="time-value"><span>${padNumber(time.seconds)}</span> <span class="time-label">Seconds</span></span>`)
+  }
+
+  return timeList.join(`<span>:</span>`)
+}
+
 const PG = {
   ActivityList: PGActivityList,
   IconInfographic: PGIconInfographic,
+  DisplayTime: PGDisplayTime,
 }

@@ -396,11 +396,11 @@ class PG_Stacker {
         $grid_record['favor'] = $status[array_rand( $status )];
 
         if ( 'christian_adherents' === $grid_record['favor'] ) {
-            $grid_record['icon_color'] = 'red';
+            $grid_record['icon_color'] = 'brand';
         } else if ( 'non_christians' === $grid_record['favor'] ) {
-            $grid_record['icon_color'] = 'orange';
+            $grid_record['icon_color'] = 'brand-lighter';
         } else { // believers
-            $grid_record['icon_color'] = 'green';
+            $grid_record['icon_color'] = 'secondary';
         }
 
         // build people groups list

@@ -447,7 +447,7 @@ class PG_Stacker_Positions {
                             'section_label' => __( 'Focus City', 'prayer-global-porch' ),
                             'focus_label' => 'Pray for the city of ' . $cities[0]['name'],
                             'icon' => 'ion-map', // ion icons from /pages/fonts/ionicons/
-                            'color' => 'green',
+                            'color' => 'secondary',
                             'section_summary' => '',
                             'prayer' => $text['section_summary'],
                         ]

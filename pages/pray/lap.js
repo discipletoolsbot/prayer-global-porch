@@ -69,12 +69,16 @@ jQuery(document).ready(function(){
   let decision_map = jQuery('#decision__map')
   let decision_next = jQuery('#decision__next')
 
+  let decision_leave = jQuery('#decision__leave')
+  let decision_keep_praying = jQuery('#decision__keep_praying')
+
   // let question_no = jQuery('#question__no')
   let question_yes_done = jQuery('#question__yes_done')
   let question_yes_next = jQuery('#question__yes_next')
 
   let pace_open_options = jQuery('#option_filter')
   let open_welcome = jQuery('#welcome_screen')
+  let decision_modal = jQuery('#decision_leave_modal')
   let pace_buttons = jQuery('.pace')
 
   let location_map_wrapper = jQuery('#location-map')
@@ -84,21 +88,26 @@ jQuery(document).ready(function(){
   let odometer_location_count = jQuery('.location-count')
   let i
 
+  const ONE_MINUTE = 60 // seconds
+  const CELEBRATION_DURATION = 3000 // milliseconds
+
   window.previous_grids = []
   window.interval = false
   window.percent = 0
   window.time = 0
-  window.seconds = 60
+  window.seconds = ONE_MINUTE
   window.time_finished = false
   window.pace = localStorage.getItem('pg_pace')
   if ( typeof window.pace === 'undefined' || ! window.pace ) {
     window.pace = '1'
     localStorage.setItem('pg_pace', '1' )
   }
+  setup_seconds(window.pace)
+  setup_items(window.pace)
   window.viewed = localStorage.getItem('pg_viewed')
   if ( typeof window.viewed === 'undefined' || ! window.viewed ) {
-    window.viewed = '1'
-    localStorage.setItem('pg_viewed', '1' )
+    window.viewed = '0'
+    localStorage.setItem('pg_viewed', '0' )
   }
   window.items = parseInt( window.pace ) + 6
   window.odometer = {
@@ -107,6 +116,19 @@ jQuery(document).ready(function(){
   window.report_content = []
 
   footer.hide()
+
+  /* Fly away the see more button after a little bit of scroll */
+  $(window).scroll(() => {
+    const scrollTop = $(window).scrollTop()
+
+    if (scrollTop > 100) {
+      $('#see-more-button').css('margin-bottom', `${scrollTop}rem`)
+    }
+
+    if ( scrollTop > 250 ) {
+      $('#see-more-button').hide()
+    }
+  })
 
   /**
    * INITIALIZE
@@ -132,8 +154,9 @@ jQuery(document).ready(function(){
         window.report_content = window.current_content = test_for_redundant_grid( l1 )
         load_location()
 
+        console.log(window.viewed)
         // modal logic
-        if ( typeof window.viewed === 'undefined' ) {
+        if ( window.viewed === '0' ) {
           toggle_timer( true )
           open_welcome.modal('show')
           localStorage.setItem('pg_viewed', '1' )
@@ -185,6 +208,12 @@ jQuery(document).ready(function(){
       return content
     }
   }
+  function setup_seconds(pace) {
+    window.seconds = pace * ONE_MINUTE
+  }
+  function setup_items(pace) {
+    window.items = parseInt(pace) + 6
+  }
   /**
    * Widget Listeners
    */
@@ -202,34 +231,53 @@ jQuery(document).ready(function(){
       toggle_timer( false )
     })
     decision_home.off('click')
-    decision_home.on('click', function( e ) {
+    decision_home.on('click', () => open_decision_modal( home_callback ))
+    function home_callback( e ) {
       if ( jsObject.is_custom ) {
         window.location.href = jsObject.map_url
       } else {
         window.location.href = '/'
       }
-    })
+    }
     decision_map.off('click')
-    decision_map.on('click', function( e ) {
-      window.location = jsObject.map_url
-    })
+    decision_map.on('click', () => open_decision_modal( map_callback ) )
+    function map_callback( e ) {
+      window.location = jsObject.map_url + '?show_cta'
+    }
     decision_next.off('click')
-    decision_next.on('click', function( e ) {
+    decision_next.on('click', () => open_decision_modal( next_callback ) )
+    function next_callback( e ) {
       window.api_post( 'refresh', {} )
         .then( function(l1) {
           window.report_content = window.current_content = test_for_redundant_grid( l1 )
           load_next_content()
           advance_to_next_location()
         })
+    }
+    decision_keep_praying.off('click')
+    decision_keep_praying.on('click', function(e) {
+      toggle_timer()
     })
+
+    function open_decision_modal(callback) {
+
+      if ( window.time < ONE_MINUTE ) {
+        decision_modal.modal('show')
+      } else {
+        // We have prayed for at least a minute so let's celebrate before they move on
+        celebrate_prayer()
+        setTimeout(
+          callback,
+          CELEBRATION_DURATION,
+        )
+      }
+
+      decision_leave.on('click', callback)
+    }
+
     question_yes_done.off('click')
     question_yes_done.on('click', function( e ) {
-      const celebrationDuration = 3000
-      question_panel.hide()
-      clear_timer()
-      celebrate()
-      window.celebrationFireworks(celebrationDuration)
-      update_odometer({ location_count: window.odometer.location_count + 1})
+      celebrate_prayer()
       setTimeout(
         function() {
           if ( jsObject.is_cta_feature_on ) {
@@ -237,22 +285,26 @@ jQuery(document).ready(function(){
           } else {
             window.location = jsObject.map_url
           }
-        }, celebrationDuration);
+        }, CELEBRATION_DURATION);
     })
     question_yes_next.off('click')
     question_yes_next.on('click', function( e ) {
-      const celebrationDuration = 3000
-      question_panel.hide()
-      clear_timer()
-      celebrate()
-      window.celebrationFireworks(celebrationDuration)
-      update_odometer({ location_count: window.odometer.location_count + 1})
+      celebrate_prayer()
       setTimeout(
         function()
         {
           advance_to_next_location()
-        }, celebrationDuration);
+        }, CELEBRATION_DURATION);
     })
+    function celebrate_prayer() {
+      praying_panel.hide()
+      question_panel.hide()
+      decision_panel.hide()
+      clear_timer()
+      celebrate()
+      window.celebrationFireworks(CELEBRATION_DURATION)
+      update_odometer({ location_count: window.odometer.location_count + 1})
+    }
     pace_buttons.off('click')
     pace_buttons.on('click', function(e) {
       console.log(e.currentTarget.id)
@@ -263,8 +315,8 @@ jQuery(document).ready(function(){
       window.pace = e.currentTarget.value
       localStorage.setItem( 'pg_pace', window.pace )
 
-      window.seconds = e.currentTarget.value * 60
-      window.items = parseInt( window.pace ) + 6
+      setup_seconds(window.pace)
+      setup_items(window.pace)
 
       jQuery('.container.block').show()
       jQuery('.container.block:nth-child(+n+' + window.items + ')').hide()
@@ -325,28 +377,7 @@ jQuery(document).ready(function(){
       location_count,
     }
     odometer_location_count.html(location_count)
-
-    const odometerX = 20 + prayer_odometer.innerWidth() / 2
-    const odometerY = 30 + prayer_odometer.innerHeight() / 2
-
-    const origin = {
-      x: odometerX / innerWidth,
-      y: 1 - odometerY / innerHeight,
-    }
-
-    confetti({
-      gravity: 1,
-      colors: ['#DD0'],
-      origin,
-      shapes: ['circle'],
-      spread: 30,
-      ticks: 50,
-      scalar: 0.75,
-      particleCount: 100,
-      startVelocity: 20,
-      zIndex: 100000,
-    })
-  }
+ }
 
   /**
    * FRAMEWORK LOADERS
@@ -376,6 +407,7 @@ jQuery(document).ready(function(){
     location_map_wrapper.show()
     mapbox_border_map()
 
+    div.append('<div class="container"><hr></div>')
     // LOOP STACK
     jQuery.each(content.list, function(i,block) {
       get_template( block )
@@ -391,18 +423,18 @@ jQuery(document).ready(function(){
     window.load_report_modal()
   }
   function attatch_popper_listeners() {
-    const redBodyIcons = document.querySelectorAll('.ion-ios-body.red')
+    const redBodyIcons = document.querySelectorAll('.ion-ios-body.brand')
     const config = {
       trigger: 'focus',
     }
     redBodyIcons.forEach((element) => {
       new bootstrap.Popover(element, { ...config, content: "Don't know Jesus"})
     })
-    const orangeBodyIcons = document.querySelectorAll('.ion-ios-body.orange')
+    const orangeBodyIcons = document.querySelectorAll('.ion-ios-body.brand-lighter')
     orangeBodyIcons.forEach((element) => {
       new bootstrap.Popover(element, { ...config, content: "Know about Jesus"})
     })
-    const greenBodyIcons = document.querySelectorAll('.ion-ios-body.green')
+    const greenBodyIcons = document.querySelectorAll('.ion-ios-body.secondary')
     greenBodyIcons.forEach((element) => {
       new bootstrap.Popover(element, { ...config, content: "Know Jesus"})
     })
@@ -448,7 +480,7 @@ jQuery(document).ready(function(){
         window.tick = window.tick + 0.1
       }
 
-      if (window.tick > 60) {
+      if (window.tick > ONE_MINUTE) {
         window.api_post( 'increment_log', { report_id: window.next_content['report_id'] } )
           .then(function(x) {
             console.log('incremented log', x)
@@ -471,13 +503,13 @@ jQuery(document).ready(function(){
     const celebrateHTML = `
       <p style="padding-top:2em;">
         <div>
-          <h1>
+          <h2>
             Great Job!
             <br />
             Prayer Added!
-          </h1>
+          </h2>
 
-          <img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="img-fluid celebrate-image" alt="photo" />
+          <img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="rounded-3 img-fluid celebrate-image" alt="photo" />
 
         </div>
       </p>
@@ -494,14 +526,23 @@ jQuery(document).ready(function(){
     console.log(grid_row)
 
     content.empty().html(`
-        <div id="map-wrapper"><div id='mapbox-map'></div></div><div class="text-center p-3">${BodyIcon('red')} ${grid_row.non_christians} | ${BodyIcon('orange')} ${grid_row.christian_adherents} | ${BodyIcon('green')} ${grid_row.believers}</div>`)
+        <div id="map-wrapper">
+          <div id='mapbox-map'></div>
+        </div>
+        <div class="text-center pt-3 m-auto d-flex justify-content-center align-items-center gap-3">
+          <span class="d-flex align-items-center gap-1">${BodyIcon('bad', 'large')} ${grid_row.non_christians}</span>
+          <span class="d-flex align-items-center gap-1">${BodyIcon('neutral', 'large')} ${grid_row.christian_adherents}</span>
+          <span class="d-flex align-items-center gap-1">${BodyIcon('good', 'large')} ${grid_row.believers}</span>
+        </div>
+        `
+      )
 
     window.load_map_with_style = ( ) => {
       let center = [grid_row.p_longitude, grid_row.p_latitude]
       mapboxgl.accessToken = jsObject.map_key;
       let map = new mapboxgl.Map({
         container: 'mapbox-map',
-        style: 'mapbox://styles/discipletools/cl1qp8vuf002l15ngm5a7up59',
+        style: 'mapbox://styles/discipletools/clgnj6vkv00e801pj9xnw49i6',
         center: center,
         minZoom: 0,
         zoom: 1
@@ -541,8 +582,8 @@ jQuery(document).ready(function(){
               'type': 'line',
               'source': 'parent_collection',
               'paint': {
-                'line-color': '#0080ff',
-                'line-width': 1
+                'line-color': '#6e6f70',
+                'line-width': 2
               }
             });
             map.addLayer({
@@ -551,19 +592,10 @@ jQuery(document).ready(function(){
               'source': 'parent_collection',
               'filter': [ '==', ['get', 'grid_id'], grid_row.grid_id ],
               'paint': {
-                'fill-color': 'red',
-                'fill-opacity': 0.75
+                'fill-color': '#fff',
+                'fill-opacity': 1
               }
             });
-            map.setPaintProperty('parent_collection_fill', 'fill-opacity', [
-              'interpolate',
-              ['exponential', 0.5],
-              ['zoom'],
-              12,
-              0.75,
-              17,
-              .05
-            ]);
             map.addLayer({
               'id': 'parent_collection_fill_click',
               'type': 'fill',
@@ -655,8 +687,8 @@ jQuery(document).ready(function(){
                 'type': 'line',
                 'source': 'country_outline',
                 'paint': {
-                  'line-color': '#0080ff',
-                  'line-width': 2
+                  'line-color': '#6e6f70',
+                  'line-width': 4
                 }
               });
             })
@@ -727,26 +759,26 @@ jQuery(document).ready(function(){
   }
   function _template_percent_3_circles( data ) {
     div.append(
-      `<div class="container block">
+      `<div class="container block percent-3-circles-block">
           <div class="row">
               <div class="col text-center ">
-                 <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+                <h5 class="mb-0 uc">${data.section_label}</h5>
               </div>
           </div>
           <div class="row text-center justify-content-center">
               <div class="col-md-3 col-lg-2">
                 <p class="mt-3 mb-0 font-weight-bold">${data.label_1}</p>
-                <div class="pie" style="--p:${data.percent_1};--b:10px;--c:red;">${data.percent_1}%</div>
+                <div class="pie" style="--p:${data.percent_1};--b:10px;--c:var(--pg-brand-color);">${data.percent_1}%</div>
                 <p class="mt-3 mb-0 font-weight-normal one-em">${data.population_1}</p>
               </div>
               <div class="col-md-3 col-lg-2">
                 <p class="mt-3 mb-0 font-weight-bold">${data.label_2}</p>
-                <div class="pie" style="--p:${data.percent_2};--b:10px;--c:orange;">${data.percent_2}%</div>
+                <div class="pie" style="--p:${data.percent_2};--b:10px;--c:var(--pg-brand-color-lighter);">${data.percent_2}%</div>
                 <p class="mt-3 mb-0 font-weight-normal one-em">${data.population_2}</p>
               </div>
               <div class="col-md-3 col-lg-2">
                 <p class="mt-3 mb-0 font-weight-bold">${data.label_3}</p>
-                <div class="pie" style="--p:${data.percent_3};--b:10px;--c:green;">${data.percent_3}%</div>
+                <div class="pie" style="--p:${data.percent_3};--b:10px;--c:var(--pg-secondary-color);">${data.percent_3}%</div>
                 <p class="mt-3 mb-0 font-weight-normal one-em">${data.population_3}</p>
               </div>
           </div>
@@ -760,16 +792,16 @@ jQuery(document).ready(function(){
                <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
             </div>
           </div>
-      <div class="w-100"><hr></div>
+      <hr>
     </div>`
     )
   }
   function _template_percent_3_bar( data ) {
     div.append(
-      `<div class="container block">
+      `<div class="container block percent-3-bar-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="font-weight-normal one-em uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</h5>
           </div>
       </div>
       <div class="row text-center">
@@ -799,7 +831,7 @@ jQuery(document).ready(function(){
            <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
         </div>
       </div>
-      <div class="w-100"><hr></div>
+      <hr>
     </div>`
     )
   }
@@ -808,24 +840,24 @@ jQuery(document).ready(function(){
     let i = 0
     i = 0
     while ( i < data.percent_1 ) {
-      bodies += BodyIcon('red', 'medium');
+      bodies += BodyIcon('bad', 'medium');
       i++;
     }
     i = 0
     while ( i < data.percent_2 ) {
-      bodies += BodyIcon('orange', 'medium');
+      bodies += BodyIcon('neutral', 'medium');
       i++;
     }
     i = 0
     while ( i < data.percent_3 ) {
-      bodies += BodyIcon('green', 'medium');
+      bodies += BodyIcon('good', 'medium');
       i++;
     }
     div.append(
-      `<div class="container block">
+      `<div class="container block 100-bodies-chart-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</p>
           </div>
       </div>
       <div class="row text-center justify-content-center">
@@ -845,7 +877,7 @@ jQuery(document).ready(function(){
            <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
         </div>
       </div>
-      <div class="w-100"><hr></div>
+      <hr>
     </div>`
     )
   }
@@ -855,24 +887,24 @@ jQuery(document).ready(function(){
     let bodies_3 = ''
     i = 0
     while ( i < data.percent_1 ) {
-      bodies_1 += BodyIcon('red', 'medium');
+      bodies_1 += BodyIcon('bad', 'medium');
       i++;
     }
     i = 0
     while ( i < data.percent_2 ) {
-      bodies_2 += BodyIcon('orange', 'medium');
+      bodies_2 += BodyIcon('neutral', 'medium');
       i++;
     }
     i = 0
     while ( i < data.percent_3 ) {
-      bodies_3 += BodyIcon('green', 'medium');
+      bodies_3 += BodyIcon('good', 'medium');
       i++;
     }
     div.append(
-      `<div class="container block">
+      `<div class="container block 100-bodies-3-chart-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</h5>
           </div>
       </div>
       <div class="row text-center justify-content-center">
@@ -908,7 +940,7 @@ jQuery(document).ready(function(){
           <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
         </div>
       </div>
-      <div class="w-100"><hr></div>
+      <hr>
     </div>`
     )
   }
@@ -927,12 +959,12 @@ jQuery(document).ready(function(){
     let icon = icons[Math.floor(Math.random() * icons.length)]
 
     // icon color
-    let icon_color = 'red'
+    let icon_color = 'bad'
     if ( 'christian_adherents' === data.group ) {
-      icon_color = 'orange'
+      icon_color = 'neutral'
     }
     if ( 'believers' === data.group ) {
-      icon_color = 'orange'
+      icon_color = 'good'
     }
 
     // icon size
@@ -956,15 +988,15 @@ jQuery(document).ready(function(){
       i++;
     }
     div.append(
-      `<div class="container block">
+      `<div class="container block population-change-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</h5>
           </div>
       </div>
       <div class="row text-center justify-content-center">
         <div class="col-md-8">
-           <p class="mt-3 mb-3 font-weight-bold two-em">${data.section_summary}</p>
+           <p class="mt-3 mb-3 two-em">${data.section_summary}</p>
         </div>
       </div>
       <div class="row text-center justify-content-center">
@@ -977,20 +1009,20 @@ jQuery(document).ready(function(){
 
       <div class="row text-center justify-content-center">
         <div class="col-md-8">
-            <p class="mt-3 mb-3 font-weight-bold two-em">${data.prayer}</p>
+            <p class="mt-3 mb-3 lh-sm two-em">${data.prayer}</p>
         </div>
       </div>
-      <div class="w-100"><hr></div>
+      <hr>
     </div>`
     )
   }
   function _template_4_fact_blocks( data ) {
     div.append(
-      `<div class="container block">
+      `<div class="container block four-facts-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
-             <p class="mt-3 mb-3 font-weight-bold two-em">${data.focus_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</h5>
+             <p class="mt-3 mb-3 two-em">${data.focus_label}</p>
           </div>
       </div>
       <div class="row">
@@ -1030,7 +1062,7 @@ jQuery(document).ready(function(){
            <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
         </div>
       </div>
-      <div class="w-100"><hr></div>
+      <hr>
     </div>`
     )
   }
@@ -1041,10 +1073,10 @@ jQuery(document).ready(function(){
         values_list += '<p>'+v+'</p>'
       })
       div.append(
-        `<div class="container block">
+        `<div class="container block bullet-list-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</h5>
           </div>
         </div>
         <div class="row text-center">
@@ -1062,7 +1094,7 @@ jQuery(document).ready(function(){
              <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
           </div>
       </div>
-      <div class="w-100"><hr></div>
+      <hr>
     </div>`)
     }
   }
@@ -1071,17 +1103,17 @@ jQuery(document).ready(function(){
     let image = ''
     jQuery.each(data.values, function(i,v) {
       if ( v.image_url ) {
-        image = '<div style="background-image:url('+v.image_url+'); width:200px; height:200px;background-size: cover;background-repeat: no-repeat;" class="img-fluid"></div>'
+        image = '<div style="background-image:url('+v.image_url+'); width:200px; height:200px;background-size: cover;background-repeat: no-repeat;" class="img-fluid rounded-3"></div>'
       } else {
         image = '<div style=" height:200px;"><img class="img-fluid" src="'+jsObject.nope+'" alt="" /></div>'
       }
       values_list += '<div class="col-6 col-md-4 col-lg-2 mb-1"><p class="mb-2 text-center">'+image+'</p><p class="text-center"><img src="'+v.progress_image_url+'" class="img-fluid" alt="" /></p><p class="text-center">'+v.description+'</p></div>'
     })
     div.append(
-      `<div class="container block">
+      `<div class="container block people-groups-list-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+             <h5 class="mb-0 uc">${data.section_label}</h5>
           </div>
         </div>
         <div class="row text-center justify-content-center">
@@ -1097,32 +1129,32 @@ jQuery(document).ready(function(){
              <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
           </div>
       </div>
-      <div class="w-100"><hr></div>
+      <hr>
     </div>`)
   }
   function _template_least_reached_block( data ) {
     let image
     if ( data.image_url ) {
-      image = '<p class="mt-3 mb-3"><img src="'+data.image_url+'" class="img-fluid" alt="" /></p>'
+      image = '<p class="mt-3 mb-3"><img src="'+data.image_url+'" class="img-fluid rounded-3" alt="" /></p>'
     } else {
       image = '<p class="mt-3 mb-3"><img class="img-fluid" src="'+jsObject.nope+'" alt="" /></p>'
     }
     div.append(
-      `<div class="container block">
+      `<div class="container block least-reached-block">
           <div class="row">
           <div class="col text-center ">
-            <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
-            <p class="mt-3 mb-0 font-weight-bold two-em">${data.focus_label}</p>
+            <h5 class="mb-0 uc">${data.section_label}</h5>
+            <p class="mt-3 mb-0 two-em">${data.focus_label}</p>
             ${data.diaspora_label !== '' ? `<p class="half-em mb-3 font-weight-normal">(${data.diaspora_label})</p>` : ''}
             ${image}
           </div>
       </div>
       <div class="row text-center justify-content-center">
         <div class="col-md-8">
-           <p class="mt-3 mb-3 font-weight-bold two-em">${data.prayer}</p>
+           <p class="mt-3 mb-3 lh-sm two-em lh-sm">${data.prayer}</p>
         </div>
     </div>
-    <div class="w-100"><hr></div>
+    <hr>
     </div>`)
   }
   function _template_fact_block( data ) {
@@ -1132,18 +1164,18 @@ jQuery(document).ready(function(){
       if ( data.icon ) {
         iclass = data.icon
       }
-      let icolor = 'red'
+      let icolor = 'brand'
       if ( data.color ) {
         icolor = data.color
       }
       icon = '<p class="mt-3 mb-3 font-weight-bold six-em"><i class="'+iclass+' '+icolor+'"></i></p>'
     }
     div.append(
-      `<div class="container block">
+      `<div class="container block fact-block">
           <div class="row">
             <div class="col text-center ">
-               <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
-               <p class="mt-3 mb-3 font-weight-bold two-em">${data.focus_label}</p>
+               <h5 class="mb-0 uc">${data.section_label}</h5>
+               <p class="mt-3 mb-3 two-em">${data.focus_label}</p>
               ${icon}
             </div>
           </div>
@@ -1157,7 +1189,7 @@ jQuery(document).ready(function(){
                <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
             </div>
         </div>
-    <div class="w-100"><hr></div>
+    <hr>
     </div>
     `)
   }
@@ -1168,18 +1200,18 @@ jQuery(document).ready(function(){
       if ( data.icon ) {
         iclass = data.icon
       }
-      let icolor = 'red'
+      let icolor = 'brand'
       if ( data.color ) {
         icolor = data.color
       }
       icon = '<p class="mt-3 mb-3 font-weight-bold six-em"><i class="'+iclass+' '+icolor+'"></i></p>'
     }
     div.append(
-      `<div class="container block">
+      `<div class="container block content-block">
           <div class="row">
           <div class="col text-center ">
-            <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
-             <p class="mt-3 mb-3 font-weight-bold two-em">${data.focus_label}</p>
+            <h5 class="mb-0 uc">${data.section_label}</h5>
+             <p class="mt-3 mb-3 two-em">${data.focus_label}</p>
             ${icon}
           </div>
       </div>
@@ -1190,43 +1222,43 @@ jQuery(document).ready(function(){
       </div>
       <div class="row text-center justify-content-center">
         <div class="col-md-8">
-           <p class="mt-3 mb-3 font-weight-bold two-em">${data.prayer}</p>
+           <p class="mt-3 mb-3 lh-sm two-em">${data.prayer}</p>
         </div>
       </div>
-      <div class="w-100"><hr></div>
+      <hr>
     </div>`)
   }
   function _template_prayer_block( data ) {
     div.append(
-      `<div class="container block">
+      `<div class="container block prayer-block">
           <div class="row">
           <div class="col text-center ">
-            <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+            <h5 class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</h5>
             <p class="mt-3 mb-3"><i class="ion-android-people ${data.icon_color} six-em" /> <i class="ion-android-people ${data.icon_color} six-em" /> <i class="ion-android-people ${data.icon_color} six-em" /></p>
           </div>
       </div>
       <div class="row text-center justify-content-center">
         <div class="col-md-8">
-           <p class="mt-3 mb-3 font-weight-bold two-em">${data.prayer}</p>
+           <p class="mt-3 mb-3 lh-sm two-em">${data.prayer}</p>
         </div>
       </div>
-      <div class="w-100"><hr></div>
+      <hr>
     </div>`)
   }
   function _template_verse_block( data ) {
     let icons = ['ion-android-sync']
     let icon_name = icons[Math.floor(Math.random() * icons.length)]
     div.append(
-      `<div class="container block">
+      `<div class="container block verse-block">
           <div class="row">
           <div class="col text-center ">
-            <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+            <h5 class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</h5>
             <p class="mt-3 mb-3"><img src="${jsObject.image_folder}bible-${data.icon_color}.svg" alt="icon" /></p>
           </div>
       </div>
       <div class="row text-center justify-content-center">
         <div class="col-md-8">
-           <p class="mt-3 mb-0 font-weight-bold two-em font-italic">${data.verse}</p>
+           <p class="mt-3 mb-0 lh-sm two-em font-italic">${data.verse}</p>
            <p class="mt-0 mb-3 font-italic">${data.reference}</p>
         </div>
       </div>
@@ -1235,14 +1267,14 @@ jQuery(document).ready(function(){
            <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
         </div>
     </div>
-    <div class="w-100"><hr></div>
+    <hr>
     </div>`)
   }
   function _template_lost_per_believer_block( data ) {
       let bodies_1 = ''
       i = 0
       while ( i < data.lost_per_believer ) {
-        bodies_1 += BodyIcon('red');
+        bodies_1 += BodyIcon('bad');
         i++;
       }
       let font_size = '2em'
@@ -1252,17 +1284,17 @@ jQuery(document).ready(function(){
         font_size = '3em'
       }
       div.append(
-        `<div class="container block">
+        `<div class="container block lost-per-believer-block">
           <div class="row">
           <div class="col text-center ">
-             <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+             <h5 class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</h5>
           </div>
       </div>
       <div class="row text-center justify-content-center">
           <div class="col-md-9 col-sm">
             <p class="mt-3 mb-3 font-weight-bold two-em">${data.label_1}</p>
             <p class="mt-0 mb-0 font-weight-normal">
-             ${BodyIcon('green', 'large')}
+             ${BodyIcon('good', 'large')}
             </p>
             <p class="mt-0 mb-3 font-weight-normal" style="font-size: ${font_size};">
               ${bodies_1}
@@ -1274,30 +1306,30 @@ jQuery(document).ready(function(){
           <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
         </div>
       </div>
-      <div class="w-100"><hr></div>
+      <hr>
     </div>`
     )
   }
   function _template_photo_block( data ) {
     div.append(
-      `<div class="container block">
+      `<div class="container block photo-block">
           <div class="row">
           <div class="col text-center ">
-            <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+            <h5 class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</h5>
           </div>
       </div>
       <div class="row text-center">
         <div class="col">
-           <p><img src="${data.url}" class="img-fluid" alt="prayer photo" style="max-height:700px" /></p>
+           <p><img src="${data.url}" class="img-fluid rounded-3" alt="prayer photo" style="max-height:700px" /></p>
         </div>
       </div>
       <div class="row text-center justify-content-center">
         <div class="col-md-8">
-           <p class="mt-0 mb-3 font-weight-normal">${data.section_summary}</p>
+           <p class="mt-0 mb-3 font-weight-normal small">${data.section_summary}</p>
            <p class="mt-3 mb-3 font-weight-normal one-em">${data.prayer}</p>
         </div>
     </div>
-    <div class="w-100"><hr></div>
+    <hr>
     </div>
       `)
   }
@@ -1311,39 +1343,41 @@ jQuery(document).ready(function(){
       icon = 'block'
     }
     div.append(
-      `<div class="container block">
+      `<div class="container block basic-block">
           <div class="row">
           <div class="col text-center">
-            <p class="mt-3 mb-3 font-weight-normal one-em uc">${data.section_label}</p>
+            <h5 class="mb-0 uc">${data.section_label}</h5>
             <p class="mt-3 mb-3" style="display: ${icon};"><i class="${data.icon} six-em" /></p>
           </div>
       </div>
       <div class="row text-center justify-content-center">
         <div class="col-md-8">
-           <p class="mt-3 mb-3 font-weight-bold two-em">${data.prayer}</p>
+           <p class="mt-3 mb-3 two-em lh-sm">${data.prayer}</p>
         </div>
       </div>
 
       <div class="row text-center justify-content-center ${data.id}" style="display:${display}">
         <div class="col mt-3 mb-3 font-weight-bold text-center">
-           <button type="button" class="btn btn-outline-dark btn-sm" onclick="jQuery('#${data.id}').show();jQuery('.${data.id}').hide();" >${data.reference}</button>
+          <button type="button" class="px-4 d-flex mx-auto align-items-center gap-2" onclick="jQuery('#${data.id}').show();jQuery('.${data.id}').hide();" >
+            <span>${data.reference} </span> <i class="icon pg-chevron-down"></i>
+          </button>
         </div>
       </div>
        <div class="row text-center justify-content-center" style="display:none;" id="${data.id}" >
         <div class="col-md-8">
-           <p class="mt-3 mb-0 font-weight-normal font-italic two-em">${data.verse}</p>
+           <p class="mt-3 mb-0 font-weight-normal font-italic lh-sm two-em">${data.verse}</p>
            <p class="mt-0 mb-3 font-weight-normal">${data.reference}</p>
         </div>
       </div>
-      <div class="w-100"><hr></div>
+      <hr>
     </div>`)
   }
 
   function BodyIcon( color, size = '' ) {
     const iconColors = {
-      red: 'red',
-      orange: 'orange',
-      green: 'green',
+      bad: 'brand',
+      neutral: 'brand-lighter',
+      good: 'secondary',
     }
     const defaultColor = iconColors.orange
 
@@ -1355,7 +1389,7 @@ jQuery(document).ready(function(){
     const iconColor = color && iconColors.hasOwnProperty(color) ? iconColors[color] : defaultColor
     const iconSize = size && sizes.hasOwnProperty(size) ? sizes[size] : ''
 
-    return `<i class="ion-ios-body ${iconColor} ${iconSize}" tabindex="0" data-bs-custom-class="${iconColor}-popover"></i>`
+  return `<i class="ion-ios-body ${iconColor} ${iconSize}" tabindex="0" data-bs-custom-class="${iconColor}-popover"></i>`
   }
 
 })

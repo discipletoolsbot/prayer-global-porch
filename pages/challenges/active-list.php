@@ -5,10 +5,10 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
 {
     public $magic = false;
     public $parts = false;
-    public $page_title = 'Active Challenges';
+    public $page_title = 'Active Relays';
     public $root = 'challenges';
     public $type = 'active';
-    public $type_name = 'Active Challenges';
+    public $type_name = 'Active Relays';
     public static $token = 'custom_app_lists';
     public $post_type = 'laps';
 
@@ -85,7 +85,7 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
                     'sharing' => esc_html( __( 'Sharing', 'prayer-global-porch' ) ),
                     'display' => esc_html( __( 'Display', 'prayer-global-porch' ) ),
                     'name' => esc_html( __( 'Name', 'prayer-global-porch' ) ),
-                    'warriors' => esc_html( __( 'Warriors', 'prayer-global-porch' ) ),
+                    'intercessors' => esc_html( __( 'Intercessors', 'prayer-global-porch' ) ),
                     'time_elapsed' => esc_html( __( 'Time Elapsed', 'prayer-global-porch' ) ),
                     'links' => esc_html( __( 'Links', 'prayer-global-porch' ) ),
                     'lap' => esc_html( __( '- Lap %d', 'prayer-global-porch' ) ),
@@ -93,7 +93,7 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
                 'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/nope.jpg',
                 'images_url' => pg_grid_image_url(),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
-                'is_rolling_laps_feature_on' => ( new PG_Feature_Flag( PG_Flags::ROLLING_LAPS ) )->is_on(),
+                'is_rolling_laps_feature_on' => true,
             ]) ?>][0]
         </script>
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
@@ -118,41 +118,43 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
             .challenge-row:hover{
                 background-color: #f9f9f9;
             }
-            section {
-                margin-top: 130px;
-            }
             .dataTables_wrapper {
                 margin: 2em 0;
             }
         </style>
-        <section>
-            <div class="container pb-4">
+        <section class="brand-light text-center page flow-medium">
+            <div class="container">
                 <div class="row">
-                    <div class="col-12 text-center">
-                        <span class="two-em lap-title"><?php echo esc_html__( 'Group Challenges', 'prayer-global-porch' ) ?></span><br>
+                    <div class="col-12">
+                        <h2 class=""><?php echo esc_html( __( 'Prayer Relays', 'prayer-global-porch' ) ) ?></h2>
+                        <i class="icon pg-relay icon-large"></i>
                     </div>
-                    <div class="col-md-3 text-center"></div>
-                    <div class="col-md-6 text-center">
-                        <p><?php echo esc_html__( 'Group challenges are communities of prayer warriors who have picked up the challenge of praying for the entire world as a group. All prayers prayed in the group challenges contribute to the global laps.', 'prayer-global-porch' ) ?></p>
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6 mt-4">
+                    <p><?php echo esc_html( __( 'Prayer Relays are communities of prayer intercessors who have picked up the challenge of praying for the entire world as a group. All prayers prayed in the prayer relays contribute to the global laps.', 'prayer-global-porch' ) ) ?></p>
                     </div>
-                    <div class="col-md-3 text-center"></div>
+                    <div class="col-md-3"></div>
                 </div>
             </div>
-            <div class="center two-em lap-title"><?php echo esc_html__( 'Active Challenges', 'prayer-global-porch' ) ?></div>
-            <div class="container" id="active_content"><span class="loading-spinner active"></span></div>
-            <div class="center two-em lap-title"><?php echo esc_html__( 'Completed Challenges', 'prayer-global-porch' ) ?></div>
-            <div class="container" id="complete_content"><span class="loading-spinner active"></span></div>
-            <div class="container" ><hr style="margin: 1em auto;"></div>
-
-            <div class="container pb-4">
+            <div class="container">
                 <div class="row">
-                    <div class="col-md text-center">
-                        <a class="button" href="/prayer_app/group_challenge_request"><?php echo esc_html__( 'Request a Group Challenge', 'prayer-global-porch' ) ?></a>
+                    <div class="col-md text-center brand-bg white py-4">
+                        <h4><?php echo esc_html__( 'Want to create your own Prayer Relay?', 'prayer-global-porch' ) ?></h4>
+                        <a class="btn btn-cta two-rem has-icon cta-blue px-5 mt-4" href="/user_app/login"><?php echo esc_html( __( 'Login', 'prayer-global-porch' ) ) ?><i class="icon pg-chevron-right icon-end two-rem end-0 me-2"></i></a>
                     </div>
                 </div>
             </div>
+            <section class="flow-small contain bg-top" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map-lightblue-transparent.png);">
+                <i class="icon pg-relay icon-medium d-block"></i>
+                <h4 class="uppercase font-base"><?php echo esc_html( __( 'Active Relays', 'prayer-global-porch' ) ) ?></h4>
+                <div class="container data-table uppercase" id="active_content"><span class="loading-spinner active"></span></div>
+            </section>
+            <section class="brand-lighter flow-small contain bg-top" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map-lightblue-transparent.png);">
+                <i class="icon pg-crown icon-medium d-block"></i>
+                <h4 class="uppercase font-base"><?php echo esc_html( __( 'Completed Relays', 'prayer-global-porch' ) ) ?></h4>
+                <div class="container data-table uppercase" id="complete_content"><span class="loading-spinner active"></span></div>
+            </section>
         </section>
-        <div style="height:300px;"></div>
 
         <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/working-footer.php' ) ?>
         <?php

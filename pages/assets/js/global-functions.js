@@ -193,4 +193,14 @@ $(document).ready(function ($) {
       })
       .then((result) => result.json());
   };
+
+  /**
+   * Adds leading zeros to a number to create a string that is length long.
+   *
+   * Doesn't work with negative numbers currently, as is only for use with time
+   */
+  window.padNumber = function (number, length) {
+    const zeros = (length) => new Array(length).fill('0').join('')
+    return (zeros(length) + number).slice(-length)
+  }
 });

@@ -119,11 +119,11 @@ class PG_Porch_404 extends DT_Magic_Url_Base
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' );
         ?>
         <!-- content section -->
-        <section>
+        <section class="page-section">
             <div class="container pb-4">
                 <div class="row">
                     <div class="col-md text-center">
-                        <span class="two-em lap-title">404</span>
+                        <h2 class="">404</h2>
                     </div>
                 </div>
             </div>
@@ -142,7 +142,7 @@ class PG_Porch_404 extends DT_Magic_Url_Base
                             <li><a href="/newest/lap">Start Praying</a></li>
                             <li><a href="/newest/map">The map</a></li>
                             <li><a href="/newest/stats">More stats</a></li>
-                            <li><a href="/challenges/active">Group Challenges</a></li>
+                            <li><a href="/challenges/active">Prayer Relays</a></li>
                         </ul>
                     </div>
                 </div>
@@ -151,9 +151,9 @@ class PG_Porch_404 extends DT_Magic_Url_Base
             <div class="container pb-4">
                 <div class="row">
                     <div class="col-md text-center">
-                        <span class="two-em lap-title">
+                        <h3 class="">
                             Other interesting links
-                        </span>
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -169,7 +169,6 @@ class PG_Porch_404 extends DT_Magic_Url_Base
                 </div>
             </div>
         </section>
-        <div style="height:300px;"></div>
 
         <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/working-footer.php' ) ?>
         <?php

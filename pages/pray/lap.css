@@ -1,5 +1,5 @@
 body {
-    color: black;
+    color: var(--pg-brand-color-light);
 }
 .bold {
     font-weight:900;
@@ -14,7 +14,35 @@ body {
     /*height:100px;*/
 }
 section {
-    margin-top:175px;
+    margin-top:150px;
+}
+section[data-custom-lap] {
+    margin-top: 175px;
+}
+#see-more-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 0.2rem;
+    animation: bounce 200ms ease-in-out 500ms 1;
+}
+@keyframes bounce {
+    0% {
+        margin-bottom: 0.2rem;
+    }
+    50% {
+        margin-bottom: 1.5rem
+    }
+    100% {
+        margin-bottom: 0.2rem;
+    }
+}
+#content {
+    padding-top: 4rem;
+}
+#more_prayer_fuel {
+    display: flex;
 }
 .btn-group {
     width: 100%;
@@ -29,30 +57,32 @@ section {
     --bs-btn-padding-y: 0.25rem;
     --bs-btn-padding-x: 0.5rem;
 }
+.btn-outline-primary {
+    font-weight: normal;
+    color: var(--pg-brand-color-light);
+    border-color: var(--pg-brand-color-light);
+}
 .btn-link {
     text-decoration: none;
 }
 #praying_button {
     width:100%;
     border: none;
-    background: darkgrey;
+    background: var(--pg-grey);
     color: #ffffff;
-    padding: 10px 16px;
     position: relative;
     cursor: pointer;
-    font-family: "Fira Sans", sans-serif;
     overflow: hidden;
-    border-radius: 5px 0 0 5px;
 }
-#praying__close_button {
-    font-size:2em;
+.btn-praying {
+    padding: 0.4rem 0.5rem;
+    line-height: 0.8;
+}
+.btn-praying i {
+    font-size: 2rem;
 }
 #praying__continue_button {
-    font-size:2em;
     display:none;
-}
-#praying__open_options {
-    font-size:2em;
 }
 .praying__progress {
     position: absolute;
@@ -60,12 +90,14 @@ section {
     width: 0%;
     top: 0;
     left: 0;
-    background: green;
+    background: var(--pg-secondary-color);
     transition: width 0.3s;
     box-shadow: 0 10px 0 -2px rgb(0 0 0 / 15%);
+    border-radius: 6px;
 }
 .praying__text {
     position: relative;
+    line-height: 1;
 }
 .container {
     margin-bottom: .5em;
@@ -105,23 +137,10 @@ section {
 .question_button_group .btn  {
     width:100%;
 }
-.question__yes {
-    background:green !important;
-}
-.celebrate-image {
-
-}
 .pace-wrapper {
     width: 100%;
 }
-.btn-primary,
-.btn-primary:hover,
-.btn-primary:active,
-.btn-primary:visited,
-.btn-primary:focus {
-    background-color: green;
-    border-color: white;
-}
+
 .progress-bar {
     height:4em;
     line-height: 4em;
@@ -232,7 +251,7 @@ section {
         font-size: 1.7em ;
     }
     .two-em {
-        font-size: 1.2em ;
+        font-size: 1.5em ;
     }
     .one-em {
         font-size: 1em ;
@@ -256,7 +275,8 @@ nav {
 
 #map-wrapper, #map-content, #mapbox-map {
     height:300px;
-    padding-top:10px;
+    border-radius: 10px;
+    box-shadow: rgba(0,0,0,0.05) 0 3px 4px 1px;
 }
 @media (min-width: 768px) {
     #map-wrapper, #map-content, #mapbox-map {
@@ -272,10 +292,10 @@ nav {
 .uc {
     text-transform: uppercase;
 }
-.w-100 hr {
-    margin-top:4em;
-    margin-bottom:4em;
-    border-bottom: 1px solid darkgray;
+hr {
+    margin-top:3em;
+    margin-bottom:3em;
+    color: var(--pg-secondary-color);
 }
 .mapboxgl-ctrl-top-right {
     top: 10px;
@@ -288,44 +308,30 @@ nav {
 }
 
 .prayer-odometer {
-    position: fixed;
-    z-index: 10000;
-    bottom: 0;
-    left: 0;
-    margin-left: 20px;
-    margin-bottom: 30px;
     font-size: 2em;
-    background-color: #6c757dbb;
     border-radius: 10px;
-    padding: 10px;
+    padding: 0px;
     line-height: 1;
     opacity: 1;
     color: #f7fbff;
+    box-shadow: var(--small-box-shadow);
 }
 
-.prayer-odometer span {
-    margin-left: 10px;
-}
-
-.prayer-odometer p {
-    font-size: 14px;
-}
-
-.red-popover {
-    --bs-popover-bg: red;
-    --bs-popover-border-color: red;
+.brand-popover {
+    --bs-popover-bg: var(--pg-brand-color);
+    --bs-popover-border-color: var(--pg-brand-color);
     --bs-popover-body-color: white;
     font-weight: bold;
 }
-.orange-popover {
-    --bs-popover-bg: orange;
-    --bs-popover-border-color: orange;
+.brand-lighter-popover {
+    --bs-popover-bg: var(--pg-brand-color-lighter);
+    --bs-popover-border-color: var(--pg-brand-color-lighter);
     --bs-popover-body-color: white;
     font-weight: bold;
 }
-.green-popover {
-    --bs-popover-bg: green;
-    --bs-popover-border-color: green;
+.secondary-popover {
+    --bs-popover-bg: var(--pg-secondary-color);
+    --bs-popover-border-color: var(--pg-secondary-color);
     --bs-popover-body-color: white;
     font-weight: bold;
 }

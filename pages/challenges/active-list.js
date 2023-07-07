@@ -21,7 +21,7 @@ jQuery(document).ready(function() {
               sharing,
               display,
               name,
-              warriors,
+              intercessors,
               time_elapsed,
               links,
               lap,
@@ -35,7 +35,7 @@ jQuery(document).ready(function() {
               if ( v.status === 'active' ){
                 html_content_active += `<tr>
                                 <td>${v.start_time}</td>
-                                <th><a href="/prayer_app/custom/${v.lap_key}">${v.post_title} ${!jsObject.is_rolling_laps_feature_on || v.single_lap === '1' ? '' : lap.replace('%d', lapNumber)}</a></th>
+                                <th class="white">${v.post_title} ${!jsObject.is_rolling_laps_feature_on || v.single_lap === '1' ? '' : lap.replace('%d', lapNumber)}</th>
                                 <td style="text-align:right;">
                                   <a href="/prayer_app/custom/${v.lap_key}">${pray}</a> |
                                   <a href="/prayer_app/custom/${v.lap_key}/map">${map}</a> |
@@ -46,7 +46,7 @@ jQuery(document).ready(function() {
               } else if ( v.status === 'complete' ) {
                 html_content_completed += `<tr>
                                 <td>${v.start_time}</td>
-                                <th><a href="/prayer_app/custom/${v.lap_key}/map">${v.post_title} ${!jsObject.is_rolling_laps_feature_on || v.single_lap === '1' ? '' : lap.replace('%d', lapNumber)}</a></th>
+                                <th class="white">${v.post_title} ${!jsObject.is_rolling_laps_feature_on || v.single_lap === '1' ? '' : lap.replace('%d', lapNumber)}</th>
                                 <td>${v.stats.participants}</td>
                                 <td>${v.stats.time_elapsed_small}</td>
                                 <td style="text-align:right;">
@@ -76,27 +76,9 @@ jQuery(document).ready(function() {
                 url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json'
               },*/
               lengthChange: false,
-              pageLength: 10,
-              responsive: {
-                details: {
-                    display: $.fn.dataTable.Responsive.display.childRowImmediate,
-                    type: '',
-                    renderer: function ( api, rowIdx, columns ) {
-                      var data = $.map( columns, function ( col, i ) {
-                          return col.hidden ?
-                              '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
-                                  '<td class="dtr-title">'+col.title+':'+'</td> '+
-                                  '<td class="dtr-data">'+col.data+'</td>'+
-                              '</tr>' :
-                              '';
-                      } ).join('');
-
-                      return data ?
-                          $('<table/>').append( data ) :
-                          false;
-                  },
-                },
-              },
+              pageLength: 3,
+              pagingType: 'simple',
+              responsive: true,
               order: [[0, 'desc']],
               columnDefs: [
                 {
@@ -111,8 +93,8 @@ jQuery(document).ready(function() {
             `<table class="display " style="width:100%;" id="list-table-completed" data-order='[[ 0, "desc" ]]'>
                                     <thead>
                                         <th></th>
-                                        <th>Name</th>
-                                        <th class="desktop">${warriors}</th>
+                                        <th>${name}</th>
+                                        <th class="desktop">${intercessors}</th>
                                         <th class="desktop">${time_elapsed}</th>
                                         <th class="desktop">${links}</th>
                                       </thead>
@@ -123,27 +105,9 @@ jQuery(document).ready(function() {
           )
           jQuery('#list-table-completed').DataTable({
             lengthChange: false,
-            pageLength: 10,
-            responsive: {
-              details: {
-                display: $.fn.dataTable.Responsive.display.childRowImmediate,
-                type: '',
-                renderer: function ( api, rowIdx, columns ) {
-                  var data = $.map( columns, function ( col, i ) {
-                    return col.hidden ?
-                      '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
-                      '<td class="dtr-title">'+col.title+':'+'</td> '+
-                      '<td class="dtr-data">'+col.data+'</td>'+
-                      '</tr>' :
-                      '';
-                  } ).join('');
-
-                  return data ?
-                    $('<table/>').append( data ) :
-                    false;
-                },
-              },
-            },
+            pageLength: 3,
+            pagingType: 'simple',
+            responsive: true,
             order: [[0, 'desc']],
             columnDefs: [
               {

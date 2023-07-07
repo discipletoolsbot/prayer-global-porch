@@ -27,7 +27,7 @@
     <div class="container">
         <div class="row justify-content-md-center text-center mb-5">
             <div class="col-lg-7">
-                <h2 class="mt-0 header-border-top font-weight-normal">About</h2>
+                <h2 class="mt-0 font-weight-normal">About</h2>
                 <p>
                     Prayer.Global seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.
                 </p>
@@ -119,7 +119,7 @@
                                 <strong class="black">Race Map</strong> <a href="/race_app/race_map/"><i class="ion-android-open"></i></a>
                             </p>
                             <p>
-                                The Race map shows the number of laps, number of minutes, and number of prayer warriors for the entire challenge.
+                                The Race map shows the number of laps, number of minutes, and number of prayer intercessors for the entire challenge.
                             </p>
                             <p>
                                 <strong class="black">Race List</strong> <a href="/race_app/race_list/"><i class="ion-android-open"></i></a>
@@ -162,7 +162,9 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="exampleModalLabel">Prayer.Global Intro</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="Close">
+                            <i class="icon pg-close two-em"></i>
+                        </button>
             </div>
             <div class="modal-body"></div>
             <div class="modal-footer">
@@ -189,7 +191,7 @@
                     <div class="icon-circle display-4"><i class="text-primary ion-ios-body-outline"></i></div>
                     <div class="">
                         <h3 class="stats-info__title" id="current_participants"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Prayer Warriors</h3>
+                        <h3 class="stats-info__subtitle">Prayer Intercessors</h3>
                     </div>
                 </div>
             </div>
@@ -233,7 +235,7 @@
                     <div class="icon-circle display-4"><i class="text-primary ion-ios-body-outline"></i></div>
                     <div class="">
                         <h3 class="stats-info__title" id="global_participants"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle">Prayer Warriors</h3>
+                        <h3 class="stats-info__subtitle">Prayer Intercessors</h3>
                     </div>
                 </div>
             </div>
@@ -316,7 +318,7 @@
     <div class="container">
         <div class="row justify-content-md-center text-center mb-5">
             <div class="col-lg-7">
-                <h2 class="mt-0 header-border-top font-weight-normal">FAQs</h2>
+                <h2 class="mt-0 font-weight-normal">FAQs</h2>
             </div>
         </div>
         <div class="row">
@@ -371,7 +373,7 @@
                     <div class="icon-circle display-4 text-primary"><i class="ion-ios-bookmarks"></i></div>
                     <div class="">
                         <h3 class="faq__title">Word-Centric</h3>
-                        <p class="small">Prayer.Global seeks to guide prayer warriors to the bible as the source for knowing God's heart and modeling for how to pray.</p>
+                        <p class="small">Prayer.Global seeks to guide prayer intercessors to the bible as the source for knowing God's heart and modeling for how to pray.</p>
                     </div>
                 </div>
             </div>

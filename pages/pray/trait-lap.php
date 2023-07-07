@@ -39,7 +39,7 @@ trait PG_Lap_Trait {
                     'stats_url' => $current_url . 'stats',
                     'map_url' => $current_url . 'map',
                     'is_custom' => ( 'custom' === $this->parts['type'] ),
-                    'is_cta_feature_on' => ( new PG_Feature_Flag( PG_Flags::CTA_FEATURE ) )->is_on(),
+                    'is_cta_feature_on' => true,
                 ]) ?>][0]
             </script>
             <script type="text/javascript" src="<?php echo esc_url( DT_Mapbox_API::$mapbox_gl_js ) ?>"></script>
@@ -67,20 +67,29 @@ trait PG_Lap_Trait {
 
         <!-- navigation & widget -->
         <nav class="navbar prayer_navbar fixed-top" id="pb-pray-navbar">
-            <div class="container praying" id="praying-panel">
-                <div class="btn-group praying_button_group" role="group" aria-label="<?php esc_attr( __( 'Praying Button', 'prayer-global-porch' ) ) ?>">
-                    <button type="button" class="btn praying" id="praying_button" data-percent="0" data-seconds="0">
+            <div class="container" id="praying-panel">
+                <div class="d-flex w-100 gap-2 praying_button_group" role="group" aria-label="<?php echo esc_attr__( 'Praying Button', 'prayer-global-porch' ) ?>">
+                    <div class="align-items-center brand-lighter-bg btn-praying d-flex gap-2 prayer-odometer px-2">
+                        <i class="icon pg-prayer"></i><span class="two-rem location-count">0</span>
+                    </div>
+                    <button type="button" class="btn p-2" id="praying_button" data-percent="0" data-seconds="0">
                         <div class="praying__progress"></div>
-                        <span class="praying__text"></span>
+                        <span class="praying__text uppercase font-weight-normal"></span>
                     </button>
-                    <button type="button" class="btn btn-secondary praying" id="praying__close_button"><i class="ion-close-circled"></i></button>
-                    <button type="button" class="btn btn-secondary praying" id="praying__continue_button"><i class="ion-android-arrow-dropright-circle"></i></button>
-                    <button type="button" class="btn btn-secondary settings" id="praying__open_options" data-bs-toggle="modal" data-bs-target="#option_filter"><i class="ion-android-options"></i></button>
+                    <button type="button" class="btn btn-primary-dark btn-praying" id="praying__close_button">
+                        <i class="icon pg-pause"></i>
+                    </button>
+                    <button type="button" class="btn btn-primary-dark btn-praying" id="praying__continue_button">
+                        <i class="icon pg-start"></i>
+                    </button>
+                    <button type="button" class="btn btn-primary-dark btn-praying" id="praying__open_options" data-bs-toggle="modal" data-bs-target="#option_filter">
+                        <i class="icon pg-settings"></i>
+                    </button>
                 </div>
             </div>
 
             <div class="container question" id="question-panel">
-                <div class="btn-group question_button_group" role="group" aria-label="<?php esc_attr( __( 'Praying Button', 'prayer-global-porch' ) ) ?>">
+                <div class="d-flex w-100 gap-2 question_button_group" role="group" aria-label="<?php echo esc_attr__( 'Praying Button', 'prayer-global-porch' ) ?>">
 
                     <?php $this->question_buttons() ?>
 
@@ -88,7 +97,7 @@ trait PG_Lap_Trait {
             </div>
             <div class="w-100" ></div>
             <div class="container decision" id="decision-panel">
-                <div class="btn-group decision_button_group" role="group" aria-label="<?php esc_attr( __( 'Decision Button', 'prayer-global-porch' ) ) ?>">
+                <div class="d-flex w-100 gap-2 decision_button_group" role="group" aria-label="<?php echo esc_attr__( 'Decision Button', 'prayer-global-porch' ) ?>">
 
                     <?php $this->decision_buttons() ?>
 
@@ -96,9 +105,9 @@ trait PG_Lap_Trait {
             </div>
             <div class="container celebrate text-center" id="celebrate-panel"></div>
             <div class="w-100" ></div>
-            <div class="container justify-content-center mt-3">
-                <h3 class="mt-0 font-weight-normal text-center tutorial" id="tutorial-location"><?php echo esc_html__( 'Start praying for', 'prayer-global-porch' ) ?></h3>
-                <h3 class="mt-0 font-weight-normal text-center" id="location-name"></h3>
+            <div class="container flex-column justify-content-center">
+                <p class="my-0 font-weight-normal text-center tutorial uppercase one-em lh-1" id="tutorial-location"><?php echo esc_html__( 'Pray for', 'prayer-global-porch' ) ?></p>
+                <h5 class="my-0 font-weight-bold text-center w-75" id="location-name"></h5>
             </div>
         </nav>
 
@@ -108,7 +117,9 @@ trait PG_Lap_Trait {
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="exampleModalLabel"><?php echo esc_html__( 'Set Your Prayer Experience', 'prayer-global-porch' ) ?></h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="<?php esc_attr( __( 'Close', 'prayer-global-porch' ) ) ?>"></button>
+                        <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php echo esc_attr__( 'Close', 'prayer-global-porch' ) ?>">
+                            <i class="icon pg-close two-em"></i>
+                        </button>
                     </div>
                     <div class="modal-body">
                         <div>
@@ -124,7 +135,28 @@ trait PG_Lap_Trait {
                         </div>
                     </div>
                     <div class="modal-footer center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><?php echo esc_html( __( 'Save', 'prayer-global-porch' ) ) ?></button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><?php echo esc_html__( "Let's Go!", 'prayer-global-porch' ) ?></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="decision_leave_modal" tabindex="-1" role="dialog" aria-labelledby="option_filter_label" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel"><?php echo esc_html__( 'Are you sure you want to leave?', 'prayer-global-porch' ) ?></h5>
+                        <button type="button" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php esc_attr( __( 'Close', 'prayer-global-porch' ) ) ?>">
+                            <i class="icon pg-close two-em"></i>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <p>
+                            <?php echo esc_html__( "If you leave now, this place won't count as having been prayed for and will remain available for the next person to pray over." ) ?>
+                        </p>
+                    </div>
+                    <div class="modal-footer center">
+                        <button type="button" class="btn btn-outline-primary uppercase" id="decision__keep_praying" data-bs-dismiss="modal"><?php echo esc_html__( "Keep Praying", 'prayer-global-porch' ) ?></button>
+                        <button type="button" class="btn btn-primary" id="decision__leave" data-bs-dismiss="modal"><?php echo esc_html__( "Leave", 'prayer-global-porch' ) ?></button>
                     </div>
                 </div>
             </div>
@@ -132,65 +164,42 @@ trait PG_Lap_Trait {
         <div class="modal fade" id="welcome_screen" tabindex="-1" role="dialog" aria-labelledby="welcome_screen_label" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
-                    <div class="modal-body">
+                    <div class="modal-body pb-0">
                         <p class="center"><?php echo esc_html( sprintf( __( 'How %s works', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?></p>
-                        <h2 class="center"><?php echo esc_html( __( 'Step 1', 'prayer-global-porch' ) ) ?></h2>
+                        <h4 class="center"><?php echo esc_html( __( 'Step 1', 'prayer-global-porch' ) ) ?></h4>
                         <p>
                             <?php echo esc_html( __( 'Pray over the location provided using the maps, photos, prayers, people group info, and facts.', 'prayer-global-porch' ) ) ?>
                         </p>
 
-                        <h2 class="center"><?php echo esc_html( __( 'Step 2', 'prayer-global-porch' ) ) ?></h2>
+                        <h4 class="center"><?php echo esc_html( __( 'Step 2', 'prayer-global-porch' ) ) ?></h4>
                         <p>
                             <?php echo esc_html( __( 'Pray for one minute (or longer) as the Spirit leads.', 'prayer-global-porch' ) ) ?>
                         </p>
                         <p>
                             <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/welcome-keep.png" style="opacity:0.5;" class="img-fluid" />
                         </p>
-                        <h2 class="center"><?php echo esc_html( __( 'Step 3', 'prayer-global-porch' ) ) ?></h2>
+                        <h4 class="center"><?php echo esc_html( __( 'Step 3', 'prayer-global-porch' ) ) ?></h4>
                         <p>
-                            <?php echo esc_html( __( 'Once the timer transforms, select either "Done" and see your impact, or select "Next" and cover another location in prayer.', 'prayer-global-porch' ) ) ?>
+                            <?php echo sprintf( esc_html( __( 'Click Done to see your impact on the map or %sclick Next to pray for another location', 'prayer-global-porch' ) ), '<br>' ) ?>
                         </p>
                         <p>
                             <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/welcome-next.png" style="opacity:0.5;" class="img-fluid" />
                         </p>
                     </div>
-                    <div class="modal-footer justify-content-center">
+                    <div class="modal-footer justify-content-center pt-0">
                         <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><?php echo esc_html( __( "Let's Go!", 'prayer-global-porch' ) ) ?></button>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Location counter -->
-        <div class="prayer-odometer">
-            <div>
-                <i class="ion-location"></i><span class="location-count">0</span>
-            </div>
-        </div>
-
-        <!-- content section -->
-        <section>
-            <div class="container" id="map">
-                <div class="row">
-                    <div class="col">
-                        <p class="text-md-center" id="location-map"><span class="loading-spinner active"></span></p>
-                    </div>
-                </div>
-            </div>
-            <div class="w-100"><hr></div>
-            <div id="content"></div>
-            <div class="container">
-                <div class="row text-center pb-4"><div class="col"><button type="button" class="btn btn-outline-primary" id="more_prayer_fuel"><?php echo esc_html( __( 'Show More Prayer Fuel', 'prayer-global-porch' ) ) ?></button></div></div>
-                <div class="row">
-                    <div class="col text-center" style="padding-bottom:2em;">
-                        <button class="btn btn-link" id="correction_button"><?php echo esc_html( __( 'Correction Needed?', 'prayer-global-porch' ) ) ?></button>
-                    </div>
-                    <div class="modal fade" id="correction_modal"  role="dialog" aria-labelledby="correction_modal_label" aria-hidden="true">
+        <div class="modal fade" id="correction_modal"  role="dialog" aria-labelledby="correction_modal_label" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title"><?php echo esc_html( __( 'Thank you! Leave us a correction below.', 'prayer-global-porch' ) ) ?></h5>
-                                    <button type="button" id="correction_close" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                <h5 class="modal-title"><?php echo esc_html__( 'Thank you! Leave us a correction below.', 'prayer-global-porch' ) ?></h5>
+                                    <button type="button" id="correction_close" class="d-flex brand-light" data-bs-dismiss="modal" aria-label="<?php echo esc_attr__( 'Close', 'prayer-global-porch' ) ?>">
+                                        <i class="icon pg-close two-em"></i>
+                                    </button>
                                 </div>
                                 <div class="modal-body">
                                     <p><span id="correction_title" class="correction_field"></span></p>
@@ -210,6 +219,41 @@ trait PG_Lap_Trait {
                             </div>
                         </div>
                     </div>
+
+        <!-- Location counter -->
+        <div class="prayer-odometer">
+            <div>
+                <i class="ion-location"></i><span class="location-count">0</span>
+            </div>
+        </div>
+
+        <!-- content section -->
+        <section>
+            <div class="container" id="map">
+                <div class="row">
+                    <div class="col">
+                        <div class="text-md-center" id="location-map"><span class="loading-spinner active"></span></div>
+                    </div>
+                </div>
+            </div>
+            <a href="#content" class="text-decoration-none" id="see-more-button">
+                <div class="btn btn-secondary center d-block m-auto uppercase w-fit">
+                    <?php echo esc_html__( 'See more', 'prayer-global-porch' ) ?>
+                    <i class="icon pg-chevron-down d-block center"></i>
+                </div>
+            </a>
+            <div id="content"></div>
+            <div class="container">
+                <div class="row text-center mb-3">
+                    <div class="col">
+                        <i class="icon pg-pray-hands-dark d-block icon-small mb-3" style="margin-top: -2rem"></i>
+                        <button type="button" class="btn btn-outline-primary px-4 d-flex mx-auto gap-2" id="more_prayer_fuel"><?php echo esc_html__( 'Show More Guided Prayers', 'prayer-global-porch' ) ?><i class="icon pg-chevron-down"></i></button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col text-center" style="padding-bottom:2em;">
+                        <button class="brand-lighter" id="correction_button"><?php echo esc_html__( 'Correction Needed?', 'prayer-global-porch' ) ?></button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -220,8 +264,8 @@ trait PG_Lap_Trait {
     public function question_buttons() {
         ?>
 
-        <button type="button" class="btn btn-secondary question" id="question__yes_done"><?php echo esc_html( __( 'Done', 'prayer-global-porch' ) ) ?></button>
-        <button type="button" class="btn btn-secondary question question__yes" id="question__yes_next"><?php echo esc_html( __( 'Next', 'prayer-global-porch' ) ) ?></button>
+        <button type="button" class="btn btn-primary-dark btn-praying uppercase font-weight-normal two-em lh-sm" id="question__yes_done"><?php echo esc_html__( 'Done', 'prayer-global-porch' ) ?></button>
+        <button type="button" class="btn btn-secondary btn-praying question__yes uppercase font-weight-normal two-em lh-sm" id="question__yes_next"><?php echo esc_html__( 'Next', 'prayer-global-porch' ) ?></button>
 
         <?php
     }
@@ -229,9 +273,11 @@ trait PG_Lap_Trait {
     public function decision_buttons() {
         ?>
 
-        <button type="button" class="btn btn-secondary decision" id="decision__home"><?php echo esc_html( __( 'Home', 'prayer-global-porch' ) ) ?></button>
-        <button type="button" class="btn btn-secondary decision" id="decision__map"><?php echo esc_html( __( 'Map', 'prayer-global-porch' ) ) ?></button>
-        <button type="button" class="btn btn-secondary decision" id="decision__next"><?php echo esc_html( __( 'Next', 'prayer-global-porch' ) ) ?></button>
+        <button type="button" class="btn btn-primary-dark btn-praying flex-1" id="decision__home">
+            <i class="icon pg-home"></i>
+        </button>
+        <button type="button" class="btn btn-primary-dark btn-praying uppercase flex-2 two-em font-weight-normal" id="decision__map"><?php echo esc_html__( 'Map', 'prayer-global-porch' ) ?></button>
+        <button type="button" class="btn btn-primary-light btn-praying uppercase flex-1 two-em font-weight-normal" id="decision__next"><?php echo esc_html__( 'Next', 'prayer-global-porch' ) ?></button>
 
         <?php
     }

@@ -75,11 +75,11 @@ class Prayer_Global_Porch_Contact_Us extends DT_Magic_Url_Base
     public function body(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' ) ?>
 
-        <section class="page-section mt-5" data-section="about" id="section-about">
+        <section class="page-section mt-5 pb-0" data-section="about" id="section-about">
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 pb-3 header-border-top font-weight-normal"><?php echo esc_html__( 'Contact Us', 'prayer-global-porch' ) ?></h2>
+                        <h2 class="mt-0 pb-3 font-weight-normal"><?php echo esc_html( __( 'Contact Us', 'prayer-global-porch' ) ) ?></h2>
                         <p>
                             <?php echo esc_html( __( 'First, thank you for reaching out.', 'prayer-global-porch' ) ) ?>
                         </p>
@@ -88,7 +88,7 @@ class Prayer_Global_Porch_Contact_Us extends DT_Magic_Url_Base
                         </p>
                     </div>
                 </div>
-                <div class="row justify-content-md-center text-center mb-5">
+                <div class="row justify-content-md-center text-center">
                     <div class="col-lg-7">
                         <p>
                             <iframe src="https://pray4movement.org/wp-content/plugins/disciple-tools-webform/public/form.php?token=d21730a05ffbbc372eb9e58f58e56ee7" style="width:100%;height:800px;" frameborder="0"></iframe>

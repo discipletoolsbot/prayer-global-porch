@@ -520,7 +520,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => sprintf( __( 'Father, put your Bible in the hands of the %1$s, who are far from you and live in this place.', 'prayer-global-porch' ), $stack['location']['non_christians'] ),
                 'reference' => __( 'Psalm 119:9-10', 'prayer-global-porch' ),
-                'verse' => _x( 'How can a young person stay on the path of purity? By living according to your word. I seek you with all my heart; do not let me stray from your commands.', 'Psalm 119:9-10', 'prayer-global-porch' ),
+                'verse' => _x( 'How can a young person stay on the path of purity? By living according to your Word. I seek you with all my heart; do not let me stray from your commands.', 'Psalm 119:9-10', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,
@@ -570,7 +570,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => sprintf( __( 'Spirit, of the %1$s people in the %2$s of %3$s who claim Christianity, challenge some of them to pickup your Word and read it for themselves today.', 'prayer-global-porch' ), $stack['location']['christian_adherents'], $stack['location']['admin_level_name'], $stack['location']['name'] ),
+                'prayer' => sprintf( __( 'Spirit, of the %1$s people in the %2$s of %3$s who claim Christianity, challenge some of them to pick up your Word and read it for themselves today.', 'prayer-global-porch' ), $stack['location']['christian_adherents'], $stack['location']['admin_level_name'], $stack['location']['name'] ),
                 'reference' => __( 'John 8:32', 'prayer-global-porch' ),
                 'verse' => _x( 'and you will know the truth, and the truth will set you free.', 'John 8:32', 'prayer-global-porch' ),
             ],
@@ -588,9 +588,9 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => sprintf( __( 'Father, your word can be a lamp to the feet of the %1$s people in the %2$s of %3$s who claim to know you, if they open it and read it today.', 'prayer-global-porch' ), $stack['location']['christian_adherents'], $stack['location']['admin_level_name'], $stack['location']['name'] ),
+                'prayer' => sprintf( __( 'Father, your Word can be a lamp to the feet of the %1$s people in the %2$s of %3$s who claim to know you, if they open it and read it today.', 'prayer-global-porch' ), $stack['location']['christian_adherents'], $stack['location']['admin_level_name'], $stack['location']['name'] ),
                 'reference' => __( 'Psalm 119:105', 'prayer-global-porch' ),
-                'verse' => _x( 'your word is a lamp to my feet and a light to my path.', 'Psalm 119:105', 'prayer-global-porch' ),
+                'verse' => _x( 'your Word is a lamp to my feet and a light to my path.', 'Psalm 119:105', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,
@@ -642,7 +642,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => sprintf( __( 'Father, let your Word be a lamp to the feet of the %1$s believers in %2$s.', 'prayer-global-porch' ), $stack['location']['believers'], $stack['location']['full_name'] ),
                 'reference' => __( 'Psalm 119:105', 'prayer-global-porch' ),
-                'verse' => _x( 'your word is a lamp to my feet and a light to my path.', 'Psalm 119:105', 'prayer-global-porch' ),
+                'verse' => _x( 'your Word is a lamp to my feet and a light to my path.', 'Psalm 119:105', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,
@@ -706,7 +706,7 @@ class PG_Stacker_Text {
         $templates = [
             [
                 'section_label' => $section_label,
-                'prayer' => sprintf( __( 'Father, please help good, online teachers get the gospel on YouTube and into %1$s of %2$s.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['name'] ),
+                'prayer' => sprintf( __( 'Father, please help good, online teachers get the gospel on YouTube and into the %1$s of %2$s.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['name'] ),
                 'reference' => __( 'Matthew 24:14', 'prayer-global-porch' ),
                 'verse' => _x( 'And this gospel of the kingdom will be preached in the whole world as a testimony to all nations, and then the end will come.', 'Matthew 24:14', 'prayer-global-porch' ),
             ],
@@ -832,7 +832,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => sprintf( __( 'Spirit, encourage those who are afraid in %1$s that you are the healer and you are the savior.', 'prayer-global-porch' ), $stack['location']['full_name'] ),
+                'prayer' => sprintf( __( 'Spirit, encourage those who are afraid in %1$s that you are the healer and you are the Savior.', 'prayer-global-porch' ), $stack['location']['full_name'] ),
                 'reference' => __( 'Jeremiah 17:14', 'prayer-global-porch' ),
                 'verse' => _x( 'Heal me, Lord, and I will be healed; save me and I will be saved, for you are the one I praise.', 'Jeremiah 17:14', 'prayer-global-porch' ),
             ],
@@ -2113,13 +2113,13 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => sprintf( __( 'Spirit, make the Word of God a delight to the people of %1$s, like it was to David.', 'prayer-global-porch' ), $stack['location']['name'] ),
                 'reference' => __( 'Psalm 119:16', 'prayer-global-porch' ),
-                'verse' => _x( 'I delight in your decrees, I will not neglect your word.', 'Psalm 119:16', 'prayer-global-porch' ),
+                'verse' => _x( 'I delight in your decrees, I will not neglect your Word.', 'Psalm 119:16', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => sprintf( __( 'Spirit, instill a desire within the people of the %1$s of %2$s to hide your word in their heart.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['name'] ),
+                'prayer' => sprintf( __( 'Spirit, instill a desire within the people of the %1$s of %2$s to hide your Word in their heart.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['name'] ),
                 'reference' => __( 'Psalm 119:11', 'prayer-global-porch' ),
-                'verse' => _x( 'I have hidden your word in my heart that I might not sin against you.', 'Psalm 119:11', 'prayer-global-porch' ),
+                'verse' => _x( 'I have hidden your Word in my heart that I might not sin against you.', 'Psalm 119:11', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,
@@ -2137,19 +2137,19 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => sprintf( __( 'Lord, teach the disciples in the %1$s of %2$s to trust your Word, like a lamp, in the darkness around them.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['name'] ),
                 'reference' => __( 'Psalm 119:105', 'prayer-global-porch' ),
-                'verse' => _x( 'your word is a lamp for my feet, a light on my path.', 'Psalm 119:105', 'prayer-global-porch' ),
+                'verse' => _x( 'your Word is a lamp for my feet, a light on my path.', 'Psalm 119:105', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,
                 'prayer' => sprintf( __( 'Lord, teach the young people in the %1$s of %2$s to trust your Word and find the path of purity.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['name'] ),
                 'reference' => __( 'Psalm 119:9', 'prayer-global-porch' ),
-                'verse' => _x( 'How can a young person stay on the path of purity? By living according to your word.', 'Psalm 119:9', 'prayer-global-porch' ),
+                'verse' => _x( 'How can a young person stay on the path of purity? By living according to your Word.', 'Psalm 119:9', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,
                 'prayer' => sprintf( __( 'Spirit, we know that cultures come and go, even in the %1$s of %2$s, but the truth of your Word endures generations.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['name'] ),
                 'reference' => __( 'Psalm 119:89', 'prayer-global-porch' ),
-                'verse' => _x( 'your word, Lord, is eternal; it stands firm in the heavens.', 'Psalm 119:89', 'prayer-global-porch' ),
+                'verse' => _x( 'your Word, Lord, is eternal; it stands firm in the heavens.', 'Psalm 119:89', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,
@@ -2161,7 +2161,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => sprintf( __( 'Spirit, fill the %1$s souls living in the %2$s of %3$s with a taste for your Word. Make it sweet as honey in their mouth.', 'prayer-global-porch' ), $stack['location']['population'], $stack['location']['admin_level_name'], $stack['location']['name'] ),
                 'reference' => __( 'Psalm 119:103', 'prayer-global-porch' ),
-                'verse' => _x( 'How sweet are your words to my taste, sweeter than honey to my mouth!', 'Psalm 119:103', 'prayer-global-porch' ),
+                'verse' => _x( 'How sweet are your Words to my taste, sweeter than honey to my mouth!', 'Psalm 119:103', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,
@@ -2868,7 +2868,7 @@ class PG_Stacker_Text {
                         '<br><br>'.
                         sprintf( __( 'We estimate %1$s has %2$s people who might know Jesus, %3$s people who might know about Jesus culturally, and %4$s people who do not know Jesus.', 'prayer-global-porch' ), $stack['location']['name'], '<strong>'.$stack['location']['believers'].'</strong>', '<strong>'.$stack['location']['christian_adherents'].'</strong>', '<strong>'.$stack['location']['non_christians'].'</strong>' ).
                         '<br><br>'.
-                        sprintf( __( 'This is %8$s believer for every %9$s neighbors who need Jesus.', 'prayer-global-porch' ), '<strong>1</strong>', '<strong>'.$stack['location']['lost_per_believer'].'</strong>' ) ,
+                        sprintf( __( 'This is %1$s believer for every %2$s neighbors who need Jesus.', 'prayer-global-porch' ), '<strong>1</strong>', '<strong>'.$stack['location']['lost_per_believer'].'</strong>' ) ,
                 ],
             ],
             /**
@@ -2880,7 +2880,7 @@ class PG_Stacker_Text {
                         '<br><br>'.
                         sprintf( __( 'We estimate %1$s has %2$s people who might know Jesus, %3$s people who might know about Jesus culturally, and %4$s people who do not know Jesus.', 'prayer-global-porch' ), $stack['location']['name'], '<strong>'.$stack['location']['believers'].'</strong>', '<strong>'.$stack['location']['christian_adherents'].'</strong>', '<strong>'.$stack['location']['non_christians'].'</strong>' ).
                         '<br><br>'.
-                        sprintf( __( 'This is %8$s believer for every %9$s neighbors who need Jesus.', 'prayer-global-porch' ), '<strong>1</strong>', '<strong>'.$stack['location']['lost_per_believer'].'</strong>' ) ,
+                        sprintf( __( 'This is %1$s believer for every %2$s neighbors who need Jesus.', 'prayer-global-porch' ), '<strong>1</strong>', '<strong>'.$stack['location']['lost_per_believer'].'</strong>' ) ,
                 ],
             ],
             /**
@@ -2892,7 +2892,7 @@ class PG_Stacker_Text {
                         '<br><br>'.
                         sprintf( __( 'We estimate %1$s has %2$s people who might know Jesus, %3$s people who might know about Jesus culturally, and %4$s people who do not know Jesus.', 'prayer-global-porch' ), $stack['location']['name'], '<strong>'.$stack['location']['believers'].'</strong>', '<strong>'.$stack['location']['christian_adherents'].'</strong>', '<strong>'.$stack['location']['non_christians'].'</strong>' ).
                         '<br><br>'.
-                        sprintf( __( 'This is %8$s believer for every %9$s neighbors who need Jesus.', 'prayer-global-porch' ), '<strong>1</strong>', '<strong>'.$stack['location']['lost_per_believer'].'</strong>' ) ,
+                        sprintf( __( 'This is %1$s believer for every %2$s neighbors who need Jesus.', 'prayer-global-porch' ), '<strong>1</strong>', '<strong>'.$stack['location']['lost_per_believer'].'</strong>' ) ,
                 ],
             ]
         ];

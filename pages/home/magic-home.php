@@ -77,6 +77,8 @@ class Prayer_Global_Porch_Home extends DT_Magic_Url_Base
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
 
         ?>
+
+        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/components.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/components.js' ) ) ?>"></script>
         <script>
             let jsObject = [<?php echo json_encode([
                 'map_key' => DT_Mapbox_API::get_key(),
@@ -103,6 +105,12 @@ class Prayer_Global_Porch_Home extends DT_Magic_Url_Base
             }
 
             jQuery(document).ready(function($){
+
+                const myCarouselElement = document.querySelector('#storyCarousel')
+
+                const carousel = new bootstrap.Carousel(myCarouselElement, {
+                  wrap: false,
+                })
 
                 if ( window.isMobile ) {
                     jQuery('#section-mobile').hide()
@@ -140,14 +148,17 @@ class Prayer_Global_Porch_Home extends DT_Magic_Url_Base
                 window.api_post( 'get_stats', {} )
                     .done(function(stats) {
                         console.log(stats)
-                        jQuery('#current_time_elapsed').html(stats.current_time_elapsed )
-                        jQuery('#current_participants').html(stats.current_participants )
-                        jQuery('#current_completed').html(stats.current_completed )
-                        jQuery('#current_remaining').html(stats.current_remaining )
-                        jQuery('#global_time_elapsed').html(stats.global_time_elapsed )
-                        jQuery('#global_participants').html(stats.global_participants )
+                        jQuery('.current-time-elapsed').html(PG.DisplayTime(stats.current_time_elapsed_data) )
+                        jQuery('.current-participants').html(stats.current_participants )
+                        jQuery('.current-completed').html(stats.current_completed )
+                        jQuery('.current-remaining').html(stats.current_remaining )
+                        jQuery('.progress-bar__slider').css('width', Number(stats.current_completed.replace(',', '')) / 4770 * 100 + '%')
+                        jQuery('.global-participants').html(stats.global_participants )
                         jQuery('#global_minutes_prayed').html(stats.global_minutes_prayed )
-                        jQuery('#global_lap_number').html(stats.global_lap_number )
+                        jQuery('.global-time-elapsed').html(PG.DisplayTime(stats.global_time_elapsed_data) )
+                        jQuery('.global-days-elapsed').html(stats.global_time_elapsed_data.days )
+                        jQuery('.global-lap-number').html( Number(stats.global_lap_number) + 1 )
+                        jQuery('.global-laps-completed').html( Number(stats.global_lap_number) )
                     })
 
             })
@@ -193,10 +204,12 @@ class Prayer_Global_Porch_Home extends DT_Magic_Url_Base
 
         return [
             'current_time_elapsed' => $current_global_stats['time_elapsed'],
+            'current_time_elapsed_data' => $current_global_stats['time_elapsed_data'],
             'current_participants' => $current_global_stats['participants'],
             'current_completed' => $current_global_stats['completed'],
             'current_remaining' => $current_global_stats['remaining'],
             'global_time_elapsed' => $global_race['time_elapsed'],
+            'global_time_elapsed_data' => $global_race['time_elapsed_data'],
             'global_participants' => $global_race['participants'],
             'global_minutes_prayed' => $global_race['minutes_prayed'],
             'global_lap_number' => (int) $global_race['number_of_laps'] - 1,

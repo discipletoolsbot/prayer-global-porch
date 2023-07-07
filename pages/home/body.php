@@ -1,117 +1,280 @@
 <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' ) ?>
-<style>
-    @media screen and ( max-width: 767px ) {
-        /* hides 'start praying' only on the home and non-off canvas location */
-        .navbar.navbar-dark .btn-outline-dark.py-lg-4 {
-            display:none;
-        }
-    }
-</style>
 
-<section class="cover cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg); height: 100vh;" id="section-home">
+<section class="hero full-height contain bg-top dark-bg" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/world-map-dark-background-new.png); min-height: 100vh;" id="section-home">
     <div class="container">
-        <div class="row align-items-center justify-content-end">
-            <div class="col-md-6  order-md-1">
-            <h2 class="heading mb-3"><?php echo esc_html( __( 'Cover the World in Prayer', 'prayer-global-porch' ) ) ?></h2>
-                <div class="sub-heading">
-                    <p class="mb-5"><?php echo esc_html( __( 'Community driven, movement-focused, saturation prayer.', 'prayer-global-porch' ) ) ?></p>
-                    <p><a href="/newest/lap/" role="button" class="btn cta_button smoothscroll btn-outline-dark"><?php echo esc_html( __( 'Start Praying', 'prayer-global-porch' ) ) ?></a></p>
-                </div>
+        <div class="row flex-column justify-content-between flex-nowrap">
+            <div>
+                <h1 class="heading">Prayer.Global</h1>
+                <h2 class="sub-heading brand-highlight"><?php echo esc_html( __( 'Cover the World in Prayer', 'prayer-global-porch' ) ) ?></h2>
+                <i class="icon pg-logo-prayer white heading__logo"></i>
+            </div>
+            <div class="my-4 d-flex flex-column align-items-center">
+                <a class="btn btn-cta mx-2 d-inline-block" href="/newest/lap/"><?php echo esc_html( __( 'Start Praying', 'prayer-global-porch' ) ) ?></a>
+                <a id="learn-more-desktop" href="#section-goal-desktop" class="btn-learn-more mt-2 text-decoration-none d-none d-md-block">
+                    <div class="btn btn-primary-light white uppercase btn-learn-more">
+                        <?php echo esc_html( __( 'Learn more', 'prayer-global-porch' ) ) ?>
+                    </div>
+                    <br>
+                    <i class="icon pg-chevron-down white"></i>
+                </a>
+                <a id="learn-more-mobile" href="#section-goal" class="btn-learn-more mt-2 text-decoration-none d-block d-md-none">
+                    <div class="btn btn-primary-light white uppercase btn-learn-more">
+                        <?php echo esc_html( __( 'Learn more', 'prayer-global-porch' ) ) ?>
+                    </div>
+                    <br>
+                    <i class="icon pg-chevron-down white"></i>
+                </a>
             </div>
         </div>
     </div>
 </section>
 <!-- END section -->
 
+<section class="section-goal-desktop lh-base">
+
+    <div class="position-relative">
+        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-01.jpg" alt="">
+        <div class="white desktop-story__container text-left container flow-small" id="section-goal-desktop">
+            <h2 class="font-title"><i class="icon pg-logo-prayer me-3"></i><?php echo esc_html__( 'The Goal', 'prayer-global' ) ?></h2>
+            <p>
+                <?php echo sprintf( esc_html__( 'The clock is ticking. %sPrayer.Global seeks to encourage extraordinary prayer for the fulﬁllment of the Great Commission in our generation.', 'prayer-global-porch' ), '</p><p>' ) ?>
+            </p>
+            <p>
+                <?php echo esc_html__( 'But how?', 'prayer-global-porch' ) ?>
+            </p>
+        </div>
+    </div>
+    <div class="position-relative">
+        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-02.jpg" alt="">
+        <div class="brand-light desktop-story__container text-right-40 container flow-small text-align-right">
+            <h2 class="font-title"><?php echo esc_html__( 'The Race', 'prayer-global' ) ?><i class="icon pg-relay ms-3"></i></h2>
+            <p>
+                <?php echo esc_html__( 'Like a race, we pray with urgency and focus as we seek to complete laps by covering the entire world in prayer. An interactive map gives us real time updates on who we’ve prayed for and stats on our collective prayer lap status.', 'prayer-global-porch' ) ?>
+            </p>
+        </div>
+    </div>
+    <div class="position-relative">
+        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-03.jpg" alt="">
+        <div class="brand-light desktop-story__container text-left container flow-small">
+            <h2 class="font-title"><i class="icon pg-world-arrow me-3"></i><?php echo esc_html__( 'Our Strategy', 'prayer-global' ) ?></h2>
+            <p>
+                <?php echo sprintf( esc_html__( 'Prayer.Global has broken the world down into 4,770 states based on geographical and governmental boundaries. %1$sWhen you press the Start Praying button, location specific prayer fuel will help guide your prayers for each of these regions. %2$sThen, watch on the map as our united prayers light up the darkness.', 'prayer-global-porch' ), '<br>', '<br>' ) ?>
+            </p>
+        </div>
+    </div>
+    <div class="position-relative" id="story4">
+        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-04.jpg" alt="">
+        <div class="brand-light desktop-story__container text-right-40 container center">
+            <h2 class="font-title mb-3"><?php echo esc_html__( 'Current Status', 'prayer-global' ) ?><i class="icon pg-logo-prayer ms-3"></i></h2>
+            <div class="two-col-sm gap-2">
+                <div class="brand-lighter-bg white rounded-4 mx-auto mb-2 w-fit pt-4 pb-2 px-3 pb-0">
+                    <h3 class="font-base uppercase font-weight-bold" style="line-height: 0.7"><?php echo sprintf( esc_html_x( 'Prayer%1$sLaps %2$s', 'Prayer Laps Completed', 'prayer-global' ), '&nbsp;', sprintf( '<br> <span class="one-rem">%s</span>', esc_html_x( 'Completed', 'Laps Completed', 'prayer-global-porch' ) ) ) ?></h3>
+                    <h3 class="global-laps-completed six-em lh-xsm"><span class="loading-spinner active"></span></h3>
+                </div>
+                <p class="pb-3 mx-auto">
+                    <?php echo sprintf( esc_html__( 'Our ﬁrst global race started %1$s days ago and we’ve completed %2$s laps together so far.', 'prayer-global-porch' ), '<span class="global-days-elapsed"><span class="loading-spinner active"></span></span>', '<span class="global-laps-completed"><span class="loading-spinner active"></span></span>' ) ?>
+                </p>
+            </div>
+            <div class="">
+                <h3 class="font-base font-weight-bold uppercase"><?php echo sprintf( esc_html__( 'Lap %s Time Elapsed', 'prayer-global' ), '<span class="global-lap-number"><span class="loading-spinner active"></span></span>' ) ?></h3>
+                <div class="white brand-bg rounded-4 m-auto w-fit px-4 py-3 two-em font-weight-bold uppercase | current-time-elapsed time_elapsed">
+                    <span class="loading-spinner active"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="position-relative" id="story5">
+        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-05.jpg" alt="">
+        <div class="brand-light desktop-story__container text-right-40 text-bottom container text-align-right me-4" style="z-index: 1000;">
+            <p class="pb-3">
+                <?php echo sprintf( esc_html__( 'With each prayer lap we complete, we are that much closer to ushering in God’s Kingdom and the return of Jesus Christ! %sClick Start Praying to start your Prayer.Global experience today!', 'prayer-global-porch' ), '<br>' ) ?>
+            </p>
+            <div class="center align-self-end">
+                <h2 class="font-title"><?php echo esc_html__( 'Ready. Set.', 'prayer-global' ) ?><i class="icon pg-logo-prayer d-none"></i></h2>
+                <div class="mb-2"><a class="btn btn-cta mx-2 two-rem" href="/newest/lap/"><?php echo esc_html__( 'Start Praying', 'prayer-global' ) ?></a></div>
+                <i class="icon pg-logo-prayer icon-medium d-block"></i>
+            </div>
+        </div>
+        <div class="white desktop-story__container text-left text-bottom container center mt-5">
+            <h2 class="font-title mb-0">Prayer.Global</h2>
+            <h3>Cover The World In Prayer</h3>
+        </div>
+    </div>
+
+</section>
+
+<section class="page-section full-height section-goal-mobile" id="section-goal">
+    <div class="container">
+        <div class="row text-center justify-content-center">
+            <div id="storyCarousel" class="carousel slide px-0">
+                <div class="carousel-inner">
+                    <div class="carousel-item active">
+                        <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-0.png);">
+                            <div class="container">
+                                <div class="row d-block">
+                                    <i class="icon pg-logo-prayer icon-medium my-3 d-block"></i>
+                                    <h2 class="font-title mb-3"><?php echo esc_html__( 'The Goal', 'prayer-global' ) ?></h2>
+                                    <p class="white-gradient pb-3">
+                                        <?php echo sprintf( esc_html__( 'The clock is ticking. %sPrayer.Global seeks to encourage extraordinary prayer for the fulﬁllment of the Great Commission in our generation.', 'prayer-global-porch' ), '' ) ?>
+                                        <br>
+                                        <?php echo esc_html__( 'But how?', 'prayer-global-porch' ) ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-1.png);">
+                            <div class="container">
+                                <div class="row d-block">
+                                    <i class="icon pg-relay icon-medium my-3 d-block"></i>
+                                    <h2 class="font-title mb-3"><?php echo esc_html__( 'The Race', 'prayer-global' ) ?></h2>
+                                    <p class="white-gradient pb-3 px-5">
+                                        <?php echo esc_html__( 'Like a race, we pray with urgency and focus as we seek to complete laps by covering the entire world in prayer. An interactive map gives us real time updates on who we’ve prayed for and stats on our collective prayer lap status.', 'prayer-global-porch' ) ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-2.png);">
+                            <div class="container">
+                                <div class="row d-block">
+                                    <i class="icon pg-world-arrow icon-medium my-3 d-block"></i>
+                                    <h2 class="font-title mb-3"><?php echo esc_html__( 'Our Strategy', 'prayer-global' ) ?></h2>
+                                    <p class="white-gradient pb-3 px-5">
+                                        <?php echo sprintf( esc_html__( 'Prayer.Global has broken the world down into 4,770 states based on geographical and governmental boundaries. %1$sWhen you press the Start Praying button, location specific prayer fuel will help guide your prayers for each of these regions. %2$sThen, watch on the map as our united prayers light up the darkness.', 'prayer-global-porch' ), '', '' ) ?>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-3.png);">
+                            <div class="container">
+                                <div class="row d-block">
+                                    <i class="icon pg-logo-prayer icon-medium my-3 d-block"></i>
+                                    <h2 class="font-title mb-3"><?php echo esc_html__( 'Current Status', 'prayer-global' ) ?></h2>
+                                    <p class="white-gradient pb-3">
+                                        <?php echo sprintf( esc_html__( 'Our ﬁrst global race started %1$s days ago and we’ve completed %2$s laps together so far.', 'prayer-global-porch' ), '<span class="global-days-elapsed"><span class="loading-spinner active"></span></span>', '<span class="global-laps-completed"><span class="loading-spinner active"></span></span>' ) ?>
+                                    </p>
+                                    <div class="brand-lighter-bg white rounded m-auto my-5 w-fit py-2 px-4 pb-0">
+                                        <h3 style="line-height: 0.7"><?php echo sprintf( esc_html_x( 'Laps %s', 'Laps Completed', 'prayer-global' ), sprintf( '<br> <span class="one-rem">%s</span>', esc_html_x( 'Completed', 'Laps Completed', 'prayer-global-porch' ) ) ) ?></h3>
+                                        <h3 class="global-laps-completed six-em"><span class="loading-spinner active"></span></h3>
+                                    </div>
+                                    <div class="">
+                                        <h3><?php echo sprintf( esc_html__( 'Lap %s Time Elapsed', 'prayer-global' ), '<span class="global-lap-number"><span class="loading-spinner active"></span></span>' ) ?></h3>
+                                        <div class="white brand-bg rounded m-auto w-fit px-3 py-1 three-em font-weight-bold uppercase | current-time-elapsed time_elapsed">
+                                            <span class="loading-spinner active"></span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-item">
+                        <div class="full-height contain bg-bottom" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/story-background-4.png);">
+                            <div class="container">
+                                <div class="row d-block">
+                                    <i class="icon pg-crown icon-medium my-3 d-block"></i>
+                                    <h2 class="font-title mb-3"><?php echo esc_html__( 'The Finish Line', 'prayer-global' ) ?></h2>
+                                    <p class="white-gradient pb-3">
+                                        <?php echo sprintf( esc_html__( 'With each prayer lap we complete, we are that much closer to ushering in God’s Kingdom and the return of Jesus Christ! %sClick Start Praying to start your Prayer.Global experience today!', 'prayer-global-porch' ), '<br>' ) ?>
+                                    </p>
+                                    <img class="w-100 p-0 finish-line" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/finish-line-cropped.png" alt="dark world">
+
+                                    <div class="mb-4 pb-3 position-absolute bottom-0"><a class="btn btn-cta mx-2 two-rem" href="/newest/lap/"><?php echo esc_html__( 'Start Praying', 'prayer-global' ) ?></a></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="carousel-control-prev four-em mt-5" type="button" data-bs-target="#storyCarousel" data-bs-slide="prev">
+                    <i class="icon pg-chevron-left brand" aria-hidden="true"></i>
+                    <span class="visually-hidden"><?php echo esc_html__( 'Previous', 'prayer-global' ) ?></span>
+                </button>
+                <button class="carousel-control-next four-em mt-5" type="button" data-bs-target="#storyCarousel" data-bs-slide="next">
+                    <i class="icon pg-chevron-right brand" aria-hidden="true"></i>
+                    <span class="visually-hidden"><?php echo esc_html__( 'Next', 'prayer-global' ) ?></span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
 <section class="page-section" data-section="lap" id="section-lap">
     <div class="container">
-        <div class="row">
-            <div class="col-md text-center stats-header">
-                <h2 class="stats-header__title" style=""><?php echo esc_html( __( 'Current Lap', 'prayer-global-porch' ) ) ?></h2>
-                <h3 class="stats-header__subtitle header-border-top" id="current_time_elapsed"><span class="loading-spinner active"></span></h3>
-                <br>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md">
-                <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-ios-body-outline"></i></div>
-                    <div class="">
-                        <h3 class="stats-info__title" id="current_participants"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle"><?php echo esc_html( __( 'Prayer Warriors', 'prayer-global-porch' ) ) ?></h3>
+        <div class="row justify-content-center">
+            <div class="col col-md-9 col-lg-8 col-xl-6">
+                <div class="flow pg-card brand-lighter center uppercase mb-3">
+                    <i class="icon pg-race icon-large d-block pt-4"></i>
+                    <h2 class="mb-0"><?php echo esc_html( __( 'Global Race Stats', 'prayer-global-porch' ) ) ?></h2>
+
+                    <div>
+                    <span class=""><?php echo esc_html( __( 'Total Elapsed Time', 'prayer-global-porch' ) ) ?></span>
+                        <div class="four-em font-weight-bold global-time-elapsed time_elapsed"></div>
                     </div>
-                </div>
-            </div>
-            <div class="col-md">
-                <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>
-                    <div class="">
-                        <h3 class="stats-info__title" id="current_remaining"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle"><?php echo esc_html( __( 'Remaining', 'prayer-global-porch' ) ) ?></h3>
+
+                    <div class="row border-top border-2 border-primary" style="--bs-gutter-x: 0">
+                        <div class="col-6 p-2 pt-4 border-end border-primary border-1">
+                            <i class="icon pg-world-light d-block icon-small"></i>
+                            <span class=""><?php echo esc_html( __( 'Laps Completed', 'prayer-global-porch' ) ) ?></span>
+                            <h3 class="global-laps-completed six-em lh-1"><span class="loading-spinner active"></span></h3>
+                        </div>
+                        <div class="col-6 p-2 pt-4 border-start border-primary border-1">
+                            <i class="icon pg-prayer d-block icon-small"></i>
+                            <span class=""><?php echo esc_html( __( 'Total Intercessors', 'prayer-global-porch' ) ) ?></span>
+                            <h3 class="global-participants six-em lh-1"><span class="loading-spinner active"></span></h3>
+                        </div>
                     </div>
+
                 </div>
-            </div>
-            <div class="col-md">
-                <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-earth"></i></div>
-                    <div class="">
-                        <h3 class="stats-info__title" id="current_completed"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle"><?php echo esc_html( __( 'Covered', 'prayer-global-porch' ) ) ?></h3>
+                <div class="d-flex my-4 gap-2">
+                <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-primary uppercase flex-grow-1"><?php echo esc_html( __( 'Race Map', 'prayer-global-porch' ) ) ?></a>
+                <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-primary uppercase flex-grow-1"><?php echo esc_html( __( 'Race List', 'prayer-global-porch' ) ) ?></a>
+                </div>
+
+                <div class="flow pg-card brand-bg white center uppercase mb-5">
+                    <i class="icon pg-world-arrow icon-large pt-4 d-block"></i>
+                    <h1 class="mb-0 lh-xsm"><?php echo sprintf( esc_html__( 'Lap %s', 'prayer-global-porch' ), '<span class="global-lap-number">' ) ?><span class="loading-spinner active"></span></span></h1>
+
+                    <hr class="border-white border">
+
+                    <h6 class="mb-0"><?php echo esc_html( __( 'Current Lap Elapsed Time', 'prayer-global-porch' ) ) ?></h6>
+                    <div class="current-time-elapsed time_elapsed four-em font-weight-bold"><span class="loading-spinner active"></span></div>
+
+                    <hr class="border-white border">
+                    <div class="flow" style="--pg-flow-size: 0.1rem">
+                        <i class="icon pg-prayer d-block icon-small"></i>
+                        <h6 class="mb-0"><?php echo esc_html( __( 'Intercessors', 'prayer-global-porch' ) ) ?></h6>
+                        <div class="current-participants four-em font-weight-bold lh-1"><span class="loading-spinner active"></span></div>
                     </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <br><br>
-        </div>
-        <div class="row">
-            <div class="col-md text-center">
-            <a href="/newest/map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color><?php echo esc_html( __( 'Current Map', 'prayer-global-porch' ) ) ?></a>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md text-center stats-header">
-                <h2 class="stats-header__title"><?php echo esc_html( __( 'Global Race', 'prayer-global-porch' ) ) ?></h2>
-                <h3 class="stats-header__subtitle header-border-top" id="global_time_elapsed"><span class="loading-spinner active"></span></h3>
-                <br>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md">
-                <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-ios-body-outline"></i></div>
-                    <div class="">
-                        <h3 class="stats-info__title" id="global_participants"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle"><?php echo esc_html( __( 'Prayer Warriors', 'prayer-global-porch' ) ) ?></h3>
+
+                    <hr class="border-white border">
+
+                    <i class="icon pg-world-light icon-small d-block"></i>
+                    <h6 class="mb-0 mt-1"><?php echo esc_html( __( 'Places Covered', 'prayer-global-porch' ) ) ?></h6>
+                    <div class="my-4 mx-auto position-relative | progress-bar">
+                        <div class="orange-gradient position-absolute top-0 h-100 | progress-bar__slider"></div>
+                        <div class="position-absolute top-0 bottom-0 start-0 end-0 d-flex justify-content-between">
+                            <div class="bg-transparent | progress-bar__marker"></div>
+                            <div class="progress-bar__marker"></div>
+                            <div class="progress-bar__marker"></div>
+                            <div class="progress-bar__marker"></div>
+                            <div class="bg-transparent | progress-bar__marker"></div>
+                        </div>
+
                     </div>
+
+                    <span class="four-em font-weight-bold lh-1"><?php echo sprintf( esc_html_x( '%1$s of %2$s', '10 of 4770', 'prayer-global' ), '<span class="current-completed"><span class="loading-spinner active"></span></span>', '<span>' . esc_html( PG_TOTAL_STATES ) . '</span>' ) ?></span>
+
+                    <a href="/newest/map/" role="button" class="btn smoothscroll btn-primary uppercase mb-3 w-100 has-icon" data-reverse-color>
+                        <span><?php echo esc_html( __( 'Current Map', 'prayer-global-porch' ) ) ?></span>
+                        <i class="icon pg-chevron-right icon-end me-3 two-rem end-0"></i>
+                    </a>
                 </div>
-            </div>
-<!--            <div class="col-md">-->
-<!--                <div class="stats-info">-->
-<!--                    <div class="icon-circle display-4"><i class="text-primary ion-android-alarm-clock"></i></i></div>-->
-<!--                    <div class="">-->
-<!--                        <h3 class="stats-info__title" id="global_minutes_prayed"><span class="loading-spinner active"></span></h3>-->
-<!--                        <h3 class="stats-info__subtitle">Minutes Prayed</h3>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-            <div class="col-md">
-                <div class="stats-info">
-                    <div class="icon-circle display-4"><i class="text-primary ion-earth"></i></div>
-                    <div class="">
-                        <h3 class="stats-info__title" id="global_lap_number"><span class="loading-spinner active"></span></h3>
-                        <h3 class="stats-info__subtitle"><?php echo esc_html( __( 'Laps', 'prayer-global-porch' ) ) ?></h3>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <br><br>
-        </div>
-        <div class="row">
-            <div class="col-md text-center">
-            <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color><?php echo esc_html( __( 'Race Map', 'prayer-global-porch' ) ) ?></a>
-            <a href="/race_app/race_list/" role="button" class="btn smoothscroll btn-outline-dark btn-xl text-uppercase" data-reverse-color><?php echo esc_html( __( 'Race List', 'prayer-global-porch' ) ) ?></a>
+
+                <div class="mb-3 mx-auto center"><a class="btn btn-cta two-em" href="/newest/lap/"><?php echo esc_html( __( 'Start Praying', 'prayer-global-porch' ) ) ?></a></div>
             </div>
         </div>
     </div>
@@ -130,13 +293,13 @@
     }
     .hover-box:hover {
         background-color: white;
-        color: black !important;
+        color: var(--pg-brand-color) !important;
     }
     .hover-box:hover a {
-        color: black !important;
+        color: var(--pg-brand-color) !important;
     }
 </style>
-<section id="section-mobile" class="cover cover-small text-center cover-black d-sm-none d-md-block" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( dirname( __FILE__ ) ) ) ) ?>assets/images/1900x1200_img_3.jpg)">
+<section id="section-mobile" class="page-section text-center d-sm-none d-md-block brand-bg mb-5">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-12">
@@ -144,13 +307,13 @@
                 <a class="white" href="https://apps.apple.com/us/app/prayer-global/id1636889534?uo=4" style="font-size:2em;">
                     <div class="hover-box">
                         <i class="ion-social-apple" ></i>
-                        iPhone/iPad App
+                        <?php echo sprintf( esc_html__( '%s App', 'prayer-global-porch' ), 'iPhone/iPad' ) ?>
                     </div>
                 </a>
                 <a class="white" href="https://play.google.com/store/apps/details?id=app.global.prayer" style="font-size:2em;">
                     <div class="hover-box">
                         <i class="ion-social-android"></i>
-                        Android App
+                        <?php echo sprintf( esc_html__( '%s App', 'prayer-global-porch' ), 'Android' )?>
                     </div>
                 </a>
 
@@ -160,125 +323,5 @@
     </div>
 </section>
 <!-- END section -->
-
-
-<section class="page-section d-sm-none d-md-block" data-section="about" id="section-about">
-    <div class="container">
-        <div class="row justify-content-md-center text-center mb-5">
-            <div class="col-lg-7">
-                <h2 class="mt-0 header-border-top font-weight-normal"><?php echo esc_html( __( 'About', 'prayer-global-porch' ) ) ?></h2>
-                <p>
-                    <?php echo esc_html( sprintf( __( '%s seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?>
-                </p>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-lg-7">
-                <div class="images right">
-                    <img class="img1 img-fluid" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/pray-4770.jpg" alt="image">
-                    <img class="img2" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/dark-map.jpg" alt="image">
-                </div>
-            </div>
-            <div class="col-lg-5 ps-md-5 ps-sm-0">
-                <div id="prayer_accordion_" class="pg-accordion" data-children=".item">
-                    <div class="item">
-                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" href="#prayer_accordion_1" aria-expanded="true" aria-controls="prayer_accordion_1" ><?php echo esc_html( __( 'Historic Moment', 'prayer-global-porch' ) ) ?></a>
-                        <div id="prayer_accordion_1" class="accordian-collapse collapse show" role="tabpanel">
-                            <p>
-                                <?php echo esc_html( __( 'We know three things about our moment in history:', 'prayer-global-porch' ) ) ?>
-                            </p>
-                            <p>
-                                <?php echo esc_html( __( '(1) Never before in history have we been able to coordinate global prayer for the kingdom IN REALTIME!', 'prayer-global-porch' ) ) ?>
-                            </p>
-                            <p>
-                                <?php echo esc_html( __( '(2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.),
-                                and is now using the internet.' ) ) ?>
-                            </p>
-                            <p>
-                                <?php echo esc_html( __( '(3) "Extraordinary prayer" is a foundational mark of all modern disciple multiplying movements.', 'prayer-global-porch' ) ) ?>
-                            </p>
-                            <p>
-                                <?php echo esc_html( sprintf( __( 'So, %s exists to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global-porch' ), '<strong>Prayer.Global</strong>' ) ) ?>
-                            </p>
-                            <p>
-                                <br><hr>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_2" aria-expanded="false" aria-controls="prayer_accordion_2">How it works</a>
-                        <div id="prayer_accordion_2" class="collapse" role="tabpanel">
-                            <p>
-                                <span class="black">&#9312;</span> <?php echo esc_html( __( 'Click on "Start Praying".', 'prayer-global-porch' ) ) ?> <a href="/newest/lap/"><i class="ion-android-open"></i></a>
-                            </p>
-                            <p>
-                                <strong class="black">&#9313;</strong> <?php echo esc_html( __( 'Use the demographics, guided prayers, faith status, images, and maps to pray for the location for one minute.', 'prayer-global-porch' ) ) ?>
-                            </p>
-                            <p>
-                                <strong class="black">&#9314;</strong> <?php echo esc_html( __( 'Once the one-minute timer has ended, you will be asked if you prayed for this location, if you click "Yes", then your prayer will be added to the community prayer coverage for the world.', 'prayer-global-porch' ) ) ?>
-                            </p>
-                            <p>
-                                <strong class="black">&#9315;</strong> <?php echo esc_html( __( 'Pray for another location or end your prayer session.', 'prayer-global-porch' ) ) ?>
-                            </p>
-                            <p>
-                                <br><hr>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_3" aria-expanded="false" aria-controls="prayer_accordion_3">Moravian Prayer Challenge</a>
-                        <div id="prayer_accordion_3" class="collapse" role="tabpanel">
-                            <p>
-                                <?php echo esc_html( sprintf( __( 'Inspired by the %s, who prayed non-stop for 100 years, we have crafted this website to help the church pray for the entire world in measurable units, as a community, and to know at the end when we have finished ... and are ready to start another lap.', 'prayer-global-porch' ), '<a href="https://www.christianitytoday.com/history/issues/issue-1/prayer-meeting-that-lasted-100-years.html">'.__( 'Moravians', 'prayer-global-porch' ).'</a>' ) ) ?>
-                            </p>
-                            <p>
-                                <?php echo esc_html( __( 'Once every location in the world has been prayed for (we finish a lap), then the prayer map resets, and we try to pray over the world again ... maybe faster.', 'prayer-global-porch' ) ) ?>
-                            </p>
-                            <p>
-                                <?php echo esc_html( __( 'The Moravians had one person praying every hour of every day for 100 years. This was roughly 876,000 hours of prayer, or 52,560,000 minutes of prayer for the world. We are humbled by this extraordinary commitment to praying for the world.', 'prayer-global-porch' ) ) ?>
-                            </p>
-                            <p>
-                                <?php echo esc_html( sprintf( __( '%s about the Moravian Prayer Challenge.', 'prayer-global-porch' ), '<a href="/content_app/about_page/#section-challenge">'.__( 'Learn more', 'prayer-global-porch' ).'</a>' ) ) ?>
-                            <p>
-                                <br><hr>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="item">
-                        <a class="pg-accordion__toggle" data-bs-toggle="collapse" data-parent="#prayer_accordion_" href="#prayer_accordion_4" aria-expanded="false" aria-controls="prayer_accordion_4">Maps & Lists</a>
-                        <div id="prayer_accordion_4" class="collapse" role="tabpanel">
-                            <p>
-                                <strong class="black"><?php echo esc_html( __( 'Current Map', 'prayer-global-porch' ) ) ?></strong> <a href="/newest/map"><i class="ion-android-open"></i></a>
-                            </p>
-                            <p>
-                                <?php echo esc_html( __( 'The current map shows what has been covered so far in the active prayer map.', 'prayer-global-porch' ) ) ?>
-                            </p>
-                            <p>
-                                <strong class="black"><?php echo esc_html( __( 'Race Map', 'prayer-global-porch' ) ) ?></strong> <a href="/race_app/race_map/"><i class="ion-android-open"></i></a>
-                            </p>
-                            <p>
-                                <?php echo esc_html( __( 'The Race map shows the number of laps, number of minutes, and number of prayer warriors for the entire challenge.', 'prayer-global-porch' ) ) ?>
-                            </p>
-                            <p>
-                                <strong class="black"><?php echo esc_html( __( 'Race List', 'prayer-global-porch' ) ) ?></strong> <a href="/race_app/race_list/"><i class="ion-android-open"></i></a>
-                            </p>
-                            <p>
-                                <?php echo esc_html( __( 'The Race List shows each of the laps accomplished so far and some of the statistics for those individual laps.', 'prayer-global-porch' ) ) ?>
-                            </p>
-                            <p>
-                                <br><hr>
-                            </p>
-                        </div>
-                    </div>
-
-                </div>
-
-            </div>
-        </div>
-    </div>
-</section>
-<!-- END section -->
-
-
 
 <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/working-footer.php' ) ?>

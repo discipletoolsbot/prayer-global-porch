@@ -84,9 +84,8 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 header-border-top font-weight-normal">Privacy Policy</h2>
-                        <p>
-                        </p>
+                        <h2 class="mt-0 font-weight-normal">Privacy Policy</h2>
+
                     </div>
                 </div>
                 <div class="row">
@@ -175,7 +174,7 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
                         <h3 class="secondary">Updates</h3>
                         <p>Our Privacy Policy may change from time to time and all updates will be posted on this page.</p>
                     </div>
-                    
+
                 </div>
             </div>
         </section>

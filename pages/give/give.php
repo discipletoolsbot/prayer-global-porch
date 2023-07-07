@@ -104,36 +104,47 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
         <section class="page-section mt-5" data-section="give" id="section-give">
             <div class="container flow">
                 <div class="row justify-content-md-center text-center mb-5 flow-small">
-                    <h2 class="header-border-top"><?php echo esc_html( sprintf( __( 'Giving to %s', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?></h2>
-
-                    <p>
-                        <?php echo esc_html( sprintf( __( 'Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements. Your gift ensures that we can continue to freely give away all of the tools and resources we develop. Your tax deductible donation will go to the development and maintenance of %1$s which is part of the %2$s network.', 'prayer-global-porch' ), "<a href='https://pray4movement.org' target='_blank'>Pray4Movement</a>", 'Prayer.Global' ) ) ?>
-                    </p>
-                </div>
-                <div class="row justify-content-md-center text-center flow-small">
-                    <h3><?php echo esc_html__( 'Check', 'prayer-global-porch' ) ?></h3>
-
-                    <p class="bg-warning p-2" style="--bs-bg-opacity: 0.3"><strong><?php echo esc_html( __( 'Note:', 'prayer-global-porch' ) ) ?></strong><?php echo esc_html( __( "If you'd like to avoid the 3% fee that credit card companies charge everyone, you can send tax deductible donations via check to:", 'prayer-global-porch' ) ) ?></p>
-
-                    <p>
-                        Pray4Movement <br>
-                        c/o Gospel Ambition <br>
-                        PO Box 325 <br>
-                        Mooreland OK 73852
-                    </p>
+                    <div class="col col-md-8">
+                        <h2 class=""><?php echo esc_html( __( 'Give', 'prayer-global-porch' ) ) ?></h2>
+                        <i class="icon pg-give icon-large brand-light"></i>
+                        <h4><?php echo esc_html( __( 'To Prayer.Global', 'prayer-global-porch' ) ) ?></h4>
+                        <p>
+                            <?php echo sprintf( esc_html__( 'Thank you for wanting to be part of seeing the Kingdom grow through prayer and movements. Your gift ensures that we can continue to freely give away all of the tools and resources we develop. Your tax deductible donation will go to the development and maintenance of %1$s which is part of the %2$s network.', 'prayer-global-porch' ), "<a href='https://pray4movement.org' target='_blank'>Pray4Movement</a>", 'Prayer.Global' ) ?>
+                        </p>
+                    </div>
                 </div>
 
-                <div class="row justify-content-md-center text-center flow-small">
-                    <h3><?php echo esc_html__( 'Credit/Debit Card', 'prayer-global-porch' ) ?></h3>
+                <div class="row justify-content-md-center text-center flow-small brand-bg white py-4">
+                    <div class="col col-md-8">
+                    <h4><?php echo esc_html( __( 'Credit/Debit Card', 'prayer-global-porch' ) ) ?></h4>
 
-                    <?php echo do_shortcode( '[stripe]' ) ?>
+                        <?php echo do_shortcode( '[stripe]' ) ?>
 
-                    <p class="bg-warning p-2" style="--bs-bg-opacity: 0.3">
-                        <strong><?php echo esc_html( __( 'Note:', 'prayer-global-porch' ) ) ?></strong><?php echo esc_html( sprintf( __( '%1$s and by extension %2$s is part of %3$s. You may see %4$s on your invoice or receipt.', 'prayer-global-porch' ), 'Prayer.Global', 'Pray4Movement.org', '<a href="https://gospelambition.org" target="_blank" rel="noopener">Gospel Ambition</a>', 'Gospel Ambition' ) ) ?>
-                    </p>
-
+                    </div>
                 </div>
 
+                <div class="row justify-content-md-center text-center">
+                    <div class="col col-md-8">
+                        <h4 class="white"><?php echo esc_html( __( 'Check', 'prayer-global-porch' ) ) ?></h4>
+                        <p>
+                            <strong><?php echo esc_html( __( 'Note:', 'prayer-global-porch' ) ) ?></strong> <?php echo esc_html( __( "If you'd like to avoid the 3% fee that credit card companies charge everyone, you can send tax deductible donations via check to:", 'prayer-global-porch' ) ) ?>
+                        </p>
+                        <p class="font-weight-bold">
+                            Pray4Movement <br>
+                            c/o Gospel Ambition <br>
+                            PO Box 325 <br>
+                            Mooreland OK 73852
+                        </p>
+                    </div>
+                </div>
+
+                <div class="row justify-content-md-center text-center flow-small brand-light-bg white">
+                    <div class="col col-md-8">
+                        <p class="m-5">
+                            <strong><?php echo esc_html( __( 'Note:', 'prayer-global-porch' ) ) ?></strong> <?php echo sprintf( esc_html__( '%1$s and by extension %2$s is part of %3$s. You may see %4$s on your invoice or receipt.', 'prayer-global-porch' ), 'Prayer.Global', 'Pray4Movement.org', '<a class="link-light" href="https://gospelambition.org" target="_blank" rel="noopener">Gospel Ambition</a>', 'Gospel Ambition' ) ?>
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 

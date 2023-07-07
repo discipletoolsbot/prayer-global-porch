@@ -79,7 +79,7 @@ class Prayer_Global_Porch_Subscribe extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 header-border-top font-weight-normal">We haven't launched yet!</h2>
+                        <h2 class="mt-0 font-weight-normal">We haven't launched yet!</h2>
                         <p>
                             We are collecting interest in our project. Leave us your email, so we can alert you when the project goes live. (July 7, 2022).
                         </p>

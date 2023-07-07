@@ -149,7 +149,7 @@ jQuery(document).ready(function($){
     mapboxgl.accessToken = jsObject.map_key;
     map = new mapboxgl.Map({
       container: 'map',
-      style: 'mapbox://styles/discipletools/cl2ksnvie001i15qm1h5ahqea',
+      style: 'mapbox://styles/discipletools/clgnj6vkv00e801pj9xnw49i6',
       center: center,
       minZoom: 1,
       maxZoom: 12,
@@ -206,7 +206,7 @@ jQuery(document).ready(function($){
               'type': 'line',
               'source': i.toString(),
               'paint': {
-                'line-color': 'white',
+                'line-color': '#6986B2',
                 'line-width': .5
               }
             });
@@ -217,9 +217,9 @@ jQuery(document).ready(function($){
               'paint': {
                 'fill-color': {
                   property: 'value',
-                  stops: [[0, 'rgba(255,0,0, .7)'], [1, 'rgba(0,128,0, .9)']]
+                  stops: [[0, '#11224E'], [1, '#fff']]
                 },
-                'fill-opacity': 0.75,
+                'fill-opacity': 1,
                 'fill-outline-color': 'black'
               }
             },'waterway-label' )

@@ -73,7 +73,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
             <div class="container pb-4">
                 <div class="row">
                     <div class="col-md text-center">
-                        <span class="two-em lap-title"><?php echo esc_html( sprintf( __( '%s Challenge Tools', 'prayer-global-porch' ), $lap_stats['title'] ) ) ?></span>
+                        <h2><?php echo esc_html( sprintf( __( '%s Relay Tools', 'prayer-global-porch' ), $lap_stats['title'] ) ) ?></h2>
                     </div>
                 </div>
             </div>
@@ -86,11 +86,11 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                 </div>
                 <div class="row ">
                     <div class="col center p-3">
-                        <h2><?php echo esc_html( sprintf( __( '%s Challenge Map', 'prayer-global-porch' ), $lap_stats['title'] ) ) ?></h2>
+                        <h3><?php echo esc_html( sprintf( __( '%s Relay Map', 'prayer-global-porch' ), $lap_stats['title'] ) ) ?></h3>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col center">
+                <div class="row justify-content-center">
+                    <div class="col col-6 col-md-4 col-lg-3 center">
                         <img src="https://api.qrserver.com/v1/create-qr-code/?size=1000x1000&amp;data=<?php echo esc_url( get_site_url() ) ?>/prayer_app/custom/<?php echo esc_html( $lap_stats['key'] ) ?>/map" style="width: 100%;max-width:400px;"><br><br>
                     </div>
                 </div>
@@ -112,7 +112,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                 </div>
                 <div class="row ">
                     <div class="col center p-3">
-                        <h2><?php echo esc_html__( 'Display Map (60 Second Refresh)', 'prayer-global-porch' ) ?></h2>
+                        <h3><?php echo esc_html__( 'Display Map (60 Second Refresh)', 'prayer-global-porch' ) ?></h3>
                     </div>
                 </div>
                 <div class="input-group">
@@ -133,23 +133,24 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
                 </div>
                 <div class="row ">
                     <div class="col center p-3">
-                        <h2><?php echo esc_html( sprintf( __( 'App Stores: %s App', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?></h2>
+                        <h3><?php echo esc_html( sprintf( __( 'App Stores: %s App', 'prayer-global-porch' ), 'Prayer.Global' ) ) ?></h3>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col center">
+                <div class="row justify-content-center">
+                    <div class="col col-6 col-md-4 col-lg-3 center">
                         <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) . 'assets/images/prayer.global.app.png' ) ?>" style="width: 100%;max-width:400px;"><br><br>
-                        <div class="input-group">
-                            <input type="text" class="form-control copy-input"
-                                   value="<?php echo esc_url( get_site_url() ) ?>/qr/app" placeholder="Some path" id="copy-input-qrapp">
-                          <button class="btn btn-secondary copy-button input-group-btn" type="button" id="copy-button-qrapp"
-                                  data-bs-toggle="tooltip" data-placement="button"
-                                  title="<?php esc_attr( __( 'Copy to Clipboard', 'prayer-global-porch' ) ) ?>" data-clipboard-action="copy" data-clipboard-target="#copy-input-qrapp">
-                            <?php echo esc_html( __( 'Copy', 'prayer-global-porch' ) ) ?>
-                          </button>
-                        </div>
                     </div>
                 </div>
+                <div class="input-group">
+                    <input type="text" class="form-control copy-input"
+                           value="<?php echo esc_url( get_site_url() ) ?>/qr/app" placeholder="Some path" id="copy-input-qrapp">
+                  <button class="btn btn-secondary copy-button input-group-btn" type="button" id="copy-button-qrapp"
+                          data-bs-toggle="tooltip" data-placement="button"
+                          title="<?php esc_attr( __( 'Copy to Clipboard', 'prayer-global-porch' ) ) ?>" data-clipboard-action="copy" data-clipboard-target="#copy-input-qrapp">
+                    <?php echo esc_html( __( 'Copy', 'prayer-global-porch' ) ) ?>
+                  </button>
+                </div>
+
 
             </div>
 

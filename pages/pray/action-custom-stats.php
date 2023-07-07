@@ -92,12 +92,12 @@ class PG_Custom_Prayer_App_Stats extends PG_Custom_Prayer_App {
 
         <?php pg_custom_lap_nav( $parts['public_key'] ) ?>
 
-        <section class="cover completed-lap cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
+        <section class="hero full-height cover bg-center completed-lap cover-black" style="background-image: url(<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/map_background.jpg)" id="section-home">
             <div class="container">
                 <div class="row ">
                     <div class="col text-center">
                         <h2 class="heading mb-5">Lap <?php echo esc_attr( $lap_stats['lap_number'] ) ?> </h2>
-                        <!--                        <a href="--><?php //echo '/'. $this->parts['root'] . '/' . $this->parts['type'] . '/' . $this->parts['public_key'] . '/map' ?><!--" role="button" class="btn smoothscroll cta_button btn-outline-dark">Map</a><br>-->
+                        <!--                        <a href="--><?php //echo '/'. $this->parts['root'] . '/' . $this->parts['type'] . '/' . $this->parts['public_key'] . '/map' ?><!--" role="button" class="btn smoothscroll cta_button btn-primary">Map</a><br>-->
                         <hr style="border:1px solid white;margin-top:5vh;">
                     </div>
                     <div class="w-100"></div>
@@ -125,13 +125,13 @@ class PG_Custom_Prayer_App_Stats extends PG_Custom_Prayer_App {
 
                     <div class="col-md-6">
                         <div class="sub-heading ps-4">
-                            <p class="mb-0"><?php echo esc_attr( $lap_stats['participants'] ) ?> Prayer Warriors Participated</p>
+                            <p class="mb-0"><?php echo esc_attr( $lap_stats['participants'] ) ?> Prayer Intercessors Participated</p>
 
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="sub-heading ps-4">
-                            <p class="mb-2"><u>Top Warrior Locations</u></p>
+                            <p class="mb-2"><u>Top Intercessor Locations</u></p>
                             <ol>
                                 <?php
                                 if ( ! empty( $participant_locations ) ) {

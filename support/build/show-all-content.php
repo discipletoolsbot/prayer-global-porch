@@ -180,7 +180,7 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 header-border-top font-weight-normal">Show All</h2>
+                        <h2 class="mt-0 font-weight-normal">Show All</h2>
                         <p>
                             <select id="country_change">
                                 <option></option>
@@ -249,7 +249,7 @@ class Prayer_Global_Show_All extends DT_Magic_Url_Base
 
                                     <div class="row text-center justify-content-center <?php echo esc_html( $hash ) ?>" style="display:<?php echo esc_html( $display ) ?>;">
                                         <div class="col mt-3 mb-3 font-weight-bold text-center">
-                                            <button type="button" class="btn btn-outline-dark btn-sm" onclick="jQuery('#<?php echo esc_html( $hash ) ?>').show();jQuery('.<?php echo esc_html( $hash ) ?>').hide();" ><?php echo esc_html( $item['reference'] ) ?></button>
+                                            <button type="button" class="btn btn-primary btn-sm" onclick="jQuery('#<?php echo esc_html( $hash ) ?>').show();jQuery('.<?php echo esc_html( $hash ) ?>').hide();" ><?php echo esc_html( $item['reference'] ) ?></button>
                                         </div>
                                     </div>
                                     <div class="row text-center justify-content-center" style="display:none;" id="<?php echo esc_html( $hash ) ?>" >

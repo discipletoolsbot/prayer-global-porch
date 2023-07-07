@@ -84,14 +84,13 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-4">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 header-border-top font-weight-normal"><?php echo esc_html__( 'Data Sources', 'prayer-global-porch' ) ?></h2>
+                        <h2 class="mt-0 font-weight-normal"><?php echo esc_html( __( 'Data Sources', 'prayer-global-porch' ) ) ?></h2>
                     </div>
                 </div>
                 <div class="row g-0">
 
                     <!-- Item -->
-                    <div class="col-12">
-                        <hr>
+                    <div class="col-12 center">
                         <p>
                             <?php echo esc_html( __( "We acknowledge that there is no way to possess 100% accurate knowledge of the faith status or location status of every person in the world.", 'prayer-global-porch' ) ) ?>
                         </p>
@@ -103,7 +102,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                         </p>
                     </div>
 
-                    <div style="padding:1em;border:2px solid gray;">
+                    <div class="center" style="padding:1em;border:2px solid gray;">
                         <h4><?php echo esc_html__( 'Recommended Resource:', 'prayer-global-porch' ) ?> <a href="https://locationgrid.app">Location Grid Project</a></h4>
                         <p>
                             <?php echo esc_html( sprintf( __( '%1$s is build on %2$s open source software, and %2$s mapping and geolocation system is an open source project called %3$s. The %3$s is a geographic framework of world locations and polygons for disciple making movement saturation efforts.', 'prayer-global-porch' ), 'Prayer.Global', 'Disciple.Tools', 'Location Grid Project' ) ) ?>
@@ -119,7 +118,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">Population Data</h3>
+                        <h3 class="secondary"><?php echo esc_html( __( 'Population Data', 'prayer-global-porch' ) ) ?></h3>
                         <p>
                             <?php echo esc_html( __( "The population data was acquired and cross-checked through multiple sources; country level data is easy to find; most state level data is relatively easy to find; but county level data for non-western countries often required significant research to compile recent census data.", 'prayer-global-porch' ) ) ?>
                         </p>
@@ -245,7 +244,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                         <hr>
                         <h3 class="secondary"><?php echo esc_html__( 'Bible Citations', 'prayer-global-porch' ) ?></h3>
                         <ul>
-                            <li><?php echo esc_html( sprintf( __( 'English - The %s is the primary translation used in the prayers. ESV used occasionally.', 'prayer-global-porch' ), '<a href="https://www.zondervan.com/about-us/permissions/">NIV</a>' ) ) ?></li>
+                            <li><?php echo sprintf( esc_html__( 'English - The %s is the primary translation used in the prayers. ESV used occasionally.', 'prayer-global-porch' ), '<a href="https://www.zondervan.com/about-us/permissions/">NIV</a>' ) ?></li>
                         </ul>
                     </div>
 

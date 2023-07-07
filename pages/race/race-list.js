@@ -33,7 +33,7 @@ jQuery(document).ready(function() {
         }
         html_content += `<tr>
                       <td>${v.lap_number}</td>
-                      <th><a href="/prayer_app/global/${v.lap_key}/map">Lap #${v.lap_number}</a></th>
+                      <th class="white">Lap #${v.lap_number}</th>
                       <td>${ end_time }</td>
                       <td>${v.stats.participants}</td>
                       <td>${v.stats.time_elapsed_small}</td>
@@ -49,7 +49,7 @@ jQuery(document).ready(function() {
                     <th></th>
                     <th>Lap Number</th>
                     <th class="desktop">Completed</th>
-                    <th class="desktop">Warriors</th>
+                    <th class="desktop">Intercessors</th>
                     <th class="desktop">Time Elapsed</th>
                     <th class="desktop">Map</th>
                   </thead>
@@ -62,26 +62,8 @@ jQuery(document).ready(function() {
       jQuery('#list-table').DataTable({
         lengthChange: false,
         pageLength: 30,
-        responsive: {
-          details: {
-              display: $.fn.dataTable.Responsive.display.childRowImmediate,
-              type: '',
-              renderer: function ( api, rowIdx, columns ) {
-                var data = $.map( columns, function ( col, i ) {
-                    return col.hidden ?
-                        '<tr data-dt-row="'+col.rowIndex+'" data-dt-column="'+col.columnIndex+'">'+
-                            '<td class="dtr-title">'+col.title+':'+'</td> '+
-                            '<td class="dtr-data">'+col.data+'</td>'+
-                        '</tr>' :
-                        '';
-                } ).join('');
-
-                return data ?
-                    $('<table/>').append( data ) :
-                    false;
-            },
-          },
-        },
+        pagingType: 'simple',
+        responsive: true,
         order: [[0, 'desc']],
         columnDefs: [
           {
@@ -92,7 +74,7 @@ jQuery(document).ready(function() {
       });
     })
 
-  jQuery('#totals_block').html(`Totals across all Laps: Total Warriors: ${jsObject.global_race.participants}
+  jQuery('#totals_block').html(`Totals across all Laps: Total Intercessors: ${jsObject.global_race.participants}
                         | Total Time Elapsed: ${jsObject.global_race.time_elapsed_small}`)
 
 

@@ -97,7 +97,7 @@ class PG_Global_Prayer_App_Location extends PG_Global_Prayer_App {
     public function question_buttons() {
         ?>
 
-        <button type="button" class="btn btn-secondary question" id="question__yes_done">Done</button>
+        <button type="button" class="btn btn-primary question" id="question__yes_done">Done</button>
 
         <?php
     }
@@ -105,8 +105,8 @@ class PG_Global_Prayer_App_Location extends PG_Global_Prayer_App {
     public function decision_buttons() {
         ?>
 
-        <button type="button" class="btn btn-secondary decision" id="decision__home">Home</button>
-        <button type="button" class="btn btn-secondary decision" id="decision__map">Map</button>
+        <button type="button" class="btn btn-primary-dark uppercase decision" id="decision__home">Home</button>
+        <button type="button" class="btn btn-primary decision" id="decision__map">Map</button>
 
         <?php
     }

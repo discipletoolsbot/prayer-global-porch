@@ -64,7 +64,7 @@ class Prayer_Global_Feedback_Post_Type extends DT_Module_Base {
         if ( !isset( $expected_roles["multiplier"] ) ){
             $expected_roles["multiplier"] = [
 
-                "label" => __( 'Multiplier', 'prayer-global' ),
+                "label" => __( 'Multiplier', 'prayer-global-porch' ),
                 "description" => "Interacts with Contacts and Groups",
                 "permissions" => []
             ];
@@ -73,7 +73,7 @@ class Prayer_Global_Feedback_Post_Type extends DT_Module_Base {
         if ( !isset( $expected_roles["prayer_warrior"] ) ){
             $expected_roles["prayer_warrior"] = [
 
-                "label" => __( 'Prayer Warrior', 'prayer-global' ),
+                "label" => __( 'Prayer Intercessor', 'prayer-global-porch' ),
                 "description" => "Interacts with Laps and Feedback",
                 "permissions" => []
             ];
@@ -104,17 +104,17 @@ class Prayer_Global_Feedback_Post_Type extends DT_Module_Base {
         if ( $post_type === $this->post_type ){
 
             $fields['type'] = [
-                'name'        => __( 'Type', 'prayer-global' ),
-                'description' => __( 'Type of Lap', 'prayer-global' ),
+                'name'        => __( 'Type', 'prayer-global-porch' ),
+                'description' => __( 'Type of Lap', 'prayer-global-porch' ),
                 'type'        => 'key_select',
                 'default'     => [
                     'location' => [
-                        'label' => __( 'Location', 'prayer-global' ),
-                        'description' => __( 'Custom laps', 'prayer-global' ),
+                        'label' => __( 'Location', 'prayer-global-porch' ),
+                        'description' => __( 'Custom laps', 'prayer-global-porch' ),
                     ],
                     'general'   => [
-                        'label' => __( 'General', 'prayer-global' ),
-                        'description' => __( 'Do not manually create! System creates new laps when ready.', 'prayer-global' ),
+                        'label' => __( 'General', 'prayer-global-porch' ),
+                        'description' => __( 'Do not manually create! System creates new laps when ready.', 'prayer-global-porch' ),
                     ]
                 ],
                 'tile'     => 'status',
@@ -123,33 +123,33 @@ class Prayer_Global_Feedback_Post_Type extends DT_Module_Base {
                 "show_in_table" => 1,
             ];
             $fields['status'] = [
-                'name'        => __( 'Status', 'prayer-global' ),
-                'description' => __( 'Set the current status.', 'prayer-global' ),
+                'name'        => __( 'Status', 'prayer-global-porch' ),
+                'description' => __( 'Set the current status.', 'prayer-global-porch' ),
                 'type'        => 'key_select',
                 'default'     => [
                     'new'   => [
-                        'label' => __( 'New', 'prayer-global' ),
-                        'description' => __( 'Is new', 'prayer-global' ),
+                        'label' => __( 'New', 'prayer-global-porch' ),
+                        'description' => __( 'Is new', 'prayer-global-porch' ),
                         'color' => "orange"
                     ],
                     'accepted'   => [
-                        'label' => __( 'Accepted', 'prayer-global' ),
-                        'description' => __( 'Accepted as valid feedback', 'prayer-global' ),
+                        'label' => __( 'Accepted', 'prayer-global-porch' ),
+                        'description' => __( 'Accepted as valid feedback', 'prayer-global-porch' ),
                         'color' => "#366184"
                     ],
                     'in_progress'   => [
-                        'label' => __( 'In Progress', 'prayer-global' ),
-                        'description' => __( 'Active and assigned', 'prayer-global' ),
+                        'label' => __( 'In Progress', 'prayer-global-porch' ),
+                        'description' => __( 'Active and assigned', 'prayer-global-porch' ),
                         'color' => "#366184"
                     ],
                     'closed_fixed' => [
-                        'label' => __( 'Closed (Fixed)', 'prayer-global' ),
-                        'description' => __( 'Closed and feedback implemented.', 'prayer-global' ),
+                        'label' => __( 'Closed (Fixed)', 'prayer-global-porch' ),
+                        'description' => __( 'Closed and feedback implemented.', 'prayer-global-porch' ),
                         'color' => "gray"
                     ],
                     'closed_ignore' => [
-                        'label' => __( 'Closed (Denied)', 'prayer-global' ),
-                        'description' => __( 'Closed and feedback not implemented.', 'prayer-global' ),
+                        'label' => __( 'Closed (Denied)', 'prayer-global-porch' ),
+                        'description' => __( 'Closed and feedback not implemented.', 'prayer-global-porch' ),
                         'color' => "gray"
                     ],
                 ],
@@ -160,8 +160,8 @@ class Prayer_Global_Feedback_Post_Type extends DT_Module_Base {
                 "in_create_form" => true,
             ];
             $fields['assigned_to'] = [
-                'name'        => __( 'Assigned To', 'prayer-global' ),
-                'description' => __( "Select the main person who is responsible for reporting on this record.", 'prayer-global' ),
+                'name'        => __( 'Assigned To', 'prayer-global-porch' ),
+                'description' => __( "Select the main person who is responsible for reporting on this record.", 'prayer-global-porch' ),
                 'type'        => 'user_select',
                 'default'     => '',
                 'tile' => 'status',
@@ -169,7 +169,7 @@ class Prayer_Global_Feedback_Post_Type extends DT_Module_Base {
                 "show_in_table" => 16,
             ];
             $fields['contacts'] = [
-                "name" => __( 'Reporter', 'prayer-global' ),
+                "name" => __( 'Reporter', 'prayer-global-porch' ),
                 "description" => '',
                 "type" => "connection",
                 "post_type" => "contacts",
@@ -265,7 +265,7 @@ class Prayer_Global_Feedback_Post_Type extends DT_Module_Base {
 
     public function dt_details_additional_tiles( $tiles, $post_type = "" ){
         if ( $post_type === $this->post_type ){
-            $tiles["other"] = [ "label" => __( "Other", 'prayer-global' ) ];
+            $tiles["other"] = [ "label" => __( "Other", 'prayer-global-porch' ) ];
         }
         return $tiles;
     }
@@ -438,7 +438,7 @@ class Prayer_Global_Feedback_Post_Type extends DT_Module_Base {
 
             $filters["tabs"][] = [
                 "key" => "assigned_to_me",
-                "label" => __( "Assigned to me", 'prayer-global' ),
+                "label" => __( "Assigned to me", 'prayer-global-porch' ),
                 "count" => $total_my,
                 "order" => 20
             ];
@@ -446,7 +446,7 @@ class Prayer_Global_Feedback_Post_Type extends DT_Module_Base {
             $filters["filters"][] = [
                 'ID' => 'my_all',
                 'tab' => 'assigned_to_me',
-                'name' => __( "All", 'prayer-global' ),
+                'name' => __( "All", 'prayer-global-porch' ),
                 'query' => [
                     'assigned_to' => [ 'me' ],
                     'sort' => 'status'
@@ -503,7 +503,7 @@ class Prayer_Global_Feedback_Post_Type extends DT_Module_Base {
                 }
                 $filters["tabs"][] = [
                     "key" => "all",
-                    "label" => __( "All", 'prayer-global' ),
+                    "label" => __( "All", 'prayer-global-porch' ),
                     "count" => $total_all,
                     "order" => 10
                 ];
@@ -511,7 +511,7 @@ class Prayer_Global_Feedback_Post_Type extends DT_Module_Base {
                 $filters["filters"][] = [
                     'ID' => 'all',
                     'tab' => 'all',
-                    'name' => __( "All", 'prayer-global' ),
+                    'name' => __( "All", 'prayer-global-porch' ),
                     'query' => [
                         'sort' => '-post_date'
                     ],
