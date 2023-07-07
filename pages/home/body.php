@@ -58,7 +58,7 @@
         <div class="brand-light desktop-story__container text-left container flow-small">
             <h2 class="font-title"><i class="icon pg-world-arrow me-3"></i><?php echo esc_html__( 'Our Strategy', 'prayer-global' ) ?></h2>
             <p>
-                <?php echo esc_html__( 'Prayer.Global has broken the world down into 4,770 states based on geographical and governmental boundaries. With location speciﬁc prayer fuel, we can pray with purpose for every people group and watch on the map as our united prayer lights up the darkness.', 'prayer-global-porch' ) ?>
+                <?php echo sprintf( esc_html__( 'Prayer.Global has broken the world down into 4,770 states based on geographical and governmental boundaries. %1$sWhen you press the Start Praying button, location specific prayer fuel will help guide your prayers for each of these regions. %2$sThen, watch on the map as our united prayers light up the darkness.', 'prayer-global-porch' ), '<br>', '<br>' ) ?>
             </p>
         </div>
     </div>
@@ -143,7 +143,7 @@
                                     <i class="icon pg-world-arrow icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3"><?php echo esc_html__( 'Our Strategy', 'prayer-global' ) ?></h2>
                                     <p class="white-gradient pb-3 px-5">
-                                        <?php echo esc_html__( 'Prayer.Global has broken the world down into 4,770 states based on geographical and governmental boundaries. With location speciﬁc prayer fuel, we can pray with purpose for every people group and watch on the map as our united prayer lights up the darkness.', 'prayer-global-porch' ) ?>
+                                        <?php echo sprintf( esc_html__( 'Prayer.Global has broken the world down into 4,770 states based on geographical and governmental boundaries. %1$sWhen you press the Start Praying button, location specific prayer fuel will help guide your prayers for each of these regions. %2$sThen, watch on the map as our united prayers light up the darkness.', 'prayer-global-porch' ), '', '' ) ?>
                                     </p>
                                 </div>
                             </div>
