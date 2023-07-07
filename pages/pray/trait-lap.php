@@ -155,8 +155,8 @@ trait PG_Lap_Trait {
                         </p>
                     </div>
                     <div class="modal-footer center">
-                        <button type="button" class="btn btn-outline-primary" id="decision__leave" data-bs-dismiss="modal"><?php echo esc_html__( "Leave", 'prayer-global-porch' ) ?></button>
-                        <button type="button" class="btn btn-secondary uppercase" id="decision__keep_praying" data-bs-dismiss="modal"><?php echo esc_html__( "Keep Praying", 'prayer-global-porch' ) ?></button>
+                        <button type="button" class="btn btn-outline-primary uppercase" id="decision__keep_praying" data-bs-dismiss="modal"><?php echo esc_html__( "Keep Praying", 'prayer-global-porch' ) ?></button>
+                        <button type="button" class="btn btn-primary" id="decision__leave" data-bs-dismiss="modal"><?php echo esc_html__( "Leave", 'prayer-global-porch' ) ?></button>
                     </div>
                 </div>
             </div>
@@ -236,11 +236,11 @@ trait PG_Lap_Trait {
                     </div>
                 </div>
             </div>
-            <a href="#content" class="text-decoration-none">
-                <div class="btn btn-outline-primary center d-block m-auto uppercase w-fit">
-                    <?php echo esc_html__( 'Guided Prayers', 'prayer-global-porch' ) ?>
+            <a href="#content" class="text-decoration-none" id="see-more-button">
+                <div class="btn btn-secondary center d-block m-auto uppercase w-fit">
+                    <?php echo esc_html__( 'See more', 'prayer-global-porch' ) ?>
+                    <i class="icon pg-chevron-down d-block center"></i>
                 </div>
-                <i class="icon pg-chevron-down d-block center"></i>
             </a>
             <div id="content"></div>
             <div class="container">

@@ -117,6 +117,19 @@ jQuery(document).ready(function(){
 
   footer.hide()
 
+  /* Fly away the see more button after a little bit of scroll */
+  $(window).scroll(() => {
+    const scrollTop = $(window).scrollTop()
+
+    if (scrollTop > 100) {
+      $('#see-more-button').css('margin-bottom', `${scrollTop}rem`)
+    }
+
+    if ( scrollTop > 250 ) {
+      $('#see-more-button').hide()
+    }
+  })
+
   /**
    * INITIALIZE
    */

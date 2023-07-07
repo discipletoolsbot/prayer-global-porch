@@ -19,6 +19,25 @@ section {
 section[data-custom-lap] {
     margin-top: 175px;
 }
+#see-more-button {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin-bottom: 0.2rem;
+    animation: bounce 200ms ease-in-out 500ms 1;
+}
+@keyframes bounce {
+    0% {
+        margin-bottom: 0.2rem;
+    }
+    50% {
+        margin-bottom: 1.5rem
+    }
+    100% {
+        margin-bottom: 0.2rem;
+    }
+}
 #content {
     padding-top: 4rem;
 }
