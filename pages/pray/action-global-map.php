@@ -243,15 +243,15 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                     <div class="col col-12">
                         <div class="two-em font-weight-bold"><?php echo sprintf( esc_html__( 'Lap %s Stats', 'prayer-global-porch' ), esc_html( $lap_stats['lap_number'] ) ) ?></div>
                     </div>
-                    <div class="col col-6 col-sm-4">
-                        <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-around">
+                    <div class="col col-6 col-sm-5 col-md-4 col-xl-3">
+                        <div class="blue-bg white blue-border rounded-start d-flex align-items-center justify-content-between px-3">
                             <i class="icon pg-world-light three-em"></i>
                             <div class="two-em white stats-figure remaining"></div>
                         </div>
                         <span class="small"><?php echo esc_html__( 'Places Remaining', 'prayer-global-porch' ) ?></span><br>
                     </div>
-                    <div class="col col-6 col-sm-4">
-                        <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-around">
+                    <div class="col col-6 col-sm-5 col-md-4 col-xl-3">
+                        <div class="white-bg blue blue-border rounded-end d-flex align-items-center justify-content-between px-3">
                             <i class="icon pg-world-light three-em"></i>
                             <div class="two-em stats-figure completed"></div>
                         </div>
@@ -259,15 +259,15 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                     </div>
                 </div>
                 <div class="row g-0 justify-content-center mt-4">
-                    <div class="col col-6 col-sm-4 center">
-                        <div class="secondary-bg white secondary-border rounded-start d-flex align-items-center justify-content-around py-1">
+                    <div class="col col-6 col-sm-5 col-md-4 col-xl-3 center">
+                        <div class="secondary-bg white secondary-border rounded-start d-flex align-items-center justify-content-between px-3">
                             <i class="icon pg-prayer three-em"></i>
                             <div class="two-em stats-figure warriors"></div>
                         </div>
                         <span class="uppercase small"><?php echo esc_html__( 'Intercessors', 'prayer-global-porch' ) ?></span><br>
                     </div>
-                    <div class="col col-6 col-sm-4 center">
-                        <div class="blue-bg white blue-border rounded-end d-flex align-items-center justify-content-around py-1">
+                    <div class="col col-6 col-sm-5 col-md-4 col-xl-3 center">
+                        <div class="blue-bg white blue-border rounded-end d-flex align-items-center justify-content-between px-3">
                             <i class="icon pg-world-arrow three-em"></i>
                             <div class="two-em stats-figure"><span class="completed_percent">0</span>%</div>
                         </div>
