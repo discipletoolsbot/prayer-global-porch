@@ -467,8 +467,7 @@ jQuery(document).ready(function(){
         const challengesHTML = `
         <section class="private-challenges flow-small">
             <h2 class="center">${private_relays}</h2>
-            <p class="center">${private_explanation1}</p>
-            <p class="center">${private_explanation2}</p>
+            <p class="center light-grey small">${private_explanation1}</p>
 
             ${CreateChallengeButton( private, 'private-challenge-button' )}
 
@@ -478,7 +477,7 @@ jQuery(document).ready(function(){
         </section>
         <section class="public-challenges flow-small">
             <h2 class="center">${public_relays}</h2>
-            <p class="center">${public_explanation1}</p>
+            <p class="center light-grey small">${public_explanation1}</p>
 
             ${CreateChallengeButton( public, 'public-challenge-button' )}
 

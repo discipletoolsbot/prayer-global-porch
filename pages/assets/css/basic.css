@@ -318,6 +318,9 @@ input[type="radio"]:checked {
 .white {
     color: white;
 }
+.grey {
+    color: var(--pg-grey);
+}
 .light-grey {
     color: #7D7D7D
 }
