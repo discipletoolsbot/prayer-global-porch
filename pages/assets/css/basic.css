@@ -1200,6 +1200,38 @@ nav.navbar-home {
 .section-goal-desktop .time-value {
     padding: 0 2rem;
 }
+.two-col-sm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+@media (max-width: 991px) {
+    .section-goal-desktop p {
+        font-size: 20px;
+    }
+    .section-goal-desktop h2 {
+        font-size: 3rem;
+    }
+    .two-col-sm {
+        flex-direction: row-reverse;
+        justify-content: flex-start;
+    }
+    .two-col-sm .mx-auto {
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+    }
+    .two-col-sm p {
+        width: 40%;
+    }
+    .story4 .text-right-40 {
+        padding: 0;
+    }
+    .story4 .desktop-story__container {
+        align-items: flex-end;
+    }
+}
+
 @media (min-width: 767px) {
     .section-goal-desktop {
         display: block;
