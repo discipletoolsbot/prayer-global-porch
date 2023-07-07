@@ -247,7 +247,7 @@ trait PG_Lap_Trait {
                 <div class="row text-center mb-3">
                     <div class="col">
                         <i class="icon pg-pray-hands-dark d-block icon-small mb-3" style="margin-top: -2rem"></i>
-                        <button type="button" class="btn btn-outline-primary px-4" id="more_prayer_fuel"><?php echo esc_html__( 'Pray More', 'prayer-global-porch' ) ?></button>
+                        <button type="button" class="btn btn-outline-primary px-4 d-flex mx-auto gap-2" id="more_prayer_fuel"><?php echo esc_html__( 'Show More Guided Prayers', 'prayer-global-porch' ) ?><i class="icon pg-chevron-down"></i></button>
                     </div>
                 </div>
                 <div class="row">

@@ -41,6 +41,9 @@ section[data-custom-lap] {
 #content {
     padding-top: 4rem;
 }
+#more_prayer_fuel {
+    display: flex;
+}
 .btn-group {
     width: 100%;
 }
