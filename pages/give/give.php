@@ -113,7 +113,17 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
                         </p>
                     </div>
                 </div>
-                <div class="row justify-content-md-center text-center brand-light-bg white p-4">
+
+                <div class="row justify-content-md-center text-center flow-small brand-bg white py-4">
+                    <div class="col col-md-8">
+                    <h4><?php echo esc_html( __( 'Credit/Debit Card', 'prayer-global-porch' ) ) ?></h4>
+
+                        <?php echo do_shortcode( '[stripe]' ) ?>
+
+                    </div>
+                </div>
+
+                <div class="row justify-content-md-center text-center">
                     <div class="col col-md-8">
                         <h4 class="white"><?php echo esc_html( __( 'Check', 'prayer-global-porch' ) ) ?></h4>
                         <p>
@@ -128,14 +138,6 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
                     </div>
                 </div>
 
-                <div class="row justify-content-md-center text-center flow-small">
-                    <div class="col col-md-8">
-                    <h4><?php echo esc_html( __( 'Credit/Debit Card', 'prayer-global-porch' ) ) ?></h4>
-
-                        <?php echo do_shortcode( '[stripe]' ) ?>
-
-                    </div>
-                </div>
                 <div class="row justify-content-md-center text-center flow-small brand-light-bg white">
                     <div class="col col-md-8">
                         <p class="m-5">
