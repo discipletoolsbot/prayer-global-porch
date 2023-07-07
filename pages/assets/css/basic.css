@@ -1285,6 +1285,9 @@ nav.navbar-home {
 .text-align-right {
     text-align: right;
 }
+.text-align-left {
+    text-align: left;
+}
 
 /* Datatable styles */
 
