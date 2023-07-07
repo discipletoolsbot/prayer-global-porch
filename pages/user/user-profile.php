@@ -81,7 +81,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     'estimated_location' => esc_html( __( '(This is your estimated location)', 'prayer-global-porch' ) ),
                     'profile' => esc_html( __( 'Profile', 'prayer-global-porch' ) ),
                     'prayers' => esc_html( __( 'Prayers', 'prayer-global-porch' ) ),
-                    'challenges' => esc_html( __( 'Prayer Relays', 'prayer-global-porch' ) ),
+                    'challenges' => esc_html( __( 'My Prayer Relays', 'prayer-global-porch' ) ),
                     'are_you_enjoying_the_app' => esc_html( __( 'Are you enjoying this app?', 'prayer-global-porch' ) ),
                     'would_you_like_to_partner' => esc_html( __( 'Would you like to partner with us in helping others pray for the world?', 'prayer-global-porch' ) ),
                     'consider_giving' => esc_html( __( 'Consider giving to help us increase prayer for the world.', 'prayer-global-porch' ) ),
@@ -102,8 +102,13 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     'new_challenge' => esc_html( _x( 'New %s Relay', 'New public Relay', 'prayer-global-porch' ) ),
                     'public' => esc_html( __( 'Public', 'prayer-global-porch' ) ),
                     'private' => esc_html( __( 'Private', 'prayer-global-porch' ) ),
-                    'public_relays' => esc_html( __( 'Public Relays', 'prayer-global-porch' ) ),
-                    'private_relays' => esc_html( __( 'Private Relays', 'prayer-global-porch' ) ),
+                    'public_relays' => esc_html( __( 'My Public Relays', 'prayer-global-porch' ) ),
+                    'private_relays' => esc_html( __( 'My Private Relays', 'prayer-global-porch' ) ),
+                    'private_explanation1' => esc_html( __( "Private relays do not show on the site's Prayer Relays page.", 'prayer-global-porch' ) ),
+                    'private_explanation2' => esc_html( __( 'Use the Share links to invite team mates to your private lap', 'prayer-global-porch' ) ),
+                    'public_explanation1' => esc_html( __( "Your public relays will also appear on the site's Prayer Relays page", 'prayer-global-porch' ) ),
+                    'no_relays_found' => esc_html__( 'You have not created any %s relays yet', 'prayer-global-porch' ),
+                    'view_join_other_relays' => esc_html__( 'Click here to view and join other public relays', 'prayer-global-porch' ),
                 ],
                 'is_logged_in' => is_user_logged_in() ? 1 : 0,
                 'logout_url' => esc_url( '/user_app/logout' )
@@ -137,7 +142,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
         <section class="page-section flow" data-section="login" id="section-login">
             <div class="container">
                 <div class="row justify-content-md-center text-center">
-                    <div class="col-lg-7 flow" id="pg_content">
+                    <div class="flow" id="pg_content">
                         <span class="loading-spinner active"></span>
                     </div>
                 </div>

@@ -55,6 +55,11 @@ jQuery(document).ready(function(){
         private,
         public_relays,
         private_relays,
+        view_join_other_relays,
+        no_relays_found,
+        private_explanation1,
+        private_explanation2,
+        public_explanation1,
     } = jsObject.translations
 
 
@@ -210,7 +215,7 @@ jQuery(document).ready(function(){
                 </div>
             </section>
            <section class="profile-menu px-2 mt-5">
-                <div class="navbar-nav">
+                <div class="navbar-nav w-fit mx-auto">
                     <button class="user-profile-link nav-link uppercase px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-top border-1 border-dark">
                         <i class="icon pg-profile three-em"></i>
                         <span class="two-em">${profile}</span>
@@ -223,7 +228,7 @@ jQuery(document).ready(function(){
                     </button>
                     <button class="user-challenges-link nav-link uppercase px-1 py-4 d-flex justify-content-between align-items-center border-bottom border-1 border-dark">
                         <i class="icon pg-relay three-em"></i>
-                        <span class="two-em">${challenges}</span>
+                        <span class="two-em px-3">${challenges}</span>
                         <i class="icon pg-chevron-right three-em"></i>
                     </button>
                 </div>
@@ -462,6 +467,8 @@ jQuery(document).ready(function(){
         const challengesHTML = `
         <section class="private-challenges flow-small">
             <h2 class="center">${private_relays}</h2>
+            <p class="center">${private_explanation1}</p>
+            <p class="center">${private_explanation2}</p>
 
             ${CreateChallengeButton( private, 'private-challenge-button' )}
 
@@ -471,13 +478,16 @@ jQuery(document).ready(function(){
         </section>
         <section class="public-challenges flow-small">
             <h2 class="center">${public_relays}</h2>
+            <p class="center">${public_explanation1}</p>
 
             ${CreateChallengeButton( public, 'public-challenge-button' )}
 
             <div class="d-flex justify-content-center public-challenges__list">
                 <span class="loading-spinner active"></span>
             </div>
-        </section>`
+        </section>
+        <a class="btn btn-primary-light d-block mx-auto" href="/challenges/active/">${view_join_other_relays}</a>
+        `
         userProfileDetails.html(challengesHTML)
 
         buildChallengeList( 'public' )
@@ -704,7 +714,7 @@ jQuery(document).ready(function(){
         const challenges = jsObject.user[visibility + '_challenges']
 
         if (!challenges || !Array.isArray(challenges) || challenges.length === 0) {
-            container.html('No ' + visibility + ' challenges found')
+            container.html( no_relays_found.replace('%s', visibility) )
         } else {
             container.html( buildChallengeListHTML( challenges ) )
         }
