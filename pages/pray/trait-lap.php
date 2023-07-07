@@ -236,10 +236,12 @@ trait PG_Lap_Trait {
                     </div>
                 </div>
             </div>
-            <a href="#content" class="btn btn-outline-primary center d-block m-auto uppercase w-fit">
-                <?php echo esc_html__( 'Guided Prayers', 'prayer-global-porch' ) ?>
+            <a href="#content" class="text-decoration-none">
+                <div class="btn btn-outline-primary center d-block m-auto uppercase w-fit">
+                    <?php echo esc_html__( 'Guided Prayers', 'prayer-global-porch' ) ?>
+                </div>
+                <i class="icon pg-chevron-down d-block center"></i>
             </a>
-            <i class="icon icon-small pg-chevron-down d-block center"></i>
             <div id="content"></div>
             <div class="container">
                 <div class="row text-center mb-3">
