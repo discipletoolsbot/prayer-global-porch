@@ -9,14 +9,21 @@
                 <i class="icon pg-logo-prayer white heading__logo"></i>
             </div>
             <div class="my-4 d-flex flex-column align-items-center">
-            <a class="btn btn-cta mx-2 d-inline-block" href="/newest/lap/"><?php echo esc_html( __( 'Start Praying', 'prayer-global-porch' ) ) ?></a>
-                <div class="btn-learn-more">
-                    <a href="#section-goal" class="btn btn-learn-more btn-primary-light white uppercase mt-2">
+                <a class="btn btn-cta mx-2 d-inline-block" href="/newest/lap/"><?php echo esc_html( __( 'Start Praying', 'prayer-global-porch' ) ) ?></a>
+                <a id="learn-more-desktop" href="#section-goal-desktop" class="btn-learn-more mt-2 text-decoration-none d-none d-md-block">
+                    <div class="btn btn-primary-light white uppercase btn-learn-more">
                         <?php echo esc_html( __( 'Learn more', 'prayer-global-porch' ) ) ?>
-                    </a>
+                    </div>
                     <br>
                     <i class="icon pg-chevron-down white"></i>
-                </div>
+                </a>
+                <a id="learn-more-mobile" href="#section-goal" class="btn-learn-more mt-2 text-decoration-none d-block d-md-none">
+                    <div class="btn btn-primary-light white uppercase btn-learn-more">
+                        <?php echo esc_html( __( 'Learn more', 'prayer-global-porch' ) ) ?>
+                    </div>
+                    <br>
+                    <i class="icon pg-chevron-down white"></i>
+                </a>
             </div>
         </div>
     </div>
@@ -27,7 +34,7 @@
 
     <div class="position-relative">
         <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-01.png" alt="">
-        <div class="white desktop-story__container text-left container flow-small" id="section-goal">
+        <div class="white desktop-story__container text-left container flow-small" id="section-goal-desktop">
             <h2 class="font-title"><i class="icon pg-logo-prayer me-3"></i><?php echo esc_html__( 'The Goal', 'prayer-global' ) ?></h2>
             <p>
                 <?php echo sprintf( esc_html__( 'The clock is ticking. %sPrayer.Global seeks to encourage extraordinary prayer for the fulﬁllment of the Great Commission in our generation.', 'prayer-global-porch' ), '</p><p>' ) ?>
