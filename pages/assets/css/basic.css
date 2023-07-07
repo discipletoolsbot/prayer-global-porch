@@ -46,6 +46,8 @@
     font-display: swap;
 }
 
+/* resets */
+
 :root {
     --pg-font-family-base: "Europa", Arial, sans-serif;
     --pg-font-family-title: "Bebas Kai", Arial, sans-serif;
@@ -101,6 +103,7 @@ h4 {
 img {
     max-width: 100%;
     width: 100%;
+    display: block;
 }
 ul {
     margin-left: 0;

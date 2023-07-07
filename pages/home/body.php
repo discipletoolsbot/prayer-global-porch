@@ -33,7 +33,7 @@
 <section class="section-goal-desktop lh-base">
 
     <div class="position-relative">
-        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-01.png" alt="">
+        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-01.jpg" alt="">
         <div class="white desktop-story__container text-left container flow-small" id="section-goal-desktop">
             <h2 class="font-title"><i class="icon pg-logo-prayer me-3"></i><?php echo esc_html__( 'The Goal', 'prayer-global' ) ?></h2>
             <p>
@@ -45,7 +45,7 @@
         </div>
     </div>
     <div class="position-relative">
-        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-02.png" alt="">
+        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-02.jpg" alt="">
         <div class="brand-light desktop-story__container text-right-40 container flow-small text-align-right">
             <h2 class="font-title"><?php echo esc_html__( 'The Race', 'prayer-global' ) ?><i class="icon pg-relay ms-3"></i></h2>
             <p>
@@ -54,7 +54,7 @@
         </div>
     </div>
     <div class="position-relative">
-        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-03.png" alt="">
+        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-03.jpg" alt="">
         <div class="brand-light desktop-story__container text-left container flow-small">
             <h2 class="font-title"><i class="icon pg-world-arrow me-3"></i><?php echo esc_html__( 'Our Strategy', 'prayer-global' ) ?></h2>
             <p>
@@ -63,7 +63,7 @@
         </div>
     </div>
     <div class="position-relative" id="story4">
-        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-04.png" alt="">
+        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-04.jpg" alt="">
         <div class="brand-light desktop-story__container text-right-40 container center">
             <h2 class="font-title mb-3"><?php echo esc_html__( 'Current Status', 'prayer-global' ) ?><i class="icon pg-logo-prayer ms-3"></i></h2>
             <div class="two-col-sm gap-2">
@@ -84,7 +84,7 @@
         </div>
     </div>
     <div class="position-relative" id="story5">
-        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-05.png" alt="">
+        <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-05.jpg" alt="">
         <div class="brand-light desktop-story__container text-right-40 text-bottom container text-align-right me-4" style="z-index: 1000;">
             <p class="pb-3">
                 <?php echo sprintf( esc_html__( 'With each prayer lap we complete, we are that much closer to ushering in God’s Kingdom and the return of Jesus Christ! %sClick Start Praying to start your Prayer.Global experience today!', 'prayer-global-porch' ), '<br>' ) ?>
