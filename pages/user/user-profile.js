@@ -740,6 +740,7 @@ jQuery(document).ready(function(){
                 <tr>
                     <th>Name</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
         `
@@ -750,14 +751,14 @@ jQuery(document).ready(function(){
             tableBody += `
                 <tr>
                     <td><a href="${urlRoot}/map">${challenge.post_title}</a></td>
-                    <td style="width: 5%">
+                    <td style="width: 3%"><a href="${urlRoot}/tools" class="dropdown-item three-em"><i class="icon pg-share"></i></a></td>
+                    <td style="width: 3%">
                         <div class="btn-group">
-                            <button class="btn btn-small btn-outline-secondary dropdown-toggle rounded-circle border-0 d-flex align-items-center justify-content-center" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+                            <button class="btn btn-small px-0 shadow-none dropdown-toggle border-0 d-flex align-items-center justify-content-center" type="button" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
                                 <i class="icon ion-android-more-vertical fs-3"></i>
                             </button>
                             <ul class="dropdown-menu">
                                 <li><a href="#" data-bs-toggle="modal" data-bs-target="#create-challenge-modal" data-challenge-id="${challenge.post_id}" class="dropdown-item edit-challenge-button">Edit</a></li>
-                                <li><a href="${urlRoot}/tools" class="dropdown-item">Share Tools</a></li>
                                 <li><a href="${urlRoot}/display" class="dropdown-item">Display Map</a></li>
                             </ul>
                         </div>

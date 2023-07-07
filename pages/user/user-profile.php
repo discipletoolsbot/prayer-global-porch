@@ -297,7 +297,7 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                     <i class="icon pg-chevron-right three-em"></i>
                 </button>
             </div>
-            <div class="offcanvas__content">
+            <div class="offcanvas__content px-0">
                 <div class="container">
                     <div class="row justify-content-md-center">
                         <div class="flow-medium" id="user-details-content"></div>
