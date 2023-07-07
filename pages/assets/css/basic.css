@@ -1458,6 +1458,14 @@ input[type="text"],
     padding-right: 16px;
 }
 
+.challenge-table__share {
+    font-size: 2rem;
+}
+
+.challenges-table td {
+    vertical-align: middle;
+}
+
 .user__avatar {
     position: relative;
 }
