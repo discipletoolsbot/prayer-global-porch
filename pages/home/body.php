@@ -85,7 +85,7 @@
     </div>
     <div class="position-relative" id="story5">
         <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-05.png" alt="">
-        <div class="brand-light desktop-story__container text-right-40 text-bottom container text-align-right me-4">
+        <div class="brand-light desktop-story__container text-right-40 text-bottom container text-align-right me-4" style="z-index: 1000;">
             <p class="pb-3">
                 <?php echo sprintf( esc_html__( 'With each prayer lap we complete, we are that much closer to ushering in God’s Kingdom and the return of Jesus Christ! %sClick Start Praying to start your Prayer.Global experience today!', 'prayer-global-porch' ), '<br>' ) ?>
             </p>
