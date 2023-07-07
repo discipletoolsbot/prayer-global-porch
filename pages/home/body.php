@@ -87,7 +87,7 @@
         <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/desktop-story-background-05.png" alt="">
         <div class="brand-light desktop-story__container text-right-40 text-bottom container text-align-right me-4">
             <p class="pb-3">
-                <?php echo esc_html__( 'With each lap we complete, we are that much closer to ushering in God’s Kingdom and the return of Jesus Christ! Step up and join the worldwide Prayer.Global prayer team!', 'prayer-global-porch' ) ?>
+                <?php echo sprintf( esc_html__( 'With each prayer lap we complete, we are that much closer to ushering in God’s Kingdom and the return of Jesus Christ! %sClick Start Praying to start your Prayer.Global experience today!', 'prayer-global-porch' ), '<br>' ) ?>
             </p>
             <div class="center align-self-end">
                 <h2 class="font-title"><?php echo esc_html__( 'Ready. Set.', 'prayer-global' ) ?><i class="icon pg-logo-prayer d-none"></i></h2>
@@ -179,7 +179,7 @@
                                     <i class="icon pg-crown icon-medium my-3 d-block"></i>
                                     <h2 class="font-title mb-3"><?php echo esc_html__( 'The Finish Line', 'prayer-global' ) ?></h2>
                                     <p class="white-gradient pb-3">
-                                        <?php echo esc_html__( 'With each lap we complete, we are that much closer to ushering in God’s Kingdom and the return of Jesus Christ! Step up and join the worldwide Prayer.Global prayer team!', 'prayer-global-porch' ) ?>
+                                        <?php echo sprintf( esc_html__( 'With each prayer lap we complete, we are that much closer to ushering in God’s Kingdom and the return of Jesus Christ! %sClick Start Praying to start your Prayer.Global experience today!', 'prayer-global-porch' ), '<br>' ) ?>
                                     </p>
                                     <img class="w-100 p-0 finish-line" src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/images/finish-line-cropped.png" alt="dark world">
 
