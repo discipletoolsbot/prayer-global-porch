@@ -408,6 +408,7 @@ function _pg_format_duration( &$data, $time, $key_long, $key_short, $key_data = 
     }
     else if ( $days > 365 ) {
         $years = floor( $time / 60 / 60 / 24 / 365 );
+        $days = floor( $days - ( $years * 365 ) );
         $data[$key_long] = "$years years, $days days, $hours hours, $minutes minutes";
         $data[$key_short] = $years."y, ".$days."d, ".$hours."h, ".$minutes."m";
         $data[$key_data] = [
