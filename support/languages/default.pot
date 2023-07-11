@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 2.0.14\n"
+"Project-Id-Version: Prayer.Global Porch 2.0.15\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-07-07T20:44:19+00:00\n"
+"POT-Creation-Date: 2023-07-11T07:18:00+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: prayer-global-porch\n"
@@ -4536,60 +4536,60 @@ msgstr ""
 msgid "Child Lap"
 msgstr ""
 
-#: utilities/global-utilities.php:661
+#: utilities/global-utilities.php:662
 msgid "seconds"
 msgstr ""
 
-#: utilities/global-utilities.php:661
+#: utilities/global-utilities.php:662
 msgid "second"
 msgstr ""
 
-#: utilities/global-utilities.php:662
-#: utilities/global-utilities.php:665
-#: utilities/global-utilities.php:668
-#: utilities/global-utilities.php:671
-#: utilities/global-utilities.php:675
-#: utilities/global-utilities.php:679
+#: utilities/global-utilities.php:663
+#: utilities/global-utilities.php:666
+#: utilities/global-utilities.php:669
+#: utilities/global-utilities.php:672
+#: utilities/global-utilities.php:676
+#: utilities/global-utilities.php:680
 msgctxt "23 seconds ago"
 msgid "%1$d %2$s ago"
 msgstr ""
 
-#: utilities/global-utilities.php:664
+#: utilities/global-utilities.php:665
 msgid "minutes"
 msgstr ""
 
-#: utilities/global-utilities.php:664
+#: utilities/global-utilities.php:665
 msgid "minute"
 msgstr ""
 
-#: utilities/global-utilities.php:667
+#: utilities/global-utilities.php:668
 msgid "hours"
 msgstr ""
 
-#: utilities/global-utilities.php:667
+#: utilities/global-utilities.php:668
 msgid "hour"
 msgstr ""
 
-#: utilities/global-utilities.php:670
+#: utilities/global-utilities.php:671
 msgid "days"
 msgstr ""
 
-#: utilities/global-utilities.php:670
+#: utilities/global-utilities.php:671
 msgid "day"
 msgstr ""
 
-#: utilities/global-utilities.php:674
+#: utilities/global-utilities.php:675
 msgid "weeks"
 msgstr ""
 
-#: utilities/global-utilities.php:674
+#: utilities/global-utilities.php:675
 msgid "week"
 msgstr ""
 
-#: utilities/global-utilities.php:678
+#: utilities/global-utilities.php:679
 msgid "months"
 msgstr ""
 
-#: utilities/global-utilities.php:678
+#: utilities/global-utilities.php:679
 msgid "month"
 msgstr ""
