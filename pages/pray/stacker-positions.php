@@ -197,7 +197,7 @@ class PG_Stacker_Positions {
                         'group' => 'christian_adherents',
                         'type' => 'births',
                         'size' => ( $stack['location']['births_christian_adherents_last_hour'] > 400 ) ? 2 : 3,
-                        'section_summary' => sprintf( __( 'On average, %1$s babies will be born in the next hour to families who might now about God culturally, but likely have no relationship with Jesus in %2$s.', 'prayer-global-porch' ), $stack['location']['births_christian_adherents_last_hour'], $stack['location']['full_name'] ),
+                        'section_summary' => sprintf( __( 'On average, %1$s babies will be born in the next hour to families who might know about God culturally, but likely have no relationship with Jesus in %2$s.', 'prayer-global-porch' ), $stack['location']['births_christian_adherents_last_hour'], $stack['location']['full_name'] ),
                         'prayer' => sprintf( __( '%s, make yourself real to these new families.', 'prayer-global-porch' ), $name ),
                     ]
                 ];
@@ -211,7 +211,7 @@ class PG_Stacker_Positions {
                         'group' => 'christian_adherents',
                         'type' => 'births',
                         'size' => ( $stack['location']['births_christian_adherents_last_100'] > 400 ) ? 2 : 3,
-                        'section_summary' => sprintf( __( 'On average, %1$s babies will be born in the next 100 hours to families who might now about God culturally, but likely have no relationship with Jesus in %2$s.', 'prayer-global-porch' ), $stack['location']['births_christian_adherents_last_100'], $stack['location']['full_name'] ),
+                        'section_summary' => sprintf( __( 'On average, %1$s babies will be born in the next 100 hours to families who might know about God culturally, but likely have no relationship with Jesus in %2$s.', 'prayer-global-porch' ), $stack['location']['births_christian_adherents_last_100'], $stack['location']['full_name'] ),
                         'prayer' => sprintf( __( '%s, reveal yourself to these new families.', 'prayer-global-porch' ), $name ),
                     ]
                 ];
@@ -225,7 +225,7 @@ class PG_Stacker_Positions {
                         'group' => 'christian_adherents',
                         'type' => 'births',
                         'size' => ( $stack['location']['births_christian_adherents_last_week'] > 400 ) ? 2 : 3,
-                        'section_summary' => sprintf( __( 'On average, %1$s babies will be born in the next week to families who might now about God culturally, but likely have no relationship with Jesus in %2$s.', 'prayer-global-porch' ), $stack['location']['births_christian_adherents_last_week'], $stack['location']['full_name'] ),
+                        'section_summary' => sprintf( __( 'On average, %1$s babies will be born in the next week to families who might know about God culturally, but likely have no relationship with Jesus in %2$s.', 'prayer-global-porch' ), $stack['location']['births_christian_adherents_last_week'], $stack['location']['full_name'] ),
                         'prayer' => sprintf( __( '%s, reveal yourself to these new families.', 'prayer-global-porch' ), $name ),
                     ]
                 ];
@@ -239,7 +239,7 @@ class PG_Stacker_Positions {
                         'group' => 'christian_adherents',
                         'type' => 'births',
                         'size' => ( $stack['location']['births_christian_adherents_last_month'] > 400 ) ? 2 : 3,
-                        'section_summary' => sprintf( __( 'On average, %1$s babies will be born in the next month to families who might now about God culturally, but likely have no relationship with Jesus in %2$s.', 'prayer-global-porch' ), $stack['location']['births_christian_adherents_last_month'], $stack['location']['full_name'] ),
+                        'section_summary' => sprintf( __( 'On average, %1$s babies will be born in the next month to families who might know about God culturally, but likely have no relationship with Jesus in %2$s.', 'prayer-global-porch' ), $stack['location']['births_christian_adherents_last_month'], $stack['location']['full_name'] ),
                         'prayer' => sprintf( __( '%s, reveal yourself to these new families.', 'prayer-global-porch' ), $name ),
                     ]
                 ];

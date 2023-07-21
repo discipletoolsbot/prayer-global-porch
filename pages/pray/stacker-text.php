@@ -245,7 +245,7 @@ class PG_Stacker_Text {
                 'section_label' => $section_label,
                 'prayer' => sprintf( __( 'Father, like with the Ethiopian Eunuch, set up a meeting today between a faithful believer in %1$s and a person seeking to understand the truth.', 'prayer-global-porch' ), $stack['location']['full_name'] ),
                 'reference' => __( 'Acts 8:26–40', 'prayer-global-porch' ),
-                'verse' => _x( 'And the eunuch said to Philip, “About whom, I ask you, does the prophet say this, about himself or about someone else?” Then Philip opened his mouth, and beginning with this Scripture xhe told him the good news about Jesus.', 'Acts 8:26–40', 'prayer-global-porch' ),
+                'verse' => _x( 'And the eunuch said to Philip, “About whom, I ask you, does the prophet say this, about himself or about someone else?” Then Philip opened his mouth, and beginning with this Scripture he told him the good news about Jesus.', 'Acts 8:26–40', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,
@@ -261,7 +261,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => sprintf( __( 'Spirit, help the disciples in the %1$s of %2$s to find a person of peace today, like the Phillipian jailor, who heard and was immediately baptized with his whole family.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['name'] ),
+                'prayer' => sprintf( __( 'Spirit, help the disciples in the %1$s of %2$s to find a person of peace today, like the Philippian jailor, who heard and was immediately baptized with his whole family.', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['name'] ),
                 'reference' => __( 'Acts 16:22–38', 'prayer-global-porch' ),
                 'verse' => _x( 'And they spoke the word of the Lord to the jailor and to all who were in his house. And the jailor took them the same hour of the night and washed their wounds; and he was baptized at once, he and all his family.', 'Acts 16:22–38', 'prayer-global-porch' ),
             ],
