@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 2.0.15\n"
+"Project-Id-Version: Prayer.Global Porch 2.0.16\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-07-11T07:18:00+00:00\n"
+"POT-Creation-Date: 2023-07-21T09:27:32+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: prayer-global-porch\n"
@@ -1267,7 +1267,7 @@ msgid "On average, %1$s people will die without a personal relationship with Jes
 msgstr ""
 
 #: pages/pray/stacker-positions.php:200
-msgid "On average, %1$s babies will be born in the next hour to families who might now about God culturally, but likely have no relationship with Jesus in %2$s."
+msgid "On average, %1$s babies will be born in the next hour to families who might know about God culturally, but likely have no relationship with Jesus in %2$s."
 msgstr ""
 
 #: pages/pray/stacker-positions.php:201
@@ -1275,7 +1275,7 @@ msgid "%s, make yourself real to these new families."
 msgstr ""
 
 #: pages/pray/stacker-positions.php:214
-msgid "On average, %1$s babies will be born in the next 100 hours to families who might now about God culturally, but likely have no relationship with Jesus in %2$s."
+msgid "On average, %1$s babies will be born in the next 100 hours to families who might know about God culturally, but likely have no relationship with Jesus in %2$s."
 msgstr ""
 
 #: pages/pray/stacker-positions.php:215
@@ -1288,11 +1288,11 @@ msgid "%s, reveal yourself to these new families."
 msgstr ""
 
 #: pages/pray/stacker-positions.php:228
-msgid "On average, %1$s babies will be born in the next week to families who might now about God culturally, but likely have no relationship with Jesus in %2$s."
+msgid "On average, %1$s babies will be born in the next week to families who might know about God culturally, but likely have no relationship with Jesus in %2$s."
 msgstr ""
 
 #: pages/pray/stacker-positions.php:242
-msgid "On average, %1$s babies will be born in the next month to families who might now about God culturally, but likely have no relationship with Jesus in %2$s."
+msgid "On average, %1$s babies will be born in the next month to families who might know about God culturally, but likely have no relationship with Jesus in %2$s."
 msgstr ""
 
 #: pages/pray/stacker-positions.php:260
@@ -1620,7 +1620,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:248
 msgctxt "Acts 8:26–40"
-msgid "And the eunuch said to Philip, “About whom, I ask you, does the prophet say this, about himself or about someone else?” Then Philip opened his mouth, and beginning with this Scripture xhe told him the good news about Jesus."
+msgid "And the eunuch said to Philip, “About whom, I ask you, does the prophet say this, about himself or about someone else?” Then Philip opened his mouth, and beginning with this Scripture he told him the good news about Jesus."
 msgstr ""
 
 #: pages/pray/stacker-text.php:252
@@ -1650,7 +1650,7 @@ msgid "One of those listening was a woman from the city of Thyatira named Lydia,
 msgstr ""
 
 #: pages/pray/stacker-text.php:264
-msgid "Spirit, help the disciples in the %1$s of %2$s to find a person of peace today, like the Phillipian jailor, who heard and was immediately baptized with his whole family."
+msgid "Spirit, help the disciples in the %1$s of %2$s to find a person of peace today, like the Philippian jailor, who heard and was immediately baptized with his whole family."
 msgstr ""
 
 #: pages/pray/stacker-text.php:265
@@ -2893,7 +2893,7 @@ msgid "These are the things which you should do: speak the truth to one another;
 msgstr ""
 
 #: pages/pray/stacker-text.php:1920
-msgid "Jesus, raise up prophets and truth speakers in your church in %1$s so that the church can grow up in all aspects into you its head."
+msgid "Jesus, raise up prophets and truth speakers in your church in %1$s so that the church can grow in every way into the mature body of you its head."
 msgstr ""
 
 #: pages/pray/stacker-text.php:1921
@@ -2902,7 +2902,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:1922
 msgctxt "Ephesians 4:15"
-msgid "but speaking the truth in love, we are to grow up in all aspects into Him who is the head, even Christ."
+msgid "Instead, speaking the truth in love, we will grow to become in every respect the mature body of him who is the head, that is, Christ."
 msgstr ""
 
 #: pages/pray/stacker-text.php:1926
