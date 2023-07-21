@@ -1917,9 +1917,9 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => sprintf( __( 'Jesus, raise up prophets and truth speakers in your church in %1$s so that the church can grow up in all aspects into you its head.', 'prayer-global-porch' ), $stack['location']['full_name'] ),
+                'prayer' => sprintf( __( 'Jesus, raise up prophets and truth speakers in your church in %1$s so that the church can grow in every way into the mature body of you its head.', 'prayer-global-porch' ), $stack['location']['full_name'] ),
                 'reference' => __( 'Ephesians 4:15', 'prayer-global-porch' ),
-                'verse' => _x( 'but speaking the truth in love, we are to grow up in all aspects into Him who is the head, even Christ.', 'Ephesians 4:15', 'prayer-global-porch' ),
+                'verse' => _x( 'Instead, speaking the truth in love, we will grow to become in every respect the mature body of him who is the head, that is, Christ.', 'Ephesians 4:15', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,

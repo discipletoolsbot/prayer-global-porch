@@ -131,7 +131,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                         </p>
                         <p>
                             <?php echo esc_html( __( '(2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.),
-                            and is now using the internet.' ) ) ?>
+                            and is now using the Internet.' ) ) ?>
                         </p>
                         <p>
                             <?php echo esc_html( __( '(3) Extraordinary prayer is a foundational mark of all modern disciple multiplying movements.', 'prayer-global-porch' ) ) ?>
