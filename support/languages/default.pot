@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 2.0.16\n"
+"Project-Id-Version: Prayer.Global Porch 2.0.17\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-07-21T09:27:32+00:00\n"
+"POT-Creation-Date: 2023-08-01T15:50:13+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: prayer-global-porch\n"
@@ -750,13 +750,16 @@ msgid "Completed"
 msgstr ""
 
 #: pages/home/body.php:75
-#: pages/home/body.php:159
-msgid "Our ﬁrst global race started %1$s days ago and we’ve completed %2$s laps together so far."
+msgid "Our ﬁrst global race started %1$s year and %2$s days ago and we’ve completed %3$s laps together so far."
 msgstr ""
 
 #: pages/home/body.php:90
 #: pages/home/body.php:182
 msgid "With each prayer lap we complete, we are that much closer to ushering in God’s Kingdom and the return of Jesus Christ! %sClick Start Praying to start your Prayer.Global experience today!"
+msgstr ""
+
+#: pages/home/body.php:159
+msgid "Our ﬁrst global race started %1$s days ago and we’ve completed %2$s laps together so far."
 msgstr ""
 
 #: pages/home/body.php:211
