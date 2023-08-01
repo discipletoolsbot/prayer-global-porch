@@ -72,7 +72,7 @@
                     <h3 class="global-laps-completed six-em lh-xsm"><span class="loading-spinner active"></span></h3>
                 </div>
                 <p class="pb-3 mx-auto">
-                    <?php echo sprintf( esc_html__( 'Our ﬁrst global race started %1$s days ago and we’ve completed %2$s laps together so far.', 'prayer-global-porch' ), '<span class="global-days-elapsed"><span class="loading-spinner active"></span></span>', '<span class="global-laps-completed"><span class="loading-spinner active"></span></span>' ) ?>
+                    <?php echo sprintf( esc_html__( 'Our ﬁrst global race started %1$s year and %2$s days ago and we’ve completed %3$s laps together so far.', 'prayer-global-porch' ), '<span class="global-years-elapsed"><span class="loading-spinner active"></span></span>', '<span class="global-days-elapsed"><span class="loading-spinner active"></span></span>', '<span class="global-laps-completed"><span class="loading-spinner active"></span></span>' ) ?>
                 </p>
             </div>
             <div class="">

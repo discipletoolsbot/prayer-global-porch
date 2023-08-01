@@ -157,6 +157,7 @@ class Prayer_Global_Porch_Home extends DT_Magic_Url_Base
                         jQuery('#global_minutes_prayed').html(stats.global_minutes_prayed )
                         jQuery('.global-time-elapsed').html(PG.DisplayTime(stats.global_time_elapsed_data) )
                         jQuery('.global-days-elapsed').html(stats.global_time_elapsed_data.days )
+                        jQuery('.global-years-elapsed').html(stats.global_time_elapsed_data.years )
                         jQuery('.global-lap-number').html( Number(stats.global_lap_number) + 1 )
                         jQuery('.global-laps-completed').html( Number(stats.global_lap_number) )
                     })
