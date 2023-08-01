@@ -135,7 +135,7 @@ jQuery(document).ready(function(){
             get_user_app('save_details', { location, display_name })
                 .then(({ location, display_name }) => {
                     jsObject.user.location = location
-                    jsObject.user.name = display_name
+                    jsObject.user.display_name = display_name
                     jQuery('#details-modal').modal('hide')
                     jQuery('#mapbox-spinner-button').hide()
                     jQuery('#mapbox-search').val('')
@@ -245,7 +245,7 @@ jQuery(document).ready(function(){
 
         jQuery('#pg_content').html(pgContentHTML);
 
-        jQuery('#change-details').on('click', () => {
+        jQuery('.change-details').on('click', () => {
             setup_details_modal()
         })
 
@@ -292,11 +292,11 @@ jQuery(document).ready(function(){
             })
 
         jQuery('.user-profile-link').on('click', () => write_profile({
-            name: data.display_name,
-            email: data.user_email,
-            location: data.location,
-            send_lap_emails: data.send_lap_emails,
-            send_general_emails: data.send_general_emails,
+            name: jsObject.user.display_name,
+            email: jsObject.user.user_email,
+            location: jsObject.user.location,
+            send_lap_emails: jsObject.user.send_lap_emails,
+            send_general_emails: jsObject.user.send_general_emails,
         }))
         jQuery('.user-prayers-link').on('click', () => write_prayers())
         jQuery('.user-challenges-link').on('click', () => write_challenges())
@@ -319,7 +319,7 @@ jQuery(document).ready(function(){
                 <tbody>
                     <tr>
                         <td>${name_text}:</td>
-                        <td>${name}</td>
+                        <td class="user__full-name">${name}</td>
                     </tr>
                     <tr>
                         <td>${email_text}:</td>
@@ -375,6 +375,11 @@ jQuery(document).ready(function(){
             get_user_app('update_user', {
                 [e.target.id]: e.target.checked
             })
+        })
+
+        jQuery('.change-details').off('click')
+        jQuery('.change-details').on('click', () => {
+            setup_details_modal()
         })
 
         open_profile()
@@ -926,7 +931,7 @@ jQuery(document).ready(function(){
         return ModalButton({
             text: 'Change',
             modalId: 'details-modal',
-            classes: 'brand-lightest',
+            classes: 'brand-lightest change-details',
             id: 'change-details',
         })
     }
