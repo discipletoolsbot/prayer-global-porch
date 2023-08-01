@@ -158,9 +158,9 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
 
                 </div>
                 <div class="holding-page flow-small">
-                    <span class="six-em center"><?php echo esc_html__( 'Starts on', 'prayer-global-porch' ) ?><span class="starts-on-date"></span></span>
+                    <span class="six-em center"><?php echo sprintf( esc_html__( 'Starts on %s', 'prayer-global-porch' ), '<span class="starts-on-date"></span>' ) ?></span>
                     <span class="six-em center time-remaining text-secondary"></span>
-                    <button class="btn cta-btn btn-lg pray-button"></button>
+                    <button class="btn btn-cta btn-lg pray-button"></button>
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
