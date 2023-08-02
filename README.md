@@ -6,11 +6,13 @@ Prayer Global Porch is the core prayer app for the prayer.global website.
 
 Run
 
-`npm run release x.y.z`
+`npm run release:fix`
+`npm run release:feature`
+`npm run release:major`
 
-Where x.y.z is the release number based on the previous one made.
+This will generate the correct semver tag based off of the current tag found in package.json.
 
-This will create a new tag of this number on the current commit, change the version number in
+It will then create a new tag of this number on the current commit, change the version number in
 
 * package.json
 * version-control.json

@@ -1183,7 +1183,10 @@ jQuery(document).ready(function($){
           console.log(cta)
           const content = `
             <h3 class="modal-title">${cta.post_title}</h3>
-            ${cta.post_content}
+            ${
+              cta.post_content
+                .replace( 'wp-element-button', 'btn btn-primary' )
+            }
           `
           cta_modal_body.innerHTML = content
           window.pg_set_up_share_buttons()
