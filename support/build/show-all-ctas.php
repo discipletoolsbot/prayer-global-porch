@@ -91,6 +91,7 @@ class Prayer_Global_Show_All_CTAS extends DT_Magic_Url_Base
             $ctas = get_posts( [
                 'post_type' => 'ctas',
                 'cat' => $term->term_id,
+                'posts_per_page' => -1,
             ] );
 
             $cta_cats_by_slug[$term->slug] = $term;
