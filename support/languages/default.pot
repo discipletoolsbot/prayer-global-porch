@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 2.0.22\n"
+"Project-Id-Version: Prayer.Global Porch 2.0.23\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-08-03T07:28:21+00:00\n"
+"POT-Creation-Date: 2023-08-03T13:00:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: prayer-global-porch\n"
@@ -300,15 +300,15 @@ msgstr ""
 #: pages/pray/action-custom-map-display.php:156
 #: pages/pray/action-custom-map.php:203
 #: pages/pray/action-custom-map.php:290
-#: pages/pray/action-global-map.php:179
-#: pages/pray/action-global-map.php:267
+#: pages/pray/action-global-map.php:180
+#: pages/pray/action-global-map.php:268
 #: pages/race/race-map.php:178
 msgid "Intercessors"
 msgstr ""
 
 #: pages/challenges/active-list.php:89
 #: pages/pray/action-custom-map.php:303
-#: pages/pray/action-global-map.php:280
+#: pages/pray/action-global-map.php:281
 #: pages/race/race-map.php:196
 msgid "Time Elapsed"
 msgstr ""
@@ -791,8 +791,8 @@ msgstr ""
 #: pages/pray/action-custom-map-display.php:142
 #: pages/pray/action-custom-map.php:195
 #: pages/pray/action-custom-map.php:281
-#: pages/pray/action-global-map.php:171
-#: pages/pray/action-global-map.php:258
+#: pages/pray/action-global-map.php:172
+#: pages/pray/action-global-map.php:259
 msgid "Places Covered"
 msgstr ""
 
@@ -950,28 +950,28 @@ msgstr ""
 
 #: pages/pray/action-custom-lap.php:275
 #: pages/pray/action-custom-map.php:235
-#: pages/pray/action-global-map.php:212
+#: pages/pray/action-global-map.php:213
 #: pages/pray/trait-lap.php:199
 msgid "Thank you! Leave us a correction below."
 msgstr ""
 
 #: pages/pray/action-custom-lap.php:283
 #: pages/pray/action-custom-map.php:241
-#: pages/pray/action-global-map.php:218
+#: pages/pray/action-global-map.php:219
 #: pages/pray/trait-lap.php:207
 msgid "Section:"
 msgstr ""
 
 #: pages/pray/action-custom-lap.php:287
 #: pages/pray/action-custom-map.php:245
-#: pages/pray/action-global-map.php:222
+#: pages/pray/action-global-map.php:223
 #: pages/pray/trait-lap.php:211
 msgid "Correction Requested:"
 msgstr ""
 
 #: pages/pray/action-custom-lap.php:291
 #: pages/pray/action-custom-map.php:249
-#: pages/pray/action-global-map.php:226
+#: pages/pray/action-global-map.php:227
 #: pages/pray/trait-lap.php:215
 msgid "Submit"
 msgstr ""
@@ -993,35 +993,35 @@ msgstr ""
 
 #: pages/pray/action-custom-map-display.php:111
 #: pages/pray/action-custom-map.php:137
-#: pages/pray/action-global-map.php:133
+#: pages/pray/action-global-map.php:134
 #: pages/race/race-map.php:148
 msgid "Loading the planet ..."
 msgstr ""
 
 #: pages/pray/action-custom-map-display.php:112
 #: pages/pray/action-custom-map.php:138
-#: pages/pray/action-global-map.php:134
+#: pages/pray/action-global-map.php:135
 #: pages/race/race-map.php:149
 msgid "Locating world population..."
 msgstr ""
 
 #: pages/pray/action-custom-map-display.php:113
 #: pages/pray/action-custom-map.php:139
-#: pages/pray/action-global-map.php:135
+#: pages/pray/action-global-map.php:136
 #: pages/race/race-map.php:150
 msgid "Calculating movement activity..."
 msgstr ""
 
 #: pages/pray/action-custom-map-display.php:114
 #: pages/pray/action-custom-map.php:140
-#: pages/pray/action-global-map.php:136
+#: pages/pray/action-global-map.php:137
 #: pages/race/race-map.php:151
 msgid "Shamelessly brewing coffee..."
 msgstr ""
 
 #: pages/pray/action-custom-map-display.php:115
 #: pages/pray/action-custom-map.php:141
-#: pages/pray/action-global-map.php:137
+#: pages/pray/action-global-map.php:138
 #: pages/race/race-map.php:152
 msgid "Let's do this..."
 msgstr ""
@@ -1037,16 +1037,16 @@ msgstr ""
 #: pages/pray/action-custom-map-display.php:135
 #: pages/pray/action-custom-map.php:188
 #: pages/pray/action-custom-map.php:274
-#: pages/pray/action-global-map.php:164
-#: pages/pray/action-global-map.php:251
+#: pages/pray/action-global-map.php:165
+#: pages/pray/action-global-map.php:252
 msgid "Places Remaining"
 msgstr ""
 
 #: pages/pray/action-custom-map-display.php:149
 #: pages/pray/action-custom-map.php:210
 #: pages/pray/action-custom-map.php:297
-#: pages/pray/action-global-map.php:186
-#: pages/pray/action-global-map.php:274
+#: pages/pray/action-global-map.php:187
+#: pages/pray/action-global-map.php:275
 msgid "World Coverage"
 msgstr ""
 
@@ -1063,19 +1063,19 @@ msgid "Starts on %s"
 msgstr ""
 
 #: pages/pray/action-custom-map.php:267
-#: pages/pray/action-global-map.php:157
-#: pages/pray/action-global-map.php:244
+#: pages/pray/action-global-map.php:158
+#: pages/pray/action-global-map.php:245
 msgid "Lap %s Stats"
 msgstr ""
 
 #: pages/pray/action-custom-map.php:308
-#: pages/pray/action-global-map.php:286
+#: pages/pray/action-global-map.php:287
 #: pages/user/user-profile.php:219
 msgid "Start Time"
 msgstr ""
 
 #: pages/pray/action-custom-map.php:312
-#: pages/pray/action-global-map.php:290
+#: pages/pray/action-global-map.php:291
 #: pages/user/user-profile.php:226
 #: post-type/laps.php:212
 msgid "End Time"
@@ -1130,7 +1130,7 @@ msgstr ""
 msgid "%s Map"
 msgstr ""
 
-#: pages/pray/action-global-map.php:197
+#: pages/pray/action-global-map.php:198
 msgid "Pray for this area"
 msgstr ""
 
