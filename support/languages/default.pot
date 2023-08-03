@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 2.0.21\n"
+"Project-Id-Version: Prayer.Global Porch 2.0.22\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-08-02T16:38:12+00:00\n"
+"POT-Creation-Date: 2023-08-03T07:28:21+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: prayer-global-porch\n"
@@ -206,8 +206,8 @@ msgstr ""
 
 #: pages/assets/menu.php:38
 #: post-type/feedback.php:126
-#: post-type/laps.php:138
-#: post-type/laps.php:235
+#: post-type/laps.php:139
+#: post-type/laps.php:243
 msgid "Status"
 msgstr ""
 
@@ -277,7 +277,7 @@ msgid "Media & Promotion"
 msgstr ""
 
 #: pages/challenges/active-list.php:83
-#: pages/pray/action-custom-map.php:153
+#: pages/pray/action-custom-map.php:154
 msgid "Pray"
 msgstr ""
 
@@ -298,8 +298,8 @@ msgstr ""
 #: pages/challenges/active-list.php:88
 #: pages/home/body.php:249
 #: pages/pray/action-custom-map-display.php:156
-#: pages/pray/action-custom-map.php:202
-#: pages/pray/action-custom-map.php:289
+#: pages/pray/action-custom-map.php:203
+#: pages/pray/action-custom-map.php:290
 #: pages/pray/action-global-map.php:179
 #: pages/pray/action-global-map.php:267
 #: pages/race/race-map.php:178
@@ -307,7 +307,7 @@ msgid "Intercessors"
 msgstr ""
 
 #: pages/challenges/active-list.php:89
-#: pages/pray/action-custom-map.php:302
+#: pages/pray/action-custom-map.php:303
 #: pages/pray/action-global-map.php:280
 #: pages/race/race-map.php:196
 msgid "Time Elapsed"
@@ -779,7 +779,7 @@ msgid "Total Intercessors"
 msgstr ""
 
 #: pages/home/body.php:239
-#: pages/pray/action-custom-map.php:179
+#: pages/pray/action-custom-map.php:180
 msgid "Lap %s"
 msgstr ""
 
@@ -789,8 +789,8 @@ msgstr ""
 
 #: pages/home/body.php:256
 #: pages/pray/action-custom-map-display.php:142
-#: pages/pray/action-custom-map.php:194
-#: pages/pray/action-custom-map.php:280
+#: pages/pray/action-custom-map.php:195
+#: pages/pray/action-custom-map.php:281
 #: pages/pray/action-global-map.php:171
 #: pages/pray/action-global-map.php:258
 msgid "Places Covered"
@@ -949,28 +949,28 @@ msgid "Step 3"
 msgstr ""
 
 #: pages/pray/action-custom-lap.php:275
-#: pages/pray/action-custom-map.php:234
+#: pages/pray/action-custom-map.php:235
 #: pages/pray/action-global-map.php:212
 #: pages/pray/trait-lap.php:199
 msgid "Thank you! Leave us a correction below."
 msgstr ""
 
 #: pages/pray/action-custom-lap.php:283
-#: pages/pray/action-custom-map.php:240
+#: pages/pray/action-custom-map.php:241
 #: pages/pray/action-global-map.php:218
 #: pages/pray/trait-lap.php:207
 msgid "Section:"
 msgstr ""
 
 #: pages/pray/action-custom-lap.php:287
-#: pages/pray/action-custom-map.php:244
+#: pages/pray/action-custom-map.php:245
 #: pages/pray/action-global-map.php:222
 #: pages/pray/trait-lap.php:211
 msgid "Correction Requested:"
 msgstr ""
 
 #: pages/pray/action-custom-lap.php:291
-#: pages/pray/action-custom-map.php:248
+#: pages/pray/action-custom-map.php:249
 #: pages/pray/action-global-map.php:226
 #: pages/pray/trait-lap.php:215
 msgid "Submit"
@@ -992,35 +992,35 @@ msgid "Correction Needed?"
 msgstr ""
 
 #: pages/pray/action-custom-map-display.php:111
-#: pages/pray/action-custom-map.php:136
+#: pages/pray/action-custom-map.php:137
 #: pages/pray/action-global-map.php:133
 #: pages/race/race-map.php:148
 msgid "Loading the planet ..."
 msgstr ""
 
 #: pages/pray/action-custom-map-display.php:112
-#: pages/pray/action-custom-map.php:137
+#: pages/pray/action-custom-map.php:138
 #: pages/pray/action-global-map.php:134
 #: pages/race/race-map.php:149
 msgid "Locating world population..."
 msgstr ""
 
 #: pages/pray/action-custom-map-display.php:113
-#: pages/pray/action-custom-map.php:138
+#: pages/pray/action-custom-map.php:139
 #: pages/pray/action-global-map.php:135
 #: pages/race/race-map.php:150
 msgid "Calculating movement activity..."
 msgstr ""
 
 #: pages/pray/action-custom-map-display.php:114
-#: pages/pray/action-custom-map.php:139
+#: pages/pray/action-custom-map.php:140
 #: pages/pray/action-global-map.php:136
 #: pages/race/race-map.php:151
 msgid "Shamelessly brewing coffee..."
 msgstr ""
 
 #: pages/pray/action-custom-map-display.php:115
-#: pages/pray/action-custom-map.php:140
+#: pages/pray/action-custom-map.php:141
 #: pages/pray/action-global-map.php:137
 #: pages/race/race-map.php:152
 msgid "Let's do this..."
@@ -1035,16 +1035,16 @@ msgid "Cover The World In Prayer"
 msgstr ""
 
 #: pages/pray/action-custom-map-display.php:135
-#: pages/pray/action-custom-map.php:187
-#: pages/pray/action-custom-map.php:273
+#: pages/pray/action-custom-map.php:188
+#: pages/pray/action-custom-map.php:274
 #: pages/pray/action-global-map.php:164
 #: pages/pray/action-global-map.php:251
 msgid "Places Remaining"
 msgstr ""
 
 #: pages/pray/action-custom-map-display.php:149
-#: pages/pray/action-custom-map.php:209
-#: pages/pray/action-custom-map.php:296
+#: pages/pray/action-custom-map.php:210
+#: pages/pray/action-custom-map.php:297
 #: pages/pray/action-global-map.php:186
 #: pages/pray/action-global-map.php:274
 msgid "World Coverage"
@@ -1058,43 +1058,43 @@ msgstr ""
 msgid "Turn the map from dark to light"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:161
+#: pages/pray/action-custom-map.php:162
 msgid "Starts on %s"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:266
+#: pages/pray/action-custom-map.php:267
 #: pages/pray/action-global-map.php:157
 #: pages/pray/action-global-map.php:244
 msgid "Lap %s Stats"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:307
+#: pages/pray/action-custom-map.php:308
 #: pages/pray/action-global-map.php:286
 #: pages/user/user-profile.php:219
 msgid "Start Time"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:311
+#: pages/pray/action-custom-map.php:312
 #: pages/pray/action-global-map.php:290
 #: pages/user/user-profile.php:226
-#: post-type/laps.php:204
+#: post-type/laps.php:212
 msgid "End Time"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:315
+#: pages/pray/action-custom-map.php:316
 msgid "Locations per Hour"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:318
-#: pages/pray/action-custom-map.php:325
+#: pages/pray/action-custom-map.php:319
+#: pages/pray/action-custom-map.php:326
 msgid "%s per day"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:322
+#: pages/pray/action-custom-map.php:323
 msgid "Current Locations per Hour"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:329
+#: pages/pray/action-custom-map.php:330
 msgid "Time Remaining"
 msgstr ""
 
@@ -4195,12 +4195,12 @@ msgid "New %s Relay"
 msgstr ""
 
 #: pages/user/user-profile.php:103
-#: post-type/laps.php:240
+#: post-type/laps.php:248
 msgid "Public"
 msgstr ""
 
 #: pages/user/user-profile.php:104
-#: post-type/laps.php:244
+#: post-type/laps.php:252
 msgid "Private"
 msgstr ""
 
@@ -4259,7 +4259,7 @@ msgid "Pray for the whole world"
 msgstr ""
 
 #: pages/user/user-profile.php:203
-#: post-type/laps.php:261
+#: post-type/laps.php:269
 msgid "Timed Challenge"
 msgstr ""
 
@@ -4280,7 +4280,7 @@ msgid "Now"
 msgstr ""
 
 #: pages/user/user-profile.php:218
-#: post-type/laps.php:180
+#: post-type/laps.php:188
 msgid "Start Date"
 msgstr ""
 
@@ -4289,7 +4289,7 @@ msgid "Challenge End Date"
 msgstr ""
 
 #: pages/user/user-profile.php:225
-#: post-type/laps.php:188
+#: post-type/laps.php:196
 msgid "End Date"
 msgstr ""
 
@@ -4373,7 +4373,7 @@ msgid "Do not manually create! System creates new laps when ready."
 msgstr ""
 
 #: post-type/feedback.php:127
-#: post-type/laps.php:139
+#: post-type/laps.php:140
 msgid "Set the current status."
 msgstr ""
 
@@ -4418,12 +4418,12 @@ msgid "Closed and feedback not implemented."
 msgstr ""
 
 #: post-type/feedback.php:163
-#: post-type/laps.php:165
+#: post-type/laps.php:166
 msgid "Assigned To"
 msgstr ""
 
 #: post-type/feedback.php:164
-#: post-type/laps.php:166
+#: post-type/laps.php:167
 msgid "Select the main person who is responsible for reporting on this record."
 msgstr ""
 
@@ -4432,21 +4432,21 @@ msgid "Reporter"
 msgstr ""
 
 #: post-type/feedback.php:268
-#: post-type/laps.php:334
+#: post-type/laps.php:342
 msgid "Other"
 msgstr ""
 
 #: post-type/feedback.php:441
-#: post-type/laps.php:543
+#: post-type/laps.php:551
 msgid "Assigned to me"
 msgstr ""
 
 #: post-type/feedback.php:449
 #: post-type/feedback.php:506
 #: post-type/feedback.php:514
-#: post-type/laps.php:551
-#: post-type/laps.php:608
+#: post-type/laps.php:559
 #: post-type/laps.php:616
+#: post-type/laps.php:624
 msgid "All"
 msgstr ""
 
@@ -4458,141 +4458,149 @@ msgstr ""
 msgid "Global (Auto)"
 msgstr ""
 
-#: post-type/laps.php:143
+#: post-type/laps.php:144
 msgid "Active"
 msgstr ""
 
-#: post-type/laps.php:144
+#: post-type/laps.php:145
 msgid "Is active."
 msgstr ""
 
-#: post-type/laps.php:148
+#: post-type/laps.php:149
 msgid "Complete"
 msgstr ""
 
-#: post-type/laps.php:149
-#: post-type/laps.php:154
+#: post-type/laps.php:150
+#: post-type/laps.php:155
 msgid "No longer active."
 msgstr ""
 
-#: post-type/laps.php:153
+#: post-type/laps.php:154
 msgid "Inactive"
 msgstr ""
 
-#: post-type/laps.php:196
+#: post-type/laps.php:175
+msgid "Turn the CTAs off"
+msgstr ""
+
+#: post-type/laps.php:176
+msgid "Tick this box to turn the Call to Actions (CTAs) off for this lap"
+msgstr ""
+
+#: post-type/laps.php:204
 msgid "Start time"
 msgstr ""
 
-#: post-type/laps.php:213
+#: post-type/laps.php:221
 msgid "Global Lap Number"
 msgstr ""
 
-#: post-type/laps.php:221
+#: post-type/laps.php:229
 msgid "Global Key"
 msgstr ""
 
-#: post-type/laps.php:228
+#: post-type/laps.php:236
 msgid "Custom Key"
 msgstr ""
 
-#: post-type/laps.php:241
+#: post-type/laps.php:249
 msgid "This lap is public and will show up on the public list of challenges"
 msgstr ""
 
-#: post-type/laps.php:245
+#: post-type/laps.php:253
 msgid "This lap is private and won't show up on the public list of challenges"
 msgstr ""
 
-#: post-type/laps.php:252
+#: post-type/laps.php:260
 msgid "Challenge Type"
 msgstr ""
 
-#: post-type/laps.php:257
+#: post-type/laps.php:265
 msgid "Ongoing Challenge"
 msgstr ""
 
-#: post-type/laps.php:258
+#: post-type/laps.php:266
 msgid "This challenge has no end date/time"
 msgstr ""
 
-#: post-type/laps.php:262
+#: post-type/laps.php:270
 msgid "This challenge is a race to pray for the world by a certain time"
 msgstr ""
 
-#: post-type/laps.php:269
+#: post-type/laps.php:277
 msgid "Single lap"
 msgstr ""
 
-#: post-type/laps.php:270
+#: post-type/laps.php:278
 msgid "Is this lap only to run once and then stop"
 msgstr ""
 
-#: post-type/laps.php:279
+#: post-type/laps.php:287
 msgid "Contacts"
 msgstr ""
 
-#: post-type/laps.php:291
+#: post-type/laps.php:299
 msgid "Parent Lap"
 msgstr ""
 
-#: post-type/laps.php:302
+#: post-type/laps.php:310
 msgid "Child Lap"
 msgstr ""
 
-#: utilities/global-utilities.php:662
+#: utilities/global-utilities.php:663
 msgid "seconds"
 msgstr ""
 
-#: utilities/global-utilities.php:662
+#: utilities/global-utilities.php:663
 msgid "second"
 msgstr ""
 
-#: utilities/global-utilities.php:663
-#: utilities/global-utilities.php:666
-#: utilities/global-utilities.php:669
-#: utilities/global-utilities.php:672
-#: utilities/global-utilities.php:676
-#: utilities/global-utilities.php:680
+#: utilities/global-utilities.php:664
+#: utilities/global-utilities.php:667
+#: utilities/global-utilities.php:670
+#: utilities/global-utilities.php:673
+#: utilities/global-utilities.php:677
+#: utilities/global-utilities.php:681
 msgctxt "23 seconds ago"
 msgid "%1$d %2$s ago"
 msgstr ""
 
-#: utilities/global-utilities.php:665
+#: utilities/global-utilities.php:666
 msgid "minutes"
 msgstr ""
 
-#: utilities/global-utilities.php:665
+#: utilities/global-utilities.php:666
 msgid "minute"
 msgstr ""
 
-#: utilities/global-utilities.php:668
+#: utilities/global-utilities.php:669
 msgid "hours"
 msgstr ""
 
-#: utilities/global-utilities.php:668
+#: utilities/global-utilities.php:669
 msgid "hour"
 msgstr ""
 
-#: utilities/global-utilities.php:671
+#: utilities/global-utilities.php:672
 msgid "days"
 msgstr ""
 
-#: utilities/global-utilities.php:671
+#: utilities/global-utilities.php:672
 msgid "day"
 msgstr ""
 
-#: utilities/global-utilities.php:675
+#: utilities/global-utilities.php:676
 msgid "weeks"
 msgstr ""
 
-#: utilities/global-utilities.php:675
+#: utilities/global-utilities.php:676
 msgid "week"
 msgstr ""
 
-#: utilities/global-utilities.php:679
+#: utilities/global-utilities.php:680
 msgid "months"
 msgstr ""
 
-#: utilities/global-utilities.php:679
+#: utilities/global-utilities.php:680
 msgid "month"
 msgstr ""
