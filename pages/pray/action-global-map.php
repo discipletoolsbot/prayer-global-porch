@@ -101,6 +101,7 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
                     'add' => __( 'Add Magic', 'prayer-global-porch' ),
                 ],
                 'map_type' => 'binary',
+                'is_cta_feature_on' => true,
             ]) ?>][0]
         </script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
