@@ -905,6 +905,7 @@ function pg_generate_new_custom_prayer_lap( $post_id ) {
     $fields['start_time'] = $time;
     $fields['global_lap_number'] = $next_custom_lap_number;
     $fields['prayer_app_custom_magic_key'] = $current_lap_key;
+    $fields['ctas_off'] = $current_lap['ctas_off'];
     $fields['parent_lap'] = [
         'values' => [
             [ 'value' => $current_lap['post_id'] ]
