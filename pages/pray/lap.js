@@ -242,7 +242,12 @@ jQuery(document).ready(function(){
     decision_map.off('click')
     decision_map.on('click', () => open_decision_modal( map_callback ) )
     function map_callback( e ) {
-      window.location = jsObject.map_url + '?show_cta'
+      if ( jsObject.is_cta_feature_on === true ) {
+        window.location = jsObject.map_url + '?show_cta'
+      } else {
+        window.location = jsObject.map_url
+      }
+
     }
     decision_next.off('click')
     decision_next.on('click', () => open_decision_modal( next_callback ) )

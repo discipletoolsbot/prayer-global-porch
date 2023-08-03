@@ -134,6 +134,7 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 "default_color" => "#366184",
                 "show_in_table" => 1,
             ];
+
             $fields['status'] = [
                 'name'        => __( 'Status', 'prayer-global-porch' ),
                 'description' => __( 'Set the current status.', 'prayer-global-porch' ),
@@ -170,8 +171,15 @@ class Prayer_Global_Laps_Post_Type extends DT_Module_Base {
                 'icon' => get_template_directory_uri() . '/dt-assets/images/assigned-to.svg',
                 "show_in_table" => 16,
             ];
-
-
+            $fields['ctas_off'] = [
+                'name' => __( 'Turn the CTAs off', 'prayer-global-porch' ),
+                'description' => __( 'Tick this box to turn the Call to Actions (CTAs) off for this lap', 'prayer-global-porch' ),
+                'type' => 'boolean',
+                'tile' => 'status',
+                'default' => false,
+                'in_create_form' => true,
+                'hidden' => false,
+            ];
 
             /**
              * Common and recommended fields

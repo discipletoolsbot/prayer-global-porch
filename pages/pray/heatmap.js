@@ -1177,7 +1177,7 @@ jQuery(document).ready(function($){
 
     const show_cta = url.searchParams.get('show_cta') !== null
 
-    if ( show_cta ) {
+    if ( show_cta && jsObject.is_cta_feature_on === true ) {
       window.api_post_global( 'ctas', 'get_cta' )
         .then((cta) => {
           console.log(cta)

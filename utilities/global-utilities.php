@@ -169,6 +169,7 @@ function pg_get_custom_lap_by_post_id( $post_id ) {
             'single_lap' => isset( $result['single_lap'] ) ? $result['single_lap'] : false,
             'assigned_to' => isset( $result['assigned_to'] ) ? $result['assigned_to'] : null,
             'contacts' => $contacts,
+            'ctas_off' => isset( $result['ctas_off'] ) ? $result['ctas_off'] : false,
         ];
     }
 
