@@ -198,9 +198,9 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
                                 <!-- Buttons group for choosing which type of challenge to start -->
                                 <div class="btn-group-vertical mb-3 w-100" role="group" aria-label="<?php esc_attr( __( 'Choose type of challenge', 'prayer-global-porch' ) ) ?>">
                                     <input type="radio" class="btn-check ongoing-challenge-button" name="challenge-type" id="ongoing_challenge" autocomplete="off" required>
-                                    <label class="btn btn-small btn-outline-secondary challenge-type" for="ongoing_challenge" role="button"><?php echo esc_html__( 'Pray for the whole world', 'prayer-global-porch' ) ?></label>
+                                    <label class="btn btn-small btn-outline-secondary challenge-type" for="ongoing_challenge" role="button"><?php echo esc_html__( 'On-going Prayer Relay', 'prayer-global-porch' ) ?></label>
                                     <input type="radio" class="btn-check timed-challenge-button" name="challenge-type" id="timed_challenge" autocomplete="off" required/>
-                                    <label class="btn btn-small btn-outline-secondary challenge-type" for="timed_challenge" role="button"><?php echo esc_html__( 'Timed Challenge', 'prayer-global-porch' ) ?></label>
+                                    <label class="btn btn-small btn-outline-secondary challenge-type" for="timed_challenge" role="button"><?php echo esc_html__( 'Timed Prayer Relay', 'prayer-global-porch' ) ?></label>
                                 </div>
 
                                 <input type="hidden" id="challenge-visibility">
