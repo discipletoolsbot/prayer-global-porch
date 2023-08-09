@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 2.0.24\n"
+"Project-Id-Version: Prayer.Global Porch 2.0.25\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-08-03T14:04:27+00:00\n"
+"POT-Creation-Date: 2023-08-09T10:57:39+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.8.1\n"
 "X-Domain: prayer-global-porch\n"
@@ -4255,12 +4255,11 @@ msgid "Choose type of challenge"
 msgstr ""
 
 #: pages/user/user-profile.php:201
-msgid "Pray for the whole world"
+msgid "On-going Prayer Relay"
 msgstr ""
 
 #: pages/user/user-profile.php:203
-#: post-type/laps.php:269
-msgid "Timed Challenge"
+msgid "Timed Prayer Relay"
 msgstr ""
 
 #: pages/user/user-profile.php:212
@@ -4521,6 +4520,10 @@ msgstr ""
 
 #: post-type/laps.php:266
 msgid "This challenge has no end date/time"
+msgstr ""
+
+#: post-type/laps.php:269
+msgid "Timed Challenge"
 msgstr ""
 
 #: post-type/laps.php:270
