@@ -73,6 +73,7 @@ class PG_CTAs_API {
         global $wpdb;
         $ctas = get_posts( [
             'post_type' => 'ctas',
+            'posts_per_page' => -1,
             'tax_query' => [
                 [
                     'taxonomy' => 'category',
