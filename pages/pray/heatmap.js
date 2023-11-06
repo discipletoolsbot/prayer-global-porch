@@ -754,9 +754,11 @@ jQuery(document).ready(function($){
       */
       incrementCountdown()
 
-      jQuery('.holding-page .starts-on-date').html( `${jsObject.stats.start_time_formatted} <br/> ${startTime}` )
-      jQuery('.holding-page .pray-button').html('Start warming up')
+      jQuery('.starts-on-date').html( `${jsObject.stats.start_time_formatted} <br/> ${startTime}` )
+      jQuery('.holding-page .start-praying-button').hide()
       holdingPage.show()
+
+      jQuery('#pray-button').hide()
 
     } else {
       holdingPage.hide()
@@ -767,25 +769,28 @@ jQuery(document).ready(function($){
   } /* .preCache */
 
   function incrementCountdown() {
-    const prayButton = jQuery('.holding-page .pray-button')
+    const startPrayingButton = jQuery('.holding-page .start-praying-button')
+    const prayButton = jQuery('#pray-button')
     let now = new Date().getTime() / 1000
     let timeLeft = jsObject.stats.start_time - now;
 
-    if ( Math.floor( timeLeft ) === 0 ) {
+    if ( Math.floor( timeLeft ) < 0 ) {
       jQuery('.holding-page .time-remaining').html('Go')
       window.schoolPride()
-      prayButton.html('Start Praying')
-      prayButton.off('click')
-      prayButton.on('click', () => {
+      startPrayingButton.html('Start Praying')
+      startPrayingButton.off('click')
+      startPrayingButton.on('click', () => {
         location.href = `/prayer_app/custom/${jsObject.parts.public_key}`
       })
+      startPrayingButton.show()
+      prayButton.show()
 
       clearInterval(countdownInterval)
       return
     }
 
     const formattedTimeLeft = formatTimeLeft(timeLeft)
-    jQuery('.holding-page .time-remaining').html(formattedTimeLeft)
+    jQuery('.time-remaining').html(formattedTimeLeft)
   }
 
   function formatTimeLeft(timeLeft) {

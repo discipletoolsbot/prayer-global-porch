@@ -151,7 +151,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                                 <i class="icon pg-share"></i>
                             </button>
                         </div>
-                        <a class="btn btn-cta" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>"><?php echo esc_html__( 'Pray', 'prayer-global-porch' ) ?></a>
+                        <a class="btn btn-cta" id="pray-button" href="/prayer_app/custom/<?php echo esc_attr( $parts['public_key'] ) ?>"><?php echo esc_html__( 'Pray', 'prayer-global-porch' ) ?></a>
 
                     </div>
 
@@ -161,7 +161,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                 <div class="holding-page flow-small">
                     <span class="six-em center"><?php echo sprintf( esc_html__( 'Starts on %s', 'prayer-global-porch' ), '<span class="starts-on-date"></span>' ) ?></span>
                     <span class="six-em center time-remaining text-secondary"></span>
-                    <button class="btn btn-cta btn-lg pray-button"></button>
+                    <button class="btn btn-cta btn-lg start-praying-button"><?php echo esc_html__( 'Start Praying', 'prayer-global-porch' ) ?></button>
                 </div>
                 <span class="loading-spinner active"></span>
                 <div id='map'></div>
