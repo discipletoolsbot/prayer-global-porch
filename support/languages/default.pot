@@ -9,9 +9,9 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2023-08-15T15:32:38+00:00\n"
+"POT-Creation-Date: 2023-11-06T17:13:12+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.8.1\n"
+"X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: prayer-global-porch\n"
 
 #: pages/404/404.php:98
@@ -59,6 +59,7 @@ msgstr ""
 #: pages/assets/menu.php:73
 #: pages/home/body.php:12
 #: pages/home/body.php:277
+#: pages/pray/action-custom-map.php:164
 #: pages/pray/nav-global-map.php:8
 #: pages/race/nav-race-map.php:15
 msgid "Start Praying"
