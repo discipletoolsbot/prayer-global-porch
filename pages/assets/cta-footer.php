@@ -4,7 +4,7 @@
             <div class="col text-center text-white">
                 <a class="white pe-2" href="/prayer_app/contact_us/">Join</a>
                 <span>|</span>
-                <a class="white fw-bold px-2" href="/content_app/give_page">Give</a>
+                <a class="white fw-bold px-2" href="https://give.prayer.global/" target="_blank">Give <i class="ion-android-open"></i></a>
                 <span>|</span>
                 <button class="icon-button share-button filter-white ps-2" data-toggle="modal" data-target="#exampleModal">
                     <img src="<?php echo esc_html( plugin_dir_url( __FILE__ ) ) ?>images/share.svg" alt="Share">

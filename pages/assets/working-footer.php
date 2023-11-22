@@ -11,7 +11,7 @@
         </ul>
         <ul style="list-style: none;">
             <li><a class="white" href="/prayer_app/contact_us/"><?php echo esc_html( __( 'Contact Us', 'prayer-global-porch' ) ) ?></a></li>
-            <li><a class="white fw-bold" href="/content_app/give_page"><?php echo esc_html( __( 'Give', 'prayer-global-porch' ) ) ?></a></li>
+            <li><a class="white fw-bold" href="https://give.prayer.global/" target="_blank"><?php echo esc_html( __( 'Give', 'prayer-global-porch' ) ) ?> <i class="ion-android-open"></i></a></li>
         </ul>
         <ul style="list-style: none;">
             <li><a class="white" href="/content_app/about_page/"><?php echo esc_html( __( 'About', 'prayer-global-porch' ) ) ?></a></li>

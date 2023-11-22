@@ -168,6 +168,43 @@ class Prayer_Global_Porch_Newest_Lap_Map extends DT_Magic_Url_Base
 }
 Prayer_Global_Porch_Newest_Lap_Map::instance();
 
+class Prayer_Global_Give extends DT_Magic_Url_Base
+{
+    public $page_title = 'Global Prayer - Give';
+    public $root = 'content_app';
+    public $type = 'give_page';
+    public $type_name = 'Global Prayer - Give';
+    public static $token = 'content_app_give';
+    public $post_type = 'laps';
+
+    private static $_instance = null;
+
+    public static function instance() {
+        if (is_null( self::$_instance )) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    } // End instance()
+
+    public function __construct() {
+        parent::__construct();
+
+        $url = dt_get_url_path();
+
+        $url_token = $this->root . '/' . $this->type;
+        if (substr( $url, 0, strlen( $url_token ) ) === $url_token ) {
+            $this->redirect();
+        }
+
+    }
+
+    public function redirect() {
+        $link = 'https://give.prayer.global/';
+        wp_redirect( $link );
+        exit;
+    }
+}
+Prayer_Global_Give::instance();
 
 class Prayer_Global_Porch_App_Store_Redirect extends DT_Magic_Url_Base
 {

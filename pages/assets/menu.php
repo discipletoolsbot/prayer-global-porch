@@ -56,10 +56,11 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
 
                 <?php endif; ?>
 
-                <a class="nav-link" href="/content_app/give_page">
+                <a class="nav-link" href="https://give.prayer.global/" target="_blank">
                     <div class="nav-link__inner">
                         <i class="icon pg-give"></i>
                         <span><?php echo esc_html( __( 'Give', 'prayer-global-porch' ) ) ?></span>
+                        <i class="ion-android-open absolute right-0"></i>
                     </div>
                 </a>
 

@@ -237,7 +237,7 @@ jQuery(document).ready(function(){
                 <p>${are_you_enjoying_the_app}</p>
                 <p>${would_you_like_to_partner}</p>
                 <div class="d-flex flex-column m-auto w-fit">
-                    <a class="btn btn-small btn-primary-light uppercase" data-reverse-color href="/content_app/give_page">${give}</a>
+                    <a class="btn btn-small btn-primary-light uppercase" data-reverse-color href="https://give.prayer.global/" target="_blank">${give} <i class="ion-android-open"></i></a>
                     <a class="btn btn-small btn-outline-primary mt-3 uppercase" href="/user_app/logout">${logout}</a><br>
                 </div>
             </section>

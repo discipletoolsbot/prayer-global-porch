@@ -1,7 +1,12 @@
 <?php
 if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 
-class Prayer_Global_Give extends DT_Magic_Url_Base
+/**
+ * DEPRECATED: we are now using https://give.prayer.global/
+ *
+ * The old content_app/give_page is being redirected there in redirects.php
+ */
+/* class Prayer_Global_Give extends DT_Magic_Url_Base
 {
     public $magic = false;
     public $parts = false;
@@ -155,3 +160,4 @@ class Prayer_Global_Give extends DT_Magic_Url_Base
 }
 Prayer_Global_Give::instance();
 
+ */

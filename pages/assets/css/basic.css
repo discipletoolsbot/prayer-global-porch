@@ -231,6 +231,12 @@ input[type="radio"]:checked {
 .font-base {
     font-family: var(--pg-font-family-base);
 }
+.absolute {
+    position: absolute;
+}
+.absolute.right-0 {
+    right: 0;
+}
 @media (max-width: 768px) {
     .six-em {
         font-size: 3em ;
