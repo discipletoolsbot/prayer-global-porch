@@ -76,7 +76,7 @@ jQuery(document).ready(function() {
                 url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json'
               },*/
               lengthChange: false,
-              pageLength: 3,
+              pageLength: 6,
               pagingType: 'simple',
               responsive: true,
               order: [[0, 'desc']],

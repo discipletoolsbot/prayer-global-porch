@@ -1376,7 +1376,7 @@ input[type="text"],
 }
 .data-table .dataTables_wrapper .dataTables_info {
     float: left;
-    font-size: 12px;
+    font-size: 0.9rem;
     text-transform: none;
     padding-left: 10px;
 }
