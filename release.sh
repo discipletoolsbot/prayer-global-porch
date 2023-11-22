@@ -18,6 +18,8 @@ done
 
 currentVersion=$(grep version package.json | grep -oP '\d*\.\d*\.\d*')
 
+echo currentVersion is $currentVersion
+
 IFS='.' read -ra ADDR <<< "$currentVersion"
 major=${ADDR[0]}
 minor=${ADDR[1]}
