@@ -141,6 +141,7 @@ class Prayer_Global_Porch {
         require_once( 'support/build/loader.php' );
         require_once( 'pages/about/about.php' );
         require_once( 'pages/give/give.php' );
+        require_once( 'pages/church/church.php' );
 
         // 404
         require_once( 'pages/404/404.php' ); // MUST BE LAST LOADED

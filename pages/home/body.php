@@ -299,7 +299,7 @@
         color: var(--pg-brand-color) !important;
     }
 </style>
-<section id="section-mobile" class="page-section text-center d-sm-none d-md-block brand-bg mb-5">
+<section id="section-mobile" class="page-section text-center d-sm-none d-md-block brand-bg">
     <div class="container">
         <div class="row align-items-center">
             <div class="col-md-12">

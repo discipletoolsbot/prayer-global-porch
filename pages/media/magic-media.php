@@ -87,6 +87,32 @@ class Prayer_Global_Porch_Media extends DT_Magic_Url_Base
                         <h2 class="mt-0 font-weight-normal"><?php echo esc_html( __( 'Media & Promotion', 'prayer-global-porch' ) ) ?></h2>
                     </div>
                 </div>
+                <div class="row justify-content-md-center text-center mb-5" style="display: none">
+                    <div class="col-12 mb-3">
+                       <hr>
+                    </div>
+                    <div class="col-12">
+                        <h2><?php echo esc_html__( 'How to launch Prayer.Global at your church', 'prayer-global-porch' ) ?></h2>
+                    </div>
+                    <div class="col-lg-3 p-3">
+                        <?php echo esc_html( __( 'Video', 'prayer-global-porch' ) ) ?><br>
+                        <div style="padding:56.3% 0 0 0;position:relative;"><iframe src="https://player.vimeo.com/video/715752828?h=d39d43cea8&amp;badge=0&amp;autopause=1&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;" title="moravian-prayer-challenge"></iframe></div><script src="https://player.vimeo.com/api/player.js"></script>
+                    </div>
+                    <div class="col-lg-3 p-3">
+                        <p>
+                            <?php echo esc_html( __( 'Download Video', 'prayer-global-porch' ) ) ?>
+                            <br><a href="https://player.vimeo.com/progressive_redirect/download/715752828/container/44c88492-73ba-4789-9e48-c88316194653/c2189175/moravian-prayer-challenge%20%28360p%29.mp4?expires=1656520543&loc=external&signature=35931e268af8c01f4c82c771b47d2b3393fca9f000dc62ff89afe0f6bb6ac1a5"><?php echo esc_html__( 'Low Quality (360p - 10mg)', 'prayer-global-porch' ) ?></a>
+                            <br><a href="https://player.vimeo.com/progressive_redirect/download/715752828/container/44c88492-73ba-4789-9e48-c88316194653/19ce9b8c-bc019d05/moravian-prayer-challenge%20%281080p%29.mp4?expires=1656520543&loc=external&signature=5ee3781d3107607bbb25b556a0c87cacfa4126412d3c2e9412b2db2f9366c18d"><?php echo esc_html__( 'HD Download (1080p - 31mg)', 'prayer-global-porch' ) ?></a>
+                            <br><a href="https://player.vimeo.com/progressive_redirect/download/715752828/container/44c88492-73ba-4789-9e48-c88316194653/538db78d/moravian-prayer-challenge%20%282160p%29.mp4?expires=1656520543&loc=external&signature=2e0906096aec000bd78276f5bbde85f9e9c9ad7d627c4c92bfa14e58335faea9"><?php echo esc_html__( '4k Download (2160p - 74mg)', 'prayer-global-porch' ) ?></a>
+                        </p>
+                    </div>
+                    <div class="col-lg-3 p-3">
+                        <h3>Resources</h3>
+                        <p>
+                            <a href="/church">How to launch Prayer.Global at your church</a>
+                        </p>
+                    </div>
+                </div>
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-12 mb-3">
                        <hr>
