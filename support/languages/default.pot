@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 2.2.2\n"
+"Project-Id-Version: Prayer.Global Porch 2.3.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-01-19T10:45:34+00:00\n"
+"POT-Creation-Date: 2024-02-08T17:34:45+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: prayer-global-porch\n"
@@ -340,6 +340,71 @@ msgstr ""
 
 #: pages/challenges/active-list.php:154
 msgid "Completed Relays"
+msgstr ""
+
+#: pages/church/church.php:112
+msgid "What is Prayer.Global"
+msgstr ""
+
+#: pages/church/church.php:124
+#: pages/media/magic-media.php:95
+msgid "How to launch Prayer.Global at your church"
+msgstr ""
+
+#: pages/church/church.php:126
+msgid "Contact the Prayer.Global team to setup a lap for your group"
+msgstr ""
+
+#: pages/church/church.php:130
+msgid "Cast vision and set a goal for your church"
+msgstr ""
+
+#: pages/church/church.php:147
+msgid "Promote in advance of your event"
+msgstr ""
+
+#: pages/church/church.php:160
+msgid "Resources"
+msgstr ""
+
+#: pages/church/church.php:169
+msgid "Hosting your Prayer.Global event"
+msgstr ""
+
+#: pages/church/church.php:172
+msgid "For us at Northside, it was important to give our Prayer.Global challenge prominence. We achieved that by giving it ample time in our service, from how it was set-up to the actual time spent in prayer. We recommend setting aside at least 10 minutes for prayer, plus about 5 minutes to cast vision and to equip your church family for participation."
+msgstr ""
+
+#: pages/church/church.php:175
+msgid "We broke that down into getting people connected to the prayer lap, facilitating the actual prayer time and then providing next steps after it was completed. "
+msgstr ""
+
+#: pages/church/church.php:179
+msgid "Getting people connected to your group’s prayer lap"
+msgstr ""
+
+#: pages/church/church.php:186
+msgid "Facilitating the group prayer time"
+msgstr ""
+
+#: pages/church/church.php:188
+msgid "For your prayer time, here are some best practices for how to facilitate that time for your group:"
+msgstr ""
+
+#: pages/church/church.php:201
+msgid "Provide next steps"
+msgstr ""
+
+#: pages/church/church.php:212
+msgid "Tips"
+msgstr ""
+
+#: pages/church/church.php:224
+msgid "After the event"
+msgstr ""
+
+#: pages/church/church.php:234
+msgid "FAQs"
 msgstr ""
 
 #: pages/contact/magic-contact-us.php:84
@@ -776,45 +841,50 @@ msgstr ""
 msgid "%s App"
 msgstr ""
 
-#: pages/media/magic-media.php:95
-msgid "Moravian Challenge Video"
-msgstr ""
-
 #: pages/media/magic-media.php:98
+#: pages/media/magic-media.php:124
 msgid "Video"
 msgstr ""
 
 #: pages/media/magic-media.php:103
+#: pages/media/magic-media.php:129
 msgid "Download Video"
 msgstr ""
 
 #: pages/media/magic-media.php:104
+#: pages/media/magic-media.php:130
 msgid "Low Quality (360p - 10mg)"
 msgstr ""
 
 #: pages/media/magic-media.php:105
+#: pages/media/magic-media.php:131
 msgid "HD Download (1080p - 31mg)"
 msgstr ""
 
 #: pages/media/magic-media.php:106
+#: pages/media/magic-media.php:132
 msgid "4k Download (2160p - 74mg)"
 msgstr ""
 
-#: pages/media/magic-media.php:111
+#: pages/media/magic-media.php:121
+msgid "Moravian Challenge Video"
+msgstr ""
+
+#: pages/media/magic-media.php:137
 msgid "Embed Code"
 msgstr ""
 
-#: pages/media/magic-media.php:121
+#: pages/media/magic-media.php:147
 msgid "Social Promotion"
 msgstr ""
 
-#: pages/media/magic-media.php:126
+#: pages/media/magic-media.php:152
 msgid "firestarters-wanted.jpg\">Download"
 msgstr ""
 
-#: pages/media/magic-media.php:132
-#: pages/media/magic-media.php:138
-#: pages/media/magic-media.php:144
+#: pages/media/magic-media.php:158
+#: pages/media/magic-media.php:164
+#: pages/media/magic-media.php:170
 msgid "Download"
 msgstr ""
 
