@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 2.3.0\n"
+"Project-Id-Version: Prayer.Global Porch 2.3.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-02-09T11:09:11+00:00\n"
+"POT-Creation-Date: 2024-02-09T11:10:52+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: prayer-global-porch\n"
@@ -342,68 +342,68 @@ msgstr ""
 msgid "Completed Relays"
 msgstr ""
 
-#: pages/church/church.php:112
-msgid "What is Prayer.Global"
-msgstr ""
-
-#: pages/church/church.php:124
+#: pages/church/church.php:109
 #: pages/media/magic-media.php:95
 msgid "How to launch Prayer.Global at your church"
 msgstr ""
 
-#: pages/church/church.php:126
-msgid "Contact the Prayer.Global team to setup a lap for your group"
+#: pages/church/church.php:117
+msgid "What is Prayer.Global"
 msgstr ""
 
-#: pages/church/church.php:130
+#: pages/church/church.php:129
+msgid "Login or Register on Prayer.Global to setup a lap for your group"
+msgstr ""
+
+#: pages/church/church.php:134
 msgid "Cast vision and set a goal for your church"
 msgstr ""
 
-#: pages/church/church.php:147
+#: pages/church/church.php:151
 msgid "Promote in advance of your event"
 msgstr ""
 
-#: pages/church/church.php:160
+#: pages/church/church.php:164
 msgid "Resources"
 msgstr ""
 
-#: pages/church/church.php:169
+#: pages/church/church.php:173
 msgid "Hosting your Prayer.Global event"
 msgstr ""
 
-#: pages/church/church.php:172
+#: pages/church/church.php:176
 msgid "For us at Northside, it was important to give our Prayer.Global challenge prominence. We achieved that by giving it ample time in our service, from how it was set-up to the actual time spent in prayer. We recommend setting aside at least 10 minutes for prayer, plus about 5 minutes to cast vision and to equip your church family for participation."
 msgstr ""
 
-#: pages/church/church.php:175
+#: pages/church/church.php:179
 msgid "We broke that down into getting people connected to the prayer lap, facilitating the actual prayer time and then providing next steps after it was completed. "
 msgstr ""
 
-#: pages/church/church.php:179
+#: pages/church/church.php:183
 msgid "Getting people connected to your group’s prayer lap"
 msgstr ""
 
-#: pages/church/church.php:186
+#: pages/church/church.php:190
 msgid "Facilitating the group prayer time"
 msgstr ""
 
-#: pages/church/church.php:188
+#: pages/church/church.php:192
 msgid "For your prayer time, here are some best practices for how to facilitate that time for your group:"
 msgstr ""
 
-#: pages/church/church.php:201
+#: pages/church/church.php:205
 msgid "Provide next steps"
 msgstr ""
 
-#: pages/church/church.php:212
+#: pages/church/church.php:216
 msgid "Tips"
 msgstr ""
 
-#: pages/church/church.php:224
+#: pages/church/church.php:228
 msgid "After the event"
 msgstr ""
 
-#: pages/church/church.php:234
+#: pages/church/church.php:238
 msgid "FAQs"
 msgstr ""
 
