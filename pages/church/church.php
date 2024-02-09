@@ -105,29 +105,33 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center">
                     <div class="col col-md-8 flow">
+                        <div class="text-center">
+                            <h2 class="mt-0 font-weight-normal"><?php echo esc_html( __( 'How to launch Prayer.Global at your church', 'prayer-global-porch' ) ) ?></h2>
+                            <p><a href="https://www.northsidechristianchurch.net/" target="_blank"><?php echo esc_html__( 'Thanks to Northside Christian Church for creating this how-to page' ) ?> <i class="ion-android-open"></i></a></p>
+                        </div>
                         <div>
                             <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) . 'assets/images/prayer-global-church.jpg' ) ?>" alt="<?php echo esc_attr( __( 'Prayer.Global cover the world in prayer', 'prayer-global' ) ) ?>">
                         </div>
-                        <div class="flow-small">
-                            <h2 class=""><?php echo esc_html( __( 'What is Prayer.Global', 'prayer-global-porch' ) ) ?></h2>
-                            <p>
-                                <?php echo esc_html__( 'Simply put, Prayer.Global is a digital tool for facilitating strategic, Scripture-based prayer for the world. Prayer.Global seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global' ) ?>
-                            </p>
-                            <p>
-                                <?php echo esc_html__( 'Prayer.Global has broken the world down into 4,770 “states” based on geographical and governmental boundaries. When you access the site and click Start Praying, you will initiate a one-minute timer and then will be given a state to pray for. Each state prayer prompt includes demographic information about the area, its religious makeup, images and Scripture-based prayer prompts. Once you have prayed for that area, you can choose “next” and be given another prayer area, or you may finish your prayer time.', 'prayer-global' ) ?>
-                            </p>
-                            <p>
-                                <?php echo esc_html__( 'With this digital resource, you will be saying prayers you never said before, praying for people you never knew existed, and you and this world will be changed!', 'prayer-global' ) ?>
-                            </p>
-                        </div>
                         <div class="flow-medium">
-                            <h2 class=""><?php echo esc_html( __( 'How to launch Prayer.Global at your church', 'prayer-global-porch' ) ) ?></h2>
                             <div class="flow-small">
-                                <h3 class=""><?php echo esc_html( __( 'Contact the Prayer.Global team to setup a lap for your group', 'prayer-global-porch' ) ) ?></h3>
+                                <h3><?php echo esc_html( __( 'What is Prayer.Global', 'prayer-global-porch' ) ) ?></h3>
                                 <p>
-                                    <?php echo esc_html__( 'You will also be given a custom URL, QR code and more to use in promoting your prayer lap. The unique URL will connect your church family directly to your group’s prayer lap. Contact Prayer.Global to request a group challenge', 'prayer-global' ) ?>
+                                    <?php echo esc_html__( 'Simply put, Prayer.Global is a digital tool for facilitating strategic, Scripture-based prayer for the world. Prayer.Global seeks to encourage extraordinary prayer for the fulfillment of the Great Commission using technology.', 'prayer-global' ) ?>
                                 </p>
-                                <h3 class=""><?php echo esc_html( __( 'Cast vision and set a goal for your church', 'prayer-global-porch' ) ) ?></h3>
+                                <p>
+                                    <?php echo esc_html__( 'Prayer.Global has broken the world down into 4,770 “states” based on geographical and governmental boundaries. When you access the site and click Start Praying, you will initiate a one-minute timer and then will be given a state to pray for. Each state prayer prompt includes demographic information about the area, its religious makeup, images and Scripture-based prayer prompts. Once you have prayed for that area, you can choose “next” and be given another prayer area, or you may finish your prayer time.', 'prayer-global' ) ?>
+                                </p>
+                                <p>
+                                    <?php echo esc_html__( 'With this digital resource, you will be saying prayers you never said before, praying for people you never knew existed, and you and this world will be changed!', 'prayer-global' ) ?>
+                                </p>
+                            </div>
+                            <div class="flow-small">
+                                <h3><?php echo esc_html( __( 'Login or Register on Prayer.Global to setup a lap for your group', 'prayer-global-porch' ) ) ?></h3>
+                                <p>
+                                    <?php echo esc_html__( 'You will also be given a custom URL, QR code and more to use in promoting your prayer lap. The unique URL will connect your church family directly to your group’s prayer lap.', 'prayer-global' ) ?>
+                                </p>
+                                <a class="btn btn-primary uppercase center d-block w-fit" role="button" href="/user_app/profile" target="_blank"><?php echo esc_html__( 'Create group lap', 'prayer-global' ) ?> <i class="ion-android-open"></i></a>
+                                <h3><?php echo esc_html( __( 'Cast vision and set a goal for your church', 'prayer-global-porch' ) ) ?></h3>
                                 <p>
                                     <?php echo esc_html__( 'Begin the Prayer.Global experience for your church by establishing a goal – a “why” – and casting vision about the importance of prayer in fulfilling the Great Commission. Extraordinary prayer is a foundational mark of all modern disciple making movements.', 'prayer-global' ) ?>
                                 </p>
@@ -144,7 +148,7 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
                                 </p>
                             </div>
                             <div class="flow-small">
-                                <h3 class=""><?php echo esc_html( __( 'Promote in advance of your event', 'prayer-global-porch' ) ) ?></h3>
+                                <h3><?php echo esc_html( __( 'Promote in advance of your event', 'prayer-global-porch' ) ) ?></h3>
                                 <p>
                                     <?php echo esc_html__( 'Give your church family advance notice of the upcoming Prayer.Global event to help encourage their participation and to help them be prepared to pray on the day of your event. Here is a proposed timeline for promotion.', 'prayer-global' ) ?>
                                 </p>
@@ -157,7 +161,7 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
                                 <p>
                                     <em><?php echo esc_html__( 'In pre-event promotion, we promoted only the Prayer.Global website and the links for downloading the app. We didn’t share our custom group URL until the day of the event. This helped ensure better tracking of how many people prayed with us during the event.', 'prayer-global' ) ?></em>
                                 </p>
-                                <h3 class=""><?php echo esc_html( __( 'Resources', 'prayer-global-porch' ) ) ?></h3>
+                                <h3><?php echo esc_html( __( 'Resources', 'prayer-global-porch' ) ) ?></h3>
                                 <ul>
                                     <li><?php echo esc_html__( 'Download the custom QR code from the Prayer.Global website once your lap is set up.', 'prayer-global' ) ?></li>
                                     <li><a href="https://docs.google.com/document/d/1LwjtcIwqJVop19qHinZqCo1HNNQYWgCiQcN_e3doYu8/edit?usp=share_link"><?php echo esc_html__( 'Access Canva design templates for postcards, presentation slides and social media images.', 'prayer-global' ) ?></a></li>
@@ -166,7 +170,7 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
                             </div>
                         </div>
                         <div class="flow-medium">
-                            <h2 class=""><?php echo esc_html( __( 'Hosting your Prayer.Global event', 'prayer-global-porch' ) ) ?></h2>
+                            <h2><?php echo esc_html( __( 'Hosting your Prayer.Global event', 'prayer-global-porch' ) ) ?></h2>
                             <div class="flow-small">
                                 <p>
                                     <?php echo esc_html( __( 'For us at Northside, it was important to give our Prayer.Global challenge prominence. We achieved that by giving it ample time in our service, from how it was set-up to the actual time spent in prayer. We recommend setting aside at least 10 minutes for prayer, plus about 5 minutes to cast vision and to equip your church family for participation.', 'prayer-global-porch' ) ) ?>
@@ -176,14 +180,14 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
                                 </p>
                             </div>
                             <div class="flow-small">
-                                <h3 class=""><?php echo esc_html( __( 'Getting people connected to your group’s prayer lap', 'prayer-global-porch' ) ) ?></h3>
+                                <h3><?php echo esc_html( __( 'Getting people connected to your group’s prayer lap', 'prayer-global-porch' ) ) ?></h3>
                                 <ul>
                                     <li><?php echo esc_html__( 'Seat cards with the custom lap QR code along with steps for navigating to the website.', 'prayer-global' ) ?></li>
                                     <li><?php echo esc_html__( 'Display the QR code on your Worship Center screens or TVs.', 'prayer-global' ) ?></li>
                                     <li><?php echo esc_html__( 'Add a link – like a Pray Now button – to your church website.', 'prayer-global' ) ?></li>
                                     <li><?php echo esc_html__( 'Add the link to your online sermon notes.', 'prayer-global' ) ?></li>
                                 </ul>
-                                <h3 class=""><?php echo esc_html( __( 'Facilitating the group prayer time', 'prayer-global-porch' ) ) ?></h3>
+                                <h3><?php echo esc_html( __( 'Facilitating the group prayer time', 'prayer-global-porch' ) ) ?></h3>
                                 <p>
                                     <?php echo esc_html( __( 'For your prayer time, here are some best practices for how to facilitate that time for your group:', 'prayer-global-porch' ) ) ?>
                                 </p>
@@ -198,7 +202,7 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
                                 <a href="https://www.northsidechristianchurch.net/wp-content/uploads/2023/03/Talking-Points-Prayer.Global-Event.pdf"><?php esc_html__( 'Download the Prayer.Global Talking Points', 'prayer-global' ) ?></a>
                             </div>
                             <div class="flow-small">
-                                <h3 class=""><?php echo esc_html( __( 'Provide next steps', 'prayer-global-porch' ) ) ?></h3>
+                                <h3><?php echo esc_html( __( 'Provide next steps', 'prayer-global-porch' ) ) ?></h3>
                                 <p>
                                     <?php echo esc_html__( 'How do you encourage continued prayer for the nations? Help people brainstorm ways they can use the Prayer.Global app moving forward. Some ideas include:', 'prayer-global' ) ?>
                                 </p>
@@ -209,7 +213,7 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
                                     <li><?php echo esc_html__( 'Incorporate 1 or 2 prayers into your weekly Life Group meeting.', 'prayer-global' ) ?></li>
                                     <li><?php echo esc_html__( 'Invite someone to pray with you by sharing about the app.', 'prayer-global' ) ?></li>
                                 </ul>
-                                <h3 class=""><?php echo esc_html( __( 'Tips', 'prayer-global-porch' ) ) ?></h3>
+                                <h3><?php echo esc_html( __( 'Tips', 'prayer-global-porch' ) ) ?></h3>
                                 <ul>
                                     <li><?php echo esc_html__( 'Set a specific amount of time for prayer. We focused on 10 minutes, with the goal of everyone praying for about 7 states during that time.', 'prayer-global' ) ?></li>
                                     <li><?php echo esc_html__( 'Recruit a few technology helpers to be positioned around the room when your prayer time begins. They can help people troubleshoot any issues with their device or accessing the correct prayer lap.', 'prayer-global' ) ?></li>
@@ -221,7 +225,7 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
                         </div>
                         <div class="flow-medium">
                             <div class="flow-small">
-                                <h2 class=""><?php echo esc_html( __( 'After the event', 'prayer-global-porch' ) ) ?></h2>
+                                <h2><?php echo esc_html( __( 'After the event', 'prayer-global-porch' ) ) ?></h2>
                                 <p>
                                     <?php echo esc_html__( 'Based on how your group ended your prayer experience, provide follow up information, texts or emails to encourage people to keep praying and to celebrate once your lap is complete.', 'prayer-global' ) ?>
                                 </p>
@@ -231,7 +235,7 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
                                 </ul>
                             </div>
                             <div class="flow-small">
-                                <h2 class=""><?php echo esc_html( __( 'FAQs', 'prayer-global-porch' ) ) ?></h2>
+                                <h2><?php echo esc_html( __( 'FAQs', 'prayer-global-porch' ) ) ?></h2>
                                 <p class="font-weight-bold">
                                     <em><?php echo esc_html__( 'What is a state?', 'prayer-global' ) ?></em>
                                 </p>
@@ -242,7 +246,7 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
                                     <em><?php echo esc_html__( 'What do the icons mean?', 'prayer-global' ) ?></em>
                                 </p>
                                 <p>
-                                    <?php echo esc_html__( 'As you navigate through a prayer prompt, you will see people icons in a variety of colors. Red represents unbelievers; yellow represents nominal cultural Christians, and green represents believers.', 'prayer-global' ) ?>
+                                    <a href="/content_app/about_page#faith-status-icons"><?php echo esc_html__( 'See the about page', 'prayer-global' ) ?></a>
                                 </p>
                                 <p class="font-weight-bold">
                                     <em><?php echo esc_html__( 'Am I just praying for unreached people groups?', 'prayer-global' ) ?></em>
@@ -256,12 +260,14 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
                                 <p>
                                     <?php echo esc_html__( 'The Prayer.Global website uses information from The Joshua Project to build their database.', 'prayer-global' ) ?>
                                 </p>
+                                <a href="/content_app/data_sources"><?php echo esc_html__( 'View the data sources in detail', 'prayer-global' ) ?></a>
                                 <p class="font-weight-bold">
                                     <em><?php echo esc_html__( 'How do I start my own group?', 'prayer-global' ) ?></em>
                                 </p>
                                 <p>
-                                    <?php echo esc_html__( 'Contact Prayer.Global to request your own group lap.', 'prayer-global' ) ?>
+                                    <?php echo esc_html__( 'Login or Register on Prayer.Global to create your own group lap.', 'prayer-global' ) ?>
                                 </p>
+                                <a class="btn btn-primary uppercase center d-block w-fit mx-auto" role="button" href="/user_app/profile"><?php echo esc_html__( 'Create group lap', 'prayer-global' ) ?></a>
                             </div>
                         </div>
                     </div>

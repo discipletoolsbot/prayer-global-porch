@@ -210,8 +210,8 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                                 <?php echo esc_html( __( 'Demographics, scripture, faith status, images and maps to help guide your prayer time.', 'prayer-global-porch' ) ) ?>
                             </p>
                         </div>
-                        <div class="border-bottom border-brand-light flow-small">
-                        <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-give icon-small"></i> <?php echo esc_html( __( 'Faith Status', 'prayer-global-porch' ) ) ?></h4>
+                        <div class="border-bottom border-brand-light flow-small" id="faith-status-icons">
+                            <h4 class="uppercase font-weight-bold d-flex justify-content-center align-items-center gap-3"><i class="icon pg-give icon-small"></i> <?php echo esc_html( __( 'Faith Status', 'prayer-global-porch' ) ) ?></h4>
                             <div>
                                 <i class="ion-ios-body secondary icon-medium d-block lh-1"></i>
                                 <p><?php echo esc_html( __( 'Know Jesus', 'prayer-global-porch' ) ) ?></p>
