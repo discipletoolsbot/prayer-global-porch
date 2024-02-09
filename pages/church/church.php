@@ -131,6 +131,8 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
                                     <?php echo esc_html__( 'You will also be given a custom URL, QR code and more to use in promoting your prayer lap. The unique URL will connect your church family directly to your group’s prayer lap.', 'prayer-global' ) ?>
                                 </p>
                                 <a class="btn btn-primary uppercase center d-block w-fit" role="button" href="/user_app/profile" target="_blank"><?php echo esc_html__( 'Create group lap', 'prayer-global' ) ?> <i class="ion-android-open"></i></a>
+                            </div>
+                            <div class="flow-small">
                                 <h3><?php echo esc_html( __( 'Cast vision and set a goal for your church', 'prayer-global-porch' ) ) ?></h3>
                                 <p>
                                     <?php echo esc_html__( 'Begin the Prayer.Global experience for your church by establishing a goal – a “why” – and casting vision about the importance of prayer in fulfilling the Great Commission. Extraordinary prayer is a foundational mark of all modern disciple making movements.', 'prayer-global' ) ?>
