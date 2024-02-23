@@ -5,7 +5,7 @@
  * Description: Prayer.Global front porch app for Disciple.Tools
  * Text Domain: prayer-global-porch
  * Domain Path: /languages
- * Version: 2.3.3
+ * Version: 2.4.0
  * Author URI: https://github.com/DiscipleTools
  * GitHub Plugin URI: https://github.com/Pray4Movement/prayer-global-porch
  * Requires at least: 4.7.0
