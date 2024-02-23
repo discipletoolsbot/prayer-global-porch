@@ -2,16 +2,16 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 2.3.3\n"
+"Project-Id-Version: Prayer.Global Porch 2.4.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-02-09T11:50:06+00:00\n"
+"POT-Creation-Date: 2024-02-23T16:10:14+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: prayer-global-porch\n"
 
 #: pages/404/404.php:98
@@ -364,6 +364,7 @@ msgid "Promote in advance of your event"
 msgstr ""
 
 #: pages/church/church.php:166
+#: pages/media/magic-media.php:108
 msgid "Resources"
 msgstr ""
 
@@ -842,49 +843,54 @@ msgid "%s App"
 msgstr ""
 
 #: pages/media/magic-media.php:98
-#: pages/media/magic-media.php:124
+#: pages/media/magic-media.php:126
 msgid "Video"
 msgstr ""
 
 #: pages/media/magic-media.php:103
-#: pages/media/magic-media.php:129
-msgid "Download Video"
-msgstr ""
-
-#: pages/media/magic-media.php:104
-#: pages/media/magic-media.php:130
-msgid "Low Quality (360p - 10mg)"
-msgstr ""
-
-#: pages/media/magic-media.php:105
-#: pages/media/magic-media.php:131
-msgid "HD Download (1080p - 31mg)"
-msgstr ""
-
-#: pages/media/magic-media.php:106
-#: pages/media/magic-media.php:132
-msgid "4k Download (2160p - 74mg)"
-msgstr ""
-
-#: pages/media/magic-media.php:121
-msgid "Moravian Challenge Video"
-msgstr ""
-
-#: pages/media/magic-media.php:137
+#: pages/media/magic-media.php:139
 msgid "Embed Code"
 msgstr ""
 
-#: pages/media/magic-media.php:147
+#: pages/media/magic-media.php:110
+msgid "How to launch Prayer.Global at your church document"
+msgstr ""
+
+#: pages/media/magic-media.php:113
+msgid "Wayne Bushnell Prayer.Global Testimony Video"
+msgstr ""
+
+#: pages/media/magic-media.php:123
+msgid "Moravian Challenge Video"
+msgstr ""
+
+#: pages/media/magic-media.php:131
+msgid "Download Video"
+msgstr ""
+
+#: pages/media/magic-media.php:132
+msgid "Low Quality (360p - 10mg)"
+msgstr ""
+
+#: pages/media/magic-media.php:133
+msgid "HD Download (1080p - 31mg)"
+msgstr ""
+
+#: pages/media/magic-media.php:134
+msgid "4k Download (2160p - 74mg)"
+msgstr ""
+
+#: pages/media/magic-media.php:149
 msgid "Social Promotion"
 msgstr ""
 
-#: pages/media/magic-media.php:152
+#: pages/media/magic-media.php:154
 msgid "firestarters-wanted.jpg\">Download"
 msgstr ""
 
-#: pages/media/magic-media.php:158
-#: pages/media/magic-media.php:164
-#: pages/media/magic-media.php:170
+#: pages/media/magic-media.php:160
+#: pages/media/magic-media.php:166
+#: pages/media/magic-media.php:172
 msgid "Download"
 msgstr ""
 
