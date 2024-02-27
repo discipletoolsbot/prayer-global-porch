@@ -109,8 +109,8 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
                             <h2 class="mt-0 font-weight-normal"><?php echo esc_html( __( 'How to launch Prayer.Global at your church', 'prayer-global-porch' ) ) ?></h2>
                             <p><a href="https://www.northsidechristianchurch.net/" target="_blank"><?php echo esc_html__( 'Thanks to Northside Christian Church for creating this how-to page' ) ?> <i class="ion-android-open"></i></a></p>
                         </div>
-                        <div>
-                            <img src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) . 'assets/images/prayer-global-church.jpg' ) ?>" alt="<?php echo esc_attr( __( 'Prayer.Global cover the world in prayer', 'prayer-global' ) ) ?>">
+                        <div style="padding:56.3% 0 0 0;position:relative;">
+                            <iframe src="https://player.vimeo.com/video/913555379?h=b79d3f9229&title=0&byline=0&portrait=0" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen style="position:absolute;top:0;left:0;width:100%;height:100%;"></iframe>
                         </div>
                         <div class="flow-medium">
                             <div class="flow-small">
