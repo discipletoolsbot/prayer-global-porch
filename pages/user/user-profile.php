@@ -54,69 +54,68 @@ class PG_User_App_Profile extends DT_Magic_Url_Base {
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        return array_merge( $allowed_js, [
+        return [
             'jquery',
             'jquery-ui',
             'foundations-js',
             'porch-user-site-js',
             'mapbox-search-widget',
             'mapbox-gl',
-        ]);
+            'components-js',
+            'user-profile-js'
+        ];
     }
 
-    public function wp_enqueue_scripts() {}
+    public function wp_enqueue_scripts() {
+        wp_enqueue_script( 'user-profile-js', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'user-profile.js', [ 'jquery', 'components-js' ], filemtime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'user-profile.js' ), true );
+        wp_localize_script( 'user-profile-js', 'jsObject', [
+            'parts' => $this->parts,
+            'translations' => [
+                'change' => esc_html( __( 'Change', 'prayer-global-porch' ) ),
+                'select_a_location' => esc_html( __( 'Please select a location', 'prayer-global-porch' ) ),
+                'estimated_location' => esc_html( __( '(This is your estimated location)', 'prayer-global-porch' ) ),
+                'profile' => esc_html( __( 'Profile', 'prayer-global-porch' ) ),
+                'prayers' => esc_html( __( 'Prayers', 'prayer-global-porch' ) ),
+                'challenges' => esc_html( __( 'My Prayer Relays', 'prayer-global-porch' ) ),
+                'are_you_enjoying_the_app' => esc_html( __( 'Are you enjoying this app?', 'prayer-global-porch' ) ),
+                'would_you_like_to_partner' => esc_html( __( 'Would you like to partner with us in helping others pray for the world?', 'prayer-global-porch' ) ),
+                'consider_giving' => esc_html( __( 'Consider giving to help us increase prayer for the world.', 'prayer-global-porch' ) ),
+                'give' => esc_html( __( 'Give', 'prayer-global-porch' ) ),
+                'logout' => esc_html( __( 'Logout', 'prayer-global-porch' ) ),
+                'name_text' => esc_html( __( 'Name', 'prayer-global-porch' ) ),
+                'email_text' => esc_html( __( 'Email', 'prayer-global-porch' ) ),
+                'location_text' => esc_html( __( 'Location', 'prayer-global-porch' ) ),
+                'locations_text' => esc_html( __( 'Locations', 'prayer-global-porch' ) ),
+                'communication_preferences' => esc_html( __( 'Communication Preferences', 'prayer-global-porch' ) ),
+                'send_lap_emails_text' => esc_html( __( 'Send me lap challenges via email', 'prayer-global-porch' ) ),
+                'send_general_emails_text' => esc_html( sprintf( __( 'Send information about %1$s, %2$s, %3$s and other %4$s projects via email', 'prayer-global-porch' ), 'Prayer.Global', 'Zume', 'Pray4Movement', 'Gospel Ambition' ) ),
+                'erase_account' => esc_html( __( 'Erase my account', 'prayer-global-porch' ) ),
+                'minutes' => esc_html( __( 'Minutes', 'prayer-global-porch' ) ),
+                'load_more' => esc_html( __( 'Load more', 'prayer-global-porch' ) ),
+                'time_prayed_for' => esc_html( _x( '%1$s for %2$s', '1 min for Paris, France', 'prayer-global-porch' ) ),
+                'in_group_text' => esc_html( _x( 'in %s', 'in Global Lap', 'prayer-global-porch' ) ),
+                'new_challenge' => esc_html( _x( 'New %s Relay', 'New public Relay', 'prayer-global-porch' ) ),
+                'public' => esc_html( __( 'Public', 'prayer-global-porch' ) ),
+                'private' => esc_html( __( 'Private', 'prayer-global-porch' ) ),
+                'public_relays' => esc_html( __( 'My Public Relays', 'prayer-global-porch' ) ),
+                'private_relays' => esc_html( __( 'My Private Relays', 'prayer-global-porch' ) ),
+                'private_explanation1' => sprintf( esc_html( __( "Private relays do not show on the %s page, but can be shared with your team mates.", 'prayer-global-porch' ) ), '<a href="/challenges/active">' . esc_html__( 'Prayer Relays', 'prayer-global-porch' ) . '</a>' ),
+                'public_explanation1' => sprintf( esc_html( __( "Your public relays will also appear on the %s page.", 'prayer-global-porch' ) ), '<a href="/challenges/active">' . esc_html__( 'Prayer Relays', 'prayer-global-porch' ) . '</a>' ),
+                'no_relays_found' => esc_html__( 'You have not created any %s relays yet', 'prayer-global-porch' ),
+                'view_join_other_relays' => esc_html__( 'View other public relays', 'prayer-global-porch' ),
+                'edit' => esc_html__( 'Edit', 'prayer-global-porch' ),
+                'display_map' => esc_html__( 'Display Map', 'prayer-global-porch' ),
+            ],
+            'is_logged_in' => is_user_logged_in() ? 1 : 0,
+            'logout_url' => esc_url( '/user_app/logout' )
+        ] );
+    }
 
     public function header_javascript(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
 
         ?>
-        <script>
-            let jsObject = [<?php echo json_encode([
-                'map_key' => DT_Mapbox_API::get_key(),
-                'root' => esc_url_raw( rest_url() ),
-                'nonce' => wp_create_nonce( 'wp_rest' ),
-                'parts' => $this->parts,
-                'translations' => [
-                    'select_a_location' => esc_html( __( 'Please select a location', 'prayer-global-porch' ) ),
-                    'estimated_location' => esc_html( __( '(This is your estimated location)', 'prayer-global-porch' ) ),
-                    'profile' => esc_html( __( 'Profile', 'prayer-global-porch' ) ),
-                    'prayers' => esc_html( __( 'Prayers', 'prayer-global-porch' ) ),
-                    'challenges' => esc_html( __( 'My Prayer Relays', 'prayer-global-porch' ) ),
-                    'are_you_enjoying_the_app' => esc_html( __( 'Are you enjoying this app?', 'prayer-global-porch' ) ),
-                    'would_you_like_to_partner' => esc_html( __( 'Would you like to partner with us in helping others pray for the world?', 'prayer-global-porch' ) ),
-                    'consider_giving' => esc_html( __( 'Consider giving to help us increase prayer for the world.', 'prayer-global-porch' ) ),
-                    'give' => esc_html( __( 'Give', 'prayer-global-porch' ) ),
-                    'logout' => esc_html( __( 'Logout', 'prayer-global-porch' ) ),
-                    'name_text' => esc_html( __( 'Name', 'prayer-global-porch' ) ),
-                    'email_text' => esc_html( __( 'Email', 'prayer-global-porch' ) ),
-                    'location_text' => esc_html( __( 'Location', 'prayer-global-porch' ) ),
-                    'locations_text' => esc_html( __( 'Locations', 'prayer-global-porch' ) ),
-                    'communication_preferences' => esc_html( __( 'Communication Preferences', 'prayer-global-porch' ) ),
-                    'send_lap_emails_text' => esc_html( __( 'Send me lap challenges via email', 'prayer-global-porch' ) ),
-                    'send_general_emails_text' => esc_html( sprintf( __( 'Send information about %1$s, %2$s, %3$s and other %4$s projects via email', 'prayer-global-porch' ), 'Prayer.Global', 'Zume', 'Pray4Movement', 'Gospel Ambition' ) ),
-                    'erase_account' => esc_html( __( 'Erase my account', 'prayer-global-porch' ) ),
-                    'minutes' => esc_html( __( 'Minutes', 'prayer-global-porch' ) ),
-                    'load_more' => esc_html( __( 'Load more', 'prayer-global-porch' ) ),
-                    'time_prayed_for' => esc_html( _x( '%1$s for %2$s', '1 min for Paris, France', 'prayer-global-porch' ) ),
-                    'in_group_text' => esc_html( _x( 'in %s', 'in Global Lap', 'prayer-global-porch' ) ),
-                    'new_challenge' => esc_html( _x( 'New %s Relay', 'New public Relay', 'prayer-global-porch' ) ),
-                    'public' => esc_html( __( 'Public', 'prayer-global-porch' ) ),
-                    'private' => esc_html( __( 'Private', 'prayer-global-porch' ) ),
-                    'public_relays' => esc_html( __( 'My Public Relays', 'prayer-global-porch' ) ),
-                    'private_relays' => esc_html( __( 'My Private Relays', 'prayer-global-porch' ) ),
-                    'private_explanation1' => sprintf( esc_html( __( "Private relays do not show on the %s page, but can be shared with your team mates.", 'prayer-global-porch' ) ), '<a href="/challenges/active">' . esc_html__( 'Prayer Relays', 'prayer-global-porch' ) . '</a>' ),
-                    'public_explanation1' => sprintf( esc_html( __( "Your public relays will also appear on the %s page.", 'prayer-global-porch' ) ), '<a href="/challenges/active">' . esc_html__( 'Prayer Relays', 'prayer-global-porch' ) . '</a>' ),
-                    'no_relays_found' => esc_html__( '', 'prayer-global-porch' ),
-                    'view_join_other_relays' => esc_html__( 'View other public relays', 'prayer-global-porch' ),
-                ],
-                'is_logged_in' => is_user_logged_in() ? 1 : 0,
-                'logout_url' => esc_url( '/user_app/logout' )
-            ]) ?>][0]
-        </script>
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/prayer-global/style.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/fonts/prayer-global/style.css' ) ) ?>">
-        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/components.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/components.js' ) ) ?>"></script>
-        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/global-functions.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/global-functions.js' ) ) ?>"></script>
-        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>user-profile.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'user-profile.js' ) ) ?>"></script>
         <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js?ver=3"></script>
         <style>
             #login_form input {

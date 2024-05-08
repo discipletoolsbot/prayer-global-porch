@@ -76,7 +76,7 @@ class Prayer_Global_Church extends DT_Magic_Url_Base
         return array_merge( $allowed_js, [
             'stripe',
             'fetch',
-            'jQuery',
+            'jquery',
             'client-stripe-js',
         ] );
     }

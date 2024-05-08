@@ -1,5 +1,5 @@
 <?php
-$url = dt_get_url_path();
+$url = dt_get_url_path( true );
 
 /**
  * Nav for Home Page
@@ -25,9 +25,14 @@ $hide_cta_class = str_contains( $url, 'challenges' ) || str_contains( $url, 'use
             <i class="icon pg-share"></i>
         </button>
 
-        <h5 class="border border-brand-light offcanvas-title px-3 rounded"><a href="/" class="brand-light navbar__title">Prayer.Global</a></h5>
+        <h5 class="border border-brand-light offcanvas-title px-3 rounded navbar__title"><a href="/" class="brand-light navbar__title-link">Prayer.Global</a></h5>
 
         <div class="d-flex justify-content-end align-items-center">
+            <div class="d-flex justify-content-end align-items-center mx-2">
+
+                <?php require( __DIR__ . '/language-menu.php' ) ?>
+
+            </div>
             <a href="/user_app/profile" class="icon-button mx-2 two-rem d-flex align-items-center" title="Profile" id="user-profile-link">
                 <i class="icon pg-profile"></i>
             </a>

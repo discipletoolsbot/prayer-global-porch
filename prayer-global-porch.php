@@ -86,6 +86,12 @@ class Prayer_Global_Porch {
         }
         return self::$_instance;
     }
+    public static function get_url_path(){
+        return trailingslashit( plugin_dir_url( __FILE__ ) );
+    }
+    public static function get_dir_path(){
+        return trailingslashit( plugin_dir_path( __FILE__ ) );
+    }
 
     private function __construct() {
         global $wpdb;
@@ -109,6 +115,8 @@ class Prayer_Global_Porch {
 
         require_once( 'redirects/loader.php' );
         require_once( 'post-type/loader.php' );
+
+        require_once( 'pages/assets/enqueue.php' );
 
         // home
         require_once( 'pages/home/magic-home.php' );
@@ -151,7 +159,10 @@ class Prayer_Global_Porch {
             return DT_Login_Methods::MOBILE;
         } );
 
-        $this->i18n();
+        $lang = pg_get_current_lang();
+        pg_set_translation( $lang );
+        pg_add_lang_to_cookie( $lang );
+
     }
 
     /**

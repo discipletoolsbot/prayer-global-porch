@@ -8,9 +8,9 @@ jQuery(document).ready(function() {
       data: JSON.stringify({action: action, parts: jsObject.parts, data: data}),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
-      url: jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type,
+      url: window.pg_global.root + jsObject.parts.root + '/v1/' + jsObject.parts.type,
       beforeSend: function (xhr) {
-        xhr.setRequestHeader('X-WP-Nonce', jsObject.nonce)
+        xhr.setRequestHeader('X-WP-Nonce', window.pg_global.nonce)
       }
     })
       .fail(function (e) {
@@ -24,7 +24,6 @@ jQuery(document).ready(function() {
 
   window.api_post( 'get_global_list', {} )
     .done(function(data) {
-      console.log(data)
       let html_content = ''
       jQuery.each( data, function(i,v){
         end_time = v.stats.end_time_formatted

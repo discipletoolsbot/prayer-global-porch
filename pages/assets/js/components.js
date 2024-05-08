@@ -86,25 +86,24 @@ function PGIconInfographic(stats) {
 }
 
 function PGDisplayTime(time) {
-  console.log(time)
 
   const timeList = []
   const padNumber = (n) => window.padNumber(n, 2)
 
   if ( time.hasOwnProperty('years') ) {
-    timeList.push(`<span class="time-value"><span>${time.years}</span> <span class="time-label">Years</span></span>`)
+    timeList.push(`<span class="time-value"><span>${time.years}</span> <span class="time-label">${pg_components.translations['years']}</span></span>`)
   }
   if ( time.hasOwnProperty('days') ) {
-    timeList.push(`<span class="time-value"><span>${time.days}</span> <span class="time-label">Days</span></span>`)
+    timeList.push(`<span class="time-value"><span>${time.days}</span> <span class="time-label">${pg_components.translations['days']}</span></span>`)
   }
   if ( time.hasOwnProperty('hours') ) {
-    timeList.push(`<span class="time-value"><span>${padNumber(time.hours)}</span> <span class="time-label">Hours</span></span>`)
+    timeList.push(`<span class="time-value"><span>${padNumber(time.hours)}</span> <span class="time-label">${pg_components.translations['hours']}</span></span>`)
   }
   if ( time.hasOwnProperty('minutes') ) {
-    timeList.push(`<span class="time-value"><span>${padNumber(time.minutes)}</span> <span class="time-label">Minutes</span></span>`)
+    timeList.push(`<span class="time-value"><span>${padNumber(time.minutes)}</span> <span class="time-label">${pg_components.translations['minutes']}</span></span>`)
   }
   if ( time.hasOwnProperty('seconds') ) {
-    timeList.push(`<span class="time-value"><span>${padNumber(time.seconds)}</span> <span class="time-label">Seconds</span></span>`)
+    timeList.push(`<span class="time-value"><span>${padNumber(time.seconds)}</span> <span class="time-label">${pg_components.translations['seconds']}</span></span>`)
   }
 
   return timeList.join(`<span>:</span>`)

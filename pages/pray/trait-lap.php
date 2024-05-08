@@ -4,11 +4,19 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
 trait PG_Lap_Trait {
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        return [];
+        $allowed_js = [];
+        $allowed_js[] = 'lap-js';
+        $allowed_js[] = 'report-js';
+        return $allowed_js;
     }
 
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
         return [];
+    }
+
+    public function wp_enqueue_scripts(){
+        pg_enqueue_script( 'report-js', 'pages/pray/report.js', [ 'jquery', 'global-functions' ], true );
+        pg_enqueue_script( 'lap-js', 'pages/pray/lap.js', [ 'jquery', 'global-functions', 'report-js' ], true );
     }
 
     public function header_javascript(){
@@ -22,15 +30,17 @@ trait PG_Lap_Trait {
             <script src="https://cdn.jsdelivr.net/npm/js-cookie@rc/dist/js.cookie.min.js?ver=3"></script>
             <script>
                 let jsObject = [<?php echo json_encode([
-                    'map_key' => DT_Mapbox_API::get_key(),
-                    'mirror_url' => dt_get_location_grid_mirror( true ),
-                    'ipstack' => DT_Ipstack_API::get_key(),
-                    'root' => esc_url_raw( rest_url() ),
-                    'nonce' => wp_create_nonce( 'wp_rest' ),
                     'parts' => $this->parts,
                     'current_lap' => pg_current_global_lap(),
                     'translations' => [
-                        'add' => __( 'Add Magic', 'prayer-global-porch' ),
+                        'state_of_location' => _x( '%1$s of %2$s', 'state of California', 'prayer-global-porch' ),
+                        'Keep Praying...' => __( 'Keep Praying...', 'prayer-global-porch' ),
+                        "Don't Know Jesus" => __( "Don't Know Jesus", 'prayer-global-porch' ),
+                        'Know About Jesus' => __( 'Know About Jesus', 'prayer-global-porch' ),
+                        'Know Jesus' => __( 'Know Jesus', 'prayer-global-porch' ),
+                        'Praying Paused' => __( 'Praying Paused', 'prayer-global-porch' ),
+                        'Great Job!' => __( 'Great Job!', 'prayer-global-porch' ),
+                        'Prayer Added!' => __( 'Prayer Added!', 'prayer-global-porch' ),
                     ],
                     'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/anon.jpeg',
                     'images_url' => pg_grid_image_url(),
@@ -48,10 +58,6 @@ trait PG_Lap_Trait {
             <link rel="prefetch" href="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/celebrate1.gif' ) ?>" >
             <link rel="prefetch" href="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/celebrate2.gif' ) ?>" >
             <link rel="prefetch" href="<?php echo esc_url( plugin_dir_url( __DIR__ ) . 'assets/images/celebrate3.gif' ) ?>" >
-            <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/global-functions.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/global-functions.js' ) ) ?>"></script>
-            <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>lap.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'lap.js' ) ) ?>"></script>
-            <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>report.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'report.js' ) ) ?>"></script>
-            <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/share.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/share.js' ) ) ?>"></script>
             <?php
         }
     }

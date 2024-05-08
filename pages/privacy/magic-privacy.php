@@ -84,7 +84,7 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
             <div class="container">
                 <div class="row justify-content-md-center text-center mb-5">
                     <div class="col-lg-7">
-                        <h2 class="mt-0 font-weight-normal">Privacy Policy</h2>
+                        <h2 class="mt-0 font-weight-normal"><?php echo esc_html__( 'Privacy Policy', 'prayer-global-porch' ) ?></h2>
 
                     </div>
                 </div>
@@ -93,86 +93,86 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        This privacy policy has been compiled to better serve those who are concerned with how their "Personally Identifiable Information" (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.
+                        <p><?php echo esc_html__( 'This privacy policy has been compiled to better serve those who are concerned with how their "Personally Identifiable Information" (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website.', 'prayer-global-porch' ) ?></p>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">What permissions do the social sign-on logins ask for?</h3>
+                        <h3 class="secondary"><?php echo esc_html__( 'What permissions do the social sign-on logins ask for?', 'prayer-global-porch' ) ?></h3>
                         <ul>
-                            <li>Public Profile. This includes certain User’s Data such as id, name, picture, gender, and their locale.</li>
-                            <li>Email Address.</li>
+                        <li><?php echo esc_html__( 'Public Profile. This includes certain User’s Data such as id, name, picture, gender, and their locale.', 'prayer-global-porch' ) ?></li>
+                        <li><?php echo esc_html__( 'Email Address.', 'prayer-global-porch' ) ?></li>
                         </ul>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">What personal information do we collect from the people through our website?</h3>
+                        <h3 class="secondary"><?php echo esc_html__( 'What personal information do we collect from the people through our website?', 'prayer-global-porch' ) ?></h3>
                         <ul>
-                            <li>Information in the Basic Social Profile (if used) and email.</li>
-                            <li>Session and course activity.</li>
-                            <li>General location telemetry, so we know in what countries our training is being used.</li>
+                            <li><?php echo esc_html__( 'Information in the Basic Social Profile (if used) and email.', 'prayer-global-porch' ) ?></li>
+                            <li><?php echo esc_html__( 'Session and course activity.', 'prayer-global-porch' ) ?></li>
+                            <li><?php echo esc_html__( 'General location telemetry, so we know in what countries our training is being used.', 'prayer-global-porch' ) ?></li>
                         </ul>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">When do we collect information?</h3>
+                        <h3 class="secondary"><?php echo esc_html__( 'When do we collect information?', 'prayer-global-porch' ) ?></h3>
                         <ul>
-                            <li>We collect your information at login.</li>
-                            <li>We also track your progress through the training course.</li>
+                            <li><?php echo esc_html__( 'We collect your information at login.', 'prayer-global-porch' ) ?></li>
+                            <li><?php echo esc_html__( 'We also track your progress through the training course.', 'prayer-global-porch' ) ?></li>
                         </ul>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">How do we use your information?</h3>
+                        <h3 class="secondary"><?php echo esc_html__( 'How do we use your information?', 'prayer-global-porch' ) ?></h3>
                         <ul>
-                            <li>We use your information to create a user account in the zume system based on your email address.</li>
-                            <li>We will email you with basic transactional emails like password reset requests and other system notifications.</li>
-                            <li>We email occasional reminders and encouragements depending on your progress through the training.</li>
+                            <li><?php echo esc_html__( 'We use your information to create a user account in the zume system based on your email address.', 'prayer-global-porch' ) ?></li>
+                            <li><?php echo esc_html__( 'We will email you with basic transactional emails like password reset requests and other system notifications.', 'prayer-global-porch' ) ?></li>
+                            <li><?php echo esc_html__( 'We email occasional reminders and encouragements depending on your progress through the training.', 'prayer-global-porch' ) ?></li>
                         </ul>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">How do we protect your information?</h3>
-                        <p>While we use encryption to protect sensitive information transmitted online, we also protect your information offline. Only team members who need the information to perform a specific job (for example, web administrator or customer service) are granted access to personally identifiable information.</p>
-                        <p>Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential. In addition, all sensitive/credit information you supply is encrypted via Secure Socket Layer (SSL) technology.</p>
-                        <p>We implement a variety of security measures when a user submits, or accesses their information to maintain the safety of your personal information.</p>
+                        <h3 class="secondary"><?php echo esc_html__( 'How do we protect your information?', 'prayer-global-porch' ) ?></h3>
+                        <p><?php echo esc_html__( 'While we use encryption to protect sensitive information transmitted online, we also protect your information offline. Only team members who need the information to perform a specific job (for example, web administrator or customer service) are granted access to personally identifiable information.', 'prayer-global-porch' ) ?></p>
+                        <p><?php echo esc_html__( 'Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential. In addition, all sensitive/credit information you supply is encrypted via Secure Socket Layer (SSL) technology.', 'prayer-global-porch' ) ?></p>
+                        <p><?php echo esc_html__( 'We implement a variety of security measures when a user submits, or accesses their information to maintain the safety of your personal information.', 'prayer-global-porch' ) ?></p>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">Do we use "cookies"?</h3>
-                        <p>Any use of Cookies - or of other tracking tools - by this Application or by the owners of third party services used by this Application, unless stated otherwise, serves to identify Users and remember their preferences, for the sole purpose of providing the service required by the User.</p>
-                        <p>Personal Data collected: name, email.</p>
+                        <h3 class="secondary"><?php echo esc_html__( 'Do we use "cookies"?', 'prayer-global-porch' ) ?></h3>
+                        <p><?php echo esc_html__( 'Any use of Cookies - or of other tracking tools - by this Application or by the owners of third party services used by this Application, unless stated otherwise, serves to identify Users and remember their preferences, for the sole purpose of providing the service required by the User.', 'prayer-global-porch' ) ?></p>
+                        <p><?php echo esc_html__( 'Personal Data collected: name, email.', 'prayer-global-porch' ) ?></p>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">Your Access to and Control Over Information.</h3>
-                        <p>You may opt out of any future contact from us at any time. You can do the following at any time by contacting us via our contact email address:</p>
-                        <p>See what data we've aggregated from your activities with us.</p>
+                        <h3 class="secondary"><?php echo esc_html__( 'Your Access to and Control Over Information.', 'prayer-global-porch' ) ?></h3>
+                        <p><?php echo esc_html__( 'You may opt out of any future contact from us at any time. You can do the following at any time by contacting us via our contact email address:', 'prayer-global-porch' ) ?></p>
+                        <p><?php echo esc_html__( "See what data we've aggregated from your activities with us.", 'prayer-global-porch' ) ?></p>
                         <ul>
-                            <li>Change/correct any data we have about you.</li>
-                            <li>Have us delete any data we have about you.</li>
-                            <li>Express any concern you have about our use of your data.</li>
+                            <li><?php echo esc_html__( 'Change/correct any data we have about you.', 'prayer-global-porch' ) ?></li>
+                            <li><?php echo esc_html__( 'Have us delete any data we have about you.', 'prayer-global-porch' ) ?></li>
+                            <li><?php echo esc_html__( 'Express any concern you have about our use of your data.', 'prayer-global-porch' ) ?></li>
                         </ul>
                     </div>
 
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary">Updates</h3>
-                        <p>Our Privacy Policy may change from time to time and all updates will be posted on this page.</p>
+                        <h3 class="secondary"><?php echo esc_html__( 'Updates', 'prayer-global-porch' ) ?></h3>
+                        <p><?php echo esc_html__( 'Our Privacy Policy may change from time to time and all updates will be posted on this page.', 'prayer-global-porch' ) ?></p>
                     </div>
 
                 </div>

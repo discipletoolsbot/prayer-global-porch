@@ -127,11 +127,6 @@ class PG_Global_Prayer_App_Stats extends PG_Global_Prayer_App {
         </section>
         <script>
             let jsObject = [<?php echo json_encode([
-                'map_key' => DT_Mapbox_API::get_key(),
-                'mirror_url' => dt_get_location_grid_mirror( true ),
-                'ipstack' => DT_Ipstack_API::get_key(),
-                'root' => esc_url_raw( rest_url() ),
-                'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
                 'current_lap' => pg_current_global_lap(),
                 'translations' => [
@@ -151,9 +146,9 @@ class PG_Global_Prayer_App_Stats extends PG_Global_Prayer_App {
                     data: JSON.stringify({ action: action, parts: jsObject.parts, data: data }),
                     contentType: "application/json; charset=utf-8",
                     dataType: "json",
-                    url: jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type + '/stats',
+                    url: window.pg_global.root + jsObject.parts.root + '/v1/' + jsObject.parts.type + '/stats',
                     beforeSend: function (xhr) {
-                        xhr.setRequestHeader('X-WP-Nonce', jsObject.nonce )
+                        xhr.setRequestHeader('X-WP-Nonce', window.pg_global.nonce )
                     }
                 })
                     .fail(function(e) {

@@ -81,7 +81,7 @@ if ( !defined( 'ABSPATH' ) ) { exit; } // Exit if accessed directly.
         return array_merge( $allowed_js, [
             'stripe',
             'fetch',
-            'jQuery',
+            'jquery',
             'client-stripe-js',
         ] );
     }

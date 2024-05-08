@@ -1,15 +1,19 @@
 jQuery(document).ready(function(){
+  const translations = window.pg_js.escapeObject(jsObject.translations)
+  let translate = function ( string ){
+    return translations[string] ? translations[string] : string
+  }
   /**
    * API HANDLERS
    */
   window.api_post = ( action, data ) => {
-    return window.api_fetch( jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type, {
+    return window.api_fetch( window.pg_global.root + jsObject.parts.root + '/v1/' + jsObject.parts.type, {
       method: "POST",
       body: JSON.stringify({ action: action, parts: jsObject.parts, data: data }),
     })
   }
   window.api_post_global = ( type, action, data = null ) => {
-    return window.api_fetch( `${jsObject.root}pg-api/v1/${type}/${action}`, {
+    return window.api_fetch( `${window.pg_global.root}pg-api/v1/${type}/${action}`, {
       method: "POST",
       body: data !== null ? JSON.stringify(data) : null,
     })
@@ -154,7 +158,6 @@ jQuery(document).ready(function(){
         window.report_content = window.current_content = test_for_redundant_grid( l1 )
         load_location()
 
-        console.log(window.viewed)
         // modal logic
         if ( window.viewed === '0' ) {
           toggle_timer( true )
@@ -355,7 +358,7 @@ jQuery(document).ready(function(){
 
       decision_panel.show()
 
-      button_text.html('Praying Paused')
+      button_text.html(translate('Praying Paused'))
       clearInterval(window.interval)
       window.paused = true
     } else {
@@ -367,7 +370,7 @@ jQuery(document).ready(function(){
       decision_panel.hide()
       question_panel.hide()
 
-      button_text.html('Keep Praying...')
+      button_text.html(translate('Keep Praying...'))
       prayer_progress_indicator( window.time )
       window.paused = ''
     }
@@ -398,7 +401,7 @@ jQuery(document).ready(function(){
       }
     }
 
-    button_text.html('Keep Praying...')
+    button_text.html(translate('Keep Praying...'))
     button_progress.css('width', '0' )
 
     praying_panel.show()
@@ -406,7 +409,7 @@ jQuery(document).ready(function(){
     question_panel.hide()
     celebrate_panel.hide()
 
-    location_name.html( content.location.admin_level_name_cap + ' of ' + content.location.full_name)
+    location_name.html( translations.state_of_location.replace('%1$s', content.location.admin_level_name_cap).replace('%2$s', content.location.full_name) )
     div.empty()
 
     location_map_wrapper.show()
@@ -433,15 +436,15 @@ jQuery(document).ready(function(){
       trigger: 'focus',
     }
     redBodyIcons.forEach((element) => {
-      new bootstrap.Popover(element, { ...config, content: "Don't know Jesus"})
+      new bootstrap.Popover(element, { ...config, content: translate("Don't Know Jesus")})
     })
     const orangeBodyIcons = document.querySelectorAll('.ion-ios-body.brand-lighter')
     orangeBodyIcons.forEach((element) => {
-      new bootstrap.Popover(element, { ...config, content: "Know about Jesus"})
+      new bootstrap.Popover(element, { ...config, content: translate("Know About Jesus")})
     })
     const greenBodyIcons = document.querySelectorAll('.ion-ios-body.secondary')
     greenBodyIcons.forEach((element) => {
-      new bootstrap.Popover(element, { ...config, content: "Know Jesus"})
+      new bootstrap.Popover(element, { ...config, content: translate("Know Jesus")})
     })
   }
   function prayer_progress_indicator( time_start ) {
@@ -476,7 +479,7 @@ jQuery(document).ready(function(){
         praying_panel.hide()
         question_panel.show()
         button_progress.css('width', '0' )
-        button_text.html('Keep Praying...')
+        button_text.html(translate('Keep Praying...'))
         /* Set a variable so that we know that the timer has stopped running and that we've logged it once*/
         window.time_finished = true
       }
@@ -509,9 +512,9 @@ jQuery(document).ready(function(){
       <p style="padding-top:2em;">
         <div>
           <h2>
-            Great Job!
+            ${translate('Great Job!')}
             <br />
-            Prayer Added!
+            ${translate('Prayer Added!')}
           </h2>
 
           <img width="400px" src="${jsObject.image_folder}celebrate${rint}.gif" class="rounded-3 img-fluid celebrate-image" alt="photo" />
@@ -528,7 +531,6 @@ jQuery(document).ready(function(){
   function mapbox_border_map() {
     let content = jQuery('#location-map')
     let grid_row = window.current_content.location
-    console.log(grid_row)
 
     content.empty().html(`
         <div id="map-wrapper">
@@ -543,8 +545,11 @@ jQuery(document).ready(function(){
       )
 
     window.load_map_with_style = ( ) => {
+      if ( typeof mapboxgl === 'undefined' ){
+        return;
+      }
       let center = [grid_row.p_longitude, grid_row.p_latitude]
-      mapboxgl.accessToken = jsObject.map_key;
+      mapboxgl.accessToken = window.pg_global.map_key;
       let map = new mapboxgl.Map({
         container: 'mapbox-map',
         style: 'mapbox://styles/discipletools/clgnj6vkv00e801pj9xnw49i6',
@@ -559,7 +564,7 @@ jQuery(document).ready(function(){
       map.on('load', function() {
 
         jQuery.ajax({
-          url: jsObject.mirror_url + 'collection/'+grid_row.parent_id+'.geojson',
+          url: window.pg_global.mirror_url + 'collection/'+grid_row.parent_id+'.geojson',
           dataType: 'json',
           data: null,
           cache: true,
@@ -672,7 +677,7 @@ jQuery(document).ready(function(){
 
         if ( grid_row.level >= 2 ) {
           jQuery.ajax({
-            url: jsObject.mirror_url + 'low/'+grid_row.admin0_grid_id+'.geojson',
+            url: window.pg_global.mirror_url + 'low/'+grid_row.admin0_grid_id+'.geojson',
             dataType: 'json',
             data: null,
             cache: true,
@@ -1349,33 +1354,36 @@ jQuery(document).ready(function(){
     }
     div.append(
       `<div class="container block basic-block">
-          <div class="row">
+        <div class="row">
           <div class="col text-center">
             <h5 class="mb-0 uc">${data.section_label}</h5>
-            <p class="mt-3 mb-3" style="display: ${icon};"><i class="${data.icon} six-em" /></p>
+            <p class="mt-3 mb-3" style="display: ${icon};">
+                <i class="${data.icon} six-em"></i>
+            </p>
           </div>
-      </div>
-      <div class="row text-center justify-content-center">
-        <div class="col-md-8">
-           <p class="mt-3 mb-3 two-em lh-sm">${data.prayer}</p>
         </div>
-      </div>
+        <div class="row text-center justify-content-center">
+          <div class="col-md-8">
+             <p class="mt-3 mb-3 two-em lh-sm">${data.prayer}</p>
+          </div>
+        </div>
 
-      <div class="row text-center justify-content-center ${data.id}" style="display:${display}">
-        <div class="col mt-3 mb-3 font-weight-bold text-center">
-          <button type="button" class="px-4 d-flex mx-auto align-items-center gap-2" onclick="jQuery('#${data.id}').show();jQuery('.${data.id}').hide();" >
-            <span>${data.reference} </span> <i class="icon pg-chevron-down"></i>
-          </button>
+        <div class="row text-center justify-content-center ${data.id}" style="display:${display}">
+          <div class="col mt-3 mb-3 font-weight-bold text-center">
+            <button type="button" class="px-4 d-flex mx-auto align-items-center gap-2" onclick="jQuery('#${data.id}').show();jQuery('.${data.id}').hide();" >
+              <span>${data.reference} </span> <i class="icon pg-chevron-down"></i>
+            </button>
+          </div>
         </div>
-      </div>
-       <div class="row text-center justify-content-center" style="display:none;" id="${data.id}" >
-        <div class="col-md-8">
-           <p class="mt-3 mb-0 font-weight-normal font-italic lh-sm two-em">${data.verse}</p>
-           <p class="mt-0 mb-3 font-weight-normal">${data.reference}</p>
+        <div class="row text-center justify-content-center" style="display:none;" id="${data.id}" >
+          <div class="col-md-8">
+             <p class="mt-3 mb-0 font-weight-normal font-italic lh-sm two-em">${data.verse}</p>
+             <p class="mt-0 mb-3 font-weight-normal">${data.reference}</p>
+          </div>
         </div>
-      </div>
-      <hr>
-    </div>`)
+        <hr>
+      </div>`
+    );
   }
 
   function BodyIcon( color, size = '' ) {

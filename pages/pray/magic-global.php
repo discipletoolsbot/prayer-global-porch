@@ -159,10 +159,12 @@ class PG_Global_Prayer_App extends DT_Magic_Url_Base {
     }
 
     public function _header() {
+        wp_head();
         $this->header_style();
         $this->header_javascript();
     }
     public function _footer(){
+        wp_footer();
         $this->footer_javascript();
     }
 

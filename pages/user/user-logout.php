@@ -51,9 +51,7 @@ class PG_User_Logout extends DT_Magic_Url_Base {
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        return array_merge( $allowed_js, [
-            'jquery',
-        ]);
+        return [];
     }
 
     public function wp_enqueue_scripts() {}

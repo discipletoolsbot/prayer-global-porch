@@ -23,7 +23,7 @@ function pg_current_global_lap() : array {
      *  [key] => d7dcd4
      *  [start_time] => 1651269768
      */
-    $lap = get_option( 'pg_current_global_lap' );
+    $lap = get_option( 'pg_current_global_lap', [] );
     return $lap;
 }
 
@@ -984,35 +984,6 @@ function pg_calculate_lap_number( $post_id ) {
 
 }
 
-function pg_toggle_user_elements() {
-
-    ?>
-
-    <script>
-        $(document).ready(function($) {
-            window.getAuthUser(
-                () => {
-                    showElements('[data-pg-is-logged-in]', true)
-                    showElements('[data-pg-is-logged-out]', false)
-                },
-                () => {
-                    showElements('[data-pg-is-logged-in]', false)
-                    showElements('[data-pg-is-logged-out]', true)
-                }
-            )
-
-            function showElements(selector, show) {
-                document
-                    .querySelectorAll(selector)
-                    .forEach((element) => element.style.display = show ? 'block' : 'none')
-            }
-        })
-    </script>
-
-    <?php
-
-}
-
 if ( ! function_exists( 'dt_sanitize_array' ) ) {
     function dt_sanitize_array( &$array ) {
         foreach ( $array as &$value ) {
@@ -1024,4 +995,52 @@ if ( ! function_exists( 'dt_sanitize_array' ) ) {
         }
         return $array;
     }
+}
+
+
+
+/**
+ * Return the code of the language that the campaign is currently being viewed in.
+ *
+ * This could come from the GET request or be stored in the browser's cookies
+ *
+ * @return string
+ */
+function pg_get_current_lang(): string {
+    $lang = 'en_US';
+    if ( defined( 'PORCH_DEFAULT_LANGUAGE' ) ){
+        $lang = PORCH_DEFAULT_LANGUAGE;
+    }
+    if ( isset( $_GET['lang'] ) && !empty( $_GET['lang'] ) ){
+        $lang = sanitize_text_field( wp_unslash( $_GET['lang'] ) );
+    } elseif ( isset( $_COOKIE['dt-magic-link-lang'] ) && !empty( $_COOKIE['dt-magic-link-lang'] ) ){
+        $lang = sanitize_text_field( wp_unslash( $_COOKIE['dt-magic-link-lang'] ) );
+    }
+    return $lang;
+}
+
+function pg_set_translation( $lang ){
+    if ( $lang !== 'en_US' ){
+        add_filter( 'determine_locale', function ( $locale ) use ( $lang ){
+            if ( !empty( $lang ) ){
+                return $lang;
+            }
+            return $locale;
+        }, 1000, 1 );
+        pg_reload_text_domain();
+    }
+}
+function pg_reload_text_domain(){
+    load_plugin_textdomain( 'prayer-global-porch', false, trailingslashit( dirname( plugin_basename( __FILE__ ), 2 ) ). 'support/languages' );
+}
+/**
+ * Set the magic link lang in the cookie
+ *
+ * @param string $lang
+ */
+function pg_add_lang_to_cookie( string $lang ) {
+    if ( isset( $_COOKIE['dt-magic-link-lang'] ) && $_COOKIE['dt-magic-link-lang'] === $lang ){
+        return;
+    }
+    setcookie( 'dt-magic-link-lang', $lang, 0, '/' );
 }

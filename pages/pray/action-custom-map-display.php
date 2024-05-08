@@ -43,11 +43,14 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
+        $allowed_js = [];
         $allowed_js[] = 'jquery-touch-punch';
         $allowed_js[] = 'mapbox-gl';
         $allowed_js[] = 'jquery-cookie';
         $allowed_js[] = 'mapbox-cookie';
         $allowed_js[] = 'heatmap-js';
+        $allowed_js[] = 'foundations-js';
+
         return $allowed_js;
     }
 
@@ -75,11 +78,6 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
         <?php pg_google_analytics() ?>
         <script>
             let jsObject = [<?php echo json_encode([
-                'map_key' => DT_Mapbox_API::get_key(),
-                'ipstack' => DT_Ipstack_API::get_key(),
-                'mirror_url' => dt_get_location_grid_mirror( true ),
-                'root' => esc_url_raw( rest_url() ),
-                'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
                 'grid_data' => [],
                 'stats' => $this->stats,

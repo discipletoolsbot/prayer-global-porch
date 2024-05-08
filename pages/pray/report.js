@@ -56,9 +56,9 @@ window.load_report_modal = () => {
       data: JSON.stringify({action: 'correction', parts: jsObject.parts, data: data}),
       contentType: "application/json; charset=utf-8",
       dataType: "json",
-      url: jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type,
+      url: window.pg_global.root + jsObject.parts.root + '/v1/' + jsObject.parts.type,
       beforeSend: function (xhr) {
-        xhr.setRequestHeader('X-WP-Nonce', jsObject.nonce)
+        xhr.setRequestHeader('X-WP-Nonce', window.pg_global.nonce)
       }
     })
       .done(function(x) {

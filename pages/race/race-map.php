@@ -67,6 +67,7 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
+        $allowed_js = [];
         $allowed_js[] = 'jquery-touch-punch';
         $allowed_js[] = 'mapbox-gl';
         $allowed_js[] = 'jquery-cookie';
@@ -104,11 +105,6 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
         ?>
         <script>
             let jsObject = [<?php echo json_encode([
-                'map_key' => DT_Mapbox_API::get_key(),
-                'ipstack' => DT_Ipstack_API::get_key(),
-                'mirror_url' => dt_get_location_grid_mirror( true ),
-                'root' => esc_url_raw( rest_url() ),
-                'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
                 'grid_data' => [],
                 'participants' => [],
@@ -121,7 +117,6 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                 'details_type' => $this->details_type,
             ]) ?>][0]
         </script>
-        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/global-functions.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/global-functions.js' ) ) ?>"></script>
         <link href="https://fonts.googleapis.com/css?family=Crimson+Text:400,400i,600|Montserrat:200,300,400" rel="stylesheet">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/bootstrap/bootstrap5.2.2.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/ionicons/css/ionicons.min.css">
@@ -207,21 +202,21 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
             <div class="center offcanvas__header"><button type="button" data-bs-toggle="offcanvas"><i class="icon pg-chevron-down three-em"></i></button></div>
             <div class="row center uppercase offcanvas__content">
                 <div class="col col-12">
-                    <div class="two-em font-weight-bold"><?php echo esc_html__( 'Race Map Stats', 'prayer-global' ) ?></div>
+                    <div class="two-em font-weight-bold"><?php echo esc_html__( 'Race Map Stats', 'prayer-global-porch' ) ?></div>
                 </div>
                 <div class="align-items-center d-flex flex-dir-column mt-3">
                     <i class="icon pg-world-arrow blue four-em"></i>
-                    <span class="stats-title"><?php echo esc_html__( 'World Coverage', 'prayer-global' ) ?></span>
+                    <span class="stats-title"><?php echo esc_html__( 'World Coverage', 'prayer-global-porch' ) ?></span>
                     <div class="blue-bg rounded stats-figure-lg px-3 white"><?php echo esc_html( sprintf( __( '%s times', 'prayer-global-porch' ), $finished_laps ) ) ?></div>
                 </div>
                 <div class="align-items-center d-flex flex-dir-column mt-3">
                     <i class="icon pg-prayer blue four-em"></i>
-                    <span class="stats-title"><?php echo esc_html__( 'Intercessors', 'prayer-global' ) ?></span>
+                    <span class="stats-title"><?php echo esc_html__( 'Intercessors', 'prayer-global-porch' ) ?></span>
                     <div class="orange-bg rounded stats-figure-lg px-3 warriors white"><?php echo esc_html( $lap_stats['participants'] ) ?></div>
                 </div>
                 <hr class="mt-3">
                 <div class="">
-                    <p class="two-em mb-0"><?php echo esc_html__( 'Time Elapsed', 'prayer-global' ) ?></p>
+                    <p class="two-em mb-0"><?php echo esc_html__( 'Time Elapsed', 'prayer-global-porch' ) ?></p>
                     <p class="stats-figure time_elapsed">0</p>
                 </div>
                 <hr class="mt-3">
@@ -230,19 +225,8 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
         <?php
     }
 
-    public static function _wp_enqueue_scripts(){
-        DT_Mapbox_API::load_mapbox_header_scripts();
-        wp_enqueue_script( 'components-js', trailingslashit( plugin_dir_url( __DIR__ ) ) . 'assets/js/components.js', [
-            'jquery',
-            'mapbox-gl'
-        ], filemtime( plugin_dir_path( __DIR__ ) .'assets/js/components.js' ), true );
-        wp_enqueue_script( 'heatmap-js', trailingslashit( plugin_dir_url( __DIR__ ) ) . 'pray/heatmap.js', [
-            'jquery',
-            'mapbox-gl'
-        ], filemtime( plugin_dir_path( __DIR__ ) .'pray/heatmap.js' ), true );
-        wp_enqueue_script( 'bootstrap-js', trailingslashit( plugin_dir_url( __DIR__ ) ) . 'assets/js/bootstrap.bundle.min.js', [
-            'jquery',
-        ], filemtime( plugin_dir_path( __DIR__ ) .'assets/js/bootstrap.bundle.min.js' ), true );
+    public function _wp_enqueue_scripts(){
+        pg_heatmap_scripts( null );
     }
 
     /**

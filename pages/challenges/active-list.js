@@ -1,11 +1,12 @@
 jQuery(document).ready(function() {
+  const translations = window.pg_js.escapeObject(window.pg_active_list.translations);
   /**
    * API HANDLERS
    */
   window.api_post = (action, data) => {
-    return window.api_fetch( jsObject.root + jsObject.parts.root + '/v1/' + jsObject.parts.type, {
+    return window.api_fetch( window.pg_global.root + window.pg_active_list.parts.root + '/v1/' + window.pg_active_list.parts.type, {
       method: "POST",
-      body: JSON.stringify({action: action, parts: jsObject.parts, data: data}),
+      body: JSON.stringify({action: action, parts: window.pg_active_list.parts, data: data}),
     })
       .catch(function (e) {
         console.log(e)
@@ -15,18 +16,6 @@ jQuery(document).ready(function() {
   window.api_post( 'get_global_list', {} )
     .then(function(data) {
 
-            const {
-              pray,
-              map,
-              sharing,
-              display,
-              name,
-              intercessors,
-              time_elapsed,
-              links,
-              lap,
-            } = jsObject.translations
-
             let html_content_active = ''
             let html_content_completed = ''
 
@@ -35,22 +24,22 @@ jQuery(document).ready(function() {
               if ( v.status === 'active' ){
                 html_content_active += `<tr>
                                 <td>${v.start_time}</td>
-                                <th class="white">${v.post_title} ${!jsObject.is_rolling_laps_feature_on || v.single_lap === '1' ? '' : lap.replace('%d', lapNumber)}</th>
+                                <th class="white">${v.post_title} ${!window.pg_active_list.is_rolling_laps_feature_on || v.single_lap === '1' ? '' : translations.lap.replace('%d', lapNumber)}</th>
                                 <td style="text-align:right;">
-                                  <a href="/prayer_app/custom/${v.lap_key}">${pray}</a> |
-                                  <a href="/prayer_app/custom/${v.lap_key}/map">${map}</a> |
-                                  <a href="/prayer_app/custom/${v.lap_key}/tools">${sharing}</a> |
-                                  <a href="/prayer_app/custom/${v.lap_key}/display">${display}</a>
+                                  <a href="/prayer_app/custom/${v.lap_key}">${translations.pray}</a> |
+                                  <a href="/prayer_app/custom/${v.lap_key}/map">${translations.map}</a> |
+                                  <a href="/prayer_app/custom/${v.lap_key}/tools">${translations.sharing}</a> |
+                                  <a href="/prayer_app/custom/${v.lap_key}/display">${translations.display}</a>
                                 </td>
                               </tr>`
               } else if ( v.status === 'complete' ) {
                 html_content_completed += `<tr>
                                 <td>${v.start_time}</td>
-                                <th class="white">${v.post_title} ${!jsObject.is_rolling_laps_feature_on || v.single_lap === '1' ? '' : lap.replace('%d', lapNumber)}</th>
+                                <th class="white">${v.post_title} ${!window.pg_active_list.is_rolling_laps_feature_on || v.single_lap === '1' ? '' : translations.lap.replace('%d', lapNumber)}</th>
                                 <td>${v.stats.participants}</td>
                                 <td>${v.stats.time_elapsed_small}</td>
                                 <td style="text-align:right;">
-                                  <a href="/prayer_app/custom/${v.lap_key}/map">${map}</a>
+                                  <a href="/prayer_app/custom/${v.lap_key}/map">${translations.map}</a>
                                 </td>
                               </tr>`
               }
@@ -61,8 +50,8 @@ jQuery(document).ready(function() {
                   `<table class="display " style="width:100%;" id="list-table-active" data-order='[[ 0, "desc" ]]'>
                           <thead>
                               <th></th>
-                              <th>${name}</th>
-                              <th class="desktop">${links}</th>
+                              <th>${translations.name}</th>
+                              <th class="desktop">${translations.links}</th>
                             </thead>
                           <tbody>
                              ${html_content_active}
@@ -93,10 +82,10 @@ jQuery(document).ready(function() {
             `<table class="display " style="width:100%;" id="list-table-completed" data-order='[[ 0, "desc" ]]'>
                                     <thead>
                                         <th></th>
-                                        <th>${name}</th>
-                                        <th class="desktop">${intercessors}</th>
-                                        <th class="desktop">${time_elapsed}</th>
-                                        <th class="desktop">${links}</th>
+                                        <th>${translations.name}</th>
+                                        <th class="desktop">${translations.intercessors}</th>
+                                        <th class="desktop">${translations.time_elapsed}</th>
+                                        <th class="desktop">${translations.links}</th>
                                       </thead>
                                     <tbody>
                                        ${html_content_completed}

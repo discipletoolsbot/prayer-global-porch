@@ -51,14 +51,13 @@ class PG_User_Login_Registration extends DT_Magic_Url_Base {
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        return array_merge( $allowed_js, [
-            'jquery',
-        ]);
+        return [];
     }
 
     public function wp_enqueue_scripts() {}
 
     public function header_javascript(){
+        wp_head();
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
 
         $user_id = get_current_user_id();
@@ -84,7 +83,28 @@ class PG_User_Login_Registration extends DT_Magic_Url_Base {
     }
 
     public function footer_javascript(){
+        wp_footer();
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/footer.php' );
+        ?>
+        <script>
+
+          $(document).ready(function($) {
+            window.getAuthUser(
+              () => {
+                const url = new URL(location.href)
+                const redirectTo = url.searchParams.get('redirect_to') || encodeURIComponent('/user_app/profile')
+
+                location.href = decodeURIComponent(redirectTo)
+              },
+              () => {
+                document.getElementById('login-ui').style.display = 'block'
+                document.getElementById('login-ui-loader').style.display = 'none'
+              }
+            )
+          })
+
+        </script>
+        <?php
     }
 
 
@@ -103,24 +123,7 @@ class PG_User_Login_Registration extends DT_Magic_Url_Base {
 
         ?>
 
-        <script>
 
-            $(document).ready(function($) {
-                window.getAuthUser(
-                    () => {
-                        const url = new URL(location.href)
-                        const redirectTo = url.searchParams.get('redirect_to') || encodeURIComponent('/user_app/profile')
-
-                        location.href = decodeURIComponent(redirectTo)
-                    },
-                    () => {
-                        document.getElementById('login-ui').style.display = 'block'
-                        document.getElementById('login-ui-loader').style.display = 'none'
-                    }
-                )
-            })
-
-        </script>
 
         <section class="page-section pt-4" data-section="login" id="section-login">
             <div class="container">

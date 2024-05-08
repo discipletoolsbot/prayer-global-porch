@@ -49,6 +49,7 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
     }
 
     public function header_javascript(){
+        wp_head();
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
         ?>
         <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/clipboard.min.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/clipboard.min.js' ) ) ?>"></script>
@@ -56,7 +57,45 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
     }
 
     public function footer_javascript(){
+        wp_footer();
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/footer.php' );
+        ?>
+        <script type="application/javascript">
+          jQuery(document).ready(function() {
+            var clipboard = new ClipboardJS('#copy-button');
+            clipboard.on('success', function(e) {
+              console.info('Action:', e.action);
+              console.info('Text:', e.text);
+              console.info('Trigger:', e.trigger);
+              jQuery('#copy-button').text('Copied')
+              e.clearSelection();
+            });
+
+
+            var clipboard_qrapp = new ClipboardJS('#copy-button-qrapp');
+            clipboard_qrapp.on('success', function(e) {
+              console.info('Action:', e.action);
+              console.info('Text:', e.text);
+              console.info('Trigger:', e.trigger);
+              jQuery('#copy-button-qrapp').text('Copied')
+              e.clearSelection();
+            });
+
+
+
+            var clipboard_display = new ClipboardJS('#copy-button-display');
+            clipboard_display.on('success', function(e) {
+              console.info('Action:', e.action);
+              console.info('Text:', e.text);
+              console.info('Trigger:', e.trigger);
+              jQuery('#copy-button-display').text('Copied')
+              e.clearSelection();
+            });
+
+
+          });
+        </script>
+        <?php
     }
 
     public function body(){
@@ -156,41 +195,6 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
 
         </section>
         <div style="height:300px;"></div>
-        <script>
-            jQuery(document).ready(function() {
-                var clipboard = new ClipboardJS('#copy-button');
-                clipboard.on('success', function(e) {
-                    console.info('Action:', e.action);
-                    console.info('Text:', e.text);
-                    console.info('Trigger:', e.trigger);
-                    jQuery('#copy-button').text('Copied')
-                    e.clearSelection();
-                });
-
-
-                var clipboard_qrapp = new ClipboardJS('#copy-button-qrapp');
-                clipboard_qrapp.on('success', function(e) {
-                    console.info('Action:', e.action);
-                    console.info('Text:', e.text);
-                    console.info('Trigger:', e.trigger);
-                    jQuery('#copy-button-qrapp').text('Copied')
-                    e.clearSelection();
-                });
-
-
-
-                var clipboard_display = new ClipboardJS('#copy-button-display');
-                clipboard_display.on('success', function(e) {
-                    console.info('Action:', e.action);
-                    console.info('Text:', e.text);
-                    console.info('Trigger:', e.trigger);
-                    jQuery('#copy-button-display').text('Copied')
-                    e.clearSelection();
-                });
-
-
-            });
-        </script>
         <!-- END section -->
         <?php require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/working-footer.php' ) ?>
         <?php // end html

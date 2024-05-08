@@ -16,7 +16,7 @@ class PG_Stacker_Positions {
                 'type' => 'photo_block',
                 'data' => [
                     'section_label' => __( 'One Shot Prayer Walk', 'prayer-global-porch' ),
-                    'location_label' => sprintf( __( 'Photo from the %1$s of %2$s', 'prayer-global-porch' ), $stack['location']['admin_level_name'], $stack['location']['full_name'] ),
+                    'location_label' => sprintf( _x( 'Photo from %1$s of %2$s', 'Photo from the state of Colorado', 'prayer-global-porch' ), $stack['location']['admin_level_title'], $stack['location']['full_name'] ),
                     'url' => $image_url,
                     'section_summary' => $text['section_summary'],
                     'prayer' => $text['prayer'],
@@ -77,10 +77,10 @@ class PG_Stacker_Positions {
             'type' => '100_bodies_3_chart',
             'data' => [
                 'section_label' => $section_label,
-                'label_1' => __( "Don't know Jesus", 'prayer-global-porch' ),
+                'label_1' => __( "Don't Know Jesus", 'prayer-global-porch' ),
                 'percent_1' => $stack['location']['percent_non_christians'],
                 'population_1' => $stack['location']['non_christians'],
-                'label_2' => __( 'Know about Jesus', 'prayer-global-porch' ),
+                'label_2' => __( 'Know About Jesus', 'prayer-global-porch' ),
                 'percent_2' => $stack['location']['percent_christian_adherents'],
                 'population_2' => $stack['location']['christian_adherents'],
                 'label_3' => __( 'Know Jesus', 'prayer-global-porch' ),

@@ -131,7 +131,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                         </p>
                         <p>
                             <?php echo esc_html( __( '(2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.),
-                            and is now using the Internet.' ) ) ?>
+                            and is now using the Internet.', 'prayer-global-porch' ) ) ?>
                         </p>
                         <p>
                             <?php echo esc_html( __( '(3) Extraordinary prayer is a foundational mark of all modern disciple multiplying movements.', 'prayer-global-porch' ) ) ?>
@@ -157,7 +157,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                             3. <?php echo esc_html( __( 'Pray for one minute (or longer) as the Spirit leads.', 'prayer-global-porch' ) ) ?>
                         </p>
                         <p class="left-align">
-                            4. <?php echo esc_html__( 'When the timer finishes' ) ?>
+                            4. <?php echo esc_html__( 'When the timer finishes', 'prayer-global-porch' ) ?>
                             <br>
                             <?php echo sprintf( esc_html( __( 'Click Done to see your impact on the map or %sclick Next to pray for another location', 'prayer-global-porch' ) ), '' ) ?>
                         </p>

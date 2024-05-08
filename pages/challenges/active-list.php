@@ -48,6 +48,8 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
             add_filter( 'dt_magic_url_base_allowed_js', [ $this, 'dt_magic_url_base_allowed_js' ], 10, 1 );
             add_filter( 'dt_magic_url_base_allowed_css', [ $this, 'dt_magic_url_base_allowed_css' ], 10, 1 );
 
+            add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ], 100 );
+
             add_filter( "dt_override_header_meta", function (){ return true;
             }, 100, 1 );
         }
@@ -59,47 +61,45 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
-        return [];
+        $allowed_js = [];
+        $allowed_js[] = 'active-list-js';
+        $allowed_js[] = 'datatables';
+        return $allowed_js;
     }
 
     public function dt_magic_url_base_allowed_css( $allowed_css ) {
         return [];
     }
 
+    public function wp_enqueue_scripts(){
+        pg_enqueue_script( 'active-list-js', 'pages/challenges/active-list.js', [ 'jquery', 'global-functions' ], true );
+        wp_localize_script( 'active-list-js', 'pg_active_list', [
+            'translations' => [
+                'pray' => esc_html( __( 'Pray', 'prayer-global-porch' ) ),
+                'map' => esc_html( __( 'Map', 'prayer-global-porch' ) ),
+                'sharing' => esc_html( __( 'Sharing', 'prayer-global-porch' ) ),
+                'display' => esc_html( __( 'Display', 'prayer-global-porch' ) ),
+                'name' => esc_html( __( 'Name', 'prayer-global-porch' ) ),
+                'intercessors' => esc_html( __( 'Intercessors', 'prayer-global-porch' ) ),
+                'time_elapsed' => esc_html( __( 'Time Elapsed', 'prayer-global-porch' ) ),
+                'links' => esc_html( __( 'Links', 'prayer-global-porch' ) ),
+                'lap' => esc_html( __( '- Lap %d', 'prayer-global-porch' ) ),
+            ],
+            'is_rolling_laps_feature_on' => true,
+            'parts' => $this->parts,
+            'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/nope.jpg',
+            'images_url' => pg_grid_image_url(),
+            'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
+        ] );
+        wp_enqueue_script( 'datatables', 'https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.js', [ 'active-list-js' ], '4.0.1', true );
+    }
+
 
     public function header_javascript(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
         ?>
-        <script>
-            let jsObject = [<?php echo json_encode([
-                'map_key' => DT_Mapbox_API::get_key(),
-                'mirror_url' => dt_get_location_grid_mirror( true ),
-                'ipstack' => DT_Ipstack_API::get_key(),
-                'root' => esc_url_raw( rest_url() ),
-                'nonce' => wp_create_nonce( 'wp_rest' ),
-                'parts' => $this->parts,
-                'site_url' => site_url(),
-                'translations' => [
-                    'pray' => esc_html( __( 'Pray', 'prayer-global-porch' ) ),
-                    'map' => esc_html( __( 'Map', 'prayer-global-porch' ) ),
-                    'sharing' => esc_html( __( 'Sharing', 'prayer-global-porch' ) ),
-                    'display' => esc_html( __( 'Display', 'prayer-global-porch' ) ),
-                    'name' => esc_html( __( 'Name', 'prayer-global-porch' ) ),
-                    'intercessors' => esc_html( __( 'Intercessors', 'prayer-global-porch' ) ),
-                    'time_elapsed' => esc_html( __( 'Time Elapsed', 'prayer-global-porch' ) ),
-                    'links' => esc_html( __( 'Links', 'prayer-global-porch' ) ),
-                    'lap' => esc_html( __( '- Lap %d', 'prayer-global-porch' ) ),
-                ],
-                'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/nope.jpg',
-                'images_url' => pg_grid_image_url(),
-                'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
-                'is_rolling_laps_feature_on' => true,
-            ]) ?>][0]
-        </script>
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.css"/>
-        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.12.1/r-2.3.0/datatables.min.js"></script>
-        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>active-list.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'active-list.js' ) ) ?>"></script>
         <?php
     }
 
@@ -193,10 +193,10 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
         return false;
     }
 
-    public function get_active_list() {
-         global $wpdb;
+    public function get_active_list(){
+        global $wpdb;
 
-         $data = [];
+        $data = [];
 
         $results = $wpdb->get_results(
             "   SELECT
@@ -220,7 +220,7 @@ class Prayer_Global_Porch_Challenge_List extends DT_Magic_Url_Base
                 ORDER BY p.post_title
              ", ARRAY_A );
 
-        foreach ( $results as $row ) {
+        foreach ( $results as $row ){
             $row['stats'] = pg_custom_lap_stats_by_post_id( $row['post_id'] );
             $data[] = $row;
         }

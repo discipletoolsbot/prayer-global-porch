@@ -80,11 +80,6 @@ class Prayer_Global_Porch_Stats_Race_List extends DT_Magic_Url_Base
         ?>
         <script>
             let jsObject = [<?php echo json_encode([
-                'map_key' => DT_Mapbox_API::get_key(),
-                'mirror_url' => dt_get_location_grid_mirror( true ),
-                'ipstack' => DT_Ipstack_API::get_key(),
-                'root' => esc_url_raw( rest_url() ),
-                'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
                 'current_lap' => pg_current_global_lap(),
                 'global_race' => pg_global_race_stats(),
@@ -120,7 +115,7 @@ class Prayer_Global_Porch_Stats_Race_List extends DT_Magic_Url_Base
             <div class="container pb-4">
                 <div class="row">
                     <div class="col-md text-center">
-                        <h2 class="">Race List</h2>
+                        <h2 class=""><?php echo esc_html__( 'Race List', 'prayer-global-porch' ) ?></h2>
                         <i class="icon pg-check icon-large"></i>
                     </div>
                 </div>
@@ -138,7 +133,7 @@ class Prayer_Global_Porch_Stats_Race_List extends DT_Magic_Url_Base
             <div class="container center">
                 <div class="row">
                     <div class="col center">
-                        <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-xl btn-primary rounded">Race Map</a>
+                        <a href="/race_app/race_map/" role="button" class="btn smoothscroll btn-xl btn-primary rounded"><?php echo esc_html__( 'Race Map', 'prayer-global-porch' ) ?></a>
                     </div>
                 </div>
             </div>

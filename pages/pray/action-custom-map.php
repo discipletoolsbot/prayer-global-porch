@@ -43,13 +43,12 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
     }
 
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
+        $allowed_js = [];
         $allowed_js[] = 'jquery-touch-punch';
         $allowed_js[] = 'mapbox-gl';
         $allowed_js[] = 'jquery-cookie';
         $allowed_js[] = 'mapbox-cookie';
         $allowed_js[] = 'heatmap-js';
-        $allowed_js[] = 'bootstrap-js';
-        $allowed_js[] = 'components-js';
         return $allowed_js;
     }
 
@@ -87,19 +86,11 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         ?>
         <script>
             let jsObject = [<?php echo json_encode([
-                'map_key' => DT_Mapbox_API::get_key(),
-                'ipstack' => DT_Ipstack_API::get_key(),
-                'mirror_url' => dt_get_location_grid_mirror( true ),
-                'root' => esc_url_raw( rest_url() ),
-                'nonce' => wp_create_nonce( 'wp_rest' ),
                 'parts' => $this->parts,
                 'grid_data' => [],
                 'participants' => [],
                 'stats' => pg_custom_lap_stats_by_post_id( $this->parts['post_id'] ),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
-                'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global-porch' ),
-                ],
                 'map_type' => 'binary',
                 'is_cta_feature_on' => !$lap['ctas_off'],
             ]) ?>][0]
@@ -113,10 +104,6 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/fonts/prayer-global/style.css">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/css/basic.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/css/basic.css' ) ) ?>" type="text/css" media="all">
         <link rel="stylesheet" href="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>heatmap.css?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'heatmap.css' ) ) ?>" type="text/css" media="all">
-        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
-        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/global-functions.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/global-functions.js' ) ) ?>"></script>
-        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __FILE__ ) ) ) ?>report.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __FILE__ ) ) . 'report.js' ) ) ?>"></script>
-        <script src="<?php echo esc_url( trailingslashit( plugin_dir_url( __DIR__ ) ) ) ?>assets/js/share.js?ver=<?php echo esc_attr( fileatime( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/js/share.js' ) ) ?>"></script>
         <?php
     }
 
@@ -332,7 +319,7 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
                     </div>
                 </div>
                 <div class="row">
-                    <a href="/" class="btn btn-small btn-outline-primary w-fit mb-2 d-block m-auto"><?php echo esc_html__( 'Leave this relay' ) ?></a>
+                    <a href="/" class="btn btn-small btn-outline-primary w-fit mb-2 d-block m-auto"><?php echo esc_html__( 'Leave this relay', 'prayer-global-porch' ) ?></a>
                 </div>
             </div>
         </div>
@@ -340,20 +327,8 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         <?php
     }
 
-    public static function _wp_enqueue_scripts(){
-        DT_Mapbox_API::load_mapbox_header_scripts();
-
-        wp_enqueue_script( 'components-js', trailingslashit( plugin_dir_url( __DIR__ ) ) . 'assets/js/components.js', [
-            'jquery',
-            'mapbox-gl'
-        ], filemtime( plugin_dir_path( __DIR__ ) .'assets/js/components.js' ), true );
-        wp_enqueue_script( 'heatmap-js', trailingslashit( plugin_dir_url( __FILE__ ) ) . 'heatmap.js', [
-            'jquery',
-            'mapbox-gl'
-        ], filemtime( plugin_dir_path( __FILE__ ) .'heatmap.js' ), true );
-        wp_enqueue_script( 'bootstrap-js', trailingslashit( plugin_dir_url( __DIR__ ) ) . 'assets/js/bootstrap.bundle.min.js', [
-            'jquery',
-        ], filemtime( plugin_dir_path( __DIR__ ) .'assets/js/bootstrap.bundle.min.js' ), true );
+    public function _wp_enqueue_scripts(){
+        pg_heatmap_scripts( $this );
     }
 
     public function endpoint( WP_REST_Request $request ) {

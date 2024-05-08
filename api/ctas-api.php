@@ -58,6 +58,10 @@ class PG_CTAs_API {
     }
 
     public function get_cta() {
+        $lang = pg_get_current_lang();
+        if ( $lang !== 'en_US' ) {
+            return [];
+        }
         $ctas = $this->get_ctas();
 
         if ( empty( $ctas ) ) {

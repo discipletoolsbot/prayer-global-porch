@@ -159,6 +159,31 @@ input[type="radio"]:checked {
 .navbar a {
     text-decoration: none;
 }
+.navbar .dt-magic-link-language-selector button {
+    background: transparent;
+    color: var(--pg-brand-color-light);
+    padding: 3px;
+    border-radius: 5px;
+    box-shadow: none;
+}
+.navbar .offcanvas .dt-magic-link-language-selector button {
+    color: white;
+}
+.navbar .dt-magic-link-language-selector button::after {
+    content: unset;
+}
+.navbar .dt-magic-link-language-selector button svg {
+    width: 2rem;
+    height: 2rem;
+}
+.navbar-dark.navbar .dt-magic-link-language-selector button {
+    color: white;
+}
+.navbar .dt-magic-link-language-selector .dropdown-menu {
+    --bs-dropdown-link-hover-bg: var(--pg-brand-color-lighter);
+    --bs-dropdown-link-active-bg: var(--pg-brand-color-lighter);
+}
+
 .form-control {
     font-weight: 300;
     color: #495057;
@@ -995,7 +1020,7 @@ nav.navbar-home {
     background-color: var(--pg-brand-color);
     color: white;
 }
-.navbar-dark .navbar__title {
+.navbar-dark .navbar__title-link {
     color: white;
 }
 .navbar-dark * {
@@ -1024,6 +1049,9 @@ nav.navbar-home {
     .navbar__cta {
         order: 2;
         width: 100%;
+    }
+    .navbar__title {
+        display: none;
     }
 }
 

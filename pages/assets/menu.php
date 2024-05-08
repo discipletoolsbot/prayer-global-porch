@@ -19,8 +19,12 @@ function pg_menu( bool $is_custom_lap = false, string $key = '' ) {
             <a href="/" class="icon-button two-rem d-flex align-items-center mx-2" title="Home">
                 <i class="icon pg-home"></i>
             </a>
-            <h5 class="border border-light border-white offcanvas-title px-3 rounded" id="offcanvasNavbarDarkLabel">Prayer.Global</h5>
             <div class="d-flex">
+                <div class="d-flex justify-content-end align-items-center mx-2">
+
+                    <?php require( __DIR__ . '/language-menu.php' ) ?>
+
+                </div>
                 <a href="/user_app/profile" class="icon-button mx-2 two-rem d-flex align-items-center" title="Profile" id="user-profile-link">
                     <i class="icon pg-profile"></i>
                 </a>

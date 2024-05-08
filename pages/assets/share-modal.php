@@ -24,7 +24,7 @@
         </ul>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-primary" data-bs-dismiss="modal">Done</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal"><?php esc_html_e( 'Done', 'prayer-global-porch' ); ?></button>
       </div>
     </div>
   </div>

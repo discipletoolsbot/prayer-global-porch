@@ -294,15 +294,26 @@ class PG_Stacker {
         // build the description
         if ( 'admin1' === $grid_record['level_name'] ) {
             $admin_level_name = esc_html( __( 'state', 'prayer-global-porch' ) );
+            $admin_level_title = esc_html( __( 'the state', 'prayer-global-porch' ) );
             $admin_level_name_plural = esc_html( __( 'states', 'prayer-global-porch' ) );
         } else if ( 'admin0' === $grid_record['level_name'] ) {
             $admin_level_name = esc_html( __( 'country', 'prayer-global-porch' ) );
+            $admin_level_title = esc_html( __( 'the country', 'prayer-global-porch' ) );
             $admin_level_name_plural = esc_html( __( 'countries', 'prayer-global-porch' ) );
         } else {
             $admin_level_name = esc_html( __( 'county', 'prayer-global-porch' ) );
+            $admin_level_title = esc_html( __( 'the county', 'prayer-global-porch' ) );
             $admin_level_name_plural = esc_html( __( 'counties', 'prayer-global-porch' ) );
         }
-        $grid_record = array_merge( $grid_record, [ 'admin_level_name' => $admin_level_name, 'admin_level_name_cap' => ucwords( $admin_level_name ), 'admin_level_name_plural' => $admin_level_name_plural ] );
+        $grid_record = array_merge(
+            $grid_record,
+            [
+                'admin_level_name' => $admin_level_name,
+                'admin_level_title' => $admin_level_title,
+                'admin_level_name_cap' => ucwords( $admin_level_name ),
+                'admin_level_name_plural' => $admin_level_name_plural
+            ]
+        );
 
 
         // format
@@ -342,6 +353,32 @@ class PG_Stacker {
         $grid_record['percent_christian_adherents'] = round( (float) $grid_record['percent_christian_adherents'], 2 );
         $grid_record['percent_non_christians_full'] = (float) $grid_record['percent_non_christians'];
         $grid_record['percent_non_christians'] = round( (float) $grid_record['percent_non_christians'], 2 );
+
+
+        $current_lang = pg_get_current_lang();
+        if ( $current_lang !== 'en_US' ){
+            if ( str_contains( $current_lang, '_' ) ){
+                $current_lang = explode( '_', $current_lang )[0];
+            }
+
+            $translated = $wpdb->get_row( $wpdb->prepare( "
+                SELECT *
+                FROM $wpdb->location_grid_names
+                WHERE grid_id = %s 
+                AND language_code = %s
+            ", $grid_id, $current_lang ), ARRAY_A );
+
+            $translated_parent = $wpdb->get_row( $wpdb->prepare( "
+                SELECT *
+                FROM $wpdb->location_grid_names
+                WHERE grid_id = %s 
+                AND language_code = %s
+            ", $grid_record['parent_id'], $current_lang ), ARRAY_A );
+
+            $grid_record['name'] = $translated['name'] ?? $grid_record['name'];
+            $grid_record['full_name'] = $translated['full_name'] ?? $grid_record['full_name'];
+            $grid_record['parent_name'] = $translated_parent['name'] ?? $grid_record['parent_name'];
+        }
 
         // lost
         $grid_record['all_lost_int'] = $grid_record['christian_adherents_int'] + $grid_record['non_christians_int'];
@@ -507,6 +544,7 @@ class PG_Stacker {
             $grid_record['cities_list'] = implode( ', ', $cities_list['names'] );
             $grid_record['cities_list_w_pop'] = implode( ', ', $cities_list['names_pop'] );
         }
+
 
 
         return [
