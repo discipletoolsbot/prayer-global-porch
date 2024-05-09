@@ -60,7 +60,11 @@ require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' 
         <div class="brand-light desktop-story__container text-left container flow-small">
             <h2 class="font-title"><i class="icon pg-world-arrow me-3"></i><?php echo esc_html__( 'Our Strategy', 'prayer-global-porch' ) ?></h2>
             <p>
-                <?php echo sprintf( esc_html__( 'Prayer.Global has broken the world down into 4,770 states based on geographical and governmental boundaries. %1$sWhen you press the Start Praying button, location specific prayer fuel will help guide your prayers for each of these regions. %2$sThen, watch on the map as our united prayers light up the darkness.', 'prayer-global-porch' ), '<br>', '<br>' ) ?>
+                <?php esc_html_e( 'Prayer.Global has broken the world down into 4,770 states based on geographical and governmental boundaries.', 'prayer-global-porch' ) ?>
+                <br>
+                <?php esc_html_e( 'When you press the Start Praying button, location specific prayer fuel will help guide your prayers for each of these regions.', 'prayer-global-porch' ); ?>
+                <br>
+                <?php esc_html_e( 'Then, watch on the map as our united prayers light up the darkness.', 'prayer-global-porch' ); ?>
             </p>
         </div>
     </div>
@@ -70,7 +74,9 @@ require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . '/assets/nav.php' 
             <h2 class="font-title mb-3"><?php echo esc_html__( 'Current Status', 'prayer-global-porch' ) ?><i class="icon pg-logo-prayer ms-3"></i></h2>
             <div class="two-col-sm gap-2">
                 <div class="brand-lighter-bg white rounded-4 mx-auto mb-2 w-fit pt-4 pb-2 px-3 pb-0">
-                    <h3 class="font-base uppercase font-weight-bold" style="line-height: 0.7"><?php echo sprintf( esc_html_x( 'Prayer%1$sLaps %2$s', 'Prayer Laps Completed', 'prayer-global-porch' ), '&nbsp;', sprintf( '<br> <span class="one-rem">%s</span>', esc_html_x( 'Completed', 'Laps Completed', 'prayer-global-porch' ) ) ) ?></h3>
+                    <h3 class="font-base uppercase font-weight-bold" style="line-height: 0.7">
+                        <?php echo esc_html_x( 'Prayer Laps', 'Prayer Laps Completed', 'prayer-global-porch' ) ?>
+                        <br><span class="one-rem"><?php echo esc_html( _x( 'Completed', 'Payer Laps Completed', 'prayer-global-porch' ) ); ?></span></h3>
                     <h3 class="global-laps-completed six-em lh-xsm"><span class="loading-spinner active"></span></h3>
                 </div>
                 <p class="pb-3 mx-auto">

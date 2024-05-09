@@ -130,8 +130,7 @@ class Prayer_Global_About extends DT_Magic_Url_Base
                             <?php echo esc_html( __( '(1) Never before in history have we been able to coordinate global prayer for the kingdom IN REALTIME!', 'prayer-global-porch' ) ) ?>
                         </p>
                         <p>
-                            <?php echo esc_html( __( '(2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.),
-                            and is now using the Internet.', 'prayer-global-porch' ) ) ?>
+                            <?php echo esc_html( __( '(2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.), and is now using the Internet.', 'prayer-global-porch' ) ) ?>
                         </p>
                         <p>
                             <?php echo esc_html( __( '(3) Extraordinary prayer is a foundational mark of all modern disciple multiplying movements.', 'prayer-global-porch' ) ) ?>

@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-09T10:55:37+00:00\n"
+"POT-Creation-Date: 2024-05-09T12:58:59+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: prayer-global-porch\n"
@@ -22,9 +22,9 @@ msgstr ""
 #: pages/about/about.php:116
 #: pages/assets/menu.php:78
 #: pages/home/body.php:14
-#: pages/home/body.php:97
-#: pages/home/body.php:189
-#: pages/home/body.php:280
+#: pages/home/body.php:103
+#: pages/home/body.php:195
+#: pages/home/body.php:286
 #: pages/pray/action-custom-map.php:151
 #: pages/pray/nav-global-map.php:8
 #: pages/race/nav-race-map.php:15
@@ -83,7 +83,7 @@ msgid "How it works"
 msgstr ""
 
 #: pages/about/about.php:106
-#: pages/about/about.php:174
+#: pages/about/about.php:173
 msgid "Global Race"
 msgstr ""
 
@@ -100,110 +100,108 @@ msgid "(1) Never before in history have we been able to coordinate global prayer
 msgstr ""
 
 #: pages/about/about.php:133
-msgid ""
-"(2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.),\n"
-"                            and is now using the Internet."
+msgid "(2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.), and is now using the Internet."
 msgstr ""
 
-#: pages/about/about.php:137
+#: pages/about/about.php:136
 msgid "(3) Extraordinary prayer is a foundational mark of all modern disciple multiplying movements."
 msgstr ""
 
-#: pages/about/about.php:149
+#: pages/about/about.php:148
 msgid "How It Works"
 msgstr ""
 
-#: pages/about/about.php:151
+#: pages/about/about.php:150
 msgid "Click on %1$sStart Praying%2$s."
 msgstr ""
 
-#: pages/about/about.php:154
+#: pages/about/about.php:153
 #: pages/pray/action-custom-lap.php:256
 #: pages/pray/trait-lap.php:177
 msgid "Pray over the location provided using the maps, photos, prayers, people group info, and facts."
 msgstr ""
 
-#: pages/about/about.php:157
+#: pages/about/about.php:156
 #: pages/pray/action-custom-lap.php:261
 #: pages/pray/trait-lap.php:182
 msgid "Pray for one minute (or longer) as the Spirit leads."
 msgstr ""
 
-#: pages/about/about.php:160
+#: pages/about/about.php:159
 msgid "When the timer finishes"
 msgstr ""
 
-#: pages/about/about.php:162
+#: pages/about/about.php:161
 #: pages/pray/action-custom-lap.php:268
 #: pages/pray/trait-lap.php:189
 msgid "Click Done to see your impact on the map or %sclick Next to pray for another location"
 msgstr ""
 
-#: pages/about/about.php:175
+#: pages/about/about.php:174
 msgid "Keys To The Race"
 msgstr ""
 
-#: pages/about/about.php:178
+#: pages/about/about.php:177
 msgid "Prayer Lap"
 msgstr ""
 
-#: pages/about/about.php:180
+#: pages/about/about.php:179
 msgid "A Prayer Lap consists of covering all 4770 geographical states of the world in prayer."
 msgstr ""
 
-#: pages/about/about.php:184
-#: pages/home/body.php:236
+#: pages/about/about.php:183
+#: pages/home/body.php:242
 #: pages/race/nav-race-map.php:12
 #: pages/race/nav-race-map.php:13
 #: pages/race/race-list.php:134
 msgid "Race Map"
 msgstr ""
 
-#: pages/about/about.php:186
+#: pages/about/about.php:185
 msgid "The Race map shows the number of laps, number of minutes, and number of prayer intercessors for the entire challenge."
 msgstr ""
 
-#: pages/about/about.php:190
-#: pages/home/body.php:237
+#: pages/about/about.php:189
+#: pages/home/body.php:243
 #: pages/race/race-list.php:116
 msgid "Race List"
 msgstr ""
 
-#: pages/about/about.php:192
+#: pages/about/about.php:191
 msgid "The Race List shows each of the laps accomplished so far and some of the statistics for those individual laps."
 msgstr ""
 
-#: pages/about/about.php:196
+#: pages/about/about.php:195
 msgid "Current Lap"
 msgstr ""
 
-#: pages/about/about.php:198
+#: pages/about/about.php:197
 msgid "The Current Lap in the real time prayer coverage of the 4770 states of the world."
 msgstr ""
 
-#: pages/about/about.php:202
-#: pages/home/body.php:275
+#: pages/about/about.php:201
+#: pages/home/body.php:281
 msgid "Current Map"
 msgstr ""
 
-#: pages/about/about.php:204
+#: pages/about/about.php:203
 msgid "The current map shows what has been covered so far in the active prayer map."
 msgstr ""
 
-#: pages/about/about.php:208
+#: pages/about/about.php:207
 msgid "Prayer Fuel"
 msgstr ""
 
-#: pages/about/about.php:210
+#: pages/about/about.php:209
 msgid "Demographics, scripture, faith status, images and maps to help guide your prayer time."
 msgstr ""
 
-#: pages/about/about.php:214
+#: pages/about/about.php:213
 #: pages/pray/stacker-positions.php:38
 msgid "Faith Status"
 msgstr ""
 
-#: pages/about/about.php:217
+#: pages/about/about.php:216
 #: pages/assets/enqueue.php:83
 #: pages/pray/action-custom-lap.php:114
 #: pages/pray/stacker-positions.php:52
@@ -212,7 +210,7 @@ msgstr ""
 msgid "Know Jesus"
 msgstr ""
 
-#: pages/about/about.php:221
+#: pages/about/about.php:220
 #: pages/assets/enqueue.php:82
 #: pages/pray/action-custom-lap.php:113
 #: pages/pray/stacker-positions.php:49
@@ -221,7 +219,7 @@ msgstr ""
 msgid "Know About Jesus"
 msgstr ""
 
-#: pages/about/about.php:225
+#: pages/about/about.php:224
 #: pages/assets/enqueue.php:80
 #: pages/pray/action-custom-lap.php:112
 #: pages/pray/stacker-positions.php:46
@@ -230,27 +228,27 @@ msgstr ""
 msgid "Don't Know Jesus"
 msgstr ""
 
-#: pages/about/about.php:239
+#: pages/about/about.php:238
 msgid "Moravian"
 msgstr ""
 
-#: pages/about/about.php:240
+#: pages/about/about.php:239
 msgid "Prayer Challenge"
 msgstr ""
 
-#: pages/about/about.php:242
+#: pages/about/about.php:241
 msgid "Inspired by the %1$sMoravians%2$s, who prayed non-stop for 100 years, we have crafted this website to help the church pray for the entire world in measurable units, as a community, and to know at the end when we have finished ... and are ready to start another lap."
 msgstr ""
 
-#: pages/about/about.php:245
+#: pages/about/about.php:244
 msgid "Once every location in the world has been prayed for (we finish a lap), then the prayer map resets, and we try to pray over the world again ... maybe faster."
 msgstr ""
 
-#: pages/about/about.php:248
+#: pages/about/about.php:247
 msgid "The Moravians had one person praying every hour of every day for 100 years. This was roughly 876,000 hours of prayer, or 52,560,000 minutes of prayer for the world. We are humbled by this extraordinary commitment to praying for the world."
 msgstr ""
 
-#: pages/about/about.php:252
+#: pages/about/about.php:251
 msgid "Top"
 msgstr ""
 
@@ -280,13 +278,19 @@ msgid "Join us in covering the world in prayer"
 msgstr ""
 
 #: pages/assets/enqueue.php:84
+#: pages/pray/stacker-text.php:2867
+#: pages/pray/stacker-text.php:2879
+#: pages/pray/stacker-text.php:2891
 msgctxt "The state of Colorado has a population of 5,773,714."
 msgid "%1$s of %2$s has a population of %3$s."
 msgstr ""
 
 #: pages/assets/enqueue.php:85
-msgctxt "We estimate Colorado has 5 who are far from Jesus, 10 who might know about Jesus culturally, and 15 people who know Jesus personally."
-msgid "We estimate %1$s has %2$s who are far from Jesus, %3$s who might know about Jesus culturally, and %4$s people who know Jesus personally."
+#: pages/pray/stacker-text.php:2869
+#: pages/pray/stacker-text.php:2881
+#: pages/pray/stacker-text.php:2893
+msgctxt "We estimate new york has 100 people who might know Jesus, 300 people who might know about Jesus culturally, and 500 people who do not know Jesus."
+msgid "We estimate %1$s has %2$s people who might know Jesus, %3$s people who might know about Jesus culturally, and %4$s people who do not know Jesus."
 msgstr ""
 
 #: pages/assets/enqueue.php:86
@@ -369,9 +373,14 @@ msgid "Copied"
 msgstr ""
 
 #: pages/assets/share-modal.php:27
-#: pages/pray/action-custom-lap.php:174
-#: pages/pray/trait-lap.php:273
-msgid "Done"
+#: pages/pray/action-custom-lap.php:205
+#: pages/pray/action-custom-lap.php:233
+#: pages/pray/trait-lap.php:126
+#: pages/pray/trait-lap.php:154
+#: pages/pray/trait-lap.php:206
+#: pages/user/user-profile.php:191
+#: pages/user/user-profile.php:264
+msgid "Close"
 msgstr ""
 
 #: pages/assets/working-footer.php:4
@@ -424,7 +433,7 @@ msgid "Name"
 msgstr ""
 
 #: pages/challenges/active-list.php:83
-#: pages/home/body.php:252
+#: pages/home/body.php:258
 #: pages/pray/action-custom-map-display.php:152
 #: pages/pray/action-custom-map.php:190
 #: pages/pray/action-custom-map.php:277
@@ -882,7 +891,7 @@ msgid "The free encyclopedia provides many facts about countries and cities, how
 msgstr ""
 
 #: pages/home/body.php:10
-#: pages/home/body.php:103
+#: pages/home/body.php:109
 msgid "Cover the World in Prayer"
 msgstr ""
 
@@ -892,93 +901,108 @@ msgid "Learn more"
 msgstr ""
 
 #: pages/home/body.php:40
-#: pages/home/body.php:119
+#: pages/home/body.php:125
 msgid "The Goal"
 msgstr ""
 
 #: pages/home/body.php:42
-#: pages/home/body.php:121
+#: pages/home/body.php:127
 msgid "The clock is ticking. %sPrayer.Global seeks to encourage extraordinary prayer for the fulﬁllment of the Great Commission in our generation."
 msgstr ""
 
 #: pages/home/body.php:45
-#: pages/home/body.php:123
+#: pages/home/body.php:129
 msgid "But how?"
 msgstr ""
 
 #: pages/home/body.php:52
-#: pages/home/body.php:134
+#: pages/home/body.php:140
 msgid "The Race"
 msgstr ""
 
 #: pages/home/body.php:54
-#: pages/home/body.php:136
+#: pages/home/body.php:142
 msgid "Like a race, we pray with urgency and focus as we seek to complete laps by covering the entire world in prayer. An interactive map gives us real time updates on who we’ve prayed for and stats on our collective prayer lap status."
 msgstr ""
 
 #: pages/home/body.php:61
-#: pages/home/body.php:147
+#: pages/home/body.php:153
 msgid "Our Strategy"
 msgstr ""
 
 #: pages/home/body.php:63
-#: pages/home/body.php:149
-msgid "Prayer.Global has broken the world down into 4,770 states based on geographical and governmental boundaries. %1$sWhen you press the Start Praying button, location specific prayer fuel will help guide your prayers for each of these regions. %2$sThen, watch on the map as our united prayers light up the darkness."
+msgid "Prayer.Global has broken the world down into 4,770 states based on geographical and governmental boundaries."
 msgstr ""
 
-#: pages/home/body.php:70
-#: pages/home/body.php:160
+#: pages/home/body.php:65
+msgid "When you press the Start Praying button, location specific prayer fuel will help guide your prayers for each of these regions."
+msgstr ""
+
+#: pages/home/body.php:67
+msgid "Then, watch on the map as our united prayers light up the darkness."
+msgstr ""
+
+#: pages/home/body.php:74
+#: pages/home/body.php:166
 msgid "Current Status"
 msgstr ""
 
-#: pages/home/body.php:73
+#: pages/home/body.php:78
 msgctxt "Prayer Laps Completed"
-msgid "Prayer%1$sLaps %2$s"
+msgid "Prayer Laps"
 msgstr ""
 
-#: pages/home/body.php:73
-#: pages/home/body.php:165
-msgctxt "Laps Completed"
+#: pages/home/body.php:79
+msgctxt "Payer Laps Completed"
 msgid "Completed"
 msgstr ""
 
-#: pages/home/body.php:77
+#: pages/home/body.php:83
 msgid "Our ﬁrst global race started %1$s year and %2$s days ago and we’ve completed %3$s laps together so far."
 msgstr ""
 
-#: pages/home/body.php:81
-#: pages/home/body.php:169
+#: pages/home/body.php:87
+#: pages/home/body.php:175
 msgid "Lap %s Time Elapsed"
 msgstr ""
 
-#: pages/home/body.php:91
-#: pages/home/body.php:183
+#: pages/home/body.php:97
+#: pages/home/body.php:189
 msgid "The Finish Line"
 msgstr ""
 
-#: pages/home/body.php:93
-#: pages/home/body.php:185
+#: pages/home/body.php:99
+#: pages/home/body.php:191
 msgid "With each prayer lap we complete, we are that much closer to ushering in God’s Kingdom and the return of Jesus Christ! %sClick Start Praying to start your Prayer.Global experience today!"
 msgstr ""
 
-#: pages/home/body.php:96
+#: pages/home/body.php:102
 msgid "Ready. Set."
 msgstr ""
 
-#: pages/home/body.php:162
+#: pages/home/body.php:155
+msgid "Prayer.Global has broken the world down into 4,770 states based on geographical and governmental boundaries. %1$sWhen you press the Start Praying button, location specific prayer fuel will help guide your prayers for each of these regions. %2$sThen, watch on the map as our united prayers light up the darkness."
+msgstr ""
+
+#: pages/home/body.php:168
 msgid "Our ﬁrst global race started %1$s days ago and we’ve completed %2$s laps together so far."
 msgstr ""
 
-#: pages/home/body.php:165
+#: pages/home/body.php:171
 msgctxt "Laps Completed"
 msgid "Laps %s"
 msgstr ""
 
-#: pages/home/body.php:197
+#: pages/home/body.php:171
+msgctxt "Laps Completed"
+msgid "Completed"
+msgstr ""
+
+#: pages/home/body.php:203
 msgid "Previous"
 msgstr ""
 
-#: pages/home/body.php:201
+#: pages/home/body.php:207
 #: pages/pray/action-custom-lap.php:175
 #: pages/pray/action-custom-lap.php:185
 #: pages/pray/trait-lap.php:274
@@ -986,32 +1010,32 @@ msgstr ""
 msgid "Next"
 msgstr ""
 
-#: pages/home/body.php:214
+#: pages/home/body.php:220
 msgid "Global Race Stats"
 msgstr ""
 
-#: pages/home/body.php:217
+#: pages/home/body.php:223
 msgid "Total Elapsed Time"
 msgstr ""
 
-#: pages/home/body.php:224
+#: pages/home/body.php:230
 msgid "Laps Completed"
 msgstr ""
 
-#: pages/home/body.php:229
+#: pages/home/body.php:235
 msgid "Total Intercessors"
 msgstr ""
 
-#: pages/home/body.php:242
+#: pages/home/body.php:248
 #: pages/pray/action-custom-map.php:167
 msgid "Lap %s"
 msgstr ""
 
-#: pages/home/body.php:246
+#: pages/home/body.php:252
 msgid "Current Lap Elapsed Time"
 msgstr ""
 
-#: pages/home/body.php:259
+#: pages/home/body.php:265
 #: pages/pray/action-custom-map-display.php:138
 #: pages/pray/action-custom-map.php:182
 #: pages/pray/action-custom-map.php:268
@@ -1020,17 +1044,17 @@ msgstr ""
 msgid "Places Covered"
 msgstr ""
 
-#: pages/home/body.php:272
+#: pages/home/body.php:278
 msgctxt "10 of 4770"
 msgid "%1$s of %2$s"
 msgstr ""
 
-#: pages/home/body.php:309
+#: pages/home/body.php:315
 msgid "Get the Mobile App"
 msgstr ""
 
-#: pages/home/body.php:313
 #: pages/home/body.php:319
+#: pages/home/body.php:325
 msgid "%s App"
 msgstr ""
 
@@ -1112,6 +1136,11 @@ msgstr ""
 msgid "Prayer Added!"
 msgstr ""
 
+#: pages/pray/action-custom-lap.php:174
+#: pages/pray/trait-lap.php:273
+msgid "Done"
+msgstr ""
+
 #: pages/pray/action-custom-lap.php:191
 #: pages/pray/trait-lap.php:115
 msgid "Pray for"
@@ -1124,16 +1153,6 @@ msgstr ""
 #: pages/pray/action-custom-lap.php:204
 #: pages/pray/trait-lap.php:125
 msgid "Set Your Prayer Experience"
-msgstr ""
-
-#: pages/pray/action-custom-lap.php:205
-#: pages/pray/action-custom-lap.php:233
-#: pages/pray/trait-lap.php:126
-#: pages/pray/trait-lap.php:154
-#: pages/pray/trait-lap.php:206
-#: pages/user/user-profile.php:191
-#: pages/user/user-profile.php:264
-msgid "Close"
 msgstr ""
 
 #: pages/pray/action-custom-lap.php:211
@@ -3005,6 +3024,7 @@ msgid "Matthew 28:19-20"
 msgstr ""
 
 #: pages/pray/stacker-text.php:1784
+#: pages/pray/stacker-text.php:2661
 msgctxt "Matthew 28:19-20"
 msgid "Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you."
 msgstr ""
@@ -4131,11 +4151,6 @@ msgstr ""
 msgid "Jesus, bring your gospel to the people living in %1$s."
 msgstr ""
 
-#: pages/pray/stacker-text.php:2661
-msgctxt "Matthew 28:19-20"
-msgid "Go therefore and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything that I have commanded you."
-msgstr ""
-
 #: pages/pray/stacker-text.php:2737
 msgid "Lord we ask you on behalf of the %1$s people. %2$s%% are known to be believers. Oh God, please share with them the great gift of your son Jesus and your kingdom."
 msgstr ""
@@ -4230,18 +4245,6 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2853
 msgid "Pray that new churches are planted in these cities."
-msgstr ""
-
-#: pages/pray/stacker-text.php:2867
-#: pages/pray/stacker-text.php:2879
-#: pages/pray/stacker-text.php:2891
-msgid "The %1$s of %2$s has a population of %3$s."
-msgstr ""
-
-#: pages/pray/stacker-text.php:2869
-#: pages/pray/stacker-text.php:2881
-#: pages/pray/stacker-text.php:2893
-msgid "We estimate %1$s has %2$s people who might know Jesus, %3$s people who might know about Jesus culturally, and %4$s people who do not know Jesus."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2871

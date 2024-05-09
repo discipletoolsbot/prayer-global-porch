@@ -82,7 +82,7 @@ function pg_heatmap_scripts( $glass ){
             'Know about Jesus' => __( 'Know About Jesus', 'prayer-global-porch' ),
             'Know Jesus' => __( 'Know Jesus', 'prayer-global-porch' ),
             'location_description1' => _x( '%1$s of %2$s has a population of %3$s.', 'The state of Colorado has a population of 5,773,714.', 'prayer-global-porch' ),
-            'location_description2' => _x( 'We estimate %1$s has %2$s who are far from Jesus, %3$s who might know about Jesus culturally, and %4$s people who know Jesus personally.', 'We estimate Colorado has 5 who are far from Jesus, 10 who might know about Jesus culturally, and 15 people who know Jesus personally.', 'prayer-global-porch' ),
+            'location_description2' => _x( 'We estimate %1$s has %2$s people who might know Jesus, %3$s people who might know about Jesus culturally, and %4$s people who do not know Jesus.', 'We estimate new york has 100 people who might know Jesus, 300 people who might know about Jesus culturally, and 500 people who do not know Jesus.', 'prayer-global-porch' ),
             'location_description3' => _x( '%1$s is 1 of %2$s %3$s.', 'Colorado is 1 of 50 states.', 'prayer-global-porch' ),
             'religion' => __( 'Religion', 'prayer-global-porch' ),
             'official_language' => __( 'Official Language', 'prayer-global-porch' ),
