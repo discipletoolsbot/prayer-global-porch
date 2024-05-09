@@ -5,8 +5,8 @@ msgstr ""
 "Project-Id-Version: Prayer.Global Porch 2.0.26\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-"
 "porch\n"
-"POT-Creation-Date: 2024-05-07T08:42:52+00:00\n"
-"PO-Revision-Date: 2024-05-07 10:18+0100\n"
+"POT-Creation-Date: 2024-05-09T12:58:59+00:00\n"
+"PO-Revision-Date: 2024-05-09 13:05+0000\n"
 "Last-Translator: Corsacca <corsacca@gmail.com>\n"
 "Language-Team: French <https://translate.disciple.tools/projects/"
 "pray4movement/prayer-global/fr_FR/>\n"
@@ -15,59 +15,55 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Poedit 3.4.2\n"
+"X-Generator: Weblate 5.5.3\n"
 "X-Domain: prayer-global-porch\n"
 
-#: pages/404/404.php:93 pages/pray/action-custom-map-display.php:86
-#: pages/pray/action-global-stats.php:133 pages/race/race-list.php:87
-#: pages/race/race-map.php:114
-msgid "Add Magic"
-msgstr "Ajouter magie"
-
-#: pages/404/404.php:128
+#: pages/404/404.php:126
 msgid ""
 "Not where you meant to be? Try some of the links below (or above) to get "
 "back into the action..."
 msgstr ""
+"Pas là où tu voulais être ? Essayez certains des liens ci-dessous (ou ci-"
+"dessus) pour revenir dans l'action..."
 
-#: pages/404/404.php:137 pages/about/about.php:116 pages/assets/menu.php:74
-#: pages/home/body.php:14 pages/home/body.php:97 pages/home/body.php:189
-#: pages/home/body.php:280 pages/pray/action-custom-map.php:151
+#: pages/404/404.php:135 pages/about/about.php:116 pages/assets/menu.php:78
+#: pages/home/body.php:14 pages/home/body.php:103 pages/home/body.php:195
+#: pages/home/body.php:286 pages/pray/action-custom-map.php:151
 #: pages/pray/nav-global-map.php:8 pages/race/nav-race-map.php:15
 msgid "Start Praying"
 msgstr "Commencez à prier"
 
-#: pages/404/404.php:138
+#: pages/404/404.php:136
 msgid "The map"
-msgstr ""
+msgstr "La carte"
 
-#: pages/404/404.php:139
+#: pages/404/404.php:137
 msgid "More stats"
-msgstr ""
+msgstr "Plus de statistiques"
 
-#: pages/404/404.php:140 pages/assets/menu.php:53
+#: pages/404/404.php:138 pages/assets/menu.php:57
 #: pages/challenges/active-list.php:129 pages/user/user-profile.php:102
 #: pages/user/user-profile.php:103
 msgid "Prayer Relays"
 msgstr "Relais de prière"
 
-#: pages/404/404.php:149
+#: pages/404/404.php:147
 msgid "Other interesting links"
-msgstr ""
+msgstr "Autres liens intéressants"
+
+#: pages/404/404.php:155
+msgid "Anything to share/request? Please contact us :)"
+msgstr "Quelque chose à partager/demander ? Contactez nous s'il vous plait :)"
+
+#: pages/404/404.php:156
+msgid "Where does all the data come from?"
+msgstr "D'où viennent toutes les données ?"
 
 #: pages/404/404.php:157
-msgid "Anything to share/request? Please contact us :)"
-msgstr ""
-
-#: pages/404/404.php:158
-msgid "Where does all the data come from?"
-msgstr ""
-
-#: pages/404/404.php:159
 msgid "Invites for sharing on social media"
-msgstr ""
+msgstr "Invitations à partager sur les réseaux sociaux"
 
-#: pages/about/about.php:90 pages/assets/menu.php:70
+#: pages/about/about.php:90 pages/assets/menu.php:74
 #: pages/assets/working-footer.php:18
 msgid "About"
 msgstr "À propos"
@@ -88,7 +84,7 @@ msgstr "Évènement historique"
 msgid "How it works"
 msgstr "Comment cela fonctionne"
 
-#: pages/about/about.php:106 pages/about/about.php:174
+#: pages/about/about.php:106 pages/about/about.php:173
 msgid "Global Race"
 msgstr "Course autour du monde"
 
@@ -105,8 +101,20 @@ msgid ""
 "(1) Never before in history have we been able to coordinate global prayer "
 "for the kingdom IN REALTIME!"
 msgstr ""
+"(1) Jamais auparavant dans l'histoire n'avons-nous été en mesure de "
+"mobiliser un réseau mondial de prière pour le royaume EN TEMPS RÉEL !"
 
-#: pages/about/about.php:137
+#: pages/about/about.php:133
+msgid ""
+"(2) God has used technology for the advance of His kingdom (i.e. written "
+"language, Roman roads, printing presses, etc.), and is now using the "
+"Internet."
+msgstr ""
+"(2) Dieu a utilisé la technologie pour l’avancement de Son royaume (c’est-à-"
+"dire la langue écrite, les voies romaines, les presses à imprimer, etc.), et "
+"utilise désormais Internet."
+
+#: pages/about/about.php:136
 msgid ""
 "(3) Extraordinary prayer is a foundational mark of all modern disciple "
 "multiplying movements."
@@ -114,15 +122,15 @@ msgstr ""
 "(3) La prière extraordinaire est une marque fondamentale de tous les "
 "mouvements multiplicateurs de disciples modernes."
 
-#: pages/about/about.php:149
+#: pages/about/about.php:148
 msgid "How It Works"
 msgstr "Comment ça fonctionne"
 
-#: pages/about/about.php:151
+#: pages/about/about.php:150
 msgid "Click on %1$sStart Praying%2$s."
 msgstr "Cliquez sur %1$s Commencer à prier %2$s."
 
-#: pages/about/about.php:154 pages/pray/action-custom-lap.php:256
+#: pages/about/about.php:153 pages/pray/action-custom-lap.php:256
 #: pages/pray/trait-lap.php:177
 msgid ""
 "Pray over the location provided using the maps, photos, prayers, people "
@@ -131,16 +139,16 @@ msgstr ""
 "Priez sur l'emplacement fourni en utilisant les cartes, les photos, les "
 "prières, les informations sur les groupes de personnes et les faits."
 
-#: pages/about/about.php:157 pages/pray/action-custom-lap.php:261
+#: pages/about/about.php:156 pages/pray/action-custom-lap.php:261
 #: pages/pray/trait-lap.php:182
 msgid "Pray for one minute (or longer) as the Spirit leads."
 msgstr "Priez pendant une minute (ou plus) sous la conduite de l'Esprit."
 
-#: pages/about/about.php:160
+#: pages/about/about.php:159
 msgid "When the timer finishes"
 msgstr "Quand le compteur se termine"
 
-#: pages/about/about.php:162 pages/pray/action-custom-lap.php:268
+#: pages/about/about.php:161 pages/pray/action-custom-lap.php:268
 #: pages/pray/trait-lap.php:189
 msgid ""
 "Click Done to see your impact on the map or %sclick Next to pray for another "
@@ -149,15 +157,15 @@ msgstr ""
 "Cliquez sur Terminé pour voir votre impact sur la carte ou %s cliquez sur "
 "Suivant pour prier pour un autre emplacement"
 
-#: pages/about/about.php:175
+#: pages/about/about.php:174
 msgid "Keys To The Race"
 msgstr "Clés de la course"
 
-#: pages/about/about.php:178
+#: pages/about/about.php:177
 msgid "Prayer Lap"
 msgstr "Tour de prière"
 
-#: pages/about/about.php:180
+#: pages/about/about.php:179
 msgid ""
 "A Prayer Lap consists of covering all 4770 geographical states of the world "
 "in prayer."
@@ -165,13 +173,13 @@ msgstr ""
 "Un tour de prière consiste à couvrir les 4770 états géographiques du monde "
 "en prière."
 
-#: pages/about/about.php:184 pages/home/body.php:236
+#: pages/about/about.php:183 pages/home/body.php:242
 #: pages/race/nav-race-map.php:12 pages/race/nav-race-map.php:13
-#: pages/race/race-list.php:136
+#: pages/race/race-list.php:134
 msgid "Race Map"
 msgstr "Carte de course"
 
-#: pages/about/about.php:186
+#: pages/about/about.php:185
 msgid ""
 "The Race map shows the number of laps, number of minutes, and number of "
 "prayer intercessors for the entire challenge."
@@ -179,12 +187,12 @@ msgstr ""
 "La carte de course indique le nombre de tours, le nombre de minutes et le "
 "nombre d'intercesseurs de prière pour l'ensemble du défi."
 
-#: pages/about/about.php:190 pages/home/body.php:237
-#: pages/race/race-list.php:118
+#: pages/about/about.php:189 pages/home/body.php:243
+#: pages/race/race-list.php:116
 msgid "Race List"
 msgstr "Liste de courses"
 
-#: pages/about/about.php:192
+#: pages/about/about.php:191
 msgid ""
 "The Race List shows each of the laps accomplished so far and some of the "
 "statistics for those individual laps."
@@ -192,11 +200,11 @@ msgstr ""
 "La liste des courses montre chacun des tours accomplis jusqu'à présent et "
 "certaines des statistiques pour ces tours individuels."
 
-#: pages/about/about.php:196
+#: pages/about/about.php:195
 msgid "Current Lap"
 msgstr "Tour actuel"
 
-#: pages/about/about.php:198
+#: pages/about/about.php:197
 msgid ""
 "The Current Lap in the real time prayer coverage of the 4770 states of the "
 "world."
@@ -204,22 +212,22 @@ msgstr ""
 "Le tour actuel dans la couverture de prière en temps réel des 4770 états du "
 "monde."
 
-#: pages/about/about.php:202 pages/home/body.php:275
+#: pages/about/about.php:201 pages/home/body.php:281
 msgid "Current Map"
 msgstr "Carte actuelle"
 
-#: pages/about/about.php:204
+#: pages/about/about.php:203
 msgid ""
 "The current map shows what has been covered so far in the active prayer map."
 msgstr ""
 "La carte actuelle montre ce qui a été couvert jusqu'à présent dans la carte "
 "de prière active."
 
-#: pages/about/about.php:208
+#: pages/about/about.php:207
 msgid "Prayer Fuel"
 msgstr "Guide de Prière"
 
-#: pages/about/about.php:210
+#: pages/about/about.php:209
 msgid ""
 "Demographics, scripture, faith status, images and maps to help guide your "
 "prayer time."
@@ -227,37 +235,37 @@ msgstr ""
 "Données démographiques, écritures, statut religieux, images et cartes pour "
 "vous aider à guider votre temps de prière."
 
-#: pages/about/about.php:214 pages/pray/stacker-positions.php:38
+#: pages/about/about.php:213 pages/pray/stacker-positions.php:38
 msgid "Faith Status"
 msgstr "Statut de foi"
 
-#: pages/about/about.php:217 pages/assets/enqueue.php:73
+#: pages/about/about.php:216 pages/assets/enqueue.php:83
 #: pages/pray/action-custom-lap.php:114 pages/pray/stacker-positions.php:52
 #: pages/pray/stacker-positions.php:86 pages/pray/trait-lap.php:40
 msgid "Know Jesus"
 msgstr "Connaissent Jésus"
 
-#: pages/about/about.php:221 pages/assets/enqueue.php:72
+#: pages/about/about.php:220 pages/assets/enqueue.php:82
 #: pages/pray/action-custom-lap.php:113 pages/pray/stacker-positions.php:49
 #: pages/pray/stacker-positions.php:83 pages/pray/trait-lap.php:39
 msgid "Know About Jesus"
 msgstr "Connaissent à propos Jésus"
 
-#: pages/about/about.php:225 pages/assets/enqueue.php:70
+#: pages/about/about.php:224 pages/assets/enqueue.php:80
 #: pages/pray/action-custom-lap.php:112 pages/pray/stacker-positions.php:46
 #: pages/pray/stacker-positions.php:80 pages/pray/trait-lap.php:38
 msgid "Don't Know Jesus"
 msgstr "Ne connaissent pas Jésus"
 
-#: pages/about/about.php:239
+#: pages/about/about.php:238
 msgid "Moravian"
 msgstr "Morave"
 
-#: pages/about/about.php:240
+#: pages/about/about.php:239
 msgid "Prayer Challenge"
 msgstr "Défi de prière"
 
-#: pages/about/about.php:242
+#: pages/about/about.php:241
 msgid ""
 "Inspired by the %1$sMoravians%2$s, who prayed non-stop for 100 years, we "
 "have crafted this website to help the church pray for the entire world in "
@@ -269,7 +277,7 @@ msgstr ""
 "entier en unités mesurables, en tant que communauté, et pour savoir à la fin "
 "quand nous ont terminé ... et sont prêts à entamer un autre tour."
 
-#: pages/about/about.php:245
+#: pages/about/about.php:244
 msgid ""
 "Once every location in the world has been prayed for (we finish a lap), then "
 "the prayer map resets, and we try to pray over the world again ... maybe "
@@ -279,7 +287,7 @@ msgstr ""
 "tour), la carte de prière se réinitialise et nous essayons de prier à "
 "nouveau sur le monde ... peut-être plus rapidement."
 
-#: pages/about/about.php:248
+#: pages/about/about.php:247
 msgid ""
 "The Moravians had one person praying every hour of every day for 100 years. "
 "This was roughly 876,000 hours of prayer, or 52,560,000 minutes of prayer "
@@ -291,99 +299,105 @@ msgstr ""
 "minutes de prière pour le monde. Nous sommes touchés par cet engagement "
 "extraordinaire à prier pour le monde."
 
-#: pages/about/about.php:252
+#: pages/about/about.php:251
 msgid "Top"
 msgstr "Haut"
 
-#: pages/assets/enqueue.php:54
+#: pages/assets/enqueue.php:57
 msgid "Years"
 msgstr "Années"
 
-#: pages/assets/enqueue.php:55
+#: pages/assets/enqueue.php:58
 msgid "Days"
 msgstr "Jours"
 
-#: pages/assets/enqueue.php:56
+#: pages/assets/enqueue.php:59
 msgid "Hours"
 msgstr "Heures"
 
-#: pages/assets/enqueue.php:57 pages/user/user-profile.php:93
+#: pages/assets/enqueue.php:60 pages/user/user-profile.php:93
 msgid "Minutes"
 msgstr "Minutes"
 
-#: pages/assets/enqueue.php:58
+#: pages/assets/enqueue.php:61
 msgid "Seconds"
 msgstr "Secondes"
 
-#: pages/assets/enqueue.php:74
+#: pages/assets/enqueue.php:67
+msgid "Join us in covering the world in prayer"
+msgstr "Rejoignez-nous pour couvrir le monde par la prière"
+
+#: pages/assets/enqueue.php:84 pages/pray/stacker-text.php:2867
+#: pages/pray/stacker-text.php:2879 pages/pray/stacker-text.php:2891
 msgctxt "The state of Colorado has a population of 5,773,714."
 msgid "%1$s of %2$s has a population of %3$s."
 msgstr "%1$s de %2$s a une population de %3$s."
 
-#: pages/assets/enqueue.php:75
+#: pages/assets/enqueue.php:85 pages/pray/stacker-text.php:2869
+#: pages/pray/stacker-text.php:2881 pages/pray/stacker-text.php:2893
 msgctxt ""
-"We estimate Colorado has 5 who are far from Jesus, 10 who might know about "
-"Jesus culturally, and 15 people who know Jesus personally."
+"We estimate new york has 100 people who might know Jesus, 300 people who "
+"might know about Jesus culturally, and 500 people who do not know Jesus."
 msgid ""
-"We estimate %1$s has %2$s who are far from Jesus, %3$s who might know about "
-"Jesus culturally, and %4$s people who know Jesus personally."
+"We estimate %1$s has %2$s people who might know Jesus, %3$s people who might "
+"know about Jesus culturally, and %4$s people who do not know Jesus."
 msgstr ""
-"Nous estimons que %1$s a %2$s personnes susceptibles de connaître Jésus, "
-"%3$s personnes susceptibles de connaître Jésus culturellement et %4$s "
-"personnes qui ne connaissent pas Jésus."
+"Nous estimons que %1$s a %2$s personnes susceptibles de connaître Jésus, %3$"
+"s personnes susceptibles de connaître Jésus culturellement et %4$s personnes "
+"qui ne connaissent pas Jésus."
 
-#: pages/assets/enqueue.php:76
-msgctxt "Colorado is 1 of 50 states in the USA"
-msgid "%1$s is 1 of %2$s %3$s in %4$s."
-msgstr "%1$s est 1 de %2$s %3$s dans %4$s."
+#: pages/assets/enqueue.php:86
+msgctxt "Colorado is 1 of 50 states."
+msgid "%1$s is 1 of %2$s %3$s."
+msgstr "%1$s est 1 de %2$s %3$s."
 
-#: pages/assets/enqueue.php:77
+#: pages/assets/enqueue.php:87
 msgid "Religion"
 msgstr "Religion"
 
-#: pages/assets/enqueue.php:78
+#: pages/assets/enqueue.php:88
 msgid "Official Language"
 msgstr "Langue Officielle"
 
-#: pages/assets/enqueue.php:79
+#: pages/assets/enqueue.php:89
 msgid "Community Stats"
-msgstr ""
+msgstr "Statistiques de la communauté"
 
-#: pages/assets/enqueue.php:80
+#: pages/assets/enqueue.php:90
 msgid "Summary"
-msgstr ""
+msgstr "Résumé"
 
-#: pages/assets/enqueue.php:81
+#: pages/assets/enqueue.php:91
 msgid "Activity"
-msgstr ""
+msgstr "Activité"
 
-#: pages/assets/enqueue.php:82
+#: pages/assets/enqueue.php:92
 msgid "Times prayed for"
-msgstr ""
+msgstr "Les moments pour lesquels on a prié"
 
-#: pages/assets/enqueue.php:83
+#: pages/assets/enqueue.php:93
 msgid "Total time prayed"
-msgstr ""
+msgstr "Temps total prié"
 
-#: pages/assets/enqueue.php:84 utilities/global-utilities.php:666
+#: pages/assets/enqueue.php:94 utilities/global-utilities.php:666
 msgid "minute"
 msgstr "minute"
 
-#: pages/assets/enqueue.php:85 utilities/global-utilities.php:666
+#: pages/assets/enqueue.php:95 utilities/global-utilities.php:666
 msgid "minutes"
 msgstr "minutes"
 
-#: pages/assets/menu.php:38
+#: pages/assets/menu.php:42
 msgid "Status"
 msgstr "Statut"
 
-#: pages/assets/menu.php:44 pages/challenges/active-list.php:79
+#: pages/assets/menu.php:48 pages/challenges/active-list.php:79
 #: pages/pray/action-custom-lap.php:184 pages/pray/action-custom-map.php:83
 #: pages/pray/trait-lap.php:285
 msgid "Map"
 msgstr "Carte"
 
-#: pages/assets/menu.php:62 pages/assets/working-footer.php:15
+#: pages/assets/menu.php:66 pages/assets/working-footer.php:15
 #: pages/user/user-profile.php:83
 msgid "Give"
 msgstr "Donner"
@@ -405,10 +419,12 @@ msgstr "Lien %s"
 msgid "Copied"
 msgstr "Copié"
 
-#: pages/assets/share-modal.php:27 pages/pray/action-custom-lap.php:174
-#: pages/pray/trait-lap.php:273
-msgid "Done"
-msgstr "Terminé"
+#: pages/assets/share-modal.php:27 pages/pray/action-custom-lap.php:205
+#: pages/pray/action-custom-lap.php:233 pages/pray/trait-lap.php:126
+#: pages/pray/trait-lap.php:154 pages/pray/trait-lap.php:206
+#: pages/user/user-profile.php:191 pages/user/user-profile.php:264
+msgid "Close"
+msgstr "Fermer"
 
 #: pages/assets/working-footer.php:4
 msgctxt "Made with love by Gospel.Ambition"
@@ -451,21 +467,21 @@ msgid "Display"
 msgstr "Afficher"
 
 #: pages/challenges/active-list.php:82 pages/user/user-profile.php:85
-#: pages/user/user-profile.php:159
+#: pages/user/user-profile.php:161
 msgid "Name"
 msgstr "Nom"
 
-#: pages/challenges/active-list.php:83 pages/home/body.php:252
-#: pages/pray/action-custom-map-display.php:154
+#: pages/challenges/active-list.php:83 pages/home/body.php:258
+#: pages/pray/action-custom-map-display.php:152
 #: pages/pray/action-custom-map.php:190 pages/pray/action-custom-map.php:277
 #: pages/pray/action-global-map.php:165 pages/pray/action-global-map.php:253
-#: pages/race/race-map.php:173 pages/race/race-map.php:214
+#: pages/race/race-map.php:171 pages/race/race-map.php:212
 msgid "Intercessors"
 msgstr "Intercesseurs"
 
 #: pages/challenges/active-list.php:84 pages/pray/action-custom-map.php:290
-#: pages/pray/action-global-map.php:266 pages/race/race-map.php:191
-#: pages/race/race-map.php:219
+#: pages/pray/action-global-map.php:266 pages/race/race-map.php:189
+#: pages/race/race-map.php:217
 msgid "Time Elapsed"
 msgstr "Temps écoulé"
 
@@ -505,31 +521,33 @@ msgstr "Relais terminés"
 
 #: pages/church/church.php:109 pages/media/magic-media.php:95
 msgid "How to launch Prayer.Global at your church"
-msgstr ""
+msgstr "Comment lancer Prayer.Global dans votre église"
 
 #: pages/church/church.php:117
 msgid "What is Prayer.Global"
-msgstr ""
+msgstr "Qu’est-ce que Prayer.Global"
 
 #: pages/church/church.php:129
 msgid "Login or Register on Prayer.Global to setup a lap for your group"
 msgstr ""
+"Connectez-vous ou inscrivez-vous sur Prayer.Global pour configurer un tour "
+"pour votre groupe"
 
 #: pages/church/church.php:136
 msgid "Cast vision and set a goal for your church"
-msgstr ""
+msgstr "Donnez une vision et fixez un objectif pour votre église"
 
 #: pages/church/church.php:153
 msgid "Promote in advance of your event"
-msgstr ""
+msgstr "Faites la promotion avant votre événement"
 
 #: pages/church/church.php:166 pages/media/magic-media.php:108
 msgid "Resources"
-msgstr "Resources"
+msgstr "Ressources"
 
 #: pages/church/church.php:175
 msgid "Hosting your Prayer.Global event"
-msgstr ""
+msgstr "Organiser votre événement Prayer.Global"
 
 #: pages/church/church.php:178
 msgid ""
@@ -539,6 +557,12 @@ msgid ""
 "aside at least 10 minutes for prayer, plus about 5 minutes to cast vision "
 "and to equip your church family for participation."
 msgstr ""
+"Pour nous à Northside, il était important de donner de l’importance à notre "
+"défi mondial de prière. Nous y sommes parvenus en accordant suffisamment de "
+"temps dans notre service, de la manière dont il a été mis en place jusqu'au "
+"temps réellement consacré à la prière. Nous vous recommandons de réserver au "
+"moins 10 minutes pour la prière, plus environ 5 minutes pour projeter une "
+"vision et équiper votre famille d'église pour la participation."
 
 #: pages/church/church.php:181
 msgid ""
@@ -546,36 +570,41 @@ msgid ""
 "facilitating the actual prayer time and then providing next steps after it "
 "was completed. "
 msgstr ""
+"Nous avons commencé par connecter chaque personne au tour de prière, puis "
+"par facilitant le temps de prière proprement dit, puis par fournissant les "
+"étapes suivantes une fois celui-ci terminé. "
 
 #: pages/church/church.php:185
 msgid "Getting people connected to your group’s prayer lap"
-msgstr ""
+msgstr "Connecter les gens au tour de prière de votre groupe"
 
 #: pages/church/church.php:192
 msgid "Facilitating the group prayer time"
-msgstr ""
+msgstr "Animer le temps de prière en groupe"
 
 #: pages/church/church.php:194
 msgid ""
 "For your prayer time, here are some best practices for how to facilitate "
 "that time for your group:"
 msgstr ""
+"Pour votre temps de prière, voici quelques bonnes pratiques pour faciliter "
+"le temps pour votre groupe :"
 
 #: pages/church/church.php:207
 msgid "Provide next steps"
-msgstr ""
+msgstr "Fournir les prochaines étapes"
 
 #: pages/church/church.php:218
 msgid "Tips"
-msgstr ""
+msgstr "Conseils"
 
 #: pages/church/church.php:230
 msgid "After the event"
-msgstr ""
+msgstr "Après l'événement"
 
 #: pages/church/church.php:240
 msgid "FAQs"
-msgstr ""
+msgstr "Questions fréquemment posées"
 
 #: pages/contact/magic-contact-us.php:84
 msgid "First, thank you for reaching out."
@@ -1126,7 +1155,7 @@ msgstr ""
 "L'encyclopédie gratuite fournit de nombreux faits sur les pays et les "
 "villes, mais de qualité variable."
 
-#: pages/home/body.php:10 pages/home/body.php:103
+#: pages/home/body.php:10 pages/home/body.php:109
 msgid "Cover the World in Prayer"
 msgstr "Couvrir le monde en prière"
 
@@ -1134,11 +1163,11 @@ msgstr "Couvrir le monde en prière"
 msgid "Learn more"
 msgstr "Apprendre encore plus"
 
-#: pages/home/body.php:40 pages/home/body.php:119
+#: pages/home/body.php:40 pages/home/body.php:125
 msgid "The Goal"
 msgstr "Le but"
 
-#: pages/home/body.php:42 pages/home/body.php:121
+#: pages/home/body.php:42 pages/home/body.php:127
 msgid ""
 "The clock is ticking. %sPrayer.Global seeks to encourage extraordinary "
 "prayer for the fulﬁllment of the Great Commission in our generation."
@@ -1147,15 +1176,15 @@ msgstr ""
 "extraordinaire pour l'accomplissement de la Grande Commission dans notre "
 "génération."
 
-#: pages/home/body.php:45 pages/home/body.php:123
+#: pages/home/body.php:45 pages/home/body.php:129
 msgid "But how?"
-msgstr "Mais comment?"
+msgstr "Mais comment ?"
 
-#: pages/home/body.php:52 pages/home/body.php:134
+#: pages/home/body.php:52 pages/home/body.php:140
 msgid "The Race"
 msgstr "La course"
 
-#: pages/home/body.php:54 pages/home/body.php:136
+#: pages/home/body.php:54 pages/home/body.php:142
 msgid ""
 "Like a race, we pray with urgency and focus as we seek to complete laps by "
 "covering the entire world in prayer. An interactive map gives us real time "
@@ -1168,11 +1197,78 @@ msgstr ""
 "personnes pour lesquelles nous avons prié et des statistiques sur l'état de "
 "notre tour de prière collectif."
 
-#: pages/home/body.php:61 pages/home/body.php:147
+#: pages/home/body.php:61 pages/home/body.php:153
 msgid "Our Strategy"
 msgstr "Notre stratégie"
 
-#: pages/home/body.php:63 pages/home/body.php:149
+#: pages/home/body.php:63
+msgid ""
+"Prayer.Global has broken the world down into 4,770 states based on "
+"geographical and governmental boundaries."
+msgstr ""
+"Prayer.Global a divisé le monde en 4 770 États en fonction de frontières "
+"géographiques et gouvernementales."
+
+#: pages/home/body.php:65
+msgid ""
+"When you press the Start Praying button, location specific prayer fuel will "
+"help guide your prayers for each of these regions."
+msgstr ""
+"Lorsque vous appuyez sur le bouton Commencer à prier, du carburant de prière "
+"spécifique à un emplacement vous aidera à guider vos prières pour chacune de "
+"ces régions."
+
+#: pages/home/body.php:67
+msgid "Then, watch on the map as our united prayers light up the darkness."
+msgstr ""
+"Ensuite, observez sur la carte nos prières unies illuminer les ténèbres."
+
+#: pages/home/body.php:74 pages/home/body.php:166
+msgid "Current Status"
+msgstr "Statut actuel"
+
+#: pages/home/body.php:78
+msgctxt "Prayer Laps Completed"
+msgid "Prayer Laps"
+msgstr "Tours de prière"
+
+#: pages/home/body.php:79
+msgctxt "Payer Laps Completed"
+msgid "Completed"
+msgstr "Complété"
+
+#: pages/home/body.php:83
+msgid ""
+"Our ﬁrst global race started %1$s year and %2$s days ago and we’ve completed "
+"%3$s laps together so far."
+msgstr ""
+"Notre première course mondiale a commencé il y a %1$s an et %2$s jours et "
+"nous avons parcouru %3$s tours ensemble jusqu'à présent."
+
+#: pages/home/body.php:87 pages/home/body.php:175
+msgid "Lap %s Time Elapsed"
+msgstr "Tours %s temps écoulé"
+
+#: pages/home/body.php:97 pages/home/body.php:189
+msgid "The Finish Line"
+msgstr "La ligne d’arrivée"
+
+#: pages/home/body.php:99 pages/home/body.php:191
+msgid ""
+"With each prayer lap we complete, we are that much closer to ushering in "
+"God’s Kingdom and the return of Jesus Christ! %sClick Start Praying to start "
+"your Prayer.Global experience today!"
+msgstr ""
+"Avec chaque tour de prière que nous accomplissons, nous sommes d'autant plus "
+"proches de l'introduction du Royaume de Dieu et du retour de Jésus-Christ ! "
+"%sCliquez sur Démarrer la prière pour commencer votre expérience Prayer."
+"Global dès aujourd'hui !"
+
+#: pages/home/body.php:102
+msgid "Ready. Set."
+msgstr "Prêt ?"
+
+#: pages/home/body.php:155
 msgid ""
 "Prayer.Global has broken the world down into 4,770 states based on "
 "geographical and governmental boundaries. %1$sWhen you press the Start "
@@ -1186,52 +1282,7 @@ msgstr ""
 "aidera à guider vos prières pour chacune de ces régions. %2$sEnsuite, "
 "regardez sur la carte pendant que nos prières unies illuminent les ténèbres."
 
-#: pages/home/body.php:70 pages/home/body.php:160
-msgid "Current Status"
-msgstr "Tour actuel"
-
-#: pages/home/body.php:73
-msgctxt "Prayer Laps Completed"
-msgid "Prayer%1$sLaps %2$s"
-msgstr "Tours%1$sde%1$sprière %2$s"
-
-#: pages/home/body.php:73 pages/home/body.php:165
-msgctxt "Laps Completed"
-msgid "Completed"
-msgstr "Complété"
-
-#: pages/home/body.php:77
-msgid ""
-"Our ﬁrst global race started %1$s year and %2$s days ago and we’ve completed "
-"%3$s laps together so far."
-msgstr ""
-"Notre première course mondiale a commencé il y a %1$s an et %2$s jours et "
-"nous avons parcouru %3$s tours ensemble jusqu'à présent."
-
-#: pages/home/body.php:81 pages/home/body.php:169
-msgid "Lap %s Time Elapsed"
-msgstr "Tours %s temps écoulé"
-
-#: pages/home/body.php:91 pages/home/body.php:183
-msgid "The Finish Line"
-msgstr "La ligne d’arrivée"
-
-#: pages/home/body.php:93 pages/home/body.php:185
-msgid ""
-"With each prayer lap we complete, we are that much closer to ushering in "
-"God’s Kingdom and the return of Jesus Christ! %sClick Start Praying to start "
-"your Prayer.Global experience today!"
-msgstr ""
-"Avec chaque tour de prière que nous accomplissons, nous sommes d'autant plus "
-"proches de l'introduction du Royaume de Dieu et du retour de Jésus-Christ ! "
-"%sCliquez sur Démarrer la prière pour commencer votre expérience Prayer."
-"Global dès aujourd'hui !"
-
-#: pages/home/body.php:96
-msgid "Ready. Set."
-msgstr "Prêt?"
-
-#: pages/home/body.php:162
+#: pages/home/body.php:168
 msgid ""
 "Our ﬁrst global race started %1$s days ago and we’ve completed %2$s laps "
 "together so far."
@@ -1239,61 +1290,66 @@ msgstr ""
 "Notre première course mondiale a commencé il y a %1$s jours et nous avons "
 "parcouru %2$s tours ensemble jusqu'à présent."
 
-#: pages/home/body.php:165
+#: pages/home/body.php:171
 msgctxt "Laps Completed"
 msgid "Laps %s"
 msgstr "Tours %s"
 
-#: pages/home/body.php:197
+#: pages/home/body.php:171
+msgctxt "Laps Completed"
+msgid "Completed"
+msgstr "Complété"
+
+#: pages/home/body.php:203
 msgid "Previous"
 msgstr "Précédent"
 
-#: pages/home/body.php:201 pages/pray/action-custom-lap.php:175
+#: pages/home/body.php:207 pages/pray/action-custom-lap.php:175
 #: pages/pray/action-custom-lap.php:185 pages/pray/trait-lap.php:274
 #: pages/pray/trait-lap.php:286
 msgid "Next"
-msgstr "Continuer"
+msgstr "Suivant"
 
-#: pages/home/body.php:214
+#: pages/home/body.php:220
 msgid "Global Race Stats"
 msgstr "Statistiques de course mondiales"
 
-#: pages/home/body.php:217
+#: pages/home/body.php:223
 msgid "Total Elapsed Time"
 msgstr "Temps écoulé total"
 
-#: pages/home/body.php:224
+#: pages/home/body.php:230
 msgid "Laps Completed"
 msgstr "Tours effectués"
 
-#: pages/home/body.php:229
+#: pages/home/body.php:235
 msgid "Total Intercessors"
 msgstr "Intercesseurs totaux"
 
-#: pages/home/body.php:242 pages/pray/action-custom-map.php:167
+#: pages/home/body.php:248 pages/pray/action-custom-map.php:167
 msgid "Lap %s"
 msgstr "Tour %s"
 
-#: pages/home/body.php:246
+#: pages/home/body.php:252
 msgid "Current Lap Elapsed Time"
 msgstr "Temps écoulé du tour actuel"
 
-#: pages/home/body.php:259 pages/pray/action-custom-map-display.php:140
+#: pages/home/body.php:265 pages/pray/action-custom-map-display.php:138
 #: pages/pray/action-custom-map.php:182 pages/pray/action-custom-map.php:268
 #: pages/pray/action-global-map.php:157 pages/pray/action-global-map.php:244
 msgid "Places Covered"
 msgstr "Lieux couverts"
 
-#: pages/home/body.php:272
+#: pages/home/body.php:278
 msgctxt "10 of 4770"
 msgid "%1$s of %2$s"
 msgstr "%1$s de %2$s"
 
-#: pages/home/body.php:309
+#: pages/home/body.php:315
 msgid "Get the Mobile App"
 msgstr "Obtenir l'application mobile"
 
-#: pages/home/body.php:313 pages/home/body.php:319
+#: pages/home/body.php:319 pages/home/body.php:325
 msgid "%s App"
 msgstr "Application %s"
 
@@ -1307,11 +1363,11 @@ msgstr "Code intégré"
 
 #: pages/media/magic-media.php:110
 msgid "How to launch Prayer.Global at your church document"
-msgstr ""
+msgstr "Comment lancer Prayer.Global dans votre d'église (document)"
 
 #: pages/media/magic-media.php:113
 msgid "Wayne Bushnell Prayer.Global Testimony Video"
-msgstr ""
+msgstr "Prière de Wayne Bushnell. Vidéo de témoignage mondial"
 
 #: pages/media/magic-media.php:123
 msgid "Moravian Challenge Video"
@@ -1361,11 +1417,15 @@ msgstr "Prière interrompue"
 
 #: pages/pray/action-custom-lap.php:116 pages/pray/trait-lap.php:42
 msgid "Great Job!"
-msgstr "Bon Travail!"
+msgstr "Bon Travail !"
 
 #: pages/pray/action-custom-lap.php:117 pages/pray/trait-lap.php:43
 msgid "Prayer Added!"
-msgstr "Prière ajoutée!"
+msgstr "Prière ajoutée !"
+
+#: pages/pray/action-custom-lap.php:174 pages/pray/trait-lap.php:273
+msgid "Done"
+msgstr "Terminé"
 
 #: pages/pray/action-custom-lap.php:191 pages/pray/trait-lap.php:115
 msgid "Pray for"
@@ -1378,13 +1438,6 @@ msgstr "En relais de prière %s"
 #: pages/pray/action-custom-lap.php:204 pages/pray/trait-lap.php:125
 msgid "Set Your Prayer Experience"
 msgstr "Définissez votre expérience de prière"
-
-#: pages/pray/action-custom-lap.php:205 pages/pray/action-custom-lap.php:233
-#: pages/pray/trait-lap.php:126 pages/pray/trait-lap.php:154
-#: pages/pray/trait-lap.php:206 pages/user/user-profile.php:189
-#: pages/user/user-profile.php:262
-msgid "Close"
-msgstr "Fermer"
 
 #: pages/pray/action-custom-lap.php:211 pages/pray/trait-lap.php:132
 msgid "Prayer pace per place"
@@ -1405,11 +1458,11 @@ msgstr "%d Minutes"
 #: pages/pray/action-custom-lap.php:223 pages/pray/action-custom-lap.php:275
 #: pages/pray/trait-lap.php:144 pages/pray/trait-lap.php:196
 msgid "Let's Go!"
-msgstr "Allons-y!"
+msgstr "Allons-y !"
 
 #: pages/pray/action-custom-lap.php:232 pages/pray/trait-lap.php:153
 msgid "Are you sure you want to leave?"
-msgstr "Êtes-vous sûr de vouloir quitter?"
+msgstr "Êtes-vous sûr de vouloir quitter ?"
 
 #: pages/pray/action-custom-lap.php:243 pages/pray/trait-lap.php:164
 msgid "Keep Praying"
@@ -1438,12 +1491,12 @@ msgstr "Étape 3"
 #: pages/pray/action-custom-lap.php:284 pages/pray/action-custom-map.php:222
 #: pages/pray/action-global-map.php:198 pages/pray/trait-lap.php:205
 msgid "Thank you! Leave us a correction below."
-msgstr "Merci! Laissez-nous une correction ci-dessous."
+msgstr "Merci ! Laissez-nous une correction ci-dessous."
 
 #: pages/pray/action-custom-lap.php:292 pages/pray/action-custom-map.php:228
 #: pages/pray/action-global-map.php:204 pages/pray/trait-lap.php:213
 msgid "Section:"
-msgstr "Section:"
+msgstr "Section :"
 
 #: pages/pray/action-custom-lap.php:296 pages/pray/action-custom-map.php:232
 #: pages/pray/action-global-map.php:208 pages/pray/trait-lap.php:217
@@ -1467,62 +1520,62 @@ msgstr "Afficher plus de prières guidées"
 msgid "Correction Needed?"
 msgstr "Correction nécessaire ?"
 
-#: pages/pray/action-custom-map-display.php:109
+#: pages/pray/action-custom-map-display.php:107
 #: pages/pray/action-custom-map.php:124 pages/pray/action-global-map.php:119
-#: pages/race/race-map.php:143
+#: pages/race/race-map.php:141
 msgid "Loading the planet ..."
 msgstr "Chargement de la planète..."
 
-#: pages/pray/action-custom-map-display.php:110
+#: pages/pray/action-custom-map-display.php:108
 #: pages/pray/action-custom-map.php:125 pages/pray/action-global-map.php:120
-#: pages/race/race-map.php:144
+#: pages/race/race-map.php:142
 msgid "Locating world population..."
 msgstr "Localisation de la population mondiale..."
 
-#: pages/pray/action-custom-map-display.php:111
+#: pages/pray/action-custom-map-display.php:109
 #: pages/pray/action-custom-map.php:126 pages/pray/action-global-map.php:121
-#: pages/race/race-map.php:145
+#: pages/race/race-map.php:143
 msgid "Calculating movement activity..."
 msgstr "Calcul de l'activité de mouvement..."
 
-#: pages/pray/action-custom-map-display.php:112
+#: pages/pray/action-custom-map-display.php:110
 #: pages/pray/action-custom-map.php:127 pages/pray/action-global-map.php:122
-#: pages/race/race-map.php:146
+#: pages/race/race-map.php:144
 msgid "Shamelessly brewing coffee..."
 msgstr "Faire du café sans vergogne..."
 
-#: pages/pray/action-custom-map-display.php:113
+#: pages/pray/action-custom-map-display.php:111
 #: pages/pray/action-custom-map.php:128 pages/pray/action-global-map.php:123
-#: pages/race/race-map.php:147
+#: pages/race/race-map.php:145
 msgid "Let's do this..."
 msgstr "Faisons cela..."
 
-#: pages/pray/action-custom-map-display.php:119
+#: pages/pray/action-custom-map-display.php:117
 msgid "%s Prayer Relay"
 msgstr "%s Relais de prière"
 
-#: pages/pray/action-custom-map-display.php:120
+#: pages/pray/action-custom-map-display.php:118
 msgid "Cover The World In Prayer"
 msgstr "Couvrir le monde en prière"
 
-#: pages/pray/action-custom-map-display.php:133
+#: pages/pray/action-custom-map-display.php:131
 #: pages/pray/action-custom-map.php:175 pages/pray/action-custom-map.php:261
 #: pages/pray/action-global-map.php:150 pages/pray/action-global-map.php:237
 msgid "Places Remaining"
 msgstr "Places restantes"
 
-#: pages/pray/action-custom-map-display.php:147
+#: pages/pray/action-custom-map-display.php:145
 #: pages/pray/action-custom-map.php:197 pages/pray/action-custom-map.php:284
 #: pages/pray/action-global-map.php:172 pages/pray/action-global-map.php:260
-#: pages/race/race-map.php:209
+#: pages/race/race-map.php:207
 msgid "World Coverage"
 msgstr "Couverture mondiale"
 
-#: pages/pray/action-custom-map-display.php:158
+#: pages/pray/action-custom-map-display.php:156
 msgid "Pray with us"
 msgstr "Priez avec nous"
 
-#: pages/pray/action-custom-map-display.php:160
+#: pages/pray/action-custom-map-display.php:158
 msgid "Turn the map from dark to light"
 msgstr "Transformez la carte de l'obscurité à la lumière"
 
@@ -1536,12 +1589,12 @@ msgid "Lap %s Stats"
 msgstr "Statistiques du tour %s"
 
 #: pages/pray/action-custom-map.php:295 pages/pray/action-global-map.php:272
-#: pages/user/user-profile.php:216
+#: pages/user/user-profile.php:218
 msgid "Start Time"
 msgstr "Heure de début"
 
 #: pages/pray/action-custom-map.php:299 pages/pray/action-global-map.php:276
-#: pages/user/user-profile.php:223
+#: pages/user/user-profile.php:225
 msgid "End Time"
 msgstr "Heure de fin"
 
@@ -1563,7 +1616,7 @@ msgstr "Temps restant"
 
 #: pages/pray/action-custom-map.php:322
 msgid "Leave this relay"
-msgstr ""
+msgstr "Quitte ce relais"
 
 #: pages/pray/action-custom-tools.php:115
 msgid "%s Relay Tools"
@@ -1626,8 +1679,6 @@ msgid "One Shot Prayer Walk"
 msgstr "Marche de prière en un coup"
 
 #: pages/pray/stacker-positions.php:19
-#, fuzzy
-#| msgid "Photo from the %1$s of %2$s"
 msgctxt "Photo from the state of Colorado"
 msgid "Photo from %1$s of %2$s"
 msgstr "Photo de %1$s de %2$s"
@@ -1999,7 +2050,7 @@ msgstr "Jean 10:27"
 #: pages/pray/stacker-text.php:68
 msgctxt "John 10:27"
 msgid "My sheep listen to my voice; I know them, and they follow me."
-msgstr "Mes brebis écoutent ma voix; Je les connais, et ils me suivent."
+msgstr "Mes brebis écoutent ma voix ; Je les connais, et ils me suivent."
 
 #: pages/pray/stacker-text.php:72
 msgid "Father, answer the requests of your people in %1$s of %2$s."
@@ -2603,7 +2654,7 @@ msgid ""
 "And blessed be His glorious name forever; And may the whole earth be filled "
 "with His glory. Amen, and Amen."
 msgstr ""
-"Et béni soit son nom glorieux pour toujours; Et que toute la terre soit "
+"Et béni soit son nom glorieux pour toujours ; Et que toute la terre soit "
 "remplie de sa gloire. Amen, et Amen."
 
 #: pages/pray/stacker-text.php:404
@@ -2902,8 +2953,8 @@ msgid ""
 "your Word. I seek you with all my heart; do not let me stray from your "
 "commands."
 msgstr ""
-"Comment un jeune peut-il rester sur le chemin de la pureté ? En vivant selon "
-"ta Parole. je te cherche de tout mon coeur; ne me laisse pas m'écarter de "
+"Comment un jeune peut-il rester sur le chemin de la pureté ? En vivant selon "
+"ta Parole. je te cherche de tout mon coeur ; ne me laisse pas m'écarter de "
 "tes commandements."
 
 #: pages/pray/stacker-text.php:527
@@ -3217,8 +3268,8 @@ msgid ""
 "So I say to you, ask, and it will be given to you; seek, and you will find; "
 "knock, and it will be opened to you."
 msgstr ""
-"Alors je vous dis, demandez, et il vous sera donné ; Cherchez et vous "
-"trouverez; frappez, et on vous ouvrira."
+"Alors je vous dis, demandez, et il vous sera donné ; Cherchez et vous "
+"trouverez ; frappez, et on vous ouvrira."
 
 #: pages/pray/stacker-text.php:733
 msgid ""
@@ -3580,7 +3631,7 @@ msgid ""
 "For I will take you out of the nations; I will gather you from all the "
 "countries and bring you back into your own land."
 msgstr ""
-"Car je te retirerai des nations; Je vous rassemblerai de tous les pays et "
+"Car je te retirerai des nations ; Je vous rassemblerai de tous les pays et "
 "vous ramènerai dans votre pays."
 
 #: pages/pray/stacker-text.php:985
@@ -3641,8 +3692,8 @@ msgid ""
 "Father, you said, \"The earth belongs to Me and all that is in it\". Please, "
 "call %1$s into obedience and eternal life."
 msgstr ""
-"Père, tu as dit: \"La terre m'appartient et tout ce qu'elle contient\". S'il "
-"vous plaît, appelez %1$s à l'obéissance et à la vie éternelle."
+"Père, tu as dit : \"La terre m'appartient et tout ce qu'elle contient\". "
+"S'il vous plaît, appelez %1$s à l'obéissance et à la vie éternelle."
 
 #: pages/pray/stacker-text.php:1034
 msgid "Psalm 24:1"
@@ -4157,7 +4208,7 @@ msgstr ""
 msgid "Matthew 28:19-20"
 msgstr "Matthieu 28:18-20"
 
-#: pages/pray/stacker-text.php:1784
+#: pages/pray/stacker-text.php:1784 pages/pray/stacker-text.php:2661
 msgctxt "Matthew 28:19-20"
 msgid ""
 "Therefore go and make disciples of all nations, baptizing them in the name "
@@ -4521,8 +4572,8 @@ msgid ""
 "I will place over them one shepherd, my servant David, and he will tend "
 "them; he will tend them and be their shepherd."
 msgstr ""
-"Je mettrai sur eux un seul berger, mon serviteur David, et il les paîtra; il "
-"les soignera et sera leur berger."
+"Je mettrai sur eux un seul berger, mon serviteur David, et il les paîtra ; "
+"il les soignera et sera leur berger."
 
 #: pages/pray/stacker-text.php:1993
 msgid ""
@@ -4557,7 +4608,7 @@ msgstr "Jean 10:14"
 msgctxt "John 10:14"
 msgid "I am the good shepherd; I know my sheep and my sheep know me"
 msgstr ""
-"Je suis le bon berger; Je connais mes moutons et mes moutons me connaissent"
+"Je suis le bon berger ; Je connais mes moutons et mes moutons me connaissent"
 
 #: pages/pray/stacker-text.php:2031
 msgid "Teachers"
@@ -4762,7 +4813,7 @@ msgstr "Psaume 119:89"
 msgctxt "Psalm 119:89"
 msgid "your Word, Lord, is eternal; it stands firm in the heavens."
 msgstr ""
-"ta Parole, Seigneur, est éternelle; il se tient fermement dans les cieux."
+"ta Parole, Seigneur, est éternelle ; il se tient fermement dans les cieux."
 
 #: pages/pray/stacker-text.php:2156
 msgid ""
@@ -5045,8 +5096,8 @@ msgid ""
 "I am the vine; you are the branches. If you remain in me and I in you, you "
 "will bear much fruit; apart from me you can do nothing."
 msgstr ""
-"Je suis la vigne; vous êtes les branches. Si vous demeurez en moi et moi en "
-"vous, vous porterez beaucoup de fruit ; à part moi tu ne peux rien faire."
+"Je suis la vigne ; vous êtes les branches. Si vous demeurez en moi et moi en "
+"vous, vous porterez beaucoup de fruit ; à part moi tu ne peux rien faire."
 
 #: pages/pray/stacker-text.php:2294
 msgid ""
@@ -5175,7 +5226,7 @@ msgid ""
 "Lord, to the people of %1$s you say, \"If you wait for Me, I will work on "
 "your behalf.\""
 msgstr ""
-"Seigneur, au peuple de %1$s tu dis: \"Si vous m'attendez, je travaillerai "
+"Seigneur, au peuple de %1$s tu dis : \"Si vous m'attendez, je travaillerai "
 "pour vous.\""
 
 #: pages/pray/stacker-text.php:2331
@@ -5795,8 +5846,8 @@ msgstr "Esaïe 55:6"
 msgctxt "Isaiah 55:6"
 msgid "Seek the Lord while he may be found; call upon him while he is near;"
 msgstr ""
-"Cherchez le Seigneur pendant qu'il se trouve ; invoquez-le pendant qu'il est "
-"près de vous;"
+"Cherchez le Seigneur pendant qu'il se trouve ; invoquez-le pendant qu'il est "
+"près de vous ;"
 
 #: pages/pray/stacker-text.php:2607
 msgid ""
@@ -5933,17 +5984,6 @@ msgstr "Villes en %s"
 #: pages/pray/stacker-text.php:2659
 msgid "Jesus, bring your gospel to the people living in %1$s."
 msgstr "Jésus, apporte ton évangile aux habitants de %1$s."
-
-#: pages/pray/stacker-text.php:2661
-msgctxt "Matthew 28:19-20"
-msgid ""
-"Go therefore and make disciples of all nations, baptizing them in the name "
-"of the Father and of the Son and of the Holy Spirit, and teaching them to "
-"obey everything that I have commanded you."
-msgstr ""
-"Allez donc, faites de toutes les nations des disciples, les baptisant au nom "
-"du Père, du Fils et du Saint-Esprit, et enseignez-leur à observer tout ce "
-"que je vous ai prescrit."
 
 #: pages/pray/stacker-text.php:2737
 msgid ""
@@ -6084,7 +6124,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2809
 msgid "What needs would people have here?"
-msgstr "Quels besoins les gens auraient-ils ici?"
+msgstr "Quels besoins les gens auraient-ils ici ?"
 
 #: pages/pray/stacker-text.php:2813
 msgid "What blessing is needed here?"
@@ -6098,7 +6138,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2821
 msgid "What challenges do people here face?"
-msgstr "À quels défis les gens sont-ils confrontés ici?"
+msgstr "À quels défis les gens sont-ils confrontés ici ?"
 
 #: pages/pray/stacker-text.php:2825
 msgid "What beauty can God be thanked for in this photo?"
@@ -6115,21 +6155,6 @@ msgstr "Priez que Dieu encourage son peuple dans toutes ces villes."
 #: pages/pray/stacker-text.php:2853
 msgid "Pray that new churches are planted in these cities."
 msgstr "Priez que de nouvelles églises soient implantées dans ces villes."
-
-#: pages/pray/stacker-text.php:2867 pages/pray/stacker-text.php:2879
-#: pages/pray/stacker-text.php:2891
-msgid "The %1$s of %2$s has a population of %3$s."
-msgstr "Le %1$s de %2$s a une population de %3$s."
-
-#: pages/pray/stacker-text.php:2869 pages/pray/stacker-text.php:2881
-#: pages/pray/stacker-text.php:2893
-msgid ""
-"We estimate %1$s has %2$s people who might know Jesus, %3$s people who might "
-"know about Jesus culturally, and %4$s people who do not know Jesus."
-msgstr ""
-"Nous estimons que %1$s a %2$s personnes susceptibles de connaître Jésus, "
-"%3$s personnes susceptibles de connaître Jésus culturellement et %4$s "
-"personnes qui ne connaissent pas Jésus."
 
 #: pages/pray/stacker-text.php:2871 pages/pray/stacker-text.php:2883
 #: pages/pray/stacker-text.php:2895
@@ -6172,7 +6197,7 @@ msgstr "pays"
 
 #: pages/pray/stacker.php:304
 msgid "county"
-msgstr ""
+msgstr "comté"
 
 #: pages/pray/stacker.php:305
 msgid "the county"
@@ -6180,41 +6205,41 @@ msgstr "le comté"
 
 #: pages/pray/stacker.php:306
 msgid "counties"
-msgstr ""
+msgstr "comtés"
 
-#: pages/pray/stacker.php:458
+#: pages/pray/stacker.php:484
 msgid "Diaspora"
 msgstr "Diaspora"
 
-#: pages/pray/stacker.php:460
+#: pages/pray/stacker.php:486
 msgid "Possibly Diaspora"
 msgstr "Peut-être la diaspora"
 
-#: pages/pray/stacker.php:635
+#: pages/pray/stacker.php:643
 msgid "Fastest Growing in the World"
 msgstr "Croissance la plus rapide au monde"
 
-#: pages/pray/stacker.php:637
+#: pages/pray/stacker.php:645
 msgid "Extreme Growth"
 msgstr "Croissance extrême"
 
-#: pages/pray/stacker.php:639
+#: pages/pray/stacker.php:647
 msgid "Significant Growth"
 msgstr "Croissance significative"
 
-#: pages/pray/stacker.php:641
+#: pages/pray/stacker.php:649
 msgid "Stable, but with slight growth"
 msgstr "Stable, mais avec une légère croissance"
 
-#: pages/pray/stacker.php:643
+#: pages/pray/stacker.php:651
 msgid "Stable, but in slight decline"
 msgstr "Stable, mais en légère baisse"
 
-#: pages/pray/stacker.php:645
+#: pages/pray/stacker.php:653
 msgid "Extreme Decline"
 msgstr "Déclin extrême"
 
-#: pages/pray/stacker.php:647
+#: pages/pray/stacker.php:655
 msgid "Fastest Declining in the World"
 msgstr "Le déclin le plus rapide au monde"
 
@@ -6226,181 +6251,19 @@ msgstr "Bouton de prière"
 msgid "Decision Button"
 msgstr "Bouton de décision"
 
-#: pages/privacy/magic-privacy.php:87
-msgid "Privacy Policy"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:96
-msgid ""
-"This privacy policy has been compiled to better serve those who are "
-"concerned with how their \"Personally Identifiable Information\" (PII) is "
-"being used online. PII, as described in US privacy law and information "
-"security, is information that can be used on its own or with other "
-"information to identify, contact, or locate a single person, or to identify "
-"an individual in context. Please read our privacy policy carefully to get a "
-"clear understanding of how we collect, use, protect or otherwise handle your "
-"Personally Identifiable Information in accordance with our website."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:102
-msgid "What permissions do the social sign-on logins ask for?"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:104
-msgid ""
-"Public Profile. This includes certain User’s Data such as id, name, picture, "
-"gender, and their locale."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:105
-msgid "Email Address."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:112
-msgid ""
-"What personal information do we collect from the people through our website?"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:114
-msgid "Information in the Basic Social Profile (if used) and email."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:115
-msgid "Session and course activity."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:116
-msgid ""
-"General location telemetry, so we know in what countries our training is "
-"being used."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:123
-msgid "When do we collect information?"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:125
-msgid "We collect your information at login."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:126
-msgid "We also track your progress through the training course."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:133
-msgid "How do we use your information?"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:135
-msgid ""
-"We use your information to create a user account in the zume system based on "
-"your email address."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:136
-msgid ""
-"We will email you with basic transactional emails like password reset "
-"requests and other system notifications."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:137
-msgid ""
-"We email occasional reminders and encouragements depending on your progress "
-"through the training."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:144
-msgid "How do we protect your information?"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:145
-msgid ""
-"While we use encryption to protect sensitive information transmitted online, "
-"we also protect your information offline. Only team members who need the "
-"information to perform a specific job (for example, web administrator or "
-"customer service) are granted access to personally identifiable information."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:146
-msgid ""
-"Your personal information is contained behind secured networks and is only "
-"accessible by a limited number of persons who have special access rights to "
-"such systems, and are required to keep the information confidential. In "
-"addition, all sensitive/credit information you supply is encrypted via "
-"Secure Socket Layer (SSL) technology."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:147
-msgid ""
-"We implement a variety of security measures when a user submits, or accesses "
-"their information to maintain the safety of your personal information."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:153
-msgid "Do we use \"cookies\"?"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:154
-msgid ""
-"Any use of Cookies - or of other tracking tools - by this Application or by "
-"the owners of third party services used by this Application, unless stated "
-"otherwise, serves to identify Users and remember their preferences, for the "
-"sole purpose of providing the service required by the User."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:155
-msgid "Personal Data collected: name, email."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:161
-msgid "Your Access to and Control Over Information."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:162
-msgid ""
-"You may opt out of any future contact from us at any time. You can do the "
-"following at any time by contacting us via our contact email address:"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:163
-msgid "See what data we've aggregated from your activities with us."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:165
-msgid "Change/correct any data we have about you."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:166
-msgid "Have us delete any data we have about you."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:167
-msgid "Express any concern you have about our use of your data."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:174
-msgid "Updates"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:175
-msgid ""
-"Our Privacy Policy may change from time to time and all updates will be "
-"posted on this page."
-msgstr ""
-
 #: pages/race/race-map.php:102
 msgid "%s Race Map"
 msgstr "%s Carte de course"
 
-#: pages/race/race-map.php:164 pages/race/race-map.php:205
+#: pages/race/race-map.php:162 pages/race/race-map.php:203
 msgid "Race Map Stats"
 msgstr "Statistiques de la carte de course"
 
-#: pages/race/race-map.php:179 pages/race/race-map.php:210
+#: pages/race/race-map.php:177 pages/race/race-map.php:208
 msgid "%s times"
 msgstr "%s fois"
 
-#: pages/race/race-map.php:182
+#: pages/race/race-map.php:180
 msgid "World Prayer Coverage"
 msgstr "Couverture mondiale de la prière"
 
@@ -6535,107 +6398,111 @@ msgstr "Vos relais publics apparaîtront également sur la page %s."
 
 #: pages/user/user-profile.php:104
 msgid "You have not created any %s relays yet"
-msgstr ""
+msgstr "Vous n'avez pas encore créé de relais %s"
 
 #: pages/user/user-profile.php:105
 msgid "View other public relays"
 msgstr "Voir les autres relais publics"
 
-#: pages/user/user-profile.php:153
-msgid "Change Your Details"
-msgstr "Modifier vos informations"
-
-#: pages/user/user-profile.php:163
-msgid "Select Location"
-msgstr "Sélectionnez l'emplacement"
-
-#: pages/user/user-profile.php:164
-msgid "Delete Location"
-msgstr "Supprimer l'emplacement"
-
-#: pages/user/user-profile.php:177 pages/user/user-profile.php:234
-#: pages/user/user-profile.php:282
-msgid "Cancel"
-msgstr "Annuler"
-
-#: pages/user/user-profile.php:178
-msgid "Save"
-msgstr "Sauvegarder"
-
-#: pages/user/user-profile.php:188
-msgid "Create Challenge"
-msgstr "Créer un défi"
-
-#: pages/user/user-profile.php:196
-msgid "Choose type of challenge"
-msgstr "Choisissez le type de défi"
-
-#: pages/user/user-profile.php:198
-msgid "On-going Prayer Relay"
-msgstr "Relais de prière permanent"
-
-#: pages/user/user-profile.php:200
-msgid "Timed Prayer Relay"
-msgstr "Relais de prière chronométré"
-
-#: pages/user/user-profile.php:209
-msgid "Challenge Title"
-msgstr "Titre du défi"
-
-#: pages/user/user-profile.php:210
-msgid "Give your challenge a unique name"
-msgstr "Donnez à votre défi un nom unique"
-
-#: pages/user/user-profile.php:213
-msgid "Challenge Start Date"
-msgstr "Date de début du défi"
-
-#: pages/user/user-profile.php:213
-msgid "Now"
-msgstr "Maintenant"
-
-#: pages/user/user-profile.php:215
-msgid "Start Date"
-msgstr "Date de début"
-
-#: pages/user/user-profile.php:220
-msgid "Challenge End Date"
-msgstr "Date de fin du défi"
-
-#: pages/user/user-profile.php:222
-msgid "End Date"
-msgstr "Date de fin"
-
-#: pages/user/user-profile.php:228
-msgid "Single Lap"
-msgstr "Tour unique"
-
-#: pages/user/user-profile.php:235
-msgid "Create"
-msgstr "Créer"
-
-#: pages/user/user-profile.php:236
+#: pages/user/user-profile.php:106 pages/user/user-profile.php:238
 msgid "Edit"
 msgstr "Modifier"
 
-#: pages/user/user-profile.php:246
+#: pages/user/user-profile.php:107
+msgid "Display Map"
+msgstr "Afficher la carte"
+
+#: pages/user/user-profile.php:155
+msgid "Change Your Details"
+msgstr "Modifier vos informations"
+
+#: pages/user/user-profile.php:165
+msgid "Select Location"
+msgstr "Sélectionnez l'emplacement"
+
+#: pages/user/user-profile.php:166
+msgid "Delete Location"
+msgstr "Supprimer l'emplacement"
+
+#: pages/user/user-profile.php:179 pages/user/user-profile.php:236
+#: pages/user/user-profile.php:284
+msgid "Cancel"
+msgstr "Annuler"
+
+#: pages/user/user-profile.php:180
+msgid "Save"
+msgstr "Sauvegarder"
+
+#: pages/user/user-profile.php:190
+msgid "Create Challenge"
+msgstr "Créer un défi"
+
+#: pages/user/user-profile.php:198
+msgid "Choose type of challenge"
+msgstr "Choisissez le type de défi"
+
+#: pages/user/user-profile.php:200
+msgid "On-going Prayer Relay"
+msgstr "Relais de prière permanent"
+
+#: pages/user/user-profile.php:202
+msgid "Timed Prayer Relay"
+msgstr "Relais de prière chronométré"
+
+#: pages/user/user-profile.php:211
+msgid "Challenge Title"
+msgstr "Titre du défi"
+
+#: pages/user/user-profile.php:212
+msgid "Give your challenge a unique name"
+msgstr "Donnez à votre défi un nom unique"
+
+#: pages/user/user-profile.php:215
+msgid "Challenge Start Date"
+msgstr "Date de début du défi"
+
+#: pages/user/user-profile.php:215
+msgid "Now"
+msgstr "Maintenant"
+
+#: pages/user/user-profile.php:217
+msgid "Start Date"
+msgstr "Date de début"
+
+#: pages/user/user-profile.php:222
+msgid "Challenge End Date"
+msgstr "Date de fin du défi"
+
+#: pages/user/user-profile.php:224
+msgid "End Date"
+msgstr "Date de fin"
+
+#: pages/user/user-profile.php:230
+msgid "Single Lap"
+msgstr "Tour unique"
+
+#: pages/user/user-profile.php:237
+msgid "Create"
+msgstr "Créer"
+
+#: pages/user/user-profile.php:248
 msgid "Data Report"
 msgstr "Rapport de données"
 
-#: pages/user/user-profile.php:261
+#: pages/user/user-profile.php:263
 msgid "Erase Account"
 msgstr "Effacer le compte"
 
-#: pages/user/user-profile.php:268
+#: pages/user/user-profile.php:270
 msgid "This will delete your account from Prayer.Global."
 msgstr "Cela supprimera votre compte de Prayer.Global."
 
-#: pages/user/user-profile.php:271
+#: pages/user/user-profile.php:273
 msgid "You will lose all progress and data assosciated with your account"
 msgstr ""
 "Vous perdrez toute la progression et les données associées à votre compte"
 
-#: pages/user/user-profile.php:274
+#: pages/user/user-profile.php:276
 msgid ""
 "If you are sure you want to proceed please type \"delete\" into the box "
 "below and click \"I am sure\" button"
@@ -6643,15 +6510,15 @@ msgstr ""
 "Si vous êtes sûr de vouloir continuer, veuillez taper \"supprimer\" dans la "
 "case ci-dessous et cliquez sur le bouton \"Je suis sûr\""
 
-#: pages/user/user-profile.php:277
+#: pages/user/user-profile.php:279
 msgid "Confirm delete"
 msgstr "Confirmation de la suppression"
 
-#: pages/user/user-profile.php:278
+#: pages/user/user-profile.php:280
 msgid "Delete"
 msgstr "Supprimer"
 
-#: pages/user/user-profile.php:283
+#: pages/user/user-profile.php:285
 msgid "I am sure"
 msgstr "Je suis sûr"
 
@@ -6701,6 +6568,253 @@ msgstr "mois"
 #: utilities/global-utilities.php:680
 msgid "month"
 msgstr "mois"
+
+#~ msgctxt ""
+#~ "We estimate Colorado has 5 who are far from Jesus, 10 who might know "
+#~ "about Jesus culturally, and 15 people who know Jesus personally."
+#~ msgid ""
+#~ "We estimate %1$s has %2$s who are far from Jesus, %3$s who might know "
+#~ "about Jesus culturally, and %4$s people who know Jesus personally."
+#~ msgstr ""
+#~ "Nous estimons que %1$s a %2$s personnes susceptibles de connaître Jésus, "
+#~ "%3$s personnes susceptibles de connaître Jésus culturellement et %4$s "
+#~ "personnes qui ne connaissent pas Jésus."
+
+#~ msgctxt "Prayer Laps Completed"
+#~ msgid "Prayer%1$sLaps %2$s"
+#~ msgstr "Tours%1$sde%1$sprière %2$s"
+
+#~ msgctxt "Matthew 28:19-20"
+#~ msgid ""
+#~ "Go therefore and make disciples of all nations, baptizing them in the "
+#~ "name of the Father and of the Son and of the Holy Spirit, and teaching "
+#~ "them to obey everything that I have commanded you."
+#~ msgstr ""
+#~ "Allez donc, faites de toutes les nations des disciples, les baptisant au "
+#~ "nom du Père, du Fils et du Saint-Esprit, et enseignez-leur à observer "
+#~ "tout ce que je vous ai prescrit."
+
+#~ msgid "The %1$s of %2$s has a population of %3$s."
+#~ msgstr "Le %1$s de %2$s a une population de %3$s."
+
+#~ msgid "Add Magic"
+#~ msgstr "Ajouter magie"
+
+#~ msgid "Privacy Policy"
+#~ msgstr "Politique de confidentialité"
+
+#~ msgid ""
+#~ "This privacy policy has been compiled to better serve those who are "
+#~ "concerned with how their \"Personally Identifiable Information\" (PII) is "
+#~ "being used online. PII, as described in US privacy law and information "
+#~ "security, is information that can be used on its own or with other "
+#~ "information to identify, contact, or locate a single person, or to "
+#~ "identify an individual in context. Please read our privacy policy "
+#~ "carefully to get a clear understanding of how we collect, use, protect or "
+#~ "otherwise handle your Personally Identifiable Information in accordance "
+#~ "with our website."
+#~ msgstr ""
+#~ "Cette politique de confidentialité a été élaborée pour mieux servir ceux "
+#~ "qui sont préoccupés par la façon dont leur « Information personnellement "
+#~ "identifiable » (IPI) est utilisée en ligne. Les IPI, tels que décrits "
+#~ "dans la loi américaine sur la protection de la vie privée et la sécurité "
+#~ "de l'information, sont des informations qui peuvent être utilisées seules "
+#~ "ou avec d'autres informations pour identifier, contacter ou localiser une "
+#~ "seule personne, ou pour identifier une personne dans son contexte. "
+#~ "Veuillez lire attentivement notre politique de confidentialité afin de "
+#~ "bien comprendre la façon dont nous recueillons, utilisons, protégeons ou "
+#~ "traitons vos renseignements personnels identifiables conformément à notre "
+#~ "site Web."
+
+#~ msgid "What permissions do the social sign-on logins ask for?"
+#~ msgstr "Quelles autorisations les connexions sociales demandent-elles ?"
+
+#~ msgid ""
+#~ "Public Profile. This includes certain User’s Data such as id, name, "
+#~ "picture, gender, and their locale."
+#~ msgstr ""
+#~ "Profil public. Cela inclut certaines données de l'utilisateur telles que "
+#~ "l'identité, le nom, l'image, le sexe et  lieu de résidence."
+
+#~ msgid "Email Address."
+#~ msgstr "Adresse e-mail."
+
+#~ msgid ""
+#~ "What personal information do we collect from the people through our "
+#~ "website?"
+#~ msgstr ""
+#~ "Quelles informations personnelles collectons-nous auprès des personnes "
+#~ "via notre site Web ?"
+
+#~ msgid "Information in the Basic Social Profile (if used) and email."
+#~ msgstr ""
+#~ "Informations dans le profil social de base (si utilisé) et dans l'e-mail."
+
+#~ msgid "Session and course activity."
+#~ msgstr "Activité reliée aux cours et séances."
+
+#, fuzzy
+#~ msgid ""
+#~ "General location telemetry, so we know in what countries our training is "
+#~ "being used."
+#~ msgstr ""
+#~ "Télémétrie générale, pour savoir dans quels pays notre formation est "
+#~ "utilisée."
+
+#, fuzzy
+#~ msgid "When do we collect information?"
+#~ msgstr "Quand recueillons-nous des renseignements ?"
+
+#, fuzzy
+#~ msgid "We collect your information at login."
+#~ msgstr "Nous recueillons vos informations quand vous vous connectez."
+
+#, fuzzy
+#~ msgid "We also track your progress through the training course."
+#~ msgstr ""
+#~ "Nous suivons également vos progrès tout au long du cours de formation."
+
+#, fuzzy
+#~ msgid "How do we use your information?"
+#~ msgstr "Comment utilisons-nous vos informations ?"
+
+#, fuzzy
+#~ msgid ""
+#~ "We use your information to create a user account in the zume system based "
+#~ "on your email address."
+#~ msgstr ""
+#~ "Nous utilisons vos informations pour créer un compte utilisateur dans le "
+#~ "système zume en fonction de votre adresse e-mail."
+
+#, fuzzy
+#~ msgid ""
+#~ "We will email you with basic transactional emails like password reset "
+#~ "requests and other system notifications."
+#~ msgstr ""
+#~ "Nous vous enverrons des e-mails transactionnels de base comme des "
+#~ "demandes de réinitialisation de mot de passe et d'autres notifications du "
+#~ "système."
+
+#, fuzzy
+#~ msgid ""
+#~ "We email occasional reminders and encouragements depending on your "
+#~ "progress through the training."
+#~ msgstr ""
+#~ "Nous envoyons des rappels et des encouragements occasionnels en fonction "
+#~ "de vos progrès au cours de la formation."
+
+#, fuzzy
+#~ msgid "How do we protect your information?"
+#~ msgstr "Comment protégeons-nous vos informations ?"
+
+#, fuzzy
+#~ msgid ""
+#~ "While we use encryption to protect sensitive information transmitted "
+#~ "online, we also protect your information offline. Only team members who "
+#~ "need the information to perform a specific job (for example, web "
+#~ "administrator or customer service) are granted access to personally "
+#~ "identifiable information."
+#~ msgstr ""
+#~ "Bien que nous utilisions le cryptage pour protéger les informations "
+#~ "sensibles transmises en ligne, nous protégeons également vos informations "
+#~ "hors connexion. Seuls les membres de l'équipe qui ont besoin de "
+#~ "l'information pour effectuer un travail spécifique (par exemple, "
+#~ "administrateur Web ou service à la clientèle) ont accès à des "
+#~ "informations personnellement identifiables."
+
+#, fuzzy
+#~ msgid ""
+#~ "Your personal information is contained behind secured networks and is "
+#~ "only accessible by a limited number of persons who have special access "
+#~ "rights to such systems, and are required to keep the information "
+#~ "confidential. In addition, all sensitive/credit information you supply is "
+#~ "encrypted via Secure Socket Layer (SSL) technology."
+#~ msgstr ""
+#~ "Vos renseignements personnels sont contenus derrière des réseaux "
+#~ "sécurisés et ne sont accessibles que par un nombre limité de personnes "
+#~ "qui ont des droits d'accès spéciaux à ces systèmes et qui sont tenus de "
+#~ "garder les renseignements confidentiels. En outre, toutes les "
+#~ "informations sensibles/crédit que vous fournissez sont cryptées via la "
+#~ "technologie Secure Socket Layer (SSL)."
+
+#, fuzzy
+#~ msgid ""
+#~ "We implement a variety of security measures when a user submits, or "
+#~ "accesses their information to maintain the safety of your personal "
+#~ "information."
+#~ msgstr ""
+#~ "Nous mettons en œuvre une variété de mesures de sécurité lorsqu'un "
+#~ "utilisateur soumet ou accède à ses informations pour assurer la sécurité "
+#~ "de vos renseignements personnels."
+
+#, fuzzy
+#~ msgid "Do we use \"cookies\"?"
+#~ msgstr "Utilisons-nous des « cookies » ?"
+
+#, fuzzy
+#~ msgid ""
+#~ "Any use of Cookies - or of other tracking tools - by this Application or "
+#~ "by the owners of third party services used by this Application, unless "
+#~ "stated otherwise, serves to identify Users and remember their "
+#~ "preferences, for the sole purpose of providing the service required by "
+#~ "the User."
+#~ msgstr ""
+#~ "Toute utilisation de cookies - ou d'autres outils de suivi - par cette "
+#~ "application ou par les propriétaires de services tiers utilisés par cette "
+#~ "application, sauf indication contraire, sert à identifier les "
+#~ "utilisateurs et à se souvenir de leurs préférences, dans le seul but de "
+#~ "fournir le service requis par l'Utilisateur."
+
+#, fuzzy
+#~ msgid "Personal Data collected: name, email."
+#~ msgstr "Données personnelles collectées : nom, e-mail"
+
+#, fuzzy
+#~ msgid "Your Access to and Control Over Information."
+#~ msgstr "Votre accès et contrôle de l'information."
+
+#, fuzzy
+#~ msgid ""
+#~ "You may opt out of any future contact from us at any time. You can do the "
+#~ "following at any time by contacting us via our contact email address:"
+#~ msgstr ""
+#~ "Vous pouvez vous retirer de tout contact futur de notre part à tout "
+#~ "moment. Vous pouvez faire ce qui suit à tout moment en nous contactant "
+#~ "via notre adresse e-mail de contact:"
+
+#, fuzzy
+#~ msgid "See what data we've aggregated from your activities with us."
+#~ msgstr ""
+#~ "Découvrir avec nous les données que nous avons agrégées à partir de vos "
+#~ "activités."
+
+#, fuzzy
+#~ msgid "Change/correct any data we have about you."
+#~ msgstr "Modifier/corriger toutes les données que nous avons à votre sujet."
+
+#, fuzzy
+#~ msgid "Have us delete any data we have about you."
+#~ msgstr ""
+#~ "Nous demander de supprimer toutes les données que nous avons à votre "
+#~ "sujet."
+
+#, fuzzy
+#~ msgid "Express any concern you have about our use of your data."
+#~ msgstr ""
+#~ "Exprimez toute préoccupation que vous avez concernant notre utilisation "
+#~ "de vos données."
+
+#, fuzzy
+#~ msgid "Updates"
+#~ msgstr "Mises à jour"
+
+#, fuzzy
+#~ msgid ""
+#~ "Our Privacy Policy may change from time to time and all updates will be "
+#~ "posted on this page."
+#~ msgstr ""
+#~ "Notre politique de confidentialité peut changer de temps à autre et "
+#~ "toutes les mises à jour seront affichées sur cette page."
 
 #~ msgid "Don't know Jesus"
 #~ msgstr "Je ne connais pas Jésus"
