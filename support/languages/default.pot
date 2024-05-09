@@ -9,26 +9,18 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-07T09:05:29+00:00\n"
+"POT-Creation-Date: 2024-05-09T10:55:37+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: prayer-global-porch\n"
 
-#: pages/404/404.php:93
-#: pages/pray/action-custom-map-display.php:86
-#: pages/pray/action-global-stats.php:133
-#: pages/race/race-list.php:87
-#: pages/race/race-map.php:114
-msgid "Add Magic"
-msgstr ""
-
-#: pages/404/404.php:128
+#: pages/404/404.php:126
 msgid "Not where you meant to be? Try some of the links below (or above) to get back into the action..."
 msgstr ""
 
-#: pages/404/404.php:137
+#: pages/404/404.php:135
 #: pages/about/about.php:116
-#: pages/assets/menu.php:74
+#: pages/assets/menu.php:78
 #: pages/home/body.php:14
 #: pages/home/body.php:97
 #: pages/home/body.php:189
@@ -39,40 +31,40 @@ msgstr ""
 msgid "Start Praying"
 msgstr ""
 
-#: pages/404/404.php:138
+#: pages/404/404.php:136
 msgid "The map"
 msgstr ""
 
-#: pages/404/404.php:139
+#: pages/404/404.php:137
 msgid "More stats"
 msgstr ""
 
-#: pages/404/404.php:140
-#: pages/assets/menu.php:53
+#: pages/404/404.php:138
+#: pages/assets/menu.php:57
 #: pages/challenges/active-list.php:129
 #: pages/user/user-profile.php:102
 #: pages/user/user-profile.php:103
 msgid "Prayer Relays"
 msgstr ""
 
-#: pages/404/404.php:149
+#: pages/404/404.php:147
 msgid "Other interesting links"
 msgstr ""
 
-#: pages/404/404.php:157
+#: pages/404/404.php:155
 msgid "Anything to share/request? Please contact us :)"
 msgstr ""
 
-#: pages/404/404.php:158
+#: pages/404/404.php:156
 msgid "Where does all the data come from?"
 msgstr ""
 
-#: pages/404/404.php:159
+#: pages/404/404.php:157
 msgid "Invites for sharing on social media"
 msgstr ""
 
 #: pages/about/about.php:90
-#: pages/assets/menu.php:70
+#: pages/assets/menu.php:74
 #: pages/assets/working-footer.php:18
 msgid "About"
 msgstr ""
@@ -105,6 +97,12 @@ msgstr ""
 
 #: pages/about/about.php:130
 msgid "(1) Never before in history have we been able to coordinate global prayer for the kingdom IN REALTIME!"
+msgstr ""
+
+#: pages/about/about.php:133
+msgid ""
+"(2) God has used technology for the advance of His kingdom (i.e. written language, Roman roads, printing presses, etc.),\n"
+"                            and is now using the Internet."
 msgstr ""
 
 #: pages/about/about.php:137
@@ -157,7 +155,7 @@ msgstr ""
 #: pages/home/body.php:236
 #: pages/race/nav-race-map.php:12
 #: pages/race/nav-race-map.php:13
-#: pages/race/race-list.php:136
+#: pages/race/race-list.php:134
 msgid "Race Map"
 msgstr ""
 
@@ -167,7 +165,7 @@ msgstr ""
 
 #: pages/about/about.php:190
 #: pages/home/body.php:237
-#: pages/race/race-list.php:118
+#: pages/race/race-list.php:116
 msgid "Race List"
 msgstr ""
 
@@ -206,7 +204,7 @@ msgid "Faith Status"
 msgstr ""
 
 #: pages/about/about.php:217
-#: pages/assets/enqueue.php:73
+#: pages/assets/enqueue.php:83
 #: pages/pray/action-custom-lap.php:114
 #: pages/pray/stacker-positions.php:52
 #: pages/pray/stacker-positions.php:86
@@ -215,7 +213,7 @@ msgid "Know Jesus"
 msgstr ""
 
 #: pages/about/about.php:221
-#: pages/assets/enqueue.php:72
+#: pages/assets/enqueue.php:82
 #: pages/pray/action-custom-lap.php:113
 #: pages/pray/stacker-positions.php:49
 #: pages/pray/stacker-positions.php:83
@@ -224,7 +222,7 @@ msgid "Know About Jesus"
 msgstr ""
 
 #: pages/about/about.php:225
-#: pages/assets/enqueue.php:70
+#: pages/assets/enqueue.php:80
 #: pages/pray/action-custom-lap.php:112
 #: pages/pray/stacker-positions.php:46
 #: pages/pray/stacker-positions.php:80
@@ -256,85 +254,89 @@ msgstr ""
 msgid "Top"
 msgstr ""
 
-#: pages/assets/enqueue.php:54
+#: pages/assets/enqueue.php:57
 msgid "Years"
 msgstr ""
 
-#: pages/assets/enqueue.php:55
+#: pages/assets/enqueue.php:58
 msgid "Days"
 msgstr ""
 
-#: pages/assets/enqueue.php:56
+#: pages/assets/enqueue.php:59
 msgid "Hours"
 msgstr ""
 
-#: pages/assets/enqueue.php:57
+#: pages/assets/enqueue.php:60
 #: pages/user/user-profile.php:93
 msgid "Minutes"
 msgstr ""
 
-#: pages/assets/enqueue.php:58
+#: pages/assets/enqueue.php:61
 msgid "Seconds"
 msgstr ""
 
-#: pages/assets/enqueue.php:74
+#: pages/assets/enqueue.php:67
+msgid "Join us in covering the world in prayer"
+msgstr ""
+
+#: pages/assets/enqueue.php:84
 msgctxt "The state of Colorado has a population of 5,773,714."
 msgid "%1$s of %2$s has a population of %3$s."
 msgstr ""
 
-#: pages/assets/enqueue.php:75
+#: pages/assets/enqueue.php:85
 msgctxt "We estimate Colorado has 5 who are far from Jesus, 10 who might know about Jesus culturally, and 15 people who know Jesus personally."
 msgid "We estimate %1$s has %2$s who are far from Jesus, %3$s who might know about Jesus culturally, and %4$s people who know Jesus personally."
 msgstr ""
 
-#: pages/assets/enqueue.php:76
+#: pages/assets/enqueue.php:86
 msgctxt "Colorado is 1 of 50 states."
 msgid "%1$s is 1 of %2$s %3$s."
 msgstr ""
 
-#: pages/assets/enqueue.php:77
+#: pages/assets/enqueue.php:87
 msgid "Religion"
 msgstr ""
 
-#: pages/assets/enqueue.php:78
+#: pages/assets/enqueue.php:88
 msgid "Official Language"
 msgstr ""
 
-#: pages/assets/enqueue.php:79
+#: pages/assets/enqueue.php:89
 msgid "Community Stats"
 msgstr ""
 
-#: pages/assets/enqueue.php:80
+#: pages/assets/enqueue.php:90
 msgid "Summary"
 msgstr ""
 
-#: pages/assets/enqueue.php:81
+#: pages/assets/enqueue.php:91
 msgid "Activity"
 msgstr ""
 
-#: pages/assets/enqueue.php:82
+#: pages/assets/enqueue.php:92
 msgid "Times prayed for"
 msgstr ""
 
-#: pages/assets/enqueue.php:83
+#: pages/assets/enqueue.php:93
 msgid "Total time prayed"
 msgstr ""
 
-#: pages/assets/enqueue.php:84
+#: pages/assets/enqueue.php:94
 #: utilities/global-utilities.php:666
 msgid "minute"
 msgstr ""
 
-#: pages/assets/enqueue.php:85
+#: pages/assets/enqueue.php:95
 #: utilities/global-utilities.php:666
 msgid "minutes"
 msgstr ""
 
-#: pages/assets/menu.php:38
+#: pages/assets/menu.php:42
 msgid "Status"
 msgstr ""
 
-#: pages/assets/menu.php:44
+#: pages/assets/menu.php:48
 #: pages/challenges/active-list.php:79
 #: pages/pray/action-custom-lap.php:184
 #: pages/pray/action-custom-map.php:83
@@ -342,7 +344,7 @@ msgstr ""
 msgid "Map"
 msgstr ""
 
-#: pages/assets/menu.php:62
+#: pages/assets/menu.php:66
 #: pages/assets/working-footer.php:15
 #: pages/user/user-profile.php:83
 msgid "Give"
@@ -417,27 +419,27 @@ msgstr ""
 
 #: pages/challenges/active-list.php:82
 #: pages/user/user-profile.php:85
-#: pages/user/user-profile.php:159
+#: pages/user/user-profile.php:161
 msgid "Name"
 msgstr ""
 
 #: pages/challenges/active-list.php:83
 #: pages/home/body.php:252
-#: pages/pray/action-custom-map-display.php:154
+#: pages/pray/action-custom-map-display.php:152
 #: pages/pray/action-custom-map.php:190
 #: pages/pray/action-custom-map.php:277
 #: pages/pray/action-global-map.php:165
 #: pages/pray/action-global-map.php:253
-#: pages/race/race-map.php:173
-#: pages/race/race-map.php:214
+#: pages/race/race-map.php:171
+#: pages/race/race-map.php:212
 msgid "Intercessors"
 msgstr ""
 
 #: pages/challenges/active-list.php:84
 #: pages/pray/action-custom-map.php:290
 #: pages/pray/action-global-map.php:266
-#: pages/race/race-map.php:191
-#: pages/race/race-map.php:219
+#: pages/race/race-map.php:189
+#: pages/race/race-map.php:217
 msgid "Time Elapsed"
 msgstr ""
 
@@ -1010,7 +1012,7 @@ msgid "Current Lap Elapsed Time"
 msgstr ""
 
 #: pages/home/body.php:259
-#: pages/pray/action-custom-map-display.php:140
+#: pages/pray/action-custom-map-display.php:138
 #: pages/pray/action-custom-map.php:182
 #: pages/pray/action-custom-map.php:268
 #: pages/pray/action-global-map.php:157
@@ -1129,8 +1131,8 @@ msgstr ""
 #: pages/pray/trait-lap.php:126
 #: pages/pray/trait-lap.php:154
 #: pages/pray/trait-lap.php:206
-#: pages/user/user-profile.php:189
-#: pages/user/user-profile.php:262
+#: pages/user/user-profile.php:191
+#: pages/user/user-profile.php:264
 msgid "Close"
 msgstr ""
 
@@ -1242,50 +1244,50 @@ msgstr ""
 msgid "Correction Needed?"
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:109
+#: pages/pray/action-custom-map-display.php:107
 #: pages/pray/action-custom-map.php:124
 #: pages/pray/action-global-map.php:119
-#: pages/race/race-map.php:143
+#: pages/race/race-map.php:141
 msgid "Loading the planet ..."
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:110
+#: pages/pray/action-custom-map-display.php:108
 #: pages/pray/action-custom-map.php:125
 #: pages/pray/action-global-map.php:120
-#: pages/race/race-map.php:144
+#: pages/race/race-map.php:142
 msgid "Locating world population..."
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:111
+#: pages/pray/action-custom-map-display.php:109
 #: pages/pray/action-custom-map.php:126
 #: pages/pray/action-global-map.php:121
-#: pages/race/race-map.php:145
+#: pages/race/race-map.php:143
 msgid "Calculating movement activity..."
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:112
+#: pages/pray/action-custom-map-display.php:110
 #: pages/pray/action-custom-map.php:127
 #: pages/pray/action-global-map.php:122
-#: pages/race/race-map.php:146
+#: pages/race/race-map.php:144
 msgid "Shamelessly brewing coffee..."
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:113
+#: pages/pray/action-custom-map-display.php:111
 #: pages/pray/action-custom-map.php:128
 #: pages/pray/action-global-map.php:123
-#: pages/race/race-map.php:147
+#: pages/race/race-map.php:145
 msgid "Let's do this..."
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:119
+#: pages/pray/action-custom-map-display.php:117
 msgid "%s Prayer Relay"
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:120
+#: pages/pray/action-custom-map-display.php:118
 msgid "Cover The World In Prayer"
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:133
+#: pages/pray/action-custom-map-display.php:131
 #: pages/pray/action-custom-map.php:175
 #: pages/pray/action-custom-map.php:261
 #: pages/pray/action-global-map.php:150
@@ -1293,20 +1295,20 @@ msgstr ""
 msgid "Places Remaining"
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:147
+#: pages/pray/action-custom-map-display.php:145
 #: pages/pray/action-custom-map.php:197
 #: pages/pray/action-custom-map.php:284
 #: pages/pray/action-global-map.php:172
 #: pages/pray/action-global-map.php:260
-#: pages/race/race-map.php:209
+#: pages/race/race-map.php:207
 msgid "World Coverage"
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:158
+#: pages/pray/action-custom-map-display.php:156
 msgid "Pray with us"
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:160
+#: pages/pray/action-custom-map-display.php:158
 msgid "Turn the map from dark to light"
 msgstr ""
 
@@ -1322,13 +1324,13 @@ msgstr ""
 
 #: pages/pray/action-custom-map.php:295
 #: pages/pray/action-global-map.php:272
-#: pages/user/user-profile.php:216
+#: pages/user/user-profile.php:218
 msgid "Start Time"
 msgstr ""
 
 #: pages/pray/action-custom-map.php:299
 #: pages/pray/action-global-map.php:276
-#: pages/user/user-profile.php:223
+#: pages/user/user-profile.php:225
 msgid "End Time"
 msgstr ""
 
@@ -4260,75 +4262,75 @@ msgctxt "3 mins [abbreviation of e.g. 3 minutes]"
 msgid "%d mins"
 msgstr ""
 
-#: pages/pray/stacker.php:298
+#: pages/pray/stacker.php:296
 msgid "state"
 msgstr ""
 
-#: pages/pray/stacker.php:299
+#: pages/pray/stacker.php:297
 msgid "the state"
 msgstr ""
 
-#: pages/pray/stacker.php:300
+#: pages/pray/stacker.php:298
 msgid "states"
 msgstr ""
 
-#: pages/pray/stacker.php:302
+#: pages/pray/stacker.php:300
 msgid "country"
 msgstr ""
 
-#: pages/pray/stacker.php:303
+#: pages/pray/stacker.php:301
 msgid "the country"
 msgstr ""
 
-#: pages/pray/stacker.php:304
+#: pages/pray/stacker.php:302
 msgid "countries"
 msgstr ""
 
-#: pages/pray/stacker.php:306
+#: pages/pray/stacker.php:304
 msgid "county"
 msgstr ""
 
-#: pages/pray/stacker.php:307
+#: pages/pray/stacker.php:305
 msgid "the county"
 msgstr ""
 
-#: pages/pray/stacker.php:308
+#: pages/pray/stacker.php:306
 msgid "counties"
 msgstr ""
 
-#: pages/pray/stacker.php:486
+#: pages/pray/stacker.php:484
 msgid "Diaspora"
 msgstr ""
 
-#: pages/pray/stacker.php:488
+#: pages/pray/stacker.php:486
 msgid "Possibly Diaspora"
 msgstr ""
 
-#: pages/pray/stacker.php:645
+#: pages/pray/stacker.php:643
 msgid "Fastest Growing in the World"
 msgstr ""
 
-#: pages/pray/stacker.php:647
+#: pages/pray/stacker.php:645
 msgid "Extreme Growth"
 msgstr ""
 
-#: pages/pray/stacker.php:649
+#: pages/pray/stacker.php:647
 msgid "Significant Growth"
 msgstr ""
 
-#: pages/pray/stacker.php:651
+#: pages/pray/stacker.php:649
 msgid "Stable, but with slight growth"
 msgstr ""
 
-#: pages/pray/stacker.php:653
+#: pages/pray/stacker.php:651
 msgid "Stable, but in slight decline"
 msgstr ""
 
-#: pages/pray/stacker.php:655
+#: pages/pray/stacker.php:653
 msgid "Extreme Decline"
 msgstr ""
 
-#: pages/pray/stacker.php:657
+#: pages/pray/stacker.php:655
 msgid "Fastest Declining in the World"
 msgstr ""
 
@@ -4341,145 +4343,21 @@ msgstr ""
 msgid "Decision Button"
 msgstr ""
 
-#: pages/privacy/magic-privacy.php:87
-msgid "Privacy Policy"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:96
-msgid "This privacy policy has been compiled to better serve those who are concerned with how their \"Personally Identifiable Information\" (PII) is being used online. PII, as described in US privacy law and information security, is information that can be used on its own or with other information to identify, contact, or locate a single person, or to identify an individual in context. Please read our privacy policy carefully to get a clear understanding of how we collect, use, protect or otherwise handle your Personally Identifiable Information in accordance with our website."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:102
-msgid "What permissions do the social sign-on logins ask for?"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:104
-msgid "Public Profile. This includes certain User’s Data such as id, name, picture, gender, and their locale."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:105
-msgid "Email Address."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:112
-msgid "What personal information do we collect from the people through our website?"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:114
-msgid "Information in the Basic Social Profile (if used) and email."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:115
-msgid "Session and course activity."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:116
-msgid "General location telemetry, so we know in what countries our training is being used."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:123
-msgid "When do we collect information?"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:125
-msgid "We collect your information at login."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:126
-msgid "We also track your progress through the training course."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:133
-msgid "How do we use your information?"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:135
-msgid "We use your information to create a user account in the zume system based on your email address."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:136
-msgid "We will email you with basic transactional emails like password reset requests and other system notifications."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:137
-msgid "We email occasional reminders and encouragements depending on your progress through the training."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:144
-msgid "How do we protect your information?"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:145
-msgid "While we use encryption to protect sensitive information transmitted online, we also protect your information offline. Only team members who need the information to perform a specific job (for example, web administrator or customer service) are granted access to personally identifiable information."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:146
-msgid "Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential. In addition, all sensitive/credit information you supply is encrypted via Secure Socket Layer (SSL) technology."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:147
-msgid "We implement a variety of security measures when a user submits, or accesses their information to maintain the safety of your personal information."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:153
-msgid "Do we use \"cookies\"?"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:154
-msgid "Any use of Cookies - or of other tracking tools - by this Application or by the owners of third party services used by this Application, unless stated otherwise, serves to identify Users and remember their preferences, for the sole purpose of providing the service required by the User."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:155
-msgid "Personal Data collected: name, email."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:161
-msgid "Your Access to and Control Over Information."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:162
-msgid "You may opt out of any future contact from us at any time. You can do the following at any time by contacting us via our contact email address:"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:163
-msgid "See what data we've aggregated from your activities with us."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:165
-msgid "Change/correct any data we have about you."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:166
-msgid "Have us delete any data we have about you."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:167
-msgid "Express any concern you have about our use of your data."
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:174
-msgid "Updates"
-msgstr ""
-
-#: pages/privacy/magic-privacy.php:175
-msgid "Our Privacy Policy may change from time to time and all updates will be posted on this page."
-msgstr ""
-
 #: pages/race/race-map.php:102
 msgid "%s Race Map"
 msgstr ""
 
-#: pages/race/race-map.php:164
-#: pages/race/race-map.php:205
+#: pages/race/race-map.php:162
+#: pages/race/race-map.php:203
 msgid "Race Map Stats"
 msgstr ""
 
-#: pages/race/race-map.php:179
-#: pages/race/race-map.php:210
+#: pages/race/race-map.php:177
+#: pages/race/race-map.php:208
 msgid "%s times"
 msgstr ""
 
-#: pages/race/race-map.php:182
+#: pages/race/race-map.php:180
 msgid "World Prayer Coverage"
 msgstr ""
 
@@ -4610,113 +4488,118 @@ msgstr ""
 msgid "View other public relays"
 msgstr ""
 
-#: pages/user/user-profile.php:153
-msgid "Change Your Details"
-msgstr ""
-
-#: pages/user/user-profile.php:163
-msgid "Select Location"
-msgstr ""
-
-#: pages/user/user-profile.php:164
-msgid "Delete Location"
-msgstr ""
-
-#: pages/user/user-profile.php:177
-#: pages/user/user-profile.php:234
-#: pages/user/user-profile.php:282
-msgid "Cancel"
-msgstr ""
-
-#: pages/user/user-profile.php:178
-msgid "Save"
-msgstr ""
-
-#: pages/user/user-profile.php:188
-msgid "Create Challenge"
-msgstr ""
-
-#: pages/user/user-profile.php:196
-msgid "Choose type of challenge"
-msgstr ""
-
-#: pages/user/user-profile.php:198
-msgid "On-going Prayer Relay"
-msgstr ""
-
-#: pages/user/user-profile.php:200
-msgid "Timed Prayer Relay"
-msgstr ""
-
-#: pages/user/user-profile.php:209
-msgid "Challenge Title"
-msgstr ""
-
-#: pages/user/user-profile.php:210
-msgid "Give your challenge a unique name"
-msgstr ""
-
-#: pages/user/user-profile.php:213
-msgid "Challenge Start Date"
-msgstr ""
-
-#: pages/user/user-profile.php:213
-msgid "Now"
-msgstr ""
-
-#: pages/user/user-profile.php:215
-msgid "Start Date"
-msgstr ""
-
-#: pages/user/user-profile.php:220
-msgid "Challenge End Date"
-msgstr ""
-
-#: pages/user/user-profile.php:222
-msgid "End Date"
-msgstr ""
-
-#: pages/user/user-profile.php:228
-msgid "Single Lap"
-msgstr ""
-
-#: pages/user/user-profile.php:235
-msgid "Create"
-msgstr ""
-
-#: pages/user/user-profile.php:236
+#: pages/user/user-profile.php:106
+#: pages/user/user-profile.php:238
 msgid "Edit"
 msgstr ""
 
-#: pages/user/user-profile.php:246
+#: pages/user/user-profile.php:107
+msgid "Display Map"
+msgstr ""
+
+#: pages/user/user-profile.php:155
+msgid "Change Your Details"
+msgstr ""
+
+#: pages/user/user-profile.php:165
+msgid "Select Location"
+msgstr ""
+
+#: pages/user/user-profile.php:166
+msgid "Delete Location"
+msgstr ""
+
+#: pages/user/user-profile.php:179
+#: pages/user/user-profile.php:236
+#: pages/user/user-profile.php:284
+msgid "Cancel"
+msgstr ""
+
+#: pages/user/user-profile.php:180
+msgid "Save"
+msgstr ""
+
+#: pages/user/user-profile.php:190
+msgid "Create Challenge"
+msgstr ""
+
+#: pages/user/user-profile.php:198
+msgid "Choose type of challenge"
+msgstr ""
+
+#: pages/user/user-profile.php:200
+msgid "On-going Prayer Relay"
+msgstr ""
+
+#: pages/user/user-profile.php:202
+msgid "Timed Prayer Relay"
+msgstr ""
+
+#: pages/user/user-profile.php:211
+msgid "Challenge Title"
+msgstr ""
+
+#: pages/user/user-profile.php:212
+msgid "Give your challenge a unique name"
+msgstr ""
+
+#: pages/user/user-profile.php:215
+msgid "Challenge Start Date"
+msgstr ""
+
+#: pages/user/user-profile.php:215
+msgid "Now"
+msgstr ""
+
+#: pages/user/user-profile.php:217
+msgid "Start Date"
+msgstr ""
+
+#: pages/user/user-profile.php:222
+msgid "Challenge End Date"
+msgstr ""
+
+#: pages/user/user-profile.php:224
+msgid "End Date"
+msgstr ""
+
+#: pages/user/user-profile.php:230
+msgid "Single Lap"
+msgstr ""
+
+#: pages/user/user-profile.php:237
+msgid "Create"
+msgstr ""
+
+#: pages/user/user-profile.php:248
 msgid "Data Report"
 msgstr ""
 
-#: pages/user/user-profile.php:261
+#: pages/user/user-profile.php:263
 msgid "Erase Account"
 msgstr ""
 
-#: pages/user/user-profile.php:268
+#: pages/user/user-profile.php:270
 msgid "This will delete your account from Prayer.Global."
 msgstr ""
 
-#: pages/user/user-profile.php:271
+#: pages/user/user-profile.php:273
 msgid "You will lose all progress and data assosciated with your account"
 msgstr ""
 
-#: pages/user/user-profile.php:274
+#: pages/user/user-profile.php:276
 msgid "If you are sure you want to proceed please type \"delete\" into the box below and click \"I am sure\" button"
 msgstr ""
 
-#: pages/user/user-profile.php:277
+#: pages/user/user-profile.php:279
 msgid "Confirm delete"
 msgstr ""
 
-#: pages/user/user-profile.php:278
+#: pages/user/user-profile.php:280
 msgid "Delete"
 msgstr ""
 
-#: pages/user/user-profile.php:283
+#: pages/user/user-profile.php:285
 msgid "I am sure"
 msgstr ""
 

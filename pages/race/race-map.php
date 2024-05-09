@@ -110,9 +110,7 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
                 'participants' => [],
                 'stats' => pg_global_race_stats(),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
-                'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global-porch' ),
-                ],
+                'translations' => [],
                 'map_type' => $this->map_type,
                 'details_type' => $this->details_type,
             ]) ?>][0]

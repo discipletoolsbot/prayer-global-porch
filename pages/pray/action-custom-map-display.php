@@ -82,9 +82,7 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
                 'grid_data' => [],
                 'stats' => $this->stats,
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
-                'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global-porch' ),
-                ],
+                'translations' => [],
                 'map_type' => 'binary',
             ]) ?>][0]
         </script>

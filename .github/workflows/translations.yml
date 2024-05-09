@@ -37,7 +37,7 @@ jobs:
       #######################
       - name: Generate new pot file
         run: >
-          wp i18n make-pot . support/languages/default.pot  --skip-audit --subtract="support/languages/terms_to_exclude.pot" --exclude="post-type"
+          wp i18n make-pot . support/languages/default.pot  --skip-audit --subtract="support/languages/terms_to_exclude.pot" --exclude="post-type,pages/privacy/magic-privacy.php"
       ######################
 
       - name: Check diff output

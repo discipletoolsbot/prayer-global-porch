@@ -89,9 +89,7 @@ class PG_Porch_404 extends DT_Magic_Url_Base
                 'parts' => $this->parts,
                 'current_lap' => pg_current_global_lap(),
                 'global_race' => pg_global_race_stats(),
-                'translations' => [
-                    'add' => __( 'Add Magic', 'prayer-global-porch' ),
-                ],
+                'translations' => [],
                 'nope' => plugin_dir_url( __DIR__ ) . 'assets/images/nope.jpg',
                 'images_url' => pg_grid_image_url(),
                 'image_folder' => plugin_dir_url( __DIR__ ) . 'assets/images/',
