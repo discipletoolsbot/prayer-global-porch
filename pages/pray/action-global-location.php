@@ -60,16 +60,24 @@ class PG_Global_Prayer_App_Location extends PG_Global_Prayer_App {
 
     }
 
+    public function _header() {
+        $this->header_style();
+        $this->header_javascript();
+    }
+    public function _footer(){
+        $this->footer_javascript();
+    }
+
     public function if_rest_add_actions() {
         if ( dt_is_rest() ) {
             add_action( 'rest_api_init', [ $this, 'add_endpoints' ] );
         }
     }
 
-    public function wp_enqueue_scripts(){
-        pg_enqueue_script( 'report-js', 'pages/pray/report.js', [ 'jquery', 'global-functions' ], true );
-        pg_enqueue_script( 'lap-js', 'pages/pray/lap.js', [ 'jquery', 'global-functions', 'report-js' ], true );
-    }
+//    public function wp_enqueue_scripts(){
+//        pg_enqueue_script( 'report-js', 'pages/pray/report.js', [ 'jquery', 'global-functions' ], true );
+//        pg_enqueue_script( 'lap-js', 'pages/pray/lap.js', [ 'jquery', 'global-functions', 'report-js' ], true );
+//    }
 
     public function validate_action( $action ) {
         if ( 'location' === $action && $this->is_valid_grid_id( $this->grid_id ) ) {

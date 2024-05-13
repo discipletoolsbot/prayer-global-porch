@@ -83,7 +83,6 @@ class PG_User_Login_Registration extends DT_Magic_Url_Base {
     }
 
     public function footer_javascript(){
-        wp_footer();
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/footer.php' );
         ?>
         <script>

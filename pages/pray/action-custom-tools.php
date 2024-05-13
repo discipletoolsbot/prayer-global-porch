@@ -48,6 +48,14 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
         return [];
     }
 
+    public function _header() {
+        $this->header_style();
+        $this->header_javascript();
+    }
+    public function _footer(){
+        $this->footer_javascript();
+    }
+
     public function header_javascript(){
         wp_head();
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
@@ -57,7 +65,6 @@ class PG_Custom_Prayer_App_Tools extends PG_Custom_Prayer_App {
     }
 
     public function footer_javascript(){
-        wp_footer();
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/footer.php' );
         ?>
         <script type="application/javascript">

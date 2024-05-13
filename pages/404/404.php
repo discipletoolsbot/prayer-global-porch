@@ -76,11 +76,6 @@ class PG_Porch_404 extends DT_Magic_Url_Base
         return [];
     }
 
-    public function _header() {
-        $this->header_style();
-        $this->header_javascript();
-    }
-
     public function header_javascript(){
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
         ?>

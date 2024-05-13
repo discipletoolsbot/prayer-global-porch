@@ -33,7 +33,6 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         }
 
         // load if valid url
-        add_action( 'dt_blank_head', [ $this, '_header' ] );
         add_action( 'dt_blank_body', [ $this, 'body' ] );
 
         add_filter( 'dt_magic_url_base_allowed_css', [ $this, 'dt_magic_url_base_allowed_css' ], 10, 1 );
@@ -61,15 +60,11 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
     }
 
     public function _header() {
-        wp_head();
         $this->header_style();
         $this->header_javascript();
     }
     public function _footer(){
         $this->footer_javascript();
-        wp_footer();
-        require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/share-modal.php' );
-        require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/cta-modal.php' );
     }
 
     public function header_javascript(){
@@ -104,7 +99,10 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
         <?php
     }
 
-    public function footer_javascript() {}
+    public function footer_javascript() {
+        require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/share-modal.php' );
+        require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/cta-modal.php' );
+    }
 
     public function body(){
         $parts = $this->parts;
@@ -420,6 +418,5 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
 
         return $user_locations;
     }
-
 }
 PG_Global_Prayer_App_Map::instance();

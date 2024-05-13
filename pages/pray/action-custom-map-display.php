@@ -33,7 +33,6 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
         }
 
         // load if valid url
-        add_action( 'dt_blank_head', [ $this, '_header' ] );
         add_action( 'dt_blank_body', [ $this, 'body' ] );
 
         add_filter( 'dt_magic_url_base_allowed_css', [ $this, 'dt_magic_url_base_allowed_css' ], 10, 1 );
@@ -49,7 +48,6 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
         $allowed_js[] = 'jquery-cookie';
         $allowed_js[] = 'mapbox-cookie';
         $allowed_js[] = 'heatmap-js';
-        $allowed_js[] = 'foundations-js';
 
         return $allowed_js;
     }
@@ -63,15 +61,12 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
     }
 
     public function _header() {
-        wp_head();
         $this->header_style();
         $this->header_javascript();
     }
     public function _footer(){
         $this->footer_javascript();
-        wp_footer();
     }
-
 
     public function header_javascript(){
         ?>
@@ -159,17 +154,6 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="off-canvas position-right" id="offcanvas_menu" data-close-on-click="true" data-off-canvas>
-            <button type="button" data-toggle="offcanvas_menu"><i class="icon pg-chevron-right three-em"></i></button>
-            <hr>
-            <div class="d-sm-none">
-                <hr>
-            </div>
-        </div>
-        <div class="off-canvas position-right " id="offcanvas_location_details" data-close-on-click="true" data-content-overlay="false" data-off-canvas>
-            <div class="offcanvas__header"><button type="button" data-toggle="offcanvas_location_details"><i class="icon pg-chevron-right three-em"></i></button></div>
-            <div class="row offcanvas__content" id="grid_details_content"></div>
         </div>
         <?php
     }

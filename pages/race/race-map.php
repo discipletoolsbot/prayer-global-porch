@@ -47,8 +47,6 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
             add_action( 'wp_print_styles', [ $this, 'print_styles' ], 1500 ); // authorizes styles
 
             // page content
-            add_action( 'dt_blank_head', [ $this, '_header' ] );
-            add_action( 'dt_blank_footer', [ $this, '_footer' ] );
             add_action( 'dt_blank_body', [ $this, 'body' ] ); // body for no post key
 
             add_filter( 'dt_magic_url_base_allowed_css', [ $this, 'dt_magic_url_base_allowed_css' ], 10, 1 );
@@ -84,12 +82,6 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
         $allowed_css[] = 'heatmap-css';
         $allowed_css[] = 'site-css';
         return $allowed_css;
-    }
-
-    public function _header() {
-        wp_head();
-        $this->header_style();
-        $this->header_javascript();
     }
 
     public function header_javascript(){

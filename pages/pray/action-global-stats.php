@@ -43,6 +43,14 @@ class PG_Global_Prayer_App_Stats extends PG_Global_Prayer_App {
         }
     }
 
+    public function _header() {
+        $this->header_style();
+        $this->header_javascript();
+    }
+    public function _footer(){
+        $this->footer_javascript();
+    }
+
     public function dt_magic_url_base_allowed_js( $allowed_js ) {
         return [];
     }

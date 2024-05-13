@@ -61,15 +61,11 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
     }
 
     public function _header() {
-        wp_head();
         $this->header_style();
         $this->header_javascript();
     }
     public function _footer(){
         $this->footer_javascript();
-        wp_footer();
-        require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/share-modal.php' );
-        require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/cta-modal.php' );
     }
 
     public function header_javascript(){
@@ -107,7 +103,10 @@ class PG_Custom_Prayer_App_Map extends PG_Custom_Prayer_App {
         <?php
     }
 
-    public function footer_javascript() {}
+    public function footer_javascript() {
+        require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/share-modal.php' );
+        require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/cta-modal.php' );
+    }
 
     public function body(){
         $parts = $this->parts;

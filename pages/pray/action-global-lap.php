@@ -59,6 +59,13 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
         add_action( 'wp_enqueue_scripts', [ $this, 'wp_enqueue_scripts' ], 100 );
 
     }
+    public function _header() {
+        $this->header_style();
+        $this->header_javascript();
+    }
+    public function _footer(){
+        $this->footer_javascript();
+    }
 
     public function if_rest_add_actions() {
         if ( dt_is_rest() ) {

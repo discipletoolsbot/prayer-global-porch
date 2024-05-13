@@ -92,8 +92,15 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
         pg_enqueue_script( 'lap-js', 'pages/pray/lap.js', [ 'jquery', 'global-functions', 'report-js' ], true );
     }
 
+    public function _header() {
+        $this->header_style();
+        $this->header_javascript();
+    }
+    public function _footer(){
+        $this->footer_javascript();
+    }
+
     public function header_javascript(){
-        wp_head();
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
 
         $current_lap = pg_get_custom_lap_by_post_id( $this->parts['post_id'] );
@@ -138,7 +145,6 @@ class PG_Custom_Prayer_App_Lap extends PG_Custom_Prayer_App {
     }
 
     public function footer_javascript(){
-        wp_footer();
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/footer.php' );
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/share-modal.php' );
     }
