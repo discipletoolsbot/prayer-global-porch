@@ -6,7 +6,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-"
 "porch\n"
 "POT-Creation-Date: 2024-05-09T12:58:59+00:00\n"
-"PO-Revision-Date: 2024-05-09 13:01+0000\n"
+"PO-Revision-Date: 2024-05-10 06:16+0000\n"
 "Last-Translator: Google Cloud Translation Basic <noreply-mt-google-"
 "translate@weblate.org>\n"
 "Language-Team: Indonesian <https://translate.disciple.tools/projects/"
@@ -1391,20 +1391,28 @@ msgid "Our Strategy"
 msgstr "Strategi Kami"
 
 #: pages/home/body.php:63
+#, fuzzy
 msgid ""
 "Prayer.Global has broken the world down into 4,770 states based on "
 "geographical and governmental boundaries."
 msgstr ""
+"Prayer.Global telah membagi dunia menjadi 4.770 negara bagian berdasarkan "
+"batas geografis dan pemerintahan."
 
 #: pages/home/body.php:65
+#, fuzzy
 msgid ""
 "When you press the Start Praying button, location specific prayer fuel will "
 "help guide your prayers for each of these regions."
 msgstr ""
+"Saat Anda menekan tombol Mulai Berdoa, bahan bakar doa khusus lokasi akan "
+"membantu memandu doa Anda untuk masing-masing wilayah tersebut."
 
 #: pages/home/body.php:67
+#, fuzzy
 msgid "Then, watch on the map as our united prayers light up the darkness."
 msgstr ""
+"Kemudian, saksikan di peta saat doa kita yang bersatu menerangi kegelapan."
 
 #: pages/home/body.php:74 pages/home/body.php:166
 #, fuzzy

@@ -6,8 +6,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-"
 "porch\n"
 "POT-Creation-Date: 2024-05-09T12:58:59+00:00\n"
-"PO-Revision-Date: 2024-05-09 13:05+0000\n"
-"Last-Translator: Corsacca <corsacca@gmail.com>\n"
+"PO-Revision-Date: 2024-05-13 07:42+0000\n"
+"Last-Translator: Pierre <pierre.genifer.d@gmail.com>\n"
 "Language-Team: French <https://translate.disciple.tools/projects/"
 "pray4movement/prayer-global/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -15,7 +15,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 5.5.3\n"
+"X-Generator: Weblate 5.5.4\n"
 "X-Domain: prayer-global-porch\n"
 
 #: pages/404/404.php:126
@@ -232,8 +232,8 @@ msgid ""
 "Demographics, scripture, faith status, images and maps to help guide your "
 "prayer time."
 msgstr ""
-"Données démographiques, écritures, statut religieux, images et cartes pour "
-"vous aider à guider votre temps de prière."
+"Données démographiques, écritures, état de l'Eglise, images et cartes pour "
+"vous guider dans la prière."
 
 #: pages/about/about.php:213 pages/pray/stacker-positions.php:38
 msgid "Faith Status"
@@ -249,7 +249,7 @@ msgstr "Connaissent Jésus"
 #: pages/pray/action-custom-lap.php:113 pages/pray/stacker-positions.php:49
 #: pages/pray/stacker-positions.php:83 pages/pray/trait-lap.php:39
 msgid "Know About Jesus"
-msgstr "Connaissent à propos Jésus"
+msgstr "Ont entendu parler de Jésus"
 
 #: pages/about/about.php:224 pages/assets/enqueue.php:80
 #: pages/pray/action-custom-lap.php:112 pages/pray/stacker-positions.php:46
@@ -343,7 +343,7 @@ msgid ""
 "know about Jesus culturally, and %4$s people who do not know Jesus."
 msgstr ""
 "Nous estimons que %1$s a %2$s personnes susceptibles de connaître Jésus, %3$"
-"s personnes susceptibles de connaître Jésus culturellement et %4$s personnes "
+"s personnes susceptibles d'avoir entendu parler de Jésus et %4$s personnes "
 "qui ne connaissent pas Jésus."
 
 #: pages/assets/enqueue.php:86
@@ -786,7 +786,7 @@ msgstr ""
 
 #: pages/data-sources/magic-data-sources.php:157
 msgid "Cultural Christian"
-msgstr "chrétien culturel"
+msgstr "Chrétien nominal"
 
 #: pages/data-sources/magic-data-sources.php:157
 msgid ""
@@ -1524,7 +1524,7 @@ msgstr "Correction nécessaire ?"
 #: pages/pray/action-custom-map.php:124 pages/pray/action-global-map.php:119
 #: pages/race/race-map.php:141
 msgid "Loading the planet ..."
-msgstr "Chargement de la planète..."
+msgstr "Chargement de la carte..."
 
 #: pages/pray/action-custom-map-display.php:108
 #: pages/pray/action-custom-map.php:125 pages/pray/action-global-map.php:120
@@ -1536,19 +1536,19 @@ msgstr "Localisation de la population mondiale..."
 #: pages/pray/action-custom-map.php:126 pages/pray/action-global-map.php:121
 #: pages/race/race-map.php:143
 msgid "Calculating movement activity..."
-msgstr "Calcul de l'activité de mouvement..."
+msgstr "Mise à jour des dernières activités ..."
 
 #: pages/pray/action-custom-map-display.php:110
 #: pages/pray/action-custom-map.php:127 pages/pray/action-global-map.php:122
 #: pages/race/race-map.php:144
 msgid "Shamelessly brewing coffee..."
-msgstr "Faire du café sans vergogne..."
+msgstr "Le café est en marche..."
 
 #: pages/pray/action-custom-map-display.php:111
 #: pages/pray/action-custom-map.php:128 pages/pray/action-global-map.php:123
 #: pages/race/race-map.php:145
 msgid "Let's do this..."
-msgstr "Faisons cela..."
+msgstr "Veuillez patienter..."
 
 #: pages/pray/action-custom-map-display.php:117
 msgid "%s Prayer Relay"
@@ -1577,7 +1577,7 @@ msgstr "Priez avec nous"
 
 #: pages/pray/action-custom-map-display.php:158
 msgid "Turn the map from dark to light"
-msgstr "Transformez la carte de l'obscurité à la lumière"
+msgstr "Amenez cette carte de l'obscurité à la lumière"
 
 #: pages/pray/action-custom-map.php:149
 msgid "Starts on %s"
@@ -1652,7 +1652,7 @@ msgstr "%s Carte"
 
 #: pages/pray/action-global-map.php:183
 msgid "Pray for this area"
-msgstr "Priez pour ce domaine"
+msgstr "Priez pour cette région"
 
 #: pages/pray/map-settings.php:8
 msgid "Participants"
@@ -1676,7 +1676,7 @@ msgstr "Basculer la navigation"
 
 #: pages/pray/stacker-positions.php:18
 msgid "One Shot Prayer Walk"
-msgstr "Marche de prière en un coup"
+msgstr "Pour notre marche de prière"
 
 #: pages/pray/stacker-positions.php:19
 msgctxt "Photo from the state of Colorado"
@@ -1894,7 +1894,7 @@ msgstr ""
 
 #: pages/pray/stacker-positions.php:387
 msgid "Least Reached"
-msgstr "Moins atteint"
+msgstr "Les moins atteints"
 
 #: pages/pray/stacker-positions.php:424
 msgid "People Groups In The Area"
@@ -1915,7 +1915,7 @@ msgstr "Population"
 
 #: pages/pray/stacker-positions.php:511
 msgid "Dominant Religion"
-msgstr "Religion dominante"
+msgstr "Principale religion"
 
 #: pages/pray/stacker-positions.php:514 pages/pray/stacker-positions.php:535
 #: pages/pray/stacker-text.php:1313
@@ -4664,8 +4664,8 @@ msgid ""
 "Father, please send new teachers into the harvest, who can correct the lies "
 "of our enemy in %1$s of %2$s."
 msgstr ""
-"Père, veuillez envoyer de nouveaux enseignants dans la moisson, qui peuvent "
-"corriger les mensonges de notre ennemi dans %1$s de %2$s."
+"Père, envoie dans ta moisson des enseignants qui vont corriger les mensonges "
+"de notre ennemi dans %1$s de %2$s."
 
 #: pages/pray/stacker-text.php:2059
 msgid ""
@@ -4965,7 +4965,7 @@ msgstr "Jean 14:15"
 #: pages/pray/stacker-text.php:2212
 msgctxt "John 14:15"
 msgid "If you love me, keep my commands."
-msgstr "Si vous m'aimez, gardez mes commandes."
+msgstr "Si vous m'aimez, gardez mes commandements."
 
 #: pages/pray/stacker-text.php:2216
 msgid ""
@@ -5707,8 +5707,8 @@ msgid ""
 "Father, give the disciples of the %1$s of %2$s an urgency of seeing every "
 "people and place reached for the gospel."
 msgstr ""
-"Père, donne aux disciples de %1$s de %2$s l'urgence de voir chaque peuple et "
-"lieu atteint pour l'évangile."
+"Père, donne aux disciples de %1$s de %2$s d'être touchés au point que chaque "
+"peuple et lieu soit atteint par l'évangile."
 
 #: pages/pray/stacker-text.php:2566
 msgid "John 9:4"
@@ -6010,7 +6010,7 @@ msgid ""
 "%1$s people might believe through him."
 msgstr ""
 "Seigneur, tu as envoyé Jésus comme témoin pour témoigner de la lumière afin "
-"que tout le peuple %1$s puisse croire par lui."
+"que tout le peuple %1$s puisse croire en lui."
 
 #: pages/pray/stacker-text.php:2749
 msgid ""
@@ -6133,8 +6133,8 @@ msgstr "Quelle bénédiction est nécessaire ici ?"
 #: pages/pray/stacker-text.php:2817
 msgid "What conditions of religion or environment could you pray for here?"
 msgstr ""
-"Pour quelles conditions de religion ou d'environnement pourriez-vous prier "
-"ici ?"
+"Quels sujets de prière (religion, environnement...) pourriez-vous élever au "
+"Pere ?"
 
 #: pages/pray/stacker-text.php:2821
 msgid "What challenges do people here face?"
