@@ -2,44 +2,44 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 2.5.0\n"
+"Project-Id-Version: Prayer.Global Porch 2.6.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-09T12:58:59+00:00\n"
+"POT-Creation-Date: 2024-05-17T09:47:58+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.9.0\n"
 "X-Domain: prayer-global-porch\n"
 
-#: pages/404/404.php:126
+#: pages/404/404.php:121
 msgid "Not where you meant to be? Try some of the links below (or above) to get back into the action..."
 msgstr ""
 
-#: pages/404/404.php:135
+#: pages/404/404.php:130
 #: pages/about/about.php:116
 #: pages/assets/menu.php:78
 #: pages/home/body.php:14
 #: pages/home/body.php:103
 #: pages/home/body.php:195
 #: pages/home/body.php:286
-#: pages/pray/action-custom-map.php:151
+#: pages/pray/action-custom-map.php:150
 #: pages/pray/nav-global-map.php:8
 #: pages/race/nav-race-map.php:15
 msgid "Start Praying"
 msgstr ""
 
-#: pages/404/404.php:136
+#: pages/404/404.php:131
 msgid "The map"
 msgstr ""
 
-#: pages/404/404.php:137
+#: pages/404/404.php:132
 msgid "More stats"
 msgstr ""
 
-#: pages/404/404.php:138
+#: pages/404/404.php:133
 #: pages/assets/menu.php:57
 #: pages/challenges/active-list.php:129
 #: pages/user/user-profile.php:102
@@ -47,19 +47,19 @@ msgstr ""
 msgid "Prayer Relays"
 msgstr ""
 
-#: pages/404/404.php:147
+#: pages/404/404.php:142
 msgid "Other interesting links"
 msgstr ""
 
-#: pages/404/404.php:155
+#: pages/404/404.php:150
 msgid "Anything to share/request? Please contact us :)"
 msgstr ""
 
-#: pages/404/404.php:156
+#: pages/404/404.php:151
 msgid "Where does all the data come from?"
 msgstr ""
 
-#: pages/404/404.php:157
+#: pages/404/404.php:152
 msgid "Invites for sharing on social media"
 msgstr ""
 
@@ -116,13 +116,13 @@ msgid "Click on %1$sStart Praying%2$s."
 msgstr ""
 
 #: pages/about/about.php:153
-#: pages/pray/action-custom-lap.php:256
+#: pages/pray/action-custom-lap.php:262
 #: pages/pray/trait-lap.php:177
 msgid "Pray over the location provided using the maps, photos, prayers, people group info, and facts."
 msgstr ""
 
 #: pages/about/about.php:156
-#: pages/pray/action-custom-lap.php:261
+#: pages/pray/action-custom-lap.php:267
 #: pages/pray/trait-lap.php:182
 msgid "Pray for one minute (or longer) as the Spirit leads."
 msgstr ""
@@ -132,7 +132,7 @@ msgid "When the timer finishes"
 msgstr ""
 
 #: pages/about/about.php:161
-#: pages/pray/action-custom-lap.php:268
+#: pages/pray/action-custom-lap.php:274
 #: pages/pray/trait-lap.php:189
 msgid "Click Done to see your impact on the map or %sclick Next to pray for another location"
 msgstr ""
@@ -153,7 +153,7 @@ msgstr ""
 #: pages/home/body.php:242
 #: pages/race/nav-race-map.php:12
 #: pages/race/nav-race-map.php:13
-#: pages/race/race-list.php:134
+#: pages/race/race-list.php:130
 msgid "Race Map"
 msgstr ""
 
@@ -163,7 +163,7 @@ msgstr ""
 
 #: pages/about/about.php:189
 #: pages/home/body.php:243
-#: pages/race/race-list.php:116
+#: pages/race/race-list.php:112
 msgid "Race List"
 msgstr ""
 
@@ -203,7 +203,7 @@ msgstr ""
 
 #: pages/about/about.php:216
 #: pages/assets/enqueue.php:83
-#: pages/pray/action-custom-lap.php:114
+#: pages/pray/action-custom-lap.php:121
 #: pages/pray/stacker-positions.php:52
 #: pages/pray/stacker-positions.php:86
 #: pages/pray/trait-lap.php:40
@@ -212,7 +212,7 @@ msgstr ""
 
 #: pages/about/about.php:220
 #: pages/assets/enqueue.php:82
-#: pages/pray/action-custom-lap.php:113
+#: pages/pray/action-custom-lap.php:120
 #: pages/pray/stacker-positions.php:49
 #: pages/pray/stacker-positions.php:83
 #: pages/pray/trait-lap.php:39
@@ -221,7 +221,7 @@ msgstr ""
 
 #: pages/about/about.php:224
 #: pages/assets/enqueue.php:80
-#: pages/pray/action-custom-lap.php:112
+#: pages/pray/action-custom-lap.php:119
 #: pages/pray/stacker-positions.php:46
 #: pages/pray/stacker-positions.php:80
 #: pages/pray/trait-lap.php:38
@@ -275,6 +275,10 @@ msgstr ""
 
 #: pages/assets/enqueue.php:67
 msgid "Join us in covering the world in prayer"
+msgstr ""
+
+#: pages/assets/enqueue.php:81
+msgid "1 believer for every %d lost neighbors."
 msgstr ""
 
 #: pages/assets/enqueue.php:84
@@ -342,8 +346,8 @@ msgstr ""
 
 #: pages/assets/menu.php:48
 #: pages/challenges/active-list.php:79
-#: pages/pray/action-custom-lap.php:184
-#: pages/pray/action-custom-map.php:83
+#: pages/pray/action-custom-lap.php:190
+#: pages/pray/action-custom-map.php:79
 #: pages/pray/trait-lap.php:285
 msgid "Map"
 msgstr ""
@@ -373,8 +377,8 @@ msgid "Copied"
 msgstr ""
 
 #: pages/assets/share-modal.php:27
-#: pages/pray/action-custom-lap.php:205
-#: pages/pray/action-custom-lap.php:233
+#: pages/pray/action-custom-lap.php:211
+#: pages/pray/action-custom-lap.php:239
 #: pages/pray/trait-lap.php:126
 #: pages/pray/trait-lap.php:154
 #: pages/pray/trait-lap.php:206
@@ -414,7 +418,7 @@ msgid "Media & Promotion"
 msgstr ""
 
 #: pages/challenges/active-list.php:78
-#: pages/pray/action-custom-map.php:141
+#: pages/pray/action-custom-map.php:140
 msgid "Pray"
 msgstr ""
 
@@ -434,21 +438,21 @@ msgstr ""
 
 #: pages/challenges/active-list.php:83
 #: pages/home/body.php:258
-#: pages/pray/action-custom-map-display.php:152
-#: pages/pray/action-custom-map.php:190
-#: pages/pray/action-custom-map.php:277
-#: pages/pray/action-global-map.php:165
-#: pages/pray/action-global-map.php:253
-#: pages/race/race-map.php:171
-#: pages/race/race-map.php:212
+#: pages/pray/action-custom-map-display.php:147
+#: pages/pray/action-custom-map.php:189
+#: pages/pray/action-custom-map.php:276
+#: pages/pray/action-global-map.php:163
+#: pages/pray/action-global-map.php:251
+#: pages/race/race-map.php:163
+#: pages/race/race-map.php:204
 msgid "Intercessors"
 msgstr ""
 
 #: pages/challenges/active-list.php:84
-#: pages/pray/action-custom-map.php:290
-#: pages/pray/action-global-map.php:266
-#: pages/race/race-map.php:189
-#: pages/race/race-map.php:217
+#: pages/pray/action-custom-map.php:289
+#: pages/pray/action-global-map.php:264
+#: pages/race/race-map.php:181
+#: pages/race/race-map.php:209
 msgid "Time Elapsed"
 msgstr ""
 
@@ -469,7 +473,7 @@ msgid "Want to create your own Prayer Relay?"
 msgstr ""
 
 #: pages/challenges/active-list.php:143
-#: pages/user/user-login.php:132
+#: pages/user/user-login.php:130
 msgid "Login"
 msgstr ""
 
@@ -1003,8 +1007,8 @@ msgid "Previous"
 msgstr ""
 
 #: pages/home/body.php:207
-#: pages/pray/action-custom-lap.php:175
-#: pages/pray/action-custom-lap.php:185
+#: pages/pray/action-custom-lap.php:181
+#: pages/pray/action-custom-lap.php:191
 #: pages/pray/trait-lap.php:274
 #: pages/pray/trait-lap.php:286
 msgid "Next"
@@ -1027,7 +1031,7 @@ msgid "Total Intercessors"
 msgstr ""
 
 #: pages/home/body.php:248
-#: pages/pray/action-custom-map.php:167
+#: pages/pray/action-custom-map.php:166
 msgid "Lap %s"
 msgstr ""
 
@@ -1036,11 +1040,11 @@ msgid "Current Lap Elapsed Time"
 msgstr ""
 
 #: pages/home/body.php:265
-#: pages/pray/action-custom-map-display.php:138
-#: pages/pray/action-custom-map.php:182
-#: pages/pray/action-custom-map.php:268
-#: pages/pray/action-global-map.php:157
-#: pages/pray/action-global-map.php:244
+#: pages/pray/action-custom-map-display.php:133
+#: pages/pray/action-custom-map.php:181
+#: pages/pray/action-custom-map.php:267
+#: pages/pray/action-global-map.php:155
+#: pages/pray/action-global-map.php:242
 msgid "Places Covered"
 msgstr ""
 
@@ -1110,66 +1114,66 @@ msgstr ""
 msgid "Download"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:110
+#: pages/pray/action-custom-lap.php:117
 #: pages/pray/trait-lap.php:36
 msgctxt "state of California"
 msgid "%1$s of %2$s"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:111
+#: pages/pray/action-custom-lap.php:118
 #: pages/pray/trait-lap.php:37
 msgid "Keep Praying..."
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:115
+#: pages/pray/action-custom-lap.php:122
 #: pages/pray/trait-lap.php:41
 msgid "Praying Paused"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:116
+#: pages/pray/action-custom-lap.php:123
 #: pages/pray/trait-lap.php:42
 msgid "Great Job!"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:117
+#: pages/pray/action-custom-lap.php:124
 #: pages/pray/trait-lap.php:43
 msgid "Prayer Added!"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:174
+#: pages/pray/action-custom-lap.php:180
 #: pages/pray/trait-lap.php:273
 msgid "Done"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:191
+#: pages/pray/action-custom-lap.php:197
 #: pages/pray/trait-lap.php:115
 msgid "Pray for"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:194
+#: pages/pray/action-custom-lap.php:200
 msgid "In Prayer Relay %s"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:204
+#: pages/pray/action-custom-lap.php:210
 #: pages/pray/trait-lap.php:125
 msgid "Set Your Prayer Experience"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:211
+#: pages/pray/action-custom-lap.php:217
 #: pages/pray/trait-lap.php:132
 msgid "Prayer pace per place"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:214
+#: pages/pray/action-custom-lap.php:220
 #: pages/pray/trait-lap.php:135
 msgid "%d Minute"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:215
-#: pages/pray/action-custom-lap.php:216
-#: pages/pray/action-custom-lap.php:217
-#: pages/pray/action-custom-lap.php:218
-#: pages/pray/action-custom-lap.php:219
+#: pages/pray/action-custom-lap.php:221
+#: pages/pray/action-custom-lap.php:222
+#: pages/pray/action-custom-lap.php:223
+#: pages/pray/action-custom-lap.php:224
+#: pages/pray/action-custom-lap.php:225
 #: pages/pray/trait-lap.php:136
 #: pages/pray/trait-lap.php:137
 #: pages/pray/trait-lap.php:138
@@ -1178,235 +1182,235 @@ msgstr ""
 msgid "%d Minutes"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:223
-#: pages/pray/action-custom-lap.php:275
+#: pages/pray/action-custom-lap.php:229
+#: pages/pray/action-custom-lap.php:281
 #: pages/pray/trait-lap.php:144
 #: pages/pray/trait-lap.php:196
 msgid "Let's Go!"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:232
+#: pages/pray/action-custom-lap.php:238
 #: pages/pray/trait-lap.php:153
 msgid "Are you sure you want to leave?"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:243
+#: pages/pray/action-custom-lap.php:249
 #: pages/pray/trait-lap.php:164
 msgid "Keep Praying"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:244
+#: pages/pray/action-custom-lap.php:250
 #: pages/pray/trait-lap.php:165
 msgid "Leave"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:253
+#: pages/pray/action-custom-lap.php:259
 #: pages/pray/trait-lap.php:174
 msgid "How %s works"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:254
+#: pages/pray/action-custom-lap.php:260
 #: pages/pray/trait-lap.php:175
 msgid "Step 1"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:259
+#: pages/pray/action-custom-lap.php:265
 #: pages/pray/trait-lap.php:180
 msgid "Step 2"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:266
+#: pages/pray/action-custom-lap.php:272
 #: pages/pray/trait-lap.php:187
 msgid "Step 3"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:284
-#: pages/pray/action-custom-map.php:222
-#: pages/pray/action-global-map.php:198
+#: pages/pray/action-custom-lap.php:290
+#: pages/pray/action-custom-map.php:221
+#: pages/pray/action-global-map.php:196
 #: pages/pray/trait-lap.php:205
 msgid "Thank you! Leave us a correction below."
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:292
-#: pages/pray/action-custom-map.php:228
-#: pages/pray/action-global-map.php:204
+#: pages/pray/action-custom-lap.php:298
+#: pages/pray/action-custom-map.php:227
+#: pages/pray/action-global-map.php:202
 #: pages/pray/trait-lap.php:213
 msgid "Section:"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:296
-#: pages/pray/action-custom-map.php:232
-#: pages/pray/action-global-map.php:208
+#: pages/pray/action-custom-lap.php:302
+#: pages/pray/action-custom-map.php:231
+#: pages/pray/action-global-map.php:206
 #: pages/pray/trait-lap.php:217
 msgid "Correction Requested:"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:300
-#: pages/pray/action-custom-map.php:236
-#: pages/pray/action-global-map.php:212
+#: pages/pray/action-custom-lap.php:306
+#: pages/pray/action-custom-map.php:235
+#: pages/pray/action-global-map.php:210
 #: pages/pray/trait-lap.php:221
 msgid "Submit"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:322
+#: pages/pray/action-custom-lap.php:328
 #: pages/pray/trait-lap.php:247
 msgid "See more"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:331
+#: pages/pray/action-custom-lap.php:337
 #: pages/pray/trait-lap.php:256
 msgid "Show More Guided Prayers"
 msgstr ""
 
-#: pages/pray/action-custom-lap.php:336
+#: pages/pray/action-custom-lap.php:342
 #: pages/pray/trait-lap.php:261
 msgid "Correction Needed?"
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:107
-#: pages/pray/action-custom-map.php:124
-#: pages/pray/action-global-map.php:119
-#: pages/race/race-map.php:141
+#: pages/pray/action-custom-map-display.php:102
+#: pages/pray/action-custom-map.php:123
+#: pages/pray/action-global-map.php:117
+#: pages/race/race-map.php:133
 msgid "Loading the planet ..."
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:108
-#: pages/pray/action-custom-map.php:125
-#: pages/pray/action-global-map.php:120
-#: pages/race/race-map.php:142
+#: pages/pray/action-custom-map-display.php:103
+#: pages/pray/action-custom-map.php:124
+#: pages/pray/action-global-map.php:118
+#: pages/race/race-map.php:134
 msgid "Locating world population..."
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:109
-#: pages/pray/action-custom-map.php:126
-#: pages/pray/action-global-map.php:121
-#: pages/race/race-map.php:143
+#: pages/pray/action-custom-map-display.php:104
+#: pages/pray/action-custom-map.php:125
+#: pages/pray/action-global-map.php:119
+#: pages/race/race-map.php:135
 msgid "Calculating movement activity..."
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:110
-#: pages/pray/action-custom-map.php:127
-#: pages/pray/action-global-map.php:122
-#: pages/race/race-map.php:144
+#: pages/pray/action-custom-map-display.php:105
+#: pages/pray/action-custom-map.php:126
+#: pages/pray/action-global-map.php:120
+#: pages/race/race-map.php:136
 msgid "Shamelessly brewing coffee..."
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:111
-#: pages/pray/action-custom-map.php:128
-#: pages/pray/action-global-map.php:123
-#: pages/race/race-map.php:145
+#: pages/pray/action-custom-map-display.php:106
+#: pages/pray/action-custom-map.php:127
+#: pages/pray/action-global-map.php:121
+#: pages/race/race-map.php:137
 msgid "Let's do this..."
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:117
+#: pages/pray/action-custom-map-display.php:112
 msgid "%s Prayer Relay"
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:118
+#: pages/pray/action-custom-map-display.php:113
 msgid "Cover The World In Prayer"
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:131
-#: pages/pray/action-custom-map.php:175
-#: pages/pray/action-custom-map.php:261
-#: pages/pray/action-global-map.php:150
-#: pages/pray/action-global-map.php:237
+#: pages/pray/action-custom-map-display.php:126
+#: pages/pray/action-custom-map.php:174
+#: pages/pray/action-custom-map.php:260
+#: pages/pray/action-global-map.php:148
+#: pages/pray/action-global-map.php:235
 msgid "Places Remaining"
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:145
-#: pages/pray/action-custom-map.php:197
-#: pages/pray/action-custom-map.php:284
-#: pages/pray/action-global-map.php:172
-#: pages/pray/action-global-map.php:260
-#: pages/race/race-map.php:207
+#: pages/pray/action-custom-map-display.php:140
+#: pages/pray/action-custom-map.php:196
+#: pages/pray/action-custom-map.php:283
+#: pages/pray/action-global-map.php:170
+#: pages/pray/action-global-map.php:258
+#: pages/race/race-map.php:199
 msgid "World Coverage"
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:156
+#: pages/pray/action-custom-map-display.php:151
 msgid "Pray with us"
 msgstr ""
 
-#: pages/pray/action-custom-map-display.php:158
+#: pages/pray/action-custom-map-display.php:153
 msgid "Turn the map from dark to light"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:149
+#: pages/pray/action-custom-map.php:148
 msgid "Starts on %s"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:254
-#: pages/pray/action-global-map.php:143
-#: pages/pray/action-global-map.php:230
+#: pages/pray/action-custom-map.php:253
+#: pages/pray/action-global-map.php:141
+#: pages/pray/action-global-map.php:228
 msgid "Lap %s Stats"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:295
-#: pages/pray/action-global-map.php:272
+#: pages/pray/action-custom-map.php:294
+#: pages/pray/action-global-map.php:270
 #: pages/user/user-profile.php:218
 msgid "Start Time"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:299
-#: pages/pray/action-global-map.php:276
+#: pages/pray/action-custom-map.php:298
+#: pages/pray/action-global-map.php:274
 #: pages/user/user-profile.php:225
 msgid "End Time"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:303
+#: pages/pray/action-custom-map.php:302
 msgid "Locations per Hour"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:306
-#: pages/pray/action-custom-map.php:313
+#: pages/pray/action-custom-map.php:305
+#: pages/pray/action-custom-map.php:312
 msgid "%s per day"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:310
+#: pages/pray/action-custom-map.php:309
 msgid "Current Locations per Hour"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:317
+#: pages/pray/action-custom-map.php:316
 msgid "Time Remaining"
 msgstr ""
 
-#: pages/pray/action-custom-map.php:322
+#: pages/pray/action-custom-map.php:321
 msgid "Leave this relay"
 msgstr ""
 
-#: pages/pray/action-custom-tools.php:115
+#: pages/pray/action-custom-tools.php:122
 msgid "%s Relay Tools"
 msgstr ""
 
-#: pages/pray/action-custom-tools.php:128
+#: pages/pray/action-custom-tools.php:135
 msgid "%s Relay Map"
 msgstr ""
 
-#: pages/pray/action-custom-tools.php:141
-#: pages/pray/action-custom-tools.php:162
-#: pages/pray/action-custom-tools.php:188
+#: pages/pray/action-custom-tools.php:148
+#: pages/pray/action-custom-tools.php:169
+#: pages/pray/action-custom-tools.php:195
 msgid "Copy to Clipboard"
 msgstr ""
 
-#: pages/pray/action-custom-tools.php:142
-#: pages/pray/action-custom-tools.php:163
-#: pages/pray/action-custom-tools.php:189
+#: pages/pray/action-custom-tools.php:149
+#: pages/pray/action-custom-tools.php:170
+#: pages/pray/action-custom-tools.php:196
 msgid "Copy"
 msgstr ""
 
-#: pages/pray/action-custom-tools.php:154
+#: pages/pray/action-custom-tools.php:161
 msgid "Display Map (60 Second Refresh)"
 msgstr ""
 
-#: pages/pray/action-custom-tools.php:175
+#: pages/pray/action-custom-tools.php:182
 msgid "App Stores: %s App"
 msgstr ""
 
-#: pages/pray/action-global-map.php:82
+#: pages/pray/action-global-map.php:77
 msgid "%s Map"
 msgstr ""
 
-#: pages/pray/action-global-map.php:183
+#: pages/pray/action-global-map.php:181
 msgid "Pray for this area"
 msgstr ""
 
@@ -4346,37 +4350,37 @@ msgstr ""
 msgid "Decision Button"
 msgstr ""
 
-#: pages/race/race-map.php:102
+#: pages/race/race-map.php:94
 msgid "%s Race Map"
 msgstr ""
 
-#: pages/race/race-map.php:162
-#: pages/race/race-map.php:203
+#: pages/race/race-map.php:154
+#: pages/race/race-map.php:195
 msgid "Race Map Stats"
 msgstr ""
 
-#: pages/race/race-map.php:177
-#: pages/race/race-map.php:208
+#: pages/race/race-map.php:169
+#: pages/race/race-map.php:200
 msgid "%s times"
 msgstr ""
 
-#: pages/race/race-map.php:180
+#: pages/race/race-map.php:172
 msgid "World Prayer Coverage"
 msgstr ""
 
-#: pages/user/user-login.php:133
+#: pages/user/user-login.php:131
 msgid "Create your own free login. This will allow you to:"
 msgstr ""
 
-#: pages/user/user-login.php:135
+#: pages/user/user-login.php:133
 msgid "See your prayer history"
 msgstr ""
 
-#: pages/user/user-login.php:136
+#: pages/user/user-login.php:134
 msgid "Create your own prayer relays"
 msgstr ""
 
-#: pages/user/user-login.php:137
+#: pages/user/user-login.php:135
 msgid "Get badges and more"
 msgstr ""
 

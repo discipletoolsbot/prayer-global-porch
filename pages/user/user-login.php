@@ -57,7 +57,6 @@ class PG_User_Login_Registration extends DT_Magic_Url_Base {
     public function wp_enqueue_scripts() {}
 
     public function header_javascript(){
-        wp_head();
         require_once( trailingslashit( plugin_dir_path( __DIR__ ) ) . 'assets/header.php' );
 
         $user_id = get_current_user_id();
