@@ -891,7 +891,7 @@ jQuery(document).ready(function($){
               </div>
               <div class="col-12">
                 ${translations.location_description1.replace('%1$s', admin_level).replace('%2$s', response.location.full_name).replace('%3$s', response.location.population)}
-                ${translations.location_description2.replace('%1$s', response.location.name).replace('%2$s', response.location.non_christians).replace('%3$s', response.location.christian_adherents).replace('%4$s', response.location.believers)}
+                ${translations.location_description2.replace('%1$s', response.location.name).replace('%2$s', response.location.believers).replace('%3$s', response.location.christian_adherents).replace('%4$s', response.location.non_christians)}
                 ${translations.location_description3.replace('%1$s', response.location.name).replace('%2$s', response.location.peer_locations).replace('%3$s', response.location.admin_level_name_plural)}
                 <hr>
               </div>
