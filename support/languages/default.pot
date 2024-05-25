@@ -2,16 +2,16 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 2.6.0\n"
+"Project-Id-Version: Prayer.Global Porch 2.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-17T09:47:58+00:00\n"
+"POT-Creation-Date: 2024-05-25T08:01:24+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"X-Generator: WP-CLI 2.9.0\n"
+"X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: prayer-global-porch\n"
 
 #: pages/404/404.php:121
@@ -415,6 +415,10 @@ msgstr ""
 #: pages/assets/working-footer.php:20
 #: pages/media/magic-media.php:87
 msgid "Media & Promotion"
+msgstr ""
+
+#: pages/assets/working-footer.php:23
+msgid "Privacy"
 msgstr ""
 
 #: pages/challenges/active-list.php:78
