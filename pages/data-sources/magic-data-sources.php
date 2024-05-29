@@ -214,7 +214,7 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                         <p>
                             <u><?php echo esc_html__( 'Location Grid Project', 'prayer-global-porch' ) ?></u><br>
                         <p>
-                            <?php echo esc_html( sprintf( __( 'The Location Grid Project is an open source project born out of the %1$s open source project. It was built to support a standardized geolocation grid for disciple making movements activity.  (%2$s) (%3$s)', 'prayer-global-porch' ), "<a href='https://disciple.tools'>Disciple Tools</a>", "<a href='https://locationgrid.app'>Location Grid Project Website</a>", "<a href='https://github.com/DiscipleTools/location-grid-project'>Github Project</a>" ) ) ?>
+                            <?php echo sprintf( esc_html( __( 'The Location Grid Project is an open source project born out of the %1$s open source project. It was built to support a standardized geolocation grid for disciple making movements activity.  (%2$s) (%3$s)', 'prayer-global-porch' ) ), "<a href='https://disciple.tools'>Disciple Tools</a>", "<a href='https://locationgrid.app'>Location Grid Project Website</a>", "<a href='https://github.com/DiscipleTools/location-grid-project'>Github Project</a>" ) ?>
                         </p>
                         <p>
                             <u><?php echo esc_html__( 'Location Grid - Data Sources', 'prayer-global-porch' ) ?></u><br>
