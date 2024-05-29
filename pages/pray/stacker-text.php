@@ -261,15 +261,15 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => sprintf( __( 'Spirit, help the disciples in %1$s of %2$s to find a person of peace today, like the Philippian jailor, who heard and was immediately baptized with his whole family.', 'prayer-global-porch' ), $stack['location']['admin_level_title'], $stack['location']['name'] ),
-                'reference' => __( 'Acts 16:22–38', 'prayer-global-porch' ),
-                'verse' => _x( 'And they spoke the word of the Lord to the jailor and to all who were in his house. And the jailor took them the same hour of the night and washed their wounds; and he was baptized at once, he and all his family.', 'Acts 16:22–38', 'prayer-global-porch' ),
+                'prayer' => sprintf( __( 'Spirit, help the disciples in %1$s of %2$s to find a person of peace today, like the Philippian jailer, who heard and was immediately baptized with his whole family.', 'prayer-global-porch' ), $stack['location']['admin_level_title'], $stack['location']['name'] ),
+                'reference' => __( 'Acts 16:32–33', 'prayer-global-porch' ),
+                'verse' => _x( 'And they spoke the word of the Lord to him and to all who were in his house. And he took them the same hour of the night and washed their wounds; and he was baptized at once, he and all his family.', 'Acts 16:32–33', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,
                 'prayer' => sprintf( __( 'Jesus, like with the centurion who came to you for his sick servant, please call into your house those who have great faith but are not yet yours in %1$s of %2$s', 'prayer-global-porch' ), $stack['location']['admin_level_title'], $stack['location']['name'] ),
-                'reference' => __( 'Luke 7:1–10', 'prayer-global-porch' ),
-                'verse' => _x( 'When Jesus heard these things, he marveled at (the centurion), and turning to the crowd that followed him, said, “I tell you, not even in Israel have I found such faith.” And when those who had been sent returned to the house, they found the servant well.', 'Luke 7:1–10', 'prayer-global-porch' ),
+                'reference' => __( 'Luke 7:9–10', 'prayer-global-porch' ),
+                'verse' => _x( 'When Jesus heard these things, he marveled at him, and turning to the crowd that followed him, said, “I tell you, not even in Israel have I found such faith.” And when those who had been sent returned to the house, they found the servant well.', 'Luke 7:9–10', 'prayer-global-porch' ),
             ],
 //            [
 //                'section_label' => $section_label,
@@ -310,8 +310,8 @@ class PG_Stacker_Text {
             [
                 'section_label' => $section_label,
                 'prayer' => sprintf( __( 'Father, thank you that in your kindness you have made every believer in %1$s a priest, who can offer spiritual sacrifices to you through Jesus.', 'prayer-global-porch' ), $stack['location']['full_name'] ),
-                'reference' => __( 'Matthew 5:43-44', 'prayer-global-porch' ),
-                'verse' => _x( 'Therefore I tell you that the kingdom of God will be taken away from you and given to a people who will produce its fruit. He who falls on this stone will be broken to pieces, but he on whom it falls will be crushed.”', 'Matthew 5:43-44', 'prayer-global-porch' ),
+                'reference' => __( 'Matthew 21:43-44', 'prayer-global-porch' ),
+                'verse' => _x( 'Therefore I tell you that the kingdom of God will be taken away from you and given to a people who will produce its fruit. He who falls on this stone will be broken to pieces, but he on whom it falls will be crushed.”', 'Matthew 21:43-44', 'prayer-global-porch' ),
             ],
             [
                 'section_label' => $section_label,
