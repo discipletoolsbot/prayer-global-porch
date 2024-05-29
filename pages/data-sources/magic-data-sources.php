@@ -244,7 +244,8 @@ class Prayer_Global_Porch_Data_Source extends DT_Magic_Url_Base
                         <hr>
                         <h3 class="secondary"><?php echo esc_html__( 'Bible Citations', 'prayer-global-porch' ) ?></h3>
                         <ul>
-                            <li><?php echo sprintf( esc_html__( 'English - The %s is the primary translation used in the prayers. ESV used occasionally.', 'prayer-global-porch' ), '<a href="https://www.zondervan.com/about-us/permissions/">NIV</a>' ) ?></li>
+                            <li>English - <a href="https://www.zondervan.com/about-us/permissions/">NIV</a> is the primary translation used in the prayers. ESV used occasionally.</li>
+                            <li>Français - Louis Segond, La Sainte Bible est la principale traduction utilisée dans les prières.</li>
                         </ul>
                     </div>
 
