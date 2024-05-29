@@ -19,7 +19,7 @@
             <li><a class="white" href="/content_app/data_sources/"><?php echo esc_html( __( 'Data Sources', 'prayer-global-porch' ) ) ?></a></li>
             <li><a class="white" href="/download_app/media/"><?php echo esc_html( __( 'Media & Promotion', 'prayer-global-porch' ) ) ?></a></li>
         </ul>
-        <ul>
+        <ul style="list-style: none;">
             <li><a href="/content_app/privacy"><?php echo esc_html__( 'Privacy', 'prayer-global-porch' ) ?></a></li>
         </ul>
 
