@@ -183,6 +183,9 @@ input[type="radio"]:checked {
     --bs-dropdown-link-hover-bg: var(--pg-brand-color-lighter);
     --bs-dropdown-link-active-bg: var(--pg-brand-color-lighter);
 }
+.navbar .dt-magic-link-language-selector .dropdown-menu a {
+    cursor: pointer;
+}
 
 .form-control {
     font-weight: 300;
