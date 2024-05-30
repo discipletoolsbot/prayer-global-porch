@@ -119,6 +119,8 @@ class PG_User_Login_Registration extends DT_Magic_Url_Base {
             header( "Location: $redirect_to" );
         } */
 
+        $lang = pg_get_current_lang();
+
         ?>
 
 
@@ -135,7 +137,7 @@ class PG_User_Login_Registration extends DT_Magic_Url_Base {
                             <li><?php echo esc_html__( 'Get badges and more', 'prayer-global-porch' ) ?></li>
                         </ul>
                         <div id="login-ui" style="display: none;">
-                            <?php echo do_shortcode( '[dt_firebase_login_ui]' ) ?>
+                            <?php echo do_shortcode( '[dt_firebase_login_ui lang_code="' . $lang . '"]' ) ?>
                         </div>
                         <div id="login-ui-loader">
                             <span class="loading-spinner active"></span>
