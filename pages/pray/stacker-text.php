@@ -952,7 +952,7 @@ class PG_Stacker_Text {
             ],
             [
                 'section_label' => $section_label,
-                'prayer' => sprintf( __( 'The %1$s of %2$s has (about) %3$s people who know Jesus, %4$s people who know about him culturally, and %5$s people who are far from Jesus.', 'prayer-global-porch' ), $stack['location']['admin_level_title'], $stack['location']['name'], $stack['location']['believers'], $stack['location']['christian_adherents'], $stack['location']['non_christians'] ),
+                'prayer' => sprintf( __( '%1$s of %2$s has (about) %3$s people who know Jesus, %4$s people who know about him culturally, and %5$s people who are far from Jesus.', 'prayer-global-porch' ), $stack['location']['admin_level_title'], $stack['location']['name'], $stack['location']['believers'], $stack['location']['christian_adherents'], $stack['location']['non_christians'] ),
                 'reference' => '',
                 'verse' => '',
             ],
