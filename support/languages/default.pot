@@ -2,14 +2,14 @@
 # This file is distributed under the same license as the Prayer.Global Porch plugin.
 msgid ""
 msgstr ""
-"Project-Id-Version: Prayer.Global Porch 2.7.0\n"
+"Project-Id-Version: Prayer.Global Porch 2.7.1\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-porch\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-05-25T08:01:24+00:00\n"
+"POT-Creation-Date: 2024-06-27T09:27:36+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: prayer-global-porch\n"
@@ -477,7 +477,7 @@ msgid "Want to create your own Prayer Relay?"
 msgstr ""
 
 #: pages/challenges/active-list.php:143
-#: pages/user/user-login.php:130
+#: pages/user/user-login.php:132
 msgid "Login"
 msgstr ""
 
@@ -814,87 +814,83 @@ msgstr ""
 msgid "Bible Citations"
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:247
-msgid "English - The %s is the primary translation used in the prayers. ESV used occasionally."
-msgstr ""
-
-#: pages/data-sources/magic-data-sources.php:254
+#: pages/data-sources/magic-data-sources.php:255
 msgid "Statistical Resources"
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:262
+#: pages/data-sources/magic-data-sources.php:263
 msgid "National Statistical Offices"
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:511
+#: pages/data-sources/magic-data-sources.php:512
 msgid "International Web Resources"
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:513
+#: pages/data-sources/magic-data-sources.php:514
 msgid "CIA World Fact Book"
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:513
+#: pages/data-sources/magic-data-sources.php:514
 msgid "Country profiles and small static maps."
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:514
+#: pages/data-sources/magic-data-sources.php:515
 msgid "Humanitarian Data Exchange"
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:514
+#: pages/data-sources/magic-data-sources.php:515
 msgid "For almost all countries of the world statistical and geospatial data."
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:515
+#: pages/data-sources/magic-data-sources.php:516
 msgid "Project that creates and provides free geographic data especially about streets and other points of interest; contains partly also administrative boundaries."
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:516
+#: pages/data-sources/magic-data-sources.php:517
 msgid "Population Statistics of Eastern Europe (pop-stat.mashke.org)"
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:516
+#: pages/data-sources/magic-data-sources.php:517
 msgid "Detailed population statistics for Eastern and Middle Europe."
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:517
+#: pages/data-sources/magic-data-sources.php:518
 msgid "SPC Statistics for Development Division (PRISM)"
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:517
+#: pages/data-sources/magic-data-sources.php:518
 msgid "Statistics of the pacific island countries and territories by the Secretariat of the Pacific Community."
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:518
+#: pages/data-sources/magic-data-sources.php:519
 msgid "Information about the administrative divisions of countries (update stopped in 2018)."
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:519
+#: pages/data-sources/magic-data-sources.php:520
 msgid "UN Statistics Division: Demographic Yearbook"
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:519
+#: pages/data-sources/magic-data-sources.php:520
 msgid "Population of countries, capital cities and cities of 100,000 and more inhabitants"
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:520
+#: pages/data-sources/magic-data-sources.php:521
 msgid "UN Statistics Division: Census Dates"
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:520
+#: pages/data-sources/magic-data-sources.php:521
 msgid "Overview over census dates and some links."
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:521
+#: pages/data-sources/magic-data-sources.php:522
 msgid "Wikidata is a free and open knowledge base representing a subset of Wikipedia data in a structured way."
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:522
+#: pages/data-sources/magic-data-sources.php:523
 msgid "Wikipedia, the free encyclodia"
 msgstr ""
 
-#: pages/data-sources/magic-data-sources.php:522
+#: pages/data-sources/magic-data-sources.php:523
 msgid "The free encyclopedia provides many facts about countries and cities, however, of varying quality."
 msgstr ""
 
@@ -1116,6 +1112,47 @@ msgstr ""
 #: pages/media/magic-media.php:166
 #: pages/media/magic-media.php:172
 msgid "Download"
+msgstr ""
+
+#: pages/pray/action-custom-completed.php:112
+#: pages/pray/action-global-completed.php:107
+msgid "View Map"
+msgstr ""
+
+#: pages/pray/action-custom-completed.php:113
+#: pages/pray/action-global-completed.php:108
+msgid "Go To The Current Lap"
+msgstr ""
+
+#: pages/pray/action-custom-completed.php:126
+#: pages/pray/action-global-completed.php:121
+msgid "Prayer"
+msgstr ""
+
+#: pages/pray/action-custom-completed.php:132
+#: pages/pray/action-global-completed.php:127
+msgid "Pace"
+msgstr ""
+
+#: pages/pray/action-custom-completed.php:134
+#: pages/pray/action-global-completed.php:129
+msgid "Start"
+msgstr ""
+
+#: pages/pray/action-custom-completed.php:135
+#: pages/pray/action-global-completed.php:130
+msgid "End"
+msgstr ""
+
+#: pages/pray/action-custom-completed.php:141
+#: pages/pray/action-global-completed.php:136
+#: pages/pray/map-settings.php:8
+msgid "Participants"
+msgstr ""
+
+#: pages/pray/action-custom-completed.php:145
+#: pages/pray/action-global-completed.php:140
+msgid "Top Intercessor Locations"
 msgstr ""
 
 #: pages/pray/action-custom-lap.php:117
@@ -1416,10 +1453,6 @@ msgstr ""
 
 #: pages/pray/action-global-map.php:181
 msgid "Pray for this area"
-msgstr ""
-
-#: pages/pray/map-settings.php:8
-msgid "Participants"
 msgstr ""
 
 #: pages/pray/map-settings.php:14
@@ -1930,16 +1963,16 @@ msgid "One of those listening was a woman from the city of Thyatira named Lydia,
 msgstr ""
 
 #: pages/pray/stacker-text.php:264
-msgid "Spirit, help the disciples in %1$s of %2$s to find a person of peace today, like the Philippian jailor, who heard and was immediately baptized with his whole family."
+msgid "Spirit, help the disciples in %1$s of %2$s to find a person of peace today, like the Philippian jailer, who heard and was immediately baptized with his whole family."
 msgstr ""
 
 #: pages/pray/stacker-text.php:265
-msgid "Acts 16:22–38"
+msgid "Acts 16:32–33"
 msgstr ""
 
 #: pages/pray/stacker-text.php:266
-msgctxt "Acts 16:22–38"
-msgid "And they spoke the word of the Lord to the jailor and to all who were in his house. And the jailor took them the same hour of the night and washed their wounds; and he was baptized at once, he and all his family."
+msgctxt "Acts 16:32–33"
+msgid "And they spoke the word of the Lord to him and to all who were in his house. And he took them the same hour of the night and washed their wounds; and he was baptized at once, he and all his family."
 msgstr ""
 
 #: pages/pray/stacker-text.php:270
@@ -1947,12 +1980,12 @@ msgid "Jesus, like with the centurion who came to you for his sick servant, plea
 msgstr ""
 
 #: pages/pray/stacker-text.php:271
-msgid "Luke 7:1–10"
+msgid "Luke 7:9–10"
 msgstr ""
 
 #: pages/pray/stacker-text.php:272
-msgctxt "Luke 7:1–10"
-msgid "When Jesus heard these things, he marveled at (the centurion), and turning to the crowd that followed him, said, “I tell you, not even in Israel have I found such faith.” And when those who had been sent returned to the house, they found the servant well."
+msgctxt "Luke 7:9–10"
+msgid "When Jesus heard these things, he marveled at him, and turning to the crowd that followed him, said, “I tell you, not even in Israel have I found such faith.” And when those who had been sent returned to the house, they found the servant well."
 msgstr ""
 
 #: pages/pray/stacker-text.php:302
@@ -1978,11 +2011,11 @@ msgid "Father, thank you that in your kindness you have made every believer in %
 msgstr ""
 
 #: pages/pray/stacker-text.php:313
-msgid "Matthew 5:43-44"
+msgid "Matthew 21:43-44"
 msgstr ""
 
 #: pages/pray/stacker-text.php:314
-msgctxt "Matthew 5:43-44"
+msgctxt "Matthew 21:43-44"
 msgid "Therefore I tell you that the kingdom of God will be taken away from you and given to a people who will produce its fruit. He who falls on this stone will be broken to pieces, but he on whom it falls will be crushed.”"
 msgstr ""
 
@@ -2630,7 +2663,7 @@ msgid "There are %1$s people living in %2$s of %3$s. Only about %4$s might be be
 msgstr ""
 
 #: pages/pray/stacker-text.php:955
-msgid "The %1$s of %2$s has (about) %3$s people who know Jesus, %4$s people who know about him culturally, and %5$s people who are far from Jesus."
+msgid "%1$s of %2$s has (about) %3$s people who know Jesus, %4$s people who know about him culturally, and %5$s people who are far from Jesus."
 msgstr ""
 
 #: pages/pray/stacker-text.php:961
@@ -4372,19 +4405,19 @@ msgstr ""
 msgid "World Prayer Coverage"
 msgstr ""
 
-#: pages/user/user-login.php:131
+#: pages/user/user-login.php:133
 msgid "Create your own free login. This will allow you to:"
 msgstr ""
 
-#: pages/user/user-login.php:133
+#: pages/user/user-login.php:135
 msgid "See your prayer history"
 msgstr ""
 
-#: pages/user/user-login.php:134
+#: pages/user/user-login.php:136
 msgid "Create your own prayer relays"
 msgstr ""
 
-#: pages/user/user-login.php:135
+#: pages/user/user-login.php:137
 msgid "Get badges and more"
 msgstr ""
 
