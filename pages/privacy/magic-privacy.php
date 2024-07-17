@@ -158,13 +158,14 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
                     <!-- Item -->
                     <div class="col-12">
                         <hr>
-                        <h3 class="secondary"><?php echo esc_html__( 'Your Access to and Control Over Information.', 'prayer-global-porch' ) ?></h3>
-                        <p><?php echo esc_html__( 'You may opt out of any future contact from us at any time. You can do the following at any time by contacting us via our contact email address:', 'prayer-global-porch' ) ?></p>
-                        <p><?php echo esc_html__( "See what data we've aggregated from your activities with us.", 'prayer-global-porch' ) ?></p>
+                        <h3 class="secondary" id="access-control"><?php echo esc_html__( 'Your Access to and Control Over Information', 'prayer-global-porch' ) ?></h3>
+                            <p><?php echo sprintf( esc_html_x( 'You can do the following at any time by contacting us via our %s form:', 'You can do the following at any time by contacting us via our contact us form:', 'prayer-global-porch' ), '<a href="https://prayer.global/prayer_app/contact_us/">' . __( 'contact us', 'prayer-global-porch') . '</a>' ) ?></p>
                         <ul>
+                            <li><?php echo esc_html__( "See what data we've aggregated from your activities with us.", 'prayer-global-porch' ) ?></li>
                             <li><?php echo esc_html__( 'Change/correct any data we have about you.', 'prayer-global-porch' ) ?></li>
                             <li><?php echo esc_html__( 'Have us delete any data we have about you.', 'prayer-global-porch' ) ?></li>
                             <li><?php echo esc_html__( 'Express any concern you have about our use of your data.', 'prayer-global-porch' ) ?></li>
+                            <li><?php echo esc_html__( "Opt out of any future contact from us.", 'prayer-global-porch' ) ?></li>
                         </ul>
                     </div>
 
