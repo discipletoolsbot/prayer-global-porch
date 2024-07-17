@@ -163,7 +163,7 @@ class Prayer_Global_Porch_Privacy extends DT_Magic_Url_Base
                         <ul>
                             <li><?php echo esc_html__( "See what data we've aggregated from your activities with us.", 'prayer-global-porch' ) ?></li>
                             <li><?php echo esc_html__( 'Change/correct any data we have about you.', 'prayer-global-porch' ) ?></li>
-                            <li><?php echo esc_html__( 'Have us delete any data we have about you.', 'prayer-global-porch' ) ?></li>
+                            <li><?php echo esc_html__( 'Have us delete your account or any data we have about you.', 'prayer-global-porch' ) ?></li>
                             <li><?php echo esc_html__( 'Express any concern you have about our use of your data.', 'prayer-global-porch' ) ?></li>
                             <li><?php echo esc_html__( "Opt out of any future contact from us.", 'prayer-global-porch' ) ?></li>
                         </ul>
