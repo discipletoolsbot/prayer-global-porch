@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Prayer.Global Porch 2.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-"
 "porch\n"
-"POT-Creation-Date: 2024-05-25T08:01:24+00:00\n"
+"POT-Creation-Date: 2024-06-27T09:27:36+00:00\n"
 "PO-Revision-Date: 2024-05-10 06:16+0000\n"
 "Last-Translator: Google Cloud Translation Basic <noreply-mt-google-"
 "translate@weblate.org>\n"
@@ -607,7 +607,7 @@ msgstr ""
 msgid "Want to create your own Prayer Relay?"
 msgstr "Ingin membuat Relay Doa Anda sendiri?"
 
-#: pages/challenges/active-list.php:143 pages/user/user-login.php:130
+#: pages/challenges/active-list.php:143 pages/user/user-login.php:132
 #, fuzzy
 msgid "Login"
 msgstr "Gabung"
@@ -1215,51 +1215,42 @@ msgstr ""
 msgid "Bible Citations"
 msgstr "Kutipan Alkitab"
 
-#: pages/data-sources/magic-data-sources.php:247
-#, fuzzy
-msgid ""
-"English - The %s is the primary translation used in the prayers. ESV used "
-"occasionally."
-msgstr ""
-"Bahasa Inggris - %s adalah terjemahan utama yang digunakan dalam doa. ESV "
-"digunakan sesekali."
-
-#: pages/data-sources/magic-data-sources.php:254
+#: pages/data-sources/magic-data-sources.php:255
 #, fuzzy
 msgid "Statistical Resources"
 msgstr "Sumber Daya Statistik"
 
-#: pages/data-sources/magic-data-sources.php:262
+#: pages/data-sources/magic-data-sources.php:263
 #, fuzzy
 msgid "National Statistical Offices"
 msgstr "Kantor Statistik Nasional"
 
-#: pages/data-sources/magic-data-sources.php:511
+#: pages/data-sources/magic-data-sources.php:512
 #, fuzzy
 msgid "International Web Resources"
 msgstr "Sumber Daya Web Internasional"
 
-#: pages/data-sources/magic-data-sources.php:513
+#: pages/data-sources/magic-data-sources.php:514
 #, fuzzy
 msgid "CIA World Fact Book"
 msgstr "Buku Fakta Dunia CIA"
 
-#: pages/data-sources/magic-data-sources.php:513
+#: pages/data-sources/magic-data-sources.php:514
 #, fuzzy
 msgid "Country profiles and small static maps."
 msgstr "Profil negara dan peta statis kecil."
 
-#: pages/data-sources/magic-data-sources.php:514
+#: pages/data-sources/magic-data-sources.php:515
 #, fuzzy
 msgid "Humanitarian Data Exchange"
 msgstr "Pertukaran Data Kemanusiaan"
 
-#: pages/data-sources/magic-data-sources.php:514
+#: pages/data-sources/magic-data-sources.php:515
 #, fuzzy
 msgid "For almost all countries of the world statistical and geospatial data."
 msgstr "Untuk hampir semua negara di dunia data statistik dan geospasial."
 
-#: pages/data-sources/magic-data-sources.php:515
+#: pages/data-sources/magic-data-sources.php:516
 #, fuzzy
 msgid ""
 "Project that creates and provides free geographic data especially about "
@@ -1269,22 +1260,22 @@ msgstr ""
 "Proyek yang membuat dan menyediakan data geografis gratis khususnya tentang "
 "jalan dan tempat menarik lainnya; memuat sebagian juga batas administratif."
 
-#: pages/data-sources/magic-data-sources.php:516
+#: pages/data-sources/magic-data-sources.php:517
 #, fuzzy
 msgid "Population Statistics of Eastern Europe (pop-stat.mashke.org)"
 msgstr "Statistik Populasi Eropa Timur (pop-stat.mashke.org)"
 
-#: pages/data-sources/magic-data-sources.php:516
+#: pages/data-sources/magic-data-sources.php:517
 #, fuzzy
 msgid "Detailed population statistics for Eastern and Middle Europe."
 msgstr "Statistik populasi terperinci untuk Eropa Timur dan Tengah."
 
-#: pages/data-sources/magic-data-sources.php:517
+#: pages/data-sources/magic-data-sources.php:518
 #, fuzzy
 msgid "SPC Statistics for Development Division (PRISM)"
 msgstr "Divisi Statistik Pengembangan SPC (PRISM)"
 
-#: pages/data-sources/magic-data-sources.php:517
+#: pages/data-sources/magic-data-sources.php:518
 #, fuzzy
 msgid ""
 "Statistics of the pacific island countries and territories by the "
@@ -1293,7 +1284,7 @@ msgstr ""
 "Statistik negara dan wilayah kepulauan Pasifik oleh Sekretariat Komunitas "
 "Pasifik."
 
-#: pages/data-sources/magic-data-sources.php:518
+#: pages/data-sources/magic-data-sources.php:519
 #, fuzzy
 msgid ""
 "Information about the administrative divisions of countries (update stopped "
@@ -1302,12 +1293,12 @@ msgstr ""
 "Informasi tentang pembagian administratif negara (pembaruan dihentikan pada "
 "tahun 2018)."
 
-#: pages/data-sources/magic-data-sources.php:519
+#: pages/data-sources/magic-data-sources.php:520
 #, fuzzy
 msgid "UN Statistics Division: Demographic Yearbook"
 msgstr "Divisi Statistik PBB: Buku Tahunan Demografi"
 
-#: pages/data-sources/magic-data-sources.php:519
+#: pages/data-sources/magic-data-sources.php:520
 #, fuzzy
 msgid ""
 "Population of countries, capital cities and cities of 100,000 and more "
@@ -1315,17 +1306,17 @@ msgid ""
 msgstr ""
 "Populasi negara, ibu kota, dan kota yang berjumlah 100.000 jiwa atau lebih"
 
-#: pages/data-sources/magic-data-sources.php:520
+#: pages/data-sources/magic-data-sources.php:521
 #, fuzzy
 msgid "UN Statistics Division: Census Dates"
 msgstr "Divisi Statistik PBB: Tanggal Sensus"
 
-#: pages/data-sources/magic-data-sources.php:520
+#: pages/data-sources/magic-data-sources.php:521
 #, fuzzy
 msgid "Overview over census dates and some links."
 msgstr "Ikhtisar tanggal sensus dan beberapa tautan."
 
-#: pages/data-sources/magic-data-sources.php:521
+#: pages/data-sources/magic-data-sources.php:522
 #, fuzzy
 msgid ""
 "Wikidata is a free and open knowledge base representing a subset of "
@@ -1334,12 +1325,12 @@ msgstr ""
 "Wikidata adalah basis pengetahuan bebas dan terbuka yang mewakili sebagian "
 "data Wikipedia secara terstruktur."
 
-#: pages/data-sources/magic-data-sources.php:522
+#: pages/data-sources/magic-data-sources.php:523
 #, fuzzy
 msgid "Wikipedia, the free encyclodia"
 msgstr "Wikipedia, ensiklodia gratis"
 
-#: pages/data-sources/magic-data-sources.php:522
+#: pages/data-sources/magic-data-sources.php:523
 #, fuzzy
 msgid ""
 "The free encyclopedia provides many facts about countries and cities, "
@@ -1637,6 +1628,52 @@ msgstr "firestarters-wanted.jpg\">Unduh"
 #, fuzzy
 msgid "Download"
 msgstr "Unduh"
+
+#: pages/pray/action-custom-completed.php:112
+#: pages/pray/action-global-completed.php:107
+#, fuzzy
+msgid "View Map"
+msgstr "Peta Balapan"
+
+#: pages/pray/action-custom-completed.php:113
+#: pages/pray/action-global-completed.php:108
+#, fuzzy
+msgid "Go To The Current Lap"
+msgstr "Putaran Saat Ini"
+
+#: pages/pray/action-custom-completed.php:126
+#: pages/pray/action-global-completed.php:121
+#, fuzzy
+msgid "Prayer"
+msgstr "Doa"
+
+#: pages/pray/action-custom-completed.php:132
+#: pages/pray/action-global-completed.php:127
+msgid "Pace"
+msgstr ""
+
+#: pages/pray/action-custom-completed.php:134
+#: pages/pray/action-global-completed.php:129
+#, fuzzy
+msgid "Start"
+msgstr "Waktu mulai"
+
+#: pages/pray/action-custom-completed.php:135
+#: pages/pray/action-global-completed.php:130
+msgid "End"
+msgstr ""
+
+#: pages/pray/action-custom-completed.php:141
+#: pages/pray/action-global-completed.php:136 pages/pray/map-settings.php:8
+#, fuzzy
+msgid "Participants"
+msgstr "Peserta"
+
+#: pages/pray/action-custom-completed.php:145
+#: pages/pray/action-global-completed.php:140
+#, fuzzy
+msgid "Top Intercessor Locations"
+msgstr "Jumlah Syafaat"
 
 #: pages/pray/action-custom-lap.php:117 pages/pray/trait-lap.php:36
 #, fuzzy
@@ -1944,11 +1981,6 @@ msgstr "%s Peta"
 #, fuzzy
 msgid "Pray for this area"
 msgstr "Berdoalah untuk daerah ini"
-
-#: pages/pray/map-settings.php:8
-#, fuzzy
-msgid "Participants"
-msgstr "Peserta"
 
 #: pages/pray/map-settings.php:14
 #, fuzzy
@@ -2821,7 +2853,7 @@ msgstr ""
 #, fuzzy
 msgid ""
 "Spirit, help the disciples in %1$s of %2$s to find a person of peace today, "
-"like the Philippian jailor, who heard and was immediately baptized with his "
+"like the Philippian jailer, who heard and was immediately baptized with his "
 "whole family."
 msgstr ""
 "Roh, tolonglah murid-murid di %1$s dan %2$s untuk menemukan orang yang damai "
@@ -2830,16 +2862,16 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:265
 #, fuzzy
-msgid "Acts 16:22–38"
+msgid "Acts 16:32–33"
 msgstr "Kisah Para Rasul 16:22–38"
 
 #: pages/pray/stacker-text.php:266
 #, fuzzy
-msgctxt "Acts 16:22–38"
+msgctxt "Acts 16:32–33"
 msgid ""
-"And they spoke the word of the Lord to the jailor and to all who were in his "
-"house. And the jailor took them the same hour of the night and washed their "
-"wounds; and he was baptized at once, he and all his family."
+"And they spoke the word of the Lord to him and to all who were in his house. "
+"And he took them the same hour of the night and washed their wounds; and he "
+"was baptized at once, he and all his family."
 msgstr ""
 "Dan mereka menyampaikan firman Tuhan kepada kepala penjara dan kepada semua "
 "orang yang ada di rumahnya. Dan kepala penjara membawa mereka pada jam yang "
@@ -2859,17 +2891,17 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:271
 #, fuzzy
-msgid "Luke 7:1–10"
+msgid "Luke 7:9–10"
 msgstr "Lukas 7:1–10"
 
 #: pages/pray/stacker-text.php:272
 #, fuzzy
-msgctxt "Luke 7:1–10"
+msgctxt "Luke 7:9–10"
 msgid ""
-"When Jesus heard these things, he marveled at (the centurion), and turning "
-"to the crowd that followed him, said, “I tell you, not even in Israel have I "
-"found such faith.” And when those who had been sent returned to the house, "
-"they found the servant well."
+"When Jesus heard these things, he marveled at him, and turning to the crowd "
+"that followed him, said, “I tell you, not even in Israel have I found such "
+"faith.” And when those who had been sent returned to the house, they found "
+"the servant well."
 msgstr ""
 "Ketika Yesus mendengar hal-hal ini, dia kagum pada (perwira itu), dan "
 "menoleh kepada orang banyak yang mengikuti dia, berkata, “Aku berkata "
@@ -2920,12 +2952,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:313
 #, fuzzy
-msgid "Matthew 5:43-44"
+msgid "Matthew 21:43-44"
 msgstr "Matius 5:43-44"
 
 #: pages/pray/stacker-text.php:314
 #, fuzzy
-msgctxt "Matthew 5:43-44"
+msgctxt "Matthew 21:43-44"
 msgid ""
 "Therefore I tell you that the kingdom of God will be taken away from you and "
 "given to a people who will produce its fruit. He who falls on this stone "
@@ -4133,8 +4165,8 @@ msgstr ""
 #: pages/pray/stacker-text.php:955
 #, fuzzy
 msgid ""
-"The %1$s of %2$s has (about) %3$s people who know Jesus, %4$s people who "
-"know about him culturally, and %5$s people who are far from Jesus."
+"%1$s of %2$s has (about) %3$s people who know Jesus, %4$s people who know "
+"about him culturally, and %5$s people who are far from Jesus."
 msgstr ""
 "%1$s dari %2$s memiliki (sekitar) %3$s orang yang mengenal Yesus, %4$s orang "
 "yang mengetahui tentang Dia secara budaya, dan %5$s orang yang jauh dari "
@@ -7267,22 +7299,22 @@ msgstr "%s kali"
 msgid "World Prayer Coverage"
 msgstr "Liputan Doa Sedunia"
 
-#: pages/user/user-login.php:131
+#: pages/user/user-login.php:133
 #, fuzzy
 msgid "Create your own free login. This will allow you to:"
 msgstr "Buat login gratis Anda sendiri. Ini akan memungkinkan Anda untuk:"
 
-#: pages/user/user-login.php:133
+#: pages/user/user-login.php:135
 #, fuzzy
 msgid "See your prayer history"
 msgstr "Lihat riwayat doa Anda"
 
-#: pages/user/user-login.php:134
+#: pages/user/user-login.php:136
 #, fuzzy
 msgid "Create your own prayer relays"
 msgstr "Buatlah relay doa Anda sendiri"
 
-#: pages/user/user-login.php:135
+#: pages/user/user-login.php:137
 #, fuzzy
 msgid "Get badges and more"
 msgstr "Dapatkan lencana dan banyak lagi"
@@ -7637,6 +7669,14 @@ msgstr "bulan"
 #, fuzzy
 msgid "month"
 msgstr "bulan"
+
+#, fuzzy
+#~ msgid ""
+#~ "English - The %s is the primary translation used in the prayers. ESV used "
+#~ "occasionally."
+#~ msgstr ""
+#~ "Bahasa Inggris - %s adalah terjemahan utama yang digunakan dalam doa. ESV "
+#~ "digunakan sesekali."
 
 #, fuzzy
 #~ msgctxt ""
