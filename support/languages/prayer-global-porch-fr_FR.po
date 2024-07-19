@@ -6,8 +6,8 @@ msgstr ""
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-"
 "porch\n"
 "POT-Creation-Date: 2024-06-27T09:27:36+00:00\n"
-"PO-Revision-Date: 2024-07-18 12:32+0000\n"
-"Last-Translator: Corsacca <corsacca@gmail.com>\n"
+"PO-Revision-Date: 2024-07-19 14:34+0000\n"
+"Last-Translator: Pierre <pierre.genifer.d@gmail.com>\n"
 "Language-Team: French <https://translate.disciple.tools/projects/"
 "pray4movement/prayer-global/fr_FR/>\n"
 "Language: fr_FR\n"
@@ -1411,35 +1411,28 @@ msgstr "Voir la carte"
 
 #: pages/pray/action-custom-completed.php:113
 #: pages/pray/action-global-completed.php:108
-#, fuzzy
-#| msgid "Current Lap"
 msgid "Go To The Current Lap"
-msgstr "Tour de prière actuel"
+msgstr "Aller au tour en cours"
 
 #: pages/pray/action-custom-completed.php:126
 #: pages/pray/action-global-completed.php:121
-#, fuzzy
-#| msgid "Prayers"
 msgid "Prayer"
-msgstr "Prières"
+msgstr "Prière"
 
 #: pages/pray/action-custom-completed.php:132
 #: pages/pray/action-global-completed.php:127
-#, fuzzy
 msgid "Pace"
 msgstr "Cadence"
 
 #: pages/pray/action-custom-completed.php:134
 #: pages/pray/action-global-completed.php:129
-#, fuzzy
-#| msgid "Start Time"
 msgid "Start"
-msgstr "Heure de début"
+msgstr "Début"
 
 #: pages/pray/action-custom-completed.php:135
 #: pages/pray/action-global-completed.php:130
 msgid "End"
-msgstr ""
+msgstr "Fin"
 
 #: pages/pray/action-custom-completed.php:141
 #: pages/pray/action-global-completed.php:136 pages/pray/map-settings.php:8
@@ -1448,10 +1441,8 @@ msgstr "Participants"
 
 #: pages/pray/action-custom-completed.php:145
 #: pages/pray/action-global-completed.php:140
-#, fuzzy
-#| msgid "Total Intercessors"
 msgid "Top Intercessor Locations"
-msgstr "Intercesseurs totaux"
+msgstr "Principaux emplacements des intercesseurs"
 
 #: pages/pray/action-custom-lap.php:117 pages/pray/trait-lap.php:36
 msgctxt "state of California"
@@ -1882,8 +1873,8 @@ msgstr ""
 msgid ""
 "On average, %1$s people will die without Jesus in the next hour in %2$s."
 msgstr ""
-"En moyenne, %1$s personnes mourront sans Jésus dans la prochaine heure en "
-"%2$s."
+"En moyenne, %1$s personnes mourront sans Jésus dans la prochaine heure dans "
+"la province %2$s."
 
 #: pages/pray/stacker-positions.php:274
 msgid ""
@@ -2288,12 +2279,12 @@ msgid ""
 "%1$s to make more disciples, and you promised to be with them. May your "
 "power and their obedience make more disciples today."
 msgstr ""
-"Jésus, tout pouvoir t'a été donné, et tu as ordonné à tous les disciples en "
-"%1$s de faire plus de disciples, et tu as promis d'être avec eux. Que ta "
-"puissance et leur obéissance fassent plus de disciples aujourd'hui."
+"Jésus, tout pouvoir t'a été donné, et tu as ordonné à tous les disciples "
+"dans la province %1$s de faire plus de disciples, et tu as promis d'être "
+"avec eux. Que ta puissance et leur obéissance fassent plus de disciples "
+"aujourd'hui."
 
 #: pages/pray/stacker-text.php:187
-#, fuzzy
 msgid "Matthew 28:18"
 msgstr "Matthieu 28:18-20"
 
@@ -2364,7 +2355,6 @@ msgstr ""
 "aujourd'hui. Quelqu'un qui ouvrira une ville entière à ton message de salut."
 
 #: pages/pray/stacker-text.php:241
-#, fuzzy
 msgid "John 4:1–30"
 msgstr "Jean 4:28-30"
 
@@ -2389,7 +2379,6 @@ msgstr ""
 "vérité."
 
 #: pages/pray/stacker-text.php:247
-#, fuzzy
 msgid "Acts 8:26–40"
 msgstr "Actes 8:34-35"
 
@@ -2413,7 +2402,6 @@ msgstr ""
 "Corneille. S'il te plaît, mets-le en contact avec l'église de %1$s."
 
 #: pages/pray/stacker-text.php:253
-#, fuzzy
 msgid "Acts 10:9–11:1"
 msgstr "Actes 10:30-31"
 
@@ -2456,11 +2444,6 @@ msgstr ""
 "coeur, pour qu’elle fût attentive à ce que disait Paul."
 
 #: pages/pray/stacker-text.php:264
-#, fuzzy
-#| msgid ""
-#| "Spirit, help the disciples in %1$s of %2$s to find a person of peace "
-#| "today, like the Philippian jailor, who heard and was immediately baptized "
-#| "with his whole family."
 msgid ""
 "Spirit, help the disciples in %1$s of %2$s to find a person of peace today, "
 "like the Philippian jailer, who heard and was immediately baptized with his "
@@ -2471,18 +2454,10 @@ msgstr ""
 "immédiatement baptisé avec toute sa famille."
 
 #: pages/pray/stacker-text.php:265
-#, fuzzy
-#| msgid "Acts 16:22–38"
 msgid "Acts 16:32–33"
-msgstr "Actes 16:22–38"
+msgstr "Actes 16:32–33"
 
 #: pages/pray/stacker-text.php:266
-#, fuzzy
-#| msgctxt "Acts 16:22–38"
-#| msgid ""
-#| "And they spoke the word of the Lord to the jailor and to all who were in "
-#| "his house. And the jailor took them the same hour of the night and washed "
-#| "their wounds; and he was baptized at once, he and all his family."
 msgctxt "Acts 16:32–33"
 msgid ""
 "And they spoke the word of the Lord to him and to all who were in his house. "
@@ -2504,19 +2479,10 @@ msgstr ""
 "mais qui ne sont pas encore à toi dans %1$s de %2$s"
 
 #: pages/pray/stacker-text.php:271
-#, fuzzy
-#| msgid "Luke 7:1–10"
 msgid "Luke 7:9–10"
-msgstr "Luc 7:1–10"
+msgstr "Luc 7:9–10"
 
 #: pages/pray/stacker-text.php:272
-#, fuzzy
-#| msgctxt "Luke 7:1–10"
-#| msgid ""
-#| "When Jesus heard these things, he marveled at (the centurion), and "
-#| "turning to the crowd that followed him, said, “I tell you, not even in "
-#| "Israel have I found such faith.” And when those who had been sent "
-#| "returned to the house, they found the servant well."
 msgctxt "Luke 7:9–10"
 msgid ""
 "When Jesus heard these things, he marveled at him, and turning to the crowd "
@@ -2525,9 +2491,9 @@ msgid ""
 "the servant well."
 msgstr ""
 "Lorsque Jésus entendit ces paroles, il admira le centenier, et, se tournant "
-"vers la foule qui le suivait, il dit : Je vous le dis, même en Israël je "
-"n’ai pas trouvé une aussi grande foi. De retour à la maison, les gens "
-"envoyés par le centenier trouvèrent guéri le serviteur qui avait été malade."
+"vers la foule qui le suivait, il dit : Je vous le dis, même en Israël je n’"
+"ai pas trouvé une aussi grande foi. De retour à la maison, les gens envoyés "
+"par le centenier trouvèrent guéri le serviteur qui avait été malade."
 
 #: pages/pray/stacker-text.php:302
 msgid "Priesthood of Believers"
@@ -2565,18 +2531,10 @@ msgstr ""
 "prêtre, qui peut t'offrir des sacrifices spirituels par Jésus."
 
 #: pages/pray/stacker-text.php:313
-#, fuzzy
-#| msgid "Matthew 5:43-44"
 msgid "Matthew 21:43-44"
-msgstr "Matthieu 5:43-44"
+msgstr "Matthieu 21:43-44"
 
 #: pages/pray/stacker-text.php:314
-#, fuzzy
-#| msgctxt "Matthew 5:43-44"
-#| msgid ""
-#| "Therefore I tell you that the kingdom of God will be taken away from you "
-#| "and given to a people who will produce its fruit. He who falls on this "
-#| "stone will be broken to pieces, but he on whom it falls will be crushed.”"
 msgctxt "Matthew 21:43-44"
 msgid ""
 "Therefore I tell you that the kingdom of God will be taken away from you and "
@@ -3409,7 +3367,7 @@ msgid ""
 "Jesus, make yourself known to the %1$s people living in %2$s through the "
 "internet today."
 msgstr ""
-"Jésus, fais-toi connaître auprès des %1$s habitants de %2$s via Internet "
+"Jésus, fais-toi connaître auprès des %1$s habitants de %2$s via l'Internet "
 "aujourd'hui."
 
 #: pages/pray/stacker-text.php:758
@@ -3457,8 +3415,8 @@ msgid ""
 "Father, for those with enemies and who are afraid in %1$s, call them into "
 "your shelter and safety today."
 msgstr ""
-"Père, pour ceux qui ont des ennemis et qui ont peur en %1$s, appeles-les "
-"dans ton refuge et ta sécurité aujourd'hui."
+"Père, pour ceux qui ont des ennemis et qui ont peur dans la province %1$s, "
+"appelle-les dans ton refuge et ta sécurité aujourd'hui."
 
 #: pages/pray/stacker-text.php:794
 msgid "Psalm 61:3"
@@ -3624,15 +3582,11 @@ msgstr ""
 "pourraient être des croyants."
 
 #: pages/pray/stacker-text.php:955
-#, fuzzy
-#| msgid ""
-#| "The %1$s of %2$s has (about) %3$s people who know Jesus, %4$s people who "
-#| "know about him culturally, and %5$s people who are far from Jesus."
 msgid ""
 "%1$s of %2$s has (about) %3$s people who know Jesus, %4$s people who know "
 "about him culturally, and %5$s people who are far from Jesus."
 msgstr ""
-"Le %1$s de %2$s a (environ) %3$s personnes qui connaissent Jésus, %4$s "
+"%1$s de %2$s a (environ) %3$s personnes qui connaissent Jésus, %4$s "
 "personnes qui le connaissent culturellement et %5$s personnes qui sont loin "
 "de Jésus."
 
@@ -5152,8 +5106,8 @@ msgid ""
 "Spirit, please defend the %1$s believers in %2$s against an unwillingness to "
 "suffer. Give them courage to face social rejection."
 msgstr ""
-"Saint-Esprit, défends les %1$s croyants en %2$s contre une réticence à "
-"souffrir. Donne-leur le courage d'affronter le rejet social."
+"Saint-Esprit, défends les %1$s croyants dans la province %2$s contre une "
+"réticence à souffrir. Donne-leur le courage d'affronter le rejet social."
 
 #: pages/pray/stacker-text.php:2288
 msgid ""
