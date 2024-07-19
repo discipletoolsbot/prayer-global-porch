@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"POT-Creation-Date: 2024-06-27T09:27:36+00:00\n"
+"POT-Creation-Date: 2024-07-19T14:37:10+00:00\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "X-Generator: WP-CLI 2.10.0\n"
 "X-Domain: prayer-global-porch\n"
@@ -1696,13 +1696,13 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:25
 #: pages/pray/stacker-text.php:31
-msgid "John 17:20-21"
+msgid "John 17:20b-21"
 msgstr ""
 
 #: pages/pray/stacker-text.php:26
 #: pages/pray/stacker-text.php:32
-msgctxt "John 17:20-21"
-msgid "I (Jesus) pray also for those who will believe in me through their message, that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world may believe that you have sent me."
+msgctxt "John 17:20b-21"
+msgid "I [Jesus] pray also for those who will believe in me through their message, that all of them may be one, Father, just as you are in me and I am in you. May they also be in us so that the world may believe that you have sent me."
 msgstr ""
 
 #: pages/pray/stacker-text.php:30
@@ -1740,7 +1740,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:56
 msgctxt "Philippians 4:6"
-msgid "... in every situation, by prayer and petition, with thanksgiving, present your requests to God."
+msgid "in every situation, by prayer and petition, with thanksgiving, present your requests to God."
 msgstr ""
 
 #: pages/pray/stacker-text.php:60
@@ -1881,11 +1881,11 @@ msgid "Jesus, all authority was given to you, and you commanded all disciples in
 msgstr ""
 
 #: pages/pray/stacker-text.php:187
-msgid "Matthew 28:18"
+msgid "Matthew 28:18-20"
 msgstr ""
 
 #: pages/pray/stacker-text.php:188
-msgctxt "Matthew 28:18"
+msgctxt "Matthew 28:18-20"
 msgid "All authority in heaven and on earth has been given to me. Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age."
 msgstr ""
 
@@ -1902,11 +1902,11 @@ msgid "Spirit, help the %1$s believers find a person of peace today among the %2
 msgstr ""
 
 #: pages/pray/stacker-text.php:235
-msgid "Acts 10:30-33"
+msgid "Acts 10:30b-33"
 msgstr ""
 
 #: pages/pray/stacker-text.php:236
-msgctxt "Acts 10:30-33"
+msgctxt "Acts 10:30b-33"
 msgid "Suddenly a man in shining clothes stood before me and said, ‘Cornelius, God has heard your prayer and remembered your gifts to the poor. Send to Joppa for Simon who is called Peter. He is a guest in the home of Simon the tanner, who lives by the sea.’ So I sent for you immediately, and it was good of you to come. Now we are all here in the presence of God to listen to everything the Lord has commanded you to tell us.”"
 msgstr ""
 
@@ -1915,11 +1915,11 @@ msgid "Father, help your children in %1$s find someone like the Samaritan Woman 
 msgstr ""
 
 #: pages/pray/stacker-text.php:241
-msgid "John 4:1–30"
+msgid "John 4:29–30"
 msgstr ""
 
 #: pages/pray/stacker-text.php:242
-msgctxt "John 4:1–30"
+msgctxt "John 4:29–30"
 msgid "So the woman left her water jar and went away into town and said to the people, 29 “Come, see a man who told me all that I ever did. Can this be the Christ?” They went out of the town and were coming to him."
 msgstr ""
 
@@ -1928,12 +1928,12 @@ msgid "Father, like with the Ethiopian Eunuch, set up a meeting today between a 
 msgstr ""
 
 #: pages/pray/stacker-text.php:247
-msgid "Acts 8:26–40"
+msgid "Acts 8:34-35"
 msgstr ""
 
 #: pages/pray/stacker-text.php:248
-msgctxt "Acts 8:26–40"
-msgid "And the eunuch said to Philip, “About whom, I ask you, does the prophet say this, about himself or about someone else?” Then Philip opened his mouth, and beginning with this Scripture he told him the good news about Jesus."
+msgctxt "Acts 8:34-35"
+msgid "The eunuch asked Philip, “Tell me, please, who is the prophet talking about, himself or someone else?” Then Philip began with that very passage of Scripture and told him the good news about Jesus."
 msgstr ""
 
 #: pages/pray/stacker-text.php:252
@@ -1941,12 +1941,12 @@ msgid "Father, reveal yourself to a faithful non-believer today, someone like Co
 msgstr ""
 
 #: pages/pray/stacker-text.php:253
-msgid "Acts 10:9–11:1"
+msgid "Acts 10:30-31"
 msgstr ""
 
 #: pages/pray/stacker-text.php:254
-msgctxt "Acts 10:9–11:1"
-msgid "And Cornelius said, “Four days ago, about this hour, I was praying in my house ... and behold, a man stood before me in bright clothing and said, \"Cornelius, your prayer has been heard and your alms have been remembered before God.\""
+msgctxt "Acts 10:30-31"
+msgid "Cornelius answered: “Three days ago I was in my house praying at this hour, at three in the afternoon. Suddenly a man in shining clothes stood before me and said, ‘Cornelius, God has heard your prayer and remembered your gifts to the poor.\""
 msgstr ""
 
 #: pages/pray/stacker-text.php:258
@@ -1954,11 +1954,11 @@ msgid "Spirit, guide someone in the church in %1$s of %2$s to a person ready to 
 msgstr ""
 
 #: pages/pray/stacker-text.php:259
-msgid "Acts 16:13–15"
+msgid "Acts 16:14"
 msgstr ""
 
 #: pages/pray/stacker-text.php:260
-msgctxt "Acts 16:13–15"
+msgctxt "Acts 16:14"
 msgid "One of those listening was a woman from the city of Thyatira named Lydia, a dealer in purple cloth. She was a worshiper of God. The Lord opened her heart to respond to Paul’s message."
 msgstr ""
 
@@ -1998,11 +1998,11 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:307
 #: pages/pray/stacker-text.php:319
-msgid "1 Peter 2:4-5"
+msgid "1 Peter 2:5"
 msgstr ""
 
 #: pages/pray/stacker-text.php:308
-msgctxt "1 Peter 2:4-5"
+msgctxt "1 Peter 2:5"
 msgid "you also, like living stones, are being built into a spiritual house to be a holy priesthood, offering spiritual sacrifices acceptable to God through Jesus Christ."
 msgstr ""
 
@@ -2024,7 +2024,7 @@ msgid "Spirit, please convict each believer in %1$s to take up their calling as 
 msgstr ""
 
 #: pages/pray/stacker-text.php:320
-msgctxt "1 Peter 2:4-5"
+msgctxt "1 Peter 2:5"
 msgid "you also, like living stones, are being built into a spiritual house to be a holy priesthood"
 msgstr ""
 
@@ -2050,18 +2050,25 @@ msgid "Father, encourage the %1$s believers to have boldness before you, since t
 msgstr ""
 
 #: pages/pray/stacker-text.php:337
-#: pages/pray/stacker-text.php:343
 msgid "Hebrews 4:14-16"
 msgstr ""
 
 #: pages/pray/stacker-text.php:338
-#: pages/pray/stacker-text.php:344
 msgctxt "Hebrews 4:14-16"
 msgid "Since then we have a great high priest who has passed through the heavens, Jesus, the Son of God, let us hold fast our confession."
 msgstr ""
 
 #: pages/pray/stacker-text.php:342
 msgid "Jesus, you are the great high priest, please make the %1$s believers in %2$s a worthy priesthood under you."
+msgstr ""
+
+#: pages/pray/stacker-text.php:343
+msgid "Hebrews 4:14"
+msgstr ""
+
+#: pages/pray/stacker-text.php:344
+msgctxt "Hebrews 4:14"
+msgid "Since then we have a great high priest who has passed through the heavens, Jesus, the Son of God, let us hold fast our confession."
 msgstr ""
 
 #: pages/pray/stacker-text.php:374
@@ -2137,11 +2144,11 @@ msgid "Father, multiply brothers, sisters, and mothers to our spiritual family i
 msgstr ""
 
 #: pages/pray/stacker-text.php:423
-msgid "Matthew 12:50"
+msgid "Matthew 12:48-50"
 msgstr ""
 
 #: pages/pray/stacker-text.php:424
-msgctxt "Matthew 12:50"
+msgctxt "Matthew 12:48-50"
 msgid "He replied to him, “Who is my mother, and who are my brothers?” Pointing to his disciples, he said, “Here are my mother and my brothers. For whoever does the will of my Father in heaven is my brother and sister and mother.”"
 msgstr ""
 
@@ -2155,7 +2162,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:430
 msgctxt "Philippians 1:6"
-msgid "...being confident of this, that he who began a good work in you will carry it on to completion until the day of Christ Jesus."
+msgid "being confident of this, that he who began a good work in you will carry it on to completion until the day of Christ Jesus."
 msgstr ""
 
 #: pages/pray/stacker-text.php:434
@@ -2163,12 +2170,12 @@ msgid "Father, remind your church in %1$s that you have set your Son over all ru
 msgstr ""
 
 #: pages/pray/stacker-text.php:435
-msgid "Ephesians 1:21"
+msgid "Ephesians 1:20-21"
 msgstr ""
 
 #: pages/pray/stacker-text.php:436
-msgctxt "Ephesians 1:21"
-msgid "...he raised Christ from the dead and seated him at his right hand in the heavenly realms, far above all rule and authority, power and dominion, and every name that is invoked, not only in the present age but also in the one to come."
+msgctxt "Ephesians 1:20-21"
+msgid "he raised Christ from the dead and seated him at his right hand in the heavenly realms, far above all rule and authority, power and dominion, and every name that is invoked, not only in the present age but also in the one to come."
 msgstr ""
 
 #: pages/pray/stacker-text.php:440
@@ -2211,7 +2218,7 @@ msgstr ""
 #: pages/pray/stacker-text.php:466
 #: pages/pray/stacker-text.php:945
 msgctxt "Romans 15:21"
-msgid "Those who were not told about him will see, and those who have not heard will understand."
+msgid "\"Those who were not told about him will see, and those who have not heard will understand.\""
 msgstr ""
 
 #: pages/pray/stacker-text.php:470
@@ -2304,12 +2311,12 @@ msgid "Lord, there are %1$s people in %2$s of %3$s who claim Christianity, but m
 msgstr ""
 
 #: pages/pray/stacker-text.php:568
-msgid "2 Timothy 3:16-17"
+msgid "2 Timothy 3:16"
 msgstr ""
 
 #: pages/pray/stacker-text.php:569
-msgctxt "2 Timothy 3:16-17"
-msgid "All scripture is given by inspiration of God, and is profitable for doctrine, for reproof, for correction, for instruction in righteousness."
+msgctxt "2 Timothy 3:16"
+msgid "All Scripture is God-breathed and is useful for teaching, rebuking, correcting and training in righteousness"
 msgstr ""
 
 #: pages/pray/stacker-text.php:573
@@ -2322,7 +2329,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:575
 msgctxt "John 8:32"
-msgid "and you will know the truth, and the truth will set you free."
+msgid "Then you will know the truth, and the truth will set you free."
 msgstr ""
 
 #: pages/pray/stacker-text.php:579
@@ -2335,7 +2342,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:581
 msgctxt "Matthew 4:4"
-msgid "Man shall not live by bread alone, but by every word that comes from the mouth of God."
+msgid "It is written: 'Man shall not live by bread alone, but by every word that comes from the mouth of God.'"
 msgstr ""
 
 #: pages/pray/stacker-text.php:585
@@ -2402,11 +2409,11 @@ msgid "Spirit, help the %1$s believers in %2$s desire the Bible as newborn babie
 msgstr ""
 
 #: pages/pray/stacker-text.php:650
-msgid "1 Peter 2:2-3"
+msgid "1 Peter 2:2"
 msgstr ""
 
 #: pages/pray/stacker-text.php:651
-msgctxt "1 Peter 2:2-3"
+msgctxt "1 Peter 2:2"
 msgid "Desire God’s pure word as newborn babies desire milk. Then you will grow in your salvation."
 msgstr ""
 
@@ -2449,7 +2456,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:717
 msgctxt "Proverbs 8:17"
-msgid "I love those who love me, and those who diligently seek me will find me."
+msgid "I love those who love me, and those who seek me find me."
 msgstr ""
 
 #: pages/pray/stacker-text.php:721
@@ -2470,11 +2477,11 @@ msgid "Father, as people seek answers on the internet, please help them find the
 msgstr ""
 
 #: pages/pray/stacker-text.php:728
-msgid "Luke 11:9-10"
+msgid "Luke 11:9"
 msgstr ""
 
 #: pages/pray/stacker-text.php:729
-msgctxt "Luke 11:9-10"
+msgctxt "Luke 11:9"
 msgid "So I say to you, ask, and it will be given to you; seek, and you will find; knock, and it will be opened to you."
 msgstr ""
 
@@ -2504,6 +2511,7 @@ msgid "Spirit, inspire new kinds of evangelism through social media in %1$s."
 msgstr ""
 
 #: pages/pray/stacker-text.php:752
+#: pages/pray/stacker-text.php:1849
 msgid "2 Timothy 4:5"
 msgstr ""
 
@@ -2517,11 +2525,11 @@ msgid "Jesus, make yourself known to the %1$s people living in %2$s through the 
 msgstr ""
 
 #: pages/pray/stacker-text.php:758
-msgid "Psalm 19:4"
+msgid "Psalm 19:3-4"
 msgstr ""
 
 #: pages/pray/stacker-text.php:759
-msgctxt "Psalm 19:4"
+msgctxt "Psalm 19:3-4"
 msgid "They have no speech, they use no words; no sound is heard from them. Yet their voice goes out into all the earth, their words to the ends of the world. In the heavens God has pitched a tent for the sun."
 msgstr ""
 
@@ -2539,7 +2547,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:789
 msgctxt "Psalm 91:15"
-msgid "He will call on me, and I will answer him. I will be with him in trouble. I will deliver him, and honor him."
+msgid "He will call on me, and I will answer him; I will be with him in trouble, I will deliver him and honor him."
 msgstr ""
 
 #: pages/pray/stacker-text.php:793
@@ -2801,7 +2809,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:1059
 msgctxt "2 Corinthians 3:17"
-msgid "Now the Lord is the Spirit and where the Spirit of the Lord is, there is freedom."
+msgid "Now the Lord is the Spirit, and where the Spirit of the Lord is, there is freedom."
 msgstr ""
 
 #: pages/pray/stacker-text.php:1087
@@ -2882,18 +2890,11 @@ msgid "God, we ask you to raise up elders and deacons from the %1$s believers in
 msgstr ""
 
 #: pages/pray/stacker-text.php:1687
-#: pages/pray/stacker-text.php:1753
-#: pages/pray/stacker-text.php:1771
-#: pages/pray/stacker-text.php:1825
-#: pages/pray/stacker-text.php:1837
-#: pages/pray/stacker-text.php:1891
-#: pages/pray/stacker-text.php:1897
-#: pages/pray/stacker-text.php:1933
-msgid "Ephesians 4:11"
+msgid "Ephesians 4:11-13"
 msgstr ""
 
 #: pages/pray/stacker-text.php:1688
-msgctxt "Ephesians 4:11"
+msgctxt "Ephesians 4:11-13"
 msgid "So Christ himself gave the apostles, the prophets, the evangelists, the pastors and teachers, to equip his people for works of service, so that the body of Christ may be built up until we all reach unity in the faith and in the knowledge of the Son of God and become mature, attaining to the whole measure of the fullness of Christ."
 msgstr ""
 
@@ -2945,11 +2946,11 @@ msgid "Jesus, help the local leaders in %1$s to be faithful with what they have 
 msgstr ""
 
 #: pages/pray/stacker-text.php:1711
-msgid "Luke 12:48"
+msgid "Luke 12:48b"
 msgstr ""
 
 #: pages/pray/stacker-text.php:1712
-msgctxt "Luke 12:48"
+msgctxt "Luke 12:48b"
 msgid "Everyone to whom much was given, of him much will be required, and from him to whom they entrusted much, they will demand the more."
 msgstr ""
 
@@ -2958,12 +2959,12 @@ msgid "Jesus, help the local leaders in %1$s not be proud but humble, and willin
 msgstr ""
 
 #: pages/pray/stacker-text.php:1717
-msgid "John 13:13–17"
+msgid "John 13:13–15"
 msgstr ""
 
 #: pages/pray/stacker-text.php:1718
-msgctxt "John 13:13–17"
-msgid "you call me Teacher and Lord, and you are right, for so I am. If I then, your Lord and Teacher, have washed your feet, you also ought to wash one another’s feet. For I have given you an example, that you also should do just as I have done to you. "
+msgctxt "John 13:13–15"
+msgid "“You call me ‘Teacher’ and ‘Lord,’ and rightly so, for that is what I am. Now that I, your Lord and Teacher, have washed your feet, you also should wash one another’s feet. I have set you an example that you should do as I have done for you."
 msgstr ""
 
 #: pages/pray/stacker-text.php:1722
@@ -3000,9 +3001,24 @@ msgstr ""
 msgid "Father, please raise up new apostles to pioneer the growth of the church in %s."
 msgstr ""
 
+#: pages/pray/stacker-text.php:1753
+#: pages/pray/stacker-text.php:1771
+#: pages/pray/stacker-text.php:1825
+#: pages/pray/stacker-text.php:1837
+#: pages/pray/stacker-text.php:1891
+#: pages/pray/stacker-text.php:1897
+#: pages/pray/stacker-text.php:1933
+msgid "Ephesians 4:11-12"
+msgstr ""
+
 #: pages/pray/stacker-text.php:1754
 #: pages/pray/stacker-text.php:1772
-msgctxt "Ephesians 4:11"
+#: pages/pray/stacker-text.php:1826
+#: pages/pray/stacker-text.php:1838
+#: pages/pray/stacker-text.php:1892
+#: pages/pray/stacker-text.php:1898
+#: pages/pray/stacker-text.php:1934
+msgctxt "Ephesians 4:11-12"
 msgid "So Christ himself gave the apostles, the prophets, the evangelists, the pastors and teachers, to equip his people for works of service, so that the body of Christ may be built up"
 msgstr ""
 
@@ -3061,12 +3077,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:1783
 #: pages/pray/stacker-text.php:2660
-msgid "Matthew 28:19-20"
+msgid "Matthew 28:19-20a"
 msgstr ""
 
 #: pages/pray/stacker-text.php:1784
 #: pages/pray/stacker-text.php:2661
-msgctxt "Matthew 28:19-20"
+msgctxt "Matthew 28:19-20a"
 msgid "Therefore go and make disciples of all nations, baptizing them in the name of the Father and of the Son and of the Holy Spirit, and teaching them to obey everything I have commanded you."
 msgstr ""
 
@@ -3076,15 +3092,6 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:1824
 msgid "Jesus, please raise up evangelists to equip your people to share the gospel in %1$s."
-msgstr ""
-
-#: pages/pray/stacker-text.php:1826
-#: pages/pray/stacker-text.php:1838
-#: pages/pray/stacker-text.php:1892
-#: pages/pray/stacker-text.php:1898
-#: pages/pray/stacker-text.php:1934
-msgctxt "Ephesians 4:11"
-msgid "So Christ himself gave the apostles, the prophets, the evangelists, the pastors and teachers, to equip his people for works of service, so that the body of Christ may be built up."
 msgstr ""
 
 #: pages/pray/stacker-text.php:1830
@@ -3116,13 +3123,9 @@ msgstr ""
 msgid "Spirit, encourage every believer in %1$s to do the work of an evangelist with their friends and neighbors."
 msgstr ""
 
-#: pages/pray/stacker-text.php:1849
-msgid "Ephesians 4:5"
-msgstr ""
-
 #: pages/pray/stacker-text.php:1850
-msgctxt "Ephesians 4:5"
-msgid "But you, keep your head in all situations, endure hardship, do the work of an evangelist ..."
+msgctxt "2 Timothy 4:5"
+msgid "But you, keep your head in all situations, endure hardship, do the work of an evangelist"
 msgstr ""
 
 #: pages/pray/stacker-text.php:1854
@@ -3330,11 +3333,11 @@ msgid "Lord, for the leaders in %1$s of %2$s, let the eyes of their hearts be en
 msgstr ""
 
 #: pages/pray/stacker-text.php:2048
-msgid "Ephesians 1:18"
+msgid "Ephesians 1:18-19a"
 msgstr ""
 
 #: pages/pray/stacker-text.php:2049
-msgctxt "Ephesians 1:18"
+msgctxt "Ephesians 1:18-19a"
 msgid "I pray that the eyes of your heart may be enlightened in order that you may know the hope to which he has called you, the riches of his glorious inheritance in his holy people, and his incomparably great power for us who believe. "
 msgstr ""
 
@@ -3369,7 +3372,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2116
 msgctxt "Psalm 119:16"
-msgid "I delight in your decrees, I will not neglect your Word."
+msgid "I delight in your decrees; I will not neglect your Word."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2120
@@ -3430,7 +3433,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2146
 msgctxt "Psalm 119:9"
-msgid "How can a young person stay on the path of purity? By living according to your Word."
+msgid "How can a young person stay on the path of purity? By living according to your word."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2150
@@ -3443,7 +3446,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2152
 msgctxt "Psalm 119:89"
-msgid "your Word, Lord, is eternal; it stands firm in the heavens."
+msgid "Your Word, Lord, is eternal; it stands firm in the heavens."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2156
@@ -3469,7 +3472,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2164
 msgctxt "Psalm 119:103"
-msgid "How sweet are your Words to my taste, sweeter than honey to my mouth!"
+msgid "How sweet are your words to my taste, sweeter than honey to my mouth!"
 msgstr ""
 
 #: pages/pray/stacker-text.php:2168
@@ -3491,7 +3494,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2176
 msgctxt "Hebrews 4:12"
-msgid "For the Word of God is alive and active. Sharper than any two-edged sword, it penetrates even to dividing soul and spirit, joints and marrow."
+msgid "For the word of God is alive and active. Sharper than any double-edged sword, it penetrates even to dividing soul and spirit, joints and marrow;"
 msgstr ""
 
 #: pages/pray/stacker-text.php:2180
@@ -3508,9 +3511,8 @@ msgid "Philippians 1:9"
 msgstr ""
 
 #: pages/pray/stacker-text.php:2188
-#: pages/pray/stacker-text.php:2519
 msgctxt "Philippians 1:9"
-msgid "And this is my prayer: that your love may abound more and more in knowledge and depth of insight"
+msgid "And this is my prayer: that your love may abound more and more in knowledge and depth of insight,"
 msgstr ""
 
 #: pages/pray/stacker-text.php:2200
@@ -3553,7 +3555,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2218
 msgctxt "Matthew 28:20"
-msgid "...teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age."
+msgid "and teaching them to obey everything I have commanded you. And surely I am with you always, to the very end of the age.\""
 msgstr ""
 
 #: pages/pray/stacker-text.php:2222
@@ -3570,7 +3572,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2230
 msgctxt "Exodus 19:6"
-msgid "... you will be for me a kingdom of priests ..."
+msgid "you will be for me a kingdom of priests"
 msgstr ""
 
 #: pages/pray/stacker-text.php:2234
@@ -3578,12 +3580,12 @@ msgid "Father, help the %1$s believers in %2$s to know your commands and to do t
 msgstr ""
 
 #: pages/pray/stacker-text.php:2235
-msgid "Ezra 7:10,25"
+msgid "Ezra 7:10"
 msgstr ""
 
 #: pages/pray/stacker-text.php:2236
-msgctxt "Ezra 7:10,25"
-msgid "For Ezra had prepared his heart to seek the law of the LORD, and to do it, and to teach in Israel statutes and judgments."
+msgctxt "Ezra 7:10"
+msgid "For Ezra had devoted himself to the study and observance of the Law of the Lord, and to teaching its decrees and laws in Israel."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2272
@@ -3627,7 +3629,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2290
 msgctxt "John 15:5"
-msgid "I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit; apart from me you can do nothing."
+msgid "\"I am the vine; you are the branches. If you remain in me and I in you, you will bear much fruit; apart from me you can do nothing."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2294
@@ -3640,7 +3642,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2296
 msgctxt "Psalm 32:8"
-msgid "I will instruct you and teach you in the way which you shall go. I will counsel you with my eye on you."
+msgid "I will instruct you and teach you in the way you should go. I will counsel you with my loving eye on you."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2300
@@ -3771,11 +3773,11 @@ msgid "Lord, we know that you invest more in those who have been faithful with w
 msgstr ""
 
 #: pages/pray/stacker-text.php:2374
-msgid "Matthew 25:28"
+msgid "Matthew 25:28-29"
 msgstr ""
 
 #: pages/pray/stacker-text.php:2375
-msgctxt "Matthew 25:28"
+msgctxt "Matthew 25:28-29"
 msgid "So take the bag of gold from him and give it to the one who has ten bags. For whoever has will be given more, and they will have an abundance. Whoever does not have, even what they have will be taken from them."
 msgstr ""
 
@@ -3906,7 +3908,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2465
 msgctxt "Psalm 147:3"
-msgid "He heals the broken in heart, and binds up their wounds."
+msgid "He heals the brokenhearted and binds up their wounds."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2469
@@ -3919,7 +3921,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2471
 msgctxt "Matthew 5:4"
-msgid "Blessed are those who mourn, for they shall be comforted."
+msgid "Blessed are those who mourn, for they will be comforted."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2475
@@ -3977,6 +3979,11 @@ msgstr ""
 msgid "Father, let love abound more and more in the church of %1$s."
 msgstr ""
 
+#: pages/pray/stacker-text.php:2519
+msgctxt "Philippians 1:9"
+msgid "And this is my prayer: that your love may abound more and more in knowledge and depth of insight"
+msgstr ""
+
 #: pages/pray/stacker-text.php:2522
 msgid "Generosity"
 msgstr ""
@@ -3995,7 +4002,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2531
 msgctxt "1 John 3:18"
-msgid "...let us not love with words or speech but with actions and in truth."
+msgid "let us not love with words or speech but with actions and in truth."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2535
@@ -4059,11 +4066,11 @@ msgid "Spirit, encourage the church in %1$s to make the most of every opportunit
 msgstr ""
 
 #: pages/pray/stacker-text.php:2584
-msgid "Ephesians 5:15"
+msgid "Ephesians 5:15-16"
 msgstr ""
 
 #: pages/pray/stacker-text.php:2585
-msgctxt "Ephesians 5:15"
+msgctxt "Ephesians 5:15-16"
 msgid "Be very careful, then, how you live—not as unwise but as wise, making the most of every opportunity, because the days are evil."
 msgstr ""
 
@@ -4103,7 +4110,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2603
 msgctxt "Isaiah 55:6"
-msgid "Seek the Lord while he may be found; call upon him while he is near;"
+msgid "Seek the Lord while he may be found; call upon him while he is near."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2607
@@ -4150,12 +4157,12 @@ msgid "Jesus, defend your people in %1$s of %2$s against the difficulty of these
 msgstr ""
 
 #: pages/pray/stacker-text.php:2626
-msgid "2 Timothy 3:1-4"
+msgid "2 Timothy 3:1-5a"
 msgstr ""
 
 #: pages/pray/stacker-text.php:2627
-msgctxt "2 Timothy 3:1-4"
-msgid "But understand this, that in the last days there will come times of difficulty. For people will be lovers of self, lovers of money, proud, arrogant, abusive, disobedient to their parents, ungrateful, unholy, heartless, unappeasable, slanderous, without self-control, brutal, not loving good, treacherous, reckless, swollen with conceit, lovers of pleasure rather than lovers of God, having the appearance of godliness, but denying its power."
+msgctxt "2 Timothy 3:1-5a"
+msgid "But mark this: There will be terrible times in the last days. 2 People will be lovers of themselves, lovers of money, boastful, proud, abusive, disobedient to their parents, ungrateful, unholy, 3 without love, unforgiving, slanderous, without self-control, brutal, not lovers of the good, 4 treacherous, rash, conceited, lovers of pleasure rather than lovers of God— 5 having a form of godliness but denying its power."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2631
@@ -4168,7 +4175,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2633
 msgctxt "Revelation 1:3"
-msgid "Blessed is the one who reads aloud the words of this prophecy, and blessed are those who hear, and who keep what is written in it, for the time is near."
+msgid "Blessed is the one who reads aloud the words of this prophecy, and blessed are those who hear it and take to heart what is written in it, because the time is near."
 msgstr ""
 
 #: pages/pray/stacker-text.php:2637
