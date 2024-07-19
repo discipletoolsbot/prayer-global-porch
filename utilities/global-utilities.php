@@ -1,5 +1,22 @@
 <?php
 
+function pg_enabled_translations(){
+    return [
+        'en_US' => [
+            'parent_code' => 'en',
+            'po_code' => 'en_US',
+            'datatables_url' => '',
+            'firebase_code' => 'en',
+        ],
+        'fr_FR' => [
+            'parent_code' => 'fr',
+            'po_code' => 'fr_FR',
+            'datatables_url' => '//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json',
+            'firebase_code' => 'fr',
+        ],
+    ];
+}
+
 function pg_generate_key() {
     return substr( md5( mt_rand( 10000, 100000 ).time() ), 0, 3 ) . substr( md5( mt_rand( 10000, 100000 ).time() ), 10, 3 );
 }

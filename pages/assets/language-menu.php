@@ -1,8 +1,10 @@
 <?php
 
-$parent_langs = dt_get_available_languages( true, false, [ 'en', 'fr' ] );
-$langs = dt_get_available_languages( true, false, [ 'en_US', 'fr_FR' ] );
 $lang = pg_get_current_lang();
+
+$dt_langes = dt_get_available_languages( true, true );
+
+$pg_enabled_languages = pg_enabled_translations();
 
 ?>
 
@@ -12,21 +14,18 @@ $lang = pg_get_current_lang();
     </button>
     <ul class="dropdown-menu">
 
-        <?php foreach ( $langs as $code => $language ) : ?>
-
-            <?php if ( isset( $language['native_name'] ) ) :
-                $name = $language['native_name'];
-                if ( str_contains( $code, '_' ) ) {
-                    $parent_code = explode( '_', $code )[0];
-                    $name = isset( $parent_langs[$parent_code]['native_name'] ) ? $parent_langs[$parent_code]['native_name'] : $name;
-                }
+        <?php foreach ( $pg_enabled_languages as $code => $language ) : ?>
+            <?php
+            $dt_lang = $dt_langes[$language['parent_code']] ?? [];
+            if ( isset( $dt_lang['native_name'] ) ) :
+                $name = $dt_lang['native_name'];
                 $selected_class = $lang === $code ? 'active' : '';
                 ?>
                 <li>
                     <a class="dropdown-item <?php echo esc_html( $selected_class ); ?>"
                        data-value="<?php echo esc_html( $code ); ?>"
                        aria-current="<?php echo $lang === $code ? 'true' : 'false' ?>">
-                    <?php echo esc_html( $language['flag'] ?? '' ); ?> <?php echo esc_html( $name ); ?>
+                    <?php echo esc_html( $dt_lang['flag'] ?? '' ); ?> <?php echo esc_html( $name ); ?>
                     </a>
                 </li>
             <?php endif; ?>

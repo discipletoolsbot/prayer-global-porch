@@ -61,9 +61,9 @@ jQuery(document).ready(function() {
             /* DataTable contains internationalisation for 50 languages with 40 others partially translated */
             /* They can be used by adding language: { url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json' } according to https://datatables.net/plug-ins/i18n/ */
             jQuery('#list-table-active').DataTable({
-              /*language: {
-                url: '//cdn.datatables.net/plug-ins/1.13.4/i18n/fr-FR.json'
-              },*/
+              language: {
+                url: window.pg_active_list.datatable_translations
+              },
               lengthChange: false,
               pageLength: 6,
               pagingType: 'simple',
@@ -93,6 +93,9 @@ jQuery(document).ready(function() {
                                     </table>`
           )
           jQuery('#list-table-completed').DataTable({
+            language: {
+              url: window.pg_active_list.datatable_translations
+            },
             lengthChange: false,
             pageLength: 3,
             pagingType: 'simple',
