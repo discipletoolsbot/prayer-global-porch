@@ -70,7 +70,6 @@ class PG_Custom_Prayer_App_Map_Display extends PG_Custom_Prayer_App {
 
     public function header_javascript(){
         ?>
-        <?php pg_google_analytics() ?>
         <script>
             let jsObject = [<?php echo json_encode([
                 'parts' => $this->parts,

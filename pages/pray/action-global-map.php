@@ -68,7 +68,6 @@ class PG_Global_Prayer_App_Map extends PG_Global_Prayer_App {
     }
 
     public function header_javascript(){
-        pg_google_analytics();
         $details = [];
         $url = dt_get_url_path( true, true );
         if ( $url ) {

@@ -85,7 +85,6 @@ class Prayer_Global_Porch_Stats_Race_Map extends DT_Magic_Url_Base
     }
 
     public function header_javascript(){
-        pg_google_analytics();
         $details = [];
         $url = dt_get_url_path( false, true );
         if ( $url ) {
