@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Prayer.Global Porch 2.2.2\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-"
 "porch\n"
-"POT-Creation-Date: 2024-06-27T09:27:36+00:00\n"
+"POT-Creation-Date: 2024-07-19T14:37:10+00:00\n"
 "PO-Revision-Date: 2024-05-10 06:16+0000\n"
 "Last-Translator: Google Cloud Translation Basic <noreply-mt-google-"
 "translate@weblate.org>\n"
@@ -2313,14 +2313,14 @@ msgstr "Tuhan, timbulkan semangat berdoa di kalangan %1$s."
 
 #: pages/pray/stacker-text.php:25 pages/pray/stacker-text.php:31
 #, fuzzy
-msgid "John 17:20-21"
+msgid "John 17:20b-21"
 msgstr "Yohanes 17:20-21"
 
 #: pages/pray/stacker-text.php:26 pages/pray/stacker-text.php:32
 #, fuzzy
-msgctxt "John 17:20-21"
+msgctxt "John 17:20b-21"
 msgid ""
-"I (Jesus) pray also for those who will believe in me through their message, "
+"I [Jesus] pray also for those who will believe in me through their message, "
 "that all of them may be one, Father, just as you are in me and I am in you. "
 "May they also be in us so that the world may believe that you have sent me."
 msgstr ""
@@ -2402,8 +2402,8 @@ msgstr "Filipi 4:6"
 #, fuzzy
 msgctxt "Philippians 4:6"
 msgid ""
-"... in every situation, by prayer and petition, with thanksgiving, present "
-"your requests to God."
+"in every situation, by prayer and petition, with thanksgiving, present your "
+"requests to God."
 msgstr ""
 "... dalam setiap situasi, dengan doa dan permohonan, dengan ucapan syukur, "
 "sampaikan permintaan Anda kepada Tuhan."
@@ -2667,12 +2667,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:187
 #, fuzzy
-msgid "Matthew 28:18"
-msgstr "Matius 28:18"
+msgid "Matthew 28:18-20"
+msgstr "Matius 28:19-20"
 
 #: pages/pray/stacker-text.php:188
 #, fuzzy
-msgctxt "Matthew 28:18"
+msgctxt "Matthew 28:18-20"
 msgid ""
 "All authority in heaven and on earth has been given to me. Therefore go and "
 "make disciples of all nations, baptizing them in the name of the Father and "
@@ -2715,12 +2715,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:235
 #, fuzzy
-msgid "Acts 10:30-33"
+msgid "Acts 10:30b-33"
 msgstr "Kisah Para Rasul 10:30-33"
 
 #: pages/pray/stacker-text.php:236
 #, fuzzy
-msgctxt "Acts 10:30-33"
+msgctxt "Acts 10:30b-33"
 msgid ""
 "Suddenly a man in shining clothes stood before me and said, ‘Cornelius, God "
 "has heard your prayer and remembered your gifts to the poor. Send to Joppa "
@@ -2749,12 +2749,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:241
 #, fuzzy
-msgid "John 4:1–30"
+msgid "John 4:29–30"
 msgstr "Yohanes 4:1–30"
 
 #: pages/pray/stacker-text.php:242
 #, fuzzy
-msgctxt "John 4:1–30"
+msgctxt "John 4:29–30"
 msgid ""
 "So the woman left her water jar and went away into town and said to the "
 "people, 29 “Come, see a man who told me all that I ever did. Can this be the "
@@ -2776,16 +2776,16 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:247
 #, fuzzy
-msgid "Acts 8:26–40"
-msgstr "Kisah Para Rasul 8:26–40"
+msgid "Acts 8:34-35"
+msgstr "Kisah Para Rasul 10:30-33"
 
 #: pages/pray/stacker-text.php:248
 #, fuzzy
-msgctxt "Acts 8:26–40"
+msgctxt "Acts 8:34-35"
 msgid ""
-"And the eunuch said to Philip, “About whom, I ask you, does the prophet say "
-"this, about himself or about someone else?” Then Philip opened his mouth, "
-"and beginning with this Scripture he told him the good news about Jesus."
+"The eunuch asked Philip, “Tell me, please, who is the prophet talking about, "
+"himself or someone else?” Then Philip began with that very passage of "
+"Scripture and told him the good news about Jesus."
 msgstr ""
 "Lalu berkatalah sida-sida itu kepada Filipus: \"Aku bertanya kepadamu, "
 "tentang siapakah nabi mengatakan hal ini, tentang dirinya sendiri atau "
@@ -2804,22 +2804,17 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:253
 #, fuzzy
-msgid "Acts 10:9–11:1"
-msgstr "Kisah Para Rasul 10:9–11:1"
+msgid "Acts 10:30-31"
+msgstr "Kisah Para Rasul 10:30-33"
 
 #: pages/pray/stacker-text.php:254
-#, fuzzy
-msgctxt "Acts 10:9–11:1"
+msgctxt "Acts 10:30-31"
 msgid ""
-"And Cornelius said, “Four days ago, about this hour, I was praying in my "
-"house ... and behold, a man stood before me in bright clothing and said, "
-"\"Cornelius, your prayer has been heard and your alms have been remembered "
-"before God.\""
+"Cornelius answered: “Three days ago I was in my house praying at this hour, "
+"at three in the afternoon. Suddenly a man in shining clothes stood before me "
+"and said, ‘Cornelius, God has heard your prayer and remembered your gifts to "
+"the poor.\""
 msgstr ""
-"Dan Kornelius berkata, “Empat hari yang lalu, kira-kira pada jam ini, aku "
-"sedang berdoa di rumahku… dan lihatlah, seorang lelaki berdiri di hadapanku "
-"dengan pakaian yang cerah dan berkata, “Kornelius, doamu telah didengar dan "
-"sedekahmu telah diingat. dihadapan Tuhan.”"
 
 #: pages/pray/stacker-text.php:258
 #, fuzzy
@@ -2834,12 +2829,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:259
 #, fuzzy
-msgid "Acts 16:13–15"
-msgstr "Kisah Para Rasul 16:13–15"
+msgid "Acts 16:14"
+msgstr "Kisah Para Rasul 13:1"
 
 #: pages/pray/stacker-text.php:260
 #, fuzzy
-msgctxt "Acts 16:13–15"
+msgctxt "Acts 16:14"
 msgid ""
 "One of those listening was a woman from the city of Thyatira named Lydia, a "
 "dealer in purple cloth. She was a worshiper of God. The Lord opened her "
@@ -2925,12 +2920,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:307 pages/pray/stacker-text.php:319
 #, fuzzy
-msgid "1 Peter 2:4-5"
+msgid "1 Peter 2:5"
 msgstr "1 Petrus 2:4-5"
 
 #: pages/pray/stacker-text.php:308
 #, fuzzy
-msgctxt "1 Peter 2:4-5"
+msgctxt "1 Peter 2:5"
 msgid ""
 "you also, like living stones, are being built into a spiritual house to be a "
 "holy priesthood, offering spiritual sacrifices acceptable to God through "
@@ -2980,7 +2975,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:320
 #, fuzzy
-msgctxt "1 Peter 2:4-5"
+msgctxt "1 Peter 2:5"
 msgid ""
 "you also, like living stones, are being built into a spiritual house to be a "
 "holy priesthood"
@@ -3032,12 +3027,12 @@ msgstr ""
 "karena mereka mempunyai Imam Besar Agung yang melintasi langit, yaitu Yesus "
 "Anak Allah."
 
-#: pages/pray/stacker-text.php:337 pages/pray/stacker-text.php:343
+#: pages/pray/stacker-text.php:337
 #, fuzzy
 msgid "Hebrews 4:14-16"
 msgstr "Ibrani 4:14-16"
 
-#: pages/pray/stacker-text.php:338 pages/pray/stacker-text.php:344
+#: pages/pray/stacker-text.php:338
 #, fuzzy
 msgctxt "Hebrews 4:14-16"
 msgid ""
@@ -3055,6 +3050,21 @@ msgid ""
 msgstr ""
 "Yesus, Engkau adalah Imam Besar Agung, mohon jadikan %1$s orang-orang yang "
 "percaya pada %2$s menjadi imam yang layak di bawah Anda."
+
+#: pages/pray/stacker-text.php:343
+#, fuzzy
+msgid "Hebrews 4:14"
+msgstr "Ibrani 4:12"
+
+#: pages/pray/stacker-text.php:344
+#, fuzzy
+msgctxt "Hebrews 4:14"
+msgid ""
+"Since then we have a great high priest who has passed through the heavens, "
+"Jesus, the Son of God, let us hold fast our confession."
+msgstr ""
+"Sejak saat itu kita mempunyai Imam Besar Agung yang melintasi langit, Yesus "
+"Anak Allah, marilah kita teguh berpegang teguh pada pengakuan dosa kita."
 
 #: pages/pray/stacker-text.php:374
 #, fuzzy
@@ -3190,12 +3200,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:423
 #, fuzzy
-msgid "Matthew 12:50"
+msgid "Matthew 12:48-50"
 msgstr "Matius 12:50"
 
 #: pages/pray/stacker-text.php:424
 #, fuzzy
-msgctxt "Matthew 12:50"
+msgctxt "Matthew 12:48-50"
 msgid ""
 "He replied to him, “Who is my mother, and who are my brothers?” Pointing to "
 "his disciples, he said, “Here are my mother and my brothers. For whoever "
@@ -3224,8 +3234,8 @@ msgstr "Filipi 1:6"
 #, fuzzy
 msgctxt "Philippians 1:6"
 msgid ""
-"...being confident of this, that he who began a good work in you will carry "
-"it on to completion until the day of Christ Jesus."
+"being confident of this, that he who began a good work in you will carry it "
+"on to completion until the day of Christ Jesus."
 msgstr ""
 "...akan hal ini aku yakin sepenuhnya, yaitu Dia, yang memulai pekerjaan baik "
 "di antara kamu, akan meneruskannya sampai pada akhirnya pada hari Kristus "
@@ -3243,14 +3253,14 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:435
 #, fuzzy
-msgid "Ephesians 1:21"
+msgid "Ephesians 1:20-21"
 msgstr "Efesus 1:21"
 
 #: pages/pray/stacker-text.php:436
 #, fuzzy
-msgctxt "Ephesians 1:21"
+msgctxt "Ephesians 1:20-21"
 msgid ""
-"...he raised Christ from the dead and seated him at his right hand in the "
+"he raised Christ from the dead and seated him at his right hand in the "
 "heavenly realms, far above all rule and authority, power and dominion, and "
 "every name that is invoked, not only in the present age but also in the one "
 "to come."
@@ -3330,8 +3340,8 @@ msgstr "Roma 15:21"
 #, fuzzy
 msgctxt "Romans 15:21"
 msgid ""
-"Those who were not told about him will see, and those who have not heard "
-"will understand."
+"\"Those who were not told about him will see, and those who have not heard "
+"will understand.\""
 msgstr ""
 "Mereka yang belum diberitahu tentang dia akan melihat, dan mereka yang belum "
 "pernah mendengar akan mengerti."
@@ -3515,15 +3525,15 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:568
 #, fuzzy
-msgid "2 Timothy 3:16-17"
+msgid "2 Timothy 3:16"
 msgstr "2 Timotius 3:16-17"
 
 #: pages/pray/stacker-text.php:569
 #, fuzzy
-msgctxt "2 Timothy 3:16-17"
+msgctxt "2 Timothy 3:16"
 msgid ""
-"All scripture is given by inspiration of God, and is profitable for "
-"doctrine, for reproof, for correction, for instruction in righteousness."
+"All Scripture is God-breathed and is useful for teaching, rebuking, "
+"correcting and training in righteousness"
 msgstr ""
 "Segala tulisan suci diberikan melalui ilham Allah, dan bermanfaat untuk "
 "pengajaran, untuk teguran, untuk koreksi, untuk pengajaran dalam kebenaran."
@@ -3546,7 +3556,7 @@ msgstr "Yohanes 8:32"
 #: pages/pray/stacker-text.php:575
 #, fuzzy
 msgctxt "John 8:32"
-msgid "and you will know the truth, and the truth will set you free."
+msgid "Then you will know the truth, and the truth will set you free."
 msgstr ""
 "dan kamu akan mengetahui kebenaran, dan kebenaran itu akan memerdekakan kamu."
 
@@ -3570,8 +3580,8 @@ msgstr "Matius 4:4"
 #, fuzzy
 msgctxt "Matthew 4:4"
 msgid ""
-"Man shall not live by bread alone, but by every word that comes from the "
-"mouth of God."
+"It is written: 'Man shall not live by bread alone, but by every word that "
+"comes from the mouth of God.'"
 msgstr ""
 "Manusia hidup bukan dari roti saja, tetapi dari setiap firman yang keluar "
 "dari mulut Tuhan."
@@ -3695,12 +3705,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:650
 #, fuzzy
-msgid "1 Peter 2:2-3"
+msgid "1 Peter 2:2"
 msgstr "1 Petrus 2:2-3"
 
 #: pages/pray/stacker-text.php:651
 #, fuzzy
-msgctxt "1 Peter 2:2-3"
+msgctxt "1 Peter 2:2"
 msgid ""
 "Desire God’s pure word as newborn babies desire milk. Then you will grow in "
 "your salvation."
@@ -3787,8 +3797,7 @@ msgstr "Amsal 8:17"
 #: pages/pray/stacker-text.php:717
 #, fuzzy
 msgctxt "Proverbs 8:17"
-msgid ""
-"I love those who love me, and those who diligently seek me will find me."
+msgid "I love those who love me, and those who seek me find me."
 msgstr ""
 "Aku mencintai mereka yang mencintaiku, dan siapa yang tekun mencariku, dia "
 "akan menemukanku."
@@ -3828,12 +3837,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:728
 #, fuzzy
-msgid "Luke 11:9-10"
+msgid "Luke 11:9"
 msgstr "Lukas 11:9-10"
 
 #: pages/pray/stacker-text.php:729
 #, fuzzy
-msgctxt "Luke 11:9-10"
+msgctxt "Luke 11:9"
 msgid ""
 "So I say to you, ask, and it will be given to you; seek, and you will find; "
 "knock, and it will be opened to you."
@@ -3888,7 +3897,7 @@ msgid "Spirit, inspire new kinds of evangelism through social media in %1$s."
 msgstr ""
 "Semangat, menginspirasi penginjilan jenis baru melalui media sosial di %1$s."
 
-#: pages/pray/stacker-text.php:752
+#: pages/pray/stacker-text.php:752 pages/pray/stacker-text.php:1849
 #, fuzzy
 msgid "2 Timothy 4:5"
 msgstr "2 Timotius 4:5"
@@ -3915,12 +3924,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:758
 #, fuzzy
-msgid "Psalm 19:4"
+msgid "Psalm 19:3-4"
 msgstr "Mazmur 19:4"
 
 #: pages/pray/stacker-text.php:759
 #, fuzzy
-msgctxt "Psalm 19:4"
+msgctxt "Psalm 19:3-4"
 msgid ""
 "They have no speech, they use no words; no sound is heard from them. Yet "
 "their voice goes out into all the earth, their words to the ends of the "
@@ -3954,8 +3963,8 @@ msgstr "Mazmur 91:15"
 #, fuzzy
 msgctxt "Psalm 91:15"
 msgid ""
-"He will call on me, and I will answer him. I will be with him in trouble. I "
-"will deliver him, and honor him."
+"He will call on me, and I will answer him; I will be with him in trouble, I "
+"will deliver him and honor him."
 msgstr ""
 "Dia akan memanggilku, dan aku akan menjawabnya. Aku akan bersamanya dalam "
 "kesulitan. Aku akan melepaskannya, dan menghormatinya."
@@ -4435,7 +4444,7 @@ msgstr "2 Korintus 3:17"
 #, fuzzy
 msgctxt "2 Corinthians 3:17"
 msgid ""
-"Now the Lord is the Spirit and where the Spirit of the Lord is, there is "
+"Now the Lord is the Spirit, and where the Spirit of the Lord is, there is "
 "freedom."
 msgstr ""
 "Sekarang Tuhan adalah Roh dan di mana Roh Tuhan berada, di situ ada "
@@ -4587,17 +4596,14 @@ msgstr ""
 "orang percaya di %2$s, yang akan melayani gereja dan memperlengkapinya untuk "
 "melakukan pekerjaan Anda."
 
-#: pages/pray/stacker-text.php:1687 pages/pray/stacker-text.php:1753
-#: pages/pray/stacker-text.php:1771 pages/pray/stacker-text.php:1825
-#: pages/pray/stacker-text.php:1837 pages/pray/stacker-text.php:1891
-#: pages/pray/stacker-text.php:1897 pages/pray/stacker-text.php:1933
+#: pages/pray/stacker-text.php:1687
 #, fuzzy
-msgid "Ephesians 4:11"
+msgid "Ephesians 4:11-13"
 msgstr "Efesus 4:11"
 
 #: pages/pray/stacker-text.php:1688
 #, fuzzy
-msgctxt "Ephesians 4:11"
+msgctxt "Ephesians 4:11-13"
 msgid ""
 "So Christ himself gave the apostles, the prophets, the evangelists, the "
 "pastors and teachers, to equip his people for works of service, so that the "
@@ -4700,12 +4706,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:1711
 #, fuzzy
-msgid "Luke 12:48"
+msgid "Luke 12:48b"
 msgstr "Lukas 12:48"
 
 #: pages/pray/stacker-text.php:1712
 #, fuzzy
-msgctxt "Luke 12:48"
+msgctxt "Luke 12:48b"
 msgid ""
 "Everyone to whom much was given, of him much will be required, and from him "
 "to whom they entrusted much, they will demand the more."
@@ -4724,17 +4730,17 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:1717
 #, fuzzy
-msgid "John 13:13–17"
+msgid "John 13:13–15"
 msgstr "Yohanes 13:13–17"
 
 #: pages/pray/stacker-text.php:1718
 #, fuzzy
-msgctxt "John 13:13–17"
+msgctxt "John 13:13–15"
 msgid ""
-"you call me Teacher and Lord, and you are right, for so I am. If I then, "
-"your Lord and Teacher, have washed your feet, you also ought to wash one "
-"another’s feet. For I have given you an example, that you also should do "
-"just as I have done to you. "
+"“You call me ‘Teacher’ and ‘Lord,’ and rightly so, for that is what I am. "
+"Now that I, your Lord and Teacher, have washed your feet, you also should "
+"wash one another’s feet. I have set you an example that you should do as I "
+"have done for you."
 msgstr ""
 "kamu memanggilku Guru dan Tuan, dan kamu benar, karena aku memang benar. "
 "Kalau Aku, Tuhan dan Gurumu, telah membasuh kakimu, maka kamu pun wajib "
@@ -4806,9 +4812,20 @@ msgstr ""
 "Bapa, mohon bangkitkan rasul-rasul baru untuk merintis pertumbuhan gereja di "
 "%s."
 
-#: pages/pray/stacker-text.php:1754 pages/pray/stacker-text.php:1772
+#: pages/pray/stacker-text.php:1753 pages/pray/stacker-text.php:1771
+#: pages/pray/stacker-text.php:1825 pages/pray/stacker-text.php:1837
+#: pages/pray/stacker-text.php:1891 pages/pray/stacker-text.php:1897
+#: pages/pray/stacker-text.php:1933
 #, fuzzy
-msgctxt "Ephesians 4:11"
+msgid "Ephesians 4:11-12"
+msgstr "Efesus 4:11"
+
+#: pages/pray/stacker-text.php:1754 pages/pray/stacker-text.php:1772
+#: pages/pray/stacker-text.php:1826 pages/pray/stacker-text.php:1838
+#: pages/pray/stacker-text.php:1892 pages/pray/stacker-text.php:1898
+#: pages/pray/stacker-text.php:1934
+#, fuzzy
+msgctxt "Ephesians 4:11-12"
 msgid ""
 "So Christ himself gave the apostles, the prophets, the evangelists, the "
 "pastors and teachers, to equip his people for works of service, so that the "
@@ -4910,12 +4927,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:1783 pages/pray/stacker-text.php:2660
 #, fuzzy
-msgid "Matthew 28:19-20"
+msgid "Matthew 28:19-20a"
 msgstr "Matius 28:19-20"
 
 #: pages/pray/stacker-text.php:1784 pages/pray/stacker-text.php:2661
 #, fuzzy
-msgctxt "Matthew 28:19-20"
+msgctxt "Matthew 28:19-20a"
 msgid ""
 "Therefore go and make disciples of all nations, baptizing them in the name "
 "of the Father and of the Son and of the Holy Spirit, and teaching them to "
@@ -4938,20 +4955,6 @@ msgid ""
 msgstr ""
 "Yesus, mohon bangkitkan para penginjil untuk memperlengkapi umat-Mu untuk "
 "membagikan Injil di %1$s."
-
-#: pages/pray/stacker-text.php:1826 pages/pray/stacker-text.php:1838
-#: pages/pray/stacker-text.php:1892 pages/pray/stacker-text.php:1898
-#: pages/pray/stacker-text.php:1934
-#, fuzzy
-msgctxt "Ephesians 4:11"
-msgid ""
-"So Christ himself gave the apostles, the prophets, the evangelists, the "
-"pastors and teachers, to equip his people for works of service, so that the "
-"body of Christ may be built up."
-msgstr ""
-"Jadi Kristus sendiri memberikan para rasul, nabi, penginjil, pendeta dan "
-"guru, untuk memperlengkapi umat-Nya dalam pekerjaan pelayanan, sehingga "
-"tubuh Kristus dapat dibangun."
 
 #: pages/pray/stacker-text.php:1830
 #, fuzzy
@@ -5008,17 +5011,12 @@ msgstr ""
 "Semangat, doronglah setiap orang percaya %1$s untuk melakukan pekerjaan "
 "penginjilan bersama teman dan tetangganya."
 
-#: pages/pray/stacker-text.php:1849
-#, fuzzy
-msgid "Ephesians 4:5"
-msgstr "Efesus 4:5"
-
 #: pages/pray/stacker-text.php:1850
 #, fuzzy
-msgctxt "Ephesians 4:5"
+msgctxt "2 Timothy 4:5"
 msgid ""
 "But you, keep your head in all situations, endure hardship, do the work of "
-"an evangelist ..."
+"an evangelist"
 msgstr ""
 "Tetapi Anda, tetap tenang dalam segala situasi, menanggung kesulitan, "
 "melakukan pekerjaan penginjil ..."
@@ -5414,12 +5412,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2048
 #, fuzzy
-msgid "Ephesians 1:18"
+msgid "Ephesians 1:18-19a"
 msgstr "Efesus 1:18"
 
 #: pages/pray/stacker-text.php:2049
 #, fuzzy
-msgctxt "Ephesians 1:18"
+msgctxt "Ephesians 1:18-19a"
 msgid ""
 "I pray that the eyes of your heart may be enlightened in order that you may "
 "know the hope to which he has called you, the riches of his glorious "
@@ -5485,7 +5483,7 @@ msgstr "Mazmur 119:16"
 #: pages/pray/stacker-text.php:2116
 #, fuzzy
 msgctxt "Psalm 119:16"
-msgid "I delight in your decrees, I will not neglect your Word."
+msgid "I delight in your decrees; I will not neglect your Word."
 msgstr ""
 "Aku senang dengan ketetapan-ketetapan-Mu, aku tidak akan mengabaikan firman-"
 "Mu."
@@ -5589,7 +5587,7 @@ msgstr "Mazmur 119:9"
 msgctxt "Psalm 119:9"
 msgid ""
 "How can a young person stay on the path of purity? By living according to "
-"your Word."
+"your word."
 msgstr ""
 "Bagaimana seorang remaja dapat tetap berada di jalan kesucian? Dengan hidup "
 "sesuai dengan Firman-Mu."
@@ -5611,7 +5609,7 @@ msgstr "Mazmur 119:89"
 #: pages/pray/stacker-text.php:2152
 #, fuzzy
 msgctxt "Psalm 119:89"
-msgid "your Word, Lord, is eternal; it stands firm in the heavens."
+msgid "Your Word, Lord, is eternal; it stands firm in the heavens."
 msgstr "Firman-Mu, Tuhan, adalah kekal; ia berdiri kokoh di surga."
 
 #: pages/pray/stacker-text.php:2156
@@ -5653,7 +5651,7 @@ msgstr "Mazmur 119:103"
 #: pages/pray/stacker-text.php:2164
 #, fuzzy
 msgctxt "Psalm 119:103"
-msgid "How sweet are your Words to my taste, sweeter than honey to my mouth!"
+msgid "How sweet are your words to my taste, sweeter than honey to my mouth!"
 msgstr ""
 "Betapa manisnya perkataan-Mu bagiku, lebih manis dari pada madu di mulutku!"
 
@@ -5690,8 +5688,8 @@ msgstr ""
 #, fuzzy
 msgctxt "Hebrews 4:12"
 msgid ""
-"For the Word of God is alive and active. Sharper than any two-edged sword, "
-"it penetrates even to dividing soul and spirit, joints and marrow."
+"For the word of God is alive and active. Sharper than any double-edged "
+"sword, it penetrates even to dividing soul and spirit, joints and marrow;"
 msgstr ""
 "Karena Firman Tuhan hidup dan aktif. Lebih tajam dari pedang bermata dua "
 "mana pun, ia menembus bahkan hingga memisahkan jiwa dan roh, sendi-sendi dan "
@@ -5720,12 +5718,12 @@ msgstr ""
 msgid "Philippians 1:9"
 msgstr "Filipi 1:9"
 
-#: pages/pray/stacker-text.php:2188 pages/pray/stacker-text.php:2519
+#: pages/pray/stacker-text.php:2188
 #, fuzzy
 msgctxt "Philippians 1:9"
 msgid ""
 "And this is my prayer: that your love may abound more and more in knowledge "
-"and depth of insight"
+"and depth of insight,"
 msgstr ""
 "Dan inilah doaku: semoga cintamu semakin melimpah dalam ilmu dan kedalaman "
 "wawasan"
@@ -5807,8 +5805,8 @@ msgstr "Matius 28:20"
 #, fuzzy
 msgctxt "Matthew 28:20"
 msgid ""
-"...teaching them to obey everything I have commanded you. And surely I am "
-"with you always, to the very end of the age."
+"and teaching them to obey everything I have commanded you. And surely I am "
+"with you always, to the very end of the age.\""
 msgstr ""
 "...mengajar mereka untuk mematuhi segala sesuatu yang telah Aku perintahkan "
 "kepadamu. Dan sesungguhnya Aku menyertai kamu senantiasa, sampai akhir zaman."
@@ -5841,7 +5839,7 @@ msgstr "Keluaran 19:6"
 #: pages/pray/stacker-text.php:2230
 #, fuzzy
 msgctxt "Exodus 19:6"
-msgid "... you will be for me a kingdom of priests ..."
+msgid "you will be for me a kingdom of priests"
 msgstr "...kamu akan menjadi kerajaan pendeta bagiku..."
 
 #: pages/pray/stacker-text.php:2234
@@ -5854,15 +5852,15 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2235
 #, fuzzy
-msgid "Ezra 7:10,25"
+msgid "Ezra 7:10"
 msgstr "Ezra 7:10,25"
 
 #: pages/pray/stacker-text.php:2236
 #, fuzzy
-msgctxt "Ezra 7:10,25"
+msgctxt "Ezra 7:10"
 msgid ""
-"For Ezra had prepared his heart to seek the law of the LORD, and to do it, "
-"and to teach in Israel statutes and judgments."
+"For Ezra had devoted himself to the study and observance of the Law of the "
+"Lord, and to teaching its decrees and laws in Israel."
 msgstr ""
 "Sebab Ezra telah mempersiapkan hatinya untuk mencari hukum TUHAN, dan "
 "melakukannya, dan untuk mengajarkan ketetapan dan peraturan di Israel."
@@ -5937,7 +5935,7 @@ msgstr "Yohanes 15:5"
 #, fuzzy
 msgctxt "John 15:5"
 msgid ""
-"I am the vine; you are the branches. If you remain in me and I in you, you "
+"\"I am the vine; you are the branches. If you remain in me and I in you, you "
 "will bear much fruit; apart from me you can do nothing."
 msgstr ""
 "Akulah pokok anggurnya; kamu adalah cabangnya. Jika kamu tinggal di dalam "
@@ -5962,8 +5960,8 @@ msgstr "Mazmur 32:8"
 #, fuzzy
 msgctxt "Psalm 32:8"
 msgid ""
-"I will instruct you and teach you in the way which you shall go. I will "
-"counsel you with my eye on you."
+"I will instruct you and teach you in the way you should go. I will counsel "
+"you with my loving eye on you."
 msgstr ""
 "Aku akan memberi petunjuk kepadamu dan mengajarimu jalan yang harus kamu "
 "lalui. Saya akan menasihati Anda dengan mata tertuju pada Anda."
@@ -6211,12 +6209,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2374
 #, fuzzy
-msgid "Matthew 25:28"
+msgid "Matthew 25:28-29"
 msgstr "Matius 25:28"
 
 #: pages/pray/stacker-text.php:2375
 #, fuzzy
-msgctxt "Matthew 25:28"
+msgctxt "Matthew 25:28-29"
 msgid ""
 "So take the bag of gold from him and give it to the one who has ten bags. "
 "For whoever has will be given more, and they will have an abundance. Whoever "
@@ -6469,7 +6467,7 @@ msgstr "Mazmur 147:3"
 #: pages/pray/stacker-text.php:2465
 #, fuzzy
 msgctxt "Psalm 147:3"
-msgid "He heals the broken in heart, and binds up their wounds."
+msgid "He heals the brokenhearted and binds up their wounds."
 msgstr ""
 "Dia menyembuhkan orang-orang yang patah hati, dan membalut luka-luka mereka."
 
@@ -6486,7 +6484,7 @@ msgstr "Matius 5:4"
 #: pages/pray/stacker-text.php:2471
 #, fuzzy
 msgctxt "Matthew 5:4"
-msgid "Blessed are those who mourn, for they shall be comforted."
+msgid "Blessed are those who mourn, for they will be comforted."
 msgstr "Berbahagialah orang yang berdukacita, karena mereka akan dihibur."
 
 #: pages/pray/stacker-text.php:2475
@@ -6586,6 +6584,16 @@ msgstr ""
 msgid "Father, let love abound more and more in the church of %1$s."
 msgstr "Bapa, biarlah kasih semakin melimpah di gereja %1$s."
 
+#: pages/pray/stacker-text.php:2519
+#, fuzzy
+msgctxt "Philippians 1:9"
+msgid ""
+"And this is my prayer: that your love may abound more and more in knowledge "
+"and depth of insight"
+msgstr ""
+"Dan inilah doaku: semoga cintamu semakin melimpah dalam ilmu dan kedalaman "
+"wawasan"
+
 #: pages/pray/stacker-text.php:2522
 #, fuzzy
 msgid "Generosity"
@@ -6618,7 +6626,7 @@ msgstr "1 Yohanes 3:18"
 #: pages/pray/stacker-text.php:2531
 #, fuzzy
 msgctxt "1 John 3:18"
-msgid "...let us not love with words or speech but with actions and in truth."
+msgid "let us not love with words or speech but with actions and in truth."
 msgstr ""
 "...janganlah kita mencintai dengan kata-kata atau ucapan, tetapi dengan "
 "tindakan dan kebenaran."
@@ -6735,12 +6743,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2584
 #, fuzzy
-msgid "Ephesians 5:15"
+msgid "Ephesians 5:15-16"
 msgstr "Efesus 5:15"
 
 #: pages/pray/stacker-text.php:2585
 #, fuzzy
-msgctxt "Ephesians 5:15"
+msgctxt "Ephesians 5:15-16"
 msgid ""
 "Be very careful, then, how you live—not as unwise but as wise, making the "
 "most of every opportunity, because the days are evil."
@@ -6812,7 +6820,7 @@ msgstr "Yesaya 55:6"
 #: pages/pray/stacker-text.php:2603
 #, fuzzy
 msgctxt "Isaiah 55:6"
-msgid "Seek the Lord while he may be found; call upon him while he is near;"
+msgid "Seek the Lord while he may be found; call upon him while he is near."
 msgstr "Carilah Tuhan selagi Dia ditemukan; panggil dia saat dia dekat;"
 
 #: pages/pray/stacker-text.php:2607
@@ -6887,20 +6895,19 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2626
 #, fuzzy
-msgid "2 Timothy 3:1-4"
+msgid "2 Timothy 3:1-5a"
 msgstr "2 Timotius 3:1-4"
 
 #: pages/pray/stacker-text.php:2627
 #, fuzzy
-msgctxt "2 Timothy 3:1-4"
+msgctxt "2 Timothy 3:1-5a"
 msgid ""
-"But understand this, that in the last days there will come times of "
-"difficulty. For people will be lovers of self, lovers of money, proud, "
-"arrogant, abusive, disobedient to their parents, ungrateful, unholy, "
-"heartless, unappeasable, slanderous, without self-control, brutal, not "
-"loving good, treacherous, reckless, swollen with conceit, lovers of pleasure "
-"rather than lovers of God, having the appearance of godliness, but denying "
-"its power."
+"But mark this: There will be terrible times in the last days. 2 People will "
+"be lovers of themselves, lovers of money, boastful, proud, abusive, "
+"disobedient to their parents, ungrateful, unholy, 3 without love, "
+"unforgiving, slanderous, without self-control, brutal, not lovers of the "
+"good, 4 treacherous, rash, conceited, lovers of pleasure rather than lovers "
+"of God— 5 having a form of godliness but denying its power."
 msgstr ""
 "Tetapi pahamilah hal ini, bahwa pada hari-hari terakhir akan tiba masa-masa "
 "sulit. Sebab manusia akan menjadi pencinta diri sendiri, pencinta uang, "
@@ -6930,7 +6937,8 @@ msgstr "Wahyu 1:3"
 msgctxt "Revelation 1:3"
 msgid ""
 "Blessed is the one who reads aloud the words of this prophecy, and blessed "
-"are those who hear, and who keep what is written in it, for the time is near."
+"are those who hear it and take to heart what is written in it, because the "
+"time is near."
 msgstr ""
 "Berbahagialah orang yang membacakan kata-kata nubuatan ini dengan suara "
 "keras, dan berbahagialah orang yang mendengarkan dan menaati apa yang "
@@ -7669,6 +7677,50 @@ msgstr "bulan"
 #, fuzzy
 msgid "month"
 msgstr "bulan"
+
+#, fuzzy
+#~ msgid "Matthew 28:18"
+#~ msgstr "Matius 28:18"
+
+#, fuzzy
+#~ msgid "Acts 8:26–40"
+#~ msgstr "Kisah Para Rasul 8:26–40"
+
+#, fuzzy
+#~ msgid "Acts 10:9–11:1"
+#~ msgstr "Kisah Para Rasul 10:9–11:1"
+
+#, fuzzy
+#~ msgctxt "Acts 10:9–11:1"
+#~ msgid ""
+#~ "And Cornelius said, “Four days ago, about this hour, I was praying in my "
+#~ "house ... and behold, a man stood before me in bright clothing and said, "
+#~ "\"Cornelius, your prayer has been heard and your alms have been "
+#~ "remembered before God.\""
+#~ msgstr ""
+#~ "Dan Kornelius berkata, “Empat hari yang lalu, kira-kira pada jam ini, aku "
+#~ "sedang berdoa di rumahku… dan lihatlah, seorang lelaki berdiri di "
+#~ "hadapanku dengan pakaian yang cerah dan berkata, “Kornelius, doamu telah "
+#~ "didengar dan sedekahmu telah diingat. dihadapan Tuhan.”"
+
+#, fuzzy
+#~ msgid "Acts 16:13–15"
+#~ msgstr "Kisah Para Rasul 16:13–15"
+
+#, fuzzy
+#~ msgctxt "Ephesians 4:11"
+#~ msgid ""
+#~ "So Christ himself gave the apostles, the prophets, the evangelists, the "
+#~ "pastors and teachers, to equip his people for works of service, so that "
+#~ "the body of Christ may be built up."
+#~ msgstr ""
+#~ "Jadi Kristus sendiri memberikan para rasul, nabi, penginjil, pendeta dan "
+#~ "guru, untuk memperlengkapi umat-Nya dalam pekerjaan pelayanan, sehingga "
+#~ "tubuh Kristus dapat dibangun."
+
+#, fuzzy
+#~ msgid "Ephesians 4:5"
+#~ msgstr "Efesus 4:5"
 
 #, fuzzy
 #~ msgid ""

@@ -5,7 +5,7 @@ msgstr ""
 "Project-Id-Version: Prayer.Global Porch 2.7.0\n"
 "Report-Msgid-Bugs-To: https://wordpress.org/support/plugin/prayer-global-"
 "porch\n"
-"POT-Creation-Date: 2024-06-27T09:27:36+00:00\n"
+"POT-Creation-Date: 2024-07-19T14:37:10+00:00\n"
 "PO-Revision-Date: 2024-05-30 09:10+0000\n"
 "Last-Translator: Google Cloud Translation Basic <noreply-mt-google-"
 "translate@weblate.org>\n"
@@ -2312,14 +2312,14 @@ msgstr "Senhor, cause uma paixão pela oração entre o povo de %1$s."
 
 #: pages/pray/stacker-text.php:25 pages/pray/stacker-text.php:31
 #, fuzzy
-msgid "John 17:20-21"
+msgid "John 17:20b-21"
 msgstr "João 17:20-21"
 
 #: pages/pray/stacker-text.php:26 pages/pray/stacker-text.php:32
 #, fuzzy
-msgctxt "John 17:20-21"
+msgctxt "John 17:20b-21"
 msgid ""
-"I (Jesus) pray also for those who will believe in me through their message, "
+"I [Jesus] pray also for those who will believe in me through their message, "
 "that all of them may be one, Father, just as you are in me and I am in you. "
 "May they also be in us so that the world may believe that you have sent me."
 msgstr ""
@@ -2400,8 +2400,8 @@ msgstr "Filipenses 4:6"
 #, fuzzy
 msgctxt "Philippians 4:6"
 msgid ""
-"... in every situation, by prayer and petition, with thanksgiving, present "
-"your requests to God."
+"in every situation, by prayer and petition, with thanksgiving, present your "
+"requests to God."
 msgstr ""
 "...em todas as situações, pela oração e súplica, com ações de graças, "
 "apresentem seus pedidos a Deus."
@@ -2660,12 +2660,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:187
 #, fuzzy
-msgid "Matthew 28:18"
-msgstr "Mateus 28:18"
+msgid "Matthew 28:18-20"
+msgstr "Mateus 28:19-20"
 
 #: pages/pray/stacker-text.php:188
 #, fuzzy
-msgctxt "Matthew 28:18"
+msgctxt "Matthew 28:18-20"
 msgid ""
 "All authority in heaven and on earth has been given to me. Therefore go and "
 "make disciples of all nations, baptizing them in the name of the Father and "
@@ -2705,12 +2705,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:235
 #, fuzzy
-msgid "Acts 10:30-33"
+msgid "Acts 10:30b-33"
 msgstr "Atos 10:30-33"
 
 #: pages/pray/stacker-text.php:236
 #, fuzzy
-msgctxt "Acts 10:30-33"
+msgctxt "Acts 10:30b-33"
 msgid ""
 "Suddenly a man in shining clothes stood before me and said, ‘Cornelius, God "
 "has heard your prayer and remembered your gifts to the poor. Send to Joppa "
@@ -2738,12 +2738,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:241
 #, fuzzy
-msgid "John 4:1–30"
+msgid "John 4:29–30"
 msgstr "João 4:1–30"
 
 #: pages/pray/stacker-text.php:242
 #, fuzzy
-msgctxt "John 4:1–30"
+msgctxt "John 4:29–30"
 msgid ""
 "So the woman left her water jar and went away into town and said to the "
 "people, 29 “Come, see a man who told me all that I ever did. Can this be the "
@@ -2764,16 +2764,16 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:247
 #, fuzzy
-msgid "Acts 8:26–40"
-msgstr "Atos 8:26–40"
+msgid "Acts 8:34-35"
+msgstr "Atos 10:30-33"
 
 #: pages/pray/stacker-text.php:248
 #, fuzzy
-msgctxt "Acts 8:26–40"
+msgctxt "Acts 8:34-35"
 msgid ""
-"And the eunuch said to Philip, “About whom, I ask you, does the prophet say "
-"this, about himself or about someone else?” Then Philip opened his mouth, "
-"and beginning with this Scripture he told him the good news about Jesus."
+"The eunuch asked Philip, “Tell me, please, who is the prophet talking about, "
+"himself or someone else?” Then Philip began with that very passage of "
+"Scripture and told him the good news about Jesus."
 msgstr ""
 "E o eunuco disse a Filipe: “De quem, pergunto-te, o profeta diz isso, de si "
 "mesmo ou de outro?” Então Filipe abriu a boca e, começando por esta "
@@ -2790,22 +2790,17 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:253
 #, fuzzy
-msgid "Acts 10:9–11:1"
-msgstr "Atos 10:9–11:1"
+msgid "Acts 10:30-31"
+msgstr "Atos 10:30-33"
 
 #: pages/pray/stacker-text.php:254
-#, fuzzy
-msgctxt "Acts 10:9–11:1"
+msgctxt "Acts 10:30-31"
 msgid ""
-"And Cornelius said, “Four days ago, about this hour, I was praying in my "
-"house ... and behold, a man stood before me in bright clothing and said, "
-"\"Cornelius, your prayer has been heard and your alms have been remembered "
-"before God.\""
+"Cornelius answered: “Three days ago I was in my house praying at this hour, "
+"at three in the afternoon. Suddenly a man in shining clothes stood before me "
+"and said, ‘Cornelius, God has heard your prayer and remembered your gifts to "
+"the poor.\""
 msgstr ""
-"E Cornélio disse: “Quatro dias atrás, por volta desta hora, eu estava orando "
-"em minha casa... e eis que um homem se apresentou diante de mim com roupas "
-"brilhantes e disse: “Cornélio, sua oração foi ouvida e suas esmolas foram "
-"lembradas. diante de Deus.\""
 
 #: pages/pray/stacker-text.php:258
 #, fuzzy
@@ -2820,12 +2815,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:259
 #, fuzzy
-msgid "Acts 16:13–15"
-msgstr "Atos 16:13–15"
+msgid "Acts 16:14"
+msgstr "Atos 13:1"
 
 #: pages/pray/stacker-text.php:260
 #, fuzzy
-msgctxt "Acts 16:13–15"
+msgctxt "Acts 16:14"
 msgid ""
 "One of those listening was a woman from the city of Thyatira named Lydia, a "
 "dealer in purple cloth. She was a worshiper of God. The Lord opened her "
@@ -2909,12 +2904,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:307 pages/pray/stacker-text.php:319
 #, fuzzy
-msgid "1 Peter 2:4-5"
+msgid "1 Peter 2:5"
 msgstr "1 Pedro 2:4-5"
 
 #: pages/pray/stacker-text.php:308
 #, fuzzy
-msgctxt "1 Peter 2:4-5"
+msgctxt "1 Peter 2:5"
 msgid ""
 "you also, like living stones, are being built into a spiritual house to be a "
 "holy priesthood, offering spiritual sacrifices acceptable to God through "
@@ -2962,7 +2957,7 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:320
 #, fuzzy
-msgctxt "1 Peter 2:4-5"
+msgctxt "1 Peter 2:5"
 msgid ""
 "you also, like living stones, are being built into a spiritual house to be a "
 "holy priesthood"
@@ -3012,12 +3007,12 @@ msgstr ""
 "Pai, incentive os crentes %1$s a terem ousadia diante de você, pois eles têm "
 "um grande sumo sacerdote que passou pelos céus, Jesus, o Filho de Deus."
 
-#: pages/pray/stacker-text.php:337 pages/pray/stacker-text.php:343
+#: pages/pray/stacker-text.php:337
 #, fuzzy
 msgid "Hebrews 4:14-16"
 msgstr "Hebreus 4:14-16"
 
-#: pages/pray/stacker-text.php:338 pages/pray/stacker-text.php:344
+#: pages/pray/stacker-text.php:338
 #, fuzzy
 msgctxt "Hebrews 4:14-16"
 msgid ""
@@ -3035,6 +3030,21 @@ msgid ""
 msgstr ""
 "Jesus, você é o grande sumo sacerdote, por favor, faça dos crentes %1$s em "
 "%2$s um sacerdócio digno sob seu comando."
+
+#: pages/pray/stacker-text.php:343
+#, fuzzy
+msgid "Hebrews 4:14"
+msgstr "Hebreus 4:12"
+
+#: pages/pray/stacker-text.php:344
+#, fuzzy
+msgctxt "Hebrews 4:14"
+msgid ""
+"Since then we have a great high priest who has passed through the heavens, "
+"Jesus, the Son of God, let us hold fast our confession."
+msgstr ""
+"Desde então temos um grande sumo sacerdote que passou pelos céus, Jesus, o "
+"Filho de Deus, retenhamos firmemente a nossa confissão."
 
 #: pages/pray/stacker-text.php:374
 #, fuzzy
@@ -3169,12 +3179,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:423
 #, fuzzy
-msgid "Matthew 12:50"
+msgid "Matthew 12:48-50"
 msgstr "Mateus 12:50"
 
 #: pages/pray/stacker-text.php:424
 #, fuzzy
-msgctxt "Matthew 12:50"
+msgctxt "Matthew 12:48-50"
 msgid ""
 "He replied to him, “Who is my mother, and who are my brothers?” Pointing to "
 "his disciples, he said, “Here are my mother and my brothers. For whoever "
@@ -3203,8 +3213,8 @@ msgstr "Filipenses 1:6"
 #, fuzzy
 msgctxt "Philippians 1:6"
 msgid ""
-"...being confident of this, that he who began a good work in you will carry "
-"it on to completion until the day of Christ Jesus."
+"being confident of this, that he who began a good work in you will carry it "
+"on to completion until the day of Christ Jesus."
 msgstr ""
 "... tendo certeza disto, que aquele que começou a boa obra em vocês a levará "
 "até o dia de Cristo Jesus."
@@ -3220,14 +3230,14 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:435
 #, fuzzy
-msgid "Ephesians 1:21"
+msgid "Ephesians 1:20-21"
 msgstr "Efésios 1:21"
 
 #: pages/pray/stacker-text.php:436
 #, fuzzy
-msgctxt "Ephesians 1:21"
+msgctxt "Ephesians 1:20-21"
 msgid ""
-"...he raised Christ from the dead and seated him at his right hand in the "
+"he raised Christ from the dead and seated him at his right hand in the "
 "heavenly realms, far above all rule and authority, power and dominion, and "
 "every name that is invoked, not only in the present age but also in the one "
 "to come."
@@ -3307,8 +3317,8 @@ msgstr "Romanos 15:21"
 #, fuzzy
 msgctxt "Romans 15:21"
 msgid ""
-"Those who were not told about him will see, and those who have not heard "
-"will understand."
+"\"Those who were not told about him will see, and those who have not heard "
+"will understand.\""
 msgstr ""
 "Aqueles que não foram informados sobre ele verão, e aqueles que não ouviram "
 "entenderão."
@@ -3489,15 +3499,15 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:568
 #, fuzzy
-msgid "2 Timothy 3:16-17"
+msgid "2 Timothy 3:16"
 msgstr "2 Timóteo 3:16-17"
 
 #: pages/pray/stacker-text.php:569
 #, fuzzy
-msgctxt "2 Timothy 3:16-17"
+msgctxt "2 Timothy 3:16"
 msgid ""
-"All scripture is given by inspiration of God, and is profitable for "
-"doctrine, for reproof, for correction, for instruction in righteousness."
+"All Scripture is God-breathed and is useful for teaching, rebuking, "
+"correcting and training in righteousness"
 msgstr ""
 "Toda a Escritura é inspirada por Deus e é proveitosa para ensinar, para "
 "repreender, para corrigir, para instruir na justiça."
@@ -3519,7 +3529,7 @@ msgstr "João 8:32"
 #: pages/pray/stacker-text.php:575
 #, fuzzy
 msgctxt "John 8:32"
-msgid "and you will know the truth, and the truth will set you free."
+msgid "Then you will know the truth, and the truth will set you free."
 msgstr "e conhecereis a verdade, e a verdade vos libertará."
 
 #: pages/pray/stacker-text.php:579
@@ -3542,8 +3552,8 @@ msgstr "Mateus 4:4"
 #, fuzzy
 msgctxt "Matthew 4:4"
 msgid ""
-"Man shall not live by bread alone, but by every word that comes from the "
-"mouth of God."
+"It is written: 'Man shall not live by bread alone, but by every word that "
+"comes from the mouth of God.'"
 msgstr ""
 "O homem não viverá só de pão, mas de toda palavra que sai da boca de Deus."
 
@@ -3666,12 +3676,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:650
 #, fuzzy
-msgid "1 Peter 2:2-3"
+msgid "1 Peter 2:2"
 msgstr "1 Pedro 2:2-3"
 
 #: pages/pray/stacker-text.php:651
 #, fuzzy
-msgctxt "1 Peter 2:2-3"
+msgctxt "1 Peter 2:2"
 msgid ""
 "Desire God’s pure word as newborn babies desire milk. Then you will grow in "
 "your salvation."
@@ -3753,8 +3763,7 @@ msgstr "Provérbios 8:17"
 #: pages/pray/stacker-text.php:717
 #, fuzzy
 msgctxt "Proverbs 8:17"
-msgid ""
-"I love those who love me, and those who diligently seek me will find me."
+msgid "I love those who love me, and those who seek me find me."
 msgstr ""
 "Amo aqueles que me amam, e aqueles que me procuram diligentemente me "
 "encontrarão."
@@ -3794,12 +3803,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:728
 #, fuzzy
-msgid "Luke 11:9-10"
+msgid "Luke 11:9"
 msgstr "Lucas 11:9-10"
 
 #: pages/pray/stacker-text.php:729
 #, fuzzy
-msgctxt "Luke 11:9-10"
+msgctxt "Luke 11:9"
 msgid ""
 "So I say to you, ask, and it will be given to you; seek, and you will find; "
 "knock, and it will be opened to you."
@@ -3850,7 +3859,7 @@ msgid "Spirit, inspire new kinds of evangelism through social media in %1$s."
 msgstr ""
 "Espírito, inspire novos tipos de evangelismo através da mídia social em %1$s."
 
-#: pages/pray/stacker-text.php:752
+#: pages/pray/stacker-text.php:752 pages/pray/stacker-text.php:1849
 #, fuzzy
 msgid "2 Timothy 4:5"
 msgstr "2 Timóteo 4:5"
@@ -3877,12 +3886,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:758
 #, fuzzy
-msgid "Psalm 19:4"
+msgid "Psalm 19:3-4"
 msgstr "Salmo 19:4"
 
 #: pages/pray/stacker-text.php:759
 #, fuzzy
-msgctxt "Psalm 19:4"
+msgctxt "Psalm 19:3-4"
 msgid ""
 "They have no speech, they use no words; no sound is heard from them. Yet "
 "their voice goes out into all the earth, their words to the ends of the "
@@ -3915,8 +3924,8 @@ msgstr "Salmo 91:15"
 #, fuzzy
 msgctxt "Psalm 91:15"
 msgid ""
-"He will call on me, and I will answer him. I will be with him in trouble. I "
-"will deliver him, and honor him."
+"He will call on me, and I will answer him; I will be with him in trouble, I "
+"will deliver him and honor him."
 msgstr ""
 "Ele me chamará e eu lhe responderei. Estarei com ele em apuros. Eu o "
 "livrarei e o honrarei."
@@ -4387,7 +4396,7 @@ msgstr "2 Coríntios 3:17"
 #, fuzzy
 msgctxt "2 Corinthians 3:17"
 msgid ""
-"Now the Lord is the Spirit and where the Spirit of the Lord is, there is "
+"Now the Lord is the Spirit, and where the Spirit of the Lord is, there is "
 "freedom."
 msgstr ""
 "Agora o Senhor é o Espírito e onde está o Espírito do Senhor há liberdade."
@@ -4533,17 +4542,14 @@ msgstr ""
 "Deus, pedimos que você levante presbíteros e diáconos dentre os crentes %1$s "
 "em %2$s, que servirão a igreja e a equiparão para fazer o seu trabalho."
 
-#: pages/pray/stacker-text.php:1687 pages/pray/stacker-text.php:1753
-#: pages/pray/stacker-text.php:1771 pages/pray/stacker-text.php:1825
-#: pages/pray/stacker-text.php:1837 pages/pray/stacker-text.php:1891
-#: pages/pray/stacker-text.php:1897 pages/pray/stacker-text.php:1933
+#: pages/pray/stacker-text.php:1687
 #, fuzzy
-msgid "Ephesians 4:11"
+msgid "Ephesians 4:11-13"
 msgstr "Efésios 4:11"
 
 #: pages/pray/stacker-text.php:1688
 #, fuzzy
-msgctxt "Ephesians 4:11"
+msgctxt "Ephesians 4:11-13"
 msgid ""
 "So Christ himself gave the apostles, the prophets, the evangelists, the "
 "pastors and teachers, to equip his people for works of service, so that the "
@@ -4644,12 +4650,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:1711
 #, fuzzy
-msgid "Luke 12:48"
+msgid "Luke 12:48b"
 msgstr "Lucas 12:48"
 
 #: pages/pray/stacker-text.php:1712
 #, fuzzy
-msgctxt "Luke 12:48"
+msgctxt "Luke 12:48b"
 msgid ""
 "Everyone to whom much was given, of him much will be required, and from him "
 "to whom they entrusted much, they will demand the more."
@@ -4668,17 +4674,17 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:1717
 #, fuzzy
-msgid "John 13:13–17"
+msgid "John 13:13–15"
 msgstr "João 13:13–17"
 
 #: pages/pray/stacker-text.php:1718
 #, fuzzy
-msgctxt "John 13:13–17"
+msgctxt "John 13:13–15"
 msgid ""
-"you call me Teacher and Lord, and you are right, for so I am. If I then, "
-"your Lord and Teacher, have washed your feet, you also ought to wash one "
-"another’s feet. For I have given you an example, that you also should do "
-"just as I have done to you. "
+"“You call me ‘Teacher’ and ‘Lord,’ and rightly so, for that is what I am. "
+"Now that I, your Lord and Teacher, have washed your feet, you also should "
+"wash one another’s feet. I have set you an example that you should do as I "
+"have done for you."
 msgstr ""
 "você me chama de Mestre e Senhor, e você está certo, pois eu também estou. "
 "Se eu, o Senhor e Mestre, vos lavei os pés, vós também deveis lavar os pés "
@@ -4749,9 +4755,20 @@ msgstr ""
 "Pai, por favor, levante novos apóstolos para serem pioneiros no crescimento "
 "da igreja em %s."
 
-#: pages/pray/stacker-text.php:1754 pages/pray/stacker-text.php:1772
+#: pages/pray/stacker-text.php:1753 pages/pray/stacker-text.php:1771
+#: pages/pray/stacker-text.php:1825 pages/pray/stacker-text.php:1837
+#: pages/pray/stacker-text.php:1891 pages/pray/stacker-text.php:1897
+#: pages/pray/stacker-text.php:1933
 #, fuzzy
-msgctxt "Ephesians 4:11"
+msgid "Ephesians 4:11-12"
+msgstr "Efésios 4:11"
+
+#: pages/pray/stacker-text.php:1754 pages/pray/stacker-text.php:1772
+#: pages/pray/stacker-text.php:1826 pages/pray/stacker-text.php:1838
+#: pages/pray/stacker-text.php:1892 pages/pray/stacker-text.php:1898
+#: pages/pray/stacker-text.php:1934
+#, fuzzy
+msgctxt "Ephesians 4:11-12"
 msgid ""
 "So Christ himself gave the apostles, the prophets, the evangelists, the "
 "pastors and teachers, to equip his people for works of service, so that the "
@@ -4854,12 +4871,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:1783 pages/pray/stacker-text.php:2660
 #, fuzzy
-msgid "Matthew 28:19-20"
+msgid "Matthew 28:19-20a"
 msgstr "Mateus 28:19-20"
 
 #: pages/pray/stacker-text.php:1784 pages/pray/stacker-text.php:2661
 #, fuzzy
-msgctxt "Matthew 28:19-20"
+msgctxt "Matthew 28:19-20a"
 msgid ""
 "Therefore go and make disciples of all nations, baptizing them in the name "
 "of the Father and of the Son and of the Holy Spirit, and teaching them to "
@@ -4882,20 +4899,6 @@ msgid ""
 msgstr ""
 "Jesus, por favor, levante evangelistas para equipar seu povo para "
 "compartilhar o evangelho em %1$s."
-
-#: pages/pray/stacker-text.php:1826 pages/pray/stacker-text.php:1838
-#: pages/pray/stacker-text.php:1892 pages/pray/stacker-text.php:1898
-#: pages/pray/stacker-text.php:1934
-#, fuzzy
-msgctxt "Ephesians 4:11"
-msgid ""
-"So Christ himself gave the apostles, the prophets, the evangelists, the "
-"pastors and teachers, to equip his people for works of service, so that the "
-"body of Christ may be built up."
-msgstr ""
-"Assim, o próprio Cristo deu os apóstolos, os profetas, os evangelistas, os "
-"pastores e mestres, para equipar o seu povo para obras de serviço, para que "
-"o corpo de Cristo possa ser edificado."
 
 #: pages/pray/stacker-text.php:1830
 #, fuzzy
@@ -4952,17 +4955,12 @@ msgstr ""
 "Espírito, encoraje cada crente em %1$s a fazer o trabalho de um evangelista "
 "com seus amigos e vizinhos."
 
-#: pages/pray/stacker-text.php:1849
-#, fuzzy
-msgid "Ephesians 4:5"
-msgstr "Efésios 4:5"
-
 #: pages/pray/stacker-text.php:1850
 #, fuzzy
-msgctxt "Ephesians 4:5"
+msgctxt "2 Timothy 4:5"
 msgid ""
 "But you, keep your head in all situations, endure hardship, do the work of "
-"an evangelist ..."
+"an evangelist"
 msgstr ""
 "Mas você, mantenha a cabeça em todas as situações, suporte as adversidades, "
 "faça o trabalho de um evangelista..."
@@ -5344,12 +5342,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2048
 #, fuzzy
-msgid "Ephesians 1:18"
+msgid "Ephesians 1:18-19a"
 msgstr "Efésios 1:18"
 
 #: pages/pray/stacker-text.php:2049
 #, fuzzy
-msgctxt "Ephesians 1:18"
+msgctxt "Ephesians 1:18-19a"
 msgid ""
 "I pray that the eyes of your heart may be enlightened in order that you may "
 "know the hope to which he has called you, the riches of his glorious "
@@ -5416,7 +5414,7 @@ msgstr "Salmo 119:16"
 #: pages/pray/stacker-text.php:2116
 #, fuzzy
 msgctxt "Psalm 119:16"
-msgid "I delight in your decrees, I will not neglect your Word."
+msgid "I delight in your decrees; I will not neglect your Word."
 msgstr "Deleito-me nos seus decretos, não negligenciarei a sua Palavra."
 
 #: pages/pray/stacker-text.php:2120
@@ -5516,7 +5514,7 @@ msgstr "Salmo 119:9"
 msgctxt "Psalm 119:9"
 msgid ""
 "How can a young person stay on the path of purity? By living according to "
-"your Word."
+"your word."
 msgstr ""
 "Como pode um jovem permanecer no caminho da pureza? Vivendo de acordo com a "
 "sua Palavra."
@@ -5538,7 +5536,7 @@ msgstr "Salmo 119:89"
 #: pages/pray/stacker-text.php:2152
 #, fuzzy
 msgctxt "Psalm 119:89"
-msgid "your Word, Lord, is eternal; it stands firm in the heavens."
+msgid "Your Word, Lord, is eternal; it stands firm in the heavens."
 msgstr "a tua Palavra, Senhor, é eterna; permanece firme nos céus."
 
 #: pages/pray/stacker-text.php:2156
@@ -5578,7 +5576,7 @@ msgstr "Salmo 119:103"
 #: pages/pray/stacker-text.php:2164
 #, fuzzy
 msgctxt "Psalm 119:103"
-msgid "How sweet are your Words to my taste, sweeter than honey to my mouth!"
+msgid "How sweet are your words to my taste, sweeter than honey to my mouth!"
 msgstr ""
 "Quão doces são as tuas palavras para o meu paladar, mais doces que o mel "
 "para a minha boca!"
@@ -5617,8 +5615,8 @@ msgstr ""
 #, fuzzy
 msgctxt "Hebrews 4:12"
 msgid ""
-"For the Word of God is alive and active. Sharper than any two-edged sword, "
-"it penetrates even to dividing soul and spirit, joints and marrow."
+"For the word of God is alive and active. Sharper than any double-edged "
+"sword, it penetrates even to dividing soul and spirit, joints and marrow;"
 msgstr ""
 "Pois a Palavra de Deus é viva e ativa. Mais afiada do que qualquer espada de "
 "dois gumes, ela penetra até dividir alma e espírito, juntas e medulas."
@@ -5646,12 +5644,12 @@ msgstr ""
 msgid "Philippians 1:9"
 msgstr "Filipenses 1:9"
 
-#: pages/pray/stacker-text.php:2188 pages/pray/stacker-text.php:2519
+#: pages/pray/stacker-text.php:2188
 #, fuzzy
 msgctxt "Philippians 1:9"
 msgid ""
 "And this is my prayer: that your love may abound more and more in knowledge "
-"and depth of insight"
+"and depth of insight,"
 msgstr ""
 "E esta é a minha oração: que o seu amor possa abundar cada vez mais em "
 "conhecimento e profundidade de discernimento"
@@ -5732,8 +5730,8 @@ msgstr "Mateus 28:20"
 #, fuzzy
 msgctxt "Matthew 28:20"
 msgid ""
-"...teaching them to obey everything I have commanded you. And surely I am "
-"with you always, to the very end of the age."
+"and teaching them to obey everything I have commanded you. And surely I am "
+"with you always, to the very end of the age.\""
 msgstr ""
 "...ensinando-os a obedecer a tudo que eu ordenei. E certamente estarei "
 "sempre convosco, até ao fim dos tempos."
@@ -5764,7 +5762,7 @@ msgstr "Êxodo 19:6"
 #: pages/pray/stacker-text.php:2230
 #, fuzzy
 msgctxt "Exodus 19:6"
-msgid "... you will be for me a kingdom of priests ..."
+msgid "you will be for me a kingdom of priests"
 msgstr "... você será para mim um reino de sacerdotes ..."
 
 #: pages/pray/stacker-text.php:2234
@@ -5777,15 +5775,15 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2235
 #, fuzzy
-msgid "Ezra 7:10,25"
+msgid "Ezra 7:10"
 msgstr "Esdras 7:10,25"
 
 #: pages/pray/stacker-text.php:2236
 #, fuzzy
-msgctxt "Ezra 7:10,25"
+msgctxt "Ezra 7:10"
 msgid ""
-"For Ezra had prepared his heart to seek the law of the LORD, and to do it, "
-"and to teach in Israel statutes and judgments."
+"For Ezra had devoted himself to the study and observance of the Law of the "
+"Lord, and to teaching its decrees and laws in Israel."
 msgstr ""
 "Porque Esdras tinha preparado o seu coração para buscar a lei do Senhor, e "
 "para a cumprir, e para ensinar em Israel estatutos e juízos."
@@ -5858,7 +5856,7 @@ msgstr "João 15:5"
 #, fuzzy
 msgctxt "John 15:5"
 msgid ""
-"I am the vine; you are the branches. If you remain in me and I in you, you "
+"\"I am the vine; you are the branches. If you remain in me and I in you, you "
 "will bear much fruit; apart from me you can do nothing."
 msgstr ""
 "Eu sou a videira; vocês são os galhos. Se você permanecer em mim e eu em "
@@ -5882,8 +5880,8 @@ msgstr "Salmo 32:8"
 #, fuzzy
 msgctxt "Psalm 32:8"
 msgid ""
-"I will instruct you and teach you in the way which you shall go. I will "
-"counsel you with my eye on you."
+"I will instruct you and teach you in the way you should go. I will counsel "
+"you with my loving eye on you."
 msgstr ""
 "Eu te instruirei e te ensinarei o caminho que você deve seguir. Eu o "
 "aconselharei de olho em você."
@@ -6123,12 +6121,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2374
 #, fuzzy
-msgid "Matthew 25:28"
+msgid "Matthew 25:28-29"
 msgstr "Mateus 25:28"
 
 #: pages/pray/stacker-text.php:2375
 #, fuzzy
-msgctxt "Matthew 25:28"
+msgctxt "Matthew 25:28-29"
 msgid ""
 "So take the bag of gold from him and give it to the one who has ten bags. "
 "For whoever has will be given more, and they will have an abundance. Whoever "
@@ -6372,7 +6370,7 @@ msgstr "Salmo 147:3"
 #: pages/pray/stacker-text.php:2465
 #, fuzzy
 msgctxt "Psalm 147:3"
-msgid "He heals the broken in heart, and binds up their wounds."
+msgid "He heals the brokenhearted and binds up their wounds."
 msgstr "Ele cura os quebrantados de coração e cura suas feridas."
 
 #: pages/pray/stacker-text.php:2469
@@ -6388,7 +6386,7 @@ msgstr "Mateus 5:4"
 #: pages/pray/stacker-text.php:2471
 #, fuzzy
 msgctxt "Matthew 5:4"
-msgid "Blessed are those who mourn, for they shall be comforted."
+msgid "Blessed are those who mourn, for they will be comforted."
 msgstr "Bem-aventurados os que choram, porque serão consolados."
 
 #: pages/pray/stacker-text.php:2475
@@ -6485,6 +6483,16 @@ msgstr ""
 msgid "Father, let love abound more and more in the church of %1$s."
 msgstr "Pai, deixe o amor abundar cada vez mais na igreja de %1$s."
 
+#: pages/pray/stacker-text.php:2519
+#, fuzzy
+msgctxt "Philippians 1:9"
+msgid ""
+"And this is my prayer: that your love may abound more and more in knowledge "
+"and depth of insight"
+msgstr ""
+"E esta é a minha oração: que o seu amor possa abundar cada vez mais em "
+"conhecimento e profundidade de discernimento"
+
 #: pages/pray/stacker-text.php:2522
 #, fuzzy
 msgid "Generosity"
@@ -6516,7 +6524,7 @@ msgstr "1 João 3:18"
 #: pages/pray/stacker-text.php:2531
 #, fuzzy
 msgctxt "1 John 3:18"
-msgid "...let us not love with words or speech but with actions and in truth."
+msgid "let us not love with words or speech but with actions and in truth."
 msgstr "...não amemos com palavras ou palavras, mas com ações e na verdade."
 
 #: pages/pray/stacker-text.php:2535
@@ -6629,12 +6637,12 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2584
 #, fuzzy
-msgid "Ephesians 5:15"
+msgid "Ephesians 5:15-16"
 msgstr "Efésios 5:15"
 
 #: pages/pray/stacker-text.php:2585
 #, fuzzy
-msgctxt "Ephesians 5:15"
+msgctxt "Ephesians 5:15-16"
 msgid ""
 "Be very careful, then, how you live—not as unwise but as wise, making the "
 "most of every opportunity, because the days are evil."
@@ -6707,7 +6715,7 @@ msgstr "Isaías 55:6"
 #: pages/pray/stacker-text.php:2603
 #, fuzzy
 msgctxt "Isaiah 55:6"
-msgid "Seek the Lord while he may be found; call upon him while he is near;"
+msgid "Seek the Lord while he may be found; call upon him while he is near."
 msgstr ""
 "Busque o Senhor enquanto ele pode ser encontrado; invoque-o enquanto ele "
 "está perto;"
@@ -6785,20 +6793,19 @@ msgstr ""
 
 #: pages/pray/stacker-text.php:2626
 #, fuzzy
-msgid "2 Timothy 3:1-4"
+msgid "2 Timothy 3:1-5a"
 msgstr "2 Timóteo 3:1-4"
 
 #: pages/pray/stacker-text.php:2627
 #, fuzzy
-msgctxt "2 Timothy 3:1-4"
+msgctxt "2 Timothy 3:1-5a"
 msgid ""
-"But understand this, that in the last days there will come times of "
-"difficulty. For people will be lovers of self, lovers of money, proud, "
-"arrogant, abusive, disobedient to their parents, ungrateful, unholy, "
-"heartless, unappeasable, slanderous, without self-control, brutal, not "
-"loving good, treacherous, reckless, swollen with conceit, lovers of pleasure "
-"rather than lovers of God, having the appearance of godliness, but denying "
-"its power."
+"But mark this: There will be terrible times in the last days. 2 People will "
+"be lovers of themselves, lovers of money, boastful, proud, abusive, "
+"disobedient to their parents, ungrateful, unholy, 3 without love, "
+"unforgiving, slanderous, without self-control, brutal, not lovers of the "
+"good, 4 treacherous, rash, conceited, lovers of pleasure rather than lovers "
+"of God— 5 having a form of godliness but denying its power."
 msgstr ""
 "Mas entenda isto, que nos últimos dias virão tempos de dificuldade. Pois as "
 "pessoas serão amantes de si mesmas, amantes do dinheiro, orgulhosas, "
@@ -6827,7 +6834,8 @@ msgstr "Apocalipse 1:3"
 msgctxt "Revelation 1:3"
 msgid ""
 "Blessed is the one who reads aloud the words of this prophecy, and blessed "
-"are those who hear, and who keep what is written in it, for the time is near."
+"are those who hear it and take to heart what is written in it, because the "
+"time is near."
 msgstr ""
 "Bem-aventurado aquele que lê em voz alta as palavras desta profecia, e bem-"
 "aventurados aqueles que ouvem e guardam o que nela está escrito, porque o "
@@ -7563,6 +7571,50 @@ msgstr "meses"
 #, fuzzy
 msgid "month"
 msgstr "mês"
+
+#, fuzzy
+#~ msgid "Matthew 28:18"
+#~ msgstr "Mateus 28:18"
+
+#, fuzzy
+#~ msgid "Acts 8:26–40"
+#~ msgstr "Atos 8:26–40"
+
+#, fuzzy
+#~ msgid "Acts 10:9–11:1"
+#~ msgstr "Atos 10:9–11:1"
+
+#, fuzzy
+#~ msgctxt "Acts 10:9–11:1"
+#~ msgid ""
+#~ "And Cornelius said, “Four days ago, about this hour, I was praying in my "
+#~ "house ... and behold, a man stood before me in bright clothing and said, "
+#~ "\"Cornelius, your prayer has been heard and your alms have been "
+#~ "remembered before God.\""
+#~ msgstr ""
+#~ "E Cornélio disse: “Quatro dias atrás, por volta desta hora, eu estava "
+#~ "orando em minha casa... e eis que um homem se apresentou diante de mim "
+#~ "com roupas brilhantes e disse: “Cornélio, sua oração foi ouvida e suas "
+#~ "esmolas foram lembradas. diante de Deus.\""
+
+#, fuzzy
+#~ msgid "Acts 16:13–15"
+#~ msgstr "Atos 16:13–15"
+
+#, fuzzy
+#~ msgctxt "Ephesians 4:11"
+#~ msgid ""
+#~ "So Christ himself gave the apostles, the prophets, the evangelists, the "
+#~ "pastors and teachers, to equip his people for works of service, so that "
+#~ "the body of Christ may be built up."
+#~ msgstr ""
+#~ "Assim, o próprio Cristo deu os apóstolos, os profetas, os evangelistas, "
+#~ "os pastores e mestres, para equipar o seu povo para obras de serviço, "
+#~ "para que o corpo de Cristo possa ser edificado."
+
+#, fuzzy
+#~ msgid "Ephesians 4:5"
+#~ msgstr "Efésios 4:5"
 
 #, fuzzy
 #~ msgid ""
