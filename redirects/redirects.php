@@ -39,6 +39,44 @@ class Prayer_Global_Porch_Newest_Lap extends DT_Magic_Url_Base
 }
 Prayer_Global_Porch_Newest_Lap::instance();
 
+class Prayer_Global_Porth_ICOM_Lap extends DT_Magic_Url_Base
+{
+    public $page_title = 'Prayer.Global - ICOM';
+    public $root = 'icom';
+    public $url_token = 'icom';
+    public $type_name = 'ICOM lap';
+    public $post_type = 'contacts';
+
+    private static $_instance = null;
+    public static function instance() {
+        if ( is_null( self::$_instance ) ) {
+            self::$_instance = new self();
+        }
+        return self::$_instance;
+    } // End instance()
+
+    public function __construct() {
+        parent::__construct();
+
+        $url = dt_get_url_path();
+
+        if ( substr( $url, 0, strlen( $this->url_token ) ) !== $this->root ) {
+            return;
+        }
+
+        $this->redirect();
+    }
+
+    public function redirect() {
+
+        $current_lap = pg_current_custom_lap( 238 );
+        $link = '/prayer_app/custom/' . $current_lap['key'];
+        wp_redirect( $link );
+        exit;
+    }
+}
+Prayer_Global_Porth_ICOM_Lap::instance();
+
 class Prayer_Global_Porch_Newest_Lap_Location extends DT_Magic_Url_Base
 {
     public $page_title = 'Prayer.Global';
