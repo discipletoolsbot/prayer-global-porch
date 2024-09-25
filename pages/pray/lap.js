@@ -126,7 +126,7 @@ jQuery(document).ready(function(){
     const scrollTop = $(window).scrollTop()
 
     if (scrollTop > 100) {
-      $('#see-more-button').css('margin-bottom', `${scrollTop}rem`)
+      $('#see-more-button').css('opacity', `${ (250 - scrollTop)/150 }`)
     }
 
     if ( scrollTop > 250 ) {

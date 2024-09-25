@@ -1,3 +1,6 @@
+html {
+    scrollbar-gutter: stable;
+}
 body {
     color: var(--pg-brand-color-light);
 }
@@ -25,18 +28,12 @@ section[data-custom-lap] {
     left: 0;
     right: 0;
     margin-bottom: 0.2rem;
-    animation: bounce 200ms ease-in-out 500ms 1;
+    animation: bounce 1s;
 }
 @keyframes bounce {
-    0% {
-        margin-bottom: 0.2rem;
-    }
-    50% {
-        margin-bottom: 1.5rem
-    }
-    100% {
-        margin-bottom: 0.2rem;
-    }
+    0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+    40% {transform: translateY(-1.5rem);}
+    60% {transform: translateY(-0.75rem);}
 }
 #content {
     padding-top: 4rem;
