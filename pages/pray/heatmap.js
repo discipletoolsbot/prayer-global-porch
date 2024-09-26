@@ -1198,7 +1198,7 @@ jQuery(document).ready(function($){
     if ( show_cta && jsObject.is_cta_feature_on === true ) {
       window.api_post_global( 'ctas', 'get_cta' )
         .then((cta) => {
-          if ( !cta.length ) {
+          if ( !cta ) {
             return
           }
           const content = `
@@ -1209,6 +1209,12 @@ jQuery(document).ready(function($){
             }
           `
           cta_modal_body.innerHTML = content
+
+          const ctaLink = cta_modal_body.querySelector('a')
+          if (ctaLink && !ctaLink.classList.contains('share-button')) {
+            ctaLink.setAttribute('target', '_blank')
+          }
+
           window.pg_set_up_share_buttons()
           jQuery(cta_modal).modal('show')
         })
