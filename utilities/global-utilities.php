@@ -96,6 +96,10 @@ function pg_current_custom_lap( int $post_id ) : array {
 
     $current_lap = pg_get_custom_lap_by_post_id( $current_lap_post_id );
 
+    if ( !$current_lap ) {
+        return [];
+    }
+
     return $current_lap;
 }
 
@@ -158,7 +162,9 @@ function pg_get_custom_lap_by_post_id( $post_id ) {
 
     $result = DT_Posts::get_post( 'laps', $post_id, true, false );
 
-    if ( empty( $result ) ) {
+    if ( is_wp_error( $result ) ) {
+        $lap = false;
+    } else if ( empty( $result ) ) {
         $lap = false;
     } else {
         $ongoing = false;
