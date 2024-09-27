@@ -68,11 +68,17 @@ class Prayer_Global_Porth_ICOM_Lap extends DT_Magic_Url_Base
     }
 
     public function redirect() {
-
-        $current_lap = pg_current_custom_lap( 1051 );
-        $link = '/prayer_app/custom/' . $current_lap['key'] . '/map';
-        wp_redirect( $link );
+        wp_redirect( $this->map_link() );
         exit;
+    }
+    public static function map_link() {
+        return self::link() . '/map';
+    }
+
+    public static function link() {
+        $current_lap = pg_current_custom_lap( 1051 );
+        $link = '/prayer_app/custom/' . $current_lap['key'];
+        return $link;
     }
 }
 Prayer_Global_Porth_ICOM_Lap::instance();

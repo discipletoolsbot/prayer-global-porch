@@ -601,6 +601,40 @@ input[type="radio"]:checked {
     }
 }
 
+.relay-banner {
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    background-image: var(--orange-gradient);
+}
+.relay-banner .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+.relay-banner .heading {
+    line-height: 1;
+    margin-bottom: 0;
+    font-size: 1.6rem;
+    color: white;
+
+    --direction: -1;
+}
+.relay-banner .btn {
+    font-size: 1.2rem;
+    line-height: 1;
+    text-transform: uppercase;
+    color: white;
+
+    --direction: 1;
+}
+.relay-banner .animate {
+    position: relative;
+    transform: translateX(calc( var(--direction) * 100vw ));
+    transition: transform 400ms ease-in;
+}
+
 /* Time Elapsed */
 
 .time_elapsed {
