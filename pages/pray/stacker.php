@@ -291,6 +291,9 @@ class PG_Stacker {
         ", $grid_id ), ARRAY_A );
 
 
+        dt_write_log( '--- recently promised locations query ---' );
+        dt_write_log( $wpdb->last_query );
+
         // build the description
         if ( 'admin1' === $grid_record['level_name'] ) {
             $admin_level_name = esc_html( __( 'state', 'prayer-global-porch' ) );
@@ -364,14 +367,14 @@ class PG_Stacker {
             $translated = $wpdb->get_row( $wpdb->prepare( "
                 SELECT *
                 FROM $wpdb->location_grid_names
-                WHERE grid_id = %s 
+                WHERE grid_id = %s
                 AND language_code = %s
             ", $grid_id, $current_lang ), ARRAY_A );
 
             $translated_parent = $wpdb->get_row( $wpdb->prepare( "
                 SELECT *
                 FROM $wpdb->location_grid_names
-                WHERE grid_id = %s 
+                WHERE grid_id = %s
                 AND language_code = %s
             ", $grid_record['parent_id'], $current_lang ), ARRAY_A );
 

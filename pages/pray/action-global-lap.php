@@ -22,11 +22,6 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
     public function __construct() {
         parent::__construct();
 
-        /**
-         * post type and module section
-         */
-        $this->if_rest_add_actions();
-
         // must be valid url
         $url = dt_get_url_path();
         if ( strpos( $url, $this->root . '/' . $this->type ) === false ) {
@@ -67,12 +62,6 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
         $this->footer_javascript();
     }
 
-    public function if_rest_add_actions() {
-        if ( dt_is_rest() ) {
-            add_action( 'rest_api_init', [ $this, 'add_endpoints' ] );
-        }
-    }
-
     public function validate_action( $action ) {
         /* We want the $action to be empty to signify we are praying for the lap */
         return empty( $action );
@@ -99,6 +88,8 @@ class PG_Global_Prayer_App_Lap extends PG_Global_Prayer_App {
 
     public function endpoint( WP_REST_Request $request ) {
         $params = $request->get_params();
+
+        dt_write_log( 'action-global-lap: ' . $_SERVER['REQUEST_URI'] . ' - ' .  $params['action'] );
 
         if ( ! isset( $params['parts'], $params['action'], $params['data'] ) ) {
             return new WP_Error( __METHOD__, "Missing parameters", [ 'status' => 400 ] );

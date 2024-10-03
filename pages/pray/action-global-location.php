@@ -24,11 +24,6 @@ class PG_Global_Prayer_App_Location extends PG_Global_Prayer_App {
         $grid_id = isset( $_GET['grid_id'] ) ? sanitize_text_field( wp_unslash( $_GET['grid_id'] ) ) : null;
         $this->grid_id = $grid_id;
 
-        /**
-         * post type and module section
-         */
-        $this->if_rest_add_actions();
-
         // must be valid url
         $url = dt_get_url_path();
         if ( strpos( $url, $this->root . '/' . $this->type ) === false ) {
@@ -44,6 +39,11 @@ class PG_Global_Prayer_App_Location extends PG_Global_Prayer_App {
         if ( !$this->validate_action( $this->parts['action'] ) ) {
             return;
         }
+
+        /**
+         * post type and module section
+         */
+        $this->if_rest_add_actions();
 
         // redirect to completed if not current global lap
         $current_lap = pg_current_global_lap();
