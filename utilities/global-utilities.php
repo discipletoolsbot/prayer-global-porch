@@ -187,10 +187,10 @@ function pg_get_custom_lap_by_post_id( $post_id ) {
             'start_time' => (int) $result['start_time'],
             'end_time' => (int) isset( $result['end_time'] ) ? $result['end_time'] : time(),
             'on_going' => $ongoing,
-            'visibility' => isset( $result['visibility'] ) ? $result['visibility'] : 'public',
-            'challenge_type' => isset( $result['challenge_type'] ) ? $result['challenge_type'] : 'ongoing',
+            'visibility' => isset( $result['visibility']['key'] ) ? $result['visibility']['key'] : 'public',
+            'challenge_type' => isset( $result['challenge_type']['key'] ) ? $result['challenge_type']['key'] : 'ongoing',
             'single_lap' => isset( $result['single_lap'] ) ? $result['single_lap'] : false,
-            'assigned_to' => isset( $result['assigned_to'] ) ? $result['assigned_to'] : null,
+            'assigned_to' => isset( $result['assigned_to']['assigned-to'] ) ? $result['assigned_to']['assigned-to'] : null,
             'contacts' => $contacts,
             'ctas_off' => isset( $result['ctas_off'] ) ? $result['ctas_off'] : false,
         ];
@@ -861,7 +861,6 @@ function pg_generate_new_global_prayer_lap( $post_id ) {
  */
 function pg_generate_new_custom_prayer_lap( $post_id ) {
     // hold generation while being created
-
     $lock_created = pg_create_lock( 'pg_generate_new_custom_lap_in_progress_post_id' . $post_id );
     if ( !$lock_created ) {
         pg_log( '!!! lock exists, sleeping for 25' );
